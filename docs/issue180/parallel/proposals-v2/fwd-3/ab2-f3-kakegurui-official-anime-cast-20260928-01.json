@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-kakegurui-official-anime-cast-20260928-01",
+  "campaign_key": "authority:kakegurui",
+  "campaign_fingerprint": "928af9815838d1944199a7757b3c2ea465f51e68d3561beb8ce6792852156733",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://kakegurui-anime.com/caststaff/",
+  "source_claim": "The official Kakegurui anime cast page names Yumeko Jabami, Mary Saotome, Sayaka Igarashi, and Kirari and Ririka Momobami as characters in the adaptation.",
+  "authority_type": "FIRST_PARTY_ANIME_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "igarashi_sayaka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kakegurui"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jabami_yumeko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kakegurui"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "momobami_kirari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kakegurui"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "momobami_ririka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kakegurui"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "saotome_mary",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kakegurui"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official cast roster explicitly covers all five dispatched identities; Kirari and Ririka are both named together on the page."
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-kyoukai-no-kanata-official-kyoto-animation-cast-20260928-01",
+  "campaign_key": "authority:kyoukai_no_kanata",
+  "campaign_fingerprint": "2d1f3bceae2e04d9a2738fc5bceda9ec68f9e5045ff7ff9a432941ab4049e415",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.kyotoanimation.co.jp/works/kyokai/",
+  "source_claim": "Kyoto Animation’s official work page lists the Beyond the Boundary cast including Akihito Kanbara, Mirai Kuriyama, Mitsuki Nase, Hiroomi Nase, and Ai Shindou, and credits the Beyond the Boundary production committee.",
+  "authority_type": "FIRST_PARTY_STUDIO_WORK_AND_CAST_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kanbara_akihito",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kyoukai_no_kanata"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kuriyama_mirai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kyoukai_no_kanata"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nase_hiroomi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kyoukai_no_kanata"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nase_mitsuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kyoukai_no_kanata"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shindou_ai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kyoukai_no_kanata"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official studio work page explicitly lists all five exact campaign characters and identifies the work in its production credit."
+}

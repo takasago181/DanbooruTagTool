@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-kaiju-no-8-official-anime-cast-20260928-01",
+  "campaign_key": "authority:kaijuu_no._8",
+  "campaign_fingerprint": "06b35ce4573363f8393be7572a2be88280d7e3346b865518064158de7e38eb6e",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://kaiju-no8.net/en/",
+  "source_claim": "The official KAIJU No. 8 anime cast directory names Kafka Hibino, Reno Ichikawa, Kikoru Shinomiya, Soshiro Hoshina, and Gen Narumi in the production character roster.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "hibino_kafka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kaijuu_no._8"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hoshina_soshiro",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kaijuu_no._8"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ichikawa_reno",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kaijuu_no._8"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "narumi_gen",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kaijuu_no._8"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shinomiya_kikoru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kaijuu_no._8"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official anime character/cast directory covers every exact campaign member. The relation object is the work named by the source."
+}

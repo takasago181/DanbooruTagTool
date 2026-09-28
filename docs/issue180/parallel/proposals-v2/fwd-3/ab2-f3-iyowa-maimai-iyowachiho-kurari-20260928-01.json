@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-iyowa-maimai-iyowachiho-kurari-20260928-01",
+  "campaign_key": "authority:iyowa",
+  "campaign_fingerprint": "6d2958db32e1ad6a7e62655400f1135d335e6555354589ae47c3a08adde8f952",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://info-maimai.sega.jp/4323/",
+  "source_claim": "maimai DX official notice says the event awards characters appearing in Iyowa songs and names Kurari-chan as a Tour Member in the Iyowa map; the page bears the Iyowa copyright credit.",
+  "authority_type": "FIRST_PARTY_CREATOR_COLLABORATION_CHARACTER_LIST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kurari-chan_(iyowa)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "iyowa"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official collaboration page explicitly names Kurari-chan and identifies the collection as characters appearing in Iyowa songs. Only that exact campaign identity is covered by this source; no mappings are inferred for Ada, Isei, Rico, or Ura."
+}
