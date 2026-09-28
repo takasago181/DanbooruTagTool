@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-date-a-live-shiori-official-story-20260928",
+  "campaign_key": "authority:date_a_live",
+  "campaign_fingerprint": "c1c397cfed51763d330ef5752b62e786cffe88ad4e4a2994413a49315d87367a",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.date-a-live-anime.com/1st-2nd/story/season2_06.html",
+  "source_claim": "The official Date A Live II episode synopsis calls the cross-dressed stage performer Shiori by name and explicitly identifies her as Itsuka Shido.",
+  "authority_type": "FIRST_PARTY_ANIME_EPISODE_SYNOPSIS",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"itsuka_shiori","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"date_a_live"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The series' official story page directly identifies the Shiori presentation as Shido and locates it in a Date A Live II episode."
+}

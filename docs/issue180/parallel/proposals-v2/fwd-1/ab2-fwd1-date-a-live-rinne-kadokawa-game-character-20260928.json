@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-date-a-live-rinne-kadokawa-game-character-20260928",
+  "campaign_key": "authority:date_a_live",
+  "campaign_fingerprint": "c1c397cfed51763d330ef5752b62e786cffe88ad4e4a2994413a49315d87367a",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://store.kadokawa.co.jp/shop/g/g4995857092871/",
+  "source_claim": "KADOKAWA's official product page for Date A Live: Rinne Utopia identifies Sonogami Rinne as the original character at the center of the game, designed by the original illustrator Tsunako.",
+  "authority_type": "RIGHTSHOLDER_OFFICIAL_GAME_PRODUCT_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"sonogami_rinne","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"date_a_live"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The publisher's product page explicitly places this original character in a Date A Live game and credits the original creator/design team."
+}

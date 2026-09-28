@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-date-a-live-reine-official-character-profile-20260928",
+  "campaign_key": "authority:date_a_live",
+  "campaign_fingerprint": "c1c397cfed51763d330ef5752b62e786cffe88ad4e4a2994413a49315d87367a",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://date-a-live-anime.com/character/character_reine.html",
+  "source_claim": "The official Date A Live anime character page profiles Reine Murasame as a Ratatoskr airship crew member and analyst.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"murasame_reine","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"date_a_live"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official franchise adaptation character profile directly identifies Murasame Reine and describes her role."
+}
