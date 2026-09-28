@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-mha-official-teachers-directory-20260928-01",
+  "campaign_key": "authority:boku_no_hero_academia",
+  "campaign_fingerprint": "4057c0b4dcb54131143fb203c56a7d478d526618da6ba7fe9a4eebe0a96b5756",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://heroaca.com/character/chara_group04/",
+  "source_claim": "The official TV anime character directory identifies these named characters under its U.A. teachers / Pro Heroes category and carries the My Hero Academia production copyright.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "all_might",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_no_hero_academia"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aizawa_shota",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_no_hero_academia"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "present_mic",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_no_hero_academia"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official character directory names All Might, Shota Aizawa, and Present Mic in its U.A. teachers / Pro Heroes category and carries the My Hero Academia production copyright. These exact current campaign members are direct character entries. No relationship is inferred from their shared profession."
+}

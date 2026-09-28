@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-mha-official-1b-directory-20260928-01",
+  "campaign_key": "authority:boku_no_hero_academia",
+  "campaign_fingerprint": "4057c0b4dcb54131143fb203c56a7d478d526618da6ba7fe9a4eebe0a96b5756",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://heroaca.com/character/chara_group02/",
+  "source_claim": "The official TV anime character directory identifies these named characters under its U.A. High School Class 1-B category and carries the My Hero Academia production copyright.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "monoma_neito",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_no_hero_academia"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kendo_itsuka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_no_hero_academia"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tetsutetsu_tetsutetsu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_no_hero_academia"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kodai_yui",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_no_hero_academia"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "komori_kinoko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_no_hero_academia"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsunotori_pony",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_no_hero_academia"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tokage_setsuna",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_no_hero_academia"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official character directory lists these exact campaign members under the Class 1-B heading. The footer identifies the production copyright as Kohei Horikoshi / Shueisha / My Hero Academia Production Committee. Japanese labels are Neito Monoma, Itsuka Kendo, Tetsutetsu Tetsutetsu, Yui Kodai, Kinoko Komori, Pony Tsunotori, and Setsuna Tokage. These are direct character entries; no relationship is inferred from school membership."
+}

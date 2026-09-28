@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-mha-official-villain-directory-20260928-01",
+  "campaign_key": "authority:boku_no_hero_academia",
+  "campaign_fingerprint": "4057c0b4dcb54131143fb203c56a7d478d526618da6ba7fe9a4eebe0a96b5756",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://heroaca.com/character/chara_group06/",
+  "source_claim": "The official TV anime character directory identifies these named characters under its Paranormal Liberation Front category and carries the My Hero Academia production copyright.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "shigaraki_tomura",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_no_hero_academia"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "toga_himiko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_no_hero_academia"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mr._compress",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_no_hero_academia"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lady_nagant",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_no_hero_academia"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "la_brava",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_no_hero_academia"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official character directory lists Tomura Shigaraki, Himiko Toga, Mr. Compress, Lady Nagant, and La Brava under its Paranormal Liberation Front category. These are exact current campaign members; the page carries the My Hero Academia production copyright. No relationship is inferred from villain affiliation."
+}

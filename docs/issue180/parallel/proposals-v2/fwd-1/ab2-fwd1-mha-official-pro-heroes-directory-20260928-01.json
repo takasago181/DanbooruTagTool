@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-mha-official-pro-heroes-directory-20260928-01",
+  "campaign_key": "authority:boku_no_hero_academia",
+  "campaign_fingerprint": "4057c0b4dcb54131143fb203c56a7d478d526618da6ba7fe9a4eebe0a96b5756",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://heroaca.com/character/chara_group05/",
+  "source_claim": "The official TV anime character directory identifies these named characters under its Pro Heroes category and carries the My Hero Academia production copyright.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "best_jeanist",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_no_hero_academia"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mirko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_no_hero_academia"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mount_lady",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_no_hero_academia"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ryuukyuu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_no_hero_academia"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official character directory lists these exact campaign members by name in its Pro Heroes category: Best Jeanist, Mirko, Mt. Lady, and Ryukyu. The site footer identifies the My Hero Academia production copyright. No relationship is inferred from professional affiliation."
+}
