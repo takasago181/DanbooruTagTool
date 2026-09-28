@@ -1,0 +1,24 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-honkai-impact3-official-v62-yae-kasumi-20260928",
+  "campaign_key": "authority:honkai_(series)",
+  "campaign_fingerprint": "1b239d69ca5dff03915e84f23d192b1e5129558c790ea5821cc2de1b513d6f48",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://honkaiimpact3.hoyoverse.com/asia/en-us/news/107330?source=v1",
+  "source_claim": "HoYoverse’s official Honkai Impact 3 v6.2 update announcement explicitly names “the boss Yae Kasumi” in a Honkai Impact 3 Superstring Dimension activity. This exact in-game character identification establishes Yae Kasumi within the Honkai Impact 3 franchise. The source and mapping rule are already accepted as src180-ab2-honkai-official-impact3-v62-character-reference-20260928.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "source_review_id_hint": "src180-ab2-honkai-official-impact3-v62-character-reference-20260928",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "yae_kasumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "honkai_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The target Yae Kasumi is explicitly named in the currently accepted official Honkai Impact 3 v6.2 source. Other names on the same article were not mapped without exact target identity support."
+}
