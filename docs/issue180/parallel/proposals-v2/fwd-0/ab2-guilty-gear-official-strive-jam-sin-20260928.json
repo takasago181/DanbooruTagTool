@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-guilty-gear-official-strive-jam-sin-20260928",
+  "campaign_key": "authority:guilty_gear",
+  "campaign_fingerprint": "180b2f42d072ed5864ca8af22743768c11862b1a17a696f016ad88c474533d6e",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.guiltygear.com/ggst/en/character/",
+  "source_claim": "Arc System Works' official Guilty Gear -Strive- character roster and character profiles list Jam Kuradoberi and Sin Kiske as playable characters in the Guilty Gear series.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kuradoberi_jam",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "guilty_gear"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sin_kiske",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "guilty_gear"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact named campaign characters on official Strive profiles are proposed. Other residual members were not inferred from adjacent franchise or game tags."
+}
