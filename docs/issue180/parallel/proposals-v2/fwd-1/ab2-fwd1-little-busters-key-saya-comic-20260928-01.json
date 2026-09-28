@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-little-busters-key-saya-comic-20260928-01",
+  "campaign_key": "authority:little_busters!",
+  "campaign_fingerprint": "82d93224b68d6d67cccf94c7ad1c1f36fe13ca0618fd5f7614e668cde4d0cd40",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://key.visualarts.gr.jp/info/2010/04/post_74.html",
+  "source_claim": "Key identifies the official Little Busters! EX comic as the story of the added heroine Saya Tokido and names Little Busters! as its original work.",
+  "authority_type": "FIRST_PARTY_OFFICIAL_COMIC",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "tokido_saya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "little_busters!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Exact current campaign members identified by official anime/rights-holder material; overlapping Saya evidence is intentional."
+}
