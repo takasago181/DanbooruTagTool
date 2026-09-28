@@ -1,0 +1,26 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-to-love-ru-official-ova-cast-20260928",
+  "campaign_key": "authority:to_love-ru",
+  "campaign_fingerprint": "e1138ee40c7764c3487ceac0044d0a040548f0a91fa60e773dbdac8419b7f7f5",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tbs.co.jp/anime/to-love-ru/02staffcast/staffcast.html",
+  "source_claim": "The official TBS anime website's first To Love Ru OVA cast page identifies the work and production committee, and names Yuuki Rito (結城リト), Lala Satalin Deviluke (ララ・サタリン・デビルーク), Sairenji Haruna (西連寺春菜), Yuuki Mikan (結城美柑), Tenjouin Saki (天条院沙姫), Kotegawa Yui (古手川唯), Momioka Risa (籾岡里紗), Kujou Rin (九条凛), Murasame Shizu (村雨静), and Konjiki no Yami (金色の闇) in its cast.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"yuuki_rito","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"to_love-ru"},
+    {"subject_type":"Character","subject_key":"lala_satalin_deviluke","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"to_love-ru"},
+    {"subject_type":"Character","subject_key":"sairenji_haruna","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"to_love-ru"},
+    {"subject_type":"Character","subject_key":"yuuki_mikan","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"to_love-ru"},
+    {"subject_type":"Character","subject_key":"tenjouin_saki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"to_love-ru"},
+    {"subject_type":"Character","subject_key":"kotegawa_yui","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"to_love-ru"},
+    {"subject_type":"Character","subject_key":"momioka_risa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"to_love-ru"},
+    {"subject_type":"Character","subject_key":"kujou_rin","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"to_love-ru"},
+    {"subject_type":"Character","subject_key":"murasame_oshizu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"to_love-ru"},
+    {"subject_type":"Character","subject_key":"konjiki_no_yami","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"to_love-ru"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The proposed relations correspond to exact character names in the official cast. The page lists Run only by that name, so the longer canonical identity is not inferred."
+}

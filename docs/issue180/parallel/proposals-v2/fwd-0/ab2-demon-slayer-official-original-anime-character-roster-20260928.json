@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-demon-slayer-official-hashira-training-roster-20260928",
+  "campaign_key": "authority:kimetsu_no_yaiba",
+  "campaign_fingerprint": "1409dcb565e6073ae2cdd9c58b872aef9d7fd25daed97f2dbeb39e2b93de00fb",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://kimetsu.com/anime/risshihen/character/",
+  "source_claim": "The official Demon Slayer: Kimetsu no Yaiba TV anime character page lists Urokodaki Sakonji (鱗滝左近次) among the characters in the work and credits the official production committee in its copyright notice.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"urokodaki_sakonji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the exact current campaign character explicitly listed by this official page is included."
+}
