@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-dennou-coil-bnfilmworks-character-pair-20260928-01",
+  "campaign_key": "authority:dennou_coil",
+  "campaign_fingerprint": "a9a2fe12d804d064e89b534779d84f2a51965736300dacbe0c7a9836104a3522",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.bandainamco.co.jp/files/pr20230323_COIL20A20CIRCLE20OF20CHILDREN_BD-BOX_g.pdf",
+  "source_claim": "Bandai Namco Filmworks’ official Blu-ray Box release describes Dennou Coil and names the two same-age protagonists as 小此木優子 and 天沢勇子 in its story synopsis.",
+  "authority_type": "RIGHTS_HOLDER_RELEASE_AND_STORY_SYNOPSIS",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "amasawa_yuuko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dennou_coil"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "okonogi_yuuko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dennou_coil"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the two exact character names stated in the rights-holder release are proposed. The campaign also includes Harakawa Tamako and Hashimoto Fumie; this source does not name them, so no relation is inferred for those members."
+}

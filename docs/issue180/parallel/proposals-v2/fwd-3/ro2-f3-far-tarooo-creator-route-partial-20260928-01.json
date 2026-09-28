@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "worker_slot": 3,
+  "proposal_id": "ro2-f3-far-tarooo-creator-route-partial-20260928-01",
+  "campaign_key": "authority:far_tarooo",
+  "campaign_fingerprint": "c59758af1c694e07276f51e6f56ed7edfe5115a04750fbd3e40f3500b7d12a95",
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "CREATOR_ARTWORK_DISCOVERY",
+      "url_or_query": "https://twoucan.com/profile/far_tarooo",
+      "result": "The profile mirror associates the handle far_tarooo with creator attribution はるたろー and artwork, but is not a first-party controlled portfolio and does not establish official character/copyright authority for all four tags."
+    },
+    {
+      "route_type": "FIRST_PARTY_CREATOR_POST_SEARCH",
+      "url_or_query": "Far tarooo official artist Dai Kuro Noru Rotto",
+      "result": "Search discovery surfaced repost/tag catalog routes and links attributed to Twitter/X posts, but no directly readable first-party post or official roster was established in this check."
+    },
+    {
+      "route_type": "CREATOR_POST_DISCOVERY",
+      "url_or_query": "https://twitter.com/far_tarooo/status/1926542922494755201",
+      "result": "A creator-post URL was discovered through a mirror/search result, but its content was not directly verified here and is not used as authority."
+    }
+  ],
+  "notes": "Creator attribution/artwork discovery was not enough to show that Dai, Kuro, Noru, and Rotto share a single canonical Copyright home. Secondary Danbooru/Safebooru tagging is not treated as authority. Partial research progress only; no relation is inferred."
+}

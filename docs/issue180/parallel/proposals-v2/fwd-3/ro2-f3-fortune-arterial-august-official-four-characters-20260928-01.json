@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-fortune-arterial-august-official-four-characters-20260928-01",
+  "campaign_key": "authority:fortune_arterial",
+  "campaign_fingerprint": "93df6c5c35ab864989de0cd6aaedb82cfbc5ebb5271bee9a554964c8207be15d",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://august-soft.com/fa/item_figure.html",
+  "source_claim": "August’s official FORTUNE ARTERIAL related-products page names Kuze Kiriha, Sendou Erika, Tougi Shiro, and Yuuki Haruna in entries explicitly identifying them as FORTUNE ARTERIAL figures/heroines.",
+  "authority_type": "FIRST_PARTY_DEVELOPER_OFFICIAL_PRODUCT_CATALOG",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kuze_kiriha",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fortune_arterial"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sendou_erika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fortune_arterial"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tougi_shiro",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fortune_arterial"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yuuki_haruna",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fortune_arterial"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The developer’s official related-products catalog explicitly couples these four names with FORTUNE ARTERIAL. Only the four exact campaign members are proposed."
+}
