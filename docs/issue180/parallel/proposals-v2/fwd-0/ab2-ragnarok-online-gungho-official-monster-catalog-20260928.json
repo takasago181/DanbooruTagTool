@@ -1,0 +1,29 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-ragnarok-online-gungho-official-monster-catalog-20260928",
+  "campaign_key": "authority:ragnarok_online",
+  "campaign_fingerprint": "6a719ca1f3b8f9e52487cd882d978df3d5b6bc085e8e49dfbd6e37ebb0c98830",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://ragnarokonline.gungho.jp/navi/gamedata/monster/",
+  "source_claim": "GungHo's official Ragnarok Online monster catalog lists Angeling, Baphomet Jr., Eremes Guile, Howard Alt-Eisen, Kathryne Keyron, Margaretha Sorin, Cecil Damon, Celia Alde, Moonlight Flower, Munak, Peco Peco, Poring, and Loli Ruri as named game monsters.",
+  "authority_type": "FIRST_PARTY_MONSTER_CATALOG",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"angeling","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ragnarok_online"},
+    {"subject_type":"Character","subject_key":"baphomet_jr","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ragnarok_online"},
+    {"subject_type":"Character","subject_key":"eremes_guile","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ragnarok_online"},
+    {"subject_type":"Character","subject_key":"howard_alt-eisen","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ragnarok_online"},
+    {"subject_type":"Character","subject_key":"kathryne_keyron","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ragnarok_online"},
+    {"subject_type":"Character","subject_key":"margaretha_sorin","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ragnarok_online"},
+    {"subject_type":"Character","subject_key":"cecil_damon","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ragnarok_online"},
+    {"subject_type":"Character","subject_key":"celia_alde","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ragnarok_online"},
+    {"subject_type":"Character","subject_key":"moonlight_flower","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ragnarok_online"},
+    {"subject_type":"Character","subject_key":"munak","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ragnarok_online"},
+    {"subject_type":"Character","subject_key":"peco_peco","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ragnarok_online"},
+    {"subject_type":"Character","subject_key":"poring","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ragnarok_online"},
+    {"subject_type":"Character","subject_key":"loli_ruri","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ragnarok_online"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The source is the current first-party GungHo game-data catalog and explicitly lists these exact named monsters. Canonical tag spellings and the Copyright key were checked against the tracked Issue 70 data and this campaign's dispatch. Only direct catalog matches are included; no inference is made for other campaign members."
+}
