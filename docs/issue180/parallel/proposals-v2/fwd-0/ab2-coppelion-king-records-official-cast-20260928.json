@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-coppelion-king-records-cast-roster-20260928",
+  "campaign_key": "authority:coppelion",
+  "campaign_fingerprint": "8a4466c0994e6725115909afd73b3142474091cfe92b7d0f38b72bdc23e18350",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://king-cr.jp/special/coppelion/staff_cast/",
+  "source_claim": "King Records' official Coppelion anime page credits the original manga by Tomonori Inoue and lists Naruse Ibara, Fukasaku Aoi, Nomura Taeko, Kurosawa Haruto, Ozu Kanon, and Ozu Shion in the cast roster.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"fukasaku_aoi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"coppelion"},
+    {"subject_type":"Character","subject_key":"kurosawa_haruto","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"coppelion"},
+    {"subject_type":"Character","subject_key":"naruse_ibara","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"coppelion"},
+    {"subject_type":"Character","subject_key":"nomura_taeko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"coppelion"},
+    {"subject_type":"Character","subject_key":"ozu_kanon","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"coppelion"},
+    {"subject_type":"Character","subject_key":"ozu_shion","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"coppelion"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official anime cast page names all six campaign members and attributes the adaptation to the original Coppelion manga."
+}
