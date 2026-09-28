@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-paradox-live-official-cast-20260928-01",
+  "campaign_key": "authority:paradox_live",
+  "campaign_fingerprint": "5ed890a67e65fee3d0fa4038f96c48d2ba0fff9bc195ef3b095418d75a3cea52",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://paradoxlive.jp/en/caststaff/",
+  "source_claim": "The official Paradox Live cast and staff page lists Kei Miyama, Kanata Yatonokami, Nayuta Yatonokami, Yuto Inukai, Ryoga Tosa, Shion Kaida, and Kenta Mikoshiba by name in their respective project teams alongside their performers.",
+  "authority_type": "OFFICIAL_FRANCHISE_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"inukai_yuto","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"paradox_live"},
+    {"subject_type":"Character","subject_key":"kaida_shion","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"paradox_live"},
+    {"subject_type":"Character","subject_key":"mikoshiba_kenta","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"paradox_live"},
+    {"subject_type":"Character","subject_key":"miyama_kei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"paradox_live"},
+    {"subject_type":"Character","subject_key":"tosa_ryoga","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"paradox_live"},
+    {"subject_type":"Character","subject_key":"yatonokami_kanata","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"paradox_live"},
+    {"subject_type":"Character","subject_key":"yatonokami_nayuta","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"paradox_live"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All seven exact campaign names appear on the official franchise cast roster. The Japanese site also lists all four Goku Luck names together and names the Yatonokami twins and Miyama Kei in official team and character material."
+}

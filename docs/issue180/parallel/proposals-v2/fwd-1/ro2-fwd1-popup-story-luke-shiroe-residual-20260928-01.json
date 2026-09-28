@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-popup-story-luke-shiroe-residual-20260928-01",
+  "campaign_key": "authority:pop-up_story",
+  "campaign_fingerprint": "883a85540d1e62fe05f6c7f365df63fb83f451c329307073cfb2dbfb2b09e521",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "https://dengekionline.com/sp/popupstory/illust.html",
+  "source_claim": "The official product announcement confirms the Pop-Up Story game identity, while the checked official character illustration index did not list Luke Venus or Shiroe Adele among its named characters. The current checked routes do not yet establish safe exact HOME relations for these two campaign members.",
+  "authority_type": "OFFICIAL_ROSTER_RESIDUAL_RESEARCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_PUBLISHER_PRODUCT_ANNOUNCEMENT","url_or_query":"https://www.jp.square-enix.com/company/ja/news/pdf/b79b7e94b400d9440566ce723ece747d.pdf","result":"Square Enix identifies the game's full title, official site, and copyright; the announcement gives general student context but does not name Luke Venus or Shiroe Adele."},
+    {"route_type":"PUBLISHER_MEDIA_GAME_CHARACTER_INDEX","url_or_query":"https://dengekionline.com/sp/popupstory/illust.html","result":"The Pop-Up Story illustration index lists many named characters but does not include Luke Venus or Shiroe Adele in its accessible text."},
+    {"route_type":"PUBLISHER_MEDIA_CHARACTER_SEARCH","url_or_query":"site:dengekionline.com/sp/popupstory/character Luke Venus; site:dengekionline.com/sp/popupstory/character Shiroe Adele","result":"The checked indexed profile routes produced no exact official-feature match for either campaign name."}
+  ],
+  "notes": "Partial progress only: this does not deny either character's membership or HOME. Five positive relations are preserved in the companion AUTHORITY_BATCH. Resume these two identities if a later authoritative profile or source appears."
+}

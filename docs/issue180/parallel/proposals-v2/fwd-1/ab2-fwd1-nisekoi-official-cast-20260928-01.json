@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-nisekoi-official-cast-20260928-01",
+  "campaign_key": "authority:nisekoi",
+  "campaign_fingerprint": "ea02656c2aea7208a1f832e1964a0700d01ce277751d25246933c3bf95929e23",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nisekoi.jp/cast/",
+  "source_claim": "The official TV anime Nisekoi: cast page identifies Ichijo Raku, Kirisaki Chitoge, Onodera Kosaki, Tsugumi Seishirou, Tachibana Marika, Miyamoto Ruri, and Onodera Haru by name and pairs each with a performer.",
+  "authority_type": "OFFICIAL_FRANCHISE_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"ichijou_raku","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nisekoi"},
+    {"subject_type":"Character","subject_key":"kirisaki_chitoge","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nisekoi"},
+    {"subject_type":"Character","subject_key":"miyamoto_ruri","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nisekoi"},
+    {"subject_type":"Character","subject_key":"onodera_haru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nisekoi"},
+    {"subject_type":"Character","subject_key":"onodera_kosaki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nisekoi"},
+    {"subject_type":"Character","subject_key":"tachibana_marika","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nisekoi"},
+    {"subject_type":"Character","subject_key":"tsugumi_seishirou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nisekoi"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official cast roster supports every exact member of this campaign with named-character credit. The site is the official portal for the Nisekoi TV anime franchise."
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-popup-story-official-feature-roster-20260928-01",
+  "campaign_key": "authority:pop-up_story",
+  "campaign_fingerprint": "883a85540d1e62fe05f6c7f365df63fb83f451c329307073cfb2dbfb2b09e521",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://dengekionline.com/sp/popupstory/illust.html",
+  "source_claim": "The Pop-Up Story special feature's official character illustration index names Emelia Pris, Ledo Vassar, Selim Spark, Ziz Glaver, and Yuuri Lessen among the game's characters. Square Enix's official product announcement identifies Pop-Up Story: The Magic Book and the Academy of the Sacred Tree as its game title and copyright.",
+  "authority_type": "OFFICIAL_FRANCHISE_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"emelia_pris","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pop-up_story"},
+    {"subject_type":"Character","subject_key":"ledo_vassar","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pop-up_story"},
+    {"subject_type":"Character","subject_key":"selim_spark","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pop-up_story"},
+    {"subject_type":"Character","subject_key":"yuuri_lessen","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pop-up_story"},
+    {"subject_type":"Character","subject_key":"ziz_glover","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pop-up_story"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The special page labels itself as a Pop-Up Story illustration gallery, includes exact character names, and displays the Square Enix copyright. The official Square Enix launch announcement identifies the game's complete title and official website: https://www.jp.square-enix.com/company/ja/news/2015/html/20151029_01.html. Luke Venus and Shiroe Adele remain separate partial residuals."
+}
