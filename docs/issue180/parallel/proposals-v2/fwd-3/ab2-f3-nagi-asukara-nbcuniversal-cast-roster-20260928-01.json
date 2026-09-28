@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-nagi-asukara-nbcuniversal-cast-roster-20260928-01",
+  "campaign_key": "authority:nagi_no_asukara",
+  "campaign_fingerprint": "fd7c1fbc645dcedad278c187a83107a32ce4c30112ec6d51b0ad115f245cdc82",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://nbcuni.co.jp/anime/lineup/past/index02740000.html",
+  "source_claim": "NBCUniversal's official anime page lists the Nagi-Asu production and cast credits for Hikari Sakishima, Manaka Mukaido, Chisaki Hiradaira, Kaname Isaki, Tsumugu Kihara, Miuna Shiodome, and Sayu Hisanuma.",
+  "authority_type": "OFFICIAL_ANIME_DISTRIBUTOR_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"hiradaira_chisaki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nagi_no_asukara"},
+    {"subject_type":"Character","subject_key":"hisanuma_sayu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nagi_no_asukara"},
+    {"subject_type":"Character","subject_key":"isaki_kaname","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nagi_no_asukara"},
+    {"subject_type":"Character","subject_key":"kihara_tsumugu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nagi_no_asukara"},
+    {"subject_type":"Character","subject_key":"mukaido_manaka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nagi_no_asukara"},
+    {"subject_type":"Character","subject_key":"sakishima_hikari","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nagi_no_asukara"},
+    {"subject_type":"Character","subject_key":"shiodome_miuna","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nagi_no_asukara"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official distributor's page labels the title Nagi-Asu and provides the full exact cast list for all seven current campaign identities."
+}

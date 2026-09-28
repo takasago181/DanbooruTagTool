@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-mortal-kombat-netherrealm-anniversary-subzero-20260928-01",
+  "campaign_key": "authority:mortal_kombat_(series)",
+  "campaign_fingerprint": "be9160436d49351df0c440b4347de53d01cf7e9872550287e03185df5dd6bc56",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://mk30.mortalkombat.com/",
+  "source_claim": "The official Mortal Kombat 30th Anniversary site presents Sub-Zero as an iconic character in the franchise and links to his character story.",
+  "authority_type": "FIRST_PARTY_FRANCHISE_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"sub-zero","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mortal_kombat_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "This source supports the franchise character identity Sub-Zero. It does not identify which timeline incarnation of Sub-Zero is meant and is not used to infer Bi-Han or Kuai Liang."
+}

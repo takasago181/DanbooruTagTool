@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-mortal-kombat-mk1-first-party-roster-20260928-01",
+  "campaign_key": "authority:mortal_kombat_(series)",
+  "campaign_fingerprint": "be9160436d49351df0c440b4347de53d01cf7e9872550287e03185df5dd6bc56",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.mortalkombat.com/en-us/faq",
+  "source_claim": "The official Mortal Kombat 1 FAQ lists Johnny Cage, Kenshi, and Kitana among the reimagined iconic characters in the base game.",
+  "authority_type": "FIRST_PARTY_GAME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"johnny_cage","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mortal_kombat_(series)"},
+    {"subject_type":"Character","subject_key":"kenshi_takahashi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mortal_kombat_(series)"},
+    {"subject_type":"Character","subject_key":"kitana","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mortal_kombat_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact campaign names directly present in the FAQ are included. The alternate-timeline identities Bi-Han, Hanzo Hasashi, and Kuai Liang are not mapped from the generic reboot roster entry here."
+}
