@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-darkstalkers-capcom-official-character-bios-20260928",
+  "campaign_key": "authority:darkstalkers",
+  "campaign_fingerprint": "59d19570b4128adda34907b0fc540aa9a33a5003d194c128a272620a8f1ede82",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://news.capcomusa.com/lets/browse/resurrect-your-darkstalkers-knowledge",
+  "source_claim": "Capcom's official Darkstalkers character articles provide biographies for Demitri Maximoff and Morrigan, Donovan Baine and Hsien-Ko, Lord Raptor and Victor, and Pyron and Jedah; other official Capcom Darkstalkers articles explicitly identify Anakaris, B.B. Hood, Q-Bee, and John/Jon Talbain as franchise characters.",
+  "authority_type": "CAPCOM_OFFICIAL_CHARACTER_BIO_AND_FRANCHISE_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"anakaris","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"darkstalkers"},
+    {"subject_type":"Character","subject_key":"b.b._hood","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"darkstalkers"},
+    {"subject_type":"Character","subject_key":"demitri_maximoff","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"darkstalkers"},
+    {"subject_type":"Character","subject_key":"donovan_baine","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"darkstalkers"},
+    {"subject_type":"Character","subject_key":"hsien-ko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"darkstalkers"},
+    {"subject_type":"Character","subject_key":"jedah_dohma","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"darkstalkers"},
+    {"subject_type":"Character","subject_key":"jon_talbain","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"darkstalkers"},
+    {"subject_type":"Character","subject_key":"lord_raptor","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"darkstalkers"},
+    {"subject_type":"Character","subject_key":"morrigan_aensland","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"darkstalkers"},
+    {"subject_type":"Character","subject_key":"pyron","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"darkstalkers"},
+    {"subject_type":"Character","subject_key":"q-bee","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"darkstalkers"},
+    {"subject_type":"Character","subject_key":"victor_von_gerdenheim","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"darkstalkers"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Capcom's official Darkstalkers knowledge series supplies character biographies for Demitri Maximoff and Morrigan (https://news.capcomusa.com/lets/browse/resurrect-your-darkstalkers-knowledge), Donovan Baine and Hsien-Ko (https://news.capcomusa.com/lets/browse/resurrect-your-darkstalkers-knowledge-pt-5), Lord Raptor and Victor (https://news.capcomusa.com/lets/browse/resurrect-your-darkstalkers-knowledge-pt-3), and Pyron and Jedah (https://news.capcomusa.com/lets/browse/resurrect-your-darkstalkers-knowledge-pt-9). Capcom's official announcement for Darkstalkers: The Night Warriors explicitly calls Q-Bee and Anakaris Darkstalkers characters (https://news.capcomusa.com/lets/browse/new-darkstalkers-comic-book-mini-series-announced). Capcom's Darkstalkers Resurrection menu names B.B. Hood/Bulleta (https://news.capcomusa.com/lets/browse/celebrate-darkstalkers-resurrection-with-these-delicious-menu-items); the official Darkstalkers knowledge article says John Talbain and Capcom's official character breakdown uses that spelling (https://news.capcomusa.com/lets/browse/dsr-john-talbain-character-breakdown), matching campaign tag jon_talbain. Each proposed subject is an exact campaign member with direct Capcom franchise evidence; no family, variant, or roster inference beyond the named characters is included."
+}

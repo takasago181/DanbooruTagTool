@@ -1,0 +1,29 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-little-witch-academia-official-character-index-20260928",
+  "campaign_key": "authority:little_witch_academia",
+  "campaign_fingerprint": "f0132b3a5dfde734a61e74e54d6eebbec16ea8c4bc20b58155c109b9d18478d6",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://littlewitchacademia.jp/tv1st/chara/index.html",
+  "source_claim": "The official TV anime character index lists the campaign cast by name, including Akko Kagari, Lotte Jansson, Sucy Manbavaran, Diana Cavendish, Amanda O'Neill, Constanze, Jasminka Antonenko, Ursula, Chariot Dunois, Hanna, Barbara, Andrew, and Croix Meridies. The official series and episode pages establish them as characters of Little Witch Academia.",
+  "authority_type": "RIGHTSHOLDER_OFFICIAL_ANIME_CHARACTER_INDEX_AND_EPISODE_GUIDE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"amanda_o'neill","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"little_witch_academia"},
+    {"subject_type":"Character","subject_key":"andrew_hanbridge","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"little_witch_academia"},
+    {"subject_type":"Character","subject_key":"barbara_parker","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"little_witch_academia"},
+    {"subject_type":"Character","subject_key":"constanze_amalie_von_braunschbank-albrechtsberger","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"little_witch_academia"},
+    {"subject_type":"Character","subject_key":"croix_meridies","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"little_witch_academia"},
+    {"subject_type":"Character","subject_key":"diana_cavendish","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"little_witch_academia"},
+    {"subject_type":"Character","subject_key":"hanna_england","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"little_witch_academia"},
+    {"subject_type":"Character","subject_key":"jasminka_antonenko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"little_witch_academia"},
+    {"subject_type":"Character","subject_key":"kagari_atsuko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"little_witch_academia"},
+    {"subject_type":"Character","subject_key":"lotte_jansson","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"little_witch_academia"},
+    {"subject_type":"Character","subject_key":"shiny_chariot","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"little_witch_academia"},
+    {"subject_type":"Character","subject_key":"sucy_manbavaran","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"little_witch_academia"},
+    {"subject_type":"Character","subject_key":"ursula_callistis","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"little_witch_academia"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The rightsholder TV anime's official character index lists the main cast and supporting characters including Akko Kagari, Lotte Jansson, Sucy Manbavaran, Diana Cavendish, Amanda O'Neill, Constanze, Jasminka Antonenko, Ursula-sensei, Chariot Dunois, Hanna, Barbara, Andrew, and Croix Meridies: https://littlewitchacademia.jp/tv1st/chara/index.html. The official cast/staff page credits the series original to TRIGGER / Yoh Yoshinari and credits the cast by character: https://littlewitchacademia.jp/tv1st/staffcast/. The official episode guide confirms Andrew in the Hambridge Earl episode and Hanna/Barbara together in the relevant episode summaries: https://littlewitchacademia.jp/tv1st/story/06.html and https://littlewitchacademia.jp/tv1st/story/10.html. This campaign's exact character-tag forms include translated surnames for a few supporting cast (Andrew Hanbridge, Barbara Parker, Hanna England) while the official Japanese index uses Andrew, Barbara, and Hanna; the episode/site context identifies these as the same unique series characters. Ursula-sensei and Chariot Dunois are both official character entries; both are directly home to Little Witch Academia regardless of their in-story identity relationship."
+}
