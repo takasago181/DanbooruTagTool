@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-futsuu-keionbu-shueisha-official-goods-20260928",
+  "campaign_key": "authority:futsuu_no_keion-bu",
+  "campaign_fingerprint": "c3b8ad87a430773ede491e27da03371da3122bba8e9ff4f6646b4829f2f44158",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://jumpcs.shueisha.co.jp/shop/r/r20208/",
+  "source_claim": "Shueisha’s official Jump Characters Store identifies the ふつうの軽音部 goods and explicitly assigns products to the characters Hatono Chihiro, Kouyama Rin, Fujii Ayame, and Uchida Momo.",
+  "authority_type": "SHUEISHA_FIRST_PARTY_WORK_CHARACTER_MERCH_CATALOG",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "hatono_chihiro",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "futsuu_no_keion-bu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kouyama_rin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "futsuu_no_keion-bu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "fujii_ayame",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "futsuu_no_keion-bu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "uchida_momo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "futsuu_no_keion-bu"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the exact names listed in Shueisha’s product pages under this work are included. The other five campaign members are omitted from this source batch because this catalog page does not explicitly name them."
+}

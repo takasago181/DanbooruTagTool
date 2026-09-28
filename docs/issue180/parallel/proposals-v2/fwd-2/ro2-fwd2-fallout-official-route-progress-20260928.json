@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd2-fallout-official-route-progress-20260928",
+  "campaign_key": "authority:fallout",
+  "campaign_fingerprint": "30bbd0c6cf04e8522f31a07f1956a5d009cd1b66aeb38e269d5f5baab751ec06",
+  "worker_slot": 2,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "BETHESDA_FALLOUT4_COMPANION_ARTICLE",
+      "url_or_query": "https://bethesda.net/en-US/news/fallout-4-dogmeat-and-other-companions",
+      "result": "The official article supports Dogmeat and Preston Garvey (submitted in separate source batches), but does not name Craig Boone, Deathclaw, NCR Veteran Ranger, Noelle Rutherford, Vault Boy, or Vault Girl."
+    },
+    {
+      "route_type": "BETHESDA_FALLOUT4_CHARACTER_ARTICLE",
+      "url_or_query": "https://bethesda.net/ja-JP/news/fallout-4-creating-codsworth",
+      "result": "The official profile names Codsworth (submitted separately); it does not identify the other unresolved packet identities."
+    },
+    {
+      "route_type": "BETHESDA_NEW_VEGAS_PRODUCT_PAGE",
+      "url_or_query": "https://fallout.bethesda.net/en/games/fallout-new-vegas",
+      "result": "The official New Vegas product page describes the game and its broad cast but supplies no exact name-to-work roster for the unresolved members, including Craig Boone."
+    }
+  ],
+  "notes": "The broad Fallout campaign spans multiple games and contains unresolved packet identities after these distinct official routes. Only exact first-party named identities were proposed; no fan-created identity, faction member, creature variant, or mascot relationship is inferred from missing evidence. This is partial progress only, not a negative or terminal conclusion."
+}

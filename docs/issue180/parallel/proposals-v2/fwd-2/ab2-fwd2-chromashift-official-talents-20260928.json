@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-chromashift-official-talents-20260928",
+  "campaign_key": "authority:chromashift",
+  "campaign_fingerprint": "8da2729639c602d04437814221e9d1b897b1312853f7ccb31b6ea027b645d572",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://chroma-shift.com/talents/",
+  "source_claim": "ChromaSHIFT’s official Talents page lists Akugaki Koa, Poko Rakun, Roca Rourin, and Ruby Runeheart in current talent units, and Daisy Dandelion in its Graduated section.",
+  "authority_type": "CHROMASHIFT_FIRST_PARTY_TALENT_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "akugaki_koa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "chromashift"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "poko_rakun",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "chromashift"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "roca_rourin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "chromashift"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ruby_runeheart",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "chromashift"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "daisy_dandelion",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "chromashift"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact packet identities explicitly listed on this official group roster are included. Chikafuji Lisa, Coni Confetti, Juna Unagi, and Rin Penrose are omitted because this roster page does not establish their ChromaSHIFT affiliation or exact current HOME relation."
+}

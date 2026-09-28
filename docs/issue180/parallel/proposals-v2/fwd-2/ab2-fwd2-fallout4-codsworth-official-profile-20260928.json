@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-fallout4-codsworth-official-profile-20260928",
+  "campaign_key": "authority:fallout",
+  "campaign_fingerprint": "30bbd0c6cf04e8522f31a07f1956a5d009cd1b66aeb38e269d5f5baab751ec06",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://bethesda.net/ja-JP/news/fallout-4-creating-codsworth",
+  "source_claim": "Bethesda’s official Fallout 4 article “Creating Codsworth” explicitly identifies Codsworth as the special Mister Handy character and a key character in the player’s journey.",
+  "authority_type": "BETHESDA_FIRST_PARTY_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "codsworth",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fallout"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The exact Codsworth identity is named in Bethesda’s Fallout 4 article; no other packet identities are inferred."
+}
