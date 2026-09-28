@@ -1,0 +1,27 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-new-game-official-tv-roster-20260928",
+  "campaign_key": "authority:new_game!",
+  "campaign_fingerprint": "4c94a5e2ccc8b355f7f41926217c8bc1e3878cd1bf0ce7539f240f4ad0a7eaac",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://newgame-anime.com/staffcast/",
+  "source_claim": "The official New Game!! second-season staff and cast page names all eleven campaign characters in its cast roster.",
+  "authority_type": "OFFICIAL_ANIME_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"ahagon_umiko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"new_game!"},
+    {"subject_type":"Character","subject_key":"hazuki_shizuku","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"new_game!"},
+    {"subject_type":"Character","subject_key":"iijima_yun","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"new_game!"},
+    {"subject_type":"Character","subject_key":"mochizuki_momiji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"new_game!"},
+    {"subject_type":"Character","subject_key":"narumi_tsubame","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"new_game!"},
+    {"subject_type":"Character","subject_key":"sakura_nene","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"new_game!"},
+    {"subject_type":"Character","subject_key":"shinoda_hajime","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"new_game!"},
+    {"subject_type":"Character","subject_key":"suzukaze_aoba","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"new_game!"},
+    {"subject_type":"Character","subject_key":"takimoto_hifumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"new_game!"},
+    {"subject_type":"Character","subject_key":"tooyama_rin","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"new_game!"},
+    {"subject_type":"Character","subject_key":"yagami_kou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"new_game!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official TV anime second-season staff/cast roster (https://newgame-anime.com/staffcast/) explicitly lists the first-season cast and the newer characters Mochizuki Momiji and Narumi Tsubame. Its character/cast pages establish all campaign identities as cast members of New Game!!, under the shared copyright root `new_game!`. The root is already present in the tracked confirmed v3 baseline."
+}

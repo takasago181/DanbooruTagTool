@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-oreimo-official-character-and-credits-20260928",
+  "campaign_key": "authority:ore_no_imouto_ga_konna_ni_kawaii_wake_ga_nai",
+  "campaign_fingerprint": "cdb7fb8cbf4723fa53a8390aaaad367e01a20fade6d291c9dce7d17ac5fc6b6e",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.oreimo-anime.com/1st/chara/index.html",
+  "source_claim": "The official Oreimo character directory and second-season official music/episode credits identify nine campaign members as fictional characters in the series.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_ROSTER_AND_CREDITS",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"aragaki_ayase","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ore_no_imouto_ga_konna_ni_kawaii_wake_ga_nai"},
+    {"subject_type":"Character","subject_key":"bridget_evans","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ore_no_imouto_ga_konna_ni_kawaii_wake_ga_nai"},
+    {"subject_type":"Character","subject_key":"gokou_ruri","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ore_no_imouto_ga_konna_ni_kawaii_wake_ga_nai"},
+    {"subject_type":"Character","subject_key":"gokou_tamaki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ore_no_imouto_ga_konna_ni_kawaii_wake_ga_nai"},
+    {"subject_type":"Character","subject_key":"kousaka_kirino","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ore_no_imouto_ga_konna_ni_kawaii_wake_ga_nai"},
+    {"subject_type":"Character","subject_key":"kousaka_kyousuke","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ore_no_imouto_ga_konna_ni_kawaii_wake_ga_nai"},
+    {"subject_type":"Character","subject_key":"kurusu_kanako","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ore_no_imouto_ga_konna_ni_kawaii_wake_ga_nai"},
+    {"subject_type":"Character","subject_key":"makishima_saori","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ore_no_imouto_ga_konna_ni_kawaii_wake_ga_nai"},
+    {"subject_type":"Character","subject_key":"tamura_manami","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ore_no_imouto_ga_konna_ni_kawaii_wake_ga_nai"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official anime character directory (https://www.oreimo-anime.com/1st/chara/index.html) profiles Kirino, Kyousuke, Kuroneko/Gokou Ruri, Saori Bajeena/Makishima Saori, Ayase, Kanako, and Manami. Official second-season music and disc credits (https://www.oreimo-anime.com/sp/music/) identify Bridget Evans and Gokou Tamaki by name as in-series performers. `hanazawa_kana` is withheld because the checked official material identifies Kana Hanazawa as the voice performer for Kuroneko, not a fictional character in this work. `gokou_hinata` is also withheld: the checked first-party character roster and credits did not establish a direct official identity route for that exact member, so no relation is asserted. The copyright root `ore_no_imouto_ga_konna_ni_kawaii_wake_ga_nai` is present in the tracked confirmed v3 baseline."
+}

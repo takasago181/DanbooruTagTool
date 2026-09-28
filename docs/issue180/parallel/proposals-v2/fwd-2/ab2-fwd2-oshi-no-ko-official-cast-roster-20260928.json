@@ -1,0 +1,26 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-oshi-no-ko-official-cast-roster-20260928",
+  "campaign_key": "authority:oshi_no_ko",
+  "campaign_fingerprint": "c6fe29a0f669e137bc7f7dd94c1d98b92710b31c4d140e041f6fe8f87f6ff477",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://ichigoproduction.com/Season3/event/",
+  "source_claim": "The official Oshi no Ko series character, story, and event materials identify ten fictional campaign identities within the title; the actor Han Megumi is intentionally excluded as a person rather than a fictional character.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_STORY_AND_EVENT_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"amamiya_gorou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"oshi_no_ko"},
+    {"subject_type":"Character","subject_key":"arima_kana","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"oshi_no_ko"},
+    {"subject_type":"Character","subject_key":"hoshino_ai","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"oshi_no_ko"},
+    {"subject_type":"Character","subject_key":"hoshino_aquamarine","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"oshi_no_ko"},
+    {"subject_type":"Character","subject_key":"hoshino_ruby","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"oshi_no_ko"},
+    {"subject_type":"Character","subject_key":"kamiki_hikaru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"oshi_no_ko"},
+    {"subject_type":"Character","subject_key":"kurokawa_akane","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"oshi_no_ko"},
+    {"subject_type":"Character","subject_key":"memcho","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"oshi_no_ko"},
+    {"subject_type":"Character","subject_key":"pieyon","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"oshi_no_ko"},
+    {"subject_type":"Character","subject_key":"saitou_miyako","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"oshi_no_ko"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official TV anime character/cast materials identify Aqua (whose past life is Goro Amamiya), Ruby, Ai, Arima Kana, Kurokawa Akane, and MEMcho (https://ichigoproduction.com/Season3/chara/ and https://ichigoproduction.com/Season1/staffcast/). Official series event materials credit Piyion and Saitou Miyako as in-series characters (https://ichigoproduction.com/Season3/event/); the official Season 4 story introduction names Kamiki Hikaru in the same title's plot (https://ichigoproduction.com/Season4/story/index.html). The first-party manga publisher page identifies the original title and its story featuring Goro and Ai (https://youngjump.jp/oshinoko/). `han_megumi` is withheld because official cast materials identify Han Megumi as Arima Kana's performer, not a fictional character. `oshi_no_ko` is the Danbooru copyright title form for the property; the exact title has not yet appeared in the confirmed relation baseline, so QA must validate root existence before canonical integration."
+}
