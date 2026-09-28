@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-red-velvet-official-member-profile-20260928",
+  "campaign_key": "authority:red_velvet",
+  "campaign_fingerprint": "1f19a652e1aede74f6fd447af62ea4356272acdd30c417a4a3b62dfb5ee1ec68",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.redvelvet-jp.net/en/profile/",
+  "source_claim": "Red Velvet's official profile identifies the act as a five-member group and lists IRENE, SEULGI, WENDY, JOY, and YERI. The official SMTOWN Japan artist page independently lists the same five members and profile names.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "irene_(red_velvet)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "red_velvet"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "joy_(red_velvet)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "red_velvet"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "seulgi_(red_velvet)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "red_velvet"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "wendy_(red_velvet)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "red_velvet"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yeri_(red_velvet)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "red_velvet"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "All five exact campaign members are individually named on the official Red Velvet profile. Independent official label roster: https://smtown-official.jp/artist_corporate/."
+}
