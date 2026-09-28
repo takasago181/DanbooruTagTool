@@ -1,0 +1,73 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-gup-official-chihatan-residual-roster-20260928",
+  "campaign_key": "authority:girls_und_panzer",
+  "campaign_fingerprint": "e29da48d183ae0349436da81cb176a0dfa0285afbc4a483c013038fcf68b187e",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://girls-und-panzer.jp/chara/",
+  "source_claim": "The official GIRLS und PANZER character directory lists Fukuda, Hamada, Hosomi, Ikeda, Kubota, Nagura, Tamada, and Teramoto under Chihatan Academy. The linked first-party character profiles describe their roles as Chihatan tank道 members/crew, establishing these exact named characters in the work. The accepted source mapping src180-ab2-gup-official-character-roster-20260928 maps exact named roster characters to the stable HOME root girls_und_panzer.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "source_review_id_hint": "src180-ab2-gup-official-character-roster-20260928",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "fukuda_haru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "girls_und_panzer"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hamada_kiyo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "girls_und_panzer"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hosomi_shizuko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "girls_und_panzer"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ikeda_emi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "girls_und_panzer"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kubota_rin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "girls_und_panzer"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nagura_setsuko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "girls_und_panzer"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tamada_tamaki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "girls_und_panzer"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "teramoto_tomiko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "girls_und_panzer"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "All eight names are enumerated in the official Chihatan Academy section; individual official profiles provide their character roles. The remaining campaign members are not inferred from this roster."
+}
