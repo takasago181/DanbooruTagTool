@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-metroid-nintendo-dark-samus-20260928-01",
+  "campaign_key": "authority:metroid",
+  "campaign_fingerprint": "62b6ce04a4d5e71a3e159b3936556bb8ab916c1fd7ac6bec208e0427e1afc462",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nintendo.com/en-gb/News/2007/Interview-Metroid-Prime-3-Corruption-Wii--249682.html",
+  "source_claim": "In Nintendo's official Metroid Prime 3 interview, Nintendo and Retro Studios staff describe Dark Samus as a central character in the Metroid Prime storyline and discuss her return from Metroid Prime 2.",
+  "authority_type": "FIRST_PARTY_GAME_DEVELOPER_INTERVIEW",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "dark_samus",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "metroid"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This official interview identifies Dark Samus by name in the context of Metroid Prime 2 and Metroid Prime 3. Justin Bailey remains unproposed because this source does not address that name."
+}

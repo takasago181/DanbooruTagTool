@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-linn-happy-marriage-kadokawa-vol1-20260928-01",
+  "campaign_key": "authority:mahoutsukai_linn_no_shiawase_na_kekkon",
+  "campaign_fingerprint": "d0cd89cb2c871fc1fbc0bff4c10a67b975cee0332ee1c7a554deeb316a0befd8",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.kadokawa.co.jp/product/322107000442/",
+  "source_claim": "KADOKAWA's official volume 1 page identifies Lynn (リィン・アルベール) as the title character and Cress de Rouen (クレス・ド・ルーアン) as the hero who proposes to her.",
+  "authority_type": "FIRST_PARTY_PUBLISHER_CHARACTER_DESCRIPTION",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "lyn_albell",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahoutsukai_linn_no_shiawase_na_kekkon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "cress_de_rouen",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahoutsukai_linn_no_shiawase_na_kekkon"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the two named characters from the campaign are proposed. The Japanese publisher spells the heroine's name リィン・アルベール; the campaign's canonical tag uses the romanized Lyn Albell form."
+}

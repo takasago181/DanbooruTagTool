@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-metroid-nintendo-dread-saga-report-20260928-01",
+  "campaign_key": "authority:metroid",
+  "campaign_fingerprint": "62b6ce04a4d5e71a3e159b3936556bb8ab916c1fd7ac6bec208e0427e1afc462",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://metroid.nintendo.com/dread/news/metroid-dread-report-vol-4/",
+  "source_claim": "Nintendo's official Metroid Dread Report recounts the Metroid series saga and explicitly names Samus Aran, Ridley, Mother Brain, the Metroid hatchling, and SA-X across Metroid, Super Metroid, and Metroid Fusion.",
+  "authority_type": "FIRST_PARTY_FRANCHISE_STORY_SOURCE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "samus_aran",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "metroid"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ridley",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "metroid"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mother_brain",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "metroid"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "metroid_larva",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "metroid"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sa-x",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "metroid"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The report explicitly identifies the hatchling as the last living Metroid and later covers it in the Super Metroid story; it is the only campaign member with larva wording. Justin Bailey is not proposed because the report does not identify that password reference as a distinct character."
+}
