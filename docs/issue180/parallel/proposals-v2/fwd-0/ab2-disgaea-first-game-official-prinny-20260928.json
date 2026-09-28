@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-disgaea-first-game-official-prinny-20260928",
+  "campaign_key": "authority:disgaea",
+  "campaign_fingerprint": "68535cdc11722118604aa0718adb7e4ba629f8110a5a31b7608629d7ca44cb50",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://disgaea.jp/1/index.html",
+  "source_claim": "Nippon Ichi Software's official Makai Senki Disgaea (Disgaea 1) page includes Prinny Unit (プリニー隊) in its character section and describes them as Etna's retainers. The page identifies the product title as 魔界戦記ディスガイア and bears Nippon Ichi Software copyright.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"prinny","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"disgaea"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official Disgaea 1 character section names Prinnies. No other current campaign member is asserted by this source."
+}

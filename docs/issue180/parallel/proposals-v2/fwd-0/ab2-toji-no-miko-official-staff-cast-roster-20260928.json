@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-toji-no-miko-official-staff-cast-roster-20260928",
+  "campaign_key": "authority:toji_no_miko",
+  "campaign_fingerprint": "68e422a43b58d42698f297b4ffc5b3653cac8a55b8df56a2c895b6d0c2c9c28c",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://tojinomiko.jp/staffcast/",
+  "source_claim": "The official original-anime Toji no Miko website's STAFF & CAST page lists the named character and voice cast for Etou Kanami (衛藤可奈美), Juujou Hiyori (十条姫和), Yanase Mai (柳瀬舞衣), Itomi Sayaka (糸見沙耶香), Mashiko Kaoru (益子薫), Kohagura Ellen (古波蔵エレン), Origami Yukari (折神紫), Satsuki Yomi (皐月夜見), and Tsubakuro Yume (燕結芽). The official website identifies the Toji no Miko production committee in its copyright notice.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"etou_kanami","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"toji_no_miko"},
+    {"subject_type":"Character","subject_key":"juujou_hiyori","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"toji_no_miko"},
+    {"subject_type":"Character","subject_key":"yanase_mai","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"toji_no_miko"},
+    {"subject_type":"Character","subject_key":"itomi_sayaka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"toji_no_miko"},
+    {"subject_type":"Character","subject_key":"mashiko_kaoru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"toji_no_miko"},
+    {"subject_type":"Character","subject_key":"kohagura_ellen","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"toji_no_miko"},
+    {"subject_type":"Character","subject_key":"origami_yukari","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"toji_no_miko"},
+    {"subject_type":"Character","subject_key":"satsuki_yomi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"toji_no_miko"},
+    {"subject_type":"Character","subject_key":"tsubakuro_yume","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"toji_no_miko"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All nine exact current campaign character identities named on this official cast page are proposed; the campaign's remaining identities are not named by this source and are omitted."
+}

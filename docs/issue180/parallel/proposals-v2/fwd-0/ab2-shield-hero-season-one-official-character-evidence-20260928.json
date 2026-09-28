@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-shield-hero-season-one-official-character-evidence-20260928",
+  "campaign_key": "authority:tate_no_yuusha_no_nariagari",
+  "campaign_fingerprint": "d5b6b752e0ac4245ce0cecb01d0564b82c7adc4be3e41f2448834e31e11b81da",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://shieldhero-anime.jp/1st/",
+  "source_claim": "The official TV anime site for The Rising of the Shield Hero Season 1 identifies Iwatani Naofumi (岩谷尚文) and Raphtalia (ラフタリア) in its introduction/episode synopses and profiles, and names Melty (メルティ) in episode 9 and later synopses. The site is the official site for the Shield Hero anime adaptation.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"iwatani_naofumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tate_no_yuusha_no_nariagari"},
+    {"subject_type":"Character","subject_key":"raphtalia","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tate_no_yuusha_no_nariagari"},
+    {"subject_type":"Character","subject_key":"melty_q_melromarc","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tate_no_yuusha_no_nariagari"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official site explicitly names these three current campaign characters. No campaign aliases, surnames, or other unlisted identities are inferred."
+}
