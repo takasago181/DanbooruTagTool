@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-onimai-official-anime-main-cast-20260928",
+  "campaign_key": "authority:onii-chan_wa_oshimai!",
+  "campaign_fingerprint": "225aad963dadaa1f6d85280c61f5b3a33e8a1b5b14c41d44edb58264be9b30d5",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://onimai.jp/character/",
+  "source_claim": "The official TV anime character directory lists Mahiro and Mihari Oyama, Kaede and Momiji Hozuki, Asahi Ohka, and Miyo Murosaki as characters in Onii-chan wa Oshimai!.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"oyama_mahiro","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"onii-chan_wa_oshimai!"},
+    {"subject_type":"Character","subject_key":"oyama_mihari","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"onii-chan_wa_oshimai!"},
+    {"subject_type":"Character","subject_key":"hozuki_kaede","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"onii-chan_wa_oshimai!"},
+    {"subject_type":"Character","subject_key":"hozuki_momiji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"onii-chan_wa_oshimai!"},
+    {"subject_type":"Character","subject_key":"oka_asahi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"onii-chan_wa_oshimai!"},
+    {"subject_type":"Character","subject_key":"murosaki_miyo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"onii-chan_wa_oshimai!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The series' official anime site presents these six named cast members in its character directory and shows their relationships within the work."
+}
