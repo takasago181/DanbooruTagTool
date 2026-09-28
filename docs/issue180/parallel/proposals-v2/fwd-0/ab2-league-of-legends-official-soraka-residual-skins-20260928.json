@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-league-of-legends-official-soraka-residual-skins-20260928",
+  "campaign_key": "authority:league_of_legends",
+  "campaign_fingerprint": "bc99f2467c0c4f57b2b9c8d95201134d1c4290c802ff34c0d1f48c93c0f205d5",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.leagueoflegends.com/en-us/champions/soraka/",
+  "source_claim": "The official Soraka champion page lists Star Guardian Soraka, Cafe Cuties Soraka, and Spirit Blossom Soraka in its Available Skins inventory. The accepted source review establishes exact official skin listing as VARIANT_OF to canonical champion Soraka.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "source_review_id_hint": "src180-ab2-league-of-legends-official-soraka-skin-roster-20260928",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "star_guardian_soraka",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "soraka"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "cafe_cuties_soraka",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "soraka"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "spirit_blossom_soraka",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "soraka"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The exact source-listed skin is linked only to its base champion. The canonical HOME is inherited through the base; no direct skin-to-Copyright relation is proposed."
+}
