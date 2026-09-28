@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-amagi-brilliant-park-tbs-character-list-20260928",
+  "campaign_key": "authority:amagi_brilliant_park",
+  "campaign_fingerprint": "870e6ec8442e33deb9034168eeb09f7c5a6e12a60d30532fef3b5748c0a4e946",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tbs.co.jp/anime/amaburi/chara/",
+  "source_claim": "The official TBS Amagi Brilliant Park character page identifies Seiya Kanie, Isuzu Sento, and Latifa Fleuranza as park characters and identifies Moffle and Tiramii as its cast mascots/fairies.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"kanie_seiya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"amagi_brilliant_park"},
+    {"subject_type":"Character","subject_key":"sento_isuzu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"amagi_brilliant_park"},
+    {"subject_type":"Character","subject_key":"latifa_fleuranza","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"amagi_brilliant_park"},
+    {"subject_type":"Character","subject_key":"moffle","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"amagi_brilliant_park"},
+    {"subject_type":"Character","subject_key":"tiramii","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"amagi_brilliant_park"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All five exact campaign members are expressly named in the official character listing; actors and other park members are excluded."
+}
