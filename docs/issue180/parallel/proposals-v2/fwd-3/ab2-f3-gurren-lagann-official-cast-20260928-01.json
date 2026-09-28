@@ -1,0 +1,121 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-gurren-lagann-official-cast-20260928-01",
+  "campaign_key": "authority:tengen_toppa_gurren_lagann",
+  "campaign_fingerprint": "38d91b19386f8d2ff73788b66fdfa770b6489029a922816be38347335a5bd73c",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.st-trigger.co.jp/works/gurren-lagann/",
+  "source_claim": "Studio Trigger’s official work page for Tengen Toppa Gurren Lagann names Simon, Kamina, Yoko, Leeron, Dayakka, Kittan, Kiyoh, Kinon, Kiyal, Rossiu, Gimmy, Darry, Nia, Thymilph, Adiane, Guame, and Lordgenome in its cast list.",
+  "authority_type": "FIRST_PARTY_WORK_CAST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "dayakka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tengen_toppa_gurren_lagann"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "darry_adai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tengen_toppa_gurren_lagann"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "gimmy_adai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tengen_toppa_gurren_lagann"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "guame",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tengen_toppa_gurren_lagann"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "adiane",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tengen_toppa_gurren_lagann"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kinon_bachika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tengen_toppa_gurren_lagann"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kittan_bachika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tengen_toppa_gurren_lagann"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kiyal_bachika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tengen_toppa_gurren_lagann"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kiyoh_bachika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tengen_toppa_gurren_lagann"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "leeron_littner",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tengen_toppa_gurren_lagann"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lordgenome",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tengen_toppa_gurren_lagann"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nia_teppelin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tengen_toppa_gurren_lagann"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rossiu_adai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tengen_toppa_gurren_lagann"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "thymilph",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tengen_toppa_gurren_lagann"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yoko_littner",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tengen_toppa_gurren_lagann"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official studio cast list directly supports named characters. Only campaign Character identities that match cast members are included; Gunmen and unclear identity/tag variants are excluded."
+}

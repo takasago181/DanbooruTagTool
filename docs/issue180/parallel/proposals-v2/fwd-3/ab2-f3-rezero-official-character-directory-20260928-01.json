@@ -1,0 +1,177 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-rezero-official-character-directory-20260928-01",
+  "campaign_key": "authority:re:zero_kara_hajimeru_isekai_seikatsu",
+  "campaign_fingerprint": "b2f99558e3301825d39cb7f109c6f1ed44329445062e40e53e70493950aef830",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://re-zero-anime.jp/tv/character/",
+  "source_claim": "The official Re:Zero anime character directory lists the matching named identities in the current campaign, including Subaru, the royal-selection factions, the assassin sisters, Witch Cult members, and the Priestella/Tower characters.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "anastasia_hoshin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:zero_kara_hajimeru_isekai_seikatsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "capella_emerada_lugunica",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:zero_kara_hajimeru_isekai_seikatsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "crusch_karsten",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:zero_kara_hajimeru_isekai_seikatsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "elsa_granhilte",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:zero_kara_hajimeru_isekai_seikatsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "felix_argyle",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:zero_kara_hajimeru_isekai_seikatsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "frederica_baumann",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:zero_kara_hajimeru_isekai_seikatsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "garfiel_tinsel",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:zero_kara_hajimeru_isekai_seikatsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "julius_juukulius",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:zero_kara_hajimeru_isekai_seikatsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "liliana_masquerade",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:zero_kara_hajimeru_isekai_seikatsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "meili_portroute",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:zero_kara_hajimeru_isekai_seikatsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mimi_pearlbaton",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:zero_kara_hajimeru_isekai_seikatsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "natsuki_subaru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:zero_kara_hajimeru_isekai_seikatsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "otto_suewen",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:zero_kara_hajimeru_isekai_seikatsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "petelgeuse_romaneeconti",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:zero_kara_hajimeru_isekai_seikatsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "petra_leyte",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:zero_kara_hajimeru_isekai_seikatsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "priscilla_barielle",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:zero_kara_hajimeru_isekai_seikatsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "regulus_corneas",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:zero_kara_hajimeru_isekai_seikatsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "reinhard_van_astrea",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:zero_kara_hajimeru_isekai_seikatsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "roswaal_l._mathers",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:zero_kara_hajimeru_isekai_seikatsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rui_arneb",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:zero_kara_hajimeru_isekai_seikatsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ryuzu_meyer",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:zero_kara_hajimeru_isekai_seikatsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "vincent_vollachia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:zero_kara_hajimeru_isekai_seikatsu"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "wilhelm_van_astrea",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:zero_kara_hajimeru_isekai_seikatsu"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only current campaign identities with a matching named entry on the official anime character directory are proposed. Campaign members not shown on this source page, and ambiguity-prone near matches, are omitted."
+}

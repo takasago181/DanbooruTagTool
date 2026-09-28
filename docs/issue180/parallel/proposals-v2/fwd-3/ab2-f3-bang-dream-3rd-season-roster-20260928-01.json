@@ -1,0 +1,114 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-bang-dream-3rd-season-roster-20260928-01",
+  "campaign_key": "authority:bang_dream!",
+  "campaign_fingerprint": "c37980aa2dae9c44074e5ef665d454e98ec1d0b04ee0fa99866eb82ad2b1d63c",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://anime.bang-dream.com/3rd/character/",
+  "source_claim": "The official BanG Dream! 3rd Season character directory explicitly lists the matching Afterglow, Pastel＊Palettes, and Hello, Happy World! identities included in this proposal.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "aoba_moca",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bang_dream!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hazawa_tsugumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bang_dream!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hikawa_hina",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bang_dream!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kitazawa_hagumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bang_dream!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "maruyama_aya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bang_dream!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "matsubara_kanon",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bang_dream!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mitake_ran",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bang_dream!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "okusawa_misaki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bang_dream!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "seta_kaoru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bang_dream!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shirasagi_chisato",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bang_dream!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "udagawa_tomoe",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bang_dream!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "uehara_himari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bang_dream!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "wakamiya_eve",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bang_dream!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yamato_maya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bang_dream!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This proposal includes only exact matching campaign identities individually named in the official 3rd Season directory. RAISE A SUILEN characters whose directory labels use stage names rather than the dispatch identities, and identities introduced outside this season, are omitted."
+}

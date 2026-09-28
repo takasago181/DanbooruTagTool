@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-atelier-firis-character-directory-20260928-01",
+  "campaign_key": "authority:atelier_(series)",
+  "campaign_fingerprint": "bec63fe65076d6b13c81e2d6acdd88b05a30b8f9e06aee31c40ba3c6038f6091",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://social.gust.co.jp/firis/chara_top.html",
+  "source_claim": "Gust’s official Atelier Firis character directory explicitly lists Firis Mistlud, Ilmeria Von Leinweber, Sophie Neuenmuller, Plachta, Pamela Ibis, and Escha Malier among the named characters.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "firis_mistlud",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "atelier_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ilmeria_von_leinweber",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "atelier_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sophie_neuenmuller",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "atelier_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "plachta",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "atelier_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "pamela_ibis",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "atelier_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "escha_malier",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "atelier_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only matching character names in Gust’s official Atelier Firis directory are proposed. The shared Atelier series root is the campaign’s current Copyright family; unrelated returning characters and entities are omitted."
+}
