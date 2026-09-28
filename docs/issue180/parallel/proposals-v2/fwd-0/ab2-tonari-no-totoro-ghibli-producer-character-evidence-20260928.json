@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-tonari-no-totoro-ghibli-mei-totoro-20260928",
+  "campaign_key": "authority:tonari_no_totoro",
+  "campaign_fingerprint": "45e24ba35576473a6b969c74199d7abe0afcdd4b5f03477dd50a35a8deed1eee",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.ghibli.jp/storage/000457/",
+  "source_claim": "In an article published in the official Studio Ghibli archive, producer Toshio Suzuki explicitly refers to the pair メイとトトロ as characters in となりのトトロ.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"kusakabe_mei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tonari_no_totoro"},
+    {"subject_type":"Character","subject_key":"totoro","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tonari_no_totoro"}
+  ],
+  "terminal_reviews": [],
+  "notes": "This positive batch includes only the two Characters explicitly named together by the Studio Ghibli producer; it makes no claim about the rest of the campaign roster."
+}
