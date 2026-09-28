@@ -1,0 +1,26 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-baccano-official-character-roster-20260928",
+  "campaign_key": "authority:baccano!",
+  "campaign_fingerprint": "8450167d28b069d65705c5b1fee7eb2b4fc2c27d3f50ddc6327d5cdb58b940f8",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.baccano.jp/character/list.html",
+  "source_claim": "The official BACCANO! character directory explicitly names and describes Chane Laforet, Claire Stanfield, Czeslaw Meyer, Ennis, Firo Prochainezo, Isaac Dian, Jacuzzi Splot, Ladd Russo, Miria Harvent, and Nice Holystone as characters in its BACCANO! roster. The page carries the official Project Baccano! copyright.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"chane_laforet","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"baccano!"},
+    {"subject_type":"Character","subject_key":"claire_stanfield","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"baccano!"},
+    {"subject_type":"Character","subject_key":"czeslaw_meyer","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"baccano!"},
+    {"subject_type":"Character","subject_key":"ennis","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"baccano!"},
+    {"subject_type":"Character","subject_key":"firo_prochainezo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"baccano!"},
+    {"subject_type":"Character","subject_key":"isaac_dian","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"baccano!"},
+    {"subject_type":"Character","subject_key":"jacuzzi_splot","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"baccano!"},
+    {"subject_type":"Character","subject_key":"ladd_russo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"baccano!"},
+    {"subject_type":"Character","subject_key":"miria_harvent","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"baccano!"},
+    {"subject_type":"Character","subject_key":"nice_holystone","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"baccano!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the exact campaign members named on the official character directory are included. Graham Specter is supported separately by an official episode page."
+}

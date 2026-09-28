@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-baccano-official-special-episode-graham-specter-20260928",
+  "campaign_key": "authority:baccano!",
+  "campaign_fingerprint": "8450167d28b069d65705c5b1fee7eb2b4fc2c27d3f50ddc6327d5cdb58b940f8",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.baccano.jp/story/s14.html",
+  "source_claim": "The official BACCANO! episode 14 page titles the DVD-only special 'Graham Specter's Love and Peace' and identifies Graham Specter by name in its episode synopsis, which places him within the BACCANO! story and carries the Project Baccano! copyright.",
+  "authority_type": "FIRST_PARTY_EPISODE_SYNOPSIS",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"graham_specter","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"baccano!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official episode synopsis explicitly identifies Graham Specter as the special episode's central character; no additional cast identity is inferred."
+}
