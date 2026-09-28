@@ -1,0 +1,79 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-kill-la-kill-trigger-main-cast-20260928",
+  "campaign_key": "authority:kill_la_kill",
+  "campaign_fingerprint": "ba8353741b68112cae4eef034ccf71b37ac5b6cb256bfde31beec98a4c990068",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.st-trigger.co.jp/works/kill-la-kill/",
+  "source_claim": "TRIGGER’s official Kill la Kill work page identifies the TV series and lists the main cast by character name, including Ryuko Matoi, Satsuki Kiryuin, Mako Mankanshoku, Aikuro Mikisugi, Uzu Sanageyama, Houka Inumuta, Ira Gamagoori, Nonon Jakuzure, and Senketsu.",
+  "authority_type": "OFFICIAL_STUDIO_WORK_AND_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "matoi_ryuuko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kill_la_kill"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kiryuuin_satsuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kill_la_kill"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mankanshoku_mako",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kill_la_kill"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mikisugi_aikurou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kill_la_kill"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sanageyama_uzu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kill_la_kill"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "inumuta_houka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kill_la_kill"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "gamagoori_ira",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kill_la_kill"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jakuzure_nonon",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kill_la_kill"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "senketsu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kill_la_kill"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The studio page’s series framing and named character/cast pairs directly establish these identities as characters of Kill la Kill."
+}

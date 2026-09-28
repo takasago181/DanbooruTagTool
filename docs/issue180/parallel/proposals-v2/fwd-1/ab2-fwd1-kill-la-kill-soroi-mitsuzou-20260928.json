@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-kill-la-kill-soroi-mitsuzou-20260928",
+  "campaign_key": "authority:kill_la_kill",
+  "campaign_fingerprint": "ba8353741b68112cae4eef034ccf71b37ac5b6cb256bfde31beec98a4c990068",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.kill-la-kill.jp/character/butler.html",
+  "source_claim": "The official anime character profile names Mitsuzou Soroi (揃三蔵) and describes him as Satsuki’s butler.",
+  "authority_type": "FIRST_PARTY_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "soroi_mitsuzou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kill_la_kill"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The Romanized campaign tag corresponds to the exact named character on the official page."
+}
