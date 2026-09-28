@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-sailor-moon-cosmos-starlights-20260928-01",
+  "campaign_key": "authority:bishoujo_senshi_sailor_moon",
+  "campaign_fingerprint": "35a2ed8eaeaa1c01a23af68ec571c6528e747dbbf1977c58dcb7ca284a8d1486",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://sailormoon-official.com/information/_cosmos.php",
+  "source_claim": "The official Sailor Moon 30th anniversary project page for the Cosmos theatrical film identifies the Sailor Star Lights / Three Lights and explicitly pairs Sailor Star Fighter with Seiya Kou, Sailor Star Maker with Taiki Kou, and Sailor Star Healer with Yaten Kou.",
+  "authority_type": "SAILOR_MOON_OFFICIAL_FRANCHISE_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "sailor_star_fighter",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bishoujo_senshi_sailor_moon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sailor_star_maker",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bishoujo_senshi_sailor_moon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sailor_star_healer",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bishoujo_senshi_sailor_moon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "seiya_kou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bishoujo_senshi_sailor_moon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "taiki_kou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bishoujo_senshi_sailor_moon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yaten_kou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bishoujo_senshi_sailor_moon"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "One checked official film/cast announcement explicitly gives all six character identities and places them in the Sailor Moon Cosmos film. Only the six exact campaign-member names on this page are included; no identities are inferred from shared group membership."
+}

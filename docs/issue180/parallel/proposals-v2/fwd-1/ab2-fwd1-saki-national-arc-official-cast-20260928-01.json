@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-saki-national-arc-official-cast-20260928-01",
+  "campaign_key": "authority:saki_(manga)",
+  "campaign_fingerprint": "f2bb95522e5967bc2a2aa6998ec302b8fed9cc6538ff05f2bcd07cb151954fa7",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/anime/saki3/sp/staff/index.html",
+  "source_claim": "TV Tokyo’s official Saki: The Nationals anime cast page names these characters, gives their cast credits, identifies the original Saki work/creator, and carries the Saki National Arc production copyright.",
+  "authority_type": "OFFICIAL_ANIME_CAST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kataoka_yuuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saki_(manga)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "someya_mako",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saki_(manga)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takei_hisa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saki_(manga)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "suehara_kyouko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saki_(manga)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "usuzumi_hatsumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saki_(manga)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kosegawa_shiromi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saki_(manga)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aislinn_wishart",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saki_(manga)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "One checked official cast page supports all seven exact current campaign members: Yuuki Kataoka, Mako Someya, Hisa Takei, Kyoko Suehara, Hatsumi Usuzumi, Shiromi Kosegawa, and Aislinn Wishart (rendered in Japanese as エイスリン ウィッシュアート). The page’s Japanese name for Aislinn is explicitly paired with the Saki cast context. No relation is inferred from team membership alone."
+}

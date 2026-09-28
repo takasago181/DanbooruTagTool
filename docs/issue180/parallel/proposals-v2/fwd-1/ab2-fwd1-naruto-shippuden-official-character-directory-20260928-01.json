@@ -1,0 +1,163 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-naruto-shippuden-official-character-directory-20260928-01",
+  "campaign_key": "authority:naruto_(series)",
+  "campaign_fingerprint": "58deb8be570d921260b7dae1a7e73c6b0d0fad441284717c6c15db2d47f003df",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/anime/naruto/sp/chara/chara_detail.html",
+  "source_claim": "TV Tokyo’s official Naruto Shippuden character directory explicitly lists these named characters in the series character gallery and carries the Naruto Shippuden production credit.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "haruno_sakura",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "naruto_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hatake_kakashi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "naruto_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nara_shikamaru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "naruto_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "akimichi_chouji",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "naruto_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yamanaka_ino",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "naruto_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rock_lee",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "naruto_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hyuuga_neji",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "naruto_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hyuuga_hinata",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "naruto_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "inuzuka_kiba",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "naruto_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aburame_shino",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "naruto_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "might_guy",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "naruto_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yakushi_kabuto",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "naruto_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "uchiha_itachi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "naruto_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hoozuki_suigetsu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "naruto_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "uzumaki_kushina",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "naruto_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "senju_hashirama",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "naruto_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "senju_tobirama",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "naruto_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "namikaze_minato",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "naruto_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "terumi_mei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "naruto_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "killer_bee",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "naruto_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "uchiha_madara",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "naruto_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Included only exact current campaign members explicitly named in the official Japanese character directory: Sakura Haruno, Kakashi Hatake, Shikamaru Nara, Choji Akimichi, Ino Yamanaka, Rock Lee, Neji Hyuga, Hinata Hyuga, Kiba Inuzuka, Shino Aburame, Might Guy, Kabuto Yakushi, Itachi Uchiha, Suigetsu Hozuki, Kushina Uzumaki, Hashirama Senju, Tobirama Senju, Minato Namikaze, Mei Terumi, Killer Bee, and Madara Uchiha. Japanese-script names are the official character labels; the exact canonical keys are their established transliterations. No relation is inferred from team or family co-occurrence."
+}
