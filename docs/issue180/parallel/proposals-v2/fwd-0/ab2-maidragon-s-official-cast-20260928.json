@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-maidragon-s-official-cast-20260928",
+  "campaign_key": "authority:kobayashi-san_chi_no_maidragon",
+  "campaign_fingerprint": "6b324783385475380851eb1b83d33ec66bfc79087ab6834d6a837ba516eb43a1",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://maidragon.jp/2nd/staff/",
+  "source_claim": "The official Miss Kobayashi's Dragon Maid S staff and cast page lists Kanna, Makoto Takiya, Riko Saikawa, Shouta Magatsuchi, and Taketo Aida as cast roles in the series.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"kanna_kamui","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kobayashi-san_chi_no_maidragon"},
+    {"subject_type":"Character","subject_key":"takiya_makoto","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kobayashi-san_chi_no_maidragon"},
+    {"subject_type":"Character","subject_key":"saikawa_riko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kobayashi-san_chi_no_maidragon"},
+    {"subject_type":"Character","subject_key":"magatsuchi_shouta","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kobayashi-san_chi_no_maidragon"},
+    {"subject_type":"Character","subject_key":"aida_taketo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kobayashi-san_chi_no_maidragon"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All five campaign identities appear as character-role entries in the official anime cast list; performer identities are not submitted as Characters."
+}
