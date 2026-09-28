@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-tenka-official-short-anime-cast-20260928-01",
+  "campaign_key": "authority:tenka_hyakken",
+  "campaign_fingerprint": "32c47824f54de86884487df00b20b779c1154962eef243a987126d912046eb4e",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://tenkahyakken.jp/special/anime/",
+  "source_claim": "The official Tenka Hyakken short-anime project page credits Jouizumi Masamune, Goou Yoshimitsu, Gokotai Yoshimitsu, and Kiku Ichimonji Norimune in the series cast. It explicitly places all four campaign characters within the Tenka Hyakken project.",
+  "authority_type": "OFFICIAL_RIGHTSHOLDER_ANIME_CAST_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"gokotai_yoshimitsu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tenka_hyakken"},
+    {"subject_type":"Character","subject_key":"goou_yoshimitsu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tenka_hyakken"},
+    {"subject_type":"Character","subject_key":"jouizumi_masamune","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tenka_hyakken"},
+    {"subject_type":"Character","subject_key":"kiku_ichimonji_norimune","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tenka_hyakken"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Four exact campaign members are named on this official project cast page; kitsunegasaki_tametsugu is covered only by the companion official publisher page batch."
+}

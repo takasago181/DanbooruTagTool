@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-shoukoujo-official-routes-partial-20260928-01",
+  "campaign_key": "authority:shoukoujo",
+  "campaign_fingerprint": "6866a36b092c637f62127c9c00cb665693a0ea59fc2f9f2b6c36bfeaf40f9908",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "No safe positive HOME relation was established through the bounded routes checked. The developer's current site was in maintenance mode, the official cross-brand page only redirected to that site, the retailer product route exposed an age gate rather than a usable character roster, and searches for the OVA adaptation's primary source surfaced only secondary pages. This is partial research, not evidence that any member lacks a HOME.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_DEVELOPER_SITE","url_or_query":"https://www.tanuki-soft.jp/","result":"The developer's official domain returned only a maintenance notice, without an accessible Shoukoujo story or character roster."},
+    {"route_type":"OFFICIAL_BRAND_CROSS_LINK","url_or_query":"https://www.kaeru-soft.jp/","result":"The current related-brand page identifies the Tanuki Soft official-site link but provides no Shoukoujo product or campaign-member roster."},
+    {"route_type":"RETAILER_CATALOG_AND_ADAPTATION_PRIMARY_SOURCE_SEARCH","url_or_query":"https://www.getchu.com/soft.phtml?id=1055848 ; query: 少交女 THE ANIMATION official publisher cast characters","result":"The product-catalog route returned an age gate in the accessible result; the adaptation-source query surfaced secondary catalog pages but no accessible primary character source. Neither route safely mapped the exact campaign members to HOME."}
+  ],
+  "notes": "Partial route progress only. This does not claim any listed character lacks a HOME and does not terminalize the source Research Unit."
+}

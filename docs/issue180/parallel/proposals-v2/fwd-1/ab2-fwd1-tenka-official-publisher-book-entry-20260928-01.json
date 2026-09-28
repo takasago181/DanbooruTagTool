@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-tenka-official-publisher-book-entry-20260928-01",
+  "campaign_key": "authority:tenka_hyakken",
+  "campaign_fingerprint": "32c47824f54de86884487df00b20b779c1154962eef243a987126d912046eb4e",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://tenkahyakken.jp/goods/book/",
+  "source_claim": "The official Tenka Hyakken project books page describes the publisher's Tenka Hyakken -Shun- volume around Kitsunegasaki Tametsugu and her partner Miyabi, explicitly identifying Kitsunegasaki as a character in the Tenka Hyakken project.",
+  "authority_type": "OFFICIAL_PROJECT_PUBLISHER_BOOK_DESCRIPTION",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"kitsunegasaki_tametsugu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tenka_hyakken"}
+  ],
+  "terminal_reviews": [],
+  "notes": "This separate publisher page explicitly names the residual campaign member in its Tenka Hyakken -Shun- story description."
+}

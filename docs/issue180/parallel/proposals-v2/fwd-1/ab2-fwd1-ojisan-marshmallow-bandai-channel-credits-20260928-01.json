@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-ojisan-marshmallow-bandai-channel-credits-20260928-01",
+  "campaign_key": "authority:ojisan_to_marshmallow",
+  "campaign_fingerprint": "e62fc86bd3f8877befde338a0c853563be4a18c30b59a50fdc95c2799a7a01d5",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.b-ch.com/titles/5028/",
+  "source_claim": "Bandai Channel's curated anime title entry for Ojisan to Marshmallow names Habahiro Kusaka, Iori Wakabayashi, MIO5 (Degasu), and Isamu Wakabayashi in the show's cast list. These four exact campaign characters are explicitly covered by the credited anime title.",
+  "authority_type": "OFFICIAL_DISTRIBUTOR_TITLE_AND_CAST_CREDITS",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"hige_habahiro","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ojisan_to_marshmallow"},
+    {"subject_type":"Character","subject_key":"mio5","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ojisan_to_marshmallow"},
+    {"subject_type":"Character","subject_key":"wakabayashi_iori","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ojisan_to_marshmallow"},
+    {"subject_type":"Character","subject_key":"wakabayashi_isamu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ojisan_to_marshmallow"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The distributor page does not list nose_genki, so this batch does not assign that residual member. The same curated Bandai Channel source class is used in an accepted Issue #180 source review for an unrelated work."
+}
