@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-zyuranger-toei-official-series-characters-20260928",
+  "campaign_key": "authority:kyouryuu_sentai_zyuranger",
+  "campaign_fingerprint": "31cf9fb8179392b1ff7a7e7fab3a48667bcfaa06fcdaf3de812504f053dfc91f",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.toei-video.co.jp/catalog/dstd07929/",
+  "source_claim": "Toei Video's official Kyouryu Sentai Zyuranger volume page credits the series to Toei and names Geki (Tyrannoranger) and Mei (Pteraranger) in its cast. Its story identifies Burai as Geki's brother and sixth warrior. Bandai's official Tamashii Nations Zyuranger catalogue identifies Dragon Ranger as the series' sixth warrior and lists the Dragon Ranger figure under this series; Bandai's official Daizyuzin product page explicitly says Daizyuzin appears in Kyouryu Sentai Zyuranger. This establishes those four exact campaign subjects within the stable Zyuranger root.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "daizyuzin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kyouryuu_sentai_zyuranger"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "dragon_ranger",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kyouryuu_sentai_zyuranger"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ptera_ranger",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kyouryuu_sentai_zyuranger"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tyranno_ranger",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kyouryuu_sentai_zyuranger"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Additional checked official sources: https://tamashiiweb.com/item_character/zyuranger/ and https://toy.bandai.co.jp/ja/article/detail/?cate=item&path=01_5179. The two Mighty Morphin Power Rangers subjects in the campaign were deliberately not mapped to Zyuranger: they belong to the separate adaptation-root question and these sources do not establish their HOME as Zyuranger."
+}

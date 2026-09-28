@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-kekkai-sensen-mbs-official-core-cast-20260928",
+  "campaign_key": "authority:kekkai_sensen",
+  "campaign_fingerprint": "a6e2ac5c50dba3aacab39346f8725315f50915a2457e1c2e0b1da7a911e9b1dc",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.mbs.jp/kekkaisensen/",
+  "source_claim": "The official MBS TV page for Kekkai Sensen & BEYOND lists the campaign's six exact characters in its cast section: Klaus V. Reinhertz (クラウス・V・ラインヘルツ), Leonardo Watch (レオナルド・ウォッチ), Zapp Renfro (ザップ・レンフロ), Steven A. Starphase (スティーブン・A・スターフェイズ), Chain Sumeragi (チェイン・皇), and Sonic (ソニック). It identifies the original work as Yasuhiro Nightow's Shueisha Jump Comics title and credits the Kekkai Sensen & BEYOND production committee. The official first-season character directory independently lists the same named characters, and an official announcement identifies Sonic as 音速猿 (Sonic Speed Monkey).",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "chain_sumeragi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kekkai_sensen"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "klaus_von_reinhertz",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kekkai_sensen"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "leonardo_watch",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kekkai_sensen"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sonic_speed_monkey",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kekkai_sensen"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "steven_a._starphase",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kekkai_sensen"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "zap_renfro",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kekkai_sensen"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Supporting first-party pages: https://kekkaisensen.com/1st/character/index.html and https://kekkaisensen.com/1st/news/infomation/index.html. The proposal is limited to the six exact characters in this campaign; no other cast members are added. The stable root is the original Kekkai Sensen title, not a second HOME for the BEYOND adaptation."
+}

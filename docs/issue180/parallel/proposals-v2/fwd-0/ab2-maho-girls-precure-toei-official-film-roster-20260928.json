@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-maho-girls-precure-toei-official-film-roster-20260928",
+  "campaign_key": "authority:mahou_girls_precure!",
+  "campaign_fingerprint": "a3351c6115523f66a2b96442f29fd0d306c870eec99ea965c16a364721e62fba",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://lineup.toei-anim.co.jp/ja/movie/mahou_precure_movie/character/",
+  "source_claim": "Toei Animation's official character/cast page for the Maho Girls Precure! movie explicitly presents Cure Miracle / Mirai Asahina, Cure Magical / Riko Izayoi, Cure Felice / Kotoha Hanami, and Cure Mofurun / Mofurun together as the movie's characters. These names and paired identities exactly cover all six current campaign Character tags.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "asahina_mirai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_girls_precure!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "cure_magical",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_girls_precure!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "cure_miracle",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_girls_precure!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "cure_mofurun",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_girls_precure!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hanami_kotoha",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_girls_precure!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "izayoi_liko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_girls_precure!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official roster explicitly binds transformation names to civilian identities and includes Cure Mofurun/Mofurun. This uses the stable series root; no separate HOME is proposed for the feature-film adaptation."
+}
