@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-rokyubu-official-broadcast-roster-20260928",
+  "campaign_key": "authority:rou-kyuu-bu!",
+  "campaign_fingerprint": "6b573426f939b4f8dc53e1eeca0d17785c094ceac43660787ff278e3b476c205",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.b-ch.com/titles/3044/",
+  "source_claim": "The official Bandai Channel title page for Ro-Kyu-Bu! lists character profiles and cast credits for Minato Tomoka, Misawa Maho, Nagatsuka Saki, Kashii Airi, and Hakamada Hinata, and identifies the original work as Aoyama Sag's Dengeki Bunko novel published by ASCII Media Works.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "hakamada_hinata",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rou-kyuu-bu!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kashii_airi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rou-kyuu-bu!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "minato_tomoka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rou-kyuu-bu!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "misawa_maho",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rou-kyuu-bu!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nagatsuka_saki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "rou-kyuu-bu!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "All five exact campaign members have individual character entries and/or named cast credits on the official Bandai Channel listing."
+}
