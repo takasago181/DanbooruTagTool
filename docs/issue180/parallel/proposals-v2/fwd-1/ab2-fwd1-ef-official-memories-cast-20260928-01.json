@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-ef-official-memories-cast-20260928-01",
+  "campaign_key": "authority:ef_(visual_novel)",
+  "campaign_fingerprint": "f46d8722c73dddb79073c0ceb538c99497865fe279f3f6295830f3a5ccfa0dee",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.ef-memo.com/staff_cast.html",
+  "source_claim": "The official ef - a tale of memories. site lists Miyamura Miyako, Shindou Chihiro, Hayama Mizuki, and Amamiya Yuuko in the cast. The official series is an adaptation of the ef work, and each exact campaign character is listed as a role in that named series.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "miyamura_miyako",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ef_a_fairy_tale_of_the_two"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shindou_chihiro",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ef_a_fairy_tale_of_the_two"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hayama_mizuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ef_a_fairy_tale_of_the_two"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "amamiya_yuuko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ef_a_fairy_tale_of_the_two"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": ""
+}

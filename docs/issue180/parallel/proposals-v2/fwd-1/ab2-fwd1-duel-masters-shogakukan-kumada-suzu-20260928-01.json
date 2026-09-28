@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-duel-masters-shogakukan-kumada-suzu-20260928-01",
+  "campaign_key": "authority:duel_masters",
+  "campaign_fingerprint": "b0a7724ae85140d5db64e832da95f50bc62ff3537f2c0fee850c8aae1fa1bbc7",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.shogakukan.co.jp/books/09143684",
+  "source_claim": "Shogakukan’s official book page for Dragon Musume no Dokodemonai Zone identifies Kumada Suzu as the character modeled on Duel Masters’ Akuma-ryu Dark Masters, and describes the book’s Dragon Musume as girlified popular Duel Masters dragons. This establishes Kumada Suzu’s direct Duel Masters franchise HOME.",
+  "authority_type": "OFFICIAL_PUBLISHER_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kumada_suzu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "duel_masters"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": ""
+}
