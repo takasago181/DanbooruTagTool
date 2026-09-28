@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-haruhi-official-spin-off-characters-20260928",
+  "campaign_key": "authority:suzumiya_haruhi_no_yuuutsu",
+  "campaign_fingerprint": "7a0d59ee702c2d10dfe00c2b3695ea7574ecd95e27091387d1ae7cdb19214466",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.haruhi.tv/haruchuru/special.html",
+  "source_claim": "The official Haruhi-chan and Nyoron Churuya-san site identifies Churuya-san as the named character and describes the official Achakura Ryoko variant in the Haruhi-chan animation.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"churuya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"suzumiya_haruhi_no_yuuutsu"},
+    {"subject_type":"Character","subject_key":"achakura","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"suzumiya_haruhi_no_yuuutsu"}
+  ],
+  "terminal_reviews": [],
+  "notes": "This first-party spin-off site explicitly names the title character and describes Achakura Ryoko in the official adaptation. No inference is made for the remaining campaign members."
+}
