@@ -1,0 +1,86 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-uta-no-prince-sama-official-anime-cast-20260928-01",
+  "campaign_key": "authority:uta_no_prince-sama",
+  "campaign_fingerprint": "522255140675f3f901e6066e6ab087f3b904d9f157fec3e5904f022beebae3b1",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://utapri.tv/",
+  "source_claim": "The official Uta no Prince-sama Maji LOVE Legend Star cast and character roster names Haruka Nanami, Otoya Ittoki, Masato Hijirikawa, Tokiya Ichinose, Ren Jinguji, Shou Kurusu, Reiji Kotobuki, Ai Mikaze, Nagi Mikado, and Ringo Tsukimiya.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_AND_CAST_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "hijirikawa_masato",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "uta_no_prince-sama"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ichinose_tokiya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "uta_no_prince-sama"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ittoki_otoya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "uta_no_prince-sama"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jinguuji_ren",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "uta_no_prince-sama"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kotobuki_reiji",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "uta_no_prince-sama"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kurusu_shou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "uta_no_prince-sama"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mikado_nagi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "uta_no_prince-sama"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mikaze_ai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "uta_no_prince-sama"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nanami_haruka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "uta_no_prince-sama"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsukimiya_ringo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "uta_no_prince-sama"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the exact campaign characters named in the official anime roster are proposed."
+}

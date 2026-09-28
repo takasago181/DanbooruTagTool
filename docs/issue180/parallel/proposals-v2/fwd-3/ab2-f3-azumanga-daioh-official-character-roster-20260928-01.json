@@ -1,0 +1,79 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-azumanga-daioh-official-character-roster-20260928-01",
+  "campaign_key": "authority:azumanga_daioh",
+  "campaign_fingerprint": "0ae17ca52d10ef4da4d86693d073dce4e3bad337bb3794e053839eb19f85995b",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.b-ch.com/titles/248/",
+  "source_claim": "The BANDAI CHANNEL Azumanga Daioh character page lists Kasuga Ayumu, Mihama Chiyo, Mizuhara Koyomi, Takino Tomo, Tanizaki Yukari, Kurosawa Minamo, Kimura-sensei, Chiyo Father, and Tadakichi-san.",
+  "authority_type": "OFFICIAL_LICENSEE_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kasuga_ayumu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "azumanga_daioh"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kimura",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "azumanga_daioh"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kurosawa_minamo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "azumanga_daioh"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mihama_chiyo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "azumanga_daioh"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mihama_chiyo's_father",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "azumanga_daioh"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mizuhara_koyomi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "azumanga_daioh"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tadakichi-san",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "azumanga_daioh"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takino_tomo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "azumanga_daioh"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tanizaki_yukari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "azumanga_daioh"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact campaign identities named on the BANDAI CHANNEL character page are proposed."
+}

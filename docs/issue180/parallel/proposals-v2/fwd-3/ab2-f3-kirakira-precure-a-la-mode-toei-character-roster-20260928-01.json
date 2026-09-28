@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-kirakira-precure-a-la-mode-toei-character-roster-20260928-01",
+  "campaign_key": "authority:kirakira_precure_a_la_mode",
+  "campaign_fingerprint": "b850ab77d612e42e878cb1fc05758cbae51984886508a97e868f2a213e0be7cc",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://lineup.toei-anim.co.jp/ja/tv/precure_alamode/character/",
+  "source_claim": "The official Toei Animation character and cast page names Cure Whip/Ichika Usami, Cure Custard/Himari Arisugawa, Cure Gelato/Aoi Tategami, Cure Macaron/Yukari Kotozume, Cure Chocolat/Akira Kenjou, and Kirahoshi Ciel.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_AND_CAST_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "arisugawa_himari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kirakira_precure_a_la_mode"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "cure_chocolat",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kirakira_precure_a_la_mode"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "cure_custard",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kirakira_precure_a_la_mode"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "cure_gelato",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kirakira_precure_a_la_mode"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kirahoshi_ciel",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kirakira_precure_a_la_mode"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kotozume_yukari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kirakira_precure_a_la_mode"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tategami_aoi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kirakira_precure_a_la_mode"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "usami_ichika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kirakira_precure_a_la_mode"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact campaign identities named directly on the official Toei Animation page are proposed. Cure Parfait is omitted because the checked page text does not directly establish its identity mapping."
+}
