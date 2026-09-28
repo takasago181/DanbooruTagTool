@@ -1,0 +1,27 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-akuma-no-riddle-bstbs-official-anime-cast-20260928",
+  "campaign_key": "authority:akuma_no_riddle",
+  "campaign_fingerprint": "7af8f418c75bb860255eedb365a8133e353229e9d51ff855780eae326ca90a35",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://bs.tbs.co.jp/anime/akumanoridoru/",
+  "source_claim": "BS-TBS's official program page for the Akuma no Riddle TV anime lists the cast for the series, including all eleven exact character identities in this current campaign: Azuma Tokaku, Ichinose Haru, Hashiri Nio, Inukai Isuke, Sagae Haruki, Kirigaya Hitsugi, Namatame Chitaru, Banba Mahiru and Mayoi, Hanabusa Sumireko, and Takechi Otoya.",
+  "authority_type": "FIRST_PARTY_ANIME_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"azuma_tokaku","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"akuma_no_riddle"},
+    {"subject_type":"Character","subject_key":"banba_mahiru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"akuma_no_riddle"},
+    {"subject_type":"Character","subject_key":"banba_shin'ya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"akuma_no_riddle"},
+    {"subject_type":"Character","subject_key":"hanabusa_sumireko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"akuma_no_riddle"},
+    {"subject_type":"Character","subject_key":"hashiri_nio","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"akuma_no_riddle"},
+    {"subject_type":"Character","subject_key":"ichinose_haru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"akuma_no_riddle"},
+    {"subject_type":"Character","subject_key":"inukai_isuke","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"akuma_no_riddle"},
+    {"subject_type":"Character","subject_key":"kirigaya_hitsugi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"akuma_no_riddle"},
+    {"subject_type":"Character","subject_key":"namatame_chitaru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"akuma_no_riddle"},
+    {"subject_type":"Character","subject_key":"sagae_haruki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"akuma_no_riddle"},
+    {"subject_type":"Character","subject_key":"takechi_otoya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"akuma_no_riddle"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official Japanese cast listing names Banba Mahiru and Banba Mayoi (真夜), which corresponds to the exact current Danbooru key banba_shin'ya. Only current campaign members explicitly present on the cast list are included."
+}

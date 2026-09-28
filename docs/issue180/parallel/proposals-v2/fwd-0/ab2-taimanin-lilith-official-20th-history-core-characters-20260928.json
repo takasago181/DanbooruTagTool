@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-taimanin-lilith-official-20th-history-core-characters-20260928",
+  "campaign_key": "authority:taimanin_(series)",
+  "campaign_fingerprint": "5c97ab07ad6c38c598a6d68a0db7b39dc9ed34a3ba9f1cb139b39d406a42dbb8",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.lilith-soft.com/event/taimanin20thXRate/history",
+  "source_claim": "Lilith's official Taimanin 20th anniversary history identifies the Taimanin series timeline, names the 2008 spin-off Taimanin Murasaki and its new heroine Yatsu Murasaki, and states that Asagi and Sakura also continue to appear in that series work.",
+  "authority_type": "FIRST_PARTY_FRANCHISE_HISTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"igawa_asagi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"taimanin_(series)"},
+    {"subject_type":"Character","subject_key":"igawa_sakura","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"taimanin_(series)"},
+    {"subject_type":"Character","subject_key":"yatsu_murasaki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"taimanin_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official anniversary timeline explicitly frames the named works and characters as part of the Taimanin series. No other current campaign members are explicitly identified by this page, so none are added."
+}

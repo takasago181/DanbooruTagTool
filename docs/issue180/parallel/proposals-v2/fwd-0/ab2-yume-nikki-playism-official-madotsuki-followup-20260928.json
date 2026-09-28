@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-yume-nikki-playism-official-madotsuki-followup-20260928",
+  "campaign_key": "authority:yume_nikki",
+  "campaign_fingerprint": "9a892858c577bdbea7e46072bf858619cc6fea7ef6ff0e13dda1b3dcc2c14981",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://playism.com/en/game/yumenikki-dream-diary/",
+  "source_claim": "The official PLAYISM product page identifies Madotsuki as the main character of YUMENIKKI -DREAM DIARY-, describes that title as a diverging follow-up to Yume Nikki, and says it was created with Kikiyama's supervision and full cooperation in respect of the original release.",
+  "authority_type": "FIRST_PARTY_PUBLISHER_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"madotsuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yume_nikki"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The publisher page names only Madotsuki among the campaign targets. Its account connects this returning character to the original Yume Nikki work; the other campaign members are not inferred from this page."
+}
