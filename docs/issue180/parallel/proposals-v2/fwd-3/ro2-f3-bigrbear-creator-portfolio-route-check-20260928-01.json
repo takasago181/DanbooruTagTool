@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-bigrbear-creator-portfolio-route-check-20260928-01",
+  "campaign_key": "authority:bigrbear",
+  "campaign_fingerprint": "0fcfc868c3f4493a4c427cfd47f43baaa5b2326de49bbebfd066f99504602c97",
+  "worker_slot": 3,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "FIRST_PARTY_CREATOR_PORTFOLIO",
+      "url_or_query": "https://chaohsuanyeh.artstation.com/projects",
+      "result": "The creator-controlled ArtStation portfolio search listing identifies bigrbear Yeh and project titles “Ophelia” and “Antica and Ostia”; direct retrieval failed in this pass, and the index alone does not define a single shared Copyright for the packet characters."
+    },
+    {
+      "route_type": "FIRST_PARTY_CREATOR_PROJECT_PAGE",
+      "url_or_query": "https://chaohsuanyeh.artstation.com/projects/XnrKrn",
+      "result": "The creator page title “Antica and Ostia” appears in search discovery, but direct page content could not be fetched to establish exact per-character canon or rights scope."
+    },
+    {
+      "route_type": "FIRST_PARTY_CREATOR_PROJECT_SEARCH",
+      "url_or_query": "bigrbear Yeh Ophelia Ostia Antica Ophelia maid character",
+      "result": "No first-party character roster or single named work scope covering all four dispatched tags was verified; discovery results do not establish Ophelia’s maid as an exact official identity."
+    }
+  ],
+  "notes": "Creator-authored project leads were found, but the checked material did not establish one exact Copyright authority that safely covers this whole original-character campaign. This remains partial and is not a terminal or negative conclusion."
+}

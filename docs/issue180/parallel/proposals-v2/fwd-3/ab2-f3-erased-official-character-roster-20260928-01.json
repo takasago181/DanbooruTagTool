@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-erased-official-character-roster-20260928-01",
+  "campaign_key": "authority:boku_dake_ga_inai_machi",
+  "campaign_fingerprint": "bdb79482f78362ef65501737717576b214d1a2377294ee50cfd3bb046a1619fa",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://bokumachi-anime.com/character/",
+  "source_claim": "The official Erased anime character roster identifies Satoru Fujinuma, Kayo Hinazuki, Kenya, and Gaku Yashiro among the series characters.",
+  "authority_type": "FIRST_PARTY_OFFICIAL_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "fujinuma_satoru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_dake_ga_inai_machi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hinazuki_kayo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_dake_ga_inai_machi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kobayashi_kenya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_dake_ga_inai_machi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yashiro_gaku",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_dake_ga_inai_machi"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The work-specific official site directly names all four dispatched identities. The packet tag’s surname-expanded Kenya key resolves to the roster’s named Kenya character in the same exact work context."
+}

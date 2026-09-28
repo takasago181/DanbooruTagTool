@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-bokutachi-official-manga-character-roster-20260928-01",
+  "campaign_key": "authority:bokutachi_wa_benkyou_ga_dekinai",
+  "campaign_fingerprint": "8259cf0bf84404ac38976bcb972251e669b5834a3b137831d8a5520df205cabf",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.shonenjump.com/j/rensai/bokuben/",
+  "source_claim": "Shueisha’s official Weekly Shonen Jump series page lists Fumino Furuhashi, Rizu Ogata, Uruka Takemoto, and Mafuyu Kirisu as characters in Bokutachi wa Benkyou ga Dekinai.",
+  "authority_type": "FIRST_PARTY_OFFICIAL_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "furuhashi_fumino",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bokutachi_wa_benkyou_ga_dekinai"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ogata_rizu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bokutachi_wa_benkyou_ga_dekinai"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takemoto_uruka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bokutachi_wa_benkyou_ga_dekinai"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kirisu_mafuyu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bokutachi_wa_benkyou_ga_dekinai"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Shueisha’s work page explicitly lists each exact dispatched character under the manga title."
+}

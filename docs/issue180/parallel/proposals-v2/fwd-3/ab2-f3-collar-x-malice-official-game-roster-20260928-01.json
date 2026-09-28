@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-collar-x-malice-official-game-roster-20260928-01",
+  "campaign_key": "authority:collar_x_malice",
+  "campaign_fingerprint": "2d31823d80560c0d854e79cc9f957cb81e0ba251810e2950a9af9d4df6507d1b",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.otomate.jp/smp/collar_malice/chara.php",
+  "source_claim": "Idea Factory’s official Otomate character page for Collar×Malice lists Okazaki Kei, Saeki Yuzuru, Sasazuka Takeru, and Shiraishi Kageyuki in its cast roster.",
+  "authority_type": "FIRST_PARTY_OFFICIAL_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "okazaki_kei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "collar_x_malice"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "saeki_yuzuru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "collar_x_malice"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sasazuka_takeru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "collar_x_malice"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shiraishi_kageyuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "collar_x_malice"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The publisher-controlled game page gives the names and character profiles for each exact dispatched route target."
+}
