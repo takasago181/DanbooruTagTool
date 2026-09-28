@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-enciel-rena-triangle-official-product-story-20260928-01",
+  "campaign_key": "authority:kourin_tenshi_en_ciel_rena",
+  "campaign_fingerprint": "612e7abf9bf989bf630e0106c83232314f4deef336fd8ddaeba3a16e4d9118a2",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.route2.co.jp/Triangle/Products/archive.html",
+  "source_claim": "Triangle's official product archive identifies 光臨天使エンシェル・レナ as a Triangle title and its story explicitly says Tomoe Rena (朋衛玲奈) transforms into En Ciel Rena (エンシェルレナ). This source directly establishes the work relation for both the civilian identity and its named transformed identity.",
+  "authority_type": "OFFICIAL_DEVELOPER_PRODUCT_STORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "en_ciel_rena",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kourin_tenshi_en_ciel_rena"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tomoe_rena",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kourin_tenshi_en_ciel_rena"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the two identities explicitly named together in the original product story are proposed. No character affiliations are inferred from later sin/reincarnation titles."
+}

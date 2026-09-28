@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-mato-seihei-no-slave-official-cast-20260928-01",
+  "campaign_key": "authority:mato_seihei_no_slave",
+  "campaign_fingerprint": "1d6a73bb12d4301c33493e2f67a553c7a75f62046c4e3a7107b171aa72d60a9d",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://mabotai.jp/staff/",
+  "source_claim": "The official TV anime staff and cast page names Wakura Yuuki, Uzen Kyouka, Izumo Tenka, Azuma Fubuki, and Yamashiro Ren in the cast for Mato Seihei no Slave. The page credits the original manga creators and Shueisha and carries the production committee copyright.",
+  "authority_type": "OFFICIAL_ANIME_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "azuma_fubuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mato_seihei_no_slave"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "izumo_tenka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mato_seihei_no_slave"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "uzen_kyouka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mato_seihei_no_slave"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "wakura_yuuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mato_seihei_no_slave"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yamashiro_ren",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mato_seihei_no_slave"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The source's official cast list spans both anime seasons and covers all five current campaign members. The truncated name/source display is resolved via its canonical transliterations and explicit Japanese names on this same page."
+}

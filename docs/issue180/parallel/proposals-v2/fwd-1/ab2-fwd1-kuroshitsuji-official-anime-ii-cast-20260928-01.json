@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-kuroshitsuji-official-anime-ii-cast-20260928-01",
+  "campaign_key": "authority:kuroshitsuji",
+  "campaign_fingerprint": "0e6107059917c6b4af60e344461496c8ed4f12e9d65ed34cf49701a9bd08f61b",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.kuroshitsuji.tv/2nd/chara/index.html",
+  "source_claim": "The official TV anime Black Butler II character and cast page identifies Ciel Phantomhive, Sebastian Michaelis, Alois Trancy, and Grelle Sutcliff as characters in the series. Its copyright footer credits Yana Toboso, Square Enix, the Black Butler production committees, and MBS.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_AND_CAST_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "alois_trancy",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kuroshitsuji"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ciel_phantomhive",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kuroshitsuji"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "grell_sutcliff",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kuroshitsuji"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sebastian_michaelis",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kuroshitsuji"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official series page directly covers four campaign members. The packet's Ciel sibling entry is not included because it is not named on this page."
+}
