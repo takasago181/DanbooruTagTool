@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-aquarion-satelight-satefes-cast-20260928-01",
+  "campaign_key": "authority:aquarion_(series)",
+  "campaign_fingerprint": "8eedc2c4cc611bf043d9c32a32a7b0b16ee04c50d260f8fb061cdbc0c51abaee",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.satelight.co.jp/30th-anniversary-satefes%EF%BC%81/%E3%82%B5%E3%83%86%E3%83%A9%E3%82%A4%E3%83%88%E8%A8%AD%E7%AB%8B30%E5%91%A8%E5%B9%B4%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%80%8Esatefes%E3%80%8F%E3%81%AE%E7%AC%AC%E4%BA%8C%E5%BC%BE%E5%87%BA%E6%BC%94/",
+  "source_claim": "Satelight's official event announcement lists Aquarion EVOL cast credits for Amata Sora, Mikono Suzushiro, and Zessica Wong.",
+  "authority_type": "FIRST_PARTY_ANIME_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "amata_sora",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aquarion_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mikono_suzushiro",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aquarion_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "zessica_wong",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aquarion_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the three cast identities included in this campaign are proposed. The announcement explicitly labels these as roles from Aquarion EVOL."
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-xenogears-square-enix-figureheads-20260928-01",
+  "campaign_key": "authority:xenogears",
+  "campaign_fingerprint": "129005396aaa304858adece0945c1a8eaf32c209d0a33422427da8ef4a29b27b",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.jp.square-enix.com/company/ja/news/2016/html/918f6063982f815ec4c087f54e075b6b.html",
+  "source_claim": "Square Enix's official announcement explicitly presents Fei, Citan, and Elly as Figureheads appearing in a Xenogears collaboration.",
+  "authority_type": "FIRST_PARTY_CROSSOVER_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "fei_fong_wong",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "xenogears"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "citan_uzuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "xenogears"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "elhaym_van_houten",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "xenogears"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The article calls the characters Fei, Citan, and Elly in the Xenogears collaboration context; Elly is the campaign's Elhaym Van Houten identity. No other campaign members are inferred from this announcement."
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-xenogears-square-enix-maria-20260928-01",
+  "campaign_key": "authority:xenogears",
+  "campaign_fingerprint": "129005396aaa304858adece0945c1a8eaf32c209d0a33422427da8ef4a29b27b",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://store.jp.square-enix.com/category/901/ME10418.html?__pc_site_mode=pc",
+  "source_claim": "Square Enix's official e-STORE product page identifies Maria Balthasar and ChuChu as a set from Xenogears and describes Maria as a girl guarding Shevat.",
+  "authority_type": "FIRST_PARTY_CHARACTER_PRODUCT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "maria_balthasar",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "xenogears"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only Maria Balthasar is included because she is an exact member of this campaign. ChuChu is named by the page but is not part of this campaign and is not proposed here."
+}

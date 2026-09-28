@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-aquarion-official-evol-site-news-20260928-01",
+  "campaign_key": "authority:aquarion_(series)",
+  "campaign_fingerprint": "8eedc2c4cc611bf043d9c32a32a7b0b16ee04c50d260f8fb061cdbc0c51abaee",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://aqevol.com/news/index.php",
+  "source_claim": "The official Aquarion EVOL news site identifies campaign characters including Jin and Yunoha together and separately features Mikono, Amata, Zessica, and Kagura in EVOL-specific promotional content.",
+  "authority_type": "FIRST_PARTY_FRANCHISE_CHARACTER_COVERAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "amata_sora",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aquarion_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jin_musou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aquarion_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kagura_demuri",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aquarion_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mikono_suzushiro",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aquarion_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yunoha_thrul",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aquarion_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "zessica_wong",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aquarion_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official franchise page explicitly places each named character in Aquarion EVOL contexts. Crea Dorosera is not included because no exact coverage for that campaign member was found on this page."
+}
