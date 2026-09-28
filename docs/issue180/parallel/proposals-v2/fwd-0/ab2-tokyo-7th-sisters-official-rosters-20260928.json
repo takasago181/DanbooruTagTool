@@ -1,0 +1,194 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-t7s-official-777-sisters-roster-20260928",
+    "campaign_key": "authority:tokyo_7th_sisters",
+    "campaign_fingerprint": "7fe62e9686593b042a5d50dbd9753c58c26157485c818bbdc9ac5165c5ec00ac",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://t7s.jp/character/unit/01.html",
+    "source_claim": "The official Tokyo 7th Sisters 777☆SISTERS page identifies the unit and explicitly lists 春日部ハル, 天堂寺ムスビ, 角森ロナ, 野ノ原ヒメ, 芹沢モモカ, 臼田スミレ, 神城スイ, アレサンドラ・スース and 晴海サワラ・カジカ・シンジュ as members.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "alessandra_susu",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_7th_sisters"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "harumi_kajika",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_7th_sisters"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "harumi_sawara",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_7th_sisters"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "harumi_shinju",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_7th_sisters"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "kamishiro_sui",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_7th_sisters"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "kasukabe_haru",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_7th_sisters"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "nonohara_hime",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_7th_sisters"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "serizawa_momoka",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_7th_sisters"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "tendouji_musubi",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_7th_sisters"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "tsunomori_rona",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_7th_sisters"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "usuta_sumire",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_7th_sisters"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Each exact Japanese name is explicitly listed in the checked first-party source as a named roster member, credited artist/character, or official franchise character merchandise identity."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-t7s-official-seventh-sisters-roster-nicole-20260928",
+    "campaign_key": "authority:tokyo_7th_sisters",
+    "campaign_fingerprint": "7fe62e9686593b042a5d50dbd9753c58c26157485c818bbdc9ac5165c5ec00ac",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://t7s.jp/character/unit/11.html",
+    "source_claim": "The official Tokyo 7th Sisters unit page describes the legendary Seven Sisters and explicitly lists 七咲ニコル as a member of that group.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "nanasaki_nicole",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_7th_sisters"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Each exact Japanese name is explicitly listed in the checked first-party source as a named roster member, credited artist/character, or official franchise character merchandise identity."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-t7s-official-lesca-release-kyoko-rena-20260928",
+    "campaign_key": "authority:tokyo_7th_sisters",
+    "campaign_fingerprint": "7fe62e9686593b042a5d50dbd9753c58c26157485c818bbdc9ac5165c5ec00ac",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://t7s.jp/release/cd/t7s_48/",
+    "source_claim": "The official Tokyo 7th Sisters release page credits Le☆S☆Ca and names 上杉・ウエバス・キョーコ and 荒木レナ as its artists/characters.",
+    "authority_type": "FIRST_PARTY_RELEASE_CAST",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "araki_rena",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_7th_sisters"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "uesugi_u._kyouko",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_7th_sisters"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Each exact Japanese name is explicitly listed in the checked first-party source as a named roster member, credited artist/character, or official franchise character merchandise identity."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-t7s-official-release-queen-of-purple-murasaki-20260928",
+    "campaign_key": "authority:tokyo_7th_sisters",
+    "campaign_fingerprint": "7fe62e9686593b042a5d50dbd9753c58c26157485c818bbdc9ac5165c5ec00ac",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://t7s.jp/news/2025/09/4392/",
+    "source_claim": "The official Tokyo 7th Sisters release announcement names The QUEEN of PURPLE and explicitly credits 越前ムラサキ in both the collaboration and group artist lists.",
+    "authority_type": "FIRST_PARTY_RELEASE_CAST",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "echizen_murasaki",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_7th_sisters"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Each exact Japanese name is explicitly listed in the checked first-party source as a named roster member, credited artist/character, or official franchise character merchandise identity."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-t7s-official-store-cilus-makoto-20260928",
+    "campaign_key": "authority:tokyo_7th_sisters",
+    "campaign_fingerprint": "7fe62e9686593b042a5d50dbd9753c58c26157485c818bbdc9ac5165c5ec00ac",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://store.t7s.jp/collections/tamasaka-makoto/ci-lus",
+    "source_claim": "The Tokyo 7th Sisters Official Online Store collection page identifies 玉坂マコト under Ci+LUS and lists Tokyo 7th Sisters character merchandise explicitly bearing her name.",
+    "authority_type": "OFFICIAL_RIGHTS_HOLDER_CHARACTER_CATALOG",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "tamasaka_makoto",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_7th_sisters"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Each exact Japanese name is explicitly listed in the checked first-party source as a named roster member, credited artist/character, or official franchise character merchandise identity."
+  }
+]
