@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-edelgard-summer-official-feh-guide-20260928-01",
+  "campaign_key": "base:edelgard_von_hresvelg",
+  "campaign_fingerprint": "84919467ba39c7ddfc9d6624deea212d693cdecf26dc3c8b4282dc03a7c98848",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://guide.fire-emblem-heroes.com/en-US/12002001000816-2/",
+  "source_claim": "The official Fire Emblem Heroes character guide describes Harmonized Hero Sun Empresses as Edelgard of Fire Emblem: Three Houses in a swimsuit; the Japanese official edition describes the same summer form.",
+  "authority_type": "FIRST_PARTY_GAME_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "edelgard_von_hresvelg_(summer)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fire_emblem"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Nintendo / Intelligent Systems’ official FE Heroes character guide explicitly attributes the exact Edelgard hero form to Fire Emblem: Three Houses; the canonical Fire Emblem copyright is the HOME target."
+}
