@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-kimi-ga-shine-steam-developer-description-sara-20260928",
+  "campaign_key": "authority:kimi_ga_shine",
+  "campaign_fingerprint": "493b088a50cae94a2add32cc2eee5eb7dbeb5a7b283e76099d7a73cd9e9aecdc",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://store.steampowered.com/app/2067780/Your_Turn_To_Die_Death_Game_By_Majority/",
+  "source_claim": "The Steam product page credits Nankidai as developer, gives the game title as Your Turn To Die -Death Game By Majority- (Kimi ga Shine), and identifies Sara Chidouin as its protagonist in the official game description.",
+  "authority_type": "DEVELOPER_PUBLISHED_GAME_STORE_DESCRIPTION",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "chidouin_sara",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kimi_ga_shine"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only Sara Chidouin is explicitly named by the checked developer-published product description; no other campaign member is inferred."
+}

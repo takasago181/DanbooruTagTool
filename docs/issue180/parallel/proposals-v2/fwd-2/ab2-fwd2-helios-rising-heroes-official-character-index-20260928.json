@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-helios-rising-heroes-official-character-index-20260928",
+  "campaign_key": "authority:helios_rising_heroes",
+  "campaign_fingerprint": "8261e0df511911342bf665141e0af5cb146cba3e291143f9f1e4b85be87eb5cc",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://helios-r.jp/characters/",
+  "source_claim": "HELIOS Rising Heroes’ official character index lists the exact named entries Asch Albright, Dino Albani, Gray Reverse, Jay Kidman, Jude Ares, Keith Max, Oscar Bale, and Akira Otori in its rookie, mentor, and 12th Heroes rosters; the site credits Happy Elements.",
+  "authority_type": "HAPPY_ELEMENTS_OFFICIAL_CHARACTER_INDEX",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "asch_albright",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "helios_rising_heroes"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "dino_albani",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "helios_rising_heroes"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "gray_reverse",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "helios_rising_heroes"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jay_kidman",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "helios_rising_heroes"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jude_ares",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "helios_rising_heroes"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "keith_max",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "helios_rising_heroes"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "oscar_bale",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "helios_rising_heroes"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "otori_akira",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "helios_rising_heroes"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Every listed relation is an exact named character entry on the official work site; no adjacent franchise characters were added."
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-baldurs-gate3-larian-official-cast-roster-20260928",
+  "campaign_key": "authority:baldur's_gate",
+  "campaign_fingerprint": "5ac3d2ffc2bc2b1481ba688a4f177aa4230efe1b860d94dfae8469c5a0fb4a03",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://baldursgate3.game/cast",
+  "source_claim": "Larian’s official Baldur’s Gate 3 full-cast page assigns the roles Astarion, Lae’zel, Karlach, and Halsin to their credited principal performers; lists Emma Gregory as Nightwarden Minthara; Jason Isaacs as Lord Enver Gortash; Maggie Robertson as Orin; and includes Cazador Szarr in the named role list.",
+  "authority_type": "LARIAN_OFFICIAL_GAME_FULL_CAST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "astarion",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "baldur's_gate"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "cazador_szarr",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "baldur's_gate"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "enver_gortash",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "baldur's_gate"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "halsin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "baldur's_gate"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "karlach",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "baldur's_gate"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lae'zel",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "baldur's_gate"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "minthara",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "baldur's_gate"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "orin_the_red",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "baldur's_gate"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "All eight relations are explicitly identified on Larian’s official full-cast page; no extra campaign characters are inferred."
+}
