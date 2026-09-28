@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:gensou_suikoden",
+  "campaign_fingerprint": "47867580f6297222945ba1c504f76e8d93b9a2882c5051e49caba0a64d11c350",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-f3-gensou-suikoden-jowy-konami-anime-official-character-20260928-01",
+  "source_url": "https://www.suikoden-anime.com/",
+  "source_claim": "KONAMIが原作権者として記載されるアニメ「幻想水滸伝」公式サイトは、アトレイド家で育ったジョウイをキャラクターとして掲載し、主人公リリュウの幼なじみと説明している。",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "jowy_atreides-blight",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gensou_suikoden"
+    }
+  ],
+  "notes": "The official work page directly identifies the named character as appearing in an official Suikoden work. Only the directly supported exact campaign member is proposed; no roster completion or campaign exhaustion is claimed."
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:gensou_suikoden",
+  "campaign_fingerprint": "47867580f6297222945ba1c504f76e8d93b9a2882c5051e49caba0a64d11c350",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-f3-gensou-suikoden-chris-konami-suikoden3-official-product-20260928-01",
+  "source_url": "https://www.konami.com/games/jp/ja/products/dl_ps3_genso3_arch/",
+  "source_claim": "KONAMIの『幻想水滸伝III』公式製品ページは、本作を同社のRPGとして紹介し、物語の中心人物である女騎士クリスを登場人物として明記している。",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "chris_lightfellow",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "gensou_suikoden"
+    }
+  ],
+  "notes": "The official work page directly identifies the named character as appearing in an official Suikoden work. Only the directly supported exact campaign member is proposed; no roster completion or campaign exhaustion is claimed."
+}
