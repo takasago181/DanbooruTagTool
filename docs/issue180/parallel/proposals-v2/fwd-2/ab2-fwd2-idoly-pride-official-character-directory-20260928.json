@@ -1,0 +1,128 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-idoly-pride-official-character-directory-20260928",
+  "campaign_key": "authority:idoly_pride",
+  "campaign_fingerprint": "a0daad34976292b130705a6d27230f92f5f447692bd7d8179fb7f34ca6845742",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://anime.idolypride.jp/character/",
+  "source_claim": "The official IDOLY PRIDE anime character directory lists the current campaign’s sixteen named fictional idols across Hoshimi Production and Ban Production, with individual character profiles. The official project character pages independently organize those idols into their in-project groups and profile Nagase Mana.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "akazaki_kokoro",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idoly_pride"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hayasaka_mei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idoly_pride"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hyodou_shizuku",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idoly_pride"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ibuki_nagisa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idoly_pride"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ichinose_rei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idoly_pride"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "igawa_aoi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idoly_pride"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kanzaki_rio",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idoly_pride"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "komiyama_ai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idoly_pride"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nagase_kotono",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idoly_pride"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nagase_mana",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idoly_pride"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "narumiya_suzu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idoly_pride"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "okuyama_sumire",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idoly_pride"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shiraishi_chisa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idoly_pride"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shiraishi_saki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idoly_pride"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "suzumura_yuu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idoly_pride"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tendou_rui",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idoly_pride"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Checked https://anime.idolypride.jp/character/ and https://idolypride.jp/character/. The anime directory lists the Hoshimi Production and Ban Production rosters, while official character profiles name the included identities. All sixteen dispatch members are individually named in these first-party materials."
+}

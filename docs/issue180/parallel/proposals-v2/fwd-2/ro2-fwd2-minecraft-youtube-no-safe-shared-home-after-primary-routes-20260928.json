@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd2-minecraft-youtube-no-safe-shared-home-after-primary-routes-20260928",
+  "campaign_key": "authority:minecraft_youtube",
+  "campaign_fingerprint": "be56ae01679a0cd48c82de3a3e2ab0ba0b88e1d7b9d96815b667d487bfe46861",
+  "worker_slot": 2,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "Three primary-source routes were checked. They establish creator participation in Minecraft and describe Dream SMP as collaborative creator storytelling with no single author, but do not provide a single-authority roster mapping this 18-member campaign to exact fictional Character identities under a shared Minecraft YouTube Copyright.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_GAME_PUBLISHER_EDITORIAL",
+      "url_or_query": "https://www.minecraft.net/es-es/article/new-minecraft-youtube-series ; https://www.youtube.com/watch?v=YzaStuZnHBc",
+      "result": "The official Minecraft YouTube feature \"Meet a Minecrafter: Ph1LzA\" describes his Hardcore play and streaming; Minecraft.net editorial searches did not surface an exact fictional-character roster or shared Copyright mapping for the campaign."
+    },
+    {
+      "route_type": "OFFICIAL_PLATFORM_STORYTELLING_COVERAGE",
+      "url_or_query": "https://blog.youtube/culture-and-trends/dream-smp-and-collaborative-storytelling/",
+      "result": "YouTube describes Dream SMP as a group of creators and a shared gaming/world-building experience with no single author. This identifies collaborative context, not an authoritative exact member-to-character roster, and the dispatch campaign is broader than Dream SMP."
+    },
+    {
+      "route_type": "CREATOR_CHANNEL_PROFILES",
+      "url_or_query": "https://www.youtube.com/watch?v=Lm0nYDdsdmk ; official verified channel profiles for GeminiTay and Ph1LzA",
+      "result": "Creator-owned/verified channel material presents personal Minecraft gameplay and creator channels; it does not establish these public creator identities as fictional Characters with the same canonical Copyright. Real-person/roleplay identity conflation would be unsafe."
+    }
+  ],
+  "notes": "This is campaign-level partial research accounting only, not negative evidence or a unit terminal conclusion. No relation is proposed because checked primary sources establish creator activity/collaborative storytelling but do not define a safe shared HOME for this broad identity set. Future progress may resume through accepted routes or exact first-party in-world character authorities; excluded fan wikis and community member lists were not used as evidence."
+}

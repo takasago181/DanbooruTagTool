@@ -1,0 +1,128 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-mahoako-official-character-and-alias-roster-20260928",
+  "campaign_key": "authority:mahou_shoujo_ni_akogarete",
+  "campaign_fingerprint": "b243da260df6db79b5de10d34edb09382eb8ae8f821794ba9f655a2429f6441e",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://mahoako-anime.com/",
+  "source_claim": "The official TV anime site publishes profiles and cast listings for the MahoAko characters. It explicitly pairs the civilian identities with their transformed names: Utena Hiiragi / Magia Baiser, Haruka Hanabishi / Magia Magenta, Sayo Minakami / Magia Azure, Kaoruko Tenkawa / Magia Sulfur, Kiwi Araga / Leopard, Matama Akoya / Loco Musica, and Nemo Anemo / Leberblume; Korisu Morino / Nero Alice and Venalita are also individually profiled.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_AND_TRANSFORMATION_PROFILES",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "akoya_matama",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_shoujo_ni_akogarete"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "anemo_nemo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_shoujo_ni_akogarete"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "araga_kiwi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_shoujo_ni_akogarete"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hanabishi_haruka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_shoujo_ni_akogarete"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hiiragi_utena",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_shoujo_ni_akogarete"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "leberblume",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_shoujo_ni_akogarete"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "loco_musica",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_shoujo_ni_akogarete"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "magia_azure",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_shoujo_ni_akogarete"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "magia_baiser",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_shoujo_ni_akogarete"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "magia_magenta",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_shoujo_ni_akogarete"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "magia_sulfur",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_shoujo_ni_akogarete"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "minakami_sayo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_shoujo_ni_akogarete"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "morino_korisu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_shoujo_ni_akogarete"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nero_alice",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_shoujo_ni_akogarete"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tenkawa_kaoruko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_shoujo_ni_akogarete"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "venalita",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "mahou_shoujo_ni_akogarete"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Checked the first-party anime character/cast material at https://mahoako-anime.com/ and its official Blu-ray/news pages. Each current campaign identity is named in official cast/profile material; paired transformation names are explicitly shown as the same character. No inferred character or variant beyond those named identities is added."
+}
