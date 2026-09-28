@@ -1,0 +1,26 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-adventure-time-fionna-cake-official-release-20260928-01",
+  "campaign_key": "authority:adventure_time",
+  "campaign_fingerprint": "0d9fe98e9f9596894940875b7cbe5a9b23632fbf8558339d5daa2ee63ed1e8c0",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://press.wbd.com/us/media-release/hbo-max-returns-new-york-comic-con-it-welcome-derry-fan-experience-and-cast-panels-it?language_content_entity=en",
+  "source_claim": "Warner Bros. Discovery's official release identifies Adventure Time: Fionna and Cake as based on the Adventure Time franchise and names Fionna Campbell, Cake, Huntress Wizard, Simon Petrikov (the former Ice King), Marshall Lee, Marceline, Princess Bubblegum, Finn, and Jake in the series description.",
+  "authority_type": "OFFICIAL_STUDIO_SERIES_CHARACTER_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"fionna_campbell","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"adventure_time"},
+    {"subject_type":"Character","subject_key":"cake_the_cat","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"adventure_time"},
+    {"subject_type":"Character","subject_key":"huntress_wizard","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"adventure_time"},
+    {"subject_type":"Character","subject_key":"simon_petrikov","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"adventure_time"},
+    {"subject_type":"Character","subject_key":"ice_king","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"adventure_time"},
+    {"subject_type":"Character","subject_key":"marshall_lee","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"adventure_time"},
+    {"subject_type":"Character","subject_key":"marceline_abadeer","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"adventure_time"},
+    {"subject_type":"Character","subject_key":"princess_bonnibel_bubblegum","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"adventure_time"},
+    {"subject_type":"Character","subject_key":"finn_the_human","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"adventure_time"},
+    {"subject_type":"Character","subject_key":"jake_the_dog","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"adventure_time"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The studio release states the spinoff is based on the Adventure Time franchise and identifies these characters as its participants or appearances. Simon Petrikov is explicitly identified as the former Ice King, supporting both exact character tags."
+}

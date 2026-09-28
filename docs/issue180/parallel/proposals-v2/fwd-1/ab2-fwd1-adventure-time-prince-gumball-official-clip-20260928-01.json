@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-adventure-time-prince-gumball-official-clip-20260928-01",
+  "campaign_key": "authority:adventure_time",
+  "campaign_fingerprint": "0d9fe98e9f9596894940875b7cbe5a9b23632fbf8558339d5daa2ee63ed1e8c0",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.youtube.com/watch?v=q82QUB8RoyM",
+  "source_claim": "The verified Adventure Time official channel publishes an Adventure Time clip whose description says Fionna and Cake save Prince Gumball and the Candy Kingdom.",
+  "authority_type": "OFFICIAL_STUDIO_CHARACTER_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"prince_gumball","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"adventure_time"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official channel's clip and description explicitly place Prince Gumball in the Fionna and Cake Adventure Time story."
+}

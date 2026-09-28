@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-adventure-time-distant-lands-bmo-official-release-20260928-01",
+  "campaign_key": "authority:adventure_time",
+  "campaign_fingerprint": "0d9fe98e9f9596894940875b7cbe5a9b23632fbf8558339d5daa2ee63ed1e8c0",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://press.wbd.com/us/media-release/hbo-max-orders-four-adventure-time-distant-lands-specials-cartoon-network-studios",
+  "source_claim": "Warner Bros. Discovery's official Adventure Time: Distant Lands announcement describes BMO as the lead character of one special and identifies BMO as a lovable robot from Adventure Time; the same release situates the specials in the Adventure Time world.",
+  "authority_type": "OFFICIAL_STUDIO_SERIES_CHARACTER_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"bmo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"adventure_time"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The studio's official spin-off announcement explicitly identifies BMO as a character from Adventure Time."
+}
