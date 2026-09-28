@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-jashinchan-official-series-cast-roster-20260928-12",
+  "campaign_key": "authority:jashin-chan_dropkick",
+  "campaign_fingerprint": "11fcfe0817151c3e94b5c5e8ab010707c978b877e926fb0e184a45e75aabbc36",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://jashinchan.com/staffcast",
+  "source_claim": "The official Dropkick on My Devil!!! X series staff/cast page lists Jashin-chan, Yurine Hanazono, Persephone II, Ran-Ran, Ecute, and Lierre in its cast roster.",
+  "authority_type": "FIRST_PARTY_SERIES_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "ecute",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "jashin-chan_dropkick"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hanazono_yurine",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "jashin-chan_dropkick"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jashin-chan",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "jashin-chan_dropkick"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lierre",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "jashin-chan_dropkick"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "persephone_ii",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "jashin-chan_dropkick"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ran-ran",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "jashin-chan_dropkick"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "All six exact campaign identities appear in the official series cast roster."
+}

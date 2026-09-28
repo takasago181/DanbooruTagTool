@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-jigokuraku-shonen-jump-plus-official-manga-20260928-12",
+  "campaign_key": "authority:jigokuraku",
+  "campaign_fingerprint": "477830557a0ac815169640558cb010ef79116809f6968c34e2eb29e040e2544e",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://shonenjumpplus.com/episode/13932016480029295972",
+  "source_claim": "Shueisha’s official Shonen Jump+ page identifies Hell’s Paradise as Yuuji Kaku’s manga and introduces Gabimaru and Yamada Asaemon Sagiri in the work synopsis.",
+  "authority_type": "FIRST_PARTY_MANGA_PUBLISHER_WORK_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "gabimaru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "jigokuraku"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yamada_asaemon_sagiri",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "jigokuraku"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The original manga publisher independently identifies Gabimaru and Sagiri as characters in Hell’s Paradise."
+}
