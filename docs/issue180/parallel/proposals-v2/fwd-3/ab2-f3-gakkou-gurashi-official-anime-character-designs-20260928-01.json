@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-gakkou-gurashi-official-anime-character-designs-20260928-01",
+  "campaign_key": "authority:gakkou_gurashi!",
+  "campaign_fingerprint": "aa6bdee1729d3948dbbf1850d805ea2d61a9d14aeb54c5da5242a1d04448d4cd",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.gakkougurashi.com/news/index00030000.html",
+  "source_claim": "The official Gakkou Gurashi! anime website publishes designs and names for the five dispatched characters: Yuki Takeya, Kurumi Ebisuzawa, Yuuri Wakasa, Miki Naoki, and Megumi Sakura.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"takeya_yuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gakkou_gurashi!"},
+    {"subject_type":"Character","subject_key":"ebisuzawa_kurumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gakkou_gurashi!"},
+    {"subject_type":"Character","subject_key":"wakasa_yuuri","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gakkou_gurashi!"},
+    {"subject_type":"Character","subject_key":"naoki_miki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gakkou_gurashi!"},
+    {"subject_type":"Character","subject_key":"sakura_megumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gakkou_gurashi!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official anime page states the full Japanese names beside the characters' familiar names and describes all five within the series. Each relation is limited to an exact dispatched character."
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-forestia-first-party-discovery-routes-20260928-01",
+  "campaign_key": "authority:forestia",
+  "campaign_fingerprint": "e7fb7a0cd3db9ddd39f6f0993a113e2d9945a650d57ae19563b4bc4c23432862",
+  "worker_slot": 3,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"CREATOR_PORTFOLIO_DISCOVERY","url_or_query":"site:pixiv.net \"bisty\" \"forestia\"","result":"No first-party profile, character index, or exact campaign member match was located on the candidate illustration platform."},
+    {"route_type":"CREATOR_MEMBERSHIP_DISCOVERY","url_or_query":"site:patreon.com \"Laurier\" \"Philo\" \"Forestia\"","result":"No creator-controlled membership or portfolio route matching the five dispatched characters was located."},
+    {"route_type":"CREATOR_SOCIAL_AND_ART_PORTFOLIO_DISCOVERY","url_or_query":"site:deviantart.com OR site:x.com \"Bisty\" \"Laurier\" \"Forestia\"","result":"No verifiable creator-owned page or exact character roster was found; results did not establish an authority for these identities."}
+  ],
+  "notes": "These platform-scoped checks were discovery only and yielded no source that can support a HOME relation. The five-character campaign remains PARTIAL; no ownership is inferred from the parenthetical tag suffix or third-party reposts."
+}
