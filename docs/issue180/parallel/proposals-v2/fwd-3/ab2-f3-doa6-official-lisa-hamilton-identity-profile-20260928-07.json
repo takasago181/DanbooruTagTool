@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-doa6-official-lisa-hamilton-identity-profile-20260928-07",
+  "campaign_key": "authority:dead_or_alive",
+  "campaign_fingerprint": "2bec6fee771fe84435173fa6f3700051608b1b5d0e71a19d94af27e2f33a1feb",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.teamninja-studio.com/doa6/uk/chara_lamariposa.html",
+  "source_claim": "The official DEAD OR ALIVE 6 La Mariposa profile explicitly states that beneath her mask she is DOATEC researcher Lisa Hamilton.",
+  "authority_type": "FIRST_PARTY_DEVELOPER_CHARACTER_IDENTITY_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"lisa_hamilton","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dead_or_alive"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official profile directly establishes the packet's Lisa Hamilton identity within the DOA6 character source."
+}

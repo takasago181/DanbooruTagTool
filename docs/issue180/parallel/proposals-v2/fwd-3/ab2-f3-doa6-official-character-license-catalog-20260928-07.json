@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-doa6-official-character-license-catalog-20260928-07",
+  "campaign_key": "authority:dead_or_alive",
+  "campaign_fingerprint": "2bec6fee771fe84435173fa6f3700051608b1b5d0e71a19d94af27e2f33a1feb",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://teamninja-studio.com/doa6/us/products_info.html",
+  "source_claim": "The official DEAD OR ALIVE 6 product information character-license chart lists HELENA, LEIFANG, MARIE ROSE, NYOTENGU, and TINA as DEAD OR ALIVE 6 characters, with Nyotengu's separate character license noted.",
+  "authority_type": "FIRST_PARTY_DEVELOPER_PRODUCT_AND_CHARACTER_CATALOG",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"helena_douglas","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dead_or_alive"},
+    {"subject_type":"Character","subject_key":"lei_fang","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dead_or_alive"},
+    {"subject_type":"Character","subject_key":"marie_rose","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dead_or_alive"},
+    {"subject_type":"Character","subject_key":"nyotengu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dead_or_alive"},
+    {"subject_type":"Character","subject_key":"tina_armstrong","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dead_or_alive"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The product/license table explicitly places each exact target in the DEAD OR ALIVE 6 character catalog."
+}
