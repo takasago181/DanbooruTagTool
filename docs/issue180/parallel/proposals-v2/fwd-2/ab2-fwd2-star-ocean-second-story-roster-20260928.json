@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-star-ocean-second-story-roster-20260928",
+  "campaign_key": "authority:star_ocean",
+  "campaign_fingerprint": "a8fa7004e96e08600020a3328b500df181ab63e1a2bbf5aab03ab25f7ab8108f",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nintendo.com/jp/topics/article/842c3579-900a-461f-bf65-dd7af235db91",
+  "source_claim": "Nintendo's official STAR OCEAN THE SECOND STORY R article identifies the game as the second entry in the STAR OCEAN series and explicitly names these six included characters in its main-character roster: Celine Jules, Ashton Anchors, Precis F Neumann, Dias Flac, Leon D.S. Geeste, and Opera Vectra.",
+  "authority_type": "LICENSED_OFFICIAL_GAME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"celine_jules","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"star_ocean"},
+    {"subject_type":"Character","subject_key":"ashton_anchors","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"star_ocean"},
+    {"subject_type":"Character","subject_key":"precis_neumann","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"star_ocean"},
+    {"subject_type":"Character","subject_key":"dias_flac","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"star_ocean"},
+    {"subject_type":"Character","subject_key":"leon_geeste","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"star_ocean"},
+    {"subject_type":"Character","subject_key":"opera_vectra","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"star_ocean"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only packet members named in the checked official roster are included. The page describes 13 recruitable characters, but this batch does not infer identities that were not explicitly visible in the checked text."
+}

@@ -1,0 +1,91 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-fwd2-castlevania-n64-carrie-20260928",
+    "campaign_key": "authority:castlevania_(series)",
+    "campaign_fingerprint": "9312a2bbf80b15c37f88dbcaa15f9e709c684652ecfd7b86b47012e0410985dc",
+    "worker_slot": 2,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.konami.com/games/castlevania/us/en-us/page/history_1999_n64",
+    "source_claim": "KONAMI's official Castlevania Nintendo 64 game page explicitly names Carrie Fernandez as one of the two playable characters.",
+    "authority_type": "KONAMI_OFFICIAL_GAME_CHARACTER_PAGE",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"carrie_fernandez","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"castlevania_(series)"}
+    ],
+    "terminal_reviews": [],
+    "notes": "Exact first-party game-page naming only."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-fwd2-castlevania-symphony-of-night-20260928",
+    "campaign_key": "authority:castlevania_(series)",
+    "campaign_fingerprint": "9312a2bbf80b15c37f88dbcaa15f9e709c684652ecfd7b86b47012e0410985dc",
+    "worker_slot": 2,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.konami.com/games/castlevania/eu/en/page/history_1997_ps",
+    "source_claim": "KONAMI's official Castlevania: Symphony of the Night page names Richter Belmont and Maria Renard in the game's story.",
+    "authority_type": "KONAMI_OFFICIAL_GAME_CHARACTER_PAGE",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"richter_belmont","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"castlevania_(series)"},
+      {"subject_type":"Character","subject_key":"maria_renard","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"castlevania_(series)"}
+    ],
+    "terminal_reviews": [],
+    "notes": "Olrox is omitted because the checked page did not explicitly name that exact identity in its text."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-fwd2-castlevania-dominus-roster-20260928",
+    "campaign_key": "authority:castlevania_(series)",
+    "campaign_fingerprint": "9312a2bbf80b15c37f88dbcaa15f9e709c684652ecfd7b86b47012e0410985dc",
+    "worker_slot": 2,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.konami.com/games/castlevania/dominus_collection/us/en-us/",
+    "source_claim": "KONAMI's official Castlevania Dominus Collection page identifies Soma Cruz, Jonathan Morris, and Charlotte Aulin by name and describes their roles in Castlevania series games.",
+    "authority_type": "KONAMI_OFFICIAL_GAME_CHARACTER_PAGE",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"soma_cruz","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"castlevania_(series)"},
+      {"subject_type":"Character","subject_key":"jonathan_morris","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"castlevania_(series)"},
+      {"subject_type":"Character","subject_key":"charlotte_aulin","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"castlevania_(series)"}
+    ],
+    "terminal_reviews": [],
+    "notes": "Exact first-party character names only."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-fwd2-castlevania-simon-s-quest-20260928",
+    "campaign_key": "authority:castlevania_(series)",
+    "campaign_fingerprint": "9312a2bbf80b15c37f88dbcaa15f9e709c684652ecfd7b86b47012e0410985dc",
+    "worker_slot": 2,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.konami.com/games/castlevania/us/en-us/page/history_1987_fcd",
+    "source_claim": "KONAMI's official Castlevania II: Simon's Quest page explicitly names Simon Belmont as its player character.",
+    "authority_type": "KONAMI_OFFICIAL_GAME_CHARACTER_PAGE",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"simon_belmont","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"castlevania_(series)"}
+    ],
+    "terminal_reviews": [],
+    "notes": "Exact first-party game-page naming only."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-fwd2-castlevania-trevor-sypha-20260928",
+    "campaign_key": "authority:castlevania_(series)",
+    "campaign_fingerprint": "9312a2bbf80b15c37f88dbcaa15f9e709c684652ecfd7b86b47012e0410985dc",
+    "worker_slot": 2,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.konami.com/games/castlevania/belmonts_curse/eu/en/character",
+    "source_claim": "KONAMI's official Castlevania: Belmont's Curse character page names Trevor Belmont and Sypha Belnades and describes their roles as Rose Belmont's parents and former allies. The page also places the story 23 years after Castlevania III.",
+    "authority_type": "KONAMI_OFFICIAL_GAME_CHARACTER_PAGE",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"trevor_c._belmont","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"castlevania_(series)"},
+      {"subject_type":"Character","subject_key":"sypha_belnades","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"castlevania_(series)"}
+    ],
+    "terminal_reviews": [],
+    "notes": "Official spelling on the current game page supports the exact Sypha surname and Trevor identity."
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-stellive-official-music-roster-20260928",
+  "campaign_key": "authority:stellive",
+  "campaign_fingerprint": "05613de1a20a5fa0e6146583101141ca377412da6967c0032e0672c3cd1d2d25",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://stellive.me/music/category/416",
+  "source_claim": "Stellive's official music archive lists the exact talent roster, including the 10 current performers by romanized name and Airi Kanna explicitly marked as graduated. It labels individual official music/covers with the corresponding talent's Korean and romanized display names.",
+  "authority_type": "FIRST_PARTY_TALENT_AND_MUSIC_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"airi_kanna","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"stellive"},
+    {"subject_type":"Character","subject_key":"akane_lize","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"stellive"},
+    {"subject_type":"Character","subject_key":"aokumo_rin","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"stellive"},
+    {"subject_type":"Character","subject_key":"arahashi_tabi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"stellive"},
+    {"subject_type":"Character","subject_key":"ayatsuno_yuni","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"stellive"},
+    {"subject_type":"Character","subject_key":"hanako_nana","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"stellive"},
+    {"subject_type":"Character","subject_key":"neneko_mashiro","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"stellive"},
+    {"subject_type":"Character","subject_key":"sakihane_huya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"stellive"},
+    {"subject_type":"Character","subject_key":"shirayuki_hina","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"stellive"},
+    {"subject_type":"Character","subject_key":"tenko_shibuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"stellive"},
+    {"subject_type":"Character","subject_key":"yuzuha_riko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"stellive"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All 11 exact packet members are listed by the first-party archive; its category bar names the Korean forms and individual entries include the romanized display forms. Airi Kanna remains in the relation set because the archive labels her as a graduated Stellive talent."
+}
