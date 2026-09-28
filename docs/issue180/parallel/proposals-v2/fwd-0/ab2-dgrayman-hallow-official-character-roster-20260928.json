@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-dgrayman-hallow-official-character-roster-20260928",
+  "campaign_key": "authority:d.gray-man",
+  "campaign_fingerprint": "a8136010461332a5609048e78867895d5f7ee8b4f2802ae9c21e3e0c23289c46",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://dgrayman-anime.com/character/character.html",
+  "source_claim": "The official D.Gray-man HALLOW character profiles name Allen Walker, Kanda Yuu, Lavi, Lenalee Lee, Howard Link, Miranda Lotto, Tyki Mikk, and Road Kamelot. Allen's official profile also names his companion Timcanpy (ティムキャンピー). The page copyright identifies the D.Gray-man production committee.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"allen_walker","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"d.gray-man"},
+    {"subject_type":"Character","subject_key":"howard_link","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"d.gray-man"},
+    {"subject_type":"Character","subject_key":"kanda_yuu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"d.gray-man"},
+    {"subject_type":"Character","subject_key":"lavi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"d.gray-man"},
+    {"subject_type":"Character","subject_key":"lenalee_lee","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"d.gray-man"},
+    {"subject_type":"Character","subject_key":"miranda_lotto","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"d.gray-man"},
+    {"subject_type":"Character","subject_key":"road_kamelot","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"d.gray-man"},
+    {"subject_type":"Character","subject_key":"timcanpy","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"d.gray-man"},
+    {"subject_type":"Character","subject_key":"tyki_mikk","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"d.gray-man"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All listed subjects are explicitly named on the official HALLOW character site or within Allen's character profile; no variant mapping is proposed."
+}
