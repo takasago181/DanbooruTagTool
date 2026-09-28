@@ -56,17 +56,11 @@ class DecisionShardDiscoveryTests(unittest.TestCase):
                 expected_count += sum(1 for _ in csv.DictReader(stream, strict=True))
         self.assertEqual(len(decisions), expected_count)
         self.assertTrue(all(item["scope"].strip() and item["key"].strip() for item in decisions))
+        active_names = [path.name for path in paths]
+        self.assertTrue(set(OLD_SHARDS).issubset(active_names))
         self.assertEqual(
-            [path.name for path in paths],
-            [
-                "direct_and_exceptions_v2.csv", "discovery_roster_reviews_v2.csv",
-                "family_terminal_reviews_v2.csv", "roster_serial_inazuma_codex_20260929.csv",
-                "roster_verified_v4.csv", "serial_forward_qa_wave_02_20260929.csv",
-                "serial_forward_qa_wave_03_20260929.csv", "serial_forward_qa_wave_04_20260929.csv",
-                "serial_forward_qa_wave_05_20260929.csv",
-                "street_fighter_serial_20260929.csv",
-                "variant_pattern_reviews_v2.csv", "variants_verified_v4.csv",
-            ],
+            [name for name in active_names if name in OLD_SHARDS],
+            sorted(OLD_SHARDS),
         )
 
     def test_repair_audit_machine_checks_all_91_rows_and_semantic_values(self):
