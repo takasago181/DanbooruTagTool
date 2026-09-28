@@ -1,0 +1,24 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-pani-poni-album-cast-20260928-01",
+  "campaign_key": "authority:pani_poni_dash!",
+  "campaign_fingerprint": "67130bb28f62dbaaf4dd15c47d45177a659a385c6a0b1669531efa8f7fe7357b",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://paniponi-dash.com/",
+  "source_claim": "The official Pani Poni Dash! character-vocal-album listing identifies Kashiwagi Yuuna and Yuuma, Shiratori Suzune and Akiyama Otome, Kurusu Yuzuko and Serizawa Akane, Watanuki Hibiki and Miyata Akira, and Behoimi as named characters represented in series character songs.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_MUSIC_LISTING",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"kashiwagi_yuuna","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pani_poni_dash!"},
+    {"subject_type":"Character","subject_key":"kashiwagi_yuuma","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pani_poni_dash!"},
+    {"subject_type":"Character","subject_key":"shiratori_suzune","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pani_poni_dash!"},
+    {"subject_type":"Character","subject_key":"akiyama_otome","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pani_poni_dash!"},
+    {"subject_type":"Character","subject_key":"kurusu_yuzuko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pani_poni_dash!"},
+    {"subject_type":"Character","subject_key":"serizawa_akane","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pani_poni_dash!"},
+    {"subject_type":"Character","subject_key":"miyata_akira","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pani_poni_dash!"},
+    {"subject_type":"Character","subject_key":"behoimi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pani_poni_dash!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The first-party anime site describes these releases as Pani Poni Dash! character vocal albums and attributes tracks to the named characters. Each Japanese name matches an exact current campaign member key."
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-pani-poni-distributor-character-roster-20260928-01",
+  "campaign_key": "authority:pani_poni_dash!",
+  "campaign_fingerprint": "67130bb28f62dbaaf4dd15c47d45177a659a385c6a0b1669531efa8f7fe7357b",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.b-ch.com/titles/2342/",
+  "source_claim": "Bandai Channel's official Pani Poni Dash! distribution page names Mesousa, Suzuki Sayaka (the character called No. 6), Nanjou Misao, and Tachibana Rei in its character/cast information.",
+  "authority_type": "OFFICIAL_DISTRIBUTOR_CHARACTER_AND_CAST_LISTING",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"mesousa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pani_poni_dash!"},
+    {"subject_type":"Character","subject_key":"suzuki_sayaka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pani_poni_dash!"},
+    {"subject_type":"Character","subject_key":"nanjou_misao","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pani_poni_dash!"},
+    {"subject_type":"Character","subject_key":"tachibana_rei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pani_poni_dash!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Bandai Channel's licensed series page identifies these characters and, for 6号さん, explicitly states 本名は鈴木さやか. The product page credits the original manga, animation staff, production committee, and cast for Pani Poni Dash! This batch resolves the exact remaining campaign identities without treating a nickname as a different character."
+}

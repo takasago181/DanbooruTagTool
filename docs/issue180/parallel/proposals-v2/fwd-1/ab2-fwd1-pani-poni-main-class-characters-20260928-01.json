@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-pani-poni-main-class-characters-20260928-01",
+  "campaign_key": "authority:pani_poni_dash!",
+  "campaign_fingerprint": "67130bb28f62dbaaf4dd15c47d45177a659a385c6a0b1669531efa8f7fe7357b",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://paniponi-dash.com/",
+  "source_claim": "The official Pani Poni Dash! album listings assign character-vocal tracks to Rebecca Miyamoto, Momose Kurumi, Uehara Miyako, and Katagiri Himeko.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_MUSIC_LISTING",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"rebecca_miyamoto","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pani_poni_dash!"},
+    {"subject_type":"Character","subject_key":"momose_kurumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pani_poni_dash!"},
+    {"subject_type":"Character","subject_key":"uehara_miyako","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pani_poni_dash!"},
+    {"subject_type":"Character","subject_key":"katagiri_himeko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pani_poni_dash!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official Pani Poni Dash! album page names these characters in track credits and ties them to the anime's character-song products. The romanized packet keys correspond to the exact listed Japanese names."
+}
