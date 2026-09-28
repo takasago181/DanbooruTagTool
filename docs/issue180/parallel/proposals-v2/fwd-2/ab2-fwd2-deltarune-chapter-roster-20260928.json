@@ -1,0 +1,27 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-deltarune-chapter-roster-20260928",
+  "campaign_key": "authority:deltarune",
+  "campaign_fingerprint": "2cca36c4e439181df41c47ab79fc303aabaf6f531c065abb8b214c2f5cc7308d",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://deltarune.com/",
+  "source_claim": "The official DELTARUNE game identifies its story world and cast; official licensed DELTARUNE merchandise independently names campaign characters including Rouxls Kaard, Tasque Manager, The Original Starwalker, Spamton, and Green Pippins.",
+  "authority_type": "FIRST_PARTY_GAME_AND_OFFICIAL_LICENSED_CHARACTER_MERCHANDISE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"carol_holiday","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"deltarune"},
+    {"subject_type":"Character","subject_key":"chief_undyne","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"deltarune"},
+    {"subject_type":"Character","subject_key":"december_holiday","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"deltarune"},
+    {"subject_type":"Character","subject_key":"green_pippins","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"deltarune"},
+    {"subject_type":"Character","subject_key":"jevil","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"deltarune"},
+    {"subject_type":"Character","subject_key":"roaring_knight","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"deltarune"},
+    {"subject_type":"Character","subject_key":"rouxls_kaard","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"deltarune"},
+    {"subject_type":"Character","subject_key":"rudolph_holiday","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"deltarune"},
+    {"subject_type":"Character","subject_key":"spamton_neo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"deltarune"},
+    {"subject_type":"Character","subject_key":"tasque_manager","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"deltarune"},
+    {"subject_type":"Character","subject_key":"the_original_starwalker","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"deltarune"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The first-party DELTARUNE site describes the title as a parallel story to UNDERTALE and the official game chapters as a continuing work (https://deltarune.com/). The first-party newsletter page is hosted on the same official title site (https://deltarune.com/newsletter/). The official licensed DELTARUNE merchandise catalogue at Fangamer (https://www.fangamer.com/collections/deltarune/game_deltarune) explicitly catalogs character products for Rouxls Kaard, Tasque Manager, The Original Starwalker, Spamton, and Green Pippins. The remaining campaign identities are named in the DELTARUNE game's own chapter content and belong to that title's setting; no Undertale-origin tag is being transferred to the Deltarune-qualified identities. The copyright assignment uses the title root, not a chapter-specific product or an unqualified cross-title root."
+}

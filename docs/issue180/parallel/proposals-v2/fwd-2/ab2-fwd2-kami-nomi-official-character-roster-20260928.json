@@ -1,0 +1,27 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-kami-nomi-official-character-roster-20260928",
+  "campaign_key": "authority:kami_nomi_zo_shiru_sekai",
+  "campaign_fingerprint": "d5a862146f2b84eb32a1c5cff27034bd45fa06d89e10ab1cd08982c1cdbe8fea",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/anime/kaminomi3/sp/chara/index.html",
+  "source_claim": "TV Tokyo's official character directory and Goddess Arc cast materials directly identify all eleven campaign identities as characters of The World God Only Knows.",
+  "authority_type": "OFFICIAL_BROADCASTER_CHARACTER_ROSTER_AND_CAST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"aoyama_mio","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kami_nomi_zo_shiru_sekai"},
+    {"subject_type":"Character","subject_key":"ayukawa_tenri","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kami_nomi_zo_shiru_sekai"},
+    {"subject_type":"Character","subject_key":"elysia_de_lute_ima","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kami_nomi_zo_shiru_sekai"},
+    {"subject_type":"Character","subject_key":"goidou_yui","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kami_nomi_zo_shiru_sekai"},
+    {"subject_type":"Character","subject_key":"haqua_d'rot_herminium","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kami_nomi_zo_shiru_sekai"},
+    {"subject_type":"Character","subject_key":"katsuragi_keima","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kami_nomi_zo_shiru_sekai"},
+    {"subject_type":"Character","subject_key":"kosaka_chihiro","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kami_nomi_zo_shiru_sekai"},
+    {"subject_type":"Character","subject_key":"kujou_tsukiyo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kami_nomi_zo_shiru_sekai"},
+    {"subject_type":"Character","subject_key":"nakagawa_kanon","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kami_nomi_zo_shiru_sekai"},
+    {"subject_type":"Character","subject_key":"shiomiya_shiori","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kami_nomi_zo_shiru_sekai"},
+    {"subject_type":"Character","subject_key":"takahara_ayumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kami_nomi_zo_shiru_sekai"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official TV Tokyo character directory for Goddess Arc (https://www.tv-tokyo.co.jp/anime/kaminomi3/sp/chara/index.html) profiles Keima Katsuragi, Elysia de Lute Ima (Elsie), Haqua d'Rot Herminium, Ayukawa Tenri, Nakagawa Kanon, Takahara Ayumi, Kosaka Chihiro, Shiomiya Shiori, Kujou Tsukiyo, and Goidou Yui. The official TV Tokyo first-season character directory (https://www.tv-tokyo.co.jp/contents/kaminomi/chara/index.html) profiles Aoyama Mio and repeats the central cast. The Goddess Arc's official staff/cast page (https://www.tv-tokyo.co.jp/anime/kaminomi3/sp/staff/index.html) also lists the named performers for its cast. The shared copyright root is `kami_nomi_zo_shiru_sekai`, which is also present in the tracked confirmed v3 baseline."
+}

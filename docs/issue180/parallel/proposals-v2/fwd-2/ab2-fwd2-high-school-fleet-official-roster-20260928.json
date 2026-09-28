@@ -1,0 +1,27 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-high-school-fleet-official-roster-20260928",
+  "campaign_key": "authority:high_school_fleet",
+  "campaign_fingerprint": "a53dc2727cb5f7fcd80c478ab6d87b817c60300ba6353581bd15c030886f87c0",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.hai-furi.com/character/",
+  "source_claim": "The official High School Fleet character directory directly names each of the eleven campaign identities in the TV and theatrical series roster.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"china_moeka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"high_school_fleet"},
+    {"subject_type":"Character","subject_key":"irizaki_mei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"high_school_fleet"},
+    {"subject_type":"Character","subject_key":"misaki_akeno","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"high_school_fleet"},
+    {"subject_type":"Character","subject_key":"munetani_mashiro","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"high_school_fleet"},
+    {"subject_type":"Character","subject_key":"nosa_kouko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"high_school_fleet"},
+    {"subject_type":"Character","subject_key":"shiretoko_rin","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"high_school_fleet"},
+    {"subject_type":"Character","subject_key":"tateishi_shima","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"high_school_fleet"},
+    {"subject_type":"Character","subject_key":"uchida_mayumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"high_school_fleet"},
+    {"subject_type":"Character","subject_key":"uda_megumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"high_school_fleet"},
+    {"subject_type":"Character","subject_key":"wilhelmina_braunschweig_ingenohl_friedeburg","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"high_school_fleet"},
+    {"subject_type":"Character","subject_key":"yanagiwara_maron","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"high_school_fleet"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official theatrical-series character roster (https://www.hai-furi.com/character/) names the campaign cast across bridge crew, navigation, engineering, and other departments, including China Moeka, Irizaki Mei, Misaki Akeno, Munetani Mashiro, Nosa Kouko, Shiretoko Rin, Tateishi Shima, Uchida Mayumi, Uda Megumi, Wilhelmina Braunschweig Ingenohl Friedeburg, and Yanagiwara Maron. The official TV-series staff/cast page (https://www.hai-furi.com/tv/staff-cast/) independently confirms cast identities for the TV work. Each named member has direct roster membership in the same High School Fleet copyright."
+}
