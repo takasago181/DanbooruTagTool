@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-kinomoto-sakura-clamp-fans-costumes-20260928-01",
+  "campaign_key": "base:kinomoto_sakura",
+  "campaign_fingerprint": "5d920175394a258afa629491444bf0e7986626827d8bf73521ba16a2f4292a25",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://shop.clamp-fans.com/shop/c/c20/",
+  "source_claim": "The official CLAMP FANS SHOP lists “Sakura-chan dress-up costumes” from Tomoyo’s Atelier, including the Black Cat Costume and Prince Costume. This explicitly identifies both listed costume forms as outfits for Sakura Kinomoto.",
+  "authority_type": "RIGHTS_HOLDER_OFFICIAL_CHARACTER_COSTUME_CATALOG",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kinomoto_sakura_(kitty)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "kinomoto_sakura"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kinomoto_sakura_(sakura_prince)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "kinomoto_sakura"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The shop is the official CLAMP works store and its product titles explicitly state that these are Sakura-chan dress-up outfits. “Kitty” maps to the listed Black Cat Costume; “Sakura Prince” maps to the listed Prince Costume. No other campaign outfit keys are inferred."
+}

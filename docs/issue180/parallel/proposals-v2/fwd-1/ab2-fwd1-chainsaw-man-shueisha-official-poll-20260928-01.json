@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-chainsaw-man-shueisha-official-poll-20260928-01",
+  "campaign_key": "authority:chainsaw_man",
+  "campaign_fingerprint": "672f99635eee04b21f4e19a4ca5c31807d468ac12b58ddc2401cea0f7ccd9182",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.shonenjump.com/j/vote_chainsaw/",
+  "source_claim": "Shueisha’s official Weekly Shonen Jump Chainsaw Man character poll names Hayakawa Aki, Higashiyama Kobeni, and Yoshida Hirofumi as characters in its Chainsaw Man poll.",
+  "authority_type": "OFFICIAL_PUBLISHER_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "hayakawa_aki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "chainsaw_man"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "higashiyama_kobeni",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "chainsaw_man"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yoshida_hirofumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "chainsaw_man"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official publisher poll names each exact included character. No campaign members that were not explicitly named by this source are inferred."
+}
