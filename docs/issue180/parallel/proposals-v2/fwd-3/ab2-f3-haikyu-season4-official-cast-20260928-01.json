@@ -1,0 +1,135 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-haikyu-season4-official-cast-20260928-01",
+  "campaign_key": "authority:haikyuu!!",
+  "campaign_fingerprint": "3394bee660780ebd0bf6c0e67821f0e5745d28f22f03d0427a7dde274600ba3e",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://haikyu.jp/season4/",
+  "source_claim": "The official Haikyu!! Season 4 site’s cast listing names the matching Karasuno, Inarizaki, and other tournament character identities included in this proposal.",
+  "authority_type": "FIRST_PARTY_SEASON_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "azumane_asahi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "haikyuu!!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hinata_shouyou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "haikyuu!!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kageyama_tobio",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "haikyuu!!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kita_shinsuke",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "haikyuu!!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "miya_atsumu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "haikyuu!!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "miya_osamu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "haikyuu!!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nishinoya_yuu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "haikyuu!!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sakusa_kiyoomi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "haikyuu!!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sawamura_daichi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "haikyuu!!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shimizu_kiyoko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "haikyuu!!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sugawara_koushi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "haikyuu!!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "suna_rintarou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "haikyuu!!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tanaka_ryuunosuke",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "haikyuu!!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsukishima_kei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "haikyuu!!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ushijima_wakatoshi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "haikyuu!!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yachi_hitoka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "haikyuu!!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yamaguchi_tadashi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "haikyuu!!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact matching campaign identities named in the official Season 4 cast list are included; other campaign members and characters not in that season’s cast are left for separate evidence."
+}

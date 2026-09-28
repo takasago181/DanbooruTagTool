@@ -1,0 +1,198 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-blazblue-official-character-directory-20260928-01",
+  "campaign_key": "authority:blazblue",
+  "campaign_fingerprint": "24f909d329c6c1dc02ff4e4b39bb1c8c518eeee7e3340b163f6bcd1b68bb2e8c",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.blazblue.jp/10th/characters/",
+  "source_claim": "Arc System Works’ official BlazBlue 10th anniversary character directory lists the matching character identities in this proposal across the game series roster.",
+  "authority_type": "FIRST_PARTY_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "amane_nishiki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "arakune",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "carl_clover",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "celica_a._mercury",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hakumen",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hazama",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "iron_tager",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jin_kisaragi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kagura_mutsuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lambda-11",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "litchi_faye_ling",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mai_natsume",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "makoto_nanaya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mu-12",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "noel_vermillion",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nu-13",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "platinum_the_trinity",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rachel_alucard",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ragna_the_bloodedge",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "relius_clover",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shishigami_bang",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "taokaka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "trinity_glassfille",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsubaki_yayoi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "valkenhayn_r._hellsing",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yuuki_terumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "blazblue"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only explicit character entries in the official BlazBlue character directory that match current campaign identities are included. Ambiguous pet, attack, and alternate identity tags are omitted."
+}
