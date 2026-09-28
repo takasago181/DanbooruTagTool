@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-sanrio-official-copyright-roster-20260928",
+  "campaign_key": "authority:sanrio",
+  "campaign_fingerprint": "e35aa3915d67dcdeefc04a48206c7f6dacd6d6bfa958e77308d2569c3cd5b5f9",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.sanrio.com/pages/copyright-info",
+  "source_claim": "Sanrio's official Copyright Info page explicitly lists all 14 campaign characters as Sanrio character properties, including the variant English forms Badtz-Maru, Monkichi / Osaru no Monkichi, and U*Sa*Ha*Na. Sanrio's official Japanese character pages provide direct profiles for campaign members including Cinnamoroll, Cogimyun, Gudetama, Hangyodon, Pochacco, and Wish Me Mell.",
+  "authority_type": "SANRIO_OFFICIAL_CHARACTER_AND_COPYRIGHT_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"badtz-maru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sanrio"},
+    {"subject_type":"Character","subject_key":"cinnamoroll","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sanrio"},
+    {"subject_type":"Character","subject_key":"cogimyun","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sanrio"},
+    {"subject_type":"Character","subject_key":"gudetama","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sanrio"},
+    {"subject_type":"Character","subject_key":"hangyodon","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sanrio"},
+    {"subject_type":"Character","subject_key":"kuromi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sanrio"},
+    {"subject_type":"Character","subject_key":"my_melody","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sanrio"},
+    {"subject_type":"Character","subject_key":"my_sweet_piano","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sanrio"},
+    {"subject_type":"Character","subject_key":"osaru_no_monkichi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sanrio"},
+    {"subject_type":"Character","subject_key":"pochacco","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sanrio"},
+    {"subject_type":"Character","subject_key":"pompompurin","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sanrio"},
+    {"subject_type":"Character","subject_key":"tuxedo_sam","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sanrio"},
+    {"subject_type":"Character","subject_key":"usahana","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sanrio"},
+    {"subject_type":"Character","subject_key":"wish_me_mell","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sanrio"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Sanrio's first-party Copyright Info directory lists all campaign members: https://www.sanrio.com/pages/copyright-info (Badtz-Maru, Cinnamoroll, Cogimyun, Gudetama, Hangyodon, Kuromi, My Melody, My Sweet Piano, Monkichi / Osaru no Monkichi, Pochacco, Pompompurin, Tuxedosam, U*Sa*Ha*Na, Wish Me Mell). Official Sanrio Japan character profiles independently confirm representative exact identities: https://www.sanrio.co.jp/characters/cinnamon/, https://www.sanrio.co.jp/characters/cogimyun/, https://www.sanrio.co.jp/characters/gudetama/, https://www.sanrio.co.jp/characters/hangyodon/, https://www.sanrio.co.jp/characters/pochacco/, https://www.sanrio.co.jp/characters/wishmemell/. The direct rightsholder roster makes these direct Sanrio character-home proposals rather than inference through a franchise relationship."
+}

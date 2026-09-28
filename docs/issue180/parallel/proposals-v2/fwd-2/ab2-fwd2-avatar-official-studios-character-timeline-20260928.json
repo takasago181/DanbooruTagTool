@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-avatar-official-studios-character-timeline-20260928",
+  "campaign_key": "authority:avatar_legends",
+  "campaign_fingerprint": "2b027846516bf23afe51720064c181d3b7e4a906ccea1053811f663109c1bcd8",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.avatarstudiosofficial.com/timeline/",
+  "source_claim": "Avatar Studios' official title-labeled timeline identifies Aang-era story characters in Avatar: The Last Airbender and Korra-era characters in The Legend of Korra. Its official character directory independently provides profiles for Aang, Appa, Azula, Iroh, Katara, Sokka, Ty Lee, Toph, and Zuko; the timeline directly names the remaining Avatar Aang and Korra cast in the corresponding series entries.",
+  "authority_type": "RIGHTSHOLDER_OFFICIAL_CHARACTER_DIRECTORY_AND_TITLE_LABELED_TIMELINE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"aang","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"avatar:_the_last_airbender"},
+    {"subject_type":"Character","subject_key":"appa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"avatar:_the_last_airbender"},
+    {"subject_type":"Character","subject_key":"azula","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"avatar:_the_last_airbender"},
+    {"subject_type":"Character","subject_key":"iroh","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"avatar:_the_last_airbender"},
+    {"subject_type":"Character","subject_key":"katara","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"avatar:_the_last_airbender"},
+    {"subject_type":"Character","subject_key":"sokka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"avatar:_the_last_airbender"},
+    {"subject_type":"Character","subject_key":"toph_beifong","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"avatar:_the_last_airbender"},
+    {"subject_type":"Character","subject_key":"ty_lee","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"avatar:_the_last_airbender"},
+    {"subject_type":"Character","subject_key":"zuko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"avatar:_the_last_airbender"},
+    {"subject_type":"Character","subject_key":"asami_sato","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_legend_of_korra"},
+    {"subject_type":"Character","subject_key":"bolin","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_legend_of_korra"},
+    {"subject_type":"Character","subject_key":"korra","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_legend_of_korra"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Avatar Studios' official Timeline labels Avatar Aang content as 'Avatar: The Last Airbender' and separately labels Korra-era content as 'The Legend of Korra'. The former timeline directly names Aang, Katara, Sokka, Zuko, Azula, Toph, and Iroh; it describes them in entries specifically headed by Avatar: The Last Airbender: https://www.avatarstudiosofficial.com/timeline/. The official Avatar Studios character directory provides direct profiles for Aang, Katara, Toph, Sokka, Zuko, Iroh, Appa, Azula, and Ty Lee: https://www.avatarstudiosofficial.com/characters/. The Korra-era timeline directly names Korra and Asami in its Legend of Korra entry and Bolin in the Legend of Korra-era Republic City Hustle entry: https://www.avatarstudiosofficial.com/timeline/. No relation is proposed for campaign member tonraq because the checked official pages did not name/identify that exact campaign character. The broader Avatar Legends game/franchise was not used as a shortcut to assign every member to a single television Copyright."
+}
