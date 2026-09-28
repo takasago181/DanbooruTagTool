@@ -1,0 +1,230 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-ensemble-stars-amagi-hiiro-official-profile-20260928",
+    "campaign_key": "authority:ensemble_stars!",
+    "campaign_fingerprint": "842d1a5b6de6ce72a052006a0d28969d75778e5c9ce7ea3acda59752ee3c147a",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://ensemble-stars.jp/characters/amagi_hiiro/",
+    "source_claim": "Happy Elements' official Ensemble Stars!! character profile identifies Amagi Hiiro (天城一彩) and places him in ALKALOID; the page is part of the Ensemble Stars!! official character directory.",
+    "authority_type": "FIRST_PARTY_CHARACTER_DIRECTORY",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "amagi_hiiro",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "ensemble_stars!"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": ""
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-ensemble-stars-amagi-rinne-official-profile-20260928",
+    "campaign_key": "authority:ensemble_stars!",
+    "campaign_fingerprint": "842d1a5b6de6ce72a052006a0d28969d75778e5c9ce7ea3acda59752ee3c147a",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://ensemble-stars.jp/characters/amagi_rinne/",
+    "source_claim": "Happy Elements' official Ensemble Stars!! character profile identifies Amagi Rinne (天城燐音) and places him in Crazy:B; the page is part of the Ensemble Stars!! official character directory.",
+    "authority_type": "FIRST_PARTY_CHARACTER_DIRECTORY",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "amagi_rinne",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "ensemble_stars!"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": ""
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-ensemble-stars-ayase-mayoi-official-profile-20260928",
+    "campaign_key": "authority:ensemble_stars!",
+    "campaign_fingerprint": "842d1a5b6de6ce72a052006a0d28969d75778e5c9ce7ea3acda59752ee3c147a",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://ensemble-stars.jp/characters/ayase_mayoi/",
+    "source_claim": "Happy Elements' official Ensemble Stars!! character profile identifies Ayase Mayoi (礼瀬マヨイ) and places him in ALKALOID; the page is part of the Ensemble Stars!! official character directory.",
+    "authority_type": "FIRST_PARTY_CHARACTER_DIRECTORY",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "ayase_mayoi",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "ensemble_stars!"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": ""
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-ensemble-stars-kazehaya-tatsumi-official-profile-20260928",
+    "campaign_key": "authority:ensemble_stars!",
+    "campaign_fingerprint": "842d1a5b6de6ce72a052006a0d28969d75778e5c9ce7ea3acda59752ee3c147a",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://ensemble-stars.jp/characters/kazehaya_tatsumi/",
+    "source_claim": "Happy Elements' official Ensemble Stars!! character profile identifies Kazehaya Tatsumi (風早巽) and places him in ALKALOID; the page is part of the Ensemble Stars!! official character directory.",
+    "authority_type": "FIRST_PARTY_CHARACTER_DIRECTORY",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "kazehaya_tatsumi",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "ensemble_stars!"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": ""
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-ensemble-stars-kojika-juis-official-profile-20260928",
+    "campaign_key": "authority:ensemble_stars!",
+    "campaign_fingerprint": "842d1a5b6de6ce72a052006a0d28969d75778e5c9ce7ea3acda59752ee3c147a",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://ensemble-stars.jp/characters/kojika_juis/",
+    "source_claim": "Happy Elements' official Ensemble Stars!! character profile identifies Kojika Juis (小鹿ジュイス) and places him in MELLOW DEAR US; the page is part of the Ensemble Stars!! official character directory.",
+    "authority_type": "FIRST_PARTY_CHARACTER_DIRECTORY",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "kojika_juis",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "ensemble_stars!"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": ""
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-ensemble-stars-oukawa-kohaku-official-profile-20260928",
+    "campaign_key": "authority:ensemble_stars!",
+    "campaign_fingerprint": "842d1a5b6de6ce72a052006a0d28969d75778e5c9ce7ea3acda59752ee3c147a",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://ensemble-stars.jp/characters/oukawa_kohaku/",
+    "source_claim": "Happy Elements' official Ensemble Stars!! character profile identifies Oukawa Kohaku (桜河こはく) and places him among the Ensemble Stars!! idol characters.",
+    "authority_type": "FIRST_PARTY_CHARACTER_DIRECTORY",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "oukawa_kohaku",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "ensemble_stars!"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": ""
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-ensemble-stars-shiina-niki-official-profile-20260928",
+    "campaign_key": "authority:ensemble_stars!",
+    "campaign_fingerprint": "842d1a5b6de6ce72a052006a0d28969d75778e5c9ce7ea3acda59752ee3c147a",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://ensemble-stars.jp/characters/shiina_niki/",
+    "source_claim": "Happy Elements' official Ensemble Stars!! character profile identifies Shiina Niki (椎名ニキ) and places him among the Ensemble Stars!! idol characters.",
+    "authority_type": "FIRST_PARTY_CHARACTER_DIRECTORY",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "shiina_niki",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "ensemble_stars!"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": ""
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-ensemble-stars-taki-ibuki-official-profile-20260928",
+    "campaign_key": "authority:ensemble_stars!",
+    "campaign_fingerprint": "842d1a5b6de6ce72a052006a0d28969d75778e5c9ce7ea3acda59752ee3c147a",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://ensemble-stars.jp/characters/taki_ibuki/",
+    "source_claim": "Happy Elements' official Ensemble Stars!! character profile identifies Taki Ibuki (滝維吹) and places him in Akatsuki; the page is part of the Ensemble Stars!! official character directory.",
+    "authority_type": "FIRST_PARTY_CHARACTER_DIRECTORY",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "taki_ibuki",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "ensemble_stars!"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": ""
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-ensemble-stars-newface-official-roster-20260928",
+    "campaign_key": "authority:ensemble_stars!",
+    "campaign_fingerprint": "842d1a5b6de6ce72a052006a0d28969d75778e5c9ce7ea3acda59752ee3c147a",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://ensemble-stars.jp/newface/",
+    "source_claim": "Happy Elements' official New Face character page lists and profiles the audition participants ESU SAGIRI (冴霧笑主), IBUKI TAKI (滝維吹), KANNA NATSU (名都神無), FUYUME HANAMURA (花群冬芽), and RAIKA HOJO (宝丈萊香), and identifies them as characters in the Ensemble Stars!! audition-story world.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "sagiri_esu",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "ensemble_stars!"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "natsu_kanna",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "ensemble_stars!"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "hanamura_fuyume",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "ensemble_stars!"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "hojo_raika",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "ensemble_stars!"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "The current dispatch uses existing character tag keys; the official page's romanized name order and Japanese profiles were checked for exact mapping."
+  }
+]
