@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-voiceroid-independent-character-authorities-partial-20260928",
+  "campaign_key": "authority:voiceroid",
+  "campaign_fingerprint": "fc7dbdd0d46a60ec850434a4edb79582ef70a1f92335e9ad5a18a84024fbb773",
+  "worker_slot": 0,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_CHARACTER_RIGHTS_ROSTER",
+      "url_or_query": "https://www.ah-soft.com/character/",
+      "result": "AHS explicitly labels its page as a list of characters for which AHS holds rights. It names current campaign members Tsurumaki Maki, Haruno Sora, Minase Kou, Tsukuyomi Ai, and Tsukuyomi Shouta. This establishes a distinct AHS character-rights scope; it does not establish a shared fictional HOME named VOICEROID for these or the remaining campaign members."
+    },
+    {
+      "route_type": "OFFICIAL_CHARACTER_GUIDELINES",
+      "url_or_query": "https://vocalomakets.com/guidelines",
+      "result": "VOCALOMAKETS identifies itself as producer of Yuzuki Yukari and Kizuna Akari and its guidelines cover those two characters, separately listing speech-synthesis product editions. This is a distinct character authority and does not establish VOICEROID as their shared fictional HOME."
+    },
+    {
+      "route_type": "OFFICIAL_PROJECT_CHARACTER_ROSTER",
+      "url_or_query": "https://zunko.jp/temp.html",
+      "result": "The official Tohoku Zunko project roster identifies Tohoku Zunko, Tohoku Itako, and Tohoku Kiritan as members of the Tohoku 3 Sisters and describes the project as operated by SSS LLC. It lists several compatible voice technologies rather than identifying VOICEROID as a shared work HOME. This confirms a separate source/project lineage but not a canonical Issue #180 Family key or a safe VOICEROID HOME relation."
+    }
+  ],
+  "notes": "This 15-member platform/ecosystem campaign spans independently governed character lines. AUTONOMOUS_POLICY_V2 lists voiceroid as a broad family that cannot receive an autonomous broad-family HOME pass, and the reviewed family-scope decision explicitly says VOICEROID is a speech-synthesis platform/ecosystem rather than one fictional-work HOME. The checked first-party routes identify distinct character authorities and product compatibility; they do not provide a safe shared HOME relation or a confirmed canonical Family key. Keep the broad campaign open as partial progress. Do not infer a negative relation for unreviewed campaign members or a HOME from the speech-product label."
+}
