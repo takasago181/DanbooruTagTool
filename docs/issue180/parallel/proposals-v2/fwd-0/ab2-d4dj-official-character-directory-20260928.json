@@ -1,0 +1,149 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-d4dj-official-character-directory-20260928",
+  "campaign_key": "authority:d4dj",
+  "campaign_fingerprint": "2f234d2ca9ee3a46fe21b1e4547fa45002380c26db7e824e104529f747337d0b",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://d4dj-pj.com/character/",
+  "source_claim": "The official D4DJ CHARACTER directory lists each of the 19 exact campaign characters by name under its unit sections and gives character-specific descriptions within the D4DJ project.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "aimoto_rinku",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "d4dj"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "akashi_maho",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "d4dj"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aoyagi_tsubaki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "d4dj"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "fukushima_noa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "d4dj"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hanamaki_towa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "d4dj"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hidaka_saori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "d4dj"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "inuyose_shinobu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "d4dj"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "izumo_saki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "d4dj"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "miyake_aoi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "d4dj"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mizushima_marika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "d4dj"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "niijima_ibuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "d4dj"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ohnaruto_muni",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "d4dj"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sakurada_miyu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "d4dj"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "seto_rika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "d4dj"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shimizu_esora",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "d4dj"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shinomiya_kokoa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "d4dj"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tendo_hayate",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "d4dj"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "togetsu_rei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "d4dj"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yamate_kyouko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "d4dj"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The proposal covers only exact campaign characters explicitly listed in the official character directory. Voice cast, units, and characters outside this campaign are not included."
+}
