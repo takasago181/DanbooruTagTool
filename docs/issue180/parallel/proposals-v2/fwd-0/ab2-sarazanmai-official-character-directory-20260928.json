@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-sarazanmai-official-character-directory-20260928",
+  "campaign_key": "authority:sarazanmai",
+  "campaign_fingerprint": "3141b28f6da8d73aae5f094658b472b1e85f3bffea3c01b727461887d82ceae8",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://sarazanmai.com/character/",
+  "source_claim": "The official Sarazanmai TV anime character page names and gives Romanized display names for Yasaka Kazuki (矢逆 一稀), Kuji Toi (久慈 悠), Jinnai Enta (陣内 燕太), Keppi (ケッピ), Niiboshi Reo (新星 玲央), Akutsu Mabu (阿久津 真武), and Azuma Sara (吾妻 サラ). The page identifies the Sarazanmai anime and its production copyright.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"akutsu_mabu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sarazanmai"},
+    {"subject_type":"Character","subject_key":"azuma_sara","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sarazanmai"},
+    {"subject_type":"Character","subject_key":"jinnai_enta","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sarazanmai"},
+    {"subject_type":"Character","subject_key":"keppi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sarazanmai"},
+    {"subject_type":"Character","subject_key":"kuji_toi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sarazanmai"},
+    {"subject_type":"Character","subject_key":"niiboshi_reo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sarazanmai"},
+    {"subject_type":"Character","subject_key":"yasaka_kazuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"sarazanmai"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Every relation maps an exact character entry from the official character directory; no non-character staff or cast are included."
+}
