@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-codename-kids-next-door-apple-tv-cast-roster-20260928-01",
+  "campaign_key": "authority:codename:_kids_next_door",
+  "campaign_fingerprint": "fcb6c2596eb1eaaec6aeb5a5671d2158987800313fef0e54a8204afdf579685f",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://tv.apple.com/ca/show/codename-kids-next-door/umc.cmc.6enzzfltbol4goib0k4ezxsxb",
+  "source_claim": "Apple TV's official Codename: Kids Next Door listing identifies Cartoon Network as the studio and credits Numbuh 1, Numbuh 2, Numbuh 3, Numbuh 4, and Numbuh 5 in the series cast.",
+  "authority_type": "OFFICIAL_DISTRIBUTOR_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "numbuh_1",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "codename:_kids_next_door"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "numbuh_2",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "codename:_kids_next_door"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "numbuh_3",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "codename:_kids_next_door"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "numbuh_4",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "codename:_kids_next_door"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "numbuh_5",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "codename:_kids_next_door"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "All five current campaign identities are explicitly credited by number on the distributor listing for the Cartoon Network series."
+}

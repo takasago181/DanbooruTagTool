@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-busou-shinki-konami-15th-anniversary-base-shinki-20260928-01",
+  "campaign_key": "authority:busou_shinki",
+  "campaign_fingerprint": "8b8ecba7643c23c6fe2674f0a109b34e02d917e886cd33d81d1a0c64d25721b0",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.konami.com/videonews/movie_view.html?movie_url=6273483933001",
+  "source_claim": "Konami's 15th-anniversary announcement for the Busou Shinki franchise identifies the original Angel-type Arnval and Devil-type Strarf as representative Shinki and announces their entry into the official Battle Conductor arcade game.",
+  "authority_type": "OFFICIAL_FRANCHISE_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "arnval",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "busou_shinki"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "strarf",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "busou_shinki"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The announcement explicitly names the unqualified base Arnval and Strarf characters; it does not rely on successor-model naming."
+}
