@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fullmetal-alchemist-kain-fuery-official-character-20260928",
+  "campaign_key": "authority:fullmetal_alchemist",
+  "campaign_fingerprint": "4386e2671c92da02f32e25df4e7fd32cd0a688cd3f3d7857debcb27ec0f6f9a4",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.hagaren.jp/character/",
+  "source_claim": "The official Fullmetal Alchemist TV anime character page lists and describes Kain Fuery as an Amestrian military sergeant who specializes in wireless equipment.",
+  "authority_type": "FIRST_PARTY_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"kain_fuery","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"fullmetal_alchemist"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official character profile explicitly names Fuery."
+}

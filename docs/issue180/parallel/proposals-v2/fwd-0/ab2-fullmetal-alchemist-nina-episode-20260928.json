@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fullmetal-alchemist-nina-episode-20260928",
+  "campaign_key": "authority:fullmetal_alchemist",
+  "campaign_fingerprint": "4386e2671c92da02f32e25df4e7fd32cd0a688cd3f3d7857debcb27ec0f6f9a4",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.hagaren.jp/fa/about/story.html",
+  "source_claim": "The official Fullmetal Alchemist: Brotherhood episode summaries identify Nina as Shou Tucker's daughter and describe her encounters with Ed and Al.",
+  "authority_type": "FIRST_PARTY_EPISODE_STORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"nina_tucker","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"fullmetal_alchemist"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official story pages explicitly name Nina Tucker as a character in the series."
+}
