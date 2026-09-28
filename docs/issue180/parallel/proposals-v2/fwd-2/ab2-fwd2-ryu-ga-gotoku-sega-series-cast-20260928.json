@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-ryu-ga-gotoku-sega-series-cast-20260928",
+  "campaign_key": "authority:ryuu_ga_gotoku_(series)",
+  "campaign_fingerprint": "71a740b07911ae8a2e913cc63e20197f1feab49f69e2e3754ade9468281ece05",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.sega.jp/game/detail/ryu-ga-gotoku_seven/",
+  "source_claim": "SEGA's official character pages for Yakuza 7, Yakuza 4, Yakuza 3, Yakuza Kiwami, and Yakuza: Of the End explicitly identify every named campaign character as appearing in an official entry of the Like a Dragon/Yakuza series.",
+  "authority_type": "SEGA_OFFICIAL_SERIES_GAME_CHARACTER_ROSTERS",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"adachi_koichi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ryu_ga_gotoku_(series)"},
+    {"subject_type":"Character","subject_key":"akiyama_shun","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ryu_ga_gotoku_(series)"},
+    {"subject_type":"Character","subject_key":"dojima_daigo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ryu_ga_gotoku_(series)"},
+    {"subject_type":"Character","subject_key":"han_joon-gi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ryu_ga_gotoku_(series)"},
+    {"subject_type":"Character","subject_key":"kasuga_ichiban","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ryu_ga_gotoku_(series)"},
+    {"subject_type":"Character","subject_key":"kiryu_kazuma","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ryu_ga_gotoku_(series)"},
+    {"subject_type":"Character","subject_key":"majima_goro","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ryu_ga_gotoku_(series)"},
+    {"subject_type":"Character","subject_key":"mine_yoshitaka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ryu_ga_gotoku_(series)"},
+    {"subject_type":"Character","subject_key":"mukoda_saeko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ryu_ga_gotoku_(series)"},
+    {"subject_type":"Character","subject_key":"nishikiyama_akira","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ryu_ga_gotoku_(series)"},
+    {"subject_type":"Character","subject_key":"saejima_taiga","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ryu_ga_gotoku_(series)"},
+    {"subject_type":"Character","subject_key":"zhao_tianyou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ryu_ga_gotoku_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "SEGA's official Yakuza 7 character page profiles Kasuga Ichiban, Mukoda Saeko, Adachi Koichi, Han Joon-gi, and Zhao Tianyou (https://www.sega.jp/game/detail/ryu-ga-gotoku_seven/), describing the game as an entry in the Like a Dragon series. The official Yakuza 4 page names Kiryu Kazuma, Akiyama Shun, Saejima Taiga, and Dojima Daigo as its principal protagonists and characters (https://www.sega.jp/game/detail/ryu-ga-gotoku-four/). SEGA's Yakuza 3 page profiles Mine Yoshitaka (https://www.sega.jp/game/detail/ryu-ga-gotoku-three/). SEGA's Yakuza Kiwami page identifies Kiryu Kazuma and Nishikiyama Akira among its central characters (https://www.sega.jp/game/detail/ryu-ga-gotoku-kiwami/). SEGA's Yakuza: Of the End page gives character profiles for Majima Goro and also identifies the title as a Yakuza series game (https://www.sega.jp/game/detail/ryu-ga-gotoku-theend/). Each campaign member is directly named in an official Sega game entry belonging to the series; the relation uses the series copyright root rather than assigning one appearance's game as each character's only work."
+}

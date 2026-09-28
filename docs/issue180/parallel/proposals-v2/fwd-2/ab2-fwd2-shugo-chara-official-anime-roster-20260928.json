@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-shugo-chara-official-anime-roster-20260928",
+  "campaign_key": "authority:shugo_chara!",
+  "campaign_fingerprint": "35011d041e932b8878fabe0cddf3de7d43517240c8304c91841542ad6d1abf5d",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://shugo-chara.com/character/",
+  "source_claim": "The official Shugo Chara! anime character pages identify the named cast members as characters in the series; official episode titles and licensed series goods also explicitly identify the Amulet transformations.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_ROSTER_AND_EPISODE_CATALOG",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"amulet_clover","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shugo_chara!"},
+    {"subject_type":"Character","subject_key":"amulet_dia","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shugo_chara!"},
+    {"subject_type":"Character","subject_key":"amulet_heart","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shugo_chara!"},
+    {"subject_type":"Character","subject_key":"amulet_spade","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shugo_chara!"},
+    {"subject_type":"Character","subject_key":"fujisaki_nadeshiko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shugo_chara!"},
+    {"subject_type":"Character","subject_key":"fujisaki_nagihiko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shugo_chara!"},
+    {"subject_type":"Character","subject_key":"hinamori_amu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shugo_chara!"},
+    {"subject_type":"Character","subject_key":"hoshina_utau","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shugo_chara!"},
+    {"subject_type":"Character","subject_key":"hotori_tadase","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shugo_chara!"},
+    {"subject_type":"Character","subject_key":"mashiro_rima","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shugo_chara!"},
+    {"subject_type":"Character","subject_key":"tsukiyomi_ikuto","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shugo_chara!"},
+    {"subject_type":"Character","subject_key":"yuiki_yaya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shugo_chara!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official TV anime character page (https://shugo-chara.com/character/) profiles Hinamori Amu, Fujisaki Nadeshiko, Fujisaki Nagihiko (explicitly stating Nagihiko is Nadeshiko's true identity), Hoshina Utau, Hotori Tadase, Mashiro Rima, Tsukiyomi Ikuto, and Yuiki Yaya. The official episode catalog (https://shugo-chara.com/story/shugo-chara.html) names the transformation episodes 'Character Transformation! Amulet Spade!', '... Amulet Clover!', and '... Amulet Dia!'; the official series goods catalog (https://shugo-chara.com/goods/toy_game.html) names Amulet Heart and Amulet Spade series character goods, while official licensed goods materials list the four Amulet forms under Shugo Chara! (https://prtimes.jp/a/?c=16064&f=d16064-8232-14ed6605e252b4cfec1499fe11e46669&r=8232). These establish all four transformation identities and the eight roster identities within the Shugo Chara! copyright."
+}

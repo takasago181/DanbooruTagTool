@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-phantasy-star-sega-official-rosters-partial-20260928",
+  "campaign_key": "authority:phantasy_star",
+  "campaign_fingerprint": "b7a7af0d23ad147ae6d80c7b4c3e4ae66aa977b0b5db653852b5f4f303d50998",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://pso2.jp/players/about/character/",
+  "source_claim": "SEGA's official PSO2 character sources identify Clariskrays and Tiea within Phantasy Star Online 2, the official PSO2 anime site identifies Washinomiya Koori in its PSO2-based production, and SEGA's official Phantasy Star Portable 2 character page identifies Emilia Percival in that specific game.",
+  "authority_type": "SEGA_OFFICIAL_GAME_CHARACTER_ROSTERS",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"clariskrays","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"phantasy_star_online_2"},
+    {"subject_type":"Character","subject_key":"emilia_percival","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"phantasy_star_portable_2"},
+    {"subject_type":"Character","subject_key":"tiea","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"phantasy_star_online_2"},
+    {"subject_type":"Character","subject_key":"washinomiya_koori","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"phantasy_star_online_2"}
+  ],
+  "terminal_reviews": [],
+  "notes": "SEGA's official PSO2 character introduction page names クラリスクレイス in its roster for Phantasy Star Online 2 (https://pso2.jp/players/about/character/; the official Ep Oracle character profile also describes her role: https://pso2.jp/anime_eporacle/character/21/). The same official PSO2 anime source gives a profile for ティア (https://pso2.jp/anime_eporacle/character/11/), identifying her as one of the PSO2 story characters. SEGA's official PSO2 15th anniversary TV anime site gives a profile for コオリ and labels the production as based on PHANTASY STAR ONLINE 2 (https://phantasystar.sega.jp/psportal/pso15anniversary/animation/character/31/; original game credit: https://phantasystar.sega.jp/psportal/pso15anniversary/animation/caststaff/). SEGA's official Phantasy Star Portable 2 character page profiles エミリア・パーシバル in that title (https://phantasystar.sega.jp/psp2/world/character/). The four relations retain the specific game copyright established by the respective official source. Other campaign members are not assigned here: the checked official records identify several as costumes, generic class archetypes, or a recurring mascot, and the remaining exact identity-to-work mapping was not established by these sources."
+}
