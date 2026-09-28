@@ -1,0 +1,162 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-sayonara-zetsubou-sensei-official-character-page-20260928",
+    "campaign_key": "authority:sayonara_zetsubou_sensei",
+    "campaign_fingerprint": "ddd6630e2612c8ef148908638d9d97e372ff20ae62c962b6030e9141e3d33650",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://king-cr.jp/special/zetsubou/chara_.html",
+    "source_claim": "King Records official character page for Sayonara Zetsubou Sensei labels portraits with the exact names Nozomu Itoshiki, Kafuka Fuura, Chiri Kitsu, Kiri Komori, Matoi Tsunetsuki, Kaere Kimura, Maria Tarou Sekiutsu, Abiru Kobushi, Nami Hitou, Harumi Fujiyoshi, and Meru Otonashi; the work site identifies its copyright as Sayonara Zetsubou Sensei Production Committee.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "itoshiki_nozomu",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "sayonara_zetsubou_sensei"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "fuura_kafuka",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "sayonara_zetsubou_sensei"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "kitsu_chiri",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "sayonara_zetsubou_sensei"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "komori_kiri",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "sayonara_zetsubou_sensei"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "tsunetsuki_matoi",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "sayonara_zetsubou_sensei"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "kimura_kaere",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "sayonara_zetsubou_sensei"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "sekiutsu_maria_tarou",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "sayonara_zetsubou_sensei"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "kobushi_abiru",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "sayonara_zetsubou_sensei"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "hitou_nami",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "sayonara_zetsubou_sensei"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "fujiyoshi_harumi",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "sayonara_zetsubou_sensei"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "otonashi_meru",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "sayonara_zetsubou_sensei"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Japanese names were cross-checked against the exact Issue #180 member tags. Only named characters on the official roster are included."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-sayonara-zetsubou-sensei-zan-official-cast-comments-20260928",
+    "campaign_key": "authority:sayonara_zetsubou_sensei",
+    "campaign_fingerprint": "ddd6630e2612c8ef148908638d9d97e372ff20ae62c962b6030e9141e3d33650",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://king-cr.jp/special/zetsubou3/cast_message.html",
+    "source_claim": "King Records official ZAN cast comments explicitly identify Mizushima as Jun Kudo, Yajima as Rin Itoshiki, and Goto as Ai Kaga, and the page copyright names the ZAN Sayonara Zetsubou Sensei production committee.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "kudou_jun",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "sayonara_zetsubou_sensei"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "itoshiki_rin",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "sayonara_zetsubou_sensei"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "kaga_ai",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "sayonara_zetsubou_sensei"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "The cast-role labels provide exact identity links to the campaign tags. This batch records only the additional exact campaign members established on this page."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-sayonara-zetsubou-sensei-official-oad-cast-20260928",
+    "campaign_key": "authority:sayonara_zetsubou_sensei",
+    "campaign_fingerprint": "ddd6630e2612c8ef148908638d9d97e372ff20ae62c962b6030e9141e3d33650",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://king-cr.jp/special/zetsubou_oad/",
+    "source_claim": "King Records official Goku: Sayonara Zetsubou Sensei staff and cast page lists Kiri Komori and Mayo Mitama together as roles voiced by Asuka Tanii and credits the Goku Sayonara Zetsubou Sensei production committee.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "komori_kiri",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "sayonara_zetsubou_sensei"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "mitama_mayo",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "sayonara_zetsubou_sensei"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Both named character roles are explicit in the official cast list. Kiri Komori is included because the source independently establishes her relation too; QA can deduplicate the repeated subject."
+  }
+]
