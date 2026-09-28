@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:meitantei_precure!",
+  "campaign_fingerprint": "46e2577afe130b7a885058d8f6265c630e978f650b8796bd1a0d69d892146b5a",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-fwd2-meitantei-precure-abc-cure-eclair-candidate-roster-20260928",
+  "source_url": "https://abc-magazine.asahi.co.jp/post-84374/",
+  "source_claim": "ABC Magazine’s official article identifies the work as Meitantei Precure, names Howa Kurea, Kurusu Eliza, Kaneda Rei, and Ieri Shiruku as the four on-screen Cure Eclair candidates, and confirms Howa Kurea as Cure Eclair.",
+  "authority_type": "ABC_TV_OFFICIAL_PROGRAM_ARTICLE",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "cure_eclair",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "meitantei_precure!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "howa_kurea",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "meitantei_precure!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kurusu_eliza",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "meitantei_precure!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kaneda_rei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "meitantei_precure!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ieri_shiruku",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "meitantei_precure!"
+    }
+  ],
+  "notes": "The article explicitly names all four candidates and reveals the Cure Eclair identity; no unstated transformation or relation is added."
+}

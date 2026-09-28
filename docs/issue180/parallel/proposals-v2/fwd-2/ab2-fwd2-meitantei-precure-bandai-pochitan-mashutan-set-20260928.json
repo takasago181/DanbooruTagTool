@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:meitantei_precure!",
+  "campaign_fingerprint": "46e2577afe130b7a885058d8f6265c630e978f650b8796bd1a0d69d892146b5a",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-fwd2-meitantei-precure-bandai-pochitan-mashutan-set-20260928",
+  "source_url": "https://toy.bandai.co.jp/ja/item/01_6198/",
+  "source_claim": "Bandai’s official product page categorizes the Pochitan and Mashutan doll set under Meitantei Precure and names both included character dolls.",
+  "authority_type": "BANDAI_OFFICIAL_LICENSED_CHARACTER_PRODUCT",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "pochi-tan",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "meitantei_precure!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mashu-tan",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "meitantei_precure!"
+    }
+  ],
+  "notes": "The product page explicitly associates each named mascot with the named series in its product description and copyright."
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:meitantei_precure!",
+  "campaign_fingerprint": "46e2577afe130b7a885058d8f6265c630e978f650b8796bd1a0d69d892146b5a",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-fwd2-meitantei-precure-toei-episode6-nijee-20260928",
+  "source_url": "https://www.toei-anim.co.jp/tv/precure/episode/6/",
+  "source_claim": "Toei Animation’s official episode 6 synopsis names Nijee as the Phantom Thieves member who steals the Makoto Jewel and confronts the Precure characters in Meitantei Precure.",
+  "authority_type": "TOEI_OFFICIAL_EPISODE_SYNOPSIS",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "nijee",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "meitantei_precure!"
+    }
+  ],
+  "notes": "Only the exact campaign member Nijee named in the episode synopsis is included."
+}
