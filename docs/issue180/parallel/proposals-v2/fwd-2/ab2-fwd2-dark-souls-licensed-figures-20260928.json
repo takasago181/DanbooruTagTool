@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-dark-souls-licensed-figures-20260928",
+  "campaign_key": "authority:dark_souls_(series)",
+  "campaign_fingerprint": "f02590e53b19574fff814a20c0751624375409d14ea6acfa9cc5bbeeb0ad14af",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://store.bandainamcoent.eu/dark-souls-collection-figurines-volume-1/",
+  "source_claim": "Bandai Namco's official licensed Dark Souls figure collection identifies Oscar, Fire Keeper, Dragon Slayer Ornstein, Artorias the Abysswalker, Solaire of Astora, and Siegward of Catarina as six famous characters in the Dark Souls game series.",
+  "authority_type": "OFFICIAL_LICENSED_SERIES_CHARACTER_FIGURE_COLLECTION",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"fire_keeper","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dark_souls_(series)"},
+    {"subject_type":"Character","subject_key":"dragon_slayer_ornstein","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dark_souls_(series)"},
+    {"subject_type":"Character","subject_key":"artorias_the_abysswalker","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dark_souls_(series)"},
+    {"subject_type":"Character","subject_key":"solaire_of_astora","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dark_souls_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact campaign tags named in the official licensed collection are included; Oscar and Siegward are not in this campaign. The source explicitly scopes the collection to Dark Souls series characters. No campaign exhaustion or co-occurrence inference is claimed."
+}
