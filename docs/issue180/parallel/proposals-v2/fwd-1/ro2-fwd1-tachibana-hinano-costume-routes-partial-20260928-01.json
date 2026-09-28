@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-tachibana-hinano-costume-routes-partial-20260928-01",
+  "campaign_key": "base:tachibana_hinano",
+  "campaign_fingerprint": "a56816343e44f90b3944b0e7999ffe7d1e740fabc58d7df909c53a2e2430f126",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "The official VSPO! roster, Hinano's official new-outfit stream, and official store profile establish the talent but do not explicitly map the seven packet costume tags to the base identity.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "url_or_query": "https://vspo.jp/",
+      "route_type": "OFFICIAL_TALENT_ROSTER",
+      "result": "Lists Tachibana Hinano and her profile as a VSPO! talent; it does not identify the seven target costume variants."
+    },
+    {
+      "url_or_query": "https://www.youtube.com/watch?v=0dh2hq-HgZI",
+      "route_type": "OFFICIAL_TALENT_CHANNEL_COSTUME_REVEAL",
+      "result": "Hinano's official channel published a new-outfit reveal; it does not explicitly identify the packet's ordinal costume labels or all seven target variant tags."
+    },
+    {
+      "url_or_query": "https://store.vspo.jp/collections/hinano-tachibana",
+      "route_type": "OFFICIAL_TALENT_PRODUCT_COLLECTION",
+      "result": "The official VSPO! store identifies Tachibana Hinano and her licensed goods collection; checked listings do not establish the exact packet variant-tag mapping."
+    }
+  ],
+  "notes": "The base-character DIRECT_HOME is proposed separately in an AUTHORITY_BATCH. This PARTIAL outcome records unresolved mapping for the seven packet tags and is not negative evidence or a terminal decision."
+}

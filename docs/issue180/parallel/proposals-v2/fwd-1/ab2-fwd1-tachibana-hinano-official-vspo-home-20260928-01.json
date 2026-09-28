@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-tachibana-hinano-official-vspo-home-20260928-01",
+  "campaign_key": "base:tachibana_hinano",
+  "campaign_fingerprint": "a56816343e44f90b3944b0e7999ffe7d1e740fabc58d7df909c53a2e2430f126",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://vspo.jp/",
+  "source_claim": "The official VSPO! talent roster lists Tachibana Hinano (橘ひなの) as a VSPO! member and provides her profile.",
+  "authority_type": "OFFICIAL_TALENT_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "tachibana_hinano",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "vspo!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official roster establishes the base talent HOME. The campaign's costume-specific tag mappings are not inferred from the roster and are recorded separately as partial research."
+}
