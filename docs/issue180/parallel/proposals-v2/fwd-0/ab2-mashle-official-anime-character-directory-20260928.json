@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-mashle-official-anime-character-directory-20260928",
+  "campaign_key": "authority:mashle",
+  "campaign_fingerprint": "5a9710718066c1ff152ff1757aab597854380546cbba2d9d070cc1c511ee358b",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://mashle.pw/character/?chara=max",
+  "source_claim": "The official MASHLE TV anime character directory gives profiles for Mash Burnedead (マッシュ・バーンデッド), Finn Ames (フィン・エイムズ), Lance Crown (ランス・クラウン), Dot Barrett (ドット・バレット), Lemon Irvine (レモン・アーヴィン), Orter Madl (オーター・マドル), and Rayne Ames (レイン・エイムズ). The site identifies itself as the MASHLE TV anime official site and carries the Shueisha/MASHLE production committee copyright.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"daut_barret","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mashle"},
+    {"subject_type":"Character","subject_key":"finn_ames","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mashle"},
+    {"subject_type":"Character","subject_key":"lance_crown","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mashle"},
+    {"subject_type":"Character","subject_key":"lemon_irvine","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mashle"},
+    {"subject_type":"Character","subject_key":"mash_burnedead","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mashle"},
+    {"subject_type":"Character","subject_key":"orter_madl","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mashle"},
+    {"subject_type":"Character","subject_key":"rayne_ames","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mashle"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The directory explicitly lists all seven campaign members. The official Romanization is Dot Barrett while the canonical subject tag is daut_barret; this spelling mapping is surfaced for QA review, and no other alias is inferred."
+}
