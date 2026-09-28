@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-toji-no-miko-sqex-iwakura-sanae-playable-pv-20260928",
+  "campaign_key": "authority:toji_no_miko",
+  "campaign_fingerprint": "68e422a43b58d42698f297b4ffc5b3653cac8a55b8df56a2c895b6d0c2c9c28c",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.youtube.com/watch?v=OaxuWcO6nJU",
+  "source_claim": "The verified SQUARE ENIX channel identifies this as the playable-character announcement PV for Iwakura Sanae (岩倉早苗) in its smartphone game Toji no Miko: Kizamishi Issen no Tomoshibi.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"iwakura_sanae","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"toji_no_miko"}
+  ],
+  "terminal_reviews": [],
+  "notes": "One exact residual character is explicitly identified by the game's first-party publisher; no other campaign relation is claimed from this single-character video."
+}
