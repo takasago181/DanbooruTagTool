@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-family-guy-foxflash-episode-cast-20260928-10",
+  "campaign_key": "authority:family_guy",
+  "campaign_fingerprint": "d5acb2c3cf98b53376ad828e0ddc5e18bd9e0c3be707275649a47307c6611b92",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.foxflash.com/shows/corporate/releases/view/week-of-dec-18-25-2022",
+  "source_claim": "FOXFlash’s official Family Guy episode release lists Peter Griffin, Stewie Griffin, Brian Griffin, and Quagmire voiced by Seth MacFarlane, plus Lois Griffin and Meg voiced by Alex Borstein and Mila Kunis.",
+  "authority_type": "FIRST_PARTY_NETWORK_EPISODE_CAST_RELEASE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "brian_griffin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "family_guy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "glenn_quagmire",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "family_guy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lois_griffin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "family_guy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "meg_griffin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "family_guy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "peter_griffin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "family_guy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "stewie_griffin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "family_guy"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This separate official FOX episode-release cast listing independently confirms the six series-character voice credits; the FoxFlash series page supplies Quagmire’s full name spelling."
+}

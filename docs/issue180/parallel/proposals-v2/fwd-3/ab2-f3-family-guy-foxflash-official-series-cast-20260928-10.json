@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-family-guy-foxflash-official-series-cast-20260928-10",
+  "campaign_key": "authority:family_guy",
+  "campaign_fingerprint": "d5acb2c3cf98b53376ad828e0ddc5e18bd9e0c3be707275649a47307c6611b92",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.foxflash.com/shows/family-guy/info/",
+  "source_claim": "FOXFlash’s official Family Guy series page identifies the series as a 20th Television Animation production and names Peter Griffin, Stewie Griffin, Brian Griffin, Glenn Quagmire, Lois Griffin, and Meg Griffin in its cast bios and show description.",
+  "authority_type": "FIRST_PARTY_NETWORK_SERIES_CAST_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "brian_griffin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "family_guy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "glenn_quagmire",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "family_guy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lois_griffin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "family_guy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "meg_griffin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "family_guy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "peter_griffin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "family_guy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "stewie_griffin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "family_guy"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The Fox-owned series information page names all six exact campaign targets in the Family Guy series context; the page spells Quagmire as both Glenn (series prose) and Glen (bio)."
+}

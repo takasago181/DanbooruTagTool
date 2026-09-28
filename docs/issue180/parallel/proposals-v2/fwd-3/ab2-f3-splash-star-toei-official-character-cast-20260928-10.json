@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-splash-star-toei-official-character-cast-20260928-10",
+  "campaign_key": "authority:futari_wa_precure_splash_star",
+  "campaign_fingerprint": "e76276af40a0bce7a362d28db406def2368c83a3f977305c5e549b25cd8bfd4e",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://lineup.toei-anim.co.jp/ja/tv/precure_SS/story/",
+  "source_claim": "Toei Animation’s official Futari wa Precure Splash☆Star page introduces Saki Hyuuga as Cure Bloom and Mai Mishou as Cure Egret in its character/cast section, and names Kaoru and Michiru Kiryuu in the same series roster.",
+  "authority_type": "FIRST_PARTY_ANIMATION_STUDIO_CHARACTER_CAST_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "cure_bloom",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "futari_wa_precure_splash_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "cure_egret",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "futari_wa_precure_splash_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hyuuga_saki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "futari_wa_precure_splash_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kiryuu_kaoru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "futari_wa_precure_splash_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kiryuu_michiru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "futari_wa_precure_splash_star"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mishou_mai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "futari_wa_precure_splash_star"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official Toei page ties both civilian and Cure identities to Splash☆Star and lists the two Kiryuu characters in this work."
+}

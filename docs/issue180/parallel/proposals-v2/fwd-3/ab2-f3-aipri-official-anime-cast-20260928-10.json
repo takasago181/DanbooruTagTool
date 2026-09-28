@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-aipri-official-anime-cast-20260928-10",
+  "campaign_key": "authority:himitsu_no_aipri",
+  "campaign_fingerprint": "7ac282e08b7aa014e8d0e87dd9433d95e900399a325296c59cbe66a6d17e2e58",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://aipri.jp/anime/series/himitsu/staff-cast/",
+  "source_claim": "The official Himitsu no AiPri anime staff/cast page credits Aozora Himari, Hoshikawa Mitsuki, Suzukaze Tsumugi, Mamiya Chii, Mitsuba Airi, and Shinomiya Rinrin in its cast list.",
+  "authority_type": "FIRST_PARTY_ANIME_PRODUCTION_CAST_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "aozora_himari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "himitsu_no_aipri"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hoshikawa_mitsuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "himitsu_no_aipri"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mamiya_chii",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "himitsu_no_aipri"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mitsuba_airi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "himitsu_no_aipri"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shinomiya_rinrin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "himitsu_no_aipri"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "suzukaze_tsumugi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "himitsu_no_aipri"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "All six exact campaign identities are named in the official series cast list."
+}
