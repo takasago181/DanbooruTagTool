@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-mahoiku-restart-official-cast-20260928-01",
+  "campaign_key": "authority:mahou_shoujo_ikusei_keikaku",
+  "campaign_fingerprint": "92bf43a133ab3b0ebec9e54b638303ac9b40f21935d6b7837904c32811d759d6",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://mahoiku.com/anime/restart",
+  "source_claim": "The official Magical Girl Raising Project portal lists Pfle, Shadow Gale, and Lapis Lazuline in the Magical Girl Raising Project restart cast. The page identifies the source series as the Magical Girl Raising Project light-novel series published by Takarajimasha and carries the restart production committee copyright.",
+  "authority_type": "OFFICIAL_FRANCHISE_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"lapis_lazuline","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_ikusei_keikaku"},
+    {"subject_type":"Character","subject_key":"pfle","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_ikusei_keikaku"},
+    {"subject_type":"Character","subject_key":"shadowgale","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_ikusei_keikaku"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official restart CAST section explicitly pairs the Japanese character names プフレ, シャドウゲール, and ラピス・ラズリーヌ with their credited performers. The same page identifies the adapted series in its source credit and names the restart production committee in its copyright footer."
+}

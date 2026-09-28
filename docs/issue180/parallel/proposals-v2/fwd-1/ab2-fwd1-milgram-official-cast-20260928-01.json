@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-milgram-official-cast-20260928-01",
+  "campaign_key": "authority:milgram",
+  "campaign_fingerprint": "129f4435e628abf024184979d1b10baffc73252e425425dc72e2ebdc1de694b9",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://milgram.jp/staff",
+  "source_claim": "The official MILGRAM staff/cast page lists the named characters Fuuta/Kajiyama Fuuta, Yuno/Kashiki Yuno, Mu/Kusunoki Muu, Shidou/Kirisaki Shidou, Amane/Momose Amane, Mikoto/Kayano Mikoto, and Kotoko/Yuzuriha Kotoko alongside their performers. The page is published under the MILGRAM project site and its committee copyright.",
+  "authority_type": "OFFICIAL_FRANCHISE_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"kajiyama_fuuta","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"milgram"},
+    {"subject_type":"Character","subject_key":"kashiki_yuno","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"milgram"},
+    {"subject_type":"Character","subject_key":"kayano_mikoto","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"milgram"},
+    {"subject_type":"Character","subject_key":"kirisaki_shidou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"milgram"},
+    {"subject_type":"Character","subject_key":"kusunoki_muu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"milgram"},
+    {"subject_type":"Character","subject_key":"momose_amane","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"milgram"},
+    {"subject_type":"Character","subject_key":"yuzuriha_kotoko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"milgram"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All seven current campaign identities have exact name matches on the official cast roster. The site's official character profiles independently display full names for Fuuta, Yuno, Mu, Shidou, and Amane; the official cast list supplies full names for Mikoto and Kotoko."
+}

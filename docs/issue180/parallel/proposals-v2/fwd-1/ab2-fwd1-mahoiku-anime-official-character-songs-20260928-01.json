@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-mahoiku-anime-official-character-songs-20260928-01",
+  "campaign_key": "authority:mahou_shoujo_ikusei_keikaku",
+  "campaign_fingerprint": "92bf43a133ab3b0ebec9e54b638303ac9b40f21935d6b7837904c32811d759d6",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://mahoiku.jp/cd/charasong/index.html",
+  "source_claim": "The official TV anime character-song album page explicitly lists Nemurin, Swim Swim, Hardgore Alice, and Top Speed as named character-song performers, with their credited voice actors.",
+  "authority_type": "OFFICIAL_FRANCHISE_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"hardgore_alice","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_ikusei_keikaku"},
+    {"subject_type":"Character","subject_key":"nemurin","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_ikusei_keikaku"},
+    {"subject_type":"Character","subject_key":"swim_swim","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_ikusei_keikaku"},
+    {"subject_type":"Character","subject_key":"top_speed","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_ikusei_keikaku"}
+  ],
+  "terminal_reviews": [],
+  "notes": "This official TV-anime source directly names the four campaign characters in its character-song album track list. The accompanying official site identifies the production as the TV anime 魔法少女育成計画; see https://mahoiku.jp/about/index.html."
+}
