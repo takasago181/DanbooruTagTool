@@ -1,0 +1,24 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-loud-house-official-nick-character-hub-20260928-01",
+  "campaign_key": "authority:the_loud_house",
+  "campaign_fingerprint": "a1d87e45114654dee78a190711296bc2b838ec77a4619a0a9d04f69166e370a2",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nick.com/fan-hub/loud-house",
+  "source_claim": "Nickelodeon's official Loud House hub says the Loud House is home to Lori, Leni, Luna, Luan, Lynn, Lucy, Lola, and Lincoln Loud, and describes the Loud family and series on the same page.",
+  "authority_type": "OFFICIAL_RIGHTSHOLDER_CHARACTER_HUB",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"leni_loud","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_loud_house"},
+    {"subject_type":"Character","subject_key":"lincoln_loud","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_loud_house"},
+    {"subject_type":"Character","subject_key":"lola_loud","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_loud_house"},
+    {"subject_type":"Character","subject_key":"lori_loud","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_loud_house"},
+    {"subject_type":"Character","subject_key":"luan_loud","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_loud_house"},
+    {"subject_type":"Character","subject_key":"lucy_loud","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_loud_house"},
+    {"subject_type":"Character","subject_key":"luna_loud","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_loud_house"},
+    {"subject_type":"Character","subject_key":"lynn_loud","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_loud_house"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All eight exact campaign members appear by name in Nickelodeon's official page under the explicit heading 'Welcome to the Loud House, home to ...'."
+}

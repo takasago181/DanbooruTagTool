@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-wind-breaker-official-anime-endo-profile-20260928-01",
+  "campaign_key": "authority:wind_breaker_(nii_satoru)",
+  "campaign_fingerprint": "9015bf1c684a9ac4ce73552a26073ecebe763b36a2b0da8340e02c38c502d2e0",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://wb-anime.net/",
+  "source_claim": "The official WIND BREAKER anime site identifies Yamato Endo as a character in its staff, cast, and character section, while identifying the anime as an adaptation of Satoru Nii's Kodansha Magazine Pocket manga.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"yamato_endo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"wind_breaker_(nii_satoru)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official anime site explicitly displays Yamato Endo's name and states the adaptation relationship to the manga title and its creator."
+}

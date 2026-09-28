@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-wind-breaker-kodansha-character-roster-20260928-01",
+  "campaign_key": "authority:wind_breaker_(nii_satoru)",
+  "campaign_fingerprint": "9015bf1c684a9ac4ce73552a26073ecebe763b36a2b0da8340e02c38c502d2e0",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://shonenmagazine.com/special_page/windbreaker/",
+  "source_claim": "Kodansha's official Weekly Shonen Magazine WIND BREAKER page presents a story and character roster including Kaji Ren, Nirei Akihiko, Sugishita Kyoutarou, Suo Hayato, Togame Jou, Touma Hiragi, and Umemiya Hajime. The page identifies the series as serialized on Magazine Pocket and lists creator Nii Satoru.",
+  "authority_type": "OFFICIAL_MANGA_PUBLISHER_SERIES_AND_CHARACTER_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"kaji_ren","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"wind_breaker_(nii_satoru)"},
+    {"subject_type":"Character","subject_key":"nirei_akihiko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"wind_breaker_(nii_satoru)"},
+    {"subject_type":"Character","subject_key":"sugishita_kyoutarou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"wind_breaker_(nii_satoru)"},
+    {"subject_type":"Character","subject_key":"suo_hayato","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"wind_breaker_(nii_satoru)"},
+    {"subject_type":"Character","subject_key":"togame_jou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"wind_breaker_(nii_satoru)"},
+    {"subject_type":"Character","subject_key":"touma_hiragi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"wind_breaker_(nii_satoru)"},
+    {"subject_type":"Character","subject_key":"umemiya_hajime","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"wind_breaker_(nii_satoru)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Seven exact campaign members are named in the publisher's official series character roster. The story text and serialized-work metadata establish the title and creator."
+}
