@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:tiger_&_bunny",
+  "campaign_fingerprint": "e9a0cc234a17e416dd99804bfebec993f01fef40bad89a5b5182717217b7af5e",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-tiger-and-bunny-official-hero-character-directory-20260928",
+  "source_url": "https://www.tigerandbunny.net/tv/character/01.html",
+  "authority_type": "FIRST_PARTY_CHARACTER_DIRECTORY",
+  "source_claim": "The official TIGER & BUNNY character page identifies the hero aliases Wild Tiger, Dragon Kid, Origami Cyclone, and Rock Bison, and explicitly ties each to their canonical civilian identities in the same entry. The page carries the series production copyright.",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "wild_tiger",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tiger_&_bunny"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "dragon_kid",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tiger_&_bunny"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "origami_cyclone",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tiger_&_bunny"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rock_bison",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tiger_&_bunny"
+    }
+  ],
+  "notes": "Only hero aliases with explicit entries on this page are included."
+}

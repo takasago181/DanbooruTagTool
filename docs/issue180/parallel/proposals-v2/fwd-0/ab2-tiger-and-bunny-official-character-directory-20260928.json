@@ -1,0 +1,100 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:tiger_&_bunny",
+  "campaign_fingerprint": "e9a0cc234a17e416dd99804bfebec993f01fef40bad89a5b5182717217b7af5e",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-tiger-and-bunny-official-character-directory-20260928",
+  "source_url": "https://www.tigerandbunny.net/tv/character/02.html",
+  "authority_type": "FIRST_PARTY_CHARACTER_DIRECTORY",
+  "source_claim": "The official TIGER & BUNNY character page gives exact entries for Kotetsu T. Kaburagi, Barnaby Brooks Jr., Karina Lyle, Antonio Lopez, Keith Goodman, Pao-Lin Huang, Ivan Karelin, Nathan Seymour, Agnes Joubert, Albert Maverick, Kaede Kaburagi, and Yuri Petrov. It describes them within the named TIGER & BUNNY work and carries the production copyright.",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kaburagi_t._kotetsu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tiger_&_bunny"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "barnaby_brooks_jr.",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tiger_&_bunny"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "karina_lyle",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tiger_&_bunny"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "antonio_lopez",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tiger_&_bunny"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "keith_goodman",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tiger_&_bunny"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "huang_pao-lin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tiger_&_bunny"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ivan_karelin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tiger_&_bunny"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nathan_seymour",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tiger_&_bunny"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "agnes_joubert",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tiger_&_bunny"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "albert_maverick",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tiger_&_bunny"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kaburagi_kaede",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tiger_&_bunny"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yuri_petrov",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tiger_&_bunny"
+    }
+  ],
+  "notes": "Exact canonical Japanese labels were checked against Issue 70. The unqualified kaburagi_tomoe label and non-person marks/mascots are not inferred from this directory."
+}
