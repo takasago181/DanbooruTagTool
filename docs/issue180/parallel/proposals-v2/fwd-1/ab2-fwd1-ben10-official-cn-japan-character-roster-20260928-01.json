@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-ben10-official-cn-japan-character-roster-20260928-01",
+  "campaign_key": "authority:ben_10",
+  "campaign_fingerprint": "210ccd36c44b3c06d0e31b28ac423d32d8b3406b8a4a983c69ccbcaeb353f4ef",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.discoveryjapan.jp/cartoonnetwork/ben10/",
+  "source_claim": "Warner Bros. Discovery Japan's official Cartoon Network Ben 10 program page identifies Ben Tennyson and Gwen Tennyson in the series synopsis/cast, and lists Heatblast and Diamondhead as Ben's alien heroes in the titled Ben 10 series.",
+  "authority_type": "OFFICIAL_RIGHTSHOLDER_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "ben_tennyson",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ben_10"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "diamondhead",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ben_10"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "gwen_tennyson",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ben_10"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "heatblast",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ben_10"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The rights-holder page explicitly lists the four proposed campaign members. Kevin Levin is not named on this roster page and is not inferred from another character's association."
+}

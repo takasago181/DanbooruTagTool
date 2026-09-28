@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-breaking-bad-amc-official-episode-collection-20260928-01",
+  "campaign_key": "authority:breaking_bad",
+  "campaign_fingerprint": "2004bd7179dba8ae8ff574189b8db333909d0a2b74d2ce5b16910a1f27d16d25",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.amc.com/blogs/relive-sauls-early-meetings-with-walter-white-with-breaking-bad-full-episodes--1008872",
+  "source_claim": "AMC's Breaking Bad episode collection identifies Walter White, Jesse, Saul Goodman, Mike, and Gus in descriptions of the named Breaking Bad episodes, placing each campaign character in the official series context.",
+  "authority_type": "OFFICIAL_NETWORK_EPISODE_GUIDE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "gustavo_fring",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "breaking_bad"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mike_ehrmantraut",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "breaking_bad"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "saul_goodman",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "breaking_bad"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jesse_pinkman",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "breaking_bad"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "walter_white",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "breaking_bad"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "AMC explicitly places every proposed character in the named Breaking Bad episodes. Jesse Pinkman and Walt are referred to by first name in episode descriptions; the article title and episode framing establish their series context."
+}

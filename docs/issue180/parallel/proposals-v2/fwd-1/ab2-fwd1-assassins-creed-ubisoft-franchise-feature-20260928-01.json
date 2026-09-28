@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-assassins-creed-ubisoft-franchise-feature-20260928-01",
+  "campaign_key": "authority:assassin's_creed_(series)",
+  "campaign_fingerprint": "b2102d3a7d3bf52933a4c6add125028c1b44c2a2804ee94415fbea8455579c69",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://news.ubisoft.com/en-us/article/QY8tzBhcLR3IxPf59F5rr/the-evolution-of-assassins-creeds-eagle-vision",
+  "source_claim": "Ubisoft's official franchise history feature names Altaïr Ibn-La'Ahad and Desmond Miles in the original Assassin's Creed, Ezio Auditore in Assassin's Creed II/Revelations, Connor in Assassin's Creed III, and Kassandra in Assassin's Creed Odyssey. The titled sections establish each as a character of the Assassin's Creed franchise.",
+  "authority_type": "OFFICIAL_FRANCHISE_HISTORY_FEATURE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "altair_ibn_la-ahad",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "assassin's_creed_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "connor_kenway",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "assassin's_creed_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "desmond_miles",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "assassin's_creed_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ezio_auditore_da_firenze",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "assassin's_creed_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kassandra_of_sparta",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "assassin's_creed_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The source presents franchise characters across the named games; all relations target the series HOME root and do not infer separate homes from individual installments."
+}
