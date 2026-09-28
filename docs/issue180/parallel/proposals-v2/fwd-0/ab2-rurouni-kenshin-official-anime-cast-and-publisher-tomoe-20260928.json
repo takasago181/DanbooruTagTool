@@ -1,0 +1,41 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-rurouni-kenshin-official-anime-cast-20260928",
+    "campaign_key": "authority:rurouni_kenshin",
+    "campaign_fingerprint": "3b14acb2fdbd162de5bf4b1d0c94628bd35e7fe41bc821e5de881d48865b94ff",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://rurouni-kenshin.com/staffcast/",
+    "source_claim": "The official TV anime Kyoto Arc staff and cast page lists Himura Kenshin (緋村剣心), Kamiya Kaoru (神谷 薫), Sagara Sanosuke (相楽左之助), Makimachi Misao (巻町 操), Shishio Makoto (志々雄真実), and Seta Soujirou (瀬田宗次郎) in the cast for Rurouni Kenshin: Meiji Swordsman Romantic Story.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"himura_kenshin","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"rurouni_kenshin"},
+      {"subject_type":"Character","subject_key":"kamiya_kaoru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"rurouni_kenshin"},
+      {"subject_type":"Character","subject_key":"makimachi_misao","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"rurouni_kenshin"},
+      {"subject_type":"Character","subject_key":"sagara_sanosuke","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"rurouni_kenshin"},
+      {"subject_type":"Character","subject_key":"seta_soujirou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"rurouni_kenshin"},
+      {"subject_type":"Character","subject_key":"shishio_makoto","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"rurouni_kenshin"}
+    ],
+    "terminal_reviews": [],
+    "notes": "Only the six campaign characters explicitly listed on this official cast page are mapped."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-rurouni-kenshin-shueisha-yukishiro-tomoe-20260928",
+    "campaign_key": "authority:rurouni_kenshin",
+    "campaign_fingerprint": "3b14acb2fdbd162de5bf4b1d0c94628bd35e7fe41bc821e5de881d48865b94ff",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.shueisha.co.jp/books/items/contents.html?isbn=978-4-08-619323-8",
+    "source_claim": "Shueisha's official Rurouni Kenshin volume 10 page names Yukishiro Tomoe (雪代巴) and describes her as Kenshin's beloved wife and an integral part of the story summarized for this volume.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"yukishiro_tomoe","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"rurouni_kenshin"}
+    ],
+    "terminal_reviews": [],
+    "notes": "The publisher's official volume description explicitly names Tomoe in the Rurouni Kenshin story."
+  }
+]
