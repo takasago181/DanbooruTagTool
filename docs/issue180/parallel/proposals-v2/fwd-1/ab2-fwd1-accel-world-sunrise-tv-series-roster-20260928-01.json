@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-accel-world-sunrise-tv-series-roster-20260928-01",
+  "campaign_key": "authority:accel_world",
+  "campaign_fingerprint": "f3c41e9c02d9a790d4ea175f9b0f3ebe9cd776d9a2027206b887121244508307",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.sunrise-world.net/titles/pickup_324.php",
+  "source_claim": "Bandai Namco Filmworks' Sunrise World page identifies the 2012 TV work as ACCEL WORLD and directly profiles Arita Haruyuki, Kuroyukihime, Kurashima Chiyuri, and Kozuki Yuniko as characters in that work.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "arita_haruyuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "accel_world"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kouzuki_yuniko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "accel_world"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kurashima_chiyuri",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "accel_world"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kuroyukihime",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "accel_world"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official TV-series page identifies each of these four campaign members in its cast or character section. Kurasaki Fuuko is not proposed from this page because it uses the Sky Raker identity in a story caption without giving her civil name."
+}

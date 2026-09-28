@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-amakano2-official-developer-character-page-20260928-01",
+  "campaign_key": "authority:amakano_2",
+  "campaign_fingerprint": "a56e5d12d2dbb3f32805ce3589f8f98d8afdcfc1fe063c33155d3d7022f1a4ea",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://azarashi-soft.nexton-net.jp/amakano2/",
+  "source_claim": "The official Azarashi Soft Amakano 2 page names Kurohime Yuuhi, Himiyama Rei, and Tsutamachi Chitose in its story and links to individual character profiles identifying all three as characters of the titled game.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "himiyama_rei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "amakano_2"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kurohime_yuuhi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "amakano_2"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsutamachi_chitose",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "amakano_2"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the three campaign characters explicitly identified by the official Amakano 2 page are proposed. The official page does not provide enough name-level evidence to map the remaining campaign identities."
+}
