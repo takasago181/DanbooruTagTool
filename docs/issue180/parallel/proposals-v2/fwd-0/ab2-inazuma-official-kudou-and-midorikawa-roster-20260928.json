@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-inazuma-official-kudou-family-and-midorikawa-roster-page-20260928",
+  "campaign_key": "authority:inazuma_eleven_(series)",
+  "campaign_fingerprint": "ef8ef7d0878c94df4eaf6937ff4896c69751b68807a81d9f8cdd5561c9c77a88",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://zukan.inazuma.jp/chara_list/?per_page=50&q=hN2Lmp6SoJmWk4uajd3FpN0cfVscfHUcfUUcfGEcfUccfFwcfG4cfEzdotPdiZqNjJaQkaCZlpOLmo3dxaTdtrrM3aKC",
+  "source_claim": "The official LEVEL5 Inazuma Eleven Player Codex character list identifies Kudou Michiya (久遠 道也), Kudou Fuyuka (久遠 冬花), and Midorikawa Ryuji (緑川 リュウジ) among its Inazuma Eleven 3 character records.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kudou_michiya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "inazuma_eleven_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kudou_fuyuka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "inazuma_eleven_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "midorikawa_ryuuji",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "inazuma_eleven_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "All three exact current campaign identities explicitly listed on this same first-party roster page are proposed."
+}

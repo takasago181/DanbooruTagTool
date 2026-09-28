@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-inazuma-official-eska-bamel-codex-profile-20260928",
+  "campaign_key": "authority:inazuma_eleven_(series)",
+  "campaign_fingerprint": "ef8ef7d0878c94df4eaf6937ff4896c69751b68807a81d9f8cdd5561c9c77a88",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://zukan.inazuma.jp/chara_param/?q=hN2ZlpOLmo2gnJeejZ6glpugjIuN3cWk3ZzPy8_Ox8_Jz92igg%3D%3D",
+  "source_claim": "The official LEVEL5 Inazuma Eleven Player Codex profile explicitly identifies Eska Bamel (エスカ・バメル) as a character in Inazuma Eleven 3.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "eska_bamel",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "inazuma_eleven_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the exact current campaign character identified by this first-party profile is proposed."
+}
