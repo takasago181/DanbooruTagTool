@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-fire-emblem-heroes-greil-profile-20260928-01",
+  "campaign_key": "authority:fire_emblem",
+  "campaign_fingerprint": "b985a1604b0bae1fd784a28f3452ba487c20715f4894abbc45139b572484ea9c",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://guide.fire-emblem-heroes.com/en-GB/greil_heroic_exemplar/",
+  "source_claim": "The official Fire Emblem Heroes character guide identifies Greil and explicitly says he appears in Fire Emblem: Path of Radiance.",
+  "authority_type": "OFFICIAL_FRANCHISE_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "greil",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fire_emblem"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The Nintendo / Intelligent Systems guide names Greil, describes him as founder of the Greil Mercenaries, and identifies Fire Emblem: Path of Radiance as his source title. This directly places the exact campaign character in a Fire Emblem installment."
+}

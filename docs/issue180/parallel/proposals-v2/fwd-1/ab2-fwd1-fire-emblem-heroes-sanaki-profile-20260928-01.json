@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-fire-emblem-heroes-sanaki-profile-20260928-01",
+  "campaign_key": "authority:fire_emblem",
+  "campaign_fingerprint": "b985a1604b0bae1fd784a28f3452ba487c20715f4894abbc45139b572484ea9c",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://guide.fire-emblem-heroes.com/en-US/09009001000103-2/",
+  "source_claim": "The official Fire Emblem Heroes character guide identifies Sanaki and explicitly says she appears in Fire Emblem: Radiant Dawn.",
+  "authority_type": "OFFICIAL_FRANCHISE_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "sanaki_kirsch_altina",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fire_emblem"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The Nintendo / Intelligent Systems guide names Sanaki, describes her as Begnion’s Apostle, and identifies Fire Emblem: Radiant Dawn as her source title. The current campaign key is the exact Sanaki character member."
+}

@@ -1,0 +1,163 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-fire-emblem-three-houses-nintendo-cast-20260928-01",
+  "campaign_key": "authority:fire_emblem",
+  "campaign_fingerprint": "b985a1604b0bae1fd784a28f3452ba487c20715f4894abbc45139b572484ea9c",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-games/Fire-Emblem-Three-Houses-1175482.html",
+  "source_claim": "Nintendo’s official Fire Emblem: Three Houses publisher page names these characters in its title-specific story and house character guide.",
+  "authority_type": "OFFICIAL_PUBLISHER_GAME_CHARACTER_GUIDE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "jeralt_reus_eisner",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fire_emblem"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "edelgard_von_hresvelg",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fire_emblem"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "petra_macneary",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fire_emblem"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ferdinand_von_aegir",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fire_emblem"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "linhardt_von_hevring",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fire_emblem"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "dimitri_alexandre_blaiddyd",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fire_emblem"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "dedue_molinaro",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fire_emblem"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "felix_hugo_fraldarius",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fire_emblem"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ashe_ubert",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fire_emblem"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sylvain_jose_gautier",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fire_emblem"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mercedes_von_martritz",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fire_emblem"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "annette_fantine_dominic",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fire_emblem"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ingrid_brandl_galatea",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fire_emblem"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "claude_von_riegan",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fire_emblem"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lorenz_hellman_gloucester",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fire_emblem"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "raphael_kirsten",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fire_emblem"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ignatz_victor",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fire_emblem"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lysithea_von_ordelia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fire_emblem"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "marianne_von_edmund",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fire_emblem"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hilda_valentine_goneril",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fire_emblem"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "leonie_pinelli",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fire_emblem"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Nintendo’s official title page identifies itself as Fire Emblem: Three Houses and names Jeralt plus these students as story characters in their respective houses. The exact campaign keys correspond to the named characters in the publisher guide: Jeralt, Edelgard, Petra, Ferdinand, Linhardt, Dimitri, Dedue, Felix, Ashe, Sylvain, Mercedes, Annette, Ingrid, Claude, Lorenz, Raphael, Ignatz, Lysithea, Marianne, Hilda, and Leonie. This is direct title character evidence; no relationship is inferred from house membership."
+}
