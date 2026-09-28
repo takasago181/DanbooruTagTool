@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-tgcf-official-character-roster-20260928-01",
+  "campaign_key": "authority:heaven_official's_blessing",
+  "campaign_fingerprint": "c7febf2e48bc4a7ffe7204946efc9c73f5881cb5f7343eb80379ec847f612f56",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://tgcf-anime.com/chara/",
+  "source_claim": "The official Japanese-dub anime character roster for Heaven Official's Blessing lists Xie Lian, San Lang/Hua Cheng, Feng Xin, Shi Qingxuan, and Ming Yi as named characters in the work. The official site identifies the animation as adapted from Mo Xiang Tong Xiu's same-titled novel.",
+  "authority_type": "OFFICIAL_FRANCHISE_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"feng_xin","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"heaven_official's_blessing"},
+    {"subject_type":"Character","subject_key":"hua_cheng","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"heaven_official's_blessing"},
+    {"subject_type":"Character","subject_key":"ming_yi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"heaven_official's_blessing"},
+    {"subject_type":"Character","subject_key":"san_lang","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"heaven_official's_blessing"},
+    {"subject_type":"Character","subject_key":"shi_qingxuan","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"heaven_official's_blessing"},
+    {"subject_type":"Character","subject_key":"xie_lian","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"heaven_official's_blessing"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official season-2 character roster has a single San Lang/Hua Cheng entry, so both exact campaign character tags are supported as names/forms for the same work character. The exact campaign member He Xuan is not listed in the accessible official roster and is left to the companion partial outcome."
+}

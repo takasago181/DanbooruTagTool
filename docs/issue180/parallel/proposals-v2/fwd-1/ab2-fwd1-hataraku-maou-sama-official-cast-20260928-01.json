@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-hataraku-maou-sama-official-cast-20260928-01",
+  "campaign_key": "authority:hataraku_maou-sama!",
+  "campaign_fingerprint": "44c04dd3ff0103c896e25d86401005a17d40dfd0cf93a4dbc7f3c0ac1a9440ee",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://maousama.jp/staffcast/",
+  "source_claim": "The official Hataraku Maou-sama!! anime staff/cast page identifies the source as the Hataraku Maou-sama! Dengeki Bunko series published by KADOKAWA and lists Sadao Maou, Emi Yusa, Chiho Sasaki, Shirou Ashiya, Hanzou Urushihara, Suzuno Kamazuki, and Alas Ramus in named character roles.",
+  "authority_type": "OFFICIAL_FRANCHISE_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"arras_ramus","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hataraku_maou-sama!"},
+    {"subject_type":"Character","subject_key":"ashiya_shirou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hataraku_maou-sama!"},
+    {"subject_type":"Character","subject_key":"kamazuki_suzuno","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hataraku_maou-sama!"},
+    {"subject_type":"Character","subject_key":"maou_sadao","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hataraku_maou-sama!"},
+    {"subject_type":"Character","subject_key":"sasaki_chiho","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hataraku_maou-sama!"},
+    {"subject_type":"Character","subject_key":"urushihara_hanzou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hataraku_maou-sama!"},
+    {"subject_type":"Character","subject_key":"yusa_emi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hataraku_maou-sama!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The production's own anime site lists each exact campaign identity in its cast roster and ties the adaptation to the publisher's light-novel series. The site also uses the current anime title with sequel punctuation, while the original work root remains the canonical source identity candidate from the unit closure record."
+}

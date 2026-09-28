@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-tgcf-he-xuan-residual-20260928-01",
+  "campaign_key": "authority:heaven_official's_blessing",
+  "campaign_fingerprint": "c7febf2e48bc4a7ffe7204946efc9c73f5881cb5f7343eb80379ec847f612f56",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "https://tgcf-anime.com/chara/",
+  "source_claim": "The official Japanese-dub character roster for Heaven Official's Blessing lists the campaign's other six exact identities, but the accessible season-1 and season-2 character rosters do not list He Xuan. This checked material therefore does not establish a safe exact HOME relation for He Xuan.",
+  "authority_type": "OFFICIAL_CHARACTER_ROSTER_RESIDUAL_RESEARCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_SEASON_1_CHARACTER_ROSTER","url_or_query":"https://tgcf-anime.com/chara/1st.html","result":"The official Japanese-dub season-1 roster lists Xie Lian, San Lang, Ling Wen, Nan Feng, and Fu Yao; it does not list He Xuan."},
+    {"route_type":"OFFICIAL_SEASON_2_CHARACTER_ROSTER","url_or_query":"https://tgcf-anime.com/chara/","result":"The official season-2 character index lists the first-season leads and named characters including Ming Yi and Shi Qingxuan, but not He Xuan in the accessible roster."}
+  ],
+  "notes": "This is partial progress, not a terminal or negative HOME decision. Preserve the six positive relations from the companion AUTHORITY_BATCH; later authoritative story coverage can resume the He Xuan route if the campaign reopens with a changed fingerprint."
+}
