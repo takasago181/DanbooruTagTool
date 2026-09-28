@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-eromanga-aniplex-official-song-character-list-20260928-08",
+  "campaign_key": "authority:eromanga_sensei",
+  "campaign_fingerprint": "3125ecb3d125818849be7d8e0c8be9714ee1f55c3ae606acc1da24e3540b6a40",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.aniplex.co.jp/lineup/eromanga/products/detail/?id=4760",
+  "source_claim": "Aniplex's official Eromanga Sensei Complete Collection page names character-song performers Sagiri Izumi, Elf Yamada, Megumi Jinno, Muramasa Senju, and Tomoe Takasago, and identifies the collection as an Eromanga Sensei product.",
+  "authority_type": "FIRST_PARTY_PUBLISHER_CHARACTER_PRODUCT_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"izumi_sagiri","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eromanga_sensei"},
+    {"subject_type":"Character","subject_key":"jinno_megumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eromanga_sensei"},
+    {"subject_type":"Character","subject_key":"senju_muramasa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eromanga_sensei"},
+    {"subject_type":"Character","subject_key":"takasago_tomoe","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eromanga_sensei"},
+    {"subject_type":"Character","subject_key":"yamada_elf","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eromanga_sensei"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Masamune is omitted because the listed character-song tracks do not explicitly name him as a performer."
+}

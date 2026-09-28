@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-eromanga-a1-official-anime-cast-20260928-08",
+  "campaign_key": "authority:eromanga_sensei",
+  "campaign_fingerprint": "3125ecb3d125818849be7d8e0c8be9714ee1f55c3ae606acc1da24e3540b6a40",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://a1p.jp/works/eromanga/",
+  "source_claim": "A-1 Pictures' official Eromanga Sensei work page lists Sagiri Izumi, Masamune Izumi, Elf Yamada, Muramasa Senju, Megumi Jinno, and Tomoe Takasago in the anime cast.",
+  "authority_type": "FIRST_PARTY_ANIMATION_STUDIO_CAST_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"izumi_masamune","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eromanga_sensei"},
+    {"subject_type":"Character","subject_key":"izumi_sagiri","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eromanga_sensei"},
+    {"subject_type":"Character","subject_key":"jinno_megumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eromanga_sensei"},
+    {"subject_type":"Character","subject_key":"senju_muramasa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eromanga_sensei"},
+    {"subject_type":"Character","subject_key":"takasago_tomoe","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eromanga_sensei"},
+    {"subject_type":"Character","subject_key":"yamada_elf","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eromanga_sensei"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official animation studio's work page explicitly names every exact packet target in its cast list."
+}
