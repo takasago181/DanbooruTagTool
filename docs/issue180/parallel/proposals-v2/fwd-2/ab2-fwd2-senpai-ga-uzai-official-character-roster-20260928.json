@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-senpai-ga-uzai-official-character-roster-20260928",
+  "campaign_key": "authority:senpai_ga_uzai_kouhai_no_hanashi",
+  "campaign_fingerprint": "0648e32013d83d4ca2b8debf9d4e87ac20e3cda53a5613891ee8691cd13cf4da",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://senpaiga-uzai-anime.com/character/",
+  "source_claim": "The official TV anime character page for Senpai ga Uzai Kouhai no Hanashi introduces Igarashi Futaba, Takeda Harumi, Sakurai Touko, Kazama Souta, Kurobe Natsumi, Sakurai Yuto, Tsukishiro Mona, and Futaba's grandfather as characters in the work. The page gives individual descriptions and voice cast for these entries.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "igarashi_futaba",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "senpai_ga_uzai_kouhai_no_hanashi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "igarashi_futaba's_grandfather",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "senpai_ga_uzai_kouhai_no_hanashi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kazama_souta",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "senpai_ga_uzai_kouhai_no_hanashi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kurobe_natsumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "senpai_ga_uzai_kouhai_no_hanashi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sakurai_touko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "senpai_ga_uzai_kouhai_no_hanashi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takeda_harumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "senpai_ga_uzai_kouhai_no_hanashi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsukishiro_mona",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "senpai_ga_uzai_kouhai_no_hanashi"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The first-party anime character page is headed CHARACTER / キャラクター and lists each named role with a profile. Its おじいちゃん entry expressly describes him as 双葉の祖父 (Futaba's grandfather); the packet identity is that exact relationship-based character tag. No unlisted relation is asserted."
+}

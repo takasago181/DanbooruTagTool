@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-peanuts-official-gang-roster-20260928",
+  "campaign_key": "authority:peanuts_(comic)",
+  "campaign_fingerprint": "befa83c15590da41fb548b4549d8845dd58f1998442f03d05d6ce7cbaa46066f",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.peanuts.com/about-peanuts",
+  "source_claim": "The official Peanuts About page states that Charles M. Schulz introduced PEANUTS and its cast, describes the continuing cast and identifies Snoopy as a defining character, then lists Charlie Brown, Snoopy, Woodstock, Lucy, Linus, Sally, and Peppermint Patty among the Peanuts gang.",
+  "authority_type": "PEANUTS_OFFICIAL_FRANCHISE_AND_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "charlie_brown",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "peanuts"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "linus_van_pelt",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "peanuts"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lucy_van_pelt",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "peanuts"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "peppermint_patty",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "peanuts"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sally_brown",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "peanuts"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "snoopy",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "peanuts"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "woodstock",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "peanuts"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The Peanuts corporate About page labels the cast as the PEANUTS gang and individually names all seven campaign identities in its Meet the Gang roster. All seven direct-work relations are source-explicit; no family or variant edges are asserted."
+}

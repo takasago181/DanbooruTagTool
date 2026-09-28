@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-majikoi-official-series-roster-20260928",
+  "campaign_key": "authority:maji_de_watashi_ni_koi_shinasai!",
+  "campaign_fingerprint": "f2bc5c14cf370ff9f22930317fa1393bf74477700a13d06ef0af6f15e1d3190e",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.minatosoft.com/majikoi-a-pk/",
+  "source_claim": "Minato Soft's official Maji de Watashi ni Koi Shinasai! A product page identifies the release as entries A1 through A5 in the Maji de Watashi ni Koi Shinasai! game series and provides an official appearance/cast roster that includes all seven campaign characters: Naoe Yamato, Kawakami Momoyo, Kawakami Kazuko, Shiina Miyako, Mayuzumi Yukie, Christiane Friedrich, and Margit Eberbach.",
+  "authority_type": "MINATOSOFT_OFFICIAL_SERIES_PRODUCT_AND_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "christiane_friedrich",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "maji_de_watashi_ni_koi_shinasai!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kawakami_kazuko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "maji_de_watashi_ni_koi_shinasai!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kawakami_momoyo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "maji_de_watashi_ni_koi_shinasai!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "margit_eberbach",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "maji_de_watashi_ni_koi_shinasai!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mayuzumi_yukie",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "maji_de_watashi_ni_koi_shinasai!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "naoe_yamato",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "maji_de_watashi_ni_koi_shinasai!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shiina_miyako",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "maji_de_watashi_ni_koi_shinasai!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Minato Soft is the official source. The product page's game-content field explicitly names Maji de Watashi ni Koi Shinasai! A1-A5; the cast list later on the same page names the corresponding seven people as 川神 一子, 川神 百代, 椎名 京, 黛 由紀江, クリスティアーネ・フリードリヒ, マルギッテ・エーベルバッハ, and 直江 大和. The same page carries the Minato Soft copyright footer. No variant or family relationship is inferred."
+}
