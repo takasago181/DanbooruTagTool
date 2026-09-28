@@ -1,0 +1,41 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-genshiken-official-anime-character-page-20260928",
+    "campaign_key": "authority:genshiken",
+    "campaign_fingerprint": "d1402a488785fc773b2d3dc261b170a6be8cc49b329064fa320483824e8bee20",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://genshiken-2daime.com/character/",
+    "source_claim": "The official TV anime Genshiken Nidaime character page names Madarame Harunobu (斑目晴信), Sasahara Kanji (笹原完士), and Kasukabe Saki (春日部咲) among its characters and identifies the property in its copyright notice.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"kasukabe_saki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"genshiken"},
+      {"subject_type":"Character","subject_key":"madarame_harunobu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"genshiken"},
+      {"subject_type":"Character","subject_key":"sasahara_kanji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"genshiken"}
+    ],
+    "terminal_reviews": [],
+    "notes": "Only the three named character-page entries are mapped from this source."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-genshiken-official-anime-merchandise-characters-20260928",
+    "campaign_key": "authority:genshiken",
+    "campaign_fingerprint": "d1402a488785fc773b2d3dc261b170a6be8cc49b329064fa320483824e8bee20",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://genshiken-2daime.com/news/",
+    "source_claim": "The official Genshiken Nidaime anime site's product announcement names Ogiue Chika (荻上千佳), Ohno Kanako (大野加奈子), Susanna Hopkins (スザンナ・ホプキンス), and Hato Kenjirou (波戸賢二郎) as the subjects of anime merchandise; the page carries the Genshiken Nidaime production copyright.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"hato_kenjirou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"genshiken"},
+      {"subject_type":"Character","subject_key":"ogiue_chika","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"genshiken"},
+      {"subject_type":"Character","subject_key":"ohno_kanako","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"genshiken"},
+      {"subject_type":"Character","subject_key":"susanna_hopkins","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"genshiken"}
+    ],
+    "terminal_reviews": [],
+    "notes": "The announcement explicitly names these four product subjects; no other merchandise subjects are inferred."
+  }
+]
