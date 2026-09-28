@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-journey-to-the-west-gutenberg-primary-text-20260928",
+  "campaign_key": "authority:journey_to_the_west",
+  "campaign_fingerprint": "0e9cb15593e705896f2091bd2a375682b30518f2d7cec410020a70f0a9452e51",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.gutenberg.org/cache/epub/23962/pg23962.txt",
+  "source_claim": "The primary Chinese text 西遊記, catalogued by Project Gutenberg under author Wu Cheng'en and alternate English title Journey to the West, names Tang Sanzang (唐三藏/三藏) and identifies his three disciples as Sun Wukong (孫悟空), Zhu Wuneng / Zhu Bajie (豬悟能/豬八戒), and Sha Wujing (沙悟淨). The same novel directly features Guanyin Bodhisattva (觀音菩薩) throughout its narrative. The five campaign characters therefore have direct HOME in Journey to the West.",
+  "authority_type": "PRIMARY_TEXT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "guanyin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "journey_to_the_west"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sha_wujing",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "journey_to_the_west"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sun_wukong",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "journey_to_the_west"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tang_sanzang",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "journey_to_the_west"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "zhu_bajie",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "journey_to_the_west"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The original text can be checked in the public Chinese Project Gutenberg transcription at https://www.gutenberg.org/cache/epub/23962/pg23962.txt. A passage naming the party and their identities occurs in the latter half of the text: 三藏 states his Dharma name is 玄奘 and names disciples 孫悟空, 豬悟能, 沙悟淨; the same passage says their names were given by 南海觀世音菩薩. Gutenberg's book record https://www.gutenberg.org/ebooks/23962 identifies the Chinese title 西遊記, author Wu Cheng'en, and alternate title Journey to the West. No adaptation-specific variants or alternate HOME edges are added."
+}

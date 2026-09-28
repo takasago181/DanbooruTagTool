@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-ishiyumi-twitter-series-roster-partial-20260928",
+  "campaign_key": "authority:ishiyumi",
+  "campaign_fingerprint": "bc99188d82a90acf01cc7dcb2b11f308e8b8a0929ebf7a862606223107b5d05b",
+  "worker_slot": 0,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_CREATOR_PAGE",
+      "url_or_query": "https://x.com/isiyumi",
+      "result": "The creator's X account is cited as the original posting source for work related to G no Izumi no Megami, but direct profile retrieval failed in this pass and no primary roster or text tying the five exact campaign identities together was accessible."
+    },
+    {
+      "route_type": "OFFICIAL_WORK_PAGE",
+      "url_or_query": "\"The Goddess of the G-Spring\" Ishiyumi character roster",
+      "result": "Search exposed Danbooru wiki summaries and reader discussion, not an accessible creator-published roster. Those sources suggest the work is an original creator-posted series but are not used to assert the five direct HOME relations or resolve the tag 'devil's hand'."
+    }
+  ],
+  "notes": "This five-member Ishiyumi campaign is not exhausted. Preserve the creator-page route for follow-up and leave all relations unresolved until first-party creator posts or an official collected-work roster can be inspected. Gundam references in fan summaries are not treated as evidence of franchise HOME."
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-nausicaa-disney-ghibli-official-cast-20260928",
+  "campaign_key": "authority:kaze_no_tani_no_nausicaa",
+  "campaign_fingerprint": "ebebe7ba363226bce52e223b27914565554050420bfa643993dd4bf32dbec3b9",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.waltdisneystudios.jp/studio/ghibli/1588",
+  "source_claim": "The official Disney Japan listing for the Studio Ghibli-approved kabuki adaptation names Nausicaä, Kushana, Kurotowa, and Ohmu in its cast, and describes the original seven-volume manga and the Giant Warrior (巨神兵) within the same work. Studio Ghibli's film catalog independently identifies Nausicaä of the Valley of the Wind as Hayao Miyazaki's 1984 film. These first-party/licensed-work sources directly establish all five campaign members in the Nausicaä work family.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kurotowa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kaze_no_tani_no_nausicaa"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kushana",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kaze_no_tani_no_nausicaa"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kyoshinhei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kaze_no_tani_no_nausicaa"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nausicaa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kaze_no_tani_no_nausicaa"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ohmu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kaze_no_tani_no_nausicaa"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Primary/licensed sources: https://www.waltdisneystudios.jp/studio/ghibli/1588 explicitly says the manga 風の谷のナウシカ is the source for this adaptation, describes 巨神兵 and lists ナウシカ, クシャナ, クロトワ, and 王蟲 in the cast; https://www.ghibli.jp/works/nausicaa/ confirms the Studio Ghibli title, film, director, and rights line. The proposal covers the five exact campaign members and makes no adaptation-specific variant claims."
+}
