@@ -1,0 +1,79 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-saint-seiya-gss-official-character-news-index-20260928",
+  "campaign_key": "authority:saint_seiya",
+  "campaign_fingerprint": "548b7dbf8c8a0ce29959f893e6f76cf4aa8749dbc4767da74d5ada2e60fea256",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.seiya-gss.com/",
+  "source_claim": "The official Saint Seiya Galaxy Soldiers site’s news index identifies the licensed game and names exact playable-character releases in its product announcements: Aries Shion, Gemini Kanon, Gemini Saga, Cancer Deathmask, Leo Aiolia, Libra Dohko, Aquarius Camus, Capricorn Shura, and Pisces Aphrodite. The entries are explicitly announced as characters appearing in Saint Seiya Galaxy Soldiers; the site footer credits Masami Kurumada, Toei Animation and FIVECROSS.",
+  "authority_type": "FIRST_PARTY_GAME_PRODUCT_NEWS_INDEX",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "aquarius_camus",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saint_seiya"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aries_shion",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saint_seiya"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "cancer_death_mask",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saint_seiya"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "capricorn_shura",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saint_seiya"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "gemini_kanon",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saint_seiya"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "gemini_saga",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saint_seiya"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "leo_aiolia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saint_seiya"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "libra_douko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saint_seiya"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "pisces_aphrodite",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saint_seiya"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The news index itself labels the official game in each relevant entry. The Japanese character names are exact matches to Issue 70 candidate labels; variant/costume descriptors are not treated as separate identities. Other campaign members remain unproposed."
+}
