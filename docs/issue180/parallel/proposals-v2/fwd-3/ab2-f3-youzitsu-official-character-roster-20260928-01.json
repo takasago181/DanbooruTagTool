@@ -1,0 +1,93 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-youzitsu-official-character-roster-20260928-01",
+  "campaign_key": "authority:youkoso_jitsuryoku_shijou_shugi_no_kyoushitsu_e",
+  "campaign_fingerprint": "c7c6c32b2423b522dc9eb67a7b3adafc827bd8c6e75665ea2ff824de6aa941a9",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://you-zitsu.com/character.html",
+  "source_claim": "The official fourth-season character page names the exact roster identities represented by all 11 campaign tags, including Amasawa Ichika, Ayanokouji Kiyotaka, Chabashira Sae, Horikita Suzune, Ibuki Mio, Karuizawa Kei, Kushida Kikyou, Nanase Tsubasa, Sakayanagi Arisu, Sakura Airi, and Shiina Hiyori.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "amasawa_ichika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkoso_jitsuryoku_shijou_shugi_no_kyoushitsu_e"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ayanokouji_kiyotaka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkoso_jitsuryoku_shijou_shugi_no_kyoushitsu_e"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "chabashira_sae",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkoso_jitsuryoku_shijou_shugi_no_kyoushitsu_e"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "horikita_suzune",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkoso_jitsuryoku_shijou_shugi_no_kyoushitsu_e"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ibuki_mio",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkoso_jitsuryoku_shijou_shugi_no_kyoushitsu_e"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "karuizawa_kei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkoso_jitsuryoku_shijou_shugi_no_kyoushitsu_e"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kushida_kikyou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkoso_jitsuryoku_shijou_shugi_no_kyoushitsu_e"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nanase_tsubasa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkoso_jitsuryoku_shijou_shugi_no_kyoushitsu_e"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sakayanagi_arisu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkoso_jitsuryoku_shijou_shugi_no_kyoushitsu_e"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sakura_airi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkoso_jitsuryoku_shijou_shugi_no_kyoushitsu_e"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shiina_hiyori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "youkoso_jitsuryoku_shijou_shugi_no_kyoushitsu_e"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact campaign identities named on the official character page are proposed."
+}

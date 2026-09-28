@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-katawa-shoujo-official-routes-partial-20260928-01",
+  "campaign_key": "authority:katawa_shoujo",
+  "campaign_fingerprint": "dfabc55f0d1d5557862d6ea618ea8e92d07c7339111419d7e46c6b2f8d43514f",
+  "worker_slot": 3,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "FIRST_PARTY_CHARACTER_PAGE",
+      "url_or_query": "https://www.katawa-shoujo.online/characters",
+      "result": "The official Characters route was opened, but the accessible extraction did not expose exact character names that could be mapped safely to the 11 campaign identities."
+    },
+    {
+      "route_type": "FIRST_PARTY_GAME_SITE",
+      "url_or_query": "https://www.katawa-shoujo.online/",
+      "result": "The official site identifies Four Leaf Studios and links its Characters, Samples, and Download sections; the landing-page text does not establish exact campaign identity mappings."
+    },
+    {
+      "route_type": "FIRST_PARTY_STORE_LISTING",
+      "url_or_query": "https://store.steampowered.com/app/3068300/Katawa_Shoujo/",
+      "result": "The official Steam listing identifies Katawa Shoujo and Four Leaf Studios and describes five main character routes, but does not name the exact 11 campaign identities."
+    }
+  ],
+  "notes": "Three distinct first-party routes were checked. Exact tag-to-character mappings remain unestablished; this is partial research progress, not negative evidence or campaign exhaustion."
+}

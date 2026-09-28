@@ -1,0 +1,69 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-f3-devil-survivor-2-official-roster-20260928-01",
+    "campaign_key": "authority:devil_survivor_(series)",
+    "campaign_fingerprint": "538bcbc2b52081a8d6cc0a1601a2ba61a16f6ba7a3e208094837e8fb92e9acd4",
+    "worker_slot": 3,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://ds2br.atlusnet.jp/sp/info/",
+    "source_claim": "The official Devil Survivor 2: Break Record cast information names Airi Ban, Fumi Kanno, Io Nitta, and Yamato Hotsuin, matching these four exact campaign identities.",
+    "authority_type": "FIRST_PARTY_GAME_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "ban_airi",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "devil_survivor_(series)"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "kanno_fumi",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "devil_survivor_(series)"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "nitta_io",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "devil_survivor_(series)"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "houtsuin_yamato",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "devil_survivor_(series)"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Only the exact named cast members in this source are proposed; other campaign tags are not inferred."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-f3-devil-survivor-miyako-official-profile-20260928-01",
+    "campaign_key": "authority:devil_survivor_(series)",
+    "campaign_fingerprint": "538bcbc2b52081a8d6cc0a1601a2ba61a16f6ba7a3e208094837e8fb92e9acd4",
+    "worker_slot": 3,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://ds2br.atlusnet.jp/character/miyako.html",
+    "source_claim": "The official character profile names Hotsuin Miyako (峰津院都) as a Devil Survivor 2: Break Record character.",
+    "authority_type": "FIRST_PARTY_GAME_CHARACTER_PROFILE",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "hotsuin_miyako",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "devil_survivor_(series)"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Exact profile identity only; no relation is proposed for other campaign members."
+  }
+]
