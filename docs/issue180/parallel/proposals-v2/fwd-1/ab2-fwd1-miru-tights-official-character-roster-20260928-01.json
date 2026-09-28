@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-miru-tights-official-character-roster-20260928-01",
+  "campaign_key": "authority:miru_tights",
+  "campaign_fingerprint": "98a1d42bcfec781f9b54560a35a41d2e838581a41f57da5fc06d56696fd5c2db",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://mirutights.jp/character.html",
+  "source_claim": "The official Miru Tights character page lists Aikawa Ren, Nakabeni Yua, Moegi Homi, and Okuzumi Yuiko with character descriptions and voice cast. The page's copyright line credits Yomu/TRUSS.",
+  "authority_type": "OFFICIAL_WORK_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"aikawa_ren","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"miru_tights"},
+    {"subject_type":"Character","subject_key":"moegi_homi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"miru_tights"},
+    {"subject_type":"Character","subject_key":"nakabeni_yua","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"miru_tights"},
+    {"subject_type":"Character","subject_key":"okuzumi_yuiko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"miru_tights"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All four exact campaign members appear on the first-party roster."
+}
