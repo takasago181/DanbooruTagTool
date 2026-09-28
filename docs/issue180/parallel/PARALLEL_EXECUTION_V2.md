@@ -223,3 +223,24 @@ Return early only for:
 Missing evidence, inaccessible pages, duplicate batches, regenerated campaigns, routine CI repair and safe unresolved outcomes are not blockers.
 
 Finish when OPEN/PENDING = 0, all unresolved rows have concrete reasons, migration is accounted, conflicts/missing roots are safe, #179 freshness passes, full canonical v3 CI is green, and protected sources/main/production remain untouched.
+
+
+## 13. Codex-managed detached Worktree launch
+
+For the initial five-chat launch, all chats may start from the same canonical branch `research/issue180-single-home-pilot`.
+
+Codex-managed Worktrees are detached by design. Role allocation is therefore **not** based on `git branch --show-current`.
+
+Run:
+
+```
+python scripts/issue180/claim_codex_role_v2.py
+```
+
+The helper atomically claims one of five dedicated remote lock refs by a normal fast-forward push. A concurrent claimant for the same role receives a non-fast-forward rejection and continues to the next role. No force push is used.
+
+The five claim refs are coordination-only and do not carry semantic authority. They are intentionally outside the Forward workflow branch glob.
+
+Routine managed-Worktree execution must not depend on writing shared `FETCH_HEAD`. Prefer `git ls-remote` for remote SHA discovery. If a missing commit object is required locally, `git fetch --no-write-fetch-head` may be attempted; otherwise use GitHub HTTP/API read-only access for current canonical dispatch/content.
+
+A successful role claimant works detached and pushes its commits explicitly to its assigned target branch. This does not change Forward/QA write ownership.

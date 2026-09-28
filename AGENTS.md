@@ -279,13 +279,23 @@ For only these five pre-created Issue #180 research branches, this section overr
 - `research/issue180-forward-3`
 - `research/issue180-qa-integrator`
 
-Forward startup is intentionally minimal:
-1. `git status --short --branch`;
-2. `git fetch origin --prune`;
-3. read this AGENTS section;
-4. read live Issue #180 latest comment;
-5. read the current lane dispatch directly from `origin/research/issue180-single-home-pilot`;
-6. read `AUTHORITY_BATCH_SCHEMA_V2.md` and `RESEARCH_STOP_PROTOCOL_V2.md`.
+Codex-managed Worktrees normally start detached. `HEAD (no branch)` is expected and must not be treated as ROLE_BRANCH_MISMATCH.
+
+For the five-chat managed-Worktree launch, all chats start from `research/issue180-single-home-pilot` and run:
+
+```
+python scripts/issue180/claim_codex_role_v2.py
+```
+
+The helper atomically allocates Forward 0..3 then QA through dedicated remote claim refs. Do not ask the user to type a slot number or create/switch branches manually.
+
+Do not require normal `git fetch origin --prune` from a managed Worktree. Prefer `git ls-remote` for freshness. If a commit object is required locally, use `git fetch --no-write-fetch-head` only as needed; GitHub HTTP/API read-only access is an allowed fallback.
+
+After role claim, Forward startup is intentionally minimal:
+1. read this AGENTS section;
+2. read live Issue #180 latest comment;
+3. read the current canonical lane dispatch for the claimed slot;
+4. read `AUTHORITY_BATCH_SCHEMA_V2.md` and `RESEARCH_STOP_PROTOCOL_V2.md`.
 
 Forward does not reread CURRENT_STATE, PERMANENT_RULES, PRODUCT_GOAL_LOCK, unrelated product docs, or the full v3 design during routine research. It does not run full v3 and does not merge/rebase canonical. Escalate to wider docs only for a real harness/policy blocker.
 

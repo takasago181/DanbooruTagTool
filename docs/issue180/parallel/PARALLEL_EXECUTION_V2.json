@@ -77,5 +77,26 @@
     "include_prior_checked_routes": true
   },
   "source_review_ledger": "docs/issue180/parallel/SOURCE_REVIEW_LEDGER_V2.csv",
-  "research_stop_protocol": "docs/issue180/parallel/RESEARCH_STOP_PROTOCOL_V2.md"
+  "research_stop_protocol": "docs/issue180/parallel/RESEARCH_STOP_PROTOCOL_V2.md",
+  "codex_managed_worktree_launch": {
+    "starting_branch": "research/issue180-single-home-pilot",
+    "detached_head_expected": true,
+    "role_claim_helper": "scripts/issue180/claim_codex_role_v2.py",
+    "standard_git_fetch_required": false,
+    "remote_freshness_probe": "git ls-remote",
+    "claim_refs": [
+      "research/issue180-claim-forward-0",
+      "research/issue180-claim-forward-1",
+      "research/issue180-claim-forward-2",
+      "research/issue180-claim-forward-3",
+      "research/issue180-claim-qa"
+    ],
+    "role_order": [
+      "FORWARD_0",
+      "FORWARD_1",
+      "FORWARD_2",
+      "FORWARD_3",
+      "QA"
+    ]
+  }
 }
