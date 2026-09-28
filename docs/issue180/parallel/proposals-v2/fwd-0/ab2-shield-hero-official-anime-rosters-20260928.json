@@ -1,0 +1,61 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-shield-hero-s3-official-anime-character-roster-20260928",
+    "campaign_key": "authority:tate_no_yuusha_no_nariagari",
+    "campaign_fingerprint": "d5b6b752e0ac4245ce0cecb01d0564b82c7adc4be3e41f2448834e31e11b81da",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://shieldhero-anime.jp/3rd/",
+    "source_claim": "The official Season 3 anime character and cast directory names Naofumi Iwatani, Raphtalia, Rishia, Ren Amaki, Motoyasu Kitamura, Itsuki Kawasumi, Melty, and Mirelia as characters in The Rising of the Shield Hero. It also explicitly describes Raph-chan as a shikigami made by Naofumi from Raphtalia's hair.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"iwatani_naofumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tate_no_yuusha_no_nariagari"},
+      {"subject_type":"Character","subject_key":"raphtalia","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tate_no_yuusha_no_nariagari"},
+      {"subject_type":"Character","subject_key":"rishia_ivyred","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tate_no_yuusha_no_nariagari"},
+      {"subject_type":"Character","subject_key":"amaki_ren","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tate_no_yuusha_no_nariagari"},
+      {"subject_type":"Character","subject_key":"kitamura_motoyasu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tate_no_yuusha_no_nariagari"},
+      {"subject_type":"Character","subject_key":"kawasumi_itsuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tate_no_yuusha_no_nariagari"},
+      {"subject_type":"Character","subject_key":"melty_q_melromarc","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tate_no_yuusha_no_nariagari"},
+      {"subject_type":"Character","subject_key":"mirelia_q_melromarc","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tate_no_yuusha_no_nariagari"},
+      {"subject_type":"Character","subject_key":"raph-chan","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tate_no_yuusha_no_nariagari"}
+    ],
+    "terminal_reviews": [],
+    "notes": "The official page names each character and provides series-specific roles; it explicitly links Raph-chan to the same work through its origin from Raphtalia's hair. Malty S Melromarc is not proposed because the checked official page uses the name Mine and does not establish the campaign tag's alternate name."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-shield-hero-s4-official-cast-atla-20260928",
+    "campaign_key": "authority:tate_no_yuusha_no_nariagari",
+    "campaign_fingerprint": "d5b6b752e0ac4245ce0cecb01d0564b82c7adc4be3e41f2448834e31e11b81da",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.kadokawa.co.jp/product/video2356/",
+    "source_claim": "KADOKAWA's official Season 4 product page lists Atla in the cast for The Rising of the Shield Hero Season 4.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"atla_fayon","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tate_no_yuusha_no_nariagari"}
+    ],
+    "terminal_reviews": [],
+    "notes": "The official Japanese name アトラ is listed in the Season 4 work cast. No unlisted characters are inferred."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-shield-hero-kadokawa-rishia-ivyred-profile-20260928",
+    "campaign_key": "authority:tate_no_yuusha_no_nariagari",
+    "campaign_fingerprint": "d5b6b752e0ac4245ce0cecb01d0564b82c7adc4be3e41f2448834e31e11b81da",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://promo.kadokawa.co.jp/mfbooks/special/tatenoyusha/feature.html",
+    "source_claim": "KADOKAWA's official MF Books Shield Hero feature names Rishia Ivyred (リーシア＝アイヴィレッド) and describes her as a member of Naofumi's party in the Shield Hero story.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"rishia_ivyred","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tate_no_yuusha_no_nariagari"}
+    ],
+    "terminal_reviews": [],
+    "notes": "This official publisher profile supplies the exact family-name form in the campaign member."
+  }
+]
