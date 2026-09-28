@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-jibaku-shounen-hanako-kun-official-story-20260928",
+  "campaign_key": "authority:jibaku_shounen_hanako-kun",
+  "campaign_fingerprint": "16a4c0374215563badbb69d11bd64a15e9dc9a8ac6ff532014052c196d0e7eaa",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://hanakokun.com/2nd/story/",
+  "source_claim": "The official Toilet-Bound Hanako-kun 2 story introduction names Nene Yashiro, Kou Minamoto, Tsukasa, and Mitsuba as participants in the story and describes their roles and relationships.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"yashiro_nene","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"jibaku_shounen_hanako-kun"},
+    {"subject_type":"Character","subject_key":"minamoto_kou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"jibaku_shounen_hanako-kun"},
+    {"subject_type":"Character","subject_key":"yugi_tsukasa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"jibaku_shounen_hanako-kun"},
+    {"subject_type":"Character","subject_key":"mitsuba_sousuke","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"jibaku_shounen_hanako-kun"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official story text identifies all campaign members and directly names the mirrored Tsukasa and the Mitsuba character, not performers."
+}
