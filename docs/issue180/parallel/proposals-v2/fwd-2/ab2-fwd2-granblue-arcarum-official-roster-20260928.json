@@ -1,0 +1,32 @@
+[
+  {
+    "schema_version": 2,
+    "worker_slot": 2,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-fwd2-granblue-arcarum-official-event-roster-20260928",
+    "campaign_key": "authority:granblue_fantasy",
+    "campaign_fingerprint": "4599ae0e713ed89f7750da7a8543d636fdbe3a3ddd7260e340d07e8a0057e8b1",
+    "source_url": "https://granbluefantasy.com/ja/news/p61126/",
+    "source_claim": "Cygames’ official Granblue Fantasy event announcement lists Fraux and Haaselia among the event characters for “Arcarum’s Ten Eternals: First Reunion.”",
+    "authority_type": "CYGAMES_OFFICIAL_EVENT_CHARACTER_ROSTER",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "fraux",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "granblue_fantasy"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "haaselia",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "granblue_fantasy"
+      }
+    ],
+    "notes": "Only the exact current campaign members named in the official event-character roster are included. The previously accepted Anthuria profile hint is not reused as evidence for these different identities; other campaign members are not inferred from shared Arcarum affiliation."
+  }
+]

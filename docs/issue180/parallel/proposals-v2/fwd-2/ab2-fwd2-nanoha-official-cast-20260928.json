@@ -1,0 +1,111 @@
+[
+  {
+    "schema_version": 2,
+    "worker_slot": 2,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-fwd2-nanoha-reflection-cast-20260928",
+    "campaign_key": "authority:lyrical_nanoha",
+    "campaign_fingerprint": "1239516392e1a8610f93849e6138a7b740c2ef3eeaced085fde28608fb5c9e0c",
+    "source_url": "https://www.nanoha.com/archive6/disc.html",
+    "source_claim": "The official NANOHA Reflection disc page lists named characters in its character audio commentary, including Amitie Florian, Kyrie Florian, Iris, Dearche, Stern, Levi, Fuka Reventon, Rinne Berlinetta, Vivio, Einhart Stratos, Rio Wezley, Corona Timir, and Miura Rinaldi.",
+    "authority_type": "KING_RECORDS_OFFICIAL_FILM_CHARACTER_COMMENTARY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "amitie_florian",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "mahou_shoujo_lyrical_nanoha"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "kyrie_florian",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "mahou_shoujo_lyrical_nanoha"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "fuka_reventon",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "mahou_shoujo_lyrical_nanoha"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "rinne_berlinetta",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "mahou_shoujo_lyrical_nanoha"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "vivio",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "mahou_shoujo_lyrical_nanoha"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "einhard_stratos",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "mahou_shoujo_lyrical_nanoha"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "rio_wezley",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "mahou_shoujo_lyrical_nanoha"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "corona_timir",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "mahou_shoujo_lyrical_nanoha"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "miura_rinaldi",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "mahou_shoujo_lyrical_nanoha"
+      }
+    ],
+    "notes": "Only exact current campaign member tags whose character names are explicit in the official page are included. Other similarly named devices, voice actors, and characters with a non-exact tag/name mapping are omitted. This page records a character commentary for the official franchise; it is not used to infer a distinct installment HOME or a second HOME."
+  },
+  {
+    "schema_version": 2,
+    "worker_slot": 2,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-fwd2-nanoha-detonation-cast-20260928",
+    "campaign_key": "authority:lyrical_nanoha",
+    "campaign_fingerprint": "1239516392e1a8610f93849e6138a7b740c2ef3eeaced085fde28608fb5c9e0c",
+    "source_url": "https://nanoha.com/archive7/character_list.html",
+    "source_claim": "The official NANOHA Detonation character list names Amitie Florian, Kyrie Florian, Iris, Dearche, Stern, Levi, and Yuri as characters in the work.",
+    "authority_type": "KING_RECORDS_OFFICIAL_ANIME_CHARACTER_ROSTER",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "amitie_florian",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "mahou_shoujo_lyrical_nanoha"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "kyrie_florian",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "mahou_shoujo_lyrical_nanoha"
+      }
+    ],
+    "notes": "Only the two exact current campaign names with direct Romanized matches are included. Yuri, the three soul names, and other members are omitted because the tag-to-person identity or member spelling is not exact enough in this checked list alone."
+  }
+]

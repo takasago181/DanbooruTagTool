@@ -1,0 +1,71 @@
+[
+  {
+    "schema_version": 2,
+    "worker_slot": 2,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-fwd2-touken-profile-aizen_kunitoshi-20260928",
+    "campaign_key": "authority:touken_ranbu",
+    "campaign_fingerprint": "8394470cb5e5181de41ad0f8821962c4e99667e79735f0d3fdd92eefe9bff6b0",
+    "source_url": "https://www.toukenranbu.jp/character/061/",
+    "source_claim": "The official Touken Ranbu ONLINE character profile at this URL names Aizen Kunitoshi.",
+    "authority_type": "OFFICIAL_GAME_CHARACTER_PROFILE",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "aizen_kunitoshi",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "touken_ranbu"
+      }
+    ],
+    "notes": "This batch includes only the exact named campaign member in this individual official profile. No inference is made from sword-school affiliation, co-occurrence, or the separate Awataguchi roster."
+  },
+  {
+    "schema_version": 2,
+    "worker_slot": 2,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-fwd2-touken-profile-akashi_kuniyuki-20260928",
+    "campaign_key": "authority:touken_ranbu",
+    "campaign_fingerprint": "8394470cb5e5181de41ad0f8821962c4e99667e79735f0d3fdd92eefe9bff6b0",
+    "source_url": "https://www.toukenranbu.jp/character/057/",
+    "source_claim": "The official Touken Ranbu ONLINE character profile at this URL names Akashi Kuniyuki.",
+    "authority_type": "OFFICIAL_GAME_CHARACTER_PROFILE",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "akashi_kuniyuki",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "touken_ranbu"
+      }
+    ],
+    "notes": "This batch includes only the exact named campaign member in this individual official profile. No inference is made from sword-school affiliation, co-occurrence, or the separate Awataguchi roster."
+  },
+  {
+    "schema_version": 2,
+    "worker_slot": 2,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-fwd2-touken-profile-doudanuki_masakuni-20260928",
+    "campaign_key": "authority:touken_ranbu",
+    "campaign_fingerprint": "8394470cb5e5181de41ad0f8821962c4e99667e79735f0d3fdd92eefe9bff6b0",
+    "source_url": "https://www.toukenranbu.jp/character/128/",
+    "source_claim": "The official Touken Ranbu ONLINE character profile at this URL names Doudanuki Masakuni.",
+    "authority_type": "OFFICIAL_GAME_CHARACTER_PROFILE",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "doudanuki_masakuni",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "touken_ranbu"
+      }
+    ],
+    "notes": "This batch includes only the exact named campaign member in this individual official profile. No inference is made from sword-school affiliation, co-occurrence, or the separate Awataguchi roster."
+  }
+]
