@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-mha-official-villain-directory-20260928-02",
+  "campaign_key": "authority:boku_no_hero_academia",
+  "campaign_fingerprint": "2f593dc873205c84f31747ea664f3473d1a64f4e1367a3738c027057c351e2aa",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://heroaca.com/character/chara_group06/",
+  "source_claim": "The official TV anime character directory lists these named Characters in its Paranormal Liberation Front group and carries the My Hero Academia production copyright.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "source_review_id_hint": "src180-ab2-fwd1-mha-official-villain-directory-20260928-01",
+  "relations": [
+    {"subject_type":"Character","subject_key":"toga_himiko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"boku_no_hero_academia"},
+    {"subject_type":"Character","subject_key":"mr._compress","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"boku_no_hero_academia"},
+    {"subject_type":"Character","subject_key":"lady_nagant","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"boku_no_hero_academia"},
+    {"subject_type":"Character","subject_key":"la_brava","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"boku_no_hero_academia"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official directory names Himiko Toga, Mr. Compress, Lady Nagant, and La Brava on its character page. These four exact current campaign members are included; no relation is inferred from villain affiliation."
+}

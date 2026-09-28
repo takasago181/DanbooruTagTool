@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-aot-current-hinted-routes-partial-20260928-01",
+  "campaign_key": "authority:shingeki_no_kyojin",
+  "campaign_fingerprint": "3d900402b78cdcd9765b79a20931f14d6321a8157aab6d70f6bfe46e87a33808",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_ANIME_CAST","url_or_query":"https://shingeki.tv/final/staff/","result":"Inspected both Final Season cast listings. They name cast characters, but none of the exact current campaign members are named."},
+    {"route_type":"OFFICIAL_CHARACTER_DIRECTORY","url_or_query":"https://shingeki.tv/season1/character/","result":"Inspected the Season 1 official character directory. Its displayed exact names do not include the current campaign members; no safe exact relation was established."},
+    {"route_type":"OFFICIAL_ANIME_CAST","url_or_query":"https://shingeki.tv/season3/staff/","result":"Inspected both Season 3 cast listings. They name cast characters, but none of the exact current campaign members are named."}
+  ],
+  "notes": "These are all three official routes carried as current source hints. The current campaign is a broad 20-member residual, so these route checks do not exhaust the campaign and are recorded as partial progress only. No absence claim or negative evidence is made."
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-naruto-shippuden-official-character-directory-20260928-02",
+  "campaign_key": "authority:naruto_(series)",
+  "campaign_fingerprint": "225dc2eb775291329d646368838b4e8e4f6262487d1b989c41a6760b4d86c664",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/anime/naruto/sp/chara/chara_detail.html",
+  "source_claim": "TV Tokyo's official Naruto Shippuden character directory explicitly labels Naruto Uzumaki and Sasuke Uchiha as series characters and carries the Naruto Shippuden production credit.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "source_review_id_hint": "src180-ab2-fwd1-naruto-shippuden-official-character-directory-20260928-01",
+  "relations": [
+    {"subject_type":"Character","subject_key":"uzumaki_naruto","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"naruto_(series)"},
+    {"subject_type":"Character","subject_key":"uchiha_sasuke","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"naruto_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The inspected official directory directly labels both Naruto Uzumaki and Sasuke Uchiha in its character gallery. Both exact canonical Character keys are members of the current campaign. No relation is inferred from family or team membership."
+}
