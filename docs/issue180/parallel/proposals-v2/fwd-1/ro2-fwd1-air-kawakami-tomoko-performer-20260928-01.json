@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-air-kawakami-tomoko-performer-20260928-01",
+  "campaign_key": "authority:air_(visual_novel)",
+  "campaign_fingerprint": "ec0ba15ee7d41e69cf2a4fddb78f8f127d98e799d896a00eb5df0ad59ed9190c",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "https://www.tbs.co.jp/anime/air/staff/cast.html",
+  "source_claim": "The official AIR anime cast page pairs the name Tomoko Kawakami with the character Misuzu Kamio as her performer credit. This does not establish a fictional-character HOME relation for the campaign member kawakami_tomoko.",
+  "authority_type": "OFFICIAL_ANIME_CAST_ROLE_CHECK",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_RIGHTSHOLDER_CHARACTER_ROSTER","url_or_query":"https://key.visualarts.gr.jp/product/air/character/","result":"Key's official AIR character introduction lists named in-story characters and does not list Tomoko Kawakami as a character."},
+    {"route_type":"OFFICIAL_ANIME_CAST_ROSTER","url_or_query":"https://www.tbs.co.jp/anime/air/staff/cast.html","result":"TBS's official AIR cast and staff page names the cast role Misuzu Kamio: Tomoko Kawakami; the page identifies the name as the performer attached to Misuzu, not a story character."}
+  ],
+  "notes": "Partial campaign progress only. No character relation or negative HOME claim is asserted for kawakami_tomoko. The other six campaign identities have first-party positive evidence in the companion authority batch."
+}

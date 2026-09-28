@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-assassination-classroom-official-film-roster-20260928-01",
+  "campaign_key": "authority:ansatsu_kyoushitsu",
+  "campaign_fingerprint": "729b940aff4d50a85d1caaa04f1c1c9ad9234d7b750ea8bd43e5be71d2ef1d51",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://ansatsu-anime.com/character/",
+  "source_claim": "The official Assassination Classroom film character roster explicitly lists these named work characters: Koro-sensei, Irina Jelavic, Karma Akabane, Manami Okuda, Kaede Kayano, Nagisa Shiota, and Tomohito Sugino. The page footer attributes the work to Yusei Matsui, Shueisha, and the Assassination Classroom production committee.",
+  "authority_type": "OFFICIAL_FRANCHISE_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"koro-sensei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ansatsu_kyoushitsu"},
+    {"subject_type":"Character","subject_key":"irina_jelavic","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ansatsu_kyoushitsu"},
+    {"subject_type":"Character","subject_key":"akabane_karma","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ansatsu_kyoushitsu"},
+    {"subject_type":"Character","subject_key":"okuda_manami","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ansatsu_kyoushitsu"},
+    {"subject_type":"Character","subject_key":"kayano_kaede","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ansatsu_kyoushitsu"},
+    {"subject_type":"Character","subject_key":"shiota_nagisa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ansatsu_kyoushitsu"},
+    {"subject_type":"Character","subject_key":"sugino_tomohito","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ansatsu_kyoushitsu"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official character index groups each identity within the work's named teacher or Class 3-E roster. Relations are limited to exact dispatch members with matching names."
+}

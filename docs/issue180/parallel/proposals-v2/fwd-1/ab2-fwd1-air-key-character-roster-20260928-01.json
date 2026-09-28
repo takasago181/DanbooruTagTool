@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-air-key-character-roster-20260928-01",
+  "campaign_key": "authority:air_(visual_novel)",
+  "campaign_fingerprint": "ec0ba15ee7d41e69cf2a4fddb78f8f127d98e799d896a00eb5df0ad59ed9190c",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://key.visualarts.gr.jp/product/air/character/",
+  "source_claim": "Key's official AIR character introduction explicitly lists Yukito Kunisaki, Misuzu Kamio, Kano Kirishima, Minagi Tohno, and Haruko Kamio as characters in the AIR product. The official TV anime cast page identifies AIR as a Key/Visual Arts original and lists Kannabi no Mikoto as a named cast character.",
+  "authority_type": "OFFICIAL_RIGHTSHOLDER_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"kunisaki_yukito","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"air_(visual_novel)"},
+    {"subject_type":"Character","subject_key":"kamio_misuzu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"air_(visual_novel)"},
+    {"subject_type":"Character","subject_key":"kirishima_kano","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"air_(visual_novel)"},
+    {"subject_type":"Character","subject_key":"toono_minagi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"air_(visual_novel)"},
+    {"subject_type":"Character","subject_key":"kamio_haruko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"air_(visual_novel)"},
+    {"subject_type":"Character","subject_key":"kannabi_no_mikoto","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"air_(visual_novel)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The Key product roster is the direct game authority for the five named profiles. TBS's official AIR anime cast listing explicitly names Kannabi and credits Key/Visual Arts as the original work. The campaign member kawakami_tomoko is excluded because this name denotes a performer, not a story character."
+}
