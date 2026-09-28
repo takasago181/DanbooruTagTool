@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-aizawa-ema-official-costume-reveals-20260928",
+  "campaign_key": "base:aizawa_ema",
+  "campaign_fingerprint": "45c424d494485bafa9d829c75d487121d787d1cb0a7fa46270a9c6203b18742e",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.youtube.com/@AizawaEma",
+  "source_claim": "Aizawa Ema's official YouTube channel published her debut stream and successive outfit-reveal streams. These first-party records establish the same Aizawa Ema identity across the initial appearance and the numbered subsequent costume appearances represented by the campaign's 1st through 5th costume tags.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "aizawa_ema_(1st_costume)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "aizawa_ema"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aizawa_ema_(2nd_costume)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "aizawa_ema"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aizawa_ema_(3rd_costume)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "aizawa_ema"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aizawa_ema_(4th_costume)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "aizawa_ema"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aizawa_ema_(5th_costume)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "aizawa_ema"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "First-party official channel and records: debut/initial appearance https://www.youtube.com/watch?v=SmL3GUMV04M; 2nd outfit reveal, titled 初めてのお衣装チェンジ (2022-07-24), https://www.youtube.com/watch?v=khF7WfDjoqI; 3rd outfit reveal, titled 約1年ぶりのお衣装チェンジ (2023-07-02), https://www.youtube.com/watch?v=RbsnsVhJI7E; 4th outfit reveal (2024-08-04), https://www.youtube.com/watch?v=Yiy77GiWuqI; 5th outfit reveal (2025-06-01), https://www.youtube.com/watch?v=Lag_-cJTrf8. The agency's official profile confirms the base identity: https://vspo.jp/."
+}
