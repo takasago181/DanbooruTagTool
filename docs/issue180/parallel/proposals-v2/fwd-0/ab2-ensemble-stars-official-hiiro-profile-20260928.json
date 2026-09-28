@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-ensemble-stars-official-hiiro-profile-20260928",
+  "campaign_key": "authority:ensemble_stars!",
+  "campaign_fingerprint": "842d1a5b6de6ce72a052006a0d28969d75778e5c9ce7ea3acda59752ee3c147a",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://ensemble-stars.jp/characters/amagi_hiiro/",
+  "source_claim": "The official Ensemble Stars!! character profile names Amagi Hiiro (天城一彩) and describes his unit role. The same official profile explicitly names Amagi Rinne (天城燐音) as Hiiro's older brother, identifying both as characters in the Ensemble Stars!! work.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"amagi_hiiro","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ensemble_stars!"},
+    {"subject_type":"Character","subject_key":"amagi_rinne","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ensemble_stars!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The source explicitly identifies Hiiro and names Rinne as his brother; no other campaign characters are asserted."
+}
