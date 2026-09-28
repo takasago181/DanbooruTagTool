@@ -1,0 +1,26 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-aldnoahzero-a1pictures-official-cast-20260928",
+  "campaign_key": "authority:aldnoah.zero",
+  "campaign_fingerprint": "4f885892831137615668d9cc6ec3e54e06fca5dee04b1e22b1a87ffe4e535064",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://a1p.jp/works/aldnoahzero2/",
+  "source_claim": "A-1 Pictures' official ALDNOAH.ZERO production page lists the anime cast, including the ten exact human Character identities from the current campaign: Kaizuka Inaho, Slaine Troyard, Asseylum Vers Allusia, Rayet Areash, Amifumi Inko, Eddelrittuo, Cruhteo, Harklight, Lemrina Vers Envers, and Kaizuka Yuki.",
+  "authority_type": "FIRST_PARTY_ANIME_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"amifumi_inko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aldnoah.zero"},
+    {"subject_type":"Character","subject_key":"asseylum_vers_allusia","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aldnoah.zero"},
+    {"subject_type":"Character","subject_key":"cruhteo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aldnoah.zero"},
+    {"subject_type":"Character","subject_key":"eddelrittuo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aldnoah.zero"},
+    {"subject_type":"Character","subject_key":"harklight","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aldnoah.zero"},
+    {"subject_type":"Character","subject_key":"kaizuka_inaho","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aldnoah.zero"},
+    {"subject_type":"Character","subject_key":"kaizuka_yuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aldnoah.zero"},
+    {"subject_type":"Character","subject_key":"lemrina_vers_envers","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aldnoah.zero"},
+    {"subject_type":"Character","subject_key":"rayet_areash","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aldnoah.zero"},
+    {"subject_type":"Character","subject_key":"slaine_troyard","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aldnoah.zero"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The A-1 Pictures official work listing covers all human target characters. The mechanical character KG-6 Sleipnir is covered in a separate official Aniplex product authority batch."
+}

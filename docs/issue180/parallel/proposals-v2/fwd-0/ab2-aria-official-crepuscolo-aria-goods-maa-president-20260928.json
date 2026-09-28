@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-aria-official-crepuscolo-aria-goods-maa-president-20260928",
+  "campaign_key": "authority:aria_(manga)",
+  "campaign_fingerprint": "8278b64286829b3241f11cbdebbb04f5bc100283de908a5b2072912d51e43377",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://ariacompany.net/5th/goods.php",
+  "source_claim": "The official ARIA The CREPUSCOLO goods page identifies an 'ARIA original' gondola figure set and lists Maa-shacho (まぁ社長) among the four Orange Planet characters included in the set. This explicitly associates Maa-shacho with the ARIA work.",
+  "authority_type": "FIRST_PARTY_PRODUCT_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"president_maa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aria_(manga)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The goods page is part of the official ARIA portal and marks the product as ARIA original; only the exact campaign character named in the product set is proposed."
+}

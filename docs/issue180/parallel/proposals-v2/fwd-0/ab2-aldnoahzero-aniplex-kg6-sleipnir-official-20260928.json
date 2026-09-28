@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-aldnoahzero-aniplex-kg6-sleipnir-official-20260928",
+  "campaign_key": "authority:aldnoah.zero",
+  "campaign_fingerprint": "4f885892831137615668d9cc6ec3e54e06fca5dee04b1e22b1a87ffe4e535064",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://online.aniplex.co.jp/itemCjsHZIsM.html",
+  "source_claim": "Aniplex's official online store product page identifies KG-6 Sleipnir as the protagonist's machine and as an Aldnoah.Zero product, and describes it as the space-equipped version of the machine first released for the series.",
+  "authority_type": "FIRST_PARTY_PUBLISHER_PRODUCT_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"kg-6_sleipnir","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aldnoah.zero"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The machine has its own current Issue #180 Character key and is named verbatim on the official product page. This batch does not infer other mecha relations."
+}

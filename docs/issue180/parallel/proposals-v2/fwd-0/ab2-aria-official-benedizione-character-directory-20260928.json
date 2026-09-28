@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-aria-official-benedizione-character-directory-20260928",
+  "campaign_key": "authority:aria_(manga)",
+  "campaign_fingerprint": "8278b64286829b3241f11cbdebbb04f5bc100283de908a5b2072912d51e43377",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://ariacompany.net/6th/character.php",
+  "source_claim": "The official ARIA The BENEDIZIONE character directory names and profiles the following exact characters in ARIA Company or its affiliated organizations: Mizunashi Akari, Alicia Florence, Aino Ai, Alice Carroll, Athena Glory, Aika S. Granzchesta, Akira E. Ferrari, and Izumo Akatsuki, as well as the ARIA Company cat president Aria Pokoten. The page's copyright identifies the ARIA work authority.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"aika_granzchesta","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aria_(manga)"},
+    {"subject_type":"Character","subject_key":"aino_ai","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aria_(manga)"},
+    {"subject_type":"Character","subject_key":"akira_ferrari","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aria_(manga)"},
+    {"subject_type":"Character","subject_key":"alice_carroll","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aria_(manga)"},
+    {"subject_type":"Character","subject_key":"alicia_florence","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aria_(manga)"},
+    {"subject_type":"Character","subject_key":"aria_pokoteng","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aria_(manga)"},
+    {"subject_type":"Character","subject_key":"athena_glory","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aria_(manga)"},
+    {"subject_type":"Character","subject_key":"izumo_akatsuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aria_(manga)"},
+    {"subject_type":"Character","subject_key":"mizunashi_akari","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aria_(manga)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only campaign members explicitly named on the official roster are included. The page romanizes the cat's name as Aria Pokoten; the proposal uses the current campaign's canonical tag aria_pokoteng. The similarly named campaign member hime_granzchesta is omitted because this source uses the distinct Japanese name 愛麗 and does not establish its identity mapping."
+}
