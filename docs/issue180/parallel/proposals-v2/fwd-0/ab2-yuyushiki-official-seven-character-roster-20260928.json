@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-yuyushiki-official-character-song-roster-20260928",
+  "campaign_key": "authority:yuyushiki",
+  "campaign_fingerprint": "8705b3d02d9ad6cefcd6dc3e490a210b48e3c1adcdf3466b1a0aaf8ff8f93a83",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.yuyushiki.net/contents/hp0006/index00130000.html",
+  "source_claim": "The official TV anime Yuyushiki site identifies its opening theme and explicitly lists the seven main characters represented by the tie-in character straps: 野々原ゆずこ, 日向縁, 櫟井唯, 相川千穂, 岡野佳, 長谷川ふみ, and 松本頼子.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"aikawa_chiho","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuyushiki"},
+    {"subject_type":"Character","subject_key":"hasegawa_fumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuyushiki"},
+    {"subject_type":"Character","subject_key":"hinata_yukari","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuyushiki"},
+    {"subject_type":"Character","subject_key":"ichii_yui","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuyushiki"},
+    {"subject_type":"Character","subject_key":"matsumoto_yoriko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuyushiki"},
+    {"subject_type":"Character","subject_key":"nonohara_yuzuko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuyushiki"},
+    {"subject_type":"Character","subject_key":"okano_kei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuyushiki"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official site's exact seven-name character list matches this campaign's complete member set."
+}
