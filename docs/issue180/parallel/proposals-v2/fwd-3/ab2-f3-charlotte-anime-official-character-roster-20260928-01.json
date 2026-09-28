@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-charlotte-anime-official-character-roster-20260928-01",
+  "campaign_key": "authority:charlotte_(anime)",
+  "campaign_fingerprint": "6e90d78d1ae08f87d832256baaecec23807b6d0c134310495c7a8349768f0df0",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://charlotte-anime.jp/character/",
+  "source_claim": "The official TV anime Charlotte character roster lists Yu Otosaka, Ayumi Otosaka, Joujirou Takajou, Yusa Nishimori, and Nao Tomori among its named characters.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"otosaka_yuu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"charlotte_(anime)"},
+    {"subject_type":"Character","subject_key":"otosaka_ayumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"charlotte_(anime)"},
+    {"subject_type":"Character","subject_key":"takajou_joujirou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"charlotte_(anime)"},
+    {"subject_type":"Character","subject_key":"nishimori_yusa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"charlotte_(anime)"},
+    {"subject_type":"Character","subject_key":"tomori_nao","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"charlotte_(anime)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official anime character roster explicitly includes all five packet targets. Romanized tag forms follow the named campaign identities; no additional roster members were added."
+}

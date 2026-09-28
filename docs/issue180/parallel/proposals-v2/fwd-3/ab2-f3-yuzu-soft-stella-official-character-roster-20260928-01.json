@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-yuzu-soft-stella-official-character-roster-20260928-01",
+  "campaign_key": "authority:cafe_stella_to_shinigami_no_chou",
+  "campaign_fingerprint": "24f0ab80109ab43a1ab6d044bcaf9e41cb38fac26fc56d9961c711a0d3d95ef2",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.yuzu-soft.com/products/stella/character.html",
+  "source_claim": "Yuzu Soft's official character page for Kissa Stella to Shinigami no Chou lists and profiles the five campaign characters: Akizuki Kanna, Shiki Natsume, Sumizome Nozomi, Hiuchidani Mei, and Shioyama Suzune.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"akizuki_kanna","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"cafe_stella_to_shinigami_no_chou"},
+    {"subject_type":"Character","subject_key":"shiki_natsume","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"cafe_stella_to_shinigami_no_chou"},
+    {"subject_type":"Character","subject_key":"sumizome_nozomi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"cafe_stella_to_shinigami_no_chou"},
+    {"subject_type":"Character","subject_key":"hiuchidani_mei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"cafe_stella_to_shinigami_no_chou"},
+    {"subject_type":"Character","subject_key":"shioyama_suzune","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"cafe_stella_to_shinigami_no_chou"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The first-party character roster presents all five exact campaign members under this work. Relations are limited to characters explicitly listed on the work's own official site."
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-suou-patra-numbered-costume-routes-20260928-01",
+  "campaign_key": "base:suou_patra",
+  "campaign_fingerprint": "93f200f0d7b14cbe071a792679c461e9d271bfcb0947474b40545419d9bef2ff",
+  "worker_slot": 3,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_CREATOR_PROFILE",
+      "url_or_query": "https://ptrsuou.com/talent/",
+      "result": "Patra’s official profile/history identifies the creator and career, but does not map this packet’s six numbered costume aliases to exact appearances."
+    },
+    {
+      "route_type": "OFFICIAL_CREATOR_MERCHANDISE",
+      "url_or_query": "https://patomarket.booth.pm/",
+      "result": "Patra’s official goods shop includes merchandise for named appearance themes, but does not establish which numbered campaign tags correspond to them."
+    },
+    {
+      "route_type": "OFFICIAL_CREATOR_COSTUME_REVEAL",
+      "url_or_query": "https://www.youtube.com/watch?v=bj1ZUyEsO2A",
+      "result": "Patra’s verified official channel presents a new-costume reveal, but does not match this packet’s 1st/5th/7th/9th/10th/11th costume aliases to that outfit."
+    }
+  ],
+  "notes": "The official profile, goods shop, and costume-reveal routes confirm the creator context but do not provide an explicit mapping for these six exact numbered aliases. This is partial campaign research only; no identity or variant mapping is guessed."
+}

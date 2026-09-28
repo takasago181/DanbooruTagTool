@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-kaga-sumire-numbered-costume-routes-20260928-01",
+  "campaign_key": "base:kaga_sumire",
+  "campaign_fingerprint": "9c88760d2635dab37df7349c0b3548692a29bd7033d69275322994ac4bd30d58",
+  "worker_slot": 3,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_CREATOR_PROFILE_AND_MERCH",
+      "url_or_query": "https://store.vspo.jp/collections/sumire-kaga",
+      "result": "Official VSPO store profile identifies Kaga Sumire and her work context, but does not map the six packet costume-number tags to exact designs."
+    },
+    {
+      "route_type": "OFFICIAL_CREATOR_COSTUME_REVEAL",
+      "url_or_query": "https://www.youtube.com/watch?v=fm5i-4QvNSg",
+      "result": "Kaga Sumire official channel labels a 2024 stream as a new costume reveal, but this route does not identify the 2nd/4th/6th/7th/8th/9th numbered aliases represented in this packet."
+    },
+    {
+      "route_type": "OFFICIAL_EVENT_PROFILE",
+      "url_or_query": "https://vspo.jp/valentine-2025/",
+      "result": "VSPO’s official event page identifies Kaga Sumire as a member and displays event art, but supplies no crosswalk from the packet’s six costume ordinals to those specific outfits."
+    }
+  ],
+  "notes": "Three first-party routes identify the creator and show costume-related material, but none explicitly binds all six numbered campaign identities to a source-defined design. The broad base campaign remains PARTIAL; no variant relation is inferred from ordinal tag names alone."
+}
