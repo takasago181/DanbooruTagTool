@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-fatal-frame-mask-official-profiles-20260928",
+  "campaign_key": "authority:fatal_frame",
+  "campaign_fingerprint": "1b9e01d0da57fadaa700cd9c1e749f399629a6699c6b07aa86b519ca2b4fd0c5",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.koeitecmoamerica.com/manual/fatalframe-mask/en/5000.html",
+  "source_claim": "KOEI TECMO's official Mask of the Lunar Eclipse manual identifies Ruka Minazuki, Misaki Aso, and Madoka Tsukimori among the kidnapped girls and gives each a dedicated character profile; its Haibara connection page profiles Ayako.",
+  "authority_type": "FIRST_PARTY_PUBLISHER_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"minazuki_ruka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"fatal_frame"},
+    {"subject_type":"Character","subject_key":"asou_misaki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"fatal_frame"},
+    {"subject_type":"Character","subject_key":"tsukimori_madoka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"fatal_frame"},
+    {"subject_type":"Character","subject_key":"haibara_ayako","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"fatal_frame"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The publisher's manual presents these as named characters and profiles them in the Mask of the Lunar Eclipse game materials."
+}

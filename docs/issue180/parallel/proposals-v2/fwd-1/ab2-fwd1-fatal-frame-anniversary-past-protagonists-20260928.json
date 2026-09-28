@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-fatal-frame-anniversary-past-protagonists-20260928",
+  "campaign_key": "authority:fatal_frame",
+  "campaign_fingerprint": "1b9e01d0da57fadaa700cd9c1e749f399629a6699c6b07aa86b519ca2b4fd0c5",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.koeitecmoamerica.com/news/fatal-frame-maiden-of-black-water-to-haunt-consoles-and-pc-on-october-28-2021/",
+  "source_claim": "KOEI TECMO America describes Maiden of Black Water as a Fatal Frame franchise title and identifies anniversary costumes honoring past series protagonists Mio Amakura, Rei Kurosawa, Mayu Amakura, Miku Hinasaki, and Kei Amakura.",
+  "authority_type": "FIRST_PARTY_PUBLISHER_FRANCHISE_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"amakura_mio","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"fatal_frame"},
+    {"subject_type":"Character","subject_key":"kurosawa_rei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"fatal_frame"},
+    {"subject_type":"Character","subject_key":"amakura_mayu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"fatal_frame"},
+    {"subject_type":"Character","subject_key":"hinasaki_miku","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"fatal_frame"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official announcement calls this a franchise anniversary release and explicitly calls the costume inspirations past protagonists, supporting these series-character homes."
+}

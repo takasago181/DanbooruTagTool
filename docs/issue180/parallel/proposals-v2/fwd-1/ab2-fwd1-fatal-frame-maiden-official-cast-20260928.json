@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-fatal-frame-maiden-official-cast-20260928",
+  "campaign_key": "authority:fatal_frame",
+  "campaign_fingerprint": "1b9e01d0da57fadaa700cd9c1e749f399629a6699c6b07aa86b519ca2b4fd0c5",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.gamecity.ne.jp/zero/maiden/",
+  "source_claim": "KOEI TECMO's official Maiden of Black Water character directory profiles Yuri Kozukata, Miu Hinasaki, Hisoka Kurosawa, Miku Hinasaki, Fuyuhi Himino, and Haruka Momose as characters in the game.",
+  "authority_type": "FIRST_PARTY_PUBLISHER_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"kozukata_yuuri","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"fatal_frame"},
+    {"subject_type":"Character","subject_key":"hinasaki_miu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"fatal_frame"},
+    {"subject_type":"Character","subject_key":"kurosawa_hisoka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"fatal_frame"},
+    {"subject_type":"Character","subject_key":"hinasaki_miku","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"fatal_frame"},
+    {"subject_type":"Character","subject_key":"himeno_fuyuhi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"fatal_frame"},
+    {"subject_type":"Character","subject_key":"momose_haruka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"fatal_frame"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The publisher's official Japanese character directory names and profiles each listed character within Maiden of Black Water, a Fatal Frame series title."
+}

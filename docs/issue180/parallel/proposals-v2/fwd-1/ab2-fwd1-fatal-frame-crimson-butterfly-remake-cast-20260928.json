@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-fatal-frame-crimson-butterfly-remake-cast-20260928",
+  "campaign_key": "authority:fatal_frame",
+  "campaign_fingerprint": "1b9e01d0da57fadaa700cd9c1e749f399629a6699c6b07aa86b519ca2b4fd0c5",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.koeitecmoamerica.com/fatalframe/crimson-re/us/",
+  "source_claim": "KOEI TECMO's official Fatal Frame II: Crimson Butterfly Remake character directory profiles Mio and Mayu Amakura, Itsuki Tachibana, and Sae Kurosawa in the game.",
+  "authority_type": "FIRST_PARTY_PUBLISHER_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"amakura_mio","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"fatal_frame"},
+    {"subject_type":"Character","subject_key":"amakura_mayu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"fatal_frame"},
+    {"subject_type":"Character","subject_key":"tachibana_itsuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"fatal_frame"},
+    {"subject_type":"Character","subject_key":"kurosawa_sae","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"fatal_frame"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official publisher page labels these entries as characters and describes their roles in this Fatal Frame title."
+}
