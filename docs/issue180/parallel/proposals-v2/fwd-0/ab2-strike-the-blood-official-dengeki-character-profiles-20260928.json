@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-strike-the-blood-official-dengeki-character-profiles-20260928",
+  "campaign_key": "authority:strike_the_blood",
+  "campaign_fingerprint": "cfc8e84ae8ec2ca0bb0824d8867b6ec4910feaedb5947fa702b3ee41a17dc11c",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://dengekibunko.jp/special/stb/",
+  "source_claim": "The official Dengeki Bunko Strike the Blood special page profiles the exact characters Asagi Aiba, Kojou Akatsuki, Nagisa Akatsuki, Yukina Himeragi, Kanon Kanase, Sayaka Kirasaka, La Folia Rihavein, and Natsuki Minamiya as characters in the series.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "aiba_asagi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "strike_the_blood"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "akatsuki_kojou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "strike_the_blood"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "akatsuki_nagisa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "strike_the_blood"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "himeragi_yukina",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "strike_the_blood"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kanase_kanon",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "strike_the_blood"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kirasaka_sayaka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "strike_the_blood"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "la_folia_rihavein",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "strike_the_blood"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "minamiya_natsuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "strike_the_blood"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The single publisher-hosted official roster/profile route explicitly names and describes each of the eight current campaign members."
+}
