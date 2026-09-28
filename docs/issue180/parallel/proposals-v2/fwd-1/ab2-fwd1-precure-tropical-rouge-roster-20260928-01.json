@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-precure-tropical-rouge-roster-20260928-01",
+  "campaign_key": "authority:precure",
+  "campaign_fingerprint": "279f017dd8cd6d861fca2e7017e9ec484e3439e7e06505739f64583889662d1c",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.toei-anim.co.jp/tv/tropical-rouge_precure/info/",
+  "source_claim": "Toei Animation's official Tropical-Rouge! Precure work page gives the series story and cast. It names Natsuumi Manatsu / Cure Summer, Suzumura Sango / Cure Coral, Ichinose Minori / Cure Papaya, Takizawa Asuka / Cure Flamingo, and Laura / Cure La Mer. Each exact identity matches a current Character tag in the residual campaign; the page is scoped to the named Tropical-Rouge! Precure title, whose exact in-catalog Copyright is tropical-rouge!_precure.",
+  "authority_type": "OFFICIAL_GAME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"natsuumi_manatsu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tropical-rouge!_precure"},
+    {"subject_type":"Character","subject_key":"suzumura_sango","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tropical-rouge!_precure"},
+    {"subject_type":"Character","subject_key":"ichinose_minori","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tropical-rouge!_precure"},
+    {"subject_type":"Character","subject_key":"takizawa_asuka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tropical-rouge!_precure"},
+    {"subject_type":"Character","subject_key":"laura_la_mer","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tropical-rouge!_precure"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The current official cast page also names Kururun, but no exact kururun tag appears in this campaign packet. Other Toei Precure works are not inferred from this title-scoped source; no broad Precure HOME is assigned."
+}

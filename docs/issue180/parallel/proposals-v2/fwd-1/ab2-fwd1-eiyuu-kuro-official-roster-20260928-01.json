@@ -1,0 +1,26 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-eiyuu-kuro-official-roster-20260928-01",
+  "campaign_key": "authority:eiyuu_densetsu",
+  "campaign_fingerprint": "4776e4a2478add5be1e9997d28226fe246b3404a6cb4585d4c46b43a3236e78c",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.falcom.co.jp/kuro/character/",
+  "source_claim": "Nihon Falcom's official The Legend of Heroes: Kuro no Kiseki character page lists its main characters and named supporting characters. Exact current campaign matches are Van Arkride, Agnes Claudel, Feri Al-Fayed, Aaron Wei, Risette Twinings, Quatre Salision, Judith Ranster, Bergard Zeman, Elaine Auclair, and Shizuna Rem Misurugi. The official title page identifies this as a The Legend of Heroes work; the in-catalog canonical root is eiyuu_densetsu, consistent with prior reviewed direct character decisions in this franchise.",
+  "authority_type": "OFFICIAL_GAME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"van_arkride","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eiyuu_densetsu"},
+    {"subject_type":"Character","subject_key":"agnes_claudel","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eiyuu_densetsu"},
+    {"subject_type":"Character","subject_key":"feri_al-fayed","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eiyuu_densetsu"},
+    {"subject_type":"Character","subject_key":"aaron_wei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eiyuu_densetsu"},
+    {"subject_type":"Character","subject_key":"risette_twinings","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eiyuu_densetsu"},
+    {"subject_type":"Character","subject_key":"quatre_salision","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eiyuu_densetsu"},
+    {"subject_type":"Character","subject_key":"judith_lanster","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eiyuu_densetsu"},
+    {"subject_type":"Character","subject_key":"bergard_zeman","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eiyuu_densetsu"},
+    {"subject_type":"Character","subject_key":"elaine_auclair","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eiyuu_densetsu"},
+    {"subject_type":"Character","subject_key":"shizuna_rem_misurugi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eiyuu_densetsu"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The exact campaign identities are checked against Falcom's English and Japanese names on the official title roster. The relation uses the established in-catalog The Legend of Heroes root; no work-specific Copyright absent from the catalog and no crossover-only member are inferred."
+}

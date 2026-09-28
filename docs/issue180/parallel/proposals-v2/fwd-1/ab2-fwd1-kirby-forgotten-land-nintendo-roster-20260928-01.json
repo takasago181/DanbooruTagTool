@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-kirby-forgotten-land-nintendo-roster-20260928-01",
+  "campaign_key": "authority:kirby_(series)",
+  "campaign_fingerprint": "063fbbcbfbdcd2d76d3617d871b4d81d5ce0e2516cc577a3acf1ff239073fefa",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nintendo.com/us/store/products/kirby-and-the-forgotten-land-114404/",
+  "source_claim": "Nintendo's official Kirby and the Forgotten Land page identifies the title and introduces Elfilin in its named friends-and-foes character section, stating that Elfilin teams up with Kirby. The exact identity maps to current Character tag elfilin, and the exact in-catalog title root is kirby_and_the_forgotten_land. This is title-specific evidence, not a blanket Kirby-series mapping.",
+  "authority_type": "OFFICIAL_PRODUCT_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"elfilin","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kirby_and_the_forgotten_land"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Other named entries on the Nintendo page were not in this campaign's current residual member list. No inference was made for Clawroline, Fecto Elfilis, or other names not explicitly established by this inspected page."
+}
