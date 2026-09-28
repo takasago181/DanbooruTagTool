@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd2-porforever-creator-routes-partial-20260928",
+  "campaign_key": "authority:porforever",
+  "campaign_fingerprint": "fe893dc76cc397a7a7aa0fffa22c2b0fb3bcabb3981735d1d131dba8c3dc0543",
+  "worker_slot": 2,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "The creator's ArtStation pages explicitly call Digitan, Candy Snail, Cressey, and Cecile original characters, but the checked sources do not establish a single stable work/IP root named porforever for this campaign or safely resolve all eight exact members to that root.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "FIRST_PARTY_CREATOR_PORTFOLIO",
+      "url_or_query": "https://porforever.artstation.com/albums/1853049 and exact projects Digitan, Cressey, and Cecile",
+      "result": "The creator explicitly calls Digitan and Candy Snail beloved original characters; separate first-party project pages call Cressey and Cecile original characters. The portfolio does not identify one shared named work/IP whose canonical Copyright root is porforever, and this checked route did not establish first-party matches for Erynn, Flareze, Sunset, and Wallace."
+    },
+    {
+      "route_type": "CREATOR_PROFILE_AND_LINKED_PUBLISHING_PROFILE",
+      "url_or_query": "https://porforever.artstation.com/resume and creator-linked https://www.patreon.com/porforever/about",
+      "result": "The ArtStation résumé identifies Porforever as an artist and links the Patreon profile; Patreon describes the creator's digital art/resources. Neither profile names a shared work/IP or maps this exact campaign roster to a stable Copyright root."
+    },
+    {
+      "route_type": "DANBOORU_TAG_POLICY_AND_TAGGED_POST_CONTEXT",
+      "url_or_query": "https://danbooru.donmai.us/wiki_pages/howto%3Atag; creator-source posts indexed with copyright:original and artist:porforever",
+      "result": "Danbooru's tagging guidance distinguishes Artist names from Copyright work titles and says an original copyright tag is used for work not based on an established source. This does not establish porforever as a stable work/root; creator attribution and an original-character claim alone are insufficient to choose a HOME root under Issue #180."
+    }
+  ],
+  "notes": "Useful partial progress only. No HOME relation is proposed because the campaign key follows a creator qualifier, while the checked first-party sources establish authorship for only a subset and do not establish that creator name as the stable canonical work/IP identity. The remaining targets and shared-root question remain open for later authority research."
+}

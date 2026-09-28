@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-valkyria-bellfine-kai-schulen-20260928",
+  "campaign_key": "authority:senjou_no_valkyria_(series)",
+  "campaign_fingerprint": "c28aa16d6a44619eb460756231ec749bf4d376e306488a4f88ec23f104ebdaf5",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://shop.bellfine.co.jp/view/item/000000000263",
+  "source_claim": "BellFine's official product page labels the character figure Kai Schulen, identifies its work as Valkyria Chronicles 4, describes the figure as Sega's product, and carries the SEGA copyright notice. Valkyria Chronicles 4 is an installment under SEGA's Valkyria Chronicles series.",
+  "authority_type": "BELLFINE_OFFICIAL_LICENSED_CHARACTER_PRODUCT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"kai_schulen","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"senjou_no_valkyria_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The licensee's exact character name and associated game title resolve the campaign's Kai Schulen member; no appearance outside Valkyria Chronicles is used to establish HOME."
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-valkyria-sega-collab-roster-20260928",
+  "campaign_key": "authority:senjou_no_valkyria_(series)",
+  "campaign_fingerprint": "c28aa16d6a44619eb460756231ec749bf4d376e306488a4f88ec23f104ebdaf5",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.sega.jp/topics/detail/191018_1/",
+  "source_claim": "SEGA's official Valkyria Chronicles collaboration article identifies six campaign members as characters of the Valkyria Chronicles series and gives their named character profiles: Alicia Melchiott, Edy Nelson, Juliana Eberhardt, Selvaria Bles, Riela Marcellis, and Imca. The collaboration appearance is used only as publisher identification of the originating series, not as a second HOME.",
+  "authority_type": "SEGA_OFFICIAL_SERIES_CHARACTER_PROFILES",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"alicia_melchiott","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"senjou_no_valkyria_(series)"},
+    {"subject_type":"Character","subject_key":"edy_nelson","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"senjou_no_valkyria_(series)"},
+    {"subject_type":"Character","subject_key":"imca","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"senjou_no_valkyria_(series)"},
+    {"subject_type":"Character","subject_key":"juliana_eberhardt","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"senjou_no_valkyria_(series)"},
+    {"subject_type":"Character","subject_key":"riela_marcellis","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"senjou_no_valkyria_(series)"},
+    {"subject_type":"Character","subject_key":"selvaria_bles","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"senjou_no_valkyria_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All six exact in-campaign names explicitly listed in this source are included. The page describes them as Valkyria Chronicles series characters while reporting a separate Chain Chronicle collaboration; no HOME is inferred from the guest appearance itself."
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-valkyria-a1pictures-vc3-official-cast-20260928",
+  "campaign_key": "authority:senjou_no_valkyria_(series)",
+  "campaign_fingerprint": "c28aa16d6a44619eb460756231ec749bf4d376e306488a4f88ec23f104ebdaf5",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://a1p.jp/works/valkyria3-anime/",
+  "source_claim": "A-1 Pictures' official Valkyria Chronicles 3 anime production page identifies the work as Valkyria Chronicles 3, credits SEGA as the source work and PROJECT VALKYRIA3, and names Isara Gunther in its cast list. The work is an installment of the official Valkyria Chronicles series.",
+  "authority_type": "A1_PICTURES_OFFICIAL_ANIME_CAST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"isara_gunther","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"senjou_no_valkyria_(series)"},
+    {"subject_type":"Character","subject_key":"alicia_melchiott","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"senjou_no_valkyria_(series)"},
+    {"subject_type":"Character","subject_key":"imca","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"senjou_no_valkyria_(series)"},
+    {"subject_type":"Character","subject_key":"riela_marcellis","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"senjou_no_valkyria_(series)"},
+    {"subject_type":"Character","subject_key":"selvaria_bles","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"senjou_no_valkyria_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "One source batch includes every exact current campaign character named in the official cast list. The series root is selected over the anime installment because the source identifies the SEGA Valkyria Chronicles 3 work and the source record explicitly treats Valkyria Chronicles as a series installment."
+}
