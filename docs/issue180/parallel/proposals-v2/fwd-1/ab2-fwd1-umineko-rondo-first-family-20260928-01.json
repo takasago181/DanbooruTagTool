@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:umineko_no_naku_koro_ni",
+  "campaign_fingerprint": "a7eebc9ea7489c664f3ad5eb983da7a2c06dbccab53bb2bfb98ae1ce42e0bfc3",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "notes": "The official PS3 Rondo page for the Ushiromiya first son's family gives individual profiles for Jessica, Krauss, and Natsuhi. Only exact current campaign members are proposed.",
+  "proposal_id": "ab2-fwd1-umineko-rondo-first-family-20260928-01",
+  "source_url": "https://umine.co/rondo/character/chara02/",
+  "source_claim": "The official Umineko Rondo character page individually names and profiles Ushiromiya Jessica, Krauss, and Natsuhi as the first son's family.",
+  "relations": [
+    {"subject_type":"Character","subject_key":"ushiromiya_jessica","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"umineko_no_naku_koro_ni"},
+    {"subject_type":"Character","subject_key":"ushiromiya_krauss","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"umineko_no_naku_koro_ni"},
+    {"subject_type":"Character","subject_key":"ushiromiya_natsuhi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"umineko_no_naku_koro_ni"}
+  ]
+}

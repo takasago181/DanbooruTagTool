@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:umineko_no_naku_koro_ni",
+  "campaign_fingerprint": "a7eebc9ea7489c664f3ad5eb983da7a2c06dbccab53bb2bfb98ae1ce42e0bfc3",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "notes": "The official PS3 Umineko Chiru character page names these Episode 5-7 characters; its page title and copyright identify the Umineko work and rights holder. Relations are limited to exact named campaign members.",
+  "proposal_id": "ab2-fwd1-umineko-chiru-episode-5-7-cast-20260928-01",
+  "source_url": "https://umine.co/chiru/character/",
+  "source_claim": "The official PS3 Umineko Chiru character roster individually profiles Bernkastel, Lambdadelta, Furudo Erika, Dlanor A. Knox, Battler, Zepar, Furfur, Ushiromiya Lion, and Willard H. Wright.",
+  "relations": [
+    {"subject_type":"Character","subject_key":"frederica_bernkastel","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"umineko_no_naku_koro_ni"},
+    {"subject_type":"Character","subject_key":"lambdadelta","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"umineko_no_naku_koro_ni"},
+    {"subject_type":"Character","subject_key":"furudo_erika","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"umineko_no_naku_koro_ni"},
+    {"subject_type":"Character","subject_key":"dlanor_a._knox","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"umineko_no_naku_koro_ni"},
+    {"subject_type":"Character","subject_key":"ushiromiya_battler","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"umineko_no_naku_koro_ni"},
+    {"subject_type":"Character","subject_key":"zepar","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"umineko_no_naku_koro_ni"},
+    {"subject_type":"Character","subject_key":"furfur","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"umineko_no_naku_koro_ni"},
+    {"subject_type":"Character","subject_key":"ushiromiya_lion","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"umineko_no_naku_koro_ni"},
+    {"subject_type":"Character","subject_key":"willard_h._wright","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"umineko_no_naku_koro_ni"}
+  ]
+}

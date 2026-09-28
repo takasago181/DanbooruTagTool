@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:umineko_no_naku_koro_ni",
+  "campaign_fingerprint": "a7eebc9ea7489c664f3ad5eb983da7a2c06dbccab53bb2bfb98ae1ce42e0bfc3",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "notes": "The official PS3 Rondo page specifically titled 1998 world individually identifies Ange and her guard Amakusa Juuza. Relations are limited to exact campaign members.",
+  "proposal_id": "ab2-fwd1-umineko-1998-cast-20260928-01",
+  "source_url": "https://umine.co/rondo/character/1998/",
+  "source_claim": "The official Umineko Rondo 1998-world character page individually profiles Ushiromiya Ange and Amakusa Juuza.",
+  "relations": [
+    {"subject_type":"Character","subject_key":"ushiromiya_ange","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"umineko_no_naku_koro_ni"},
+    {"subject_type":"Character","subject_key":"amakusa_juuza","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"umineko_no_naku_koro_ni"}
+  ]
+}

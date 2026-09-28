@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:umineko_no_naku_koro_ni",
+  "campaign_fingerprint": "a7eebc9ea7489c664f3ad5eb983da7a2c06dbccab53bb2bfb98ae1ce42e0bfc3",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "notes": "The official Umineko Rondo character profile identifies Kinzo as the Ushiromiya family head. Proposal is restricted to that exact campaign identity.",
+  "proposal_id": "ab2-fwd1-umineko-kinzo-official-profile-20260928-01",
+  "source_url": "https://umine.co/rondo/character/master/",
+  "source_claim": "The official Umineko Rondo head-of-family profile explicitly names Ushiromiya Kinzo and describes his place in the Ushiromiya family.",
+  "relations": [
+    {"subject_type":"Character","subject_key":"ushiromiya_kinzou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"umineko_no_naku_koro_ni"}
+  ]
+}
