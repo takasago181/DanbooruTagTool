@@ -1,0 +1,90 @@
+[
+  {
+    "schema_version": 2,
+    "campaign_key": "authority:shaman_king",
+    "campaign_fingerprint": "cf086069b60d38f30bedca37736bdbd9ed21c5552a2af7d41b6cec2f02396d97",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-shaman-king-official-anime-characters-20260928",
+    "source_url": "https://shamanking-project.com/shamanking/character",
+    "source_claim": "The official SHAMAN KING anime character profiles identify Asakura Yoh, Asakura Hao, Amidamaru, Iron Maiden Jeanne, Kyoyama Anna, Marion Phauna, and Tao Jun as characters in SHAMAN KING.",
+    "authority_type": "FIRST_PARTY_ANIME_CHARACTER_PROFILES",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "asakura_yoh",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "shaman_king"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "asakura_hao",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "shaman_king"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "amidamaru",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "shaman_king"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "iron_maiden_jeanne",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "shaman_king"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "kyouyama_anna",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "shaman_king"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "marion_phauna",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "shaman_king"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "tao_jun",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "shaman_king"
+      }
+    ],
+    "notes": "The linked official profiles name the exact characters; the official Hao cast announcement spells his full character name Asakura Hao. Voice performers and other names are not mapped."
+  },
+  {
+    "schema_version": 2,
+    "campaign_key": "authority:shaman_king",
+    "campaign_fingerprint": "cf086069b60d38f30bedca37736bdbd9ed21c5552a2af7d41b6cec2f02396d97",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-shaman-king-shueisha-horokeu-profile-20260928",
+    "source_url": "https://jumpx.jp/w/mankin/",
+    "source_claim": "Shueisha's official Jump Kai SHAMAN KING FLOWERS page explicitly identifies Usui Horokeu (碓氷ホロケウ) among the prior series characters and describes him in the SHAMAN KING sequel context.",
+    "authority_type": "FIRST_PARTY_PUBLISHER_CHARACTER_PROFILE",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "usui_horokeu",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "shaman_king"
+      }
+    ],
+    "notes": "Exact full-name match on the publisher's official sequel page."
+  }
+]
