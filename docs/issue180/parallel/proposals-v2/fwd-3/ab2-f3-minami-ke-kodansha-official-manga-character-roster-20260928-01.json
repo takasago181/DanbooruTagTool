@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-minami-ke-kodansha-official-manga-character-roster-20260928-01",
+  "campaign_key": "authority:minami-ke",
+  "campaign_fingerprint": "5edc471350de559ebef9007e2c474afb511d66c5f27db9e88c92b2ba3483811f",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://magazine.yanmaga.jp/c/minamike",
+  "source_claim": "Kodansha’s official Young Magazine Minami-ke page lists Haruka Minami, Kana Minami, Chiaki Minami, and Tohma Minami as characters in the series.",
+  "authority_type": "FIRST_PARTY_PUBLISHER_MANGA_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "minami_haruka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "minami-ke"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "minami_kana",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "minami-ke"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "minami_chiaki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "minami-ke"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "minami_touma",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "minami-ke"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official publisher page directly lists these four exact campaign characters. Uchida Yuka is not named on this source and is not included in this batch."
+}

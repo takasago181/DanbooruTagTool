@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-mignon-official-portfolio-routes-20260928-01",
+  "campaign_key": "authority:mignon",
+  "campaign_fingerprint": "54cc5818955349462a298aabb458c411c339623ade81491c4f0d2e8cc3fb9d28",
+  "worker_slot": 3,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "CREATOR_OFFICIAL_EXHIBITION",
+      "url_or_query": "https://mignonium.com/",
+      "result": "The illustrator exhibition page identifies mignon and describes original works and merchandise, but does not name or map Ame, Ichigo, Nanami, Sarah, and Shiro."
+    },
+    {
+      "route_type": "CREATOR_OFFICIAL_SHOP",
+      "url_or_query": "https://mignon.booth.pm/",
+      "result": "The MIGNON WORKS creator shop is currently private and exposes no character roster or item-level identity mapping."
+    },
+    {
+      "route_type": "CREATOR_MERCHANDISE_SHOP",
+      "url_or_query": "https://shop-mignon.stores.jp/items",
+      "result": "The creator shop lists generic mignon original-art merchandise but no exact five-character roster or identity crosswalk."
+    }
+  ],
+  "notes": "The checked first-party exhibition and shop routes establish mignon as an illustrator and merchandise source, but none names the exact campaign members or safely maps each tag identity to a HOME Copyright. This broad creator campaign remains open; PARTIAL is route accounting only, not negative evidence."
+}

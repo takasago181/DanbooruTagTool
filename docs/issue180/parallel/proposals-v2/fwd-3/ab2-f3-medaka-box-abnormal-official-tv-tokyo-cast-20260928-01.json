@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-medaka-box-abnormal-official-tv-tokyo-cast-20260928-01",
+  "campaign_key": "authority:medaka_box",
+  "campaign_fingerprint": "e988f52b422a056b0f65e4444ae55cbd955d4330427b4b1ec7d019fbfbd48937",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/anime/medaka2/sp/chara/",
+  "source_claim": "TV Tokyo’s official Medaka Box Abnormal character page profiles Misogi Kumagawa, Youka Naze, and Najimi Ajimu and carries the Medaka Box/Shueisha production credit.",
+  "authority_type": "FIRST_PARTY_BROADCASTER_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kumagawa_misogi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "medaka_box"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "naze_youka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "medaka_box"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ajimu_najimi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "medaka_box"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official second-season character page explicitly lists the other three exact campaign targets; no broader relation is inferred."
+}
