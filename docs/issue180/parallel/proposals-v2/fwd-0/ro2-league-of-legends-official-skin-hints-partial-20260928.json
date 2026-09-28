@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-league-of-legends-official-skin-hints-partial-20260928",
+  "campaign_key": "authority:league_of_legends",
+  "campaign_fingerprint": "cce1a34c77bfb78f1fb615436fe57f8d30704b89c6c1c6db64a60f566fbae40c",
+  "worker_slot": 0,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "The three accepted Riot champion skin inventory pages were rechecked for exact current campaign members. They expose official skin names for Ahri, Jinx, and Soraka, but no additional current campaign member could be safely mapped from those exact listed entries.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_ROSTER",
+      "url_or_query": "https://www.leagueoflegends.com/en-us/champions/ahri/",
+      "result": "Inspected the official Available Skins inventory; exact entries checked, but no additional current campaign member beyond already-proposed evidence was safely matched."
+    },
+    {
+      "route_type": "OFFICIAL_ROSTER",
+      "url_or_query": "https://www.leagueoflegends.com/en-us/champions/jinx/",
+      "result": "Inspected the official Available Skins inventory; exact entries checked, but no additional current campaign member beyond already-proposed evidence was safely matched."
+    },
+    {
+      "route_type": "OFFICIAL_ROSTER",
+      "url_or_query": "https://www.leagueoflegends.com/en-us/champions/soraka/",
+      "result": "Inspected the official Available Skins inventory; exact entries checked, but no additional current campaign member beyond already-proposed evidence was safely matched."
+    }
+  ],
+  "notes": "The campaign is a broad multi-member ecosystem and remains open. This records route progress only; it is not negative evidence and does not terminalize any Research Unit."
+}
