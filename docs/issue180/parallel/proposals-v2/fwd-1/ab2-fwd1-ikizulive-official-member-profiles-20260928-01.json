@@ -1,0 +1,86 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-ikizulive-official-member-profiles-20260928-01",
+  "campaign_key": "authority:ikizulive!_love_live!_bluebird",
+  "campaign_fingerprint": "6f8429156142b4ec3a7eba56c8e731732fe50d1648f929f91d5e69ce39d6b06c",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.lovelive-anime.jp/lovehigh/member/?m=2",
+  "source_claim": "The official Love Live! Bluebird project member page lists each named character under the project’s Ikizulive! Love Live! Bluebird membership roster: Azabu Mai, Chofu Noriko, Goto Akira, Harumiya Yukuri, Kanazawa Miracle, Komagata Hanabi, Konohana Aurora, Sasaki Shion, Takahashi Polka, and Yamada Midori.",
+  "authority_type": "OFFICIAL_PROJECT_CHARACTER_PROFILE_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "azabu_mai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ikizulive!_love_live!_bluebird"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "chofu_noriko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ikizulive!_love_live!_bluebird"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "goto_akira",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ikizulive!_love_live!_bluebird"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "harumiya_yukuri",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ikizulive!_love_live!_bluebird"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kanazawa_miracle",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ikizulive!_love_live!_bluebird"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "komagata_hanabi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ikizulive!_love_live!_bluebird"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "konohana_aurora",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ikizulive!_love_live!_bluebird"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sasaki_shion",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ikizulive!_love_live!_bluebird"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takahashi_polka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ikizulive!_love_live!_bluebird"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yamada_midori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ikizulive!_love_live!_bluebird"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The first-party member page is explicitly titled for イキヅライブ！ LOVELIVE! BLUEBIRD and gives each campaign character an individual profile. Japanese names 麻布麻衣、調布のりこ、五桐玲、春宮ゆくり、金澤奇跡、駒形花火、此花輝夜、佐々木翔音、高橋ポルカ、山田真緑 map directly to the exact current campaign keys."
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-keroro-bn-alisa-episode-20260928-01",
+  "campaign_key": "authority:keroro_gunsou",
+  "campaign_fingerprint": "3cb534c430cdc6cf1d9617082d1709b9f729d96681f5a9f459696c5115a89cae",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.bn-pictures.co.jp/krr/episode/index.html",
+  "source_claim": "The official Keroro episode guide identifies Alisa Southerncross in episode FILE:016, stating that Alisa comes to Fuyuki and targets New Keroro’s energy.",
+  "authority_type": "OFFICIAL_ANIMATION_EPISODE_SYNOPSIS",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "alisa_southerncross",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "keroro_gunsou"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official BN Pictures Keroro episode listing names アリサ=サザンクロス in the series episode synopsis, directly placing the exact character in the work."
+}

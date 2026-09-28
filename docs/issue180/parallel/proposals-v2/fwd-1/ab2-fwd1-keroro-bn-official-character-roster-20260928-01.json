@@ -1,0 +1,79 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-keroro-bn-official-character-roster-20260928-01",
+  "campaign_key": "authority:keroro_gunsou",
+  "campaign_fingerprint": "3cb534c430cdc6cf1d9617082d1709b9f729d96681f5a9f459696c5115a89cae",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.bn-pictures.co.jp/keroro-anime/about/",
+  "source_claim": "The official Keroro Animation Portal presents the Keroro Gunso series and groups Keroro, Tamama, and Giroro in Keroro Platoon; it also lists Hinata Fuyuki, Hinata Natsumi, Hinata Aki, Angol Mois, Nishizawa Momoka, and Azumaya Koyuki in its character roster.",
+  "authority_type": "OFFICIAL_ANIMATION_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "keroro",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "keroro_gunsou"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tamama",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "keroro_gunsou"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "giroro",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "keroro_gunsou"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hinata_fuyuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "keroro_gunsou"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hinata_natsumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "keroro_gunsou"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hinata_aki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "keroro_gunsou"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "angol_mois",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "keroro_gunsou"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nishizawa_momoka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "keroro_gunsou"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "azumaya_koyuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "keroro_gunsou"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The first-party animation portal explicitly organizes these characters under the Keroro series character section; the platoon and Hinata-family headings further confirm exact series roles. Japanese names ケロロ軍曹、タママ二等兵、ギロロ伍長、日向冬樹、日向夏美、日向秋、アンゴル・モア、西澤桃華、東谷小雪 map to campaign keys."
+}
