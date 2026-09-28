@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-utau-namine-ritsu-official-voicebanks-20260928",
+  "campaign_key": "authority:utau",
+  "campaign_fingerprint": "5972900607af7f27a8f0793de2fba311adf9ed411eac90e5b0402544f57ff02c",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.canon-voice.com/voicebanks/",
+  "source_claim": "Namine Ritsu's official creator site identifies Ritsu as a character and provides a dedicated UTAU section with multiple named Ritsu voicebanks; the site links its creator's official accounts.",
+  "authority_type": "CHARACTER_CREATOR_OFFICIAL_VOICEBANK_CATALOG",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"namine_ritsu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"utau"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The creator's own site explicitly groups the named Ritsu voicebanks under UTAU and presents Namine Ritsu as the corresponding character."
+}

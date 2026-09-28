@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-utau-sukone-tei-official-guidelines-20260928",
+  "campaign_key": "authority:utau",
+  "campaign_fingerprint": "5972900607af7f27a8f0793de2fba311adf9ed411eac90e5b0402544f57ff02c",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.usamimi.info/~scottei/guide_main.html",
+  "source_claim": "The Sukone Tei official site calls Sukone Tei a character, identifies the rights holders for her voice library and character design, and states that the library was created for UTAU use.",
+  "authority_type": "CHARACTER_RIGHTSHOLDER_OFFICIAL_GUIDELINES",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"sukone_tei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"utau"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official rights and usage page directly documents Tei as the named character and her intended UTAU voicebank use."
+}

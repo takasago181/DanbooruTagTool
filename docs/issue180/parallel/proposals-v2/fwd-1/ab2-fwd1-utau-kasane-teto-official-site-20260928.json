@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-utau-kasane-teto-official-site-20260928",
+  "campaign_key": "authority:utau",
+  "campaign_fingerprint": "5972900607af7f27a8f0793de2fba311adf9ed411eac90e5b0402544f57ff02c",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://kasaneteto.jp/about/",
+  "source_claim": "Kasane Teto's official site describes Teto as a singable character created collaboratively online and says her voice library was made for UTAU; the official site also lists a Teto UTAU voice archive.",
+  "authority_type": "CHARACTER_RIGHTSHOLDER_OFFICIAL_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"kasane_teto","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"utau"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official profile directly identifies the named character and explicitly documents her UTAU voice library. The similarly named candidate kasane_ted is not inferred."
+}
