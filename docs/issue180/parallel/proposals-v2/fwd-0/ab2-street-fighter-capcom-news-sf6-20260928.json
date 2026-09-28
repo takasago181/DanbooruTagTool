@@ -1,0 +1,69 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-street-fighter-capcom-news-jamie-manon-sf6-20260928",
+    "campaign_key": "authority:street_fighter",
+    "campaign_fingerprint": "b246b47379ee47ef9adda6cf5496e9fb6611281ad1d11a5b02cd0f05ce0e74a0",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://news.capcomusa.com/2022/12/08/street-fighter-6-launches-june-2-2023/",
+    "source_claim": "Capcom News identifies Manon as one of the international Street Fighter 6 character roster and names Jamie in its Street Fighter 6 launch roster/outfit information.",
+    "source_review_id_hint": "src180-ab2-street-fighter-capcom-zangief-character-data-20260928",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"jamie_siu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"street_fighter"},
+      {"subject_type":"Character","subject_key":"manon_legrand","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"street_fighter"}
+    ],
+    "terminal_reviews": [],
+    "notes": "Official Capcom News page describes the Street Fighter 6 roster; display names Jamie and Manon correspond to the current Issue #180 canonical keys."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-street-fighter-capcom-news-kimberly-sf6-20260928",
+    "campaign_key": "authority:street_fighter",
+    "campaign_fingerprint": "b246b47379ee47ef9adda6cf5496e9fb6611281ad1d11a5b02cd0f05ce0e74a0",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://news.capcomusa.com/lets/browse/sf6-kimberly-juri-la",
+    "source_claim": "Capcom News announces Kimberly as a new Street Fighter 6 character and describes her as part of the Street Fighter series.",
+    "source_review_id_hint": "src180-ab2-street-fighter-capcom-zangief-character-data-20260928",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [{"subject_type":"Character","subject_key":"kimberly_jackson","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"street_fighter"}],
+    "terminal_reviews": [],
+    "notes": "The official page names Kimberly in the Street Fighter 6 context; the current Issue #180 canonical key is kimberly_jackson."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-street-fighter-capcom-news-luke-sf5-20260928",
+    "campaign_key": "authority:street_fighter",
+    "campaign_fingerprint": "b246b47379ee47ef9adda6cf5496e9fb6611281ad1d11a5b02cd0f05ce0e74a0",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://news.capcomusa.com/lets/browse/luke-street-fighter-vs-final-character-has-entered-the-ring",
+    "source_claim": "Capcom News identifies Luke as a Street Fighter V character and as a character in the Street Fighter series.",
+    "source_review_id_hint": "src180-ab2-street-fighter-capcom-zangief-character-data-20260928",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [{"subject_type":"Character","subject_key":"luke_sullivan","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"street_fighter"}],
+    "terminal_reviews": [],
+    "notes": "The official page identifies Luke in Street Fighter V; the current Issue #180 canonical key is luke_sullivan."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-street-fighter-capcom-news-lily-sf6-20260928",
+    "campaign_key": "authority:street_fighter",
+    "campaign_fingerprint": "b246b47379ee47ef9adda6cf5496e9fb6611281ad1d11a5b02cd0f05ce0e74a0",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://news.capcomusa.com/lets/browse/zangief-lily-and-cammy-complete-the-street-fighter-6-launch-roster",
+    "source_claim": "Capcom News calls Lily a new character in Street Fighter 6 and identifies her as a member of the Thunderfoot tribe.",
+    "source_review_id_hint": "src180-ab2-street-fighter-capcom-zangief-character-data-20260928",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [{"subject_type":"Character","subject_key":"lily_hawk","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"street_fighter"}],
+    "terminal_reviews": [],
+    "notes": "The official page identifies Lily in the Street Fighter 6 launch roster context; the current Issue #180 canonical key is lily_hawk."
+  }
+]
