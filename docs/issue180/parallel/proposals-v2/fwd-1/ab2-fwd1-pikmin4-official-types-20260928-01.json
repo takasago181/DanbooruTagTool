@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-pikmin4-official-types-20260928-01",
+  "campaign_key": "authority:pikmin_(series)",
+  "campaign_fingerprint": "96bd418a759c75c333837e6b79bbc1c26f98012ef9a7d389778409a6db46928d",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://pikmin4.nintendo.com/",
+  "source_claim": "Nintendo's official Pikmin 4 site has a Meet the Pikmin section and identifies Red, Blue, Yellow, Ice, Glow, Purple, Rock, Winged, and White Pikmin as Pikmin types in the game.",
+  "authority_type": "OFFICIAL_PUBLISHER_SERIES_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"red_pikmin","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pikmin_(series)"},
+    {"subject_type":"Character","subject_key":"blue_pikmin","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pikmin_(series)"},
+    {"subject_type":"Character","subject_key":"yellow_pikmin","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pikmin_(series)"},
+    {"subject_type":"Character","subject_key":"ice_pikmin","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pikmin_(series)"},
+    {"subject_type":"Character","subject_key":"glow_pikmin","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pikmin_(series)"},
+    {"subject_type":"Character","subject_key":"purple_pikmin","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pikmin_(series)"},
+    {"subject_type":"Character","subject_key":"rock_pikmin","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pikmin_(series)"},
+    {"subject_type":"Character","subject_key":"winged_pikmin","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pikmin_(series)"},
+    {"subject_type":"Character","subject_key":"white_pikmin","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pikmin_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Nintendo's official game page presents the named types under Meet the Pikmin for Pikmin 4, directly supporting their home in the Pikmin series."
+}
