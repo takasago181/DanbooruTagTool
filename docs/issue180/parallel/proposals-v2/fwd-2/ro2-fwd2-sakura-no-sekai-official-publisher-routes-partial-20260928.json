@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd2-sakura-no-sekai-official-publisher-routes-partial-20260928",
+  "campaign_key": "authority:sakura_no_sekai",
+  "campaign_fingerprint": "25414a1259e24c8d34b9478cf606dd493844827a1322d050bd6525589fc0696c",
+  "worker_slot": 2,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_PUBLISHER_DIGITAL_SERIES_PAGE","url_or_query":"https://comic-walker.com/detail/KC_004943_S","result":"KADOKAWA's Kadocomi page confirms Tsuruce's Sakura no Sekai series and describes Sakura with three companions, but the accessible series description does not name those companions or map them to the 14 campaign tag keys; no exact Character-to-work relation was safely established."},
+    {"route_type":"OFFICIAL_PUBLISHER_COMICS_CATALOG","url_or_query":"https://www.kadokawa.co.jp/product/322209001328/","result":"KADOKAWA's volume catalog confirms the title and author and describes four interwoven lives around Sakura, but does not identify the campaign members by name/tag; no exact Character-to-work relation was safely established."}
+  ],
+  "notes": "These distinct official publisher routes establish the work authority but are insufficient for an exact member mapping. This is partial progress only for a multi-member campaign; it is not negative evidence or an exhaustive review. The exact tag-to-character mapping remains for later dispatch/research."
+}

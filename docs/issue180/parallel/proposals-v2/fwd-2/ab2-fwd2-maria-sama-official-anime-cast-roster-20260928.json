@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-maria-sama-official-anime-cast-roster-20260928",
+  "campaign_key": "authority:maria-sama_ga_miteru",
+  "campaign_fingerprint": "fc8ad8458cb51fb0e332eacf72b07121a25a69b32c837cd98f4bd0c6ab1a7f6f",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/anime/mariasama/staff_cast.html",
+  "source_claim": "TV Tokyo's official Maria-sama ga Miteru anime cast pages and Studio DEEN's official series pages identify the packet's named students as characters in the Maria-sama ga Miteru adaptation.",
+  "authority_type": "OFFICIAL_ANIME_CAST_AND_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"arima_nana","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"maria-sama_ga_miteru"},
+    {"subject_type":"Character","subject_key":"fukuzawa_yumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"maria-sama_ga_miteru"},
+    {"subject_type":"Character","subject_key":"hasekura_rei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"maria-sama_ga_miteru"},
+    {"subject_type":"Character","subject_key":"hosokawa_kanako","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"maria-sama_ga_miteru"},
+    {"subject_type":"Character","subject_key":"matsudaira_touko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"maria-sama_ga_miteru"},
+    {"subject_type":"Character","subject_key":"mizuno_youko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"maria-sama_ga_miteru"},
+    {"subject_type":"Character","subject_key":"nijou_noriko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"maria-sama_ga_miteru"},
+    {"subject_type":"Character","subject_key":"ogasawara_sachiko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"maria-sama_ga_miteru"},
+    {"subject_type":"Character","subject_key":"satou_sei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"maria-sama_ga_miteru"},
+    {"subject_type":"Character","subject_key":"shimazu_yoshino","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"maria-sama_ga_miteru"},
+    {"subject_type":"Character","subject_key":"takeshima_tsutako","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"maria-sama_ga_miteru"},
+    {"subject_type":"Character","subject_key":"torii_eriko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"maria-sama_ga_miteru"},
+    {"subject_type":"Character","subject_key":"toudou_shimako","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"maria-sama_ga_miteru"},
+    {"subject_type":"Character","subject_key":"tsukiyama_minako","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"maria-sama_ga_miteru"},
+    {"subject_type":"Character","subject_key":"yamaguchi_mami","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"maria-sama_ga_miteru"}
+  ],
+  "terminal_reviews": [],
+  "notes": "TV Tokyo's official first-season staff/cast page names Fukuzawa Yumi, Ogasawara Sachiko, Mizuno Yoko, Shimazu Yoshino, Hasekura Rei, Torii Eriko, Toudou Shimako, Satou Sei, Takeshima Tsutako, Tsukiyama Minako, and Yamaguchi Mami as cast roles for Maria-sama ga Miteru (https://www.tv-tokyo.co.jp/anime/mariasama/staff_cast.html). Its official Haru season cast page additionally names Nijou Noriko and Matsudaira Touko (https://www.tv-tokyo.co.jp/anime/mariasama_haru/staffcast.html), and its Sachiko profile explicitly identifies Ogasawara Sachiko as a Lilian Academy student (https://www.tv-tokyo.co.jp/anime/mariasama_haru/character/sachiko.html). Studio DEEN's official 4th-season page describes Matsudaira Touko and Hosokawa Kanako among the story's students (https://www.deen.co.jp/works-archives/maria-4); Bandai Channel's licensed 4th-season listing names Hosokawa Kanako and Arima Nana in that series' cast (https://www.b-ch.com/titles/7435/). Every relation is an exact member of this campaign tied to the same named work; the sources are official production/broadcast materials or the licensed anime distributor, not fan rosters."
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-harry-potter-official-character-roster-20260928",
+  "campaign_key": "authority:harry_potter_(series)",
+  "campaign_fingerprint": "b98e82f2067d5a882559390d992f490e8a61cabd7712e36dce73053eaa2f6ed2",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.harrypotter.com/fact-file",
+  "source_claim": "The official Harry Potter encyclopedia and Wizarding World editorial guides identify the named campaign characters as members of the Harry Potter book/film story world. Fact Files provide direct character profiles and appearances; official Weasley, Gryffindor, Cursed Child, and editorial entries corroborate the family, character, and series relationships.",
+  "authority_type": "OFFICIAL_HARRY_POTTER_CHARACTER_ENCYCLOPEDIA_AND_EDITORIAL_GUIDES",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"albus_severus_potter","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"harry_potter_(series)"},
+    {"subject_type":"Character","subject_key":"draco_malfoy","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"harry_potter_(series)"},
+    {"subject_type":"Character","subject_key":"fred_weasley","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"harry_potter_(series)"},
+    {"subject_type":"Character","subject_key":"george_weasley","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"harry_potter_(series)"},
+    {"subject_type":"Character","subject_key":"ginny_weasley","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"harry_potter_(series)"},
+    {"subject_type":"Character","subject_key":"hedwig","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"harry_potter_(series)"},
+    {"subject_type":"Character","subject_key":"hermione_granger","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"harry_potter_(series)"},
+    {"subject_type":"Character","subject_key":"james_potter","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"harry_potter_(series)"},
+    {"subject_type":"Character","subject_key":"lily_evans","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"harry_potter_(series)"},
+    {"subject_type":"Character","subject_key":"luna_lovegood","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"harry_potter_(series)"},
+    {"subject_type":"Character","subject_key":"pansy_parkinson","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"harry_potter_(series)"},
+    {"subject_type":"Character","subject_key":"ron_weasley","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"harry_potter_(series)"},
+    {"subject_type":"Character","subject_key":"scorpius_malfoy","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"harry_potter_(series)"},
+    {"subject_type":"Character","subject_key":"severus_snape","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"harry_potter_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Official sources consulted: Harry Potter Fact Files directory (https://www.harrypotter.com/fact-file) and profiles for Hermione Granger (https://www.harrypotter.com/fact-file/characters-and-pets/hermione-granger), Ginny Weasley (https://www.harrypotter.com/fact-file/characters-and-pets/ginny-weasley), and Hedwig (https://www.harrypotter.com/fact-file/characters-and-pets/hedwig); the official Weasleys entry (https://www.harrypotter.com/fact-file/magical-miscellany/the-weasleys), Burrow residents (https://www.harrypotter.com/fact-file/locations/the-burrow), and Gryffindor connections (https://www.harrypotter.com/fact-file/magical-miscellany/gryffindor) explicitly place Fred, George, Ginny, and Ron in the family/story world. The official Cursed Child guide identifies Albus Severus Potter and Scorpius Malfoy (https://www.harrypotter.com/features/cursed-child-character-guide). The official adult-character guide names James Potter as Harry's father, Lily Potter, and Severus Snape (https://www.harrypotter.com/features/the-hogwarts-house-of-every-grown-up-in-harry-potter); the Lily profile explains her birth surname Evans (https://www.harrypotter.com/features/unsung-heroes-of-harry-potter-stories-lily-potter). Official Wizarding World articles identify Draco Malfoy (https://www.harrypotter.com/writing-by-jk-rowling/draco-malfoy), Luna Lovegood (https://www.harrypotter.com/features/the-kindness-of-luna-lovegood), and Pansy Parkinson among Rowling's original forty characters (https://www.harrypotter.com/writing-by-jk-rowling/the-original-forty). These are direct canonical character attestations, not fan-derived or inferred relationship paths."
+}

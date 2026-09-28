@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-ongeki-sega-official-character-roster-20260928",
+  "campaign_key": "authority:ongeki",
+  "campaign_fingerprint": "72cfcc68aa36c304caaa9f7bb174d16f072b6bee636f5b8a9f7f4c9e0c4e1565",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://ongeki.sega.jp/character/",
+  "source_claim": "SEGA's official Ongeki character page lists the packet's 15 named characters across its units and individual character entries.",
+  "authority_type": "OFFICIAL_GAME_PUBLISHER_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"aihara_tsubaki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ongeki"},
+    {"subject_type":"Character","subject_key":"fujisawa_yuzu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ongeki"},
+    {"subject_type":"Character","subject_key":"hinata_chinatsu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ongeki"},
+    {"subject_type":"Character","subject_key":"hoshizaki_akari","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ongeki"},
+    {"subject_type":"Character","subject_key":"inohara_koboshi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ongeki"},
+    {"subject_type":"Character","subject_key":"kashiwagi_mia","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ongeki"},
+    {"subject_type":"Character","subject_key":"kashiwagi_saki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ongeki"},
+    {"subject_type":"Character","subject_key":"kujo_kaede","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ongeki"},
+    {"subject_type":"Character","subject_key":"misumi_aoi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ongeki"},
+    {"subject_type":"Character","subject_key":"ousaka_akane","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ongeki"},
+    {"subject_type":"Character","subject_key":"saotome_ayaka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ongeki"},
+    {"subject_type":"Character","subject_key":"sumeragi_setsuna","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ongeki"},
+    {"subject_type":"Character","subject_key":"suzushima_arisu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ongeki"},
+    {"subject_type":"Character","subject_key":"takase_rio","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ongeki"},
+    {"subject_type":"Character","subject_key":"yuuki_riku","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ongeki"}
+  ],
+  "terminal_reviews": [],
+  "notes": "SEGA's official Ongeki Re:Fresh character index groups the relevant names as ASTERISM (Fujisawa Yuzu, Hoshizaki Akari, Misumi Aoi), ⊿TRiEDGE (Aihara Tsubaki, Takase Rio, Yuuki Riku), bitter flavor (Saotome Ayaka), 7EVENDAYS⇔HOLIDAYS (Kashiwagi Saki, Inohara Koboshi), R.B.P. (Suzushima Arisu, Ousaka Akane, Kujo Kaede), Marching Pockets (Kashiwagi Mia, Hinata Chinatsu), and the individual character Kojou Setsuna (https://ongeki.sega.jp/character/). The official site page identifies these as game characters and supplies their Japanese names and voice casts; every relation is an exact packet member and uses the game's canonical Copyright root ongeki. No fan roster or inference is used."
+}
