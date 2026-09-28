@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-godzilla-monsterpedia-roster-20260928-01",
+  "campaign_key": "authority:godzilla_(series)",
+  "campaign_fingerprint": "16e6f5333f4c6bf267c1dfa70592e63b0ebd15ea135eba4f76254fedec54e24f",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://godzilla.com/blogs/monsterpedia",
+  "source_claim": "The official Godzilla Monsterpedia identifies Godzilla, Mothra, King Ghidorah, Mechagodzilla, Rodan, Gigan, and Destoroyah among the franchise monsters.",
+  "authority_type": "FIRST_PARTY_MONSTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "godzilla",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "godzilla_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mothra",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "godzilla_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "king_ghidorah",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "godzilla_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mechagodzilla",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "godzilla_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rodan",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "godzilla_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "gigan",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "godzilla_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "destoroyah",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "godzilla_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only campaign identities explicitly listed in the official Monsterpedia are proposed. Godzilla Evolved and Monster in Kamata are omitted because this directory does not use those identity names."
+}

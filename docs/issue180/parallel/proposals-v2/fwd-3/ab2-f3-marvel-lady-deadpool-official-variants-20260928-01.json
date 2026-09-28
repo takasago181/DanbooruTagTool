@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-marvel-lady-deadpool-official-variants-20260928-01",
+  "campaign_key": "authority:marvel",
+  "campaign_fingerprint": "a898992f85731361502b1cd2eef18fda00a5d2e3570d58434fde4151685b4969",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.marvel.com/comics/guides/2444/deadpool-variants-of-the-multiverse",
+  "source_claim": "Marvel’s official Deadpool variants reading guide identifies Lady Deadpool as a Marvel multiverse Deadpool variant.",
+  "authority_type": "FIRST_PARTY_COMICS_CHARACTER_GUIDE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "lady_deadpool",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "marvel"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This partial proposal covers only the campaign identity directly named in the official guide; no other Marvel identity is inferred."
+}

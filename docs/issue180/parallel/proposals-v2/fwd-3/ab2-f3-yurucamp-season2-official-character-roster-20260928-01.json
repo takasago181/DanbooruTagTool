@@ -1,0 +1,79 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-yurucamp-season2-official-character-roster-20260928-01",
+  "campaign_key": "authority:yurucamp",
+  "campaign_fingerprint": "71390414855e1b517d92c22187fc83741d362d8a5274763abd3b178fee26993f",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://yurucamp.jp/second/character/",
+  "source_claim": "The official TV anime Season 2 character directory names Nadeshiko Kagamihara, Rin Shima, Chiaki Ohgaki, Aoi Inuyama, Ena Saitou, Ayano Toki, Minami Toba, Sakura Kagamihara, and Akari Inuyama.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kagamihara_nadeshiko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "yurucamp"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shima_rin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "yurucamp"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "oogaki_chiaki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "yurucamp"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "inuyama_aoi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "yurucamp"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "saitou_ena",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "yurucamp"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "toki_ayano",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "yurucamp"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "toba_minami",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "yurucamp"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kagamihara_sakura",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "yurucamp"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "inuyama_akari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "yurucamp"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the nine matching named identities on the official Season 2 character directory are proposed. Shima Saki is omitted because this page does not name her."
+}
