@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-wrestle-angels-success-survivor-character-roster-20260928-01",
+  "campaign_key": "authority:wrestle_angels",
+  "campaign_fingerprint": "8cf817af3c034c580e216652ea2ecffb8f14749af8f9cc3117094e0155646fb7",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.success-corp.co.jp/software/ps2/wa/was/was_char.html",
+  "source_claim": "SUCCESS's official Wrestle Angels Survivor character roster lists these named wrestlers as game characters; the page links back to the game's official top page and identifies SUCCESS as the rights holder for its contents.",
+  "authority_type": "OFFICIAL_GAME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"mighty_yukiko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"wrestle_angels"},
+    {"subject_type":"Character","subject_key":"minami_toshimi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"wrestle_angels"},
+    {"subject_type":"Character","subject_key":"kanamori_reiko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"wrestle_angels"},
+    {"subject_type":"Character","subject_key":"freia_kagami","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"wrestle_angels"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official roster explicitly names Mighty Yukiko (マイティ祐希子), Minami Toshimi (南利美), Kanamori Reiko (金森麗子), and Freia Kagami (フレイア鏡). These four exact identities occur in the current campaign. Sakurai Chisato is not named on this roster page and is omitted."
+}

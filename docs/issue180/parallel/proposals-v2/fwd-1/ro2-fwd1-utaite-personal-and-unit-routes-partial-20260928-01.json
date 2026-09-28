@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-utaite-personal-and-unit-routes-partial-20260928-01",
+  "campaign_key": "authority:utaite",
+  "campaign_fingerprint": "93ae5f569327f3b156b19eb9b0f983e50d755c09854ca78201af50f35f9cdd50",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_ARTIST_PROFILE","url_or_query":"https://amatsuki.jp/profiles","result":"The artist's first-party profile describes Amatsuki's video-cover and singer activity, but does not establish a single shared copyrighted HOME authority for this five-member campaign."},
+    {"route_type":"OFFICIAL_LABEL_ARTIST_PROFILE","url_or_query":"https://www.imperialrecords.jp/artist/kano/profile/","result":"The label's first-party profile identifies Kano as a singer and describes her releases and anime theme work; it does not establish one shared campaign HOME root."},
+    {"route_type":"OFFICIAL_LABEL_GROUP_ROSTER","url_or_query":"https://wmg.jp/usss","result":"Warner Music Japan identifies Urashimasakatasen as a four-member vocal unit including Shima and Senra. This covers only part of the campaign and supports no shared single HOME authority for all five members."},
+    {"route_type":"OFFICIAL_ARTIST_PROFILE_SEARCH","url_or_query":"official first-party search for Yoshino (utaite) / よしの 歌い手 公式プロフィール","result":"The search did not surface an identifiable first-party artist profile for the exact campaign identity, so no relation was established for this member."}
+  ],
+  "notes": "The checked first-party sources establish individual singer activity and one subset vocal unit, but not a common copyrighted work or stable HOME authority shared by the current five-member campaign. This broad campaign is not exhausted; the result is partial research progress, not negative evidence."
+}

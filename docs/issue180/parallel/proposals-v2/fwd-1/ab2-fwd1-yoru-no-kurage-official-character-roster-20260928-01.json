@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-yoru-no-kurage-official-character-roster-20260928-01",
+  "campaign_key": "authority:yoru_no_kurage_wa_oyogenai",
+  "campaign_fingerprint": "ece0f38afe00842899bda40efe00d3de5f7fb606648984558ce786ed83e6afaa",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://yorukura-anime.com/",
+  "source_claim": "The official Jellyfish Can't Swim in the Night anime site has a CHARACTER section with direct profiles for these named characters and identifies the work as an original TV animation.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"kouzuki_mahiru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yoru_no_kurage_wa_oyogenai"},
+    {"subject_type":"Character","subject_key":"yamanouchi_kano","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yoru_no_kurage_wa_oyogenai"},
+    {"subject_type":"Character","subject_key":"watase_kiui","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yoru_no_kurage_wa_oyogenai"},
+    {"subject_type":"Character","subject_key":"takanashi_kim_anouk_mei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yoru_no_kurage_wa_oyogenai"},
+    {"subject_type":"Character","subject_key":"jelee-chan","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yoru_no_kurage_wa_oyogenai"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official character section directly profiles Mahiru Kozuki, Kano Yamanouchi, Kiui Watase, Mei Takanashi-Kim-Anouk, and JELEE-chan. The page describes JELEE-chan as Mahiru's jellyfish illustration and the unit's mascot character. All five exact current campaign members are included."
+}
