@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-pripara-tv-tokyo-official-character-roster-20260928",
+  "campaign_key": "authority:pretty_series",
+  "campaign_fingerprint": "67ce2c23937d22a9d3d808bee58d0fc1957b79ba7679247ac66f2640520e1e0b",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/anime/pripara/sp/chara/",
+  "source_claim": "TV Tokyo's official PriPara character page lists the named cast members and describes them in PriPara roles, including Manaka Laala, Minami Mirei, Hojo Sophy, Toudou Shion, Dorothy and Reona West, Kurosu Aroma, Shiratama Mikan, Kiki Ajimi, Akai Meganee, Usacha, Falulu, Shikyoin Hibiki, Midorikaze Fuwari, and Manaka Non.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"manaka_laala","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pripara"},
+    {"subject_type":"Character","subject_key":"minami_mirei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pripara"},
+    {"subject_type":"Character","subject_key":"hojo_sophy","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pripara"},
+    {"subject_type":"Character","subject_key":"toudou_shion","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pripara"},
+    {"subject_type":"Character","subject_key":"dorothy_west","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pripara"},
+    {"subject_type":"Character","subject_key":"reona_west","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pripara"},
+    {"subject_type":"Character","subject_key":"kurosu_aroma","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pripara"},
+    {"subject_type":"Character","subject_key":"shiratama_mikan","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pripara"},
+    {"subject_type":"Character","subject_key":"kiki_ajimi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pripara"},
+    {"subject_type":"Character","subject_key":"akai_meganee","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pripara"},
+    {"subject_type":"Character","subject_key":"usacha","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pripara"},
+    {"subject_type":"Character","subject_key":"falulu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pripara"},
+    {"subject_type":"Character","subject_key":"shikyoin_hibiki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pripara"},
+    {"subject_type":"Character","subject_key":"midorikaze_fuwari","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pripara"},
+    {"subject_type":"Character","subject_key":"manaka_non","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"pripara"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Every subject is named on the official TV Tokyo PriPara character page and matched to an exact member of this campaign. The work key is the canonical Issue 70 Copyright tag pripara. Only directly named/identified roster members are included."
+}
