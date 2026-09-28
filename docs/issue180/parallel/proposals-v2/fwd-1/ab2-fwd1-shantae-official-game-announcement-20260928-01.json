@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-shantae-official-game-announcement-20260928-01",
+  "campaign_key": "authority:shantae_(series)",
+  "campaign_fingerprint": "5ca360dcec568b54fe9e8761881e36ca8cd16224036c2a5ede156014fb35d785",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://wayforward.com/news/the-original-shantae-is-now-available-on-ps4-ps5/",
+  "source_claim": "WayForward's official announcement for the original Shantae game names titular Shantae, the pirate Risky Boots, and friend Rottytops as characters in the Shantae series, and identifies the source game as the original Shantae adventure developed by WayForward.",
+  "authority_type": "OFFICIAL_FRANCHISE_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"rottytops","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shantae_(series)"},
+    {"subject_type":"Character","subject_key":"risky_boots","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shantae_(series)"},
+    {"subject_type":"Character","subject_key":"shantae","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shantae_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official developer announcement directly identifies all three names in the series synopsis and explicitly calls Shantae the titular character. Tinkerbat is mentioned in this source only as a transformation; it is not used as character-name evidence for the separate Tinkerbat campaign tag."
+}

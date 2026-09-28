@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-shantae-residual-identities-20260928-01",
+  "campaign_key": "authority:shantae_(series)",
+  "campaign_fingerprint": "5ca360dcec568b54fe9e8761881e36ca8cd16224036c2a5ede156014fb35d785",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "https://wayforward.com/news/the-original-shantae-is-now-available-on-ps4-ps5/",
+  "source_claim": "The checked WayForward materials safely support Shantae, Risky Boots, and Rottytops. They do not safely resolve the exact campaign scope for Cristina Valenzuela, the Dancer Shantae form, Squid Baron, or Tinkerbat as a separate character identity.",
+  "authority_type": "OFFICIAL_CHARACTER_SCOPE_RESIDUAL_RESEARCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_DEVELOPER_GAME_ANNOUNCEMENT","url_or_query":"https://wayforward.com/news/the-original-shantae-is-now-available-on-ps4-ps5/","result":"Names Shantae, Risky Boots, and Rottytops. It mentions a Tinkerbat transformation but does not establish the separate Tinkerbat entity or the Dancer Shantae tag as exact identities."},
+    {"route_type":"OFFICIAL_DEVELOPER_SERIES_PRODUCT_PAGE","url_or_query":"https://wayforward.com/games/shantae-advance-risky-revolution/","result":"Names Shantae and Risky Boots and mentions returning friends including Rottytops; the checked page does not list Squid Baron or establish the form-specific Dancer Shantae identity."},
+    {"route_type":"OFFICIAL_DEVELOPER_CREDIT_SEARCH","url_or_query":"site:wayforward.com Shantae Cristina Valenzuela voice actress","result":"The checked developer pages did not establish Cristina Valenzuela as a fictional character in the Shantae series; performer credit cannot be converted to a Character HOME relation."}
+  ],
+  "notes": "Partial accounting only. Preserve the three positive relations in the companion AUTHORITY_BATCH. The four residual campaign names are not negative HOME decisions; exact official identity/profile evidence is still needed before assigning them."
+}

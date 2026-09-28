@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-seishun-buta-yarou-official-character-list-20260928-01",
+  "campaign_key": "authority:seishun_buta_yarou",
+  "campaign_fingerprint": "1452f8dd38cb13be08ee4f02c17f0e2b6c3989780ea717b55bbf78d0609e9dca",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://ao-buta.com/profilebook/form/",
+  "source_claim": "The official Seishun Buta Yarou series portal's character-selection form names Sakuta Azusagawa, Mai Sakurajima, Tomoe Koga, Rio Futaba, Nodoka Toyohama, Kaede Azusagawa, and Shoko Makinohara as characters in the series.",
+  "authority_type": "OFFICIAL_FRANCHISE_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"azusagawa_kaede","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"seishun_buta_yarou"},
+    {"subject_type":"Character","subject_key":"azusagawa_sakuta","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"seishun_buta_yarou"},
+    {"subject_type":"Character","subject_key":"futaba_rio","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"seishun_buta_yarou"},
+    {"subject_type":"Character","subject_key":"koga_tomoe","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"seishun_buta_yarou"},
+    {"subject_type":"Character","subject_key":"makinohara_shouko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"seishun_buta_yarou"},
+    {"subject_type":"Character","subject_key":"sakurajima_mai","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"seishun_buta_yarou"},
+    {"subject_type":"Character","subject_key":"toyohama_nodoka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"seishun_buta_yarou"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official portal character picker explicitly lists all seven exact campaign members. The publisher's KADOKAWA product entry independently identifies the light-novel series and names core campaign members, including Sakuta, Mai, Tomoe and Rio."
+}
