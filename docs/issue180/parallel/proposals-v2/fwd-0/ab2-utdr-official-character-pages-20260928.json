@@ -1,0 +1,186 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-utdr-official-alphys-20260928",
+    "campaign_key": "authority:utdr_(toby_fox)",
+    "campaign_fingerprint": "3ad1e0cb65bc75640dc27e631cd3b742e06ed63e2404f1cf25c0f5c3724b8033",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://undertale.com/alarmclock/alphys/",
+    "source_claim": "The official UNDERTALE 5th Anniversary Alarm Clock Winter Dialogue page is titled “Alphys” and presents her first-person dialogue, identifying Alphys as an UNDERTALE character.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "alphys",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "undertale"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Exact character-page/dialogue or official-site identity evidence; no unrelated family members, variants, or other source characters are inferred."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-utdr-official-asgore-dreemurr-20260928",
+    "campaign_key": "authority:utdr_(toby_fox)",
+    "campaign_fingerprint": "3ad1e0cb65bc75640dc27e631cd3b742e06ed63e2404f1cf25c0f5c3724b8033",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://undertale.com/alarmclock/asgore/",
+    "source_claim": "The official UNDERTALE 5th Anniversary Alarm Clock Winter Dialogue page is titled “Asgore” and presents his first-person dialogue, identifying Asgore as an UNDERTALE character. The current canonical Copyright key for UNDERTALE is undertale.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "asgore_dreemurr",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "undertale"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Exact character-page/dialogue or official-site identity evidence; no unrelated family members, variants, or other source characters are inferred."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-utdr-official-mettaton-20260928",
+    "campaign_key": "authority:utdr_(toby_fox)",
+    "campaign_fingerprint": "3ad1e0cb65bc75640dc27e631cd3b742e06ed63e2404f1cf25c0f5c3724b8033",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://undertale.com/alarmclock/mettaton/",
+    "source_claim": "The official UNDERTALE 5th Anniversary Alarm Clock Winter Dialogue page is titled “Mettaton” and presents his first-person dialogue, identifying Mettaton as an UNDERTALE character.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "mettaton",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "undertale"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Exact character-page/dialogue or official-site identity evidence; no unrelated family members, variants, or other source characters are inferred."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-utdr-official-napstablook-20260928",
+    "campaign_key": "authority:utdr_(toby_fox)",
+    "campaign_fingerprint": "3ad1e0cb65bc75640dc27e631cd3b742e06ed63e2404f1cf25c0f5c3724b8033",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://undertale.com/alarmclock/napstablook/",
+    "source_claim": "The official UNDERTALE 5th Anniversary Alarm Clock Winter Dialogue page is titled “Napstablook” and presents their first-person dialogue, identifying Napstablook as an UNDERTALE character.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "napstablook",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "undertale"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Exact character-page/dialogue or official-site identity evidence; no unrelated family members, variants, or other source characters are inferred."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-utdr-official-toriel-20260928",
+    "campaign_key": "authority:utdr_(toby_fox)",
+    "campaign_fingerprint": "3ad1e0cb65bc75640dc27e631cd3b742e06ed63e2404f1cf25c0f5c3724b8033",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://undertale.com/alarmclock/toriel/",
+    "source_claim": "The official UNDERTALE 5th Anniversary Alarm Clock Winter Dialogue page is titled “Toriel” and presents her first-person dialogue, identifying Toriel as an UNDERTALE character.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "toriel",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "undertale"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Exact character-page/dialogue or official-site identity evidence; no unrelated family members, variants, or other source characters are inferred."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-utdr-official-undyne-20260928",
+    "campaign_key": "authority:utdr_(toby_fox)",
+    "campaign_fingerprint": "3ad1e0cb65bc75640dc27e631cd3b742e06ed63e2404f1cf25c0f5c3724b8033",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://undertale.com/alarmclock/undyne/",
+    "source_claim": "The official UNDERTALE 5th Anniversary Alarm Clock Winter Dialogue page is titled “Undyne” and presents her first-person dialogue, identifying Undyne as an UNDERTALE character.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "undyne",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "undertale"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Exact character-page/dialogue or official-site identity evidence; no unrelated family members, variants, or other source characters are inferred."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-utdr-official-ralsei-20260928",
+    "campaign_key": "authority:utdr_(toby_fox)",
+    "campaign_fingerprint": "3ad1e0cb65bc75640dc27e631cd3b742e06ed63e2404f1cf25c0f5c3724b8033",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://deltarune.com/",
+    "source_claim": "The official DELTARUNE site labels its game Chapters 1–5 and the alt text of its promotional chapter image explicitly identifies Ralsei alongside Susie and Kris. This directly establishes Ralsei as a DELTARUNE character.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "ralsei",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "deltarune"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Exact character-page/dialogue or official-site identity evidence; no unrelated family members, variants, or other source characters are inferred."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-utdr-official-spamton-g-spamton-20260928",
+    "campaign_key": "authority:utdr_(toby_fox)",
+    "campaign_fingerprint": "3ad1e0cb65bc75640dc27e631cd3b742e06ed63e2404f1cf25c0f5c3724b8033",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://deltarune.com/sweepstakes/",
+    "source_claim": "The official DELTARUNE Spamton Sweepstakes page has an “ABOUT SPAMTON” section where Spamton G. Spamton speaks in first person and gives his name. This directly establishes Spamton G. Spamton as a DELTARUNE character.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "spamton_g._spamton",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "deltarune"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Exact character-page/dialogue or official-site identity evidence; no unrelated family members, variants, or other source characters are inferred."
+  }
+]
