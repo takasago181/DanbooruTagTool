@@ -1,0 +1,43 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-blue-exorcist-official-kyoto-character-roster-20260928",
+    "campaign_key": "authority:ao_no_exorcist",
+    "campaign_fingerprint": "7c4334927e191bcb49aac6cd0eadaace8604d9c7d9b7293b431642ce03d68cd9",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://ao-ex.com/tv2017/character/",
+    "source_claim": "The official Blue Exorcist: Kyoto Saga character directory names Okumura Rin, Okumura Yukio, Moriyama Shiemi, Suguro Ryuji, Shima Renzou, Miwa Konekomaru, Kamiki Izumo, and Kirigakure Shura as characters. The page copyright identifies the Blue Exorcist production committee and MBS.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"kamiki_izumo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ao_no_exorcist"},
+      {"subject_type":"Character","subject_key":"kirigakure_shura","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ao_no_exorcist"},
+      {"subject_type":"Character","subject_key":"miwa_konekomaru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ao_no_exorcist"},
+      {"subject_type":"Character","subject_key":"moriyama_shiemi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ao_no_exorcist"},
+      {"subject_type":"Character","subject_key":"okumura_rin","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ao_no_exorcist"},
+      {"subject_type":"Character","subject_key":"okumura_yukio","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ao_no_exorcist"},
+      {"subject_type":"Character","subject_key":"shima_renzou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ao_no_exorcist"},
+      {"subject_type":"Character","subject_key":"suguro_ryuuji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ao_no_exorcist"}
+    ],
+    "terminal_reviews": [],
+    "notes": "All eight listed campaign names appear as exact character labels in this official title roster."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-blue-exorcist-official-amai-mon-story-evidence-20260928",
+    "campaign_key": "authority:ao_no_exorcist",
+    "campaign_fingerprint": "7c4334927e191bcb49aac6cd0eadaace8604d9c7d9b7293b431642ce03d68cd9",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://ao-ex.com/tv2017/sp/story/01.html",
+    "source_claim": "The official Blue Exorcist: Kyoto Saga episode 1 synopsis names Amaimon (アマイモン) as the attacker who exposes Rin's heritage; the episode page is part of the official series website.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"amaimon","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ao_no_exorcist"}
+    ],
+    "terminal_reviews": [],
+    "notes": "The official synopsis directly names Amaimon; no identity or variant inference is used."
+  }
+]
