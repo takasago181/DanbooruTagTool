@@ -1,4 +1,5 @@
 import importlib.util
+import sys
 import unittest
 from pathlib import Path
 
@@ -6,6 +7,7 @@ ROOT = Path(__file__).resolve().parents[2]
 SCRIPT = ROOT / "scripts/issue180/claim_codex_role_v2.py"
 spec = importlib.util.spec_from_file_location("issue180_role_claim_v2", SCRIPT)
 mod = importlib.util.module_from_spec(spec)
+sys.modules[spec.name] = mod
 spec.loader.exec_module(mod)
 
 class Issue180RoleClaimV2Tests(unittest.TestCase):
