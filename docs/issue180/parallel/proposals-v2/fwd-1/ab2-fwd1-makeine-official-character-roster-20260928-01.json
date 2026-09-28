@@ -1,0 +1,24 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-makeine-official-character-roster-20260928-01",
+  "campaign_key": "authority:make_heroine_ga_oo_sugiru!",
+  "campaign_fingerprint": "47327c469332618b09e944e6cf5045f932941e28fb927ef1446e18c04864b08e",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://makeine-anime.com/character/",
+  "source_claim": "The official Makeine anime character directory lists Basori Tiara, Himemiya Karen, Komari Chika, Nukumizu Kaju, Nukumizu Kazuhiko, Shikiya Yumeko, Yakishio Lemon, and Yanami Anna among the series characters. Its copyright footer names Takibi Amamori, Shogakukan, and Makeine Support Committee.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"basori_tiara","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"make_heroine_ga_oo_sugiru!"},
+    {"subject_type":"Character","subject_key":"himemiya_karen","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"make_heroine_ga_oo_sugiru!"},
+    {"subject_type":"Character","subject_key":"komari_chika","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"make_heroine_ga_oo_sugiru!"},
+    {"subject_type":"Character","subject_key":"nukumizu_kaju","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"make_heroine_ga_oo_sugiru!"},
+    {"subject_type":"Character","subject_key":"nukumizu_kazuhiko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"make_heroine_ga_oo_sugiru!"},
+    {"subject_type":"Character","subject_key":"shikiya_yumeko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"make_heroine_ga_oo_sugiru!"},
+    {"subject_type":"Character","subject_key":"yakishio_lemon","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"make_heroine_ga_oo_sugiru!"},
+    {"subject_type":"Character","subject_key":"yanami_anna","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"make_heroine_ga_oo_sugiru!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All eight campaign members are named in the official character directory, which also provides character profiles. The official rights line names the series' publishing and production authorities."
+}

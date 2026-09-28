@@ -1,0 +1,24 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-luminous-witches-official-member-roster-20260928-01",
+  "campaign_key": "authority:luminous_witches",
+  "campaign_fingerprint": "2afed8432e3711a1b550aff3ba8a6547631511bbabe54ae4bd9ff9b9af984535",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://w-witch.jp/luminous/member/",
+  "source_claim": "The official Luminous Witches member directory names the exact characters Aila Paivikki Linnamaa, Grace Maitland Steward, Joanna Elizabeth Stafford, Lyudmila Andreyevna Ruslanova, Manaia Matawhaura Hato, Maria Magdalena Dietrich, Shibuya Inori, and Sylvie Cariello. The profiles identify them as members of the Luminous Witches band and the official rights line names the Luminous Witches project.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_PROFILE_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"aila_paivikki_linnamaa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"luminous_witches"},
+    {"subject_type":"Character","subject_key":"grace_maitland_steward","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"luminous_witches"},
+    {"subject_type":"Character","subject_key":"joanna_elizabeth_stafford","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"luminous_witches"},
+    {"subject_type":"Character","subject_key":"lyudmila_andreyevna_ruslanova","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"luminous_witches"},
+    {"subject_type":"Character","subject_key":"manaia_matawhaura_hato","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"luminous_witches"},
+    {"subject_type":"Character","subject_key":"maria_magdalena_dietrich","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"luminous_witches"},
+    {"subject_type":"Character","subject_key":"shibuya_inori","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"luminous_witches"},
+    {"subject_type":"Character","subject_key":"sylvie_cariello","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"luminous_witches"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All eight campaign members appear in the official series member directory. The profiles place these characters in the Luminous Witches music squadron, and the official project rights line is consistent with the candidate Copyright root."
+}

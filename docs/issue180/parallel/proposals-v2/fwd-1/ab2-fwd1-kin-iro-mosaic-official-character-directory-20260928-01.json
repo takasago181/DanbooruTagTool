@@ -1,0 +1,24 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-kin-iro-mosaic-official-character-directory-20260928-01",
+  "campaign_key": "authority:kin-iro_mosaic",
+  "campaign_fingerprint": "d0634ac60e44c65959c626b0976ce757d017b9fe96cdd2907f6b2ff8d614966f",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://kinmosa.com/",
+  "source_claim": "The official Kin-iro Mosaic Thank you!! site has a character directory naming Oomiya Shinobu, Alice Cartelet, Komichi Aya, Inokuma Youko, Kujou Karen, Matsubara Honoka, Karasuma Sakura, and Kuzehashi Akari. The site credits the Kin-iro Mosaic production committee.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"alice_cartelet","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kin-iro_mosaic"},
+    {"subject_type":"Character","subject_key":"inokuma_youko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kin-iro_mosaic"},
+    {"subject_type":"Character","subject_key":"karasuma_sakura","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kin-iro_mosaic"},
+    {"subject_type":"Character","subject_key":"komichi_aya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kin-iro_mosaic"},
+    {"subject_type":"Character","subject_key":"kujou_karen","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kin-iro_mosaic"},
+    {"subject_type":"Character","subject_key":"kuzehashi_akari","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kin-iro_mosaic"},
+    {"subject_type":"Character","subject_key":"matsubara_honoka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kin-iro_mosaic"},
+    {"subject_type":"Character","subject_key":"oomiya_shinobu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kin-iro_mosaic"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All eight exact campaign members appear in the official character directory. The official rights footer identifies the Kin-iro Mosaic production committee."
+}
