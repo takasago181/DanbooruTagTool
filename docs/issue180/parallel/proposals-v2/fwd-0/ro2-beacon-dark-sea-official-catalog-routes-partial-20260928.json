@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-beacon-dark-sea-official-catalog-routes-partial-20260928",
+  "campaign_key": "authority:beacon_of_light_in_the_dark_sea",
+  "campaign_fingerprint": "dbb6d834e3d76021d3a14dbd1a244c8a25da09a3f1b6c46c8489d509ead8d47c",
+  "worker_slot": 0,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_ORIGINAL_PUBLISHER_CATALOG","url_or_query":"https://www.munpia.com/novel/detail/269793","result":"The official Munpia title page confirms the work and author but exposes no roster for the six current campaign members."},
+    {"route_type":"OFFICIAL_DISTRIBUTION_CATALOG","url_or_query":"https://series.naver.com/novel/detail.series?OSType=pc&bannerChanged=false&productNo=8063866","result":"The Naver Series listing identifies the title and publisher but contains no target-character roster or exact member mappings."},
+    {"route_type":"OFFICIAL_LICENSEE_PUBLISHER_CATALOG","url_or_query":"https://sevenseasentertainment.com/series/beacon-of-light-in-the-dark-sea-novel/","result":"The licensed English publisher confirms the series and summarizes protagonist Muhyeon, but does not identify the six campaign members."}
+  ],
+  "notes": "These distinct official catalog routes confirm the work but do not provide exact authority-to-character evidence for the campaign. Scope is broad and the checked pages do not exhaust its authoritative contents, so this is PARTIAL progress only; no HOME relation is inferred."
+}

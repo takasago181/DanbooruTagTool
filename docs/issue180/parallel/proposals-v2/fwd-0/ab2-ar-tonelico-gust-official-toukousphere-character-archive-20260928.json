@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-ar-tonelico-gust-official-toukousphere-character-archive-20260928",
+  "campaign_key": "authority:ar_tonelico",
+  "campaign_fingerprint": "4513ec9cb54b2352d52d7cec5e4911b3fcc5ee51cdf3926a7aa535f5b5f2322a",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://social.gust.co.jp/pc/event/kruthymneth/toukou/revival",
+  "source_claim": "Gust's official Ar tonelico Toukousphere revival archive presents official character dialogue and identifies characters in its Ar tonelico context. It explicitly discusses Ar tonelico II characters Croix (クロア), Cloche (クローシェ), Cocona (ココナ), and Luca (ルカ); it also names Aurica (オリカ) and Misha (ミシャ) in official character dialogue on the same Ar tonelico portal page.",
+  "authority_type": "FIRST_PARTY_FRANCHISE_CHARACTER_ARCHIVE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"aurica_nestmile","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ar_tonelico"},
+    {"subject_type":"Character","subject_key":"chroah_vatel","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ar_tonelico"},
+    {"subject_type":"Character","subject_key":"chroche_latel_pastalie","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ar_tonelico"},
+    {"subject_type":"Character","subject_key":"cocona_vatel","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ar_tonelico"},
+    {"subject_type":"Character","subject_key":"luca_truelywaath","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ar_tonelico"},
+    {"subject_type":"Character","subject_key":"misha_arsellec_lune","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ar_tonelico"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The archive names each exact campaign member in official Ar tonelico character dialogue/context. This batch is limited to the six current campaign members; no additional characters or aliases are inferred."
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-dumbbell-official-character-roster-20260928",
+  "campaign_key": "authority:dumbbell_nan_kilo_moteru?",
+  "campaign_fingerprint": "1cd97da2378c12bc8ed755ac9dc10fbcd06ec39f8b8701b0d11db8c7b9224da7",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://dumbbell-anime.jp/character/",
+  "source_claim": "The official TV anime character page lists all six campaign characters by Japanese and English name: 紗倉ひびき (Hibiki Sakura), 奏流院朱美 (Akemi Soryuin), 上原彩也香 (Ayaka Uehara), ジーナ・ボイド (Gina Boyd), 立花里美 (Satomi Tachibana), and 街雄鳴造 (Naruzo Machio). The official staff/cast page identifies the series source as the manga serialized by Shogakukan.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"gina_boyd","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dumbbell_nan_kilo_moteru?"},
+    {"subject_type":"Character","subject_key":"machio_naruzou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dumbbell_nan_kilo_moteru?"},
+    {"subject_type":"Character","subject_key":"sakura_hibiki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dumbbell_nan_kilo_moteru?"},
+    {"subject_type":"Character","subject_key":"souryuuin_akemi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dumbbell_nan_kilo_moteru?"},
+    {"subject_type":"Character","subject_key":"tachibana_satomi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dumbbell_nan_kilo_moteru?"},
+    {"subject_type":"Character","subject_key":"uehara_ayaka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dumbbell_nan_kilo_moteru?"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official character page explicitly lists each of the six exact current campaign members; the official staff/cast page confirms the originating manga and rights-holder context."
+}
