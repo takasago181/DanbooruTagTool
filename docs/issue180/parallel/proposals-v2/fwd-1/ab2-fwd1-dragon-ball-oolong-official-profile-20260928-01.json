@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-dragon-ball-oolong-official-profile-20260928-01",
+  "campaign_key": "authority:dragon_ball",
+  "campaign_fingerprint": "e97d30c9f8b6865125addb8f096f5a2f94da6f490bcbd68a7c1a4c17175fcbf1",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://dragon-ball-official.com/news/01_2497.html",
+  "source_claim": "The official Dragon Ball site publishes an Oolong character profile, recounts his role in the original Dragon Ball story, and explicitly states his first appearance was in Dragon Ball chapter 5. The exact Oolong Character in the current campaign therefore has Dragon Ball as its canonical HOME.",
+  "authority_type": "OFFICIAL_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"oolong","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dragon_ball"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The relation is limited to Oolong, whose original title is explicit in this source. No Dragon Ball Z/Super appearance-based relations or unresolved campaign members are inferred."
+}

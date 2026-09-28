@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-delicious-party-official-character-list-20260928-01",
+  "campaign_key": "authority:precure",
+  "campaign_fingerprint": "51a3196334d6bac34a4f7a8c42a514150b05db17c327faaef60a6606ca21fdb2",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.toei-anim.co.jp/tv/delicious-party_precure/info/",
+  "source_claim": "Toei Animation's official Delicious Party Precure information page identifies the production by title and lists its cast, including 和実ゆい／キュアプレシャス (Nagomi Yui), 菓彩あまね／キュアフィナーレ (Kasai Amane), and コメコメ (Kome-Kome). Each exact identity is in the current Precure authority campaign; the source establishes their title-specific HOME.",
+  "authority_type": "TOEI_ANIMATION_OFFICIAL_CAST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"nagomi_yui","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"delicious_party_precure"},
+    {"subject_type":"Character","subject_key":"kasai_amane","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"delicious_party_precure"},
+    {"subject_type":"Character","subject_key":"kome-kome","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"delicious_party_precure"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact campaign members named on the official title page are included. The HOME root is Delicious Party Precure; this does not infer a franchise-wide HOME or any crossover relation."
+}

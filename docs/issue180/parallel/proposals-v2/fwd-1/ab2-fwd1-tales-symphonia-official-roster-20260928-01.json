@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-tales-symphonia-official-roster-20260928-01",
+  "campaign_key": "authority:tales_of_(series)",
+  "campaign_fingerprint": "9e3591d10c61c98b1a21871b5443ef5fb436e10c5e8d144a2e8e8560a8f754eb",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://tales-ch.jp/titles/tos/",
+  "source_claim": "The official Tales Channel+ title page identifies Tales of Symphonia and lists its character roster. It names Lloyd Irving, Colette Brunel, Genis Sage, Kratos Aurion, Sheena Fujibayashi, Zelos Wilder, Presea Combatir, Regal Bryant, and Mithos Yggdrasill, each matching an exact Character in the current authority campaign. The source scopes their canonical home to Tales of Symphonia.",
+  "authority_type": "OFFICIAL_GAME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"lloyd_irving","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tales_of_symphonia"},
+    {"subject_type":"Character","subject_key":"colette_brunel","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tales_of_symphonia"},
+    {"subject_type":"Character","subject_key":"genis_sage","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tales_of_symphonia"},
+    {"subject_type":"Character","subject_key":"kratos_aurion","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tales_of_symphonia"},
+    {"subject_type":"Character","subject_key":"fujibayashi_sheena","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tales_of_symphonia"},
+    {"subject_type":"Character","subject_key":"zelos_wilder","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tales_of_symphonia"},
+    {"subject_type":"Character","subject_key":"presea_combatir","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tales_of_symphonia"},
+    {"subject_type":"Character","subject_key":"regal_bryant","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tales_of_symphonia"},
+    {"subject_type":"Character","subject_key":"mithos_yggdrasill","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tales_of_symphonia"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact roster identities that also occur in the current 71-member campaign are included. The HOME root is title-specific; no umbrella Tales series relation or appearance-based relation is inferred."
+}
