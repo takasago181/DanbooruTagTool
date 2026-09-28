@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-twewy-daisukenojo-bito-beat-official-product-20260928-01",
+  "campaign_key": "authority:subarashiki_kono_sekai",
+  "campaign_fingerprint": "3829045f03153d7f9f64cb344d9a9f206b66ea35b2f1061faf87b0bbd20f7e42",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://na.store.square-enix-games.com/the-world-ends-with-you-the-animation-figure---beat",
+  "source_claim": "Square Enix’s official store identifies Beat as Daisukenojo Bito and says the figure is based on his appearance in The World Ends with You The Animation.",
+  "authority_type": "FIRST_PARTY_CHARACTER_PRODUCT_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "bito_daisukenojo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "subarashiki_kono_sekai"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Exact full-name match from Square Enix’s official North American store; the product page explicitly places the named character in The World Ends with You The Animation."
+}
