@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-dbd-felix-official-profile-20260928-01",
+  "campaign_key": "authority:dead_by_daylight",
+  "campaign_fingerprint": "3beb1d3ca5ecc9bfbbaf0e6994c164041af504cda145a90437e44e64535e3311",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://deadbydaylight.com/game/characters/felix-richter/",
+  "source_claim": "Behaviour Interactive’s official Dead by Daylight character profile identifies Felix Richter as a Survivor introduced in the original Descend Beyond DLC chapter, with his own lore and perks. This establishes Felix Richter as a direct character of the Dead by Daylight copyright.",
+  "authority_type": "OFFICIAL_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "felix_richter",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dead_by_daylight"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": ""
+}

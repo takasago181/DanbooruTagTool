@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-demi-chan-kodansha-official-character-page-20260928-01",
+  "campaign_key": "authority:demi-chan_wa_kataritai",
+  "campaign_fingerprint": "d28a58e8325cf0386eb10230f5a993e875935101ab4c4ddd7a40b8a9938a455d",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://magazine.yanmaga.jp/c/demichanhakataritai",
+  "source_claim": "Kodansha’s official Young Magazine page for 亜人ちゃんは語りたい provides the work synopsis and a 登場人物 roster naming 高橋鉄男, 小鳥遊ひかり, 町 京子, and 佐藤早紀絵. Each exact campaign member is presented as a character in the titled work.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "takahashi_tetsuo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "demi-chan_wa_kataritai"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takanashi_hikari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "demi-chan_wa_kataritai"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "machi_kyouko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "demi-chan_wa_kataritai"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "satou_sakie",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "demi-chan_wa_kataritai"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": ""
+}

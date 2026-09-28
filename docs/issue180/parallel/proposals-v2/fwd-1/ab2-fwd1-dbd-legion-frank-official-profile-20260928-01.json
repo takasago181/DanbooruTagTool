@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-dbd-legion-frank-official-profile-20260928-01",
+  "campaign_key": "authority:dead_by_daylight",
+  "campaign_fingerprint": "3beb1d3ca5ecc9bfbbaf0e6994c164041af504cda145a90437e44e64535e3311",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://deadbydaylight.com/game/characters/the-legion/",
+  "source_claim": "Behaviour Interactive’s official Dead by Daylight profile identifies The Legion as an Original DLC Killer and its lore explicitly names Frank Morrison as the leader who brought the group together. The page situates this original character and chapter in Dead by Daylight.",
+  "authority_type": "OFFICIAL_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "frank_morrison",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dead_by_daylight"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": ""
+}
