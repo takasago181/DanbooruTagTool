@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-elden-ring-official-radahn-figure-bundle-20260928",
+  "campaign_key": "authority:elden_ring",
+  "campaign_fingerprint": "63ecddbf092c9810f1684d1f08ed31b4adfb1c7759f14da87587f4579f622676",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://store.bandainamcoent.com/merchandise/elden-ring/elden-ring/sh-figuarts-mini",
+  "source_claim": "The official Bandai Namco Entertainment America Store ELDEN RING Figuarts Mini bundle page explicitly describes Starscourge Radahn as one of its ELDEN RING characters.",
+  "authority_type": "OFFICIAL_LICENSED_CHARACTER_PRODUCT_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"starscourge_radahn","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"elden_ring"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The first-party Bandai Namco Store product description names Starscourge Radahn in the ELDEN RING Figuarts Mini lineup. This is limited to the exact Starscourge Radahn campaign tag; no variant or Shadow of the Erdtree relation is inferred."
+}

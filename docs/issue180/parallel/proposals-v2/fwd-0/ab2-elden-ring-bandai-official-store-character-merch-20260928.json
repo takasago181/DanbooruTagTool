@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-elden-ring-bandai-official-store-character-merch-20260928",
+  "campaign_key": "authority:elden_ring",
+  "campaign_fingerprint": "63ecddbf092c9810f1684d1f08ed31b4adfb1c7759f14da87587f4579f622676",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://store.bandainamcoent.com/elden-ring-merchandise",
+  "source_claim": "Bandai Namco Entertainment America’s official store identifies its franchise and game filter as ELDEN RING and lists specifically named ELDEN RING character products for Blaidd, Godfrey, Maliketh, Ranni, Malenia, and Iron Fist Alexander.",
+  "authority_type": "OFFICIAL_LICENSED_CHARACTER_MERCHANDISE_CATALOG",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"blaidd_the_half-wolf","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"elden_ring"},
+    {"subject_type":"Character","subject_key":"godfrey_first_elden_lord","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"elden_ring"},
+    {"subject_type":"Character","subject_key":"maliketh_the_black_blade","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"elden_ring"},
+    {"subject_type":"Character","subject_key":"ranni_the_witch","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"elden_ring"},
+    {"subject_type":"Character","subject_key":"malenia_blade_of_miquella","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"elden_ring"},
+    {"subject_type":"Character","subject_key":"iron_fist_alexander","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"elden_ring"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The store’s ELDEN RING merchandise page associates each named product directly with the ELDEN RING franchise. Only exact campaign members matching listed names are included. No claim is made for Nightreign or other campaign members. Canonical spellings are the current tracked dispatch/Issue 70 tags."
+}
