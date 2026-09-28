@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-mahou-senshi-triangle-official-20th-sidestory-20260928",
+  "campaign_key": "authority:mahou_senshi_(series)",
+  "campaign_fingerprint": "779a0e838e70ac8ae4378e9ea5df843091e74d258fa7e3dfe07e704122c6513d",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.route2.co.jp/Triangle/Products/20th/sidestory01.html",
+  "source_claim": "Triangle/Route2's official Mahou Senshi 20th portal sidestory '木漏れ日要らず' features Nanase Ririko, Yuzuki Kanaha, and Miyamori Mayuki in the Mahou Senshi continuity and explicitly identifies Ririko as Sweet Lip, Kanaha as Sweet Kiss, and Mayuki as Sweet Passion.",
+  "authority_type": "FIRST_PARTY_CHARACTER_MATERIAL",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    { "subject_type": "Character", "subject_key": "miyamori_mayuki", "relation_type": "DIRECT_HOME", "object_type": "Copyright", "object_key": "mahou_senshi_(series)" },
+    { "subject_type": "Character", "subject_key": "nanase_ririko", "relation_type": "DIRECT_HOME", "object_type": "Copyright", "object_key": "mahou_senshi_(series)" },
+    { "subject_type": "Character", "subject_key": "sweet_kiss", "relation_type": "DIRECT_HOME", "object_type": "Copyright", "object_key": "mahou_senshi_(series)" },
+    { "subject_type": "Character", "subject_key": "sweet_lip", "relation_type": "DIRECT_HOME", "object_type": "Copyright", "object_key": "mahou_senshi_(series)" },
+    { "subject_type": "Character", "subject_key": "sweet_passion", "relation_type": "DIRECT_HOME", "object_type": "Copyright", "object_key": "mahou_senshi_(series)" },
+    { "subject_type": "Character", "subject_key": "yuzuki_kanaha", "relation_type": "DIRECT_HOME", "object_type": "Copyright", "object_key": "mahou_senshi_(series)" }
+  ],
+  "terminal_reviews": [],
+  "notes": "The source supports these six exact current campaign members. The remaining campaign names are not established by this checked story and are intentionally omitted for separate review."
+}
