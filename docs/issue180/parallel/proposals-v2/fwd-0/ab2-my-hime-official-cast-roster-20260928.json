@@ -1,0 +1,26 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-my-hime-official-sunrise-main-cast-roster-20260928",
+  "campaign_key": "authority:my-hime",
+  "campaign_fingerprint": "7a880f74a34f6a43558639b3a2a393adec3a8ca2ea864bd2e04ef7680364ffbd",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.sunrise-inc.co.jp/my-hime/web/art/staffcast.html",
+  "source_claim": "Sunrise's official My-HiME page lists the main cast and identifies the characters by Japanese names. The listed campaign characters include Fujino Shizuru (藤乃静留), Kikukawa Yukino (菊川雪之), Kuga Natsuki (玖我なつき), Minagi Mikoto (美袋命), Miyu Greer (深優・グリーア), Okuzaki Akira (尾久崎晶), Sugiura Midori (杉浦碧), Suzushiro Haruka (珠洲城遥), Tokiha Mai (鴇羽舞衣), and Yuuki Nao (結城奈緒). The same page identifies Sunrise and Bandai Visual as the production entities.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"fujino_shizuru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"my-hime"},
+    {"subject_type":"Character","subject_key":"kikukawa_yukino","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"my-hime"},
+    {"subject_type":"Character","subject_key":"kuga_natsuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"my-hime"},
+    {"subject_type":"Character","subject_key":"minagi_mikoto","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"my-hime"},
+    {"subject_type":"Character","subject_key":"miyu_greer","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"my-hime"},
+    {"subject_type":"Character","subject_key":"okuzaki_akira","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"my-hime"},
+    {"subject_type":"Character","subject_key":"sugiura_midori","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"my-hime"},
+    {"subject_type":"Character","subject_key":"suzushiro_haruka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"my-hime"},
+    {"subject_type":"Character","subject_key":"tokiha_mai","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"my-hime"},
+    {"subject_type":"Character","subject_key":"yuuki_nao","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"my-hime"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All ten canonical campaign names have direct Japanese-name entries on the official cast roster. This proposal is limited to the anime copyright my-hime; parallel My-Otome characters or variant identities are not inferred."
+}
