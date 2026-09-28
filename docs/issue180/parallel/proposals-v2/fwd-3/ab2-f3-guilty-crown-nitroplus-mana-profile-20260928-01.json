@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-guilty-crown-nitroplus-mana-profile-20260928-01",
+  "campaign_key": "authority:guilty_crown",
+  "campaign_fingerprint": "87aaffaa3ac0a0f68cf388ea8c3acbfe4ecd4544e6d1f67e2ec5a5e116cddd6e",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nitroplus.co.jp/game/lost_x/character/other/",
+  "source_claim": "The official Guilty Crown: Lost Christmas character page names Ouma Mana and identifies her as the TV anime's protagonist Shu Ouma's older sister.",
+  "authority_type": "RIGHTS_HOLDER_GAME_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "ouma_mana",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "guilty_crown"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official tie-in character page gives the full name 桜満真名 (Ouma Mana) and explicitly describes her in relation to the TV anime protagonist."
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-duffy-tokyo-disney-resort-official-roster-20260928-01",
+  "campaign_key": "authority:duffy_and_friends",
+  "campaign_fingerprint": "58535f52dc295c6fb6f807b6fa0fec3a18e2caaaa383551502c9869ff48bdc07",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tokyodisneyresort.jp/treasure/duffy/",
+  "source_claim": "Tokyo Disney Resort's official Duffy and Friends page lists Duffy, ShellieMay, Gelatoni, StellaLou, CookieAnn, 'Olu Mel, and LinaBell as characters in the group and provides their character profiles.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "duffy_the_disney_bear",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "duffy_and_friends"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shelliemay",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "duffy_and_friends"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "gelatoni",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "duffy_and_friends"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "stellalou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "duffy_and_friends"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "cookieann",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "duffy_and_friends"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "olu_mel",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "duffy_and_friends"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "linabell",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "duffy_and_friends"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "All seven identities named by this campaign are directly listed on the official Duffy and Friends character page."
+}
