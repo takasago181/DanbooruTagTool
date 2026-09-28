@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-bamboo-blade-tv-tokyo-character-list-20260928",
+  "campaign_key": "authority:bamboo_blade",
+  "campaign_fingerprint": "7d9d0c6974262e049041e1444a82b0e61d3ff536020b600b215c494a3bf1832c",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/contents/bambooblade/chara/index.html",
+  "source_claim": "TV Tokyo's official Bamboo Blade character page names and describes Tamaki Kawazoe, Kirino Chiba, Sayako Kuwahara, Miyako Miyazaki, and Satori Azuma as Muroe High School kendo club characters.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"kawazoe_tamaki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"bamboo_blade"},
+    {"subject_type":"Character","subject_key":"chiba_kirino","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"bamboo_blade"},
+    {"subject_type":"Character","subject_key":"kuwahara_sayako","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"bamboo_blade"},
+    {"subject_type":"Character","subject_key":"miyazaki_miyako","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"bamboo_blade"},
+    {"subject_type":"Character","subject_key":"azuma_satori","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"bamboo_blade"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The checked broadcaster page explicitly lists all five assigned character identities and describes each within the series."
+}
