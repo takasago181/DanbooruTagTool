@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-fate-grand-order-official-lostbelt-cryptors-20260928",
+  "campaign_key": "authority:fate/grand_order",
+  "campaign_fingerprint": "713c5da0e9cb0f35544ba4baf6ab245bf0e29d7e2332c7fa779d27476b34ba20",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.fate-go.jp/world/cil/",
+  "source_claim": "The official Fate/Grand Order Cosmos in the Lostbelt world page presents character profiles for the Lostbelt Crypters, explicitly identifying Kadoc Zemlupus, Ophelia Phamrsolone, Akuta Hinako, Scandinavia Peperoncino, Beryl Gut, and Daybit Sem Void as Crypters and describing each profile in that role.",
+  "authority_type": "FIRST_PARTY_STORY_CHARACTER_PROFILES",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kadoc_zemlupus",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fate/grand_order"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ophelia_phamrsolone",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fate/grand_order"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "akuta_hinako",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fate/grand_order"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "scandinavia_peperoncino",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fate/grand_order"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "beryl_gut",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fate/grand_order"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "daybit_sem_void",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fate/grand_order"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Checked the first-party Lostbelt world page at https://www.fate-go.jp/world/cil/. This batch contains only the six current campaign identities individually introduced and profiled there as Crypters; it does not infer HOME for the remaining campaign members."
+}

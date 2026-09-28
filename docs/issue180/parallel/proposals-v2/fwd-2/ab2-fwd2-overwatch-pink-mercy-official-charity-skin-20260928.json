@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-overwatch-pink-mercy-official-charity-skin-20260928",
+  "campaign_key": "authority:overwatch",
+  "campaign_fingerprint": "d3ec1b5784fe19752715b1332bd6cfd10be5acdabf153dcc3265aa431f50c835",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://overwatch.blizzard.com/en-us/news/21758132/",
+  "source_claim": "Blizzard’s official Overwatch news article identifies Pink Mercy as an Overwatch skin, and names Dr. Angela Ziegler, codename Mercy, as the Overwatch character whose skin it is.",
+  "authority_type": "FIRST_PARTY_CHARACTER_SKIN_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "pink_mercy",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "overwatch"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Checked the official Blizzard announcement at https://overwatch.blizzard.com/en-us/news/21758132/. It explicitly ties the Pink Mercy skin to Overwatch and Mercy. Only the current campaign tag pink_mercy is included; no other variant/skin identity is inferred."
+}
