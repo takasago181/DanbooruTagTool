@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-phase-connect-origins-official-model-roster-20260928-01",
+  "campaign_key": "authority:phase_connect",
+  "campaign_fingerprint": "b53da60c6b21ba7ecce8558ad5c4dc42fdfd2ea562651b4722790243fb138a86",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://shop.phase-connect.com/products/phase-connect-official-model-acrylic-stand-bundle-double-sided",
+  "source_claim": "The official Phase Connect OriginS model stand collection says it uses official Live2D models and lists Ashelia Rinkou, Uruka Fujikura, Tenma Maemi, Pipkin Pippa, Nasa Utatane, Michiru Shisui, and Iori Hakushika as the seven members.",
+  "authority_type": "FIRST_PARTY_OFFICIAL_MODEL_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "rinkou_ashelia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "phase_connect"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "fujikura_uruka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "phase_connect"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tenma_maemi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "phase_connect"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "pipkin_pippa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "phase_connect"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "utatane_nasa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "phase_connect"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shisui_michiru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "phase_connect"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hakushika_iori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "phase_connect"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the seven matching packet identities listed in this official OriginS model collection are proposed; Ayase Yuu is not included because the source roster does not name them."
+}

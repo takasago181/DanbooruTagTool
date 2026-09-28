@@ -1,0 +1,128 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-monster-hunter-world-official-capcom-rosters-20260928-01",
+  "campaign_key": "authority:monster_hunter_(series)",
+  "campaign_fingerprint": "428bcb60fe9b604c6813ee6157eb4285810507aadedaf4b16227dc7d94616c24",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://news.capcomusa.com/lets/browse/from-a-to-z-heres-every-monster-revealed-for-monster-hunter-world-iceborne-so-far",
+  "source_claim": "Capcom’s official Iceborne roster article names the matching monsters Barioth, Brachydios, Glavenus, Nargacuga, Tigrex, Zinogre, Bazelgeuse, Deviljho, Diablos, Kushala Daora, Kulve Taroth, Nergigante, Rathalos, Rathian, Teostra, and Vaal Hazak.",
+  "authority_type": "FIRST_PARTY_GAME_MONSTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "barioth",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monster_hunter_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "brachydios",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monster_hunter_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "glavenus",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monster_hunter_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nargacuga",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monster_hunter_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tigrex",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monster_hunter_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "zinogre",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monster_hunter_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "bazelgeuse",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monster_hunter_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "deviljho",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monster_hunter_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "diablos",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monster_hunter_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kushala_daora",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monster_hunter_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kulve_taroth",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monster_hunter_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nergigante",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monster_hunter_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rathalos",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monster_hunter_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rathian",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monster_hunter_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "teostra",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monster_hunter_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "vaal_hazak",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "monster_hunter_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only matching packet monsters explicitly named in the official article are proposed. Alatreon and other series members absent from this article are omitted."
+}
