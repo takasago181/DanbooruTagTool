@@ -1,0 +1,41 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-shakugan-no-shana-official-season1-cast-20260928",
+    "campaign_key": "authority:shakugan_no_shana",
+    "campaign_fingerprint": "e5895012f769d1f31716182cb6240b55ad55d7148df1d1a1a714d2e43c7a9944",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.shakugan.com/contents/hp0053/index02110000.html",
+    "source_claim": "The official Shakugan no Shana TV anime Season 1 staff and cast page lists Shana (シャナ), Sakai Yuuji (坂井悠二), Yoshida Kazumi (吉田一美), Margery Daw (マージョリー・ドー), Wilhelmina Carmel (ヴィルヘルミナ・カルメル), and Ogata Matake (緒方真竹) in the anime cast.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"margery_daw","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shakugan_no_shana"},
+      {"subject_type":"Character","subject_key":"ogata_matake","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shakugan_no_shana"},
+      {"subject_type":"Character","subject_key":"sakai_yuuji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shakugan_no_shana"},
+      {"subject_type":"Character","subject_key":"shana","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shakugan_no_shana"},
+      {"subject_type":"Character","subject_key":"wilhelmina_carmel","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shakugan_no_shana"},
+      {"subject_type":"Character","subject_key":"yoshida_kazumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shakugan_no_shana"}
+    ],
+    "terminal_reviews": [],
+    "notes": "Only the six named campaign characters on this cast page are mapped."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-shakugan-no-shana-official-khamsin-profile-20260928",
+    "campaign_key": "authority:shakugan_no_shana",
+    "campaign_fingerprint": "e5895012f769d1f31716182cb6240b55ad55d7148df1d1a1a714d2e43c7a9944",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.shakugan.com/contents/hp0005/index01260000.html",
+    "source_claim": "The official Shakugan no Shana character page explicitly names Khamsin Nbh'w (カムシン・ネブハーウ), matching the campaign's Khamsin character.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"khamsin_nbh'w","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shakugan_no_shana"}
+    ],
+    "terminal_reviews": [],
+    "notes": "The character-specific official profile supplies the full canonical name not displayed in the cast list."
+  }
+]
