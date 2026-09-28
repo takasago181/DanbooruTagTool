@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:holostars",
+  "campaign_fingerprint": "193b1f16d2a9b767acafc9c6c7154e097b9f7b17bbffa2d1c311fbebaa7b4ca9",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "notes": "The official HOLOSTARS UPROAR!! page introduces its four named members, including Hizaki Gamma. Exact campaign identities only.",
+  "proposal_id": "ab2-fwd1-holostars-uproar-official-intro-20260928-01",
+  "source_url": "https://holostars.hololivepro.com/en/special/3182/",
+  "source_claim": "The official UPROAR!! character introduction profiles Yatogami Fuma, Utsugi Uyu, Hizaki Gamma, and Minase Rio as its members.",
+  "relations": [
+    {"subject_type":"Character","subject_key":"yatogami_fuma","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"holostars"},
+    {"subject_type":"Character","subject_key":"utsugi_uyu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"holostars"},
+    {"subject_type":"Character","subject_key":"hizaki_gamma","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"holostars"},
+    {"subject_type":"Character","subject_key":"minase_rio","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"holostars"}
+  ]
+}

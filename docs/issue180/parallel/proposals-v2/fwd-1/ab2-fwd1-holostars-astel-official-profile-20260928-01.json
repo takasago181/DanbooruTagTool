@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:holostars",
+  "campaign_fingerprint": "193b1f16d2a9b767acafc9c6c7154e097b9f7b17bbffa2d1c311fbebaa7b4ca9",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "notes": "The official standalone profile independently identifies Astel Leda as a HOLOSTARS second-generation talent.",
+  "proposal_id": "ab2-fwd1-holostars-astel-official-profile-20260928-01",
+  "source_url": "https://holostars.hololivepro.com/en/talent/astel-leda/",
+  "source_claim": "The official Astel Leda profile names him and explicitly gives his unit as HOLOSTARS 2nd Generation.",
+  "relations": [
+    {"subject_type":"Character","subject_key":"astel_leda","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"holostars"}
+  ]
+}

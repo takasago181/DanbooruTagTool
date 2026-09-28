@@ -1,0 +1,27 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:holostars",
+  "campaign_fingerprint": "193b1f16d2a9b767acafc9c6c7154e097b9f7b17bbffa2d1c311fbebaa7b4ca9",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "notes": "The official hololive production announcement on HOLOSTARS JP streaming plans names the listed members as HOLOSTARS talents, whether continuing or concluding streaming activities. This is positive membership evidence, not a claim about current streaming status.",
+  "proposal_id": "ab2-fwd1-holostars-2026-activity-announcement-20260928-01",
+  "source_url": "https://hololivepro.com/news_en/20260526-01-242/",
+  "source_claim": "The official 2026 notice explicitly places these named people in its HOLOSTARS JP talent activity-status lists.",
+  "relations": [
+    {"subject_type":"Character","subject_key":"hanasaki_miyabi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"holostars"},
+    {"subject_type":"Character","subject_key":"kishido_temma","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"holostars"},
+    {"subject_type":"Character","subject_key":"arurandeisu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"holostars"},
+    {"subject_type":"Character","subject_key":"minase_rio","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"holostars"},
+    {"subject_type":"Character","subject_key":"kageyama_shien","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"holostars"},
+    {"subject_type":"Character","subject_key":"kanade_izuru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"holostars"},
+    {"subject_type":"Character","subject_key":"astel_leda","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"holostars"},
+    {"subject_type":"Character","subject_key":"yukoku_roberu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"holostars"},
+    {"subject_type":"Character","subject_key":"aragami_oga","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"holostars"},
+    {"subject_type":"Character","subject_key":"yatogami_fuma","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"holostars"},
+    {"subject_type":"Character","subject_key":"utsugi_uyu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"holostars"}
+  ]
+}
