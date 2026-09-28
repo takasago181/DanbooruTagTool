@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:saint_seiya",
+  "campaign_fingerprint": "548b7dbf8c8a0ce29959f893e6f76cf4aa8749dbc4767da74d5ada2e60fea256",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-saint-seiya-toei-classic-anime-cast-roster-20260928",
+  "source_url": "https://lineup.toei-anim.co.jp/ja/tv/seiya/character/",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_ROSTER",
+  "source_claim": "Toei Animation's official 1986 TV anime character/cast directory explicitly names Seiya, Shiryu, Shun, Hyoga, Ikki, Saori, Marin and Shaina as characters in Saint Seiya.",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "andromeda_shun",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saint_seiya"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aquila_marin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saint_seiya"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "cygnus_hyouga",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saint_seiya"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "dragon_shiryuu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saint_seiya"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kido_saori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saint_seiya"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ophiuchus_shaina",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saint_seiya"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "pegasus_seiya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saint_seiya"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "phoenix_ikki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saint_seiya"
+    }
+  ],
+  "notes": "Exact Japanese name labels were checked against the Issue 70 canonical tag translations. Only characters explicitly listed on this classic-anime page are included; no franchise-wide roster completeness is claimed."
+}

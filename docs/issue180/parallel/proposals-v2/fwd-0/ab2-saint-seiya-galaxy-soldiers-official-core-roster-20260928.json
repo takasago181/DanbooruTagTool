@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:saint_seiya",
+  "campaign_fingerprint": "548b7dbf8c8a0ce29959f893e6f76cf4aa8749dbc4767da74d5ada2e60fea256",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-saint-seiya-galaxy-soldiers-official-core-roster-20260928",
+  "source_url": "https://www.seiya-gss.com/",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "source_claim": "The official Saint Seiya Galaxy Soldiers game site lists its core Character directory with exact profiles for Pegasus Seiya, Dragon Shiryu, Andromeda Shun, Cygnus Hyoga and Phoenix Ikki. The site credits the Saint Seiya rights holder and Toei Animation.",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "andromeda_shun",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saint_seiya"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "cygnus_hyouga",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saint_seiya"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "dragon_shiryuu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saint_seiya"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "pegasus_seiya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saint_seiya"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "phoenix_ikki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "saint_seiya"
+    }
+  ],
+  "notes": "Only the five character profiles explicitly named in the official game directory are included."
+}
