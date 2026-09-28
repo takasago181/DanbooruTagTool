@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-hyakko-tokyo-tv-official-character-roster-20260928-11",
+  "campaign_key": "authority:hyakko",
+  "campaign_fingerprint": "8d63e27d95af94cf91e979f96071386f2cd98a4652b3568156fa194daaebcf0a",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/contents/hyakko/chara/index.html",
+  "source_claim": "TV Tokyo’s official Hyakko character directory identifies Torako Kageyama, Suzume Saotome, Ayumi Nonomura, Touma Kazamatsuri, Nene Andou, and Minato Ooba as characters in Hyakko.",
+  "authority_type": "FIRST_PARTY_BROADCASTER_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "andou_nene",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hyakko"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kageyama_torako",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hyakko"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kazamatsuri_touma",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hyakko"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nonomura_ayumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hyakko"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ooba_minato",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hyakko"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "saotome_suzume",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hyakko"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official broadcaster character directory explicitly identifies each campaign member in the Hyakko series context."
+}

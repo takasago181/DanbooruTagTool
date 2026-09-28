@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:houtengeki",
+  "campaign_fingerprint": "a304b6080d8c1be0e32f94c7ac3b4c3b3d04e38b29e2e8b42264e88f3b3c5331",
+  "worker_slot": 3,
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "proposal_id": "ro2-f3-houtengeki-unresolved-residual-20260928-11",
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "LICENSED_PRODUCT_FEATURE",
+      "url_or_query": "https://hjweb.jp/article/1465391/",
+      "result": "Identified the Houtengeki/BINDing sequence Anubis, Bastet, then original elf Sheina; no explicit crosswalk to the packet’s brown-haired-glasses-elf, generic elf, or purple-haired-elf identities."
+    },
+    {
+      "route_type": "RIGHTS_HOLDER_PRODUCT_CATALOG",
+      "url_or_query": "https://www.native-web.jp/maker/binding/page/5/",
+      "result": "Native lists Anubis, Bastet, and Sheina product pages; catalog alone does not identify the other packet elf tags or Cerberus."
+    },
+    {
+      "route_type": "CREATOR_SOCIAL_POST",
+      "url_or_query": "https://x.com/houtengeki/status/1268448208784510976",
+      "result": "Search surfaced a secondary mirror for the creator post titled Cerberus, but direct creator post retrieval failed and the mirror is not admissible HOME evidence."
+    },
+    {
+      "route_type": "CREATOR_PORTFOLIO",
+      "url_or_query": "https://houtengeki.fanbox.cc/ and Pixiv profile search for 方天戟",
+      "result": "Creator portfolio route did not expose a readable indexed roster or stable exact-identity crosswalk for the residual four packet members."
+    }
+  ],
+  "notes": "Partial progress only: two relations are proposed in a separate AUTHORITY_BATCH. The remaining four identities are not resolved because checked creator/product routes did not safely map their packet keys to explicit source identities. No negative or terminal HOME conclusion is implied."
+}

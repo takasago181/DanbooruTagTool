@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:houtengeki",
+  "campaign_fingerprint": "a304b6080d8c1be0e32f94c7ac3b4c3b3d04e38b29e2e8b42264e88f3b3c5331",
+  "worker_slot": 3,
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "proposal_id": "ab2-f3-houtengeki-bastet-anubis-official-license-feature-20260928-11",
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://hjweb.jp/article/1465391/",
+  "source_claim": "Hobby Japan’s product feature identifies Sheina as an original character by illustrator Houtengeki and states the BINDing × Houtengeki product line had Bastet and Anubis as its first two items before Sheina as the third.",
+  "authority_type": "LICENSED_PRODUCT_LINE_EDITORIAL_FEATURE",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "anubis_(houtengeki)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "houtengeki"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "bastet_(houtengeki)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "houtengeki"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This source explicitly attributes the named Anubis and Bastet product line to Houtengeki and calls the later elf character an original character. The relation batch is limited to the two exact campaign targets named by this product-line statement."
+}

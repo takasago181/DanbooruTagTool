@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-inuboku-official-anime-cast-20260928-11",
+  "campaign_key": "authority:inu_x_boku_ss",
+  "campaign_fingerprint": "2984bc04f140faee9f4a585475e3346e7d4f995430782ff1b734105ef6a1ea7b",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.inuboku.tv/staff_cast/",
+  "source_claim": "The official Inu x Boku SS anime staff/cast page lists Ririchiyo Shirakiin, Soushi Miketsukami, Renshou Sorinozuka, Nobara Yukinokouji, Banri Watanuki, and Karuta Roromiya in its cast roster.",
+  "authority_type": "FIRST_PARTY_ANIME_CAST_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "miketsukami_soushi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "inu_x_boku_ss"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "roromiya_karuta",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "inu_x_boku_ss"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shirakiin_ririchiyo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "inu_x_boku_ss"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sorinozuka_renshou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "inu_x_boku_ss"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "watanuki_banri",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "inu_x_boku_ss"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yukinokouji_nobara",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "inu_x_boku_ss"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The copyright-credited official anime site lists the six campaign identities in the work cast."
+}
