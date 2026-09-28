@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-funamusea-wadanohara-official-game-page-20260928",
+  "campaign_key": "authority:funamusea",
+  "campaign_fingerprint": "656bdd2d533edae56b4f6104854ea8a7688c6c67cb486bc6dd602988408e7d18",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://funamusea.itch.io/wadanohara",
+  "source_claim": "The creator's official itch.io product page identifies Wadanohara as the protagonist of Wadanohara and the Great Blue Sea and identifies the creator account as funamusea - Deep-sea prisoner. This first-party product and character evidence supports Wadanohara's direct HOME under the funamusea Copyright root.",
+  "authority_type": "RIGHTSHOLDER_OFFICIAL_GAME_PRODUCT_AND_PROTAGONIST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "wadanohara",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "funamusea"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official developer page title is Wadanohara and the Great Blue Sea -Reboot-. Its synopsis names Wadanohara as the protagonist and states that she travels home with her familiars; the author field identifies funamusea - Deep-sea prisoner. The series root `funamusea` is the Issue #180 Copyright key backed by the reviewed exact-qualifier mapping recorded in the migration seed. Other current campaign members are not claimed by this specific page."
+}

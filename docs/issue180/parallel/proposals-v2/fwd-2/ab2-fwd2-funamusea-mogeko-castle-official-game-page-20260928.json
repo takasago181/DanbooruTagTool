@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-funamusea-mogeko-castle-official-game-page-20260928",
+  "campaign_key": "authority:funamusea",
+  "campaign_fingerprint": "656bdd2d533edae56b4f6104854ea8a7688c6c67cb486bc6dd602988408e7d18",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://funamusea.itch.io/mogeko-castle",
+  "source_claim": "The creator's official Mogeko Castle product page names Yonaka Kurai as the protagonist in the game synopsis and identifies the author account as funamusea - Deep-sea prisoner. This first-party product and character evidence supports Yonaka Kurai's direct HOME under the funamusea Copyright root.",
+  "authority_type": "RIGHTSHOLDER_OFFICIAL_GAME_PRODUCT_AND_PROTAGONIST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kurai_yonaka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "funamusea"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official developer page is titled Mogeko Castle. Its synopsis begins with Yonaka Kurai as the protagonist and identifies the author account as funamusea - Deep-sea prisoner. The series root `funamusea` is the Issue #180 Copyright key backed by the reviewed exact-qualifier mapping recorded in the migration seed. Other current campaign members are not claimed by this specific page."
+}
