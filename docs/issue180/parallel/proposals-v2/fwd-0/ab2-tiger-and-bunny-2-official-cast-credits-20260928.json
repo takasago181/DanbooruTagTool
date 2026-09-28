@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-tiger-and-bunny-2-official-cast-credits-20260928",
+  "campaign_key": "authority:tiger_&_bunny",
+  "campaign_fingerprint": "e9a0cc234a17e416dd99804bfebec993f01fef40bad89a5b5182717217b7af5e",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tigerandbunny.net/TB2/world/staffcast.php",
+  "source_claim": "The official TIGER & BUNNY 2 Staff & Cast page credits the exact characters Lara Tchaikoskaya (ラーラ・チャイコスカヤ) and Ryan Goldsmith (ライアン・ゴールドスミス) in its main cast list for the sequel series.",
+  "authority_type": "FIRST_PARTY_ANIME_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "lara_tchaikoskaya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tiger_&_bunny"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ryan_goldsmith",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tiger_&_bunny"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Both exact Japanese names and cast-role pairings appear in the official sequel series credits. Other unresolved campaign tags, including mascot/alias-shaped tags not named here, are not inferred."
+}

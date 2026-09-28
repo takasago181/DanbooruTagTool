@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-tiger-and-bunny-official-enemy-character-directory-20260928",
+  "campaign_key": "authority:tiger_&_bunny",
+  "campaign_fingerprint": "e9a0cc234a17e416dd99804bfebec993f01fef40bad89a5b5182717217b7af5e",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tigerandbunny.net/tv/character/03.html",
+  "source_claim": "The official TIGER & BUNNY Enemy character page explicitly lists Jake Martinez and Kriem, names them in the series' enemy section, and describes their roles in the same official work page.",
+  "authority_type": "FIRST_PARTY_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "jake_martinez",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tiger_&_bunny"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kriem",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tiger_&_bunny"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The source names exact canonical characters Jake Martinez and Kriem; no adjacent Oroboros symbolism or mascot tag is inferred."
+}
