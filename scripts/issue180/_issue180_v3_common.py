@@ -4,7 +4,9 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import os
 import re
+import tempfile
 from pathlib import Path
 from typing import Iterable
 
@@ -40,10 +42,25 @@ def read_csv(path: Path) -> list[dict[str, str]]:
 
 def write_csv(path: Path, rows: Iterable[dict[str, object]], fields: list[str]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", encoding="utf-8-sig", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=fields, lineterminator="\n", extrasaction="ignore")
-        writer.writeheader()
-        writer.writerows(rows)
+    # Replace generated CSVs atomically. Besides avoiding partially-written
+    # artifacts on interruption, this works around Windows sharing/overwrite
+    # failures for large tracked report files.
+    temp_path: Path | None = None
+    try:
+        with tempfile.NamedTemporaryFile(
+            mode="w", encoding="utf-8-sig", newline="", dir=path.parent,
+            prefix=path.name + ".", suffix=".tmp", delete=False,
+        ) as f:
+            temp_path = Path(f.name)
+            writer = csv.DictWriter(f, fieldnames=fields, lineterminator="\n", extrasaction="ignore")
+            writer.writeheader()
+            writer.writerows(rows)
+            f.flush()
+            os.fsync(f.fileno())
+        os.replace(temp_path, path)
+    finally:
+        if temp_path is not None and temp_path.exists():
+            temp_path.unlink()
 
 def write_json(path: Path, value: object) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
