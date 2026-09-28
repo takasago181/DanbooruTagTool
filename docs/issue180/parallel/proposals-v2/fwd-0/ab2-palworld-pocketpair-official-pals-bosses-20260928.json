@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-palworld-pocketpair-official-pals-bosses-20260928",
+  "campaign_key": "authority:palworld",
+  "campaign_fingerprint": "60c94eeabc4cec28b0120e6eedb6ae0c13e561199ad545805aee1ad193eb0fbb",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.pocketpair.jp/en/games-en/palworld-love-en/",
+  "source_claim": "Pocketpair's official Palworld character catalogue for the Palworld spin-off lists Katress, Chillet, and Zoe as Palworld characters. The original Palworld developer's Steam announcement identifies Cattiva, Lamball, and Dazzi as Pal species by naming their game cosmetics in the Pal-skin feature, and identifies Zoe as one of the game's bosses through the Zoe Hat boss-cosmetic list. Together these first-party sources establish each exact campaign identity under the stable Palworld root.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "cattiva",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "palworld"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "chillet",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "palworld"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "dazzi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "palworld"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "katress",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "palworld"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lamball",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "palworld"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "zoe_rayne",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "palworld"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Supporting original-game developer source for the six names: https://store.steampowered.com/news/posts/?enddate=1719457495&feed=steam_community_announcements. Zoe remains under Palworld's stable root; the official catalogue is a franchise spin-off appearance, while the original-game developer post confirms the Palworld boss identity."
+}

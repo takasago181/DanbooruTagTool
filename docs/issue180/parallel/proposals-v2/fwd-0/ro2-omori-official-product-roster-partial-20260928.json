@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-omori-official-product-roster-partial-20260928",
+  "campaign_key": "authority:omori",
+  "campaign_fingerprint": "8534ca2f6fd65a1ea1a810b2b4b37c8e1ab83f6b0151a08f4e1b1317edfea4ea",
+  "worker_slot": 0,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_WORK_PAGE",
+      "url_or_query": "https://www.omocat.com/omori",
+      "result": "Official developer portfolio identifies OMORI as an OMOCAT-designed, written, illustrated, programmed, and produced role-playing game and shows official project artwork, but the accessible page text does not explicitly identify the six campaign members or state a roster-to-root mapping."
+    },
+    {
+      "route_type": "OFFICIAL_PRODUCT_PAGE",
+      "url_or_query": "https://store.steampowered.com/app/1150690/OMORI/",
+      "result": "Official developer/publisher product listing confirms the OMORI game and describes colorful friends and foes, but has no exact roster for the campaign's Bossman Hero, Captain Spaceboy, Mewo, Mr. Jawsum, Omoriboy, and Sprout Mole."
+    }
+  ],
+  "notes": "These two distinct first-party product routes confirm the work but do not textually establish the exact campaign roster or all six direct HOME relations. This broad game-world campaign is not exhausted; record PARTIAL progress and leave all relations unresolved rather than inferring from fan wikis or screenshots."
+}
