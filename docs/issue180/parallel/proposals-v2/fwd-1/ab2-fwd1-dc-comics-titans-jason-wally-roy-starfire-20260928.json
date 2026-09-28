@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-dc-comics-titans-jason-wally-roy-starfire-20260928",
+  "campaign_key": "authority:dc_comics",
+  "campaign_fingerprint": "5f1dcc77930e76d53103d85eb76bf68166827a38a0fd0be1fb2a7287e40c7451",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.dc.com/blog/2021/09/16/jason-todd-robin-red-hood-and-teen-titan",
+  "source_claim": "DC’s Titans feature describes Roy Harper, Wally West, and Jason Todd as members of Donna Troy’s New Teen Titans; it also names Starfire in the surrounding account of the same DC comics continuity.",
+  "authority_type": "OFFICIAL_DC_EDITORIAL_TEAM_HISTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "roy_harper",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dc_comics"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "wally_west",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dc_comics"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jason_todd",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dc_comics"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "starfire",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dc_comics"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The source ties all four exact identities to DC’s Teen Titans comic history."
+}

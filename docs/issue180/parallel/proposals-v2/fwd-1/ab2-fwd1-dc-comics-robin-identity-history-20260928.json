@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-dc-comics-robin-identity-history-20260928",
+  "campaign_key": "authority:dc_comics",
+  "campaign_fingerprint": "5f1dcc77930e76d53103d85eb76bf68166827a38a0fd0be1fb2a7287e40c7451",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.dc.com/blog/2015/06/24/robin-101-one-name-many-heroes",
+  "source_claim": "DC’s Robin history feature identifies Jason Todd, Tim Drake, Stephanie Brown, and Damian Wayne as characters who held the Robin role; it says Tim later graduated to Red Robin.",
+  "authority_type": "OFFICIAL_DC_EDITORIAL_CHARACTER_HISTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "jason_todd",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dc_comics"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tim_drake",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dc_comics"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "stephanie_brown",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dc_comics"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "damian_wayne",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dc_comics"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "red_robin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dc_comics"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The feature explicitly connects the named people to their Robin/Red Robin identities in DC continuity."
+}
