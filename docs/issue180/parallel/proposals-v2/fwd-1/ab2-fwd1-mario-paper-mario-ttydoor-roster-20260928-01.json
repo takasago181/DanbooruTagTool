@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-mario-paper-mario-ttydoor-roster-20260928-01",
+  "campaign_key": "authority:mario_(series)",
+  "campaign_fingerprint": "d5acc62ebb8a540ce020d1bcec044485bcca255cf7e8b0dea82cec24c98f7720",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nintendo.com/us/whatsnew/watch-the-new-overview-trailer-for-the-paper-mario-thousand-year-door-game/",
+  "source_claim": "Nintendo's official Paper Mario: The Thousand-Year Door overview names Goombella among the game's characters and describes her role as Mario's archeologist companion. The exact current campaign tag is goombella; the corresponding in-catalog root is the Paper Mario series Copyright paper_mario_(series), consistent with the previously reviewed exact title alias.",
+  "authority_type": "OFFICIAL_GAME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"goombella","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"paper_mario_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Koops and Madame Flurrie are also named on the page, but no exact matching member tag is in this current campaign packet. No broad Mario-series root is inferred for Goombella; her work-specific Paper Mario series root is used."
+}

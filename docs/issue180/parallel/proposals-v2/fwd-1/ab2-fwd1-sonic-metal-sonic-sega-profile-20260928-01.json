@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:sonic_(series)",
+  "campaign_fingerprint": "17e927a7f989f35f55c620f7119e37e7efb44b792ef514a0e9e186a51e68c015",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "authority_type": "SEGA_OFFICIAL_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "notes": "Single-character official profile checked as a source-level positive proposal. The exact campaign member is named and the page situates the character in Sonic series titles; no additional HOME is inferred from variants or co-occurrence.",
+  "proposal_id": "ab2-fwd1-sonic-metal-sonic-sega-profile-20260928-01",
+  "source_url": "https://sonic.sega.jp/SonicChannel/character/metalsonic.html",
+  "source_claim": "SEGA's official Sonic Channel profile names Metal Sonic, describes him as created by Dr. Eggman to oppose Sonic, and lists Sonic series titles in which he appears.",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "metal_sonic",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sonic_(series)"
+    }
+  ]
+}

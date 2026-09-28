@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-danganronpa-10th-event-20260928-01",
+  "campaign_key": "authority:danganronpa_(series)",
+  "campaign_fingerprint": "d37dccaa46b217636cceb298a601e1cdfcb5dc855a6df4154ba036273d924a79",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "https://www.spike-chunsoft.com/news/danganronpa-10th-anniversary-event/",
+  "source_claim": "Spike Chunsoft's official 10th anniversary event page names Danganronpa character roles for the performing cast.",
+  "authority_type": "SPIKE_CHUNSOFT_OFFICIAL_SERIES_CAST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_ROSTER",
+      "url_or_query": "https://www.spike-chunsoft.com/news/danganronpa-10th-anniversary-event/",
+      "result": "Rechecked the accepted official event/cast page against all 52 current campaign tags. The named character roles (Makoto Naegi, Nagito Komaeda, Kirumi Tojo, Junko Enoshima, Yasuhiro Hagakure, Sonia Nevermind, Gundham Tanaka, Ibuki Mioda, and Kyoko Kirigiri) do not exactly match a current campaign member, so this page supports no new relation for this residual set. It does not exhaust the broader Danganronpa campaign."
+    }
+  ],
+  "notes": "Campaign-level PARTIAL research progress only. Reuse the accepted source mapping for future exact named role entries without repeating this page; the campaign remains open because this anniversary guest list is not an exhaustive character roster."
+}
