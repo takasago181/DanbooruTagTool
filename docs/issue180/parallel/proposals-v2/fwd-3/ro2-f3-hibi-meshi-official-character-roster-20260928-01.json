@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "worker_slot": 3,
+  "proposal_id": "ro2-f3-hibi-meshi-official-character-roster-20260928-01",
+  "campaign_key": "authority:hibi_wa_sugiredo_meshi_umashi",
+  "campaign_fingerprint": "4f1baeb8d6557a55d3ad9c66e151af7a2c27ef35b2e0258c7d601346e5005796",
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://hibimeshi.com/",
+  "source_claim": "The official Hibi Meshi production site lists Character names Kawai Mako, Furutachi Kurea, Higa Tsutsuji, Hoshi Nana and Ogawa Shinon, and identifies them in the cast and character sections of the original anime.",
+  "authority_type": "FIRST_PARTY_ANIME_OFFICIAL_CHARACTER_AND_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "furutachi_kurea",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hibi_wa_sugiredo_meshi_umashi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "higa_tsutsuji",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hibi_wa_sugiredo_meshi_umashi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hoshi_nana",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hibi_wa_sugiredo_meshi_umashi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kawai_mako",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hibi_wa_sugiredo_meshi_umashi"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official site directly lists each proposed campaign name in its character section. Ogawa Shinon is also listed on the page but is not part of this campaign and is not proposed."
+}

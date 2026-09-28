@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "worker_slot": 3,
+  "proposal_id": "ro2-f3-goho-mafia-kajita-official-route-partial-20260928-01",
+  "campaign_key": "authority:goho_mafia!_kajita-kun",
+  "campaign_fingerprint": "da2c986e8cf4fa9f73563730b064b78a9caebbf79cdbb5d60643486d776bce19",
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "FIRST_PARTY_PUBLISHER_SERIAL_PAGE_ATTEMPT",
+      "url_or_query": "https://gs.dengeki.com/web_rensai/141990/",
+      "result": "The Dengeki G’s serial route is cited by secondary image metadata, but it could not be opened in this session, so exact member names were not established from the primary page."
+    },
+    {
+      "route_type": "SECONDARY_ARTWORK_CATALOG",
+      "url_or_query": "https://serika.art/image/1944577",
+      "result": "Secondary image tags associate a Duckman, Mafia Kajita, Sugita Tomokazu, and other cameo labels with a manga image; those tags do not establish canonical character home authority or Nakamura’s role."
+    },
+    {
+      "route_type": "FIRST_PARTY_PUBLISHER_SEARCH",
+      "url_or_query": "GOHO MAFIA Kajita-kun Dengeki G character Duckman",
+      "result": "Search surfaced a Dengeki G’s route and secondary references, but no accessible first-party roster specifying the four exact identities was found."
+    }
+  ],
+  "notes": "The primary serial page was inaccessible and secondary tags are insufficient to distinguish in-work characters from real-person/cameo tags or establish a unified authority relation. Partial research progress only."
+}

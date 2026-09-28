@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "worker_slot": 3,
+  "proposal_id": "ro2-f3-genseishinki-sacred-virth-official-route-partial-20260928-01",
+  "campaign_key": "authority:genseishinki_sacred_virth",
+  "campaign_fingerprint": "b6703d43f44f6c1671bb88241e1b739f24a6328f3ecc1717df001727773ee3a2",
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "FIRST_PARTY_PUBLISHER_CATALOG_SEARCH",
+      "url_or_query": "Genseishinki Sacred Virth official game publisher Triangle AiCherry",
+      "result": "Search results did not expose a directly readable official publisher product page with the campaign member character names."
+    },
+    {
+      "route_type": "FIRST_PARTY_CHARACTER_ROSTER_SEARCH",
+      "url_or_query": "Sacred Virth official character Celia Claire Noire Tierna Yuuki Setsu",
+      "result": "No first-party roster route was found that establishes the four exact campaign spellings and their relation to Sacred Virth."
+    },
+    {
+      "route_type": "SECONDARY_GAME_CATALOG",
+      "url_or_query": "https://gamefaqs.gamespot.com/pc/130032-sacred-lineage/data",
+      "result": "The secondary catalog gives Sacred Virth publisher/developer context but no exact member-level mapping; it is not used as relationship authority."
+    }
+  ],
+  "notes": "The official title/publisher and exact campaign identities could not be tied together through a readable first-party roster/product page. Secondary catalog and imageboard metadata are discovery context only. Partial research progress, not negative evidence or exhaustion."
+}
