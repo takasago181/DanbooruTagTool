@@ -1,0 +1,41 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-shining-resonance-sega-official-character-roster-20260928",
+    "campaign_key": "authority:shining_(series)",
+    "campaign_fingerprint": "9ba0a7377b0f9c25af5408dc375257bba53c2a682b3f241662e25a9317270611",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://games.sega.com/shiningresonancerefrain/character.html",
+    "source_claim": "SEGA's official Shining Resonance Refrain character directory has named profiles for Kirika Towa Alma, Rinna Mayfield, and Sonia Blanche, and identifies them within the Shining Resonance Refrain game.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"kirika_towa_alma","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shining_(series)"},
+      {"subject_type":"Character","subject_key":"rinna_mayfield","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shining_(series)"},
+      {"subject_type":"Character","subject_key":"sonia_branche","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shining_(series)"}
+    ],
+    "terminal_reviews": [],
+    "notes": "The official English names match Kirika Towa Alma and Rinna Mayfield exactly. The official Japanese series naming renders Sonia Blanche as ソニア・ブランシュ, matching the canonical Sonia Blanche identity; no alternate identity is inferred."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-shining-sega-official-series-character-products-20260928",
+    "campaign_key": "authority:shining_(series)",
+    "campaign_fingerprint": "9ba0a7377b0f9c25af5408dc375257bba53c2a682b3f241662e25a9317270611",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://shining-world.jp/portal/goods/figure/",
+    "source_claim": "SEGA's official Shining World portal lists named character merchandise under Shining Tears or Shining Wind, including Blanc Neige, Elwing, Seena Kanon, and Clalaclan Philias; each product title directly names its Shining work and character.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"blanc_neige","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shining_(series)"},
+      {"subject_type":"Character","subject_key":"elwing","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shining_(series)"},
+      {"subject_type":"Character","subject_key":"seena_kanon","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shining_(series)"},
+      {"subject_type":"Character","subject_key":"clalaclan_philias","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shining_(series)"}
+    ],
+    "terminal_reviews": [],
+    "notes": "Only exact names present in the official Sega-curated catalog are included. Other campaign members with unresolved compound or alternate-name correspondence are left unproposed."
+  }
+]
