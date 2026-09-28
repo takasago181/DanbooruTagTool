@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-chaoschild-official-side-story-haida-riko-20260928",
+  "campaign_key": "authority:chaos;child",
+  "campaign_fingerprint": "a68abea762bff09f115868e58a1fc94f361e28e672d62742ce895392e6a7deea",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://chaoschild.jp/sp/anime_ss/?p=7",
+  "source_claim": "The official CHAOS;CHILD TV-anime-linked side story episode 7 explicitly states that the deceased character was Haida Riko (杯田理子) and identifies the speaker and surrounding events within the CHAOS;CHILD story.",
+  "authority_type": "FIRST_PARTY_STORY_TEXT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"haida_riko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"chaos;child"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official story page gives the exact Japanese character name. This resolves the alias not shown on the main anime character directory."
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-chaoschild-official-anime-character-directory-20260928",
+  "campaign_key": "authority:chaos;child",
+  "campaign_fingerprint": "a68abea762bff09f115868e58a1fc94f361e28e672d62742ce895392e6a7deea",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://chaoschildanime.com/character/",
+  "source_claim": "The official CHAOS;CHILD anime character directory names and profiles these exact campaign characters: Miyashiro Takuru, Onoe Serika, Kurusu Nono, Arimura Hinae, Kazuki Hana, Yamazoe Uki, Kunosato Mio, and Minamisawa Senri. The page carries the CHAOS;CHILD production committee copyright.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"miyashiro_takuru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"chaos;child"},
+    {"subject_type":"Character","subject_key":"onoe_serika","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"chaos;child"},
+    {"subject_type":"Character","subject_key":"kurusu_nono","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"chaos;child"},
+    {"subject_type":"Character","subject_key":"arimura_hinae","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"chaos;child"},
+    {"subject_type":"Character","subject_key":"kazuki_hana","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"chaos;child"},
+    {"subject_type":"Character","subject_key":"yamazoe_uki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"chaos;child"},
+    {"subject_type":"Character","subject_key":"kunosato_mio","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"chaos;child"},
+    {"subject_type":"Character","subject_key":"minamisawa_senri","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"chaos;child"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the exact campaign members explicitly named and described by the official character directory are included."
+}
