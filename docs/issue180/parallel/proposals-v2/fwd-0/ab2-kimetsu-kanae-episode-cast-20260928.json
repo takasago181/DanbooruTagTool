@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-kimetsu-kanae-episode-cast-20260928",
+  "campaign_key": "authority:kimetsu_no_yaiba",
+  "campaign_fingerprint": "c6896f29394eaa34fca4cd2dfb66c64f15350df8a220721eb582e60d078c5b32",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://kimetsu.com/anime/risshihen/story/?story=25",
+  "source_claim": "The official episode 25 story and credits identify Kanae Kochou by name and list her among the episode's cast.",
+  "authority_type": "FIRST_PARTY_EPISODE_CREDITS",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"kochou_kanae","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official episode page lists Kanae Kochou in cast credits. The remaining current campaign members are not asserted by this source."
+}

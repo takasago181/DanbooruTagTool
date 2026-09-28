@@ -1,0 +1,27 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-kimetsu-infinity-castle-roster-20260928",
+  "campaign_key": "authority:kimetsu_no_yaiba",
+  "campaign_fingerprint": "c6896f29394eaa34fca4cd2dfb66c64f15350df8a220721eb582e60d078c5b32",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://kimetsu.com/anime/mugenjyohen_movie/character/",
+  "source_claim": "The official Infinity Castle film character page names Genya Shinazugawa, Giyu Tomioka, Muichiro Tokito, Mitsuri Kanroji, Obanai Iguro, Sanemi Shinazugawa, Gyomei Himejima, Tengen Uzui, Muzan Kibutsuji, Kokushibo and Kaigaku.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"shinazugawa_genya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"},
+    {"subject_type":"Character","subject_key":"tomioka_giyuu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"},
+    {"subject_type":"Character","subject_key":"tokitou_muichirou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"},
+    {"subject_type":"Character","subject_key":"kanroji_mitsuri","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"},
+    {"subject_type":"Character","subject_key":"iguro_obanai","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"},
+    {"subject_type":"Character","subject_key":"shinazugawa_sanemi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"},
+    {"subject_type":"Character","subject_key":"himejima_gyoumei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"},
+    {"subject_type":"Character","subject_key":"uzui_tengen","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"},
+    {"subject_type":"Character","subject_key":"kibutsuji_muzan","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"},
+    {"subject_type":"Character","subject_key":"kokushibou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"},
+    {"subject_type":"Character","subject_key":"kaigaku","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official film character roster explicitly identifies every listed member. The campaign relation does not assert role or variant semantics beyond direct franchise character home."
+}

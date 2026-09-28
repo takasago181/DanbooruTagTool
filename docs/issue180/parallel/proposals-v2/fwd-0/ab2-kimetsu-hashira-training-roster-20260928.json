@@ -1,0 +1,26 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-kimetsu-hashira-training-roster-20260928",
+  "campaign_key": "authority:kimetsu_no_yaiba",
+  "campaign_fingerprint": "c6896f29394eaa34fca4cd2dfb66c64f15350df8a220721eb582e60d078c5b32",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://kimetsu.com/anime/hashirageikohen/character/",
+  "source_claim": "The official Hashira Training Arc character page lists the Hashira, their allies and the named characters as characters in the anime series.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"tomioka_giyuu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"},
+    {"subject_type":"Character","subject_key":"agatsuma_zenitsu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"},
+    {"subject_type":"Character","subject_key":"shinazugawa_genya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"},
+    {"subject_type":"Character","subject_key":"kibutsuji_muzan","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"},
+    {"subject_type":"Character","subject_key":"tokitou_muichirou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"},
+    {"subject_type":"Character","subject_key":"kanroji_mitsuri","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"},
+    {"subject_type":"Character","subject_key":"iguro_obanai","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"},
+    {"subject_type":"Character","subject_key":"shinazugawa_sanemi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"},
+    {"subject_type":"Character","subject_key":"himejima_gyoumei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"},
+    {"subject_type":"Character","subject_key":"uzui_tengen","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimetsu_no_yaiba"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official page explicitly names these characters; this batch is limited to matching current campaign members."
+}
