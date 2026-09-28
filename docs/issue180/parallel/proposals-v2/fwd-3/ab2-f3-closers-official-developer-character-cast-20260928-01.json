@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-closers-official-developer-character-cast-20260928-01",
+  "campaign_key": "authority:closers",
+  "campaign_fingerprint": "5e00573e7b093d150d289d702214e897f8258ce6833cd0e53211510c1ab3c870",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.naddic.co.kr/ko/game/cls/gmNote/detail?contentNo=194&page=4",
+  "source_claim": "Naddic Games' official CLOSERS character voice-cast list names Seha Lee, Seulbi Lee, Seo Yuri, Wolfgang Schneider, and Bai Winchester among characters for the game.",
+  "authority_type": "FIRST_PARTY_CHARACTER_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"seha_lee","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"closers"},
+    {"subject_type":"Character","subject_key":"seulbi_lee","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"closers"},
+    {"subject_type":"Character","subject_key":"yuri_seo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"closers"},
+    {"subject_type":"Character","subject_key":"wolfgang_schneider","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"closers"},
+    {"subject_type":"Character","subject_key":"bai_winchester","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"closers"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The developer's own CLOSERS page enumerates all five campaign characters by their Korean names in the game-character voice-cast table. The romanized subject keys match the exact dispatched identities."
+}

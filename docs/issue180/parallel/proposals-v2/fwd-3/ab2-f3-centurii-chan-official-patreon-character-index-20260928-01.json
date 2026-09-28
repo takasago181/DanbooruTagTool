@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-centurii-chan-official-patreon-character-index-20260928-01",
+  "campaign_key": "authority:centurii-chan",
+  "campaign_fingerprint": "2730733cd66d946b3f810adc1c653a62cf78c4894cc0f8ee4b144265033e025e",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.patreon.com/centuriichan/sitemap",
+  "source_claim": "The official centurii-chan Patreon sitemap lists posts under that creator's account naming Executioner Maid, Gyaru Landsknecht, Legate, Praetorian, and Rapier Chan, matching all five exact campaign characters.",
+  "authority_type": "FIRST_PARTY_CREATOR_CHARACTER_CATALOG",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"executioner_maid_(centurii-chan)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"centurii-chan"},
+    {"subject_type":"Character","subject_key":"gyaru_landsknecht_(centurii-chan)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"centurii-chan"},
+    {"subject_type":"Character","subject_key":"legate_(centurii-chan)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"centurii-chan"},
+    {"subject_type":"Character","subject_key":"praetorian_(centurii-chan)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"centurii-chan"},
+    {"subject_type":"Character","subject_key":"rapier-chan_(centurii-chan)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"centurii-chan"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The creator-controlled post index directly names the five campaign figures in their own Patreon publication catalog. Scope is limited to these five named subjects and the creator's named authority; unrelated Roman-history figures are not included."
+}
