@@ -1,0 +1,62 @@
+[
+  {
+    "schema_version": 2,
+    "worker_slot": 3,
+    "proposal_id": "ro2-f3-kiminozo-age-latest-edition-three-routes-20260928-01",
+    "campaign_key": "authority:kimi_ga_nozomu_eien",
+    "campaign_fingerprint": "3dbf7ae52895262f27cf24eff5be92831f47c7ead63edaff58c7851faf268b9b",
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.age-soft.com/former/Product/kiminozole/about_chapter3.htm",
+    "source_claim": "âge’s official Latest Edition page describes the Haruka route after-story and separately names the Mizuki and Akane routes as added after-stories for Kimi ga Nozomu Eien.",
+    "authority_type": "RIGHTS_HOLDER_OFFICIAL_GAME_AND_ROUTE_PAGE",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "suzumiya_haruka",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "kimi_ga_nozomu_eien"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "suzumiya_akane",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "kimi_ga_nozomu_eien"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "hayase_mitsuki",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "kimi_ga_nozomu_eien"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Only the exact campaign identities named in the source are proposed."
+  },
+  {
+    "schema_version": 2,
+    "worker_slot": 3,
+    "proposal_id": "ro2-f3-kiminozo-age-ayu-source",
+    "campaign_key": "authority:kimi_ga_nozomu_eien",
+    "campaign_fingerprint": "3dbf7ae52895262f27cf24eff5be92831f47c7ead63edaff58c7851faf268b9b",
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.age-soft.com/former/Product/Sakimori/",
+    "source_claim": "âge’s official Sakimori page names Daikuuji Ayu and describes the game as a parallel-world story of Kimi ga Nozomu Eien featuring her.",
+    "authority_type": "RIGHTS_HOLDER_OFFICIAL_SPINOFF_CHARACTER_PAGE",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "daikuuji_ayu",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "kimi_ga_nozomu_eien"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Only the exact campaign identities named in the source are proposed."
+  }
+]

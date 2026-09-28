@@ -1,0 +1,62 @@
+[
+  {
+    "schema_version": 2,
+    "worker_slot": 3,
+    "proposal_id": "ro2-f3-kimi-shinu-ichijinsha-volume-one-leads-20260928-01",
+    "campaign_key": "authority:kimi_ga_shinu_made_koi_wo_shitai",
+    "campaign_fingerprint": "5fd94e223556048768f02a6dc7da787196d55e01742e23bb9796cecc8fa86fce",
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://data.ichijinsha.co.jp/detail/75807898",
+    "source_claim": "Ichijinsha’s official volume 1 listing for Kimi ga Shinu made Koi wo Shitai identifies Shiina and Mimi as the two girls at the center of the story.",
+    "authority_type": "FIRST_PARTY_PUBLISHER_CHARACTER_SYNOPSIS",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "totsuki_shiina",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "kimi_ga_shinu_made_koi_wo_shitai"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "kagari_mimi",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "kimi_ga_shinu_made_koi_wo_shitai"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Only the exact campaign identities named in the source are proposed."
+  },
+  {
+    "schema_version": 2,
+    "worker_slot": 3,
+    "proposal_id": "ro2-f3-kimi-shinu-ichijinsha-side-stories-ali-seiran-20260928-01",
+    "campaign_key": "authority:kimi_ga_shinu_made_koi_wo_shitai",
+    "campaign_fingerprint": "5fd94e223556048768f02a6dc7da787196d55e01742e23bb9796cecc8fa86fce",
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://data.ichijinsha.co.jp/detail/75808938",
+    "source_claim": "Ichijinsha’s official side-stories listing for the same series identifies Ali and Seiran in a story about the pair becoming mutual romantic partners.",
+    "authority_type": "FIRST_PARTY_PUBLISHER_CHARACTER_SYNOPSIS",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "maud_ali",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "kimi_ga_shinu_made_koi_wo_shitai"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "lizzy_seiran",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "kimi_ga_shinu_made_koi_wo_shitai"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "Only the exact campaign identities named in the source are proposed."
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "worker_slot": 3,
+  "proposal_id": "ro2-f3-imaizumin-official-route-partial-20260928-01",
+  "campaign_key": "authority:imaizumin-chi_wa_douyara_gal_no_tamariba_ni_natteru_rashii",
+  "campaign_fingerprint": "1e07a39fc0bba1d2b1e1be96333a396ad95983532329e4d368e6e9d260164c02",
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "RIGHTS_HOLDER_ANIMATION_PRODUCT_PAGE",
+      "url_or_query": "https://www.lune-soft.jp/news/25852",
+      "result": "Lune/Rune Pictures’ official OVA announcement identifies the title and describes the three heroines by surname (Hamazaki, Kurumizaka, Sasaki), but does not give full exact character names in the accessible copy."
+    },
+    {
+      "route_type": "SECONDARY_PUBLISHER_CATALOG",
+      "url_or_query": "https://manba.co.jp/boards/169664/characters",
+      "result": "The secondary Manga catalog lists some member names and a synopsis, but it is not used as name-to-character relationship authority."
+    },
+    {
+      "route_type": "FIRST_PARTY_CREATOR_ORIGINAL_WORK_SEARCH",
+      "url_or_query": "Nori Goro Imaizumin-chi official original character Hamazaki Reina Risa Kurumizaka Ruri Sasaki Yukina",
+      "result": "Search did not expose a directly readable creator-controlled roster establishing all four exact full campaign identities."
+    }
+  ],
+  "notes": "The official OVA route supports the general series and surnames for three heroines, but does not establish all four exact canonical member mappings (including Hamazaki Risa). Partial research only; no relation is inferred."
+}

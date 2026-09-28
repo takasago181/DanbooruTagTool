@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "worker_slot": 3,
+  "proposal_id": "ro2-f3-k-project-mbs-official-cast-four-20260928-01",
+  "campaign_key": "authority:k-project",
+  "campaign_fingerprint": "717caf08c9b3625785928a06e62f2803640d6d9c12d632fa64516707540f4882",
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.mbs.jp/k-project/",
+  "source_claim": "MBS’ official K RETURN OF KINGS page identifies the K original animation series, credits the K-project production, and lists Anna Kushina, Misaki Yata, Seri Awashima, and Saruhiko Fushimi in the cast section.",
+  "authority_type": "FIRST_PARTY_BROADCASTER_OFFICIAL_SERIES_AND_CAST_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "awashima_seri",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "k-project"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "fushimi_saruhiko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "k-project"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kushina_anna",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "k-project"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yata_misaki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "k-project"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the exact campaign identities named in the source are proposed."
+}
