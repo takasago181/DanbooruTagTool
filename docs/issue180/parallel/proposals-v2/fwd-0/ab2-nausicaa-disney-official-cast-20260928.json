@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-nausicaa-disney-official-cast-20260928",
+  "campaign_key": "authority:kaze_no_tani_no_nausicaa",
+  "campaign_fingerprint": "ebebe7ba363226bce52e223b27914565554050420bfa643993dd4bf32dbec3b9",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.waltdisneystudios.jp/studio/ghibli/0240",
+  "source_claim": "The official Walt Disney Studios Japan Studio Ghibli film page for Nausicaa of the Valley of the Wind lists Nausicaa, Kushana, and Kurotowa in the film's credited character cast.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"nausicaa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kaze_no_tani_no_nausicaa"},
+    {"subject_type":"Character","subject_key":"kushana","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kaze_no_tani_no_nausicaa"},
+    {"subject_type":"Character","subject_key":"kurotowa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kaze_no_tani_no_nausicaa"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only campaign characters explicitly listed on this official film cast page are included; no relation is inferred for Ohmu or the Giant Warrior from general plot references."
+}
