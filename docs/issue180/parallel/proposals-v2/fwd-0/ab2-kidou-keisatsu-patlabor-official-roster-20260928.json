@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-kidou-keisatsu-patlabor-official-roster-20260928",
+  "campaign_key": "authority:kidou_keisatsu_patlabor",
+  "campaign_fingerprint": "549cf0dc1ec55190759d6d065daef626de1a2028783f1fa748843970bede5bba",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://patlabor.tokyo/",
+  "source_claim": "The official Kidou Keisatsu Patlabor homepage lists Izumi Noa, Gotou Kiichi, and Shinohara Asuma under CHARACTER, and 98-shiki AV Ingram under MECHANIC.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"izumi_noa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kidou_keisatsu_patlabor"},
+    {"subject_type":"Character","subject_key":"gotou_kiichi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kidou_keisatsu_patlabor"},
+    {"subject_type":"Character","subject_key":"shinohara_asuma","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kidou_keisatsu_patlabor"},
+    {"subject_type":"Character","subject_key":"av-98_ingram","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kidou_keisatsu_patlabor"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All four exact campaign identities appear in the official site's home-page rosters. Canonical subject spellings and title key were cross-checked against Issue 70 source records."
+}
