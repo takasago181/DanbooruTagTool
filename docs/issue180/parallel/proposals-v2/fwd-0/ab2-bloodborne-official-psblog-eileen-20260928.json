@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-bloodborne-official-psblog-eileen-20260928",
+  "campaign_key": "authority:bloodborne",
+  "campaign_fingerprint": "4d1031cefac62a65d89413e3a83ecc69e7c36207f41db44ad578051cd1b71285",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://blog.ja.playstation.com/2020/03/13/20200313-bloodborne/",
+  "source_claim": "The official PlayStation Blog describes Eileen as a Bloodborne character and names her title 鴉羽の狩人狩り, explicitly tying the named character to the Crow-themed identity.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "eileen_the_crow",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bloodborne"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The article also identifies the Crow Hunter's Badge as Eileen's item, providing an additional direct identity link."
+}

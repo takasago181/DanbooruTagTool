@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-bloodborne-official-psblog-characters-20260928",
+  "campaign_key": "authority:bloodborne",
+  "campaign_fingerprint": "4d1031cefac62a65d89413e3a83ecc69e7c36207f41db44ad578051cd1b71285",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://blog.ja.playstation.com/2015/03/20/20150320_bloodborne/",
+  "source_claim": "The official PlayStation Blog character introduction, with commentary by the SCE Japan Studio producer, identifies Bloodborne character Hunter Gascoigne, the Doll in the Hunter's Dream, and Gehrman as the Hunter's adviser; the page's footer credits Sony Interactive Entertainment and FromSoftware.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "father_gascoigne",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bloodborne"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "gehrman_the_first_hunter",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bloodborne"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "plain_doll",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bloodborne"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The supplied campaign tags map to the specifically named Gascoigne, Gehrman, and Doll in the Bloodborne character introduction; no other creature from the same article is inferred."
+}

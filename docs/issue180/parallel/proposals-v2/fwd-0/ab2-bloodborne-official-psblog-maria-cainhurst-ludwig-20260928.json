@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-bloodborne-official-psblog-maria-cainhurst-ludwig-20260928",
+  "campaign_key": "authority:bloodborne",
+  "campaign_fingerprint": "4d1031cefac62a65d89413e3a83ecc69e7c36207f41db44ad578051cd1b71285",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://blog.ja.playstation.com/2020/09/18/20200918-goods/",
+  "source_claim": "The official PlayStation Blog's Bloodborne character goods article explicitly names 時計塔のマリア (Lady Maria of the Astral Clocktower), カインの流血鴉 (Bloody Crow of Cainhurst), and 聖剣のルドウイーク (Ludwig). It describes each as a Bloodborne character and ties them to Bloodborne merchandise.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "bloody_crow_of_cainhurst",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bloodborne"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lady_maria_of_the_astral_clocktower",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bloodborne"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ludwig_the_accursed",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "bloodborne"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only three exact named campaign targets are included; the article's other characters/products are not used to infer remaining targets."
+}
