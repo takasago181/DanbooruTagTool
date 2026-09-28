@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:sakura_taisen",
+  "campaign_fingerprint": "da846a7eb439556c65edf74580e8a9ed218963a9fad79a33741903efe564e047",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-sakura-taisen-shin-official-character-directory-20260928",
+  "source_url": "https://common.sakura-taisen.com/characters/6/",
+  "authority_type": "FIRST_PARTY_CHARACTER_DIRECTORY",
+  "source_claim": "The official Sakura Wars series character directory for Shin Sakura Wars provides an individual profile for Amamiya Sakura, identifies her as a member of the Imperial Assault Force Flower Division, and labels the entry with Shin Sakura Wars.",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "amamiya_sakura",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sakura_taisen"
+    }
+  ],
+  "notes": "The character profile and exact Issue 70 Japanese label establish only Amamiya Sakura; the older Sakura Shinguji is a distinct character and is not conflated."
+}
