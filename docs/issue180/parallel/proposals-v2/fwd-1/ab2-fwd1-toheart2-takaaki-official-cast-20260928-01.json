@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-toheart2-takaaki-official-cast-20260928-01",
+  "campaign_key": "authority:to_heart_(series)",
+  "campaign_fingerprint": "7520b7b83df408911b742287a015ea419983fd11856e6f74eb33076c53ef56b0",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://aquaplus.jp/th2adplus/caststaff.html",
+  "source_claim": "The official ToHeart2 adplus cast and staff page names Kouno Takaaki and states the source work is ToHeart2 by AQUAPLUS.",
+  "authority_type": "OFFICIAL_PUBLISHER_ADAPTATION_CAST_CREDIT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"kouno_takaaki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"to_heart"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The first-party adaptation credit identifies 河野貴明 as cast and explicitly credits ToHeart2 as its source work. It maps to the exact current campaign tag kouno_takaaki."
+}

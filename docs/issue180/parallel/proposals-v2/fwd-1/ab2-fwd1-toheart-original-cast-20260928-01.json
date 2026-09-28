@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-toheart-original-cast-20260928-01",
+  "campaign_key": "authority:to_heart_(series)",
+  "campaign_fingerprint": "7520b7b83df408911b742287a015ea419983fd11856e6f74eb33076c53ef56b0",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://aquaplus.jp/toheart/",
+  "source_claim": "The official AQUAPLUS ToHeart character section names Hoshina Tomoko and Kurusugawa Ayaka as characters in the original ToHeart work.",
+  "authority_type": "OFFICIAL_PUBLISHER_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"hoshina_tomoko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"to_heart"},
+    {"subject_type":"Character","subject_key":"kurusugawa_ayaka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"to_heart"}
+  ],
+  "terminal_reviews": [],
+  "notes": "AQUAPLUS's current official ToHeart page names these characters in its original-work character section. The exact spellings match the two current packet member keys."
+}
