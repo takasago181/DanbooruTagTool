@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-dragon-ball-battle-hour-20260928-01",
+  "campaign_key": "authority:dragon_ball",
+  "campaign_fingerprint": "f643cfc5d0369f63d90e29747babe26f2d1d76d0019d19f41080bb4faf883867",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://en.dragon-ball-official.com/news/01_1711.html",
+  "source_claim": "The official DRAGON BALL site identifies a sixteen-character roster for its Dragon Ball character tournament. The exact roster names match seven current residual catalog tags without alias or variant interpretation: Tenshinhan, Piccolo, Goten, Mr. Satan, Frieza, Majin Buu, and Yamcha. The official site context grounds each listed character in Dragon Ball and supports the stable Dragon Ball HOME root for these exact identities.",
+  "authority_type": "OFFICIAL_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"tenshinhan","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dragon_ball"},
+    {"subject_type":"Character","subject_key":"piccolo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dragon_ball"},
+    {"subject_type":"Character","subject_key":"son_goten","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dragon_ball"},
+    {"subject_type":"Character","subject_key":"mr._satan","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dragon_ball"},
+    {"subject_type":"Character","subject_key":"frieza","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dragon_ball"},
+    {"subject_type":"Character","subject_key":"majin_buu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dragon_ball"},
+    {"subject_type":"Character","subject_key":"yamcha","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"dragon_ball"}
+  ],
+  "terminal_reviews": [],
+  "notes": "One official roster source yielded all exact unambiguous current campaign matches. Other roster names were excluded where the exact catalog identity was absent, a distinct form/variant was present, or alias resolution would be required."
+}

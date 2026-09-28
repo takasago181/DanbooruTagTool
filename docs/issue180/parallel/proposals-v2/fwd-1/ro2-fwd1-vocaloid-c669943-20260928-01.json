@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-vocaloid-c669943-20260928-01",
+  "campaign_key": "authority:vocaloid",
+  "campaign_fingerprint": "e7a6ef850d9d78efd189fc9eca10ff3270f6c03a3c5b30bb30a7433fdc0d39ad",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "The official Crypton page defines six Piapro Characters and identifies them as Crypton virtual-singer software characters. Yamaha's official guideline separately names 29 Yamaha-created VOCALOID voicebank characters. The Fukase product page identifies one voicebank based on the real SEKAI NO OWARI vocalist and documents a separately commissioned character design. These checked routes distinguish bounded product/character sets but do not establish a single canonical HOME for this broad 88-member residual campaign; no blanket vocaloid HOME is inferred.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_CHARACTER_ROSTER",
+      "url_or_query": "https://piapro.net/intl/en_character.html",
+      "result": "Crypton identifies exactly Hatsune Miku, Kagamine Rin, Kagamine Len, Megurine Luka, MEIKO, and KAITO as Piapro Characters; this does not cover the full VOCALOID residual campaign or imply membership for other products."
+    },
+    {
+      "route_type": "OFFICIAL_CHARACTER_POLICY",
+      "url_or_query": "https://www.vocaloid.com/en/character_guideline/",
+      "result": "Yamaha's guideline names 29 characters created for Yamaha VOCALOID voicebank products and licenses character use in relation to those products or VOCALOID; it does not state a canonical Copyright HOME for the broader 88-member campaign."
+    },
+    {
+      "route_type": "OFFICIAL_PRODUCT_PAGE",
+      "url_or_query": "https://www.vocaloid.com/en/products/show/v4l_fukase_en",
+      "result": "The official product page identifies Fukase as a VOCALOID4 voicebank based on the SEKAI NO OWARI vocalist Fukase and describes a separately designed character; product affiliation alone does not establish a unique canonical HOME for this Character."
+    }
+  ],
+  "notes": "Research outcome is campaign-level PARTIAL progress only. The campaign spans multiple producers, product lines, and character origins, so these three routes do not exhaust it. Checked distinct authority routes under the three-route DIRECT_AUTHORITY_RESEARCH ceiling; continue with another OPEN campaign and do not repeat these routes."
+}
