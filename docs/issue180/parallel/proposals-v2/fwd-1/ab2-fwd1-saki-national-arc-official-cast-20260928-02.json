@@ -1,0 +1,26 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-saki-national-arc-official-cast-20260928-02",
+  "campaign_key": "authority:saki_(manga)",
+  "campaign_fingerprint": "20a5409d10c322960a733d0677920bf5a0c24f4818c8dbd6b6930c8a002be012",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/anime/saki3/sp/staff/index.html",
+  "source_claim": "TV Tokyo's official Saki: The Nationals cast page explicitly names these nine Characters in the Saki cast. The accepted source review maps exact named cast identities to the stable Saki manga HOME root.",
+  "authority_type": "OFFICIAL_ANIME_CAST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "source_review_id_hint": "src180-ab2-fwd1-saki-national-arc-official-cast-20260928-01",
+  "relations": [
+    {"subject_type":"Character","subject_key":"suga_kyoutarou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"saki_(manga)"},
+    {"subject_type":"Character","subject_key":"jindai_komaki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"saki_(manga)"},
+    {"subject_type":"Character","subject_key":"iwato_kasumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"saki_(manga)"},
+    {"subject_type":"Character","subject_key":"mase_yuuko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"saki_(manga)"},
+    {"subject_type":"Character","subject_key":"atago_hiroe","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"saki_(manga)"},
+    {"subject_type":"Character","subject_key":"atago_kinue","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"saki_(manga)"},
+    {"subject_type":"Character","subject_key":"kakura_kurumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"saki_(manga)"},
+    {"subject_type":"Character","subject_key":"usuzawa_sae","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"saki_(manga)"},
+    {"subject_type":"Character","subject_key":"anetai_toyone","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"saki_(manga)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The checked cast page explicitly names Suga Kyotaro, Jindai Komaki, Ishido Kasumi (the current Character identity iwato_kasumi), Mase Yuuko, Atago Hiroe, Atago Kinue, Kakura Kurumi, Usuzawa Sae, and Anetai Toyone. Only exact members of the current campaign named on this page are included; team membership or appearance alone is not used."
+}

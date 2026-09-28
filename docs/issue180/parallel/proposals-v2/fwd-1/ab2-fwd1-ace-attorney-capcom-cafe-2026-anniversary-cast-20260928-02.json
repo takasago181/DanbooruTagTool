@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-ace-attorney-capcom-cafe-2026-anniversary-cast-20260928-02",
+  "campaign_key": "authority:ace_attorney",
+  "campaign_fingerprint": "35322e2ea6695c3dcea7a68017dd8007093c983b1c1dc51141b8e8beff9ce639",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.capcom.co.jp/amusement/brands/capcomcafe-umeda/topics/2961/",
+  "source_claim": "CAPCOM CAFE identifies this as an Ace Attorney series 25th-anniversary collaboration and explicitly names Athena Cykes (希月心音) in a character-themed menu description.",
+  "authority_type": "OFFICIAL_PUBLISHER_CHARACTER_ANNIVERSARY_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "source_review_id_hint": "src180-ab2-fwd1-ace-attorney-capcom-cafe-2026-anniversary-cast-20260928-01",
+  "relations": [
+    {"subject_type":"Character","subject_key":"athena_cykes","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"ace_attorney"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The source explicitly identifies the event with the Ace Attorney series and names Athena Cykes in a character-specific menu description. Only the current campaign member directly identified by this source is included; the anniversary artwork is not used to infer additional relations."
+}
