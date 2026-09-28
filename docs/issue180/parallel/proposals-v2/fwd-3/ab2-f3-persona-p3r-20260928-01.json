@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-persona-p3r-20260928-01",
+  "campaign_key": "authority:persona",
+  "campaign_fingerprint": "ac605cd7e53e789839cf517eceace1d0c187d3285cc0879ccdbe7bb04d282e2f",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://persona.atlus.com/p3r/index.html?lang=en",
+  "source_claim": "ATLUS's official Persona 3 Reload character page profiles Shinjiro Aragaki, Ken Amada, Yukari Takeba, Junpei Iori, Akihiko Sanada, Mitsuru Kirijo, and Fuuka Yamagishi as characters in this Persona title.",
+  "authority_type": "FIRST_PARTY_CHARACTER_PROFILE_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type": "Character", "subject_key": "aragaki_shinjirou", "relation_type": "DIRECT_HOME", "object_type": "Copyright", "object_key": "persona"},
+    {"subject_type": "Character", "subject_key": "amada_ken", "relation_type": "DIRECT_HOME", "object_type": "Copyright", "object_key": "persona"},
+    {"subject_type": "Character", "subject_key": "takeba_yukari", "relation_type": "DIRECT_HOME", "object_type": "Copyright", "object_key": "persona"},
+    {"subject_type": "Character", "subject_key": "iori_junpei", "relation_type": "DIRECT_HOME", "object_type": "Copyright", "object_key": "persona"},
+    {"subject_type": "Character", "subject_key": "sanada_akihiko", "relation_type": "DIRECT_HOME", "object_type": "Copyright", "object_key": "persona"},
+    {"subject_type": "Character", "subject_key": "kirijou_mitsuru", "relation_type": "DIRECT_HOME", "object_type": "Copyright", "object_key": "persona"},
+    {"subject_type": "Character", "subject_key": "yamagishi_fuuka", "relation_type": "DIRECT_HOME", "object_type": "Copyright", "object_key": "persona"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact named characters present in the current authority:persona dispatch campaign are included. Each page profile places the named identity in Persona 3 Reload; the stable in-catalog Persona series root follows prior accepted direct Persona-character mappings. No relation is inferred from the umbrella campaign or from appearance outside the named title."
+}
