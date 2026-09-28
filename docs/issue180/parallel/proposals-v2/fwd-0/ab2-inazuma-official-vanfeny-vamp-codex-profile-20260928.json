@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-inazuma-official-vanfeny-vamp-codex-profile-20260928",
+  "campaign_key": "authority:inazuma_eleven_(series)",
+  "campaign_fingerprint": "ef8ef7d0878c94df4eaf6937ff4896c69751b68807a81d9f8cdd5561c9c77a88",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://zukan.inazuma.jp/chara_param/?page=73",
+  "source_claim": "The official LEVEL5 Inazuma Eleven Player Codex source explicitly identifies Vanfenny Vamp (ヴァンフェニー・ヴァンプ) as a character in Inazuma Eleven GO2 Chrono Stone.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "vanfeny_vamp",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "inazuma_eleven_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the exact current campaign character identified by this first-party source is proposed."
+}
