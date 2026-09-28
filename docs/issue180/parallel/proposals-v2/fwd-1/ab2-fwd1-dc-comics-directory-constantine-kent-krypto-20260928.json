@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-dc-comics-directory-constantine-kent-krypto-20260928",
+  "campaign_key": "authority:dc_comics",
+  "campaign_fingerprint": "5f1dcc77930e76d53103d85eb76bf68166827a38a0fd0be1fb2a7287e40c7451",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.dc.com/characters?page=8",
+  "source_claim": "DC’s official character directory lists John Constantine, Jon Kent, and Krypto as named DC characters. The Jon Kent entry describes him as Superman and Lois Lane’s son.",
+  "authority_type": "OFFICIAL_DC_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "john_constantine",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dc_comics"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jonathan_kent",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dc_comics"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "krypto_the_superdog",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dc_comics"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "DC’s official character directory labels these as DC characters and carries the DC rights-holder footer."
+}
