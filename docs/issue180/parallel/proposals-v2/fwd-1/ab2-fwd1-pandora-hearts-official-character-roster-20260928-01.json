@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-pandora-hearts-official-character-roster-20260928-01",
+  "campaign_key": "authority:pandora_hearts",
+  "campaign_fingerprint": "3a6944240e32d6a2a2c1cbb8609d368d61405f61648ad87a23a601e7e845933e",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tbs.co.jp/anime/ph/introduction/chara/chara07.html",
+  "source_claim": "The official TBS PandoraHearts character guide's directory names Oz Vessalius, Gilbert Nightray, Sharon Rainsworth, Xerxes Break, and Vincent Nightray as characters in PandoraHearts; the guide provides the character profiles within that work's official anime site.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "gilbert_nightray",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "pandora_hearts"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "oz_vessalius",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "pandora_hearts"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sharon_rainsworth",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "pandora_hearts"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "vincent_nightray",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "pandora_hearts"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "xerxes_break",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "pandora_hearts"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official TBS character guide explicitly lists and profiles these five campaign members. Ada Vessalius is not included in this source's character directory and is handled separately as partial research progress."
+}

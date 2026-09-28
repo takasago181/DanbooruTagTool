@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-pandora-hearts-ada-official-roster-routes-20260928-01",
+  "campaign_key": "authority:pandora_hearts",
+  "campaign_fingerprint": "3a6944240e32d6a2a2c1cbb8609d368d61405f61648ad87a23a601e7e845933e",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "Three distinct official character directories for PandoraHearts were checked for the remaining campaign member Ada Vessalius. None lists Ada, so these routes do not establish a safe exact relation for her.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_ANIME_CHARACTER_DIRECTORY",
+      "url_or_query": "https://www.tbs.co.jp/anime/ph/introduction/chara/chara07.html",
+      "result": "The official TBS character directory lists Oz, Alice, Gilbert, Sharon, Xerxes, Vincent, and Echo; it does not list Ada Vessalius."
+    },
+    {
+      "route_type": "OFFICIAL_PUBLISHER_CHARACTER_DIRECTORY",
+      "url_or_query": "https://orig-magazine.jp.square-enix.com/gfantasy/story/pandora/",
+      "result": "Square Enix G Fantasy's PandoraHearts character list includes Oz, Alice, Gilbert, Sharon, Xerxes, and Raven, but does not list Ada Vessalius."
+    },
+    {
+      "route_type": "OFFICIAL_DISTRIBUTOR_CHARACTER_DIRECTORY",
+      "url_or_query": "https://fujicreative.co.jp/forBuyers/special-page/pandorahearts/chara/index.html",
+      "result": "Fuji Creative's PandoraHearts character directory lists Oz, Alice, Raven, Sharon, Xerxes, Vincent, Echo, and Jack, but does not list Ada Vessalius."
+    }
+  ],
+  "notes": "The exact Ada Vessalius relation remains unresolved after three distinct official roster routes. This is PARTIAL campaign progress only, not negative evidence or a terminal conclusion; no further relation is inferred from family association or secondary character references."
+}

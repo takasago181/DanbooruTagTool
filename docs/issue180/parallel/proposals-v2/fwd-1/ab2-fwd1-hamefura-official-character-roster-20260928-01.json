@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-hamefura-official-character-roster-20260928-01",
+  "campaign_key": "authority:otome_game_no_hametsu_flag_shika_nai_akuyaku_reijou_ni_tensei_shite_shimatta",
+  "campaign_fingerprint": "8c11711e1e27e4c4211c21068bf436acfc6d7cb61156af8bfbae8b2cd6f51b68",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://hamehura-anime.com/1st/character/",
+  "source_claim": "The official TV anime character directory explicitly lists Catarina Claes, Geordo Stuart, Keith Claes, Mary Hunt, Sophia Ascart, and Maria Campbell as characters of the titled Hamefura work. Its footer identifies the work as 山口悟・一迅社／はめふら製作委員会.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "catarina_claes",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "otome_game_no_hametsu_flag_shika_nai_akuyaku_reijou_ni_tensei_shite_shimatta"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "geordo_stuart",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "otome_game_no_hametsu_flag_shika_nai_akuyaku_reijou_ni_tensei_shite_shimatta"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "keith_claes",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "otome_game_no_hametsu_flag_shika_nai_akuyaku_reijou_ni_tensei_shite_shimatta"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "maria_campbell",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "otome_game_no_hametsu_flag_shika_nai_akuyaku_reijou_ni_tensei_shite_shimatta"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mary_hunt",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "otome_game_no_hametsu_flag_shika_nai_akuyaku_reijou_ni_tensei_shite_shimatta"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sophia_ascart",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "otome_game_no_hametsu_flag_shika_nai_akuyaku_reijou_ni_tensei_shite_shimatta"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The same official directory lists all six exact campaign members. No other character relation is proposed."
+}

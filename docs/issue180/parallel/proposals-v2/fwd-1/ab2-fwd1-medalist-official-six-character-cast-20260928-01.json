@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-medalist-official-six-character-cast-20260928-01",
+  "campaign_key": "authority:medalist_(manga)",
+  "campaign_fingerprint": "7aaa9fc38dfd8084a9688c8d9bb35a60aad6c4665459467bb02c4b3e3fc37f60",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://medalist-pr.com/",
+  "source_claim": "The official Medalist theatrical-film site identifies Medalist as the work adapted from Tsurumaikada's Kodansha Afternoon manga and lists the campaign characters Inori Yuitsuka, Tsukasa Akeuraji, Hikaru Kamisaki, Jun Yodaka, Ryouka Miketa, and Iruka Okazaki in its character and cast material.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "akeuraji_tsukasa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "medalist_(manga)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kamisaki_hikaru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "medalist_(manga)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "miketa_ryouka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "medalist_(manga)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "okazaki_iruka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "medalist_(manga)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yodaka_jun",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "medalist_(manga)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yuitsuka_inori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "medalist_(manga)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Official work site names all six campaign characters as Medalist characters and identifies the originating manga and publisher. The proposal makes no additional variant or secondary-affiliation claims."
+}
