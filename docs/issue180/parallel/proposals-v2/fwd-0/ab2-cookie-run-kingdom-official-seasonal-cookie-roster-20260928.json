@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-cookie-run-kingdom-official-seasonal-cookie-roster-20260928",
+  "campaign_key": "authority:cookie_run",
+  "campaign_fingerprint": "b2a9f12599b6bfb4aa511f2fdf369eaadda5ba21afeea95890ff0b7c58bfa878",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://hub.cookierun-kingdom.com/news/updates/august-12-update-notice",
+  "source_claim": "Devsisters' official CookieRun: Kingdom August 12 update notice names Wind Archer Cookie, Moonlight Cookie, Black Pearl Cookie, and Sea Fairy Cookie in its CookieRun: Kingdom seasonal roster for Trial of Glory.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"wind_archer_cookie","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"cookie_run:_kingdom"},
+    {"subject_type":"Character","subject_key":"moonlight_cookie","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"cookie_run:_kingdom"},
+    {"subject_type":"Character","subject_key":"black_pearl_cookie","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"cookie_run:_kingdom"},
+    {"subject_type":"Character","subject_key":"sea_fairy_cookie","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"cookie_run:_kingdom"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The first-party live update notice explicitly labels the seasonal Cookie roster and Trial of Glory as CookieRun: Kingdom content and names these four exact dispatch members. No relation is asserted for other campaign members. Canonical keys follow the tracked Issue 70/dispatch tags."
+}
