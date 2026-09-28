@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-top-wo-nerae-official-route-check-20260928-01",
+  "campaign_key": "authority:top_wo_nerae!_(series)",
+  "campaign_fingerprint": "80154a648585cb521a25dec0712d610f1d8856f354ddb81f6db43198c590b266",
+  "worker_slot": 3,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "FIRST_PARTY_ANIME_OFFICIAL_SITE",
+      "url_or_query": "https://www.top2.jp/",
+      "result": "The likely official Top wo Nerae 2 site could not be retrieved by the checked browser route; no page content was available to verify exact packet identities."
+    },
+    {
+      "route_type": "FIRST_PARTY_STUDIO_CATALOG_SEARCH",
+      "url_or_query": "site:gainax.co.jp Gunbuster Buster Machine 7 Dix-Neuf Lal'c Tycho",
+      "result": "This search did not surface an accessible creator-controlled character/roster page for the dispatched tags."
+    },
+    {
+      "route_type": "LICENSED_ANIME_PRODUCT_CATALOG",
+      "url_or_query": "https://www.cdjapan.co.jp/anime/essentials/top2/",
+      "result": "The retailer page gives series and cast context for Gunbuster 2, but does not safely map the full packet set of Buster Machine 7, Dix-Neuf, Lal'c Mellk Mal, and Tycho Science."
+    }
+  ],
+  "notes": "No exact positive Character-to-Copyright relation was verified from a directly accessible first-party source in this pass. Campaign research remains partial and is not an exhaustion or negative conclusion."
+}

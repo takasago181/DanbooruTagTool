@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-veyonis-first-party-creator-route-check-20260928-01",
+  "campaign_key": "authority:veyonis",
+  "campaign_fingerprint": "5970f57902ff4df067b57d10b31595e3f96f6730a95a2e30920d4be6c9ca6f8a",
+  "worker_slot": 3,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "FIRST_PARTY_CREATOR_PROFILE_SEARCH",
+      "url_or_query": "Veyonis official artist characters Jessie Kadence Mika Rosen Yuna",
+      "result": "No creator-controlled profile or official roster was surfaced in this search; results were third-party roleplay/fan pages and reposts, which are not authority evidence."
+    },
+    {
+      "route_type": "FIRST_PARTY_CREATOR_SOCIAL_SEARCH",
+      "url_or_query": "Veyonis artist official Jessie Yuna Mika Rosen Kadence",
+      "result": "The search did not identify an official creator account or a creator-published source mapping the exact five packet identities."
+    },
+    {
+      "route_type": "SOURCE_ARTWORK_DISCOVERY",
+      "url_or_query": "https://www.pixiv.net/artworks/120552389",
+      "result": "A discovered original artwork source is attributed to Veyonis, but the artwork/page does not establish a publisher-controlled copyright or an exact official character roster for all dispatched identities."
+    }
+  ],
+  "notes": "The accessible leads do not establish a first-party copyright authority for these original characters. Route accounting is partial only; no creator identity or rights holder is inferred from fan reposts."
+}
