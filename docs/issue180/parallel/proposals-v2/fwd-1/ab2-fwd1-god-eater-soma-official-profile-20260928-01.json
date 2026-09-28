@@ -1,0 +1,15 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-god-eater-soma-official-profile-20260928-01",
+  "campaign_key": "authority:god_eater",
+  "campaign_fingerprint": "ed220884dd1f08b186a76cacf647ad6924c3b788ec273b8c23d9e3f674248dc4",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://ger.godeater.jp/sp/character/soma.php",
+  "source_claim": "Bandai Namco Entertainment's official GOD EATER RESURRECTION character profile names Soma Schicksal and describes him as an experienced young God Eater with unusual abilities.",
+  "authority_type": "OFFICIAL_RIGHTSHOLDER_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [{"subject_type":"Character","subject_key":"soma_schicksal","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"god_eater"}],
+  "terminal_reviews": [],
+  "notes": "The official Bandai Namco profile places Soma directly in the God Eater series."
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-nozaki-kun-tv-tokyo-cast-roster-20260928-01",
+  "campaign_key": "authority:gekkan_shoujo_nozaki-kun",
+  "campaign_fingerprint": "a4bb185091a6947b127d8feaa7b0a4ad6f54301f11885284431bb7083d77a497",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/anime/nozakikun/chara/",
+  "source_claim": "TV Tokyo's official character page profiles Umetaro Nozaki, Chiyo Sakura, Mikoto Mikoshiba, Masayuki Hori, Yuu Kashima, and Yuzuki Seo. The broadcaster's official staff/cast page for the same named anime lists those characters and Hirotaka Wakamatsu in the cast, and identifies the original manga as published in Square Enix's Gangan Online.",
+  "authority_type": "OFFICIAL_BROADCASTER_CHARACTER_AND_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"nozaki_umetarou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gekkan_shoujo_nozaki-kun"},
+    {"subject_type":"Character","subject_key":"sakura_chiyo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gekkan_shoujo_nozaki-kun"},
+    {"subject_type":"Character","subject_key":"mikoshiba_mikoto","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gekkan_shoujo_nozaki-kun"},
+    {"subject_type":"Character","subject_key":"hori_masayuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gekkan_shoujo_nozaki-kun"},
+    {"subject_type":"Character","subject_key":"kashima_yuu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gekkan_shoujo_nozaki-kun"},
+    {"subject_type":"Character","subject_key":"seo_yuzuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gekkan_shoujo_nozaki-kun"},
+    {"subject_type":"Character","subject_key":"wakamatsu_hirotaka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gekkan_shoujo_nozaki-kun"}
+  ],
+  "terminal_reviews": [],
+  "notes": "TV Tokyo's anime character page gives direct character descriptions for six identities; its official staff/cast page adds Wakamatsu as a named cast role. The pages identify the series and its source manga publication."
+}

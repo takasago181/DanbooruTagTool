@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-doraemon-tv-asahi-official-roster-20260928-01",
+  "campaign_key": "authority:doraemon",
+  "campaign_fingerprint": "970c0db6f0e68ab78426d23eb0861b64236aedc1ed9c5fab221e02a2c4ef8bd6",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-asahi.co.jp/doraemon/character/",
+  "source_claim": "TV Asahi's official Doraemon character roster gives individual profiles for Dekisugi, Dorami, Takeshi Goda (Gian), Suneo Honekawa, Shizuka Minamoto, Nobita Nobi, and Tamako Nobi (Nobita's mother) as characters in Doraemon.",
+  "authority_type": "OFFICIAL_BROADCASTER_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"dekisugi_hidetoshi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"doraemon"},
+    {"subject_type":"Character","subject_key":"dorami","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"doraemon"},
+    {"subject_type":"Character","subject_key":"gouda_takeshi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"doraemon"},
+    {"subject_type":"Character","subject_key":"honekawa_suneo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"doraemon"},
+    {"subject_type":"Character","subject_key":"minamoto_shizuka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"doraemon"},
+    {"subject_type":"Character","subject_key":"nobi_nobita","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"doraemon"},
+    {"subject_type":"Character","subject_key":"nobi_tamako","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"doraemon"}
+  ],
+  "terminal_reviews": [],
+  "notes": "TV Asahi's first-party series character page explicitly lists and describes all seven exact campaign identities. The source's title and character bios make each person's placement in Doraemon direct rather than inferred from search tags."
+}
