@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-twewy-minamimoto-nyantan-official-route-check-20260928-01",
+  "campaign_key": "authority:subarashiki_kono_sekai",
+  "campaign_fingerprint": "3829045f03153d7f9f64cb344d9a9f206b66ea35b2f1061faf87b0bbd20f7e42",
+  "worker_slot": 3,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "FIRST_PARTY_FRANCHISE_CATALOG",
+      "url_or_query": "https://na.store.square-enix-games.com/franchise/the-world-ends-with-you",
+      "result": "The official catalog confirms the franchise product scope and links character products, but it does not explicitly map the remaining packet tags Minamimoto Sho and Nyantan to exact identities."
+    },
+    {
+      "route_type": "FIRST_PARTY_CHARACTER_PRODUCT_PAGE",
+      "url_or_query": "https://na.store.square-enix-games.com/neo-the-world-ends-with-you-bring-arts-action-figure-_-minamimoto",
+      "result": "The official product page identifies Minamimoto as appearing in NEO and the original title, but does not give the exact given name Sho."
+    },
+    {
+      "route_type": "FIRST_PARTY_CHARACTER_PRODUCT_PAGE",
+      "url_or_query": "https://na.store.square-enix-games.com/the-world-ends-with-you-the-animation-plush---mr_-mew",
+      "result": "The official product page places Mr. Mew in The World Ends with You The Animation, but does not establish the campaign identity alias Nyantan."
+    }
+  ],
+  "notes": "Five other exact campaign relations were submitted in independent positive authority batches. The checked routes do not safely establish the exact remaining tag identities, so this is partial progress only and not negative evidence or exhaustion."
+}

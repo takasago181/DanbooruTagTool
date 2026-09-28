@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-tenchi-ova-official-character-roster-20260928-01",
+  "campaign_key": "authority:tenchi_muyou!",
+  "campaign_fingerprint": "53ebb414b9d27d83fef68860c29f4887b4a3bf0763bd4d3a439f91de82d77988",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nbcuni.co.jp/rondorobe/anime/blu-ray/tenchi/",
+  "source_claim": "NBCUniversal’s official Tenchi Muyo! Ryo-Ohki Blu-ray character page says it is based on the OVA series and identifies Masaki Tenchi, Aeka Jurai, Sasami Jurai, Mihoshi Kuramitsu, Washu Hakubi, and Ryo-Ohki among its characters.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "masaki_tenchi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tenchi_muyou!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "masaki_aeka_jurai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tenchi_muyou!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "masaki_sasami_jurai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tenchi_muyou!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kuramitsu_mihoshi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tenchi_muyou!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hakubi_washuu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tenchi_muyou!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ryou-ouki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tenchi_muyou!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official page explicitly marks its character introductions as based on the OVA series. The page’s Japanese names and character descriptions map to the exact packet identities; Kiyone is assessed separately against the official TV/special page."
+}

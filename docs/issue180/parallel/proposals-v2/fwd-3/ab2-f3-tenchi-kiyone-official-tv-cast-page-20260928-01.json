@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-tenchi-kiyone-official-tv-cast-page-20260928-01",
+  "campaign_key": "authority:tenchi_muyou!",
+  "campaign_fingerprint": "53ebb414b9d27d83fef68860c29f4887b4a3bf0763bd4d3a439f91de82d77988",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nbcuni.co.jp/rondorobe/anime/blu-ray/tenchi/tv.html",
+  "source_claim": "NBCUniversal’s official Tenchi Muyo! TV information identifies Kiyone (清音) in the cast and describes her as Mihoshi’s partner; it distinguishes the TV series continuity from the OVA series.",
+  "authority_type": "FIRST_PARTY_ANIME_CAST_CREDIT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "makibi_kiyone",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "tenchi_muyou!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Kiyone is explicitly named in the official franchise cast page; her appearance is tied to the TV/spin-off continuity. No claim that the official OVA continuity includes her as a main roster member."
+}
