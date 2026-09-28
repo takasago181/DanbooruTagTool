@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-gup-finale-official-cast-residual-characters-20260928",
+  "campaign_key": "authority:girls_und_panzer",
+  "campaign_fingerprint": "964856706a1dda8c19c97e84033c8ed5303f9e5eaa3b18c31109a741ffd15cf5",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://girls-und-panzer-finale.jp/cast/",
+  "source_claim": "The official Girls und Panzer das Finale cast directory lists Hida Ema and Katsuya Megu under Kuromorimine Girls Academy and Nishihara Yasoko under Chi-Ha-Tan Academy. The previously accepted first-party mapping resolves exact named characters on official Girls und Panzer character sources to the stable root girls_und_panzer.",
+  "authority_type": "FIRST_PARTY_ANIME_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "hida_ema",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "girls_und_panzer"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "katsuya_megu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "girls_und_panzer"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nishihara_yasoko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "girls_und_panzer"
+    }
+  ],
+  "terminal_reviews": [],
+  "source_review_id_hint": "src180-ab2-gup-official-character-roster-20260928",
+  "notes": "Only exact current campaign names explicitly listed in the official cast directory are included. The broad campaign remains open; no relation is inferred from the nonmatching roster names."
+}
