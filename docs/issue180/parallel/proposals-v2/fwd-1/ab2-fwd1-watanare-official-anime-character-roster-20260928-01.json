@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-watanare-official-anime-character-roster-20260928-01",
+  "campaign_key": "authority:watashi_ga_koibito_ni_nareru_wake_naijan_murimuri!",
+  "campaign_fingerprint": "501399069c093c28eb392fe527326effe3b9d4d944a0010bf5c4d9d340bd0da6",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.watanare-anime.com/",
+  "source_claim": "The official Watanare anime site identifies the series and its Shueisha source, lists the campaign cast, and provides character profiles for Renako Amaori, Mai Ouzuka, Ajisai Sena, Satsuki Koto, and Kaho Koyanagi. Its cast roster also names Haruna Amaori as a character in the same work.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "amaori_haruna",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "watashi_ga_koibito_ni_nareru_wake_naijan_murimuri!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "amaori_renako",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "watashi_ga_koibito_ni_nareru_wake_naijan_murimuri!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "koto_satsuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "watashi_ga_koibito_ni_nareru_wake_naijan_murimuri!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "koyanagi_kaho",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "watashi_ga_koibito_ni_nareru_wake_naijan_murimuri!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ouzuka_mai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "watashi_ga_koibito_ni_nareru_wake_naijan_murimuri!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sena_ajisai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "watashi_ga_koibito_ni_nareru_wake_naijan_murimuri!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official page explicitly names all six campaign characters. No additional cast relation is proposed."
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-wataten-official-kadokawa-cast-roster-20260928-01",
+  "campaign_key": "authority:watashi_ni_tenshi_ga_maiorita!",
+  "campaign_fingerprint": "0bd33c4f7cd86b295a9a5ab0bbe47b191a1ddf9ebc7c5390aa410855a0165c92",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.kadokawa.co.jp/product/video1550/",
+  "source_claim": "KADOKAWA's official Wataten Blu-ray Box page identifies the anime and lists the exact campaign characters in its cast descriptions: Hana Shirosaki, Hinata Hoshino, Noa Himesaka, Koyori Tanemura, Kanon Konomori, and Kouko Matsumoto.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "himesaka_noa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "watashi_ni_tenshi_ga_maiorita!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hoshino_hinata",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "watashi_ni_tenshi_ga_maiorita!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "konomori_kanon",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "watashi_ni_tenshi_ga_maiorita!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "matsumoto_kouko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "watashi_ni_tenshi_ga_maiorita!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shirosaki_hana",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "watashi_ni_tenshi_ga_maiorita!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tanemura_koyori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "watashi_ni_tenshi_ga_maiorita!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official publisher's product page covers all six campaign members. No extra characters are proposed."
+}
