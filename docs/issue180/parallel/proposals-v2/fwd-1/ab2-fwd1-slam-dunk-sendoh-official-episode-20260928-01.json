@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-slam-dunk-sendoh-official-episode-20260928-01",
+  "campaign_key": "authority:slam_dunk_(series)",
+  "campaign_fingerprint": "391b4e72fc5446b5b66ec1e78e3b74d2f41d6900bcca5cab902666cd06bb2952",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://lineup.toei-anim.co.jp/ja/tv/movie_slumdunk/episode/81/",
+  "source_claim": "Toei Animation identifies Sendoh Akira by name in its official Slam Dunk episode 81 synopsis, describing his play and role for Ryonan in the series.",
+  "authority_type": "OFFICIAL_ANIME_EPISODE_SYNOPSIS",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "sendou_akira",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "slam_dunk_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official episode page labels the episode 仙道ファイヤー and its synopsis repeatedly names 仙道; Toei’s official Slam Dunk series page supplies the series context. This supports Sendoh Akira’s direct home in the named series."
+}

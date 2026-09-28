@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-slam-dunk-first-film-cast-20260928-01",
+  "campaign_key": "authority:slam_dunk_(series)",
+  "campaign_fingerprint": "391b4e72fc5446b5b66ec1e78e3b74d2f41d6900bcca5cab902666cd06bb2952",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://lineup.toei-anim.co.jp/ja/movie/slamdunk-movie/story/",
+  "source_claim": "Toei Animation lists the cast for THE FIRST SLAM DUNK, a Slam Dunk theatrical work, including the named characters Kogure Kiminobu, Fukatsu Kazunari, and Sawakita Eiji.",
+  "authority_type": "OFFICIAL_ANIME_FILM_CHARACTER_CAST_LISTING",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kogure_kiminobu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "slam_dunk_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "fukatsu_kazunari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "slam_dunk_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sawakita_eiji",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "slam_dunk_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official Toei film page names 木暮公延, 深津一成, and 沢北栄治 in the work’s character/cast listing. These exact campaign identities are directly named; no roster membership is inferred from adjacent products."
+}

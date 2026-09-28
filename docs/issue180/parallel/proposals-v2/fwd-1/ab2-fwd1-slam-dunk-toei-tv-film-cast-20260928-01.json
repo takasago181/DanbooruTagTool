@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-slam-dunk-toei-tv-film-cast-20260928-01",
+  "campaign_key": "authority:slam_dunk_(series)",
+  "campaign_fingerprint": "391b4e72fc5446b5b66ec1e78e3b74d2f41d6900bcca5cab902666cd06bb2952",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://lineup.toei-anim.co.jp/ja/tv/movie_slumdunk/character/",
+  "source_claim": "Toei Animation lists these named roles under the Slam Dunk TV series character/cast section: Sakuragi Hanamichi, Akagi Haruko, Akagi Takenori (listed in Japanese as Akagi Takenori), Rukawa Kaede, Mitsui Hisashi, Miyagi Ryota, and Mito Yohei.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_CAST_LISTING",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "sakuragi_hanamichi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "slam_dunk_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "akagi_haruko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "slam_dunk_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "akagi_takenori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "slam_dunk_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rukawa_kaede",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "slam_dunk_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mitsui_hisashi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "slam_dunk_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "miyagi_ryouta",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "slam_dunk_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mito_youhei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "slam_dunk_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official Toei work page places the exact Japanese character names in the Slam Dunk character/cast roster. Japanese labels 桜木花道, 赤木晴子, 赤木剛憲, 流川楓, 三井寿, 宮城リョータ, 水戸洋平 map to the listed current campaign keys."
+}
