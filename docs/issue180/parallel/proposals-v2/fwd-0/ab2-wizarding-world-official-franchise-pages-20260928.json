@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-wizarding-world-official-franchise-pages-20260928",
+  "campaign_key": "authority:wizarding_world",
+  "campaign_fingerprint": "540a9569381c373a3d2cebbc188ef718dc453478b59b93abf590708953c26acd",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.harrypotter.com/fact-file/characters-and-pets/newt-scamander",
+  "source_claim": "The official Harry Potter encyclopedia identifies Newt Scamander and lists his appearances in the Fantastic Beasts films; the official Niffler entry explicitly places Nifflers in Newt's case. The official Harry Potter encyclopedia also has a Sorting Hat entry. Warner Bros. Games' official Hogwarts Legacy material names Sebastian Sallow as a companion/student character. The official Harry Potter site identifies Tom Marvolo Riddle as the person who became Lord Voldemort.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "newt_scamander",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fantastic_beasts_and_where_to_find_them"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "niffler",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fantastic_beasts_and_where_to_find_them"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sebastian_sallow",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hogwarts_legacy"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sorting_hat",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "harry_potter_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tom_marvolo_riddle",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "harry_potter_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Exact first-party sources for the separate HOME roots: https://www.harrypotter.com/fact-file/characters-and-pets/newt-scamander (Newt and his Fantastic Beasts film appearances), https://www.harrypotter.com/fact-file/creatures/niffler (Nifflers and Newt's case), https://www.harrypotter.com/fact-file/objects/the-sorting-hat (Sorting Hat), https://www.harrypotter.com/features/unravelling-the-riddle-of-tom (Tom Riddle), and Warner Bros. Games' official Sebastian Sallow trailer https://www.youtube.com/watch?v=3dYpTuFFP3s plus the official Wizarding World article https://www.harrypotter.com/features/all-the-hogwarts-legacy-characters-we-know-about (Hogwarts Legacy). The campaign spans related but distinct Copyright works, so each relation uses its own directly supported work root."
+}
