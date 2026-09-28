@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-lenen-ten-eisenki-official-story-cast-20260928",
+  "campaign_key": "authority:len'en",
+  "campaign_fingerprint": "752b771a02a61df66e5f702ef9b921a5a75ff29e17a4a28b91f540e21daa4d2a",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://mugentrick.tubakurame.com/Lenen/Le04_manual/dat/Story.html",
+  "source_claim": "The creator's official Len'en Ten'eisenki story text names and depicts Tsubakura Enraku, Fujiwara no Iyozane, Taira no Fumikado, Shitodo Hooaka, Shitodo Aoji, Shitodo Kuroji, Zuifeng Tenkai, Katano Sukune, and Senri Tsurubami in the Len'en setting.",
+  "authority_type": "OFFICIAL_GAME_STORY_TEXT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"enraku_tsubakura","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"len'en"},
+    {"subject_type":"Character","subject_key":"fujiwara_no_iyozane","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"len'en"},
+    {"subject_type":"Character","subject_key":"taira_no_fumikado","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"len'en"},
+    {"subject_type":"Character","subject_key":"shitodo_hooaka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"len'en"},
+    {"subject_type":"Character","subject_key":"shitodo_aoji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"len'en"},
+    {"subject_type":"Character","subject_key":"shitodo_kuroji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"len'en"},
+    {"subject_type":"Character","subject_key":"zuifeng_tenkai","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"len'en"},
+    {"subject_type":"Character","subject_key":"katano_sukune","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"len'en"},
+    {"subject_type":"Character","subject_key":"senri_tsurubami","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"len'en"}
+  ],
+  "terminal_reviews": [],
+  "notes": "This is an official creator-hosted story from the fourth Len'en game. Character-name romanizations were checked against the current Issue 70 tags and this campaign's dispatch. The scene explicitly gives the listed characters narrative roles or dialogue in the Len'en setting; no other campaign member is inferred."
+}
