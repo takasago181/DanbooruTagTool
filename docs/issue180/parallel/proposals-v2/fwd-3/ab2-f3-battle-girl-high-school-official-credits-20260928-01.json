@@ -1,0 +1,79 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-battle-girl-high-school-official-colopl-products-roster-20260928-01",
+  "campaign_key": "authority:battle_girl_high_school",
+  "campaign_fingerprint": "29e7938ae348598c36469d5b49f8c3315d97131ba5a188a429c8301b47d371bb",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://colopl.co.jp/battlegirl-hs/products/",
+  "source_claim": "Colopl’s official Battle Girl High School product page credits songs to Kokomi Asahina, Miki Hoshitsuki, Kanon Kougami, Hinata Minami, Sadone, Kaede Sendouin, Kurumi Tokiwa, Anko Tsubuzaki, and Michelle Watagi, matching the exact nine campaign identities.",
+  "authority_type": "FIRST_PARTY_GAME_CHARACTER_CREDITS",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "asahina_kokomi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "battle_girl_high_school"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hoshitsuki_miki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "battle_girl_high_school"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kougami_kanon",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "battle_girl_high_school"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "minami_hinata",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "battle_girl_high_school"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sadone",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "battle_girl_high_school"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sendouin_kaede",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "battle_girl_high_school"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tokiwa_kurumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "battle_girl_high_school"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsubuzaki_anko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "battle_girl_high_school"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "watagi_michelle",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "battle_girl_high_school"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the nine exact campaign characters named in Colopl’s official product credits are proposed."
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-apex-legends-quarantine-wraith-ea-admin-20260928-01",
+  "campaign_key": "authority:apex_legends",
+  "campaign_fingerprint": "3662842c7c3dd74d1fa4aa399ff440ebd24bd68954d9b0411c6b72e9772677e3",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://forums.ea.com/discussions/apex-legends-general-discussion-en/re-why-does-depths-of-void-wraith-recolor-belongs-to-void-specialist-now/5526382",
+  "source_claim": "An EA Community Admin confirms that Quarantine 722 is a Wraith skin, establishing the exact campaign tag identity.",
+  "authority_type": "FIRST_PARTY_COMMUNITY_ADMIN_CONFIRMATION",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "quarantine_722_wraith",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "apex_legends"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the exact identity established by the EA Community Admin is proposed. Other campaign skin/ability tags are omitted pending direct evidence."
+}

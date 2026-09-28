@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-f3-ts-magical-girl-nao-routes-partial-20260928-01",
+  "campaign_key": "authority:ts_magical_girl_nao",
+  "campaign_fingerprint": "074c3a5d255c2241de91842f464ce6db528fed4e179ebae1a34bd808e345593c",
+  "worker_slot": 3,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_PRODUCT_PAGE_ATTEMPT",
+      "url_or_query": "https://www.dlsite.com/maniax/work/=/product_id/RJ133220.html",
+      "result": "The publisher/distributor product route was identified, but the page could not be opened through the available source reader, so it was not used to assert any exact mapping."
+    },
+    {
+      "route_type": "AUTHORIZED_DISTRIBUTOR_EDITORIAL_FEATURE",
+      "url_or_query": "https://dmagazine.org/en/works/RJ133/RJ133220.html",
+      "result": "The DLsite-associated feature confirms TS Magical Girl Nao! and the Amagi Nao premise, but it does not list exact campaign character tag identities."
+    },
+    {
+      "route_type": "SECONDARY_CATALOG_WITH_FIRST_PARTY_ADBLURB_ATTRIBUTION",
+      "url_or_query": "https://www.mobygames.com/game/234821/ts-magical-girl-nao/",
+      "result": "The catalog attributes an official ad blurb to the product listing, but it is not itself a first-party source and does not establish a complete exact campaign mapping."
+    }
+  ],
+  "notes": "Three distinct routes were checked. No relation is proposed without a directly readable first-party character source; this remains partial progress, not negative evidence or exhaustion."
+}
