@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-arcana-heart-official-ah3-character-roster-20260928",
+  "campaign_key": "authority:arcana_heart",
+  "campaign_fingerprint": "103a55683417974a1b94d916c521e9dc28ee9b36df1170d6d3dae6d0c0ee3072",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.arcsystemworks.jp/ah3/character.html",
+  "source_claim": "Arc System Works' official Arcana Heart 3 character page lists all 15 packet identities among the game's named characters, including their Japanese character names corresponding to the established English character tags.",
+  "authority_type": "OFFICIAL_PUBLISHER_GAME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"aino_heart","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"arcana_heart"},
+    {"subject_type":"Character","subject_key":"angelia_avallone","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"arcana_heart"},
+    {"subject_type":"Character","subject_key":"clarice_di_lanza","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"arcana_heart"},
+    {"subject_type":"Character","subject_key":"daidouji_kira","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"arcana_heart"},
+    {"subject_type":"Character","subject_key":"fiona_mayfield","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"arcana_heart"},
+    {"subject_type":"Character","subject_key":"inuwaka_akane","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"arcana_heart"},
+    {"subject_type":"Character","subject_key":"inuwaka_nazuna","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"arcana_heart"},
+    {"subject_type":"Character","subject_key":"kasuga_maori","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"arcana_heart"},
+    {"subject_type":"Character","subject_key":"lieselotte_achenbach","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"arcana_heart"},
+    {"subject_type":"Character","subject_key":"lilica_felchenerow","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"arcana_heart"},
+    {"subject_type":"Character","subject_key":"mei-fang","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"arcana_heart"},
+    {"subject_type":"Character","subject_key":"petra_johanna_lagerkvist","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"arcana_heart"},
+    {"subject_type":"Character","subject_key":"scharlachrot","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"arcana_heart"},
+    {"subject_type":"Character","subject_key":"tokinomiya_kamui","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"arcana_heart"},
+    {"subject_type":"Character","subject_key":"tsuzura_saki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"arcana_heart"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Arc System Works' official Arcana Heart 3 roster page explicitly lists 愛乃はぁと (Aino Heart), 廿楽冴姫 (Saki Tsuzura), 春日舞織 (Maori Kasuga), シャルラッハロート (Scharlachrot), ペトラ・ヨハンナ・ラーゲルクヴィスト (Petra Johanna Lagerkvist), クラリーチェ・ディ・ランツァ (Clarice di Lanza), リーゼロッテ・アッヒェンバッハ (Lieselotte Achenbach), 朱鷺宮神依 (Kamui Tokinomiya), 犬若なずな (Nazuna Inuwaka), 犬若あかね (Akane Inuwaka), 美凰 (Mei-Fang), 大道寺きら (Kira Daidouji), アンジェリア・アヴァロン (Angelia Avallone), フィオナ・メイフィールド (Fiona Mayfield), and リリカ・フェルフネロフ (Lilica Felchenerow). The official page is the publisher's character roster and carries the EXAMU / ARC SYSTEM WORKS copyright. All 15 relations are limited to those exact campaign members; no inference from fan lists or appearances in unrelated crossovers is used."
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-choukou-alicesoft-official-series-rosters-20260928",
+  "campaign_key": "authority:choukou_(alicesoft)",
+  "campaign_fingerprint": "be7ddf0e51b9a30de5ba379e8817e27201ec25d66f03cd48d0ac9ea022f4394a",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.alicesoft.com/escalayer/chara.html",
+  "source_claim": "AliceSoft's official character materials for Beat Angel Escalayer, Choukou Senin Haruka, Choukou Shinki Ixseal, and Choukou Taisen identify every character in this packet as belonging to its Choukou works.",
+  "authority_type": "OFFICIAL_PUBLISHER_CROSS_TITLE_CHARACTER_ROSTERS",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"ellis_xillia","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"choukou_(alicesoft)"},
+    {"subject_type":"Character","subject_key":"escalayer","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"choukou_(alicesoft)"},
+    {"subject_type":"Character","subject_key":"haruhina_urara","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"choukou_(alicesoft)"},
+    {"subject_type":"Character","subject_key":"houshou_kirika","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"choukou_(alicesoft)"},
+    {"subject_type":"Character","subject_key":"ichinose_yurippe","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"choukou_(alicesoft)"},
+    {"subject_type":"Character","subject_key":"ikusabe_tokisada","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"choukou_(alicesoft)"},
+    {"subject_type":"Character","subject_key":"ixseal","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"choukou_(alicesoft)"},
+    {"subject_type":"Character","subject_key":"kouenji_madoka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"choukou_(alicesoft)"},
+    {"subject_type":"Character","subject_key":"kouenji_sayuka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"choukou_(alicesoft)"},
+    {"subject_type":"Character","subject_key":"kyriel","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"choukou_(alicesoft)"},
+    {"subject_type":"Character","subject_key":"oudou_tsuguhiko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"choukou_(alicesoft)"},
+    {"subject_type":"Character","subject_key":"shihoudou_narika","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"choukou_(alicesoft)"},
+    {"subject_type":"Character","subject_key":"sonozaki_akari","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"choukou_(alicesoft)"},
+    {"subject_type":"Character","subject_key":"takamori_haruka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"choukou_(alicesoft)"},
+    {"subject_type":"Character","subject_key":"yanase_kyouhei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"choukou_(alicesoft)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "AliceSoft's official Beat Angel Escalayer character page names Escalayer, Koenji Sayuka, Koenji Madoka, and Yanase Kyohei (https://www.alicesoft.com/escalayer/chara.html). Its official Choukou Senin Haruka roster names Takamori Haruka and Shihoudou Narika (https://www.alicesoft.com/haruka/character.html). The official Choukou Shinki Ixseal page names Ellis Xillia and Houshou Kirika, says Kirika becomes the second Shinki called Kyriel, and identifies Oudo Tsuguhiko in its character profiles (https://www.alicesoft.com/ixseal/sp/chara/index.html). Official AliceSoft Choukou Taisen materials name Ichinose Yurippe (https://www.alicesoft.com/information/2025/entry003583.html), Haruhina Urara (https://www.alicesoft.com/information/2025/entry003693.html), and Sonozaki Akari (https://www.alicesoft.com/information/2020/entry002650.html). The source pages establish these exact people and transformed identities in AliceSoft's Choukou titles; no unrelated crossover-only association or fan roster is used."
+}

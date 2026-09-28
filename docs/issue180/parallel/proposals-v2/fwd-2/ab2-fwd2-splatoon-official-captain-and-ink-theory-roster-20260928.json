@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-splatoon-official-captain-and-ink-theory-roster-20260928",
+  "campaign_key": "authority:splatoon",
+  "campaign_fingerprint": "fbb04fa1540e76dbd6b318182561531becdb3d67da4b2266ad029e759964a412",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nintendo.com/jp/character/splatoon/en/music/21/index.html",
+  "source_claim": "Nintendo's official Splatoon Base page names Yoko and states that Oonie and Kitamura from Ink Theory are her bandmates; Nintendo's official Splatoon 3 retrospective identifies the Captain as formerly Agent 3.",
+  "authority_type": "NINTENDO_OFFICIAL_CHARACTER_AND_MUSIC_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"captain_3_(splatoon)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"splatoon_(series)"},
+    {"subject_type":"Character","subject_key":"kitamura_(splatoon)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"splatoon_(series)"},
+    {"subject_type":"Character","subject_key":"oonie_(splatoon)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"splatoon_(series)"},
+    {"subject_type":"Character","subject_key":"yoko_(splatoon)","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"splatoon_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Nintendo's official Splatoon 3 retrospective says the New Squidbeak Captain is formerly Agent 3 (https://splatoon.nintendo.com/en/news/a-look-back-at-the-three-biggest-groups/), directly supporting the campaign's Captain 3 identity. Nintendo's official Splatoon Base profile names Yoko and states that Oonie and Kitamura from Ink Theory are bandmates in Yoko & the Gold Bazookas (https://www.nintendo.com/jp/character/splatoon/en/music/21/index.html). Only these exact campaign members explicitly identified by Nintendo are proposed; the other campaign members are not inferred from fan wikis, generic species names, or unattributed artwork."
+}
