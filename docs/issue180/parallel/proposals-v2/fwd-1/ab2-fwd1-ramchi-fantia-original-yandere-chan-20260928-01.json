@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-ramchi-fantia-original-yandere-chan-20260928-01",
+  "campaign_key": "authority:ramchi",
+  "campaign_fingerprint": "5e1b63f8b84b1febfa1db1924834445b2ee1d44428a2bacb19654f7fc599ebb1",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://fantia.jp/posts/3369158",
+  "source_claim": "Illustrator Ramchi’s own Fantia profile has a post titled “Original: Yandere-chan (limited illustration),” explicitly identifying Yandere-chan as Ramchi’s original character.",
+  "authority_type": "CREATOR_OFFICIAL_ORIGINAL_CHARACTER_POST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "yandere-chan_(ramchi)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ramchi"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The post is on Ramchi’s creator profile and its title expressly labels Yandere-chan as original. This supports only yandere-chan_(ramchi); no other archetype characters are inferred."
+}

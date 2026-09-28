@@ -1,0 +1,86 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-horizon-sunrise-official-cast-and-story-20260928-01",
+  "campaign_key": "authority:kyoukaisenjou_no_horizon",
+  "campaign_fingerprint": "b97c609e6d526bf79f2f543efb91a54c266a7fc22f0b6f2add9d9458eb5d58d7",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.sunrise-world.net/titles/pickup_322.php",
+  "source_claim": "Sunrise’s official Horizon on the Middle of Nowhere title page provides the series cast and character profiles, naming Aoi Tori, Horizon Ariadust, Aoi Kimi, Asama Tomo, Honda Futayo, and Tenzou Crossunite. Its story caption also names Adele, Nate, Knight, and Naruze as students in the series.",
+  "authority_type": "OFFICIAL_STUDIO_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "adele_balfetto",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kyoukaisenjou_no_horizon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aoi_kimi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kyoukaisenjou_no_horizon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aoi_toori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kyoukaisenjou_no_horizon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "asama_tomo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kyoukaisenjou_no_horizon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "honda_futayo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kyoukaisenjou_no_horizon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "horizon_ariadust",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kyoukaisenjou_no_horizon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "malga_naruze",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kyoukaisenjou_no_horizon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "margot_knight",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kyoukaisenjou_no_horizon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nate_mitotsudaira",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kyoukaisenjou_no_horizon"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tenzou_crossunite",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kyoukaisenjou_no_horizon"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The page identifies the anime title and production copyright and names the listed members in cast, profiles, or episode-scene descriptions. Mukai Suzu is not named and is not included."
+}
