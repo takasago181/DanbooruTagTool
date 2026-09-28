@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-dragon-quest-ii-official-party-characters-20260928-01",
+  "campaign_key": "authority:dragon_quest",
+  "campaign_fingerprint": "b91f6805ec41f5cc0d40cbdb93d0b0ddb694f643f39c5697eb596650b99163c7",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.dragonquest.jp/news/detail/1133/",
+  "source_claim": "Square Enix’s official Dragon Quest II release announcement identifies the game as the second mainline series title and names the Prince of Lorasia, Prince of Samaltoria, and Princess of Moonbrooke as its party characters.",
+  "authority_type": "OFFICIAL_PUBLISHER_GAME_CHARACTER_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "prince_of_lorasia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dragon_quest"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "prince_of_samantoria",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dragon_quest"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "princess_of_moonbrook",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dragon_quest"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official Dragon Quest portal calls Dragon Quest II the series’ second game and names the Prince of Lorasia, Prince of Samaltoria, and Princess of Moonbrooke as the characters undertaking its quest. These exact campaign members are directly tied to the Dragon Quest II title. No tag is inferred for a separately spelled campaign candidate not named in the source."
+}

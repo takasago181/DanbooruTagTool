@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-dragon-quest-viii-official-crossblade-cast-20260928-01",
+  "campaign_key": "authority:dragon_quest",
+  "campaign_fingerprint": "b91f6805ec41f5cc0d40cbdb93d0b0ddb694f643f39c5697eb596650b99163c7",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.dragonquest.jp/portal/news_detail/sq/3412/",
+  "source_claim": "Square Enix’s official Dragon Quest portal explicitly identifies Yangus and Jessica as heroes from Dragon Quest VIII in its cross-title announcement.",
+  "authority_type": "OFFICIAL_PUBLISHER_GAME_CHARACTER_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "yangus",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dragon_quest"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jessica_albert",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "dragon_quest"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official Square Enix portal says the Dragon Quest VIII heroes are entering the announced game and names Yangus (ヤンガス) and Jessica (ゼシカ) among them. These Japanese labels map exactly to current campaign keys yangus and jessica_albert. The same announcement carries Square Enix’s Dragon Quest copyright line."
+}
