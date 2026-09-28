@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-mega-man-classic-capcom-official-manual-rosters-20260928",
+  "campaign_key": "authority:mega_man_(classic)",
+  "campaign_fingerprint": "fcd1419689e92087509ed02066740415134f174913633b0758bc7f0de04d60d5",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://captown.capcom.com/uploads/game/manual/3/megaman_ja_G.1062072b-3cbf-4848-b7b1-34ac6aa7ce4c.pdf",
+  "source_claim": "Capcom's original Mega Man and Mega Man 2 manuals identify the first game's six selectable Robot Masters and the second game's eight stage bosses; Capcom's Mega Man 3 game page identifies Proto Man's debut, and Capcom News identifies Splash Woman as a Mega Man 9 Robot Master.",
+  "authority_type": "CAPCOM_OFFICIAL_GAME_MANUAL_AND_SERIES_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"air_man","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mega_man_(classic)"},
+    {"subject_type":"Character","subject_key":"bomb_man","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mega_man_(classic)"},
+    {"subject_type":"Character","subject_key":"bubble_man","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mega_man_(classic)"},
+    {"subject_type":"Character","subject_key":"crash_man","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mega_man_(classic)"},
+    {"subject_type":"Character","subject_key":"cut_man","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mega_man_(classic)"},
+    {"subject_type":"Character","subject_key":"elec_man","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mega_man_(classic)"},
+    {"subject_type":"Character","subject_key":"fire_man","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mega_man_(classic)"},
+    {"subject_type":"Character","subject_key":"flash_man","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mega_man_(classic)"},
+    {"subject_type":"Character","subject_key":"guts_man","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mega_man_(classic)"},
+    {"subject_type":"Character","subject_key":"heat_man","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mega_man_(classic)"},
+    {"subject_type":"Character","subject_key":"ice_man","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mega_man_(classic)"},
+    {"subject_type":"Character","subject_key":"metal_man","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mega_man_(classic)"},
+    {"subject_type":"Character","subject_key":"proto_man","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mega_man_(classic)"},
+    {"subject_type":"Character","subject_key":"quick_man","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mega_man_(classic)"},
+    {"subject_type":"Character","subject_key":"splash_woman","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mega_man_(classic)"},
+    {"subject_type":"Character","subject_key":"wood_man","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mega_man_(classic)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official Capcom Mega Man manual identifies the first game's six bosses as Cut Man, Guts Man, Elec Man, Ice Man, Fire Man, and Bomb Man (https://captown.capcom.com/uploads/game/manual/3/megaman_ja_G.1062072b-3cbf-4848-b7b1-34ac6aa7ce4c.pdf). The official Mega Man 2 manual's stage-select roster identifies Air Man, Bubble Man, Quick Man, Heat Man, Wood Man, Metal Man, Flash Man, and Crash Man (https://captown.capcom.com/uploads/game/manual/5/megaman2_ja_G.f4c2b2ab-455a-4b4a-b946-23d33f481304.pdf); its Japanese OCR renders Crash as Clash, while the roster and English name are the game's Crash Man. Capcom Town's official Mega Man 3 page states Proto Man made his debut in that release (https://captown.capcom.com/en/classic_games/42). Capcom News describes Splash Woman among Mega Man 9's Robot Masters and identifies her as its first female Robot Master (https://news.capcomusa.com/lets/browse/looking-back-on-mega-man-9). Each relation is limited to an exact campaign member directly covered by these official Capcom sources; no unrelated series characters are inferred."
+}
