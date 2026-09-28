@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-haruhi-official-kimidori-san-cast-20260928",
+  "campaign_key": "authority:suzumiya_haruhi_no_yuuutsu",
+  "campaign_fingerprint": "3baf1fc0157ff3107b9967e2434342cf802397182e897cf354136d62728f7f62",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.haruhi.tv/haruchuru/special.html",
+  "source_claim": "The official Haruhi-chan and Nyoron Churuya-san site interview explicitly credits Minoru Shiraishi with the character role Kimidori-san (喜緑さん役), identifying Kimidori-san as a character in this official Haruhi adaptation.",
+  "authority_type": "FIRST_PARTY_CAST_INTERVIEW",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kimidori-san",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "suzumiya_haruhi_no_yuuutsu"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the exact named fictional role is mapped. Cast members, fan-created genderbend characters, and other campaign members are not inferred."
+}
