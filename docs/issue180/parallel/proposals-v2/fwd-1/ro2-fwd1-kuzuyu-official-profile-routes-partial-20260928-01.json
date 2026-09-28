@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-kuzuyu-official-profile-routes-partial-20260928-01",
+  "campaign_key": "authority:kuzuyu",
+  "campaign_fingerprint": "b3a958af627c907c992c47ceedb0fd2dba9e687e0df6a6a578222ed5c34c13a9",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "The creator's own profile routes confirm the Komori Kuzuyu creator identity, but the accessible official pages did not provide an exact roster or map Etna, Haru, Nao, and Rivier to a single work HOME. Search-engine/community discovery is not used as relation evidence.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_CREATOR_PORTFOLIO","url_or_query":"https://www.pixiv.net/en/users/6562350","result":"The creator-linked Pixiv profile could not be opened by the current reader; it yielded no exact named member evidence."},
+    {"route_type":"OFFICIAL_CREATOR_FANBOX","url_or_query":"https://komori-kuduyu.fanbox.cc/","result":"The creator's linked FANBOX landing page rendered only a shell in the current reader and did not expose a character roster or exact work relation."},
+    {"route_type":"CREATOR_AUTHORED_SOCIAL_PROFILE","url_or_query":"https://bsky.app/profile/komori-kuduyu.bsky.social","result":"The profile self-identifies Komori Kuzuyu as an illustrator/manga artist and links X/FANBOX, but does not name the campaign members or establish a shared Copyright HOME."}
+  ],
+  "notes": "PARTIAL only. No relations are inferred from booru tags or community image catalogs; the campaign remains open for accessible exact creator evidence."
+}

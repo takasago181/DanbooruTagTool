@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-kyata-ti666-character-routes-partial-20260928-01",
+  "campaign_key": "authority:kyata_ti666",
+  "campaign_fingerprint": "528a04597f6d44a6ff19d78b22d0441143d4330f2dd6472400190b884fa38bef",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "The creator-linked official GANMA! profile establishes Kyata's serialized work Kyatapi Land and creator identity, but its accessible roster/episode listing does not mention Narita, Seina, Tsukimi, or Yuu. The exact campaign members and their common HOME therefore remain unproven by the inspected official routes.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_SERIALIZED_WORK_PAGE","url_or_query":"https://ganma.jp/web/magazine/kyatapi","result":"GANMA! identifies Kyatapi Land by creator Kyata and links the creator's X account, but the visible work metadata/episode list does not name the four exact campaign identities."},
+    {"route_type":"OFFICIAL_CREATOR_SOCIAL_PROFILE","url_or_query":"https://x.com/kyata_ti666","result":"The creator's X route was checked, but accessible indexed material did not provide one exact roster tying Narita, Seina, Tsukimi, and Yuu together."},
+    {"route_type":"OFFICIAL_PUBLISHER_COMIC_CATALOG","url_or_query":"https://store.ganma.jp/comics/kyatapi/","result":"The official GANMA! store route confirms the Kyatapi Land collected editions, but the accessible book listing does not identify the four campaign members or prove they all belong to that title."}
+  ],
+  "notes": "PARTIAL only. No mapping is inferred from third-party image boards or tags; further campaign-specific research remains possible."
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-magical-mirai-official-lineup-20260928-01",
+  "campaign_key": "authority:magical_mirai_(vocaloid)",
+  "campaign_fingerprint": "e549089b23b44de1973cafa66e4c38b0589bda65c6227e81073847bc58730c99",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://magicalmirai.com/2026/info_beginners-guide.html",
+  "source_claim": "The official Magical Mirai 2026 event guide identifies the event and explicitly lists Kagamine Len, Megurine Luka, MEIKO, and KAITO among its six performing virtual singers. The corresponding tag identities are the named Magical Mirai versions in this campaign.",
+  "authority_type": "OFFICIAL_EVENT_VIRTUAL_SINGER_LINEUP",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"magical_mirai_kaito","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"magical_mirai_(vocaloid)"},
+    {"subject_type":"Character","subject_key":"magical_mirai_len","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"magical_mirai_(vocaloid)"},
+    {"subject_type":"Character","subject_key":"magical_mirai_luka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"magical_mirai_(vocaloid)"},
+    {"subject_type":"Character","subject_key":"magical_mirai_meiko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"magical_mirai_(vocaloid)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The event's official lineup explicitly includes the four exact Vocaloid identities represented by the Magical Mirai campaign members."
+}

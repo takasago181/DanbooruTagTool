@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-magic-knight-rayearth-official-roster-20260928-01",
+  "campaign_key": "authority:magic_knight_rayearth",
+  "campaign_fingerprint": "2c60002d601b3564378b01b79fbc7497b490136322bdcbfb99daf8df3a202253",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://rayearth-anime.com/character/",
+  "source_claim": "The official Magic Knight Rayearth TV anime character page names Hikaru Shidou, Umi Ryuuzaki, Fuu Hououji, and Mokona, describes their roles in the Rayearth story, and carries the CLAMP/Kodansha/TMS/TV Asahi copyright line.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"hououji_fuu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"magic_knight_rayearth"},
+    {"subject_type":"Character","subject_key":"mokona","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"magic_knight_rayearth"},
+    {"subject_type":"Character","subject_key":"ryuuzaki_umi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"magic_knight_rayearth"},
+    {"subject_type":"Character","subject_key":"shidou_hikaru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"magic_knight_rayearth"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All four exact campaign members have named official roster entries on this work page."
+}
