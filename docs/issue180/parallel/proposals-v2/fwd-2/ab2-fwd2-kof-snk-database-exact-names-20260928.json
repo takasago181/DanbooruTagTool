@@ -1,0 +1,94 @@
+{
+  "schema_version": 2,
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-fwd2-kof-snk-database-exact-names-20260928",
+  "campaign_key": "authority:the_king_of_fighters",
+  "campaign_fingerprint": "f0e39c4fc653fbc688157721362fbc2cc7a02eaa5e280de783b55554c2f47e7f",
+  "source_url": "https://www.snk-corp.co.jp/official/kof-portal/characters/",
+  "source_claim": "SNK’s official KOF character database names these exact character entries (Athena Asamiya, Chang Koehan, Clark Still, Heidern, King of Dinosaurs, Kyo Kusanagi, Luong, Benimaru Nikaido, Ralf Jones, Rugal Bernstein, and Iori Yagami).",
+  "authority_type": "SNK_FIRST_PARTY_KOF_CHARACTER_DATABASE",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "asamiya_athena",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_king_of_fighters"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "chang_koehan",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_king_of_fighters"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "clark_still",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_king_of_fighters"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "heidern",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_king_of_fighters"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "king_of_dinosaurs",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_king_of_fighters"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kusanagi_kyou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_king_of_fighters"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "luong",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_king_of_fighters"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nikaidou_benimaru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_king_of_fighters"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ralf_jones",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_king_of_fighters"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rugal_bernstein",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_king_of_fighters"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yagami_iori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "the_king_of_fighters"
+    }
+  ],
+  "notes": "Only direct exact character-name entries that match this packet’s canonical tag spellings are included. Variant-form tags, unfamiliar spellings, and characters not visible in this checked database extract are omitted. The campaign root is the already reviewed stable KOF HOME root; appearances in other titles do not create another HOME.",
+  "source_review_id_hint": "src180-kof-character-database-20260928"
+}

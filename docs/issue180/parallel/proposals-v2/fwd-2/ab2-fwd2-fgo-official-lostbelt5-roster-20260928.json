@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-fwd2-fgo-official-lostbelt5-roster-20260928",
+  "campaign_key": "authority:fate/grand_order",
+  "campaign_fingerprint": "82cd05a1131fcc99405c91501f963228a906be87a12b210ff3d45ea687790b26",
+  "source_url": "https://roadto7.fate-go.jp/lostbelt/5-2/",
+  "source_claim": "The official Fate/Grand Order Road to 7 Lostbelt 5 page names Sion Eltnam Sokaris and U-Olga Marie among the characters featured for the Lostbelt story.",
+  "authority_type": "ANIPLEX_OFFICIAL_GAME_CAMPAIGN_CHARACTER_ROSTER",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "sion_eltnam_sokaris",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fate/grand_order"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "u-olga_marie",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fate/grand_order"
+    }
+  ],
+  "notes": "Only the two exact current campaign member names explicitly displayed on this official page are included. The earlier Cosmos in the Lostbelt hint route was also checked, but it does not name these exact current members; no broader Crypto/staff/variant inference is made."
+}

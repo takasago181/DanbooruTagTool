@@ -1,0 +1,226 @@
+{
+  "schema_version": 2,
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-fwd2-aikatsu-onparade-official-roster-20260928",
+  "campaign_key": "authority:aikatsu!_(series)",
+  "campaign_fingerprint": "20e599bbec87fcded4deb9c888a4c1415a03bb2623c28d923ca830b4914ac2f1",
+  "source_url": "https://www.tv-tokyo.co.jp/anime/aikatsuonparade/charalist/",
+  "source_claim": "TV Tokyo’s official Aikatsu On Parade! idol index names the exact included characters across the Aikatsu! series roster, including the original, Akari, Stars, and Friends casts. The page is an official roster and carries the BNP/BANDAI, DENTSU, TV TOKYO copyright footer.",
+  "authority_type": "TV_TOKYO_OFFICIAL_CROSS_SERIES_CHARACTER_ROSTER",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "arisugawa_otome",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "todo_yurika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kitaoji_sakura",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ichinose_kaede",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kanzaki_mizuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "natsuki_mikuru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ozora_akari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hikami_sumire",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shinjo_hinaki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kurebayashi_juri",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kurosawa_rin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "amahane_madoka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nijino_yume",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sakuraba_rola",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nanakura_koharu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "saotome_ako",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kasumi_mahiru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shiratori_hime",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kisaragi_tsubasa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nikaido_yuzu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kasumi_yozora",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shirogane_lily",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hanazono_kirara",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "chono_maika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shirayuri_sakuya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shirayuri_kaguya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "minato_mio",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yuki_aine",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "alicia_charlotte",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kiseki_raki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "aikatsu!_(series)"
+    }
+  ],
+  "notes": "Only packet tags with an exact Japanese roster-name match are included. The six members on the separate original-series hint page were checked there but are not members of this packet fingerprint; that review hint is not reused. Kamiya Shion and Oto-shiro Noel are absent from this roster page and are omitted. No characters are inferred from neighboring names or later appearances."
+}
