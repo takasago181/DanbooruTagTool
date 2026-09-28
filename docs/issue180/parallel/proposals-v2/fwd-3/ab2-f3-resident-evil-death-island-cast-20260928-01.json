@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-resident-evil-death-island-cast-20260928-01",
+  "campaign_key": "authority:resident_evil",
+  "campaign_fingerprint": "fbf3fbe7db170cc185bd0649ce7f767c112cfedb71d6856c7c534eb6e339c521",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://game.capcom.com/residentevil/en/news-3122.html",
+  "source_claim": "Capcom’s official Resident Evil: Death Island announcement identifies Chris Redfield, Jill Valentine, Claire Redfield, and Rebecca Chambers in its character cast information.",
+  "authority_type": "FIRST_PARTY_FILM_CAST_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "chris_redfield",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "resident_evil"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "claire_redfield",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "resident_evil"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jill_valentine",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "resident_evil"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rebecca_chambers",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "resident_evil"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The proposal is limited to Resident Evil campaign identities named in Capcom’s official Death Island cast announcement. No inference is made for the rest of the series-wide campaign."
+}

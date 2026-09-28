@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-muvluv-total-eclipse-official-roster-20260928-01",
+  "campaign_key": "authority:muv-luv",
+  "campaign_fingerprint": "be3c20cee260d40a9cac20e518e015e19a92ccffc33bc2e5f080c1f02f900118",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://muv-luv-te-anime.com/character/",
+  "source_claim": "The official Muv-Luv Alternative: Total Eclipse character list names Takamura Yui, Cryska Barchenowa, Inia Sestina, Tarisa Manandal, and Stella Bremer among its characters.",
+  "authority_type": "FIRST_PARTY_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "cryska_barchenowa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "muv-luv"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "inia_sestina",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "muv-luv"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "stella_bremer",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "muv-luv"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takamura_yui",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "muv-luv"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tarisa_manandal",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "muv-luv"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only matching campaign identities explicitly named in the official Total Eclipse character list are included; other Muv-Luv titles and characters are left out."
+}

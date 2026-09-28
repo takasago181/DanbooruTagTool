@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-world-trigger-official-profiles-20260928-01",
+  "campaign_key": "authority:world_trigger",
+  "campaign_fingerprint": "42202afa777dbedf57b06fa7820c5d5780dcbb52c78950200484906e52893617",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://worldtrigger.info/article/border.php",
+  "source_claim": "The official World Trigger portal’s Border member directory profiles the matching campaign members Osamu Mikumo, Yuuma Kuga, Chika Amatori, Hyuse, Yuichi Jin, Kyousuke Karasuma, and Souya Kazama.",
+  "authority_type": "FIRST_PARTY_CHARACTER_PROFILE_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "amatori_chika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "world_trigger"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hyuse",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "world_trigger"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jin_yuuichi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "world_trigger"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "karasuma_kyousuke",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "world_trigger"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kazama_souya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "world_trigger"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kuga_yuuma",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "world_trigger"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mikumo_osamu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "world_trigger"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The listed identities match individually profiled characters in the official Border member directory. Only these exact campaign identities are proposed in this batch."
+}
