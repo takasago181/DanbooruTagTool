@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-ado-universal-music-ha-chan-20260928",
+  "campaign_key": "authority:ado",
+  "campaign_fingerprint": "8a7448bda24d144a85af3d13d91f07e9dba846b628b9283d2c544a752c46f31a",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.universal-music.co.jp/ado/news/2026-08-07-2/",
+  "source_claim": "Universal Music Japan’s official Ado release page identifies “はちゃん” as an Ado-drawn character created for the Monstruo release campaign.",
+  "authority_type": "ARTIST_LABEL_OFFICIAL_CHARACTER_CREDIT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "ha-chan_(ado)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ado"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only Ha-chan is explicitly named and credited as Ado’s character on this source; no other campaign member is inferred."
+}

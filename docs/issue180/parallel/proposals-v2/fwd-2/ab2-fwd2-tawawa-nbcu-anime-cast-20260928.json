@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:tawawa",
+  "campaign_fingerprint": "543b9a3cee0ebe7d1f592b3ed6294029271623056c0ba1a2a2854a0ce7a44962",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-fwd2-tawawa-nbcu-anime-cast-20260928",
+  "source_url": "https://nbcuni.co.jp/anime/lineup/2016/index00440000.html",
+  "source_claim": "NBCUniversal Japan’s official 2016 anime lineup page identifies Getsuyoubi no Tawawa, credits Kiseki Himura as original creator, and names Ai-chan, Onii-san, Kouhai-chan, Senpai, and Volley-bu-chan in the cast.",
+  "authority_type": "NBCUNIVERSAL_OFFICIAL_ANIME_CAST",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "ai-chan_(tawawa)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "getsuyoubi_no_tawawa"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "onii-san_(tawawa)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "getsuyoubi_no_tawawa"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kouhai-chan_(tawawa)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "getsuyoubi_no_tawawa"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "senpai_(tawawa)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "getsuyoubi_no_tawawa"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "volley-bu-chan_(tawawa)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "getsuyoubi_no_tawawa"
+    }
+  ],
+  "notes": "Only exact names explicitly shown by this source are included. The unverified campaign residuals are not inferred."
+}

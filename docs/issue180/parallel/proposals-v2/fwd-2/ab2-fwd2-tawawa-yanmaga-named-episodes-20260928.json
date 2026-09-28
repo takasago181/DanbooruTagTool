@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "campaign_key": "authority:tawawa",
+  "campaign_fingerprint": "543b9a3cee0ebe7d1f592b3ed6294029271623056c0ba1a2a2854a0ce7a44962",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "terminal_reviews": [],
+  "proposal_id": "ab2-fwd2-tawawa-yanmaga-named-episodes-20260928",
+  "source_url": "https://yanmaga.jp/comics/%E6%9C%88%E6%9B%9C%E6%97%A5%E3%81%AE%E3%81%9F%E3%82%8F%E3%82%8F",
+  "source_claim": "Kodansha’s official YanMaga Web page identifies the series as 月曜日のたわわ by Kiseki Himura and lists episodes explicitly titled for Jitome-chan and Maegami-chan, including the named recurring-character episode entries.",
+  "authority_type": "KODANSHA_YANMAGA_OFFICIAL_EPISODE_LIST",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "jitome-chan_(tawawa)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "getsuyoubi_no_tawawa"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "maegami-chan_(tawawa)",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "getsuyoubi_no_tawawa"
+    }
+  ],
+  "notes": "Only exact names explicitly shown by this source are included. The unverified campaign residuals are not inferred."
+}
