@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-shuffle-navel-kareha-mayumi-20260928-01",
+  "campaign_key": "authority:shuffle!",
+  "campaign_fingerprint": "919bab1680a6cd158ec40b14e928a3a18abb90ccba590cc4b2d94dd62a603ca9",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://project-navel.com/shuffle/goods/consumerGame.html",
+  "source_claim": "Navel's official SHUFFLE! ON THE STAGE product page says PC-version side characters Kareha and Mayumi become heroines of the SHUFFLE! console game. The Navel SHUFFLE! product catalog also labels Kareha and Mayumi as SHUFFLE! subcharacters.",
+  "authority_type": "OFFICIAL_GAME_PUBLISHER_PRODUCT_CATALOG",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"kareha","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shuffle!"},
+    {"subject_type":"Character","subject_key":"mayumi_thyme","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shuffle!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The source explicitly ties both exact character names to SHUFFLE! PC and console releases."
+}

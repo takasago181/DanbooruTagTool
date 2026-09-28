@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-shuffle-tsuchimi-rin-residual-20260928-01",
+  "campaign_key": "authority:shuffle!",
+  "campaign_fingerprint": "919bab1680a6cd158ec40b14e928a3a18abb90ccba590cc4b2d94dd62a603ca9",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "https://project-navel.com/shuffle/downloads/",
+  "source_claim": "Three distinct Navel-published SHUFFLE! routes were checked for Tsuchimi Rin. The official materials confirm the game and name many associated characters, but the accessible checked material did not explicitly identify Rin.",
+  "authority_type": "OFFICIAL_GAME_PUBLISHER_ROUTE_RESEARCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_SHUFFLE_GAME_DOWNLOAD_AND_CHARACTER_MATERIALS",
+      "url_or_query": "https://project-navel.com/shuffle/downloads/",
+      "result": "The official SHUFFLE! site provides game wallpapers and labels several character images, but the accessible page text does not name Tsuchimi Rin."
+    },
+    {
+      "route_type": "OFFICIAL_NAVEL_SHUFFLE_GOODS_CATALOG",
+      "url_or_query": "https://project-navel.com/navel/products/goods/shuffle/51-.html; https://project-navel.com/navel/products/goods/shuffle/11-.html",
+      "result": "Official goods descriptions name the main heroines and several subcharacters as SHUFFLE! characters; the checked text does not identify Tsuchimi Rin."
+    },
+    {
+      "route_type": "OFFICIAL_SHUFFLE_CONSOLE_GAME_PAGE",
+      "url_or_query": "https://project-navel.com/shuffle/goods/consumerGame.html",
+      "result": "The official page establishes the SHUFFLE! console game and names Kareha, Mayumi, Tsubomi, Lisianthus, and Nerine, but does not name Tsuchimi Rin."
+    }
+  ],
+  "notes": "Partial progress only. Preserve the seven positive SHUFFLE! HOME relations in companion AUTHORITY_BATCH files. No negative relation or terminal conclusion is asserted for Tsuchimi Rin."
+}

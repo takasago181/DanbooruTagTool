@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-shuffle-navel-main-heroines-20260928-01",
+  "campaign_key": "authority:shuffle!",
+  "campaign_fingerprint": "919bab1680a6cd158ec40b14e928a3a18abb90ccba590cc4b2d94dd62a603ca9",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://project-navel.com/navel/products/goods/shuffle/51-.html",
+  "source_claim": "Navel's official SHUFFLE! products page explicitly calls Lisianthus, Nerine, Fuyou Kaede, Shigure Asa, and Primula the main heroines of SHUFFLE!.",
+  "authority_type": "OFFICIAL_GAME_PUBLISHER_PRODUCT_CATALOG",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"fuyou_kaede","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shuffle!"},
+    {"subject_type":"Character","subject_key":"lisianthus","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shuffle!"},
+    {"subject_type":"Character","subject_key":"nerine","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shuffle!"},
+    {"subject_type":"Character","subject_key":"primula","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shuffle!"},
+    {"subject_type":"Character","subject_key":"shigure_asa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"shuffle!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The publisher identifies these exact five named heroines as the main heroines of SHUFFLE! in its official goods catalog."
+}
