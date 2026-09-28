@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-yuyuhakusho-pierrot-anniversary-cast-20260928-01",
+  "campaign_key": "authority:yu_yu_hakusho",
+  "campaign_fingerprint": "aac4b9ea36fa6ef9b3555994ebf3e42a03870a1d9e46d5568c8f5b11387492b2",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://pierrot.jp/yuhaku25/",
+  "source_claim": "Studio Pierrot’s official Yu Yu Hakusho 25th anniversary page credits the main cast roles of Yusuke Urameshi, Kazuma Kuwabara, Kurama, and Hiei.",
+  "authority_type": "FIRST_PARTY_ANIME_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "urameshi_yusuke",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "yu_yu_hakusho"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kuwabara_kazuma",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "yu_yu_hakusho"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only Urameshi Yusuke and Kuwabara Kazuma have matching campaign identities in the named cast subset. Kurama is not proposed because the packet identity is specifically Youko Kurama; Koenma and Toguro are not in this cast subset."
+}

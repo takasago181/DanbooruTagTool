@@ -1,0 +1,93 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-overlord-season3-official-cast-20260928-01",
+  "campaign_key": "authority:overlord_(maruyama)",
+  "campaign_fingerprint": "fcb6f4dcd7149437e01aa424d2c5de86e5ed5208581accc68a93951cd8482ca6",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://overlord-anime.com/_season2/staffcast/",
+  "source_claim": "The official OVERLORD III cast roster names Ainz, Albedo, Shalltear, Aura, Mare, Demiurge, Cocytus, Sebas, Yuri, Lupusregina, Narberal, Shizu, Solution, and Entoma, matching all campaign identities proposed here.",
+  "authority_type": "FIRST_PARTY_ANIME_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "ainz_ooal_gown",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "overlord_(maruyama)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aura_bella_fiora",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "overlord_(maruyama)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "cz2128_delta",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "overlord_(maruyama)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "entoma_vasilissa_zeta",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "overlord_(maruyama)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "lupusregina_beta",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "overlord_(maruyama)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mare_bello_fiore",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "overlord_(maruyama)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "narberal_gamma",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "overlord_(maruyama)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sebas_tian",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "overlord_(maruyama)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shalltear_bloodfallen",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "overlord_(maruyama)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "solution_epsilon",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "overlord_(maruyama)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yuri_alpha",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "overlord_(maruyama)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "All eleven campaign identities are named in the official season cast roster; Shizu is listed by her short name on the same page."
+}
