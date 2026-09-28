@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-runami-yachiyo-variant-routes-partial-20260928-01",
+  "campaign_key": "base:runami_yachiyo",
+  "campaign_fingerprint": "f7654a31c2f06b94cfa708d75b87c0cd25cb9b7aaf5f0ea00fafee380a90f950",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "The checked official Cosmic Princess Kaguya! character profile, soundtrack page, and character-PV route establish Tsukimi Yachiyo as a character in the work, but do not explicitly map the seven packet variant tags to the base identity.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "url_or_query": "https://www.cho-kaguyahime.com/",
+      "route_type": "OFFICIAL_CHARACTER_PROFILE",
+      "result": "Names Tsukimi Yachiyo / YACHIYO RUNAMI, gives her profile and cast, and places her in the Cosmic Princess Kaguya! work; it does not identify the seven target packet variants."
+    },
+    {
+      "url_or_query": "https://www.cho-kaguyahime.com/music/cd.html",
+      "route_type": "OFFICIAL_MUSIC_PRODUCT_PAGE",
+      "result": "Describes official soundtrack content and Yachiyo's credited vocal performance; it does not map chibi, ex-Otogibanashi, kassen, mini, ray, Tsukuyomi, or WEGO packet tags to the base character."
+    },
+    {
+      "url_or_query": "https://www.news.cho-kaguyahime.com/95/",
+      "route_type": "OFFICIAL_CHARACTER_PROMOTION_PAGE",
+      "result": "Provides the official Yachiyo character PV and profile; the page does not explicitly identify the seven packet variant tags."
+    }
+  ],
+  "notes": "The base-character DIRECT_HOME is separately proposed in an AUTHORITY_BATCH. This PARTIAL outcome covers only the unverified mapping of the seven target Characters to runami_yachiyo; it is not negative evidence and does not close the campaign."
+}

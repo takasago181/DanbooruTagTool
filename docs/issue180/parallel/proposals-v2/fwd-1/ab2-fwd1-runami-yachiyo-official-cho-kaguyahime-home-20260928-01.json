@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-runami-yachiyo-official-cho-kaguyahime-home-20260928-01",
+  "campaign_key": "base:runami_yachiyo",
+  "campaign_fingerprint": "f7654a31c2f06b94cfa708d75b87c0cd25cb9b7aaf5f0ea00fafee380a90f950",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.cho-kaguyahime.com/",
+  "source_claim": "The official Cosmic Princess Kaguya! site identifies Tsukimi Yachiyo / YACHIYO RUNAMI, describes her as the administrator and top streamer of Tsukuyomi, and lists her among the characters and cast of the work.",
+  "authority_type": "OFFICIAL_WORK_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "runami_yachiyo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "cho_kaguya-hime!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official film site establishes the base character's work HOME. It does not explicitly map the seven costume, mode, or appearance-specific packet tags, which are handled separately as partial research."
+}

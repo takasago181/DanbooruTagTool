@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-momose-ginko-official-hasunosora-home-20260928-01",
+  "campaign_key": "base:momose_ginko",
+  "campaign_fingerprint": "8d98d1ee75ec1fa060375a6fd4dc62739d952516104ee4094db67975a51ad1ab",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.lovelive-anime.jp/hasunosora/music/30/",
+  "source_claim": "The official Hasunosora 5th single page names Momose Ginko (百生吟子) among the members of Hasunosora Girls High School Idol Club and identifies her voice cast; the page identifies the corresponding Hasunosora school idol club as the work.",
+  "authority_type": "OFFICIAL_FRANCHISE_MEMBER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "object_key": "love_live!_hasu_no_sora_jogakuin_school_idol_club",
+      "subject_key": "momose_ginko",
+      "relation_type": "DIRECT_HOME",
+      "subject_type": "Character",
+      "object_type": "Copyright"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The source is the official Lovelive Hasunosora project website and its product page for the Hasunosora Girls High School Idol Club 5th single. The campaign contains costume-specific tags; this relation establishes the base character HOME only."
+}
