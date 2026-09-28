@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-daiya-no-ace-official-character-roster-20260928-01",
+  "campaign_key": "authority:daiya_no_ace",
+  "campaign_fingerprint": "c4fbfe2865903d4edaba36e3f35be5119ec879d99057057b29de2c49fffd7217",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://diaace.com/characters/",
+  "source_claim": "The official TV anime Diamond no Ace character directory identifies the campaign members Sawamura Eijun, Furuya Satoru, Miyuki Kazuya, Kuramochi Yoichi, Kominato Haruichi, and Narumiya Mei by Japanese and romanized names, profiles, and school affiliations.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "furuya_satoru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "daiya_no_ace"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kominato_haruichi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "daiya_no_ace"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kuramochi_youichi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "daiya_no_ace"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "miyuki_kazuya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "daiya_no_ace"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "narumiya_mei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "daiya_no_ace"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sawamura_eijun",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "daiya_no_ace"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "All six exact campaign members appear in the official character directory; no variants or adjacent franchise characters are inferred."
+}

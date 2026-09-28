@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-do-it-yourself-official-tv-tokyo-six-character-roster-20260928-01",
+  "campaign_key": "authority:do_it_yourself!!",
+  "campaign_fingerprint": "3e1dbcb541255fb4047689d3abbde7965c0e489cc0726b2718d27d1b5eaa1a38",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/anime/diy/chara/",
+  "source_claim": "The official TV Tokyo character directory for Do It Yourself!! provides individual profiles for all six campaign members: Hikage Takumi, Juliet Queen Elizabeth VIII, Kouki Kokoro, Suride Miku, Yasaku Rei, and Yua Serufu.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "hikage_takumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "do_it_yourself!!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "juliet_queen_elizabeth_viii",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "do_it_yourself!!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kouki_kokoro",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "do_it_yourself!!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "suride_miku",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "do_it_yourself!!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yasaku_rei",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "do_it_yourself!!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yua_serufu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "do_it_yourself!!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official character directory explicitly covers all six exact campaign members."
+}
