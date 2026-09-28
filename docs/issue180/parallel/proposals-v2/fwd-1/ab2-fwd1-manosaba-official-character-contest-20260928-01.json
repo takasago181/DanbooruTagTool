@@ -1,0 +1,29 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-manosaba-official-character-contest-20260928-01",
+  "campaign_key": "authority:mahou_shoujo_no_majo_saiban",
+  "campaign_fingerprint": "e103954276509dcb0e8c3615832ee4c51cfb4f30e08851adaf1c15a92de4e899",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://manosaba.com/posts/illustcontest",
+  "source_claim": "The official Mahou Shoujo no Majo Saiban creator-art-book contest lists thirteen eligible game characters, including Sakuraba Ema, Tachibana Sherry, Natsume An-An, Tono Hanna, Kurobe Nanoka, Saeki Miria, Jogasaki Noah, Nikaido Hiro, Sawatari Coco, Shito Alisa, Hasumi Leia, Housho Margo, and Hikami Meruru.",
+  "authority_type": "OFFICIAL_GAME_CHARACTER_LIST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"sakuraba_ema","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_no_majo_saiban"},
+    {"subject_type":"Character","subject_key":"tachibana_sherry","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_no_majo_saiban"},
+    {"subject_type":"Character","subject_key":"natsume_an-an","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_no_majo_saiban"},
+    {"subject_type":"Character","subject_key":"tono_hanna","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_no_majo_saiban"},
+    {"subject_type":"Character","subject_key":"kurobe_nanoka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_no_majo_saiban"},
+    {"subject_type":"Character","subject_key":"saeki_miria","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_no_majo_saiban"},
+    {"subject_type":"Character","subject_key":"jogasaki_noah","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_no_majo_saiban"},
+    {"subject_type":"Character","subject_key":"nikaido_hiro","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_no_majo_saiban"},
+    {"subject_type":"Character","subject_key":"sawatari_coco","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_no_majo_saiban"},
+    {"subject_type":"Character","subject_key":"shito_alisa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_no_majo_saiban"},
+    {"subject_type":"Character","subject_key":"hasumi_leia","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_no_majo_saiban"},
+    {"subject_type":"Character","subject_key":"housho_margo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_no_majo_saiban"},
+    {"subject_type":"Character","subject_key":"hikami_meruru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_no_majo_saiban"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The creator-run contest explicitly lists these thirteen as characters in Mahou Shoujo no Majo Saiban. Each Japanese name corresponds directly to an exact current campaign key. The page does not list the two residual tags kurobe_honoka and tsukishiro_yuki; neither is inferred from a similar name or story role."
+}

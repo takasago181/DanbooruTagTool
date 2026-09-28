@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-manosaba-residual-outcome-20260928-01",
+  "campaign_key": "authority:mahou_shoujo_no_majo_saiban",
+  "campaign_fingerprint": "e103954276509dcb0e8c3615832ee4c51cfb4f30e08851adaf1c15a92de4e899",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "https://manosaba.com/posts/illustcontest",
+  "source_claim": "Official game materials directly name fourteen current packet members, recorded in companion authority batches. Two residual packet tags remain without an explicit primary-source name match in the routes checked.",
+  "authority_type": "OFFICIAL_CHARACTER_ROSTER_RESEARCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_CHARACTER_LIST","url_or_query":"https://manosaba.com/posts/illustcontest","result":"The official contest page lists thirteen named game characters and explicitly says they are characters of Mahou Shoujo no Majo Saiban. It does not name the residual tags kurobe_honoka or tsukishiro_yuki."},
+    {"route_type":"OFFICIAL_GAME_EVENT_CHARACTER_PROFILES","url_or_query":"https://manosaba.com/posts/ReadingEvent","result":"The official reading-event page provides character profiles for Ema, Hiro, Margo, Hanna, and Sherry, corroborating exact identity/title context for that subset; it does not establish the residual tags kurobe_honoka or tsukishiro_yuki."},
+    {"route_type":"OFFICIAL_PLATFORM_GAME_OVERVIEW","url_or_query":"https://www.nintendo.com/jp/topics/article/b09a8af4-3998-46c1-89f3-0caa82dd5743","result":"Nintendo's official overview names the caretaker Gokuchou and describes the game's thirteen captive girls. It does not supply the missing explicit name match for kurobe_honoka or tsukishiro_yuki."}
+  ],
+  "notes": "PARTIAL campaign work after three distinct safe first-party routes. Preserve positive evidence in the companion AUTHORITY_BATCH proposals. This adds no negative evidence and makes no terminal claim about kurobe_honoka or tsukishiro_yuki; continue with the next OPEN campaign rather than repeating these routes."
+}

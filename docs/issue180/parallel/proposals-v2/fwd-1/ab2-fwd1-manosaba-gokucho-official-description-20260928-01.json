@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-manosaba-gokucho-official-description-20260928-01",
+  "campaign_key": "authority:mahou_shoujo_no_majo_saiban",
+  "campaign_fingerprint": "e103954276509dcb0e8c3615832ee4c51cfb4f30e08851adaf1c15a92de4e899",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nintendo.com/jp/topics/article/b09a8af4-3998-46c1-89f3-0caa82dd5743",
+  "source_claim": "Nintendo's official game overview calls the prison-house caretaker Gokuchou and describes the group of thirteen girls subject to the witch trials in Mahou Shoujo no Majo Saiban.",
+  "authority_type": "OFFICIAL_PLATFORM_GAME_OVERVIEW",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"gokuchou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_no_majo_saiban"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Nintendo's first-party product overview names ゴクチョー in the game's own setting as the mansion manager. That exact name maps to the current packet member gokuchou."
+}
