@@ -1,0 +1,107 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-idolish7-official-anime-profiles-20260928",
+  "campaign_key": "authority:idolish7",
+  "campaign_fingerprint": "262d933e5c4f613ccdf08be282d60e529bc3ca4910615af1fa616faca862a90f",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://idolish7.com/aninana/profile/",
+  "source_claim": "The official IDOLiSH7 anime profile page groups the named characters by IDOLiSH7 and TRIGGER, gives separate profiles for 亥清悠 (ISUMI HARUKA), and identifies 小鳥遊紡 as the IDOLiSH7 manager. Its footer identifies the anime production committee. All 13 campaign targets are explicitly named on this first-party character/profile page.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "isumi_haruka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idolish7"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "izumi_iori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idolish7"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "izumi_mitsuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idolish7"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kujo_tenn",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idolish7"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nanase_riku",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idolish7"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "natsume_minami",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idolish7"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nikaido_yamato",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idolish7"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "osaka_sogo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idolish7"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rokuya_nagi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idolish7"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takanashi_tsumugi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idolish7"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsunashi_ryunosuke",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idolish7"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yaotome_gaku",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idolish7"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yotsuba_tamaki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "idolish7"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The page explicitly lists all campaign target names, including the manager and anime character romanization for Haruka; no target relations are inferred from search snippets."
+}
