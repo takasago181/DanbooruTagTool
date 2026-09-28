@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-mickey-friends-official-disney-hub-20260928-01",
+  "campaign_key": "authority:mickey_mouse_&_friends",
+  "campaign_fingerprint": "fa7a8c0ef6e76848584c9e243048873809f5c8cf68ec8cb92eb329d5ccc7b1a6",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://mickey.disney.com/",
+  "source_claim": "Disney's official Mickey & Friends hub names Mickey Mouse, Minnie Mouse, Donald Duck, Daisy Duck, and Goofy as Mickey's friends and presents their shared adventures and media under the Mickey & Friends title.",
+  "authority_type": "OFFICIAL_RIGHTSHOLDER_CHARACTER_HUB",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"daisy_duck","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mickey_mouse_&_friends"},
+    {"subject_type":"Character","subject_key":"donald_duck","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mickey_mouse_&_friends"},
+    {"subject_type":"Character","subject_key":"goofy","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mickey_mouse_&_friends"},
+    {"subject_type":"Character","subject_key":"mickey_mouse","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mickey_mouse_&_friends"},
+    {"subject_type":"Character","subject_key":"minnie_mouse","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mickey_mouse_&_friends"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Disney itself groups all five named characters under its Mickey & Friends official hub, directly supporting the campaign's candidate HOME root."
+}

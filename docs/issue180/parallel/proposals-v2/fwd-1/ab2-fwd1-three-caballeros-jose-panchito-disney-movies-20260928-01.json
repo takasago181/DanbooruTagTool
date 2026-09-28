@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-three-caballeros-jose-panchito-disney-movies-20260928-01",
+  "campaign_key": "authority:mickey_mouse_&_friends",
+  "campaign_fingerprint": "fa7a8c0ef6e76848584c9e243048873809f5c8cf68ec8cb92eb329d5ccc7b1a6",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://movies.disney.com/the-three-caballeros",
+  "source_claim": "Disney's official Three Caballeros movie page describes Donald's adventure with his Latin American friends and names Joe Carioca and Panchito as guides on that journey.",
+  "authority_type": "OFFICIAL_RIGHTSHOLDER_FILM_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"jose_carioca","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_three_caballeros"},
+    {"subject_type":"Character","subject_key":"panchito_pistoles","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"the_three_caballeros"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Disney's movie synopsis explicitly names Joe/José Carioca and Panchito in the film. The HOME object is the official film title, not the broader Mickey & Friends hub."
+}
