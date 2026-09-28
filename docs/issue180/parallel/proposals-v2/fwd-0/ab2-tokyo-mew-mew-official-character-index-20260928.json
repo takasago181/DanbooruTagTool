@@ -1,0 +1,26 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-tokyo-mew-mew-official-anime-package-character-index-20260928",
+  "campaign_key": "authority:tokyo_mew_mew",
+  "campaign_fingerprint": "8cecc5d391c002fef680d8d4b540d7771dc6dce4dfbf4fe0354a1952ec4b64f7",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://tokyo-mew-mew.com/package.html",
+  "source_claim": "The official Tokyo Mew Mew New anime site names the five civilian protagonists 桃宮いちご, 藍沢みんと, 碧川れたす, 黄 歩鈴, and 藤原ざくろ in its character-introduction material, and identifies their transformed forms ミュウイチゴ, ミュウミント, ミュウレタス, ミュウプリン, and ミュウザクロ in its volume descriptions and artwork captions. The page copyright names the Tokyo Mew Mew New production committee.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"aizawa_mint","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_mew_mew"},
+    {"subject_type":"Character","subject_key":"fong_pudding","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_mew_mew"},
+    {"subject_type":"Character","subject_key":"fujiwara_zakuro","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_mew_mew"},
+    {"subject_type":"Character","subject_key":"mew_ichigo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_mew_mew"},
+    {"subject_type":"Character","subject_key":"mew_lettuce","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_mew_mew"},
+    {"subject_type":"Character","subject_key":"mew_mint","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_mew_mew"},
+    {"subject_type":"Character","subject_key":"mew_pudding","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_mew_mew"},
+    {"subject_type":"Character","subject_key":"mew_zakuro","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_mew_mew"},
+    {"subject_type":"Character","subject_key":"midorikawa_lettuce","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_mew_mew"},
+    {"subject_type":"Character","subject_key":"momomiya_ichigo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"tokyo_mew_mew"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official package page explicitly indexes the five civilian names and names transformed Mew forms; the official character pages further confirm their role in the series."
+}
