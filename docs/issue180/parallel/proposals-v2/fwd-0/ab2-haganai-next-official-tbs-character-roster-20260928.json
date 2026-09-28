@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-haganai-next-official-tbs-character-roster-20260928",
+  "campaign_key": "authority:boku_wa_tomodachi_ga_sukunai",
+  "campaign_fingerprint": "6806cbf1f318ed7579ee2c8609aa788319224074fc9fd553ea12497cf46e5e1e",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tbs.co.jp/anime/haganai/chara/",
+  "source_claim": "TBS Television's official Boku wa Tomodachi ga Sukunai NEXT character page lists each of the seven named campaign characters in the anime's character roster.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "hasegawa_kobato",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_wa_tomodachi_ga_sukunai"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hasegawa_kodaka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_wa_tomodachi_ga_sukunai"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kashiwazaki_sena",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_wa_tomodachi_ga_sukunai"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kusunoki_yukimura",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_wa_tomodachi_ga_sukunai"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mikazuki_yozora",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_wa_tomodachi_ga_sukunai"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shiguma_rika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_wa_tomodachi_ga_sukunai"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takayama_maria",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "boku_wa_tomodachi_ga_sukunai"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The exact seven character names appear on the official TBS character page; no voice actor or unrelated supporting character is mapped."
+}
