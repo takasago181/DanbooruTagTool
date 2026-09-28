@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-koisuru-asteroid-official-anime-cast-20260928",
+  "campaign_key": "authority:koisuru_asteroid",
+  "campaign_fingerprint": "77a5433c5a826f2547d389006c0baef01cfdb3f24ef66924c701a104ca261b1e",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://koiastv.com/staff.html",
+  "source_claim": "The official TV anime Staff & Cast page names Konohata Mira, Manaka Ao, Inose Mai, Sakurai Mikage, and Morino Mari as cast roles in Koisuru Asteroid.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"konohata_mira","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"koisuru_asteroid"},
+    {"subject_type":"Character","subject_key":"manaka_ao","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"koisuru_asteroid"},
+    {"subject_type":"Character","subject_key":"inose_mai","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"koisuru_asteroid"},
+    {"subject_type":"Character","subject_key":"sakurai_mikage","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"koisuru_asteroid"},
+    {"subject_type":"Character","subject_key":"morino_mari","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"koisuru_asteroid"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All five exact campaign identities appear on the official anime cast page. The title-to-canonical copyright key and tag spellings were cross-checked against the Issue 70 source records."
+}
