@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-aikatsu-original-roster-20260928",
+  "campaign_key": "authority:aikatsu!_(series)",
+  "campaign_fingerprint": "f6f1c8ded91b4d430df2877223e445382049383bebe122a64b0543f8ee6e733f",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/anime/aikatsu2013/sp/chara/",
+  "source_claim": "TV Tokyo's official character page for the original Aikatsu! television series names Hoshimiya Ichigo, Kiriya Aoi, Shibuki Ran, Oto-shiro Seira, Saegusa Kii, and Kazesawa Sora as characters in that work.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"hoshimiya_ichigo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aikatsu!_(series)"},
+    {"subject_type":"Character","subject_key":"kiriya_aoi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aikatsu!_(series)"},
+    {"subject_type":"Character","subject_key":"shibuki_ran","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aikatsu!_(series)"},
+    {"subject_type":"Character","subject_key":"otoshiro_seira","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aikatsu!_(series)"},
+    {"subject_type":"Character","subject_key":"saegusa_kii","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aikatsu!_(series)"},
+    {"subject_type":"Character","subject_key":"kazesawa_sora","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"aikatsu!_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only campaign members explicitly named on the original-series official character page are included. No inference is made from the later crossover roster, and no co-occurrence evidence is used."
+}

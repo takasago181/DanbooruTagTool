@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-granblue-anthuria-20260928",
+  "campaign_key": "authority:granblue_fantasy",
+  "campaign_fingerprint": "76af5b1000e07419bceee8aabd4ecf88979e55c70aa3ea409b44d302e67eca03",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://granbluefantasy.com/ja/news/p58507/",
+  "source_claim": "Cygames' official Granblue Fantasy update gives a named character profile for SSR Anthuria and discusses her in-game story and abilities. This directly identifies the exact character as part of Granblue Fantasy.",
+  "authority_type": "OFFICIAL_GAME_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"anthuria","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"granblue_fantasy"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only Anthuria is explicitly named from this current campaign in this character-focused update. This records her direct game home; it does not infer homes for other campaign members. No co-occurrence evidence is used."
+}

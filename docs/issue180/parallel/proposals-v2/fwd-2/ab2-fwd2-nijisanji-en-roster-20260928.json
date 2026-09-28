@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-nijisanji-en-roster-20260928",
+  "campaign_key": "authority:nijisanji",
+  "campaign_fingerprint": "d2eba9a99a3cb54e8058fea8628697f087ba4fc4e07f7cbb620e42561a998ba8",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nijisanji.jp/en/news/3a7i42j0zdd",
+  "source_claim": "ANYCOLOR's official NIJISANJI EN launch announcement names NIJISANJI EN as its VTuber project and explicitly lists Rosemi Lovelock, Reimu Endou, Nina Kosaka, Selen Tatsuki, Ike Eveland, and Fulgur Ovid as participating EN Livers.",
+  "authority_type": "OFFICIAL_PROJECT_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"rosemi_lovelock","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nijisanji"},
+    {"subject_type":"Character","subject_key":"reimu_endou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nijisanji"},
+    {"subject_type":"Character","subject_key":"nina_kosaka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nijisanji"},
+    {"subject_type":"Character","subject_key":"selen_tatsuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nijisanji"},
+    {"subject_type":"Character","subject_key":"ike_eveland","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nijisanji"},
+    {"subject_type":"Character","subject_key":"fulgur_ovid","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"nijisanji"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Each included member is explicitly named as a NIJISANJI EN Liver in an official project event roster. The campaign remains open for the many unreviewed tags; no unit exhaustion is claimed and no co-occurrence evidence is used."
+}
