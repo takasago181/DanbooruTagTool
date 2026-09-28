@@ -1,0 +1,79 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-south-park-official-tweek-friends-20260928-01",
+  "campaign_key": "authority:south_park",
+  "campaign_fingerprint": "d97e63547c093c85596d960d68bf3bd687cad6add58cbb2db9296b17f8380cad",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.southparkstudios.com/w/index.php/Tweek_Tweak",
+  "source_claim": "The South Park Studios official wiki identifies Tweek Tweak as a South Park fourth grader and lists Stan Marsh, Kyle Broflovski, Eric Cartman, Kenny McCormick, Butters Stotch, Clyde Donovan, Wendy Testaburger, and Bebe Stevens in his school friend/classmate rosters.",
+  "authority_type": "OFFICIAL_STUDIO_CHARACTER_PROFILE_AND_PEER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "bebe_stevens",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "south_park"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "butters_stotch",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "south_park"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "clyde_donovan",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "south_park"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "eric_cartman",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "south_park"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kenny_mccormick",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "south_park"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kyle_broflovski",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "south_park"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "stan_marsh",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "south_park"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tweek_tweak",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "south_park"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "wendy_testaburger",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "south_park"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The first-party South Park Studios wiki page names Tweek Tweak as the subject and directly lists each remaining campaign character in its The Guys or Classmates sections. These exact peer listings establish the named characters in the South Park work; tag forms match the current campaign keys."
+}

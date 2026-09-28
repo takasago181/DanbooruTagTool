@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-occultic-nine-official-character-index-p1-20260928-01",
+  "campaign_key": "authority:occultic;nine",
+  "campaign_fingerprint": "421bb6dc57c441ddcb25b41c2bb55008942522bc7d60412eb549acf9cf8eb87a",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://occultic-nine.com/?category=040CHARACTER",
+  "source_claim": "The official Occultic;Nine anime character directory profiles Gamon Yuuta, Narusawa Ryouka, Hashigami Sarai, Aikawa Miyuu, Sumikaze Touko, Kurenaino Aria, and Kisaki Asuna among the series characters.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_PROFILES",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "gamon_yuuta",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "occultic;nine"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "narusawa_ryouka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "occultic;nine"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hashigami_sarai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "occultic;nine"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aikawa_miyuu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "occultic;nine"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sumikaze_touko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "occultic;nine"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kurenaino_aria",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "occultic;nine"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kisaki_asuna",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "occultic;nine"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official series character index directly names and individually describes these characters; Japanese name spellings 我聞悠太、成沢稜歌、橋上サライ、相川実優羽、澄風桐子、紅ノ亞里亞、鬼崎あすな correspond to the current campaign keys."
+}

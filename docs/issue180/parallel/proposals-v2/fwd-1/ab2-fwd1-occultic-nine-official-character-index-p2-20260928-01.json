@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-occultic-nine-official-character-index-p2-20260928-01",
+  "campaign_key": "authority:occultic;nine",
+  "campaign_fingerprint": "421bb6dc57c441ddcb25b41c2bb55008942522bc7d60412eb549acf9cf8eb87a",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://occultic-nine.com/?category=040CHARACTER&p=2",
+  "source_claim": "The next page of the official Occultic;Nine anime character directory profiles Kusakabe Kiryu, Nishizono Ririka, and Moritsuka Shun.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_PROFILES",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kusakabe_kiryuu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "occultic;nine"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nishizono_ririka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "occultic;nine"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "moritsuka_shun",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "occultic;nine"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This official continuation of the series character directory directly identifies 日下部吉柳、西園梨々花、森塚駿, matching the remaining three current campaign characters."
+}
