@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-inazuma-victory-road-official-main-character-roster-20260928",
+  "campaign_key": "authority:inazuma_eleven_(series)",
+  "campaign_fingerprint": "ef8ef7d0878c94df4eaf6937ff4896c69751b68807a81d9f8cdd5561c9c77a88",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.inazuma.jp/victory-road/character/nagumohara/",
+  "source_claim": "LEVEL5's official Inazuma Eleven Victory Road character roster names Sasanami Unmei (笹波 雲明) and Shinohara Raika (忍原 来夏), with the latter's exact reading shown on the page.",
+  "source_review_id_hint": "src180-ab2-inazuma-eleven-official-player-codex-20260928",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"sasanami_unmei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"inazuma_eleven_(series)"},
+    {"subject_type":"Character","subject_key":"shinohara_raika","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"inazuma_eleven_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "This is the official Victory Road school roster linked from the franchise's official character directory. Japanese furigana confirms both canonical name readings."
+}

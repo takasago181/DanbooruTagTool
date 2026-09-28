@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-inazuma-official-roster-routes-partial-20260928",
+  "campaign_key": "authority:inazuma_eleven_(series)",
+  "campaign_fingerprint": "ef8ef7d0878c94df4eaf6937ff4896c69751b68807a81d9f8cdd5561c9c77a88",
+  "worker_slot": 0,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "The accepted LEVEL5 Player Codex and official Victory Road roster produced exact evidence for the members found. No safe exact identity match was established for the four residual campaign members through the publisher routes checked.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_PLAYER_CODEX",
+      "url_or_query": "https://zukan.inazuma.jp/chara_list/",
+      "result": "Used the accepted LEVEL5 player codex route and exact-name searches for the four residual members; no unambiguous matching codex entry was found."
+    },
+    {
+      "route_type": "OFFICIAL_GAME_CHARACTER_ROSTER",
+      "url_or_query": "https://www.inazuma.jp/victory-road/character/",
+      "result": "Checked the official Victory Road school character directory and linked roster pages. Sasanami Unmei and Shinohara Raika were positively identified; the four residual names did not appear as exact named entries in the relevant published rosters."
+    },
+    {
+      "route_type": "OFFICIAL_PUBLISHER_NEWS",
+      "url_or_query": "site:level5.co.jp official Inazuma Eleven news exact-name searches for Kurosaki Makoto, Michinari Tatsumi, Nishinosora Yoichi, and Ryugeru Baran",
+      "result": "Targeted first-party LEVEL5 news searches returned no exact character evidence for the four residual members."
+    }
+  ],
+  "notes": "The authority campaign remains broad and open. This is route accounting only, not negative evidence or a terminal conclusion; QA should keep unresolved units eligible for later evidence."
+}
