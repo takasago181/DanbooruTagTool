@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-yuukyuu-laura-trisha-residual-routes-20260928-01",
+  "campaign_key": "authority:yuukyuu_gensoukyoku",
+  "campaign_fingerprint": "662fff192e2bfb29e7046db003670fef8813c266977077988420f111ad523590",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "https://www.taito.co.jp/uqgensoukyoku/uq2R/products",
+  "source_claim": "Three first-party TAITO routes were checked for Laura Newfield and Trisha Foster. The available material links these characters to Yuukyuu Gensoukyoku 2nd Album merchandise and franchise material, but does not establish a safe exact HOME relation for either in the current campaign.",
+  "authority_type": "OFFICIAL_PUBLISHER_FRANCHISE_ROUTE_RESEARCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_FIRST_GAME_REVIVAL_CHARACTER_PAGE",
+      "url_or_query": "https://www.taito.co.jp/uqgensoukyoku/uqrevival/characters",
+      "result": "The page explicitly identifies six campaign characters in the first-game revival. Its accessible character and voice-comment text does not name Laura Newfield or Trisha Foster."
+    },
+    {
+      "route_type": "OFFICIAL_SECOND_ALBUM_REVIVAL_CHARACTER_PAGE",
+      "url_or_query": "https://www.taito.co.jp/uqgensoukyoku/uq2R/characters",
+      "result": "The page identifies the product as Yuukyuu Gensoukyoku 2nd Album Revival, but its character list is dynamically rendered and no exact names are available in the checked page text."
+    },
+    {
+      "route_type": "OFFICIAL_SECOND_ALBUM_PRODUCT_AND_BUNDLE_PAGE",
+      "url_or_query": "https://www.taito.co.jp/ko/mob/topics/47322",
+      "result": "TAITO's official release page for Yuukyuu Gensoukyoku 2nd Album Revival names an acrylic charm set featuring Trisha and Laura. This is useful sequel association evidence but does not independently establish each exact Character's single canonical HOME relation."
+    }
+  ],
+  "notes": "Partial progress only. Preserve six direct HOME positives in the companion AUTHORITY_BATCH proposal. No negative relation or terminal conclusion is asserted for Laura Newfield or Trisha Foster."
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-zero-tsukaima-unresolved-members-20260928-01",
+  "campaign_key": "authority:zero_no_tsukaima",
+  "campaign_fingerprint": "153c199f130b24e1eab0781d23e6ebd81955532ea827905b458aa85bc6baa005",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "https://zero-tsukaima.com/memorial/",
+  "source_claim": "Official MF Bunko J publisher material was checked for Cattleya, Sylpheed, and Kugimiya Rie. It establishes that Kugimiya Rie is Louise's voice actor rather than a named fictional character, and that Cattleya and Sylphid were not listed among the accessible main cast entries. These routes do not establish safe exact HOME relations for these campaign members.",
+  "authority_type": "OFFICIAL_PUBLISHER_ROSTER_AND_ROLE_RESEARCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_PUBLISHER_ANIME_CAST_ROSTER","url_or_query":"https://zero-tsukaima.com/memorial/","result":"The official page lists Louise's voice actor as Rie Kugimiya; the name is presented as a performer, not a character. The accessible main-cast list does not name Cattleya or Sylphid."},
+    {"route_type":"OFFICIAL_PUBLISHER_SERIES_CHRONOLOGY","url_or_query":"https://zero-tsukaima.com/chronicle/","result":"The official chronology names Sylphid as Tabasa's familiar in the Tabasa's Adventure side-story entries, but does not provide a campaign-exact roster mapping to the Sylpheed tag. Cattleya was not found in the checked accessible text."},
+    {"route_type":"OFFICIAL_PUBLISHER_CHARACTER_AND_SERIES_SEARCH","url_or_query":"site:zero-tsukaima.com カトレア シルフィード ゼロの使い魔","result":"The publisher site search surfaced chronology and series pages, but no exact Cattleya profile or unambiguous exact-tag identity record sufficient to assign a canonical HOME relation."}
+  ],
+  "notes": "Partial research only. This does not claim that Cattleya or Sylpheed lack a HOME relation, and it does not create a Character relation for voice actor Rie Kugimiya. The companion authority batch preserves the exact first-party supported positives."
+}

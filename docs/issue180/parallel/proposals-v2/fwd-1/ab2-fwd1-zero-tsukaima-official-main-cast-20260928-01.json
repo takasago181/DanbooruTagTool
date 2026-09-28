@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-zero-tsukaima-official-main-cast-20260928-01",
+  "campaign_key": "authority:zero_no_tsukaima",
+  "campaign_fingerprint": "153c199f130b24e1eab0781d23e6ebd81955532ea827905b458aa85bc6baa005",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://zero-tsukaima.com/memorial/",
+  "source_claim": "The official MF Bunko J Zero no Tsukaima Memorial Complete Blu-ray page identifies the anime as adapted from the Zero no Tsukaima MF Bunko J series and lists the named roles Louise, Hiraga Saito, Tiffania, Henrietta, and Kirche (as Kirche) in its main cast.",
+  "authority_type": "OFFICIAL_PUBLISHER_ANIME_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"louise_francoise_le_blanc_de_la_valliere","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"zero_no_tsukaima"},
+    {"subject_type":"Character","subject_key":"hiraga_saito","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"zero_no_tsukaima"},
+    {"subject_type":"Character","subject_key":"henrietta_de_tristain","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"zero_no_tsukaima"},
+    {"subject_type":"Character","subject_key":"kirche_augusta_frederica_von_anhalt_zerbst","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"zero_no_tsukaima"},
+    {"subject_type":"Character","subject_key":"tiffania_westwood","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"zero_no_tsukaima"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The publisher-hosted series site identifies the source series and its main cast; the chronology page independently situates these named roles in the light-novel story. No relation is asserted for the remaining campaign members in this batch."
+}

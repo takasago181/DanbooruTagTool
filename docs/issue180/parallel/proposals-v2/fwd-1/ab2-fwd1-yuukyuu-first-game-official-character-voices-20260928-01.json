@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-yuukyuu-first-game-official-character-voices-20260928-01",
+  "campaign_key": "authority:yuukyuu_gensoukyoku",
+  "campaign_fingerprint": "662fff192e2bfb29e7046db003670fef8813c266977077988420f111ad523590",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.taito.co.jp/uqgensoukyoku/uqrevival/characters",
+  "source_claim": "TAITO's official Yuukyuu Gensoukyoku Revival character page identifies Aleph Coulson, Cheryl Christia, Maria Short, Melody Sinclair, Patty Sole, and Sheela Sheffield as characters whose original performances are being revived in the first-game remake. The page names the product Yuukyuu Gensoukyoku Revival and identifies TAITO as publisher/developer.",
+  "authority_type": "OFFICIAL_GAME_PUBLISHER_CHARACTER_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"aleph_coulson","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuukyuu_gensoukyoku"},
+    {"subject_type":"Character","subject_key":"cheryl_christia","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuukyuu_gensoukyoku"},
+    {"subject_type":"Character","subject_key":"maria_short","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuukyuu_gensoukyoku"},
+    {"subject_type":"Character","subject_key":"melody_sinclair","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuukyuu_gensoukyoku"},
+    {"subject_type":"Character","subject_key":"patty_sole","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuukyuu_gensoukyoku"},
+    {"subject_type":"Character","subject_key":"sheela_sheffield","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuukyuu_gensoukyoku"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The page explicitly names each character and says the original Yuukyuu Gensoukyoku voices return in the first-game revival."
+}
