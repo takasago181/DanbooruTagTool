@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-kagerou-project-official-anime-roster-20260928-01",
+  "campaign_key": "authority:kagerou_project",
+  "campaign_fingerprint": "f4383a5e09b0e4cd42a9ea3388e51141157e68d645a19924fb2135876bcb665a",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.mekakucityactors.com/character/",
+  "source_claim": "The official Mekakucity Actors character directory names Kido, Seto, Kano, Mary, Momo, Shintaro, Hibiya, Konoha, and Ayano among its characters.",
+  "authority_type": "FIRST_PARTY_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "amamiya_hibiya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kagerou_project"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kano_shuuya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kagerou_project"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kido_tsubomi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kagerou_project"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kisaragi_momo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kagerou_project"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kisaragi_shintarou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kagerou_project"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kozakura_marry",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kagerou_project"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "seto_kousuke",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kagerou_project"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tateyama_ayano",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "kagerou_project"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only campaign identities that directly match names in the official Mekakucity Actors character directory are proposed; other packet identities are omitted."
+}

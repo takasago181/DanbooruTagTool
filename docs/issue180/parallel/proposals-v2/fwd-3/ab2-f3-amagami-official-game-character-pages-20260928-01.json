@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-amagami-official-game-character-pages-20260928-01",
+  "campaign_key": "authority:amagami",
+  "campaign_fingerprint": "c8274065ecb503456a3a25bb9327c4910555930e1eb7ba3b05afdea67c65365a",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.amagami.info/chara.html",
+  "source_claim": "The official Amagami character pages identify the main heroines including Tsukasa Ayatsuji, Rihoko Sakurai, Kaoru Tanamachi, Sae Nakata, Ai Nanasaki, and Haruka Morishima.",
+  "authority_type": "FIRST_PARTY_GAME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "ayatsuji_tsukasa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "amagami"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "morishima_haruka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "amagami"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nakata_sae",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "amagami"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nanasaki_ai",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "amagami"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sakurai_rihoko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "amagami"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tanamachi_kaoru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "amagami"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the six campaign identities that directly match the official main-character pages are proposed; remaining campaign identities are omitted."
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-samurai-spirits-official-character-index-20260928-01",
+  "campaign_key": "authority:samurai_spirits",
+  "campaign_fingerprint": "40e441541878a09ced34143cb7f043a9e70e4a5c8c7795f5e33f490d1f49433b",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://samuraianiv.snk-corp.co.jp/english/character/",
+  "source_claim": "The official SAMURAI SHODOWN character index lists Haohmaru, Nakoruru, Genjuro Kibagami, Cham Cham, Charlotte, Rimururu, and Mina Majikina.",
+  "authority_type": "FIRST_PARTY_GAME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "cham_cham",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "samurai_spirits"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "charlotte_christine_de_colde",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "samurai_spirits"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "haoumaru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "samurai_spirits"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kibagami_genjuro",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "samurai_spirits"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "majikina_mina",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "samurai_spirits"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "murasaki_nakoruru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "samurai_spirits"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nakoruru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "samurai_spirits"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rimururu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "samurai_spirits"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only packet identities whose names directly match the official SNK character index are proposed; companion entities and uncertain romanization matches are omitted."
+}
