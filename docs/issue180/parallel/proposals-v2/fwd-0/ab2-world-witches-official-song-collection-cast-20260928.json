@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-world-witches-official-song-collection-cast-20260928",
+  "campaign_key": "authority:world_witches_series",
+  "campaign_fingerprint": "cbd8ee997fc1c481fa71afc7bb30bd8e721e9e8a86372af88a735cabd69b0b0c",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://w-witch.jp/news/20210702",
+  "source_claim": "The official World Witches news article names Karibuchi Hikari, Kanno Naoe, Nikka Edvardine Katajainen, and Nishizawa Yoshiko as performers/characters in World Witches Himeuta Collection releases; it also explicitly identifies Nishizawa as a Fuso witch appearing in World Witches UNITED FRONT.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"karibuchi_hikari","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"world_witches_series"},
+    {"subject_type":"Character","subject_key":"kanno_naoe","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"world_witches_series"},
+    {"subject_type":"Character","subject_key":"nikka_edvardine_katajainen","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"world_witches_series"},
+    {"subject_type":"Character","subject_key":"nishizawa_yoshiko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"world_witches_series"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only campaign members explicitly named as fictional witch characters in the official article are included. Voice actors and other named characters not in the current campaign are omitted."
+}
