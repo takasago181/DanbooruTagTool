@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-fire-emblem-three-houses-nintendo-cast-20260928-02",
+  "campaign_key": "authority:fire_emblem",
+  "campaign_fingerprint": "13ecbce2593a5b3054b07584572b040898b8506b4a251ddda785169632b57aa6",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-games/Fire-Emblem-Three-Houses-1175482.html",
+  "source_claim": "Nintendo's official Fire Emblem: Three Houses page identifies the game and gives individual character sections for these named members of its Black Eagles house.",
+  "authority_type": "OFFICIAL_PUBLISHER_GAME_CHARACTER_GUIDE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "source_review_id_hint": "src180-ab2-fwd1-fire-emblem-three-houses-nintendo-cast-20260928-01",
+  "relations": [
+    {"subject_type":"Character","subject_key":"hubert_von_vestra","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"fire_emblem"},
+    {"subject_type":"Character","subject_key":"caspar_von_bergliez","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"fire_emblem"},
+    {"subject_type":"Character","subject_key":"bernadetta_von_varley","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"fire_emblem"},
+    {"subject_type":"Character","subject_key":"dorothea_arnault","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"fire_emblem"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The Nintendo page's Black Eagles section has individual headings and descriptions for Hubert, Caspar, Bernadetta, and Dorothea. These four exact members are present in the current Fire Emblem campaign. No relation is inferred from house membership alone."
+}
