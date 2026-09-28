@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-re-stage-kadokawa-original-cast-release-20260928",
+  "campaign_key": "authority:re:stage!",
+  "campaign_fingerprint": "c4617426d75b9684a2e569eeb9667c263a272beda0c960aac6a599a058f4d5c9",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://prtimes.jp/main/html/rd/p/000001881.000007006.html",
+  "source_claim": "KADOKAWA’s Re:Stage! announcement describes the work and names the first six cast roles: Shikimiya Mana, Tsukisaka Sayu, Ichikishima Mizuha, Hiiragi Kae, Honjou Kasumi, and Hasegawa Mii.",
+  "authority_type": "OFFICIAL_PUBLISHER_WORK_AND_CAST_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "shikimiya_mana",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsukisaka_sayu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ichikishima_mizuha",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hiiragi_kae",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "honjou_kasumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hasegawa_mii",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The release explicitly pairs these character names with roles in the Re:Stage! work."
+}

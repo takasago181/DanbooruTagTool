@@ -1,0 +1,163 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-re-stage-project-character-directory-20260928",
+  "campaign_key": "authority:re:stage!",
+  "campaign_fingerprint": "c4617426d75b9684a2e569eeb9667c263a272beda0c960aac6a599a058f4d5c9",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://rst-project.com/",
+  "source_claim": "The Re:STAGE! PROJECT official site’s CHARACTER directory lists the named cast across the project, including all 21 campaign identities: Asahi Hina, Bandou Mikuru, Furumi Chie, Haeno Akari, Hasegawa Mii, Hiiragi Kae, Himura Nagisa, Hokaze Kanade, Honjou Kasumi, Ichijou Ruka, Ichikishima Mizuha, Itsumura Haruka, Itsumura Yukari, Misaki Sango, Mizushino Sono, Nakano Rinka, Nishidate Haku, Shikimiya Aone, Shikimiya Mana, Shirokita Kuroha, and Tsukisaka Sayu.",
+  "authority_type": "FIRST_PARTY_FRANCHISE_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "asahi_hina",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "bandou_mikuru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "furumi_chie",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "haeno_akari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hasegawa_mii",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hiiragi_kae",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "himura_nagisa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hokaze_kanade",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "honjou_kasumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ichijou_ruka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ichikishima_mizuha",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "itsumura_haruka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "itsumura_yukari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "misaki_sango",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mizushino_sono",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nakano_rinka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nishidate_haku",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shikimiya_aone",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shikimiya_mana",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shirokita_kuroha",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsukisaka_sayu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "re:stage!"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Each exact name is presented in the official Re:STAGE! PROJECT site’s character directory; the footer identifies the project rights-holder context."
+}
