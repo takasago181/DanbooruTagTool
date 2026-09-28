@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-anyamal-tantei-kirumin-zoo-tv-tokyo-official-cast-20260928",
+  "campaign_key": "authority:anyamal_tantei_kirumin_zoo",
+  "campaign_fingerprint": "9cb9bcaf449520e69cc96ea194e80d5a0b4cb2690350dd3e0385dce3b2d552a0",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/contents/kirumin/chara/index.html",
+  "source_claim": "TV Tokyo's official character page for Anyamaru Tantei Kiruminzoo provides profiles for Hatori Kanon and the Mikogami sisters Riko, Rimu, and Nagisa.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"hatori_kanon","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"anyamal_tantei_kirumin_zoo"},
+    {"subject_type":"Character","subject_key":"mikogami_nagisa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"anyamal_tantei_kirumin_zoo"},
+    {"subject_type":"Character","subject_key":"mikogami_riko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"anyamal_tantei_kirumin_zoo"},
+    {"subject_type":"Character","subject_key":"mikogami_rimu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"anyamal_tantei_kirumin_zoo"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All four exact campaign identities have individual profiles on the official broadcaster character page. Tag spellings and copyright key were cross-checked against Issue 70 source records."
+}
