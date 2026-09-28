@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-gintama-tv-tokyo-other-characters-20260928",
+  "campaign_key": "authority:gintama",
+  "campaign_fingerprint": "e5d47a17eab947321ff2f8ec30b3d46fba540f309d0e666c43621a86ac7ad44d",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/anime/gintama/chara/c-other/",
+  "source_claim": "TV Tokyo's official Gintama anime character directory profiles Sakamoto Tatsuma, Yoshida Shoyo, and the recurring object Justaway within the series.",
+  "authority_type": "FIRST_PARTY_BROADCASTER_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"sakamoto_tatsuma","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gintama"},
+    {"subject_type":"Character","subject_key":"yoshida_shouyou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gintama"},
+    {"subject_type":"Character","subject_key":"justaway","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gintama"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official anime directory names these Gintama cast elements and provides series-specific character descriptions."
+}

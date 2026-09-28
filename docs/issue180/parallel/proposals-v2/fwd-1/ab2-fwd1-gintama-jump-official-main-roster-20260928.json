@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-gintama-jump-official-main-roster-20260928",
+  "campaign_key": "authority:gintama",
+  "campaign_fingerprint": "e5d47a17eab947321ff2f8ec30b3d46fba540f309d0e666c43621a86ac7ad44d",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.shonenjump.com/j/rensai/gintama/",
+  "source_claim": "Shueisha's official Shonen Jump Gintama series page identifies the manga and lists Gintoki Sakata, Shinpachi Shimura, Sadaharu, Isao Kondo, Toshiro Hijikata, Sogo Okita, Shoyo Yoshida, Kotaro Katsura, and Shinsuke Takasugi among its named characters.",
+  "authority_type": "FIRST_PARTY_PUBLISHER_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"sakata_gintoki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gintama"},
+    {"subject_type":"Character","subject_key":"shimura_shinpachi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gintama"},
+    {"subject_type":"Character","subject_key":"sadaharu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gintama"},
+    {"subject_type":"Character","subject_key":"kondou_isao","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gintama"},
+    {"subject_type":"Character","subject_key":"hijikata_toushirou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gintama"},
+    {"subject_type":"Character","subject_key":"okita_sougo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gintama"},
+    {"subject_type":"Character","subject_key":"yoshida_shouyou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gintama"},
+    {"subject_type":"Character","subject_key":"katsura_kotarou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gintama"},
+    {"subject_type":"Character","subject_key":"takasugi_shinsuke","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gintama"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official publisher's Gintama series listing identifies these named characters as part of the serialized work."
+}

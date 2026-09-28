@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-gintama-tv-tokyo-joui-profile-20260928",
+  "campaign_key": "authority:gintama",
+  "campaign_fingerprint": "e5d47a17eab947321ff2f8ec30b3d46fba540f309d0e666c43621a86ac7ad44d",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/anime/gintama/chara/jyoui/",
+  "source_claim": "TV Tokyo's official Gintama anime character directory profiles Kotaro Katsura as a Joui faction leader and Elizabeth as his companion in the series.",
+  "authority_type": "FIRST_PARTY_BROADCASTER_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"katsura_kotarou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"gintama"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The broadcaster's official character profile directly places Katsura in the Gintama work and describes his series role."
+}
