@@ -1,0 +1,178 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-housamo-official-character-roll-2018-roster-20260928",
+    "campaign_key": "authority:tokyo_afterschool_summoners",
+    "campaign_fingerprint": "b2272417cd3323143731f39c176189666e1193207358db497a50fe35e9903349",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://housamo.jp/en/archives/2753/%E3%82%A2%E3%82%B6%E3%82%BC%E3%83%AB%E3%83%BB%E3%83%9E%E3%83%AA%E3%82%A2",
+    "source_claim": "The official Tokyo Afterschool Summoners character index explicitly lists the exact characters Shiro Motoori, Kengo Takabushi, Ryota Yakushimaru, Toji Sakimori, Ikutoshi Oki, Oniwaka Hozoin, Taurus Mask (Daisuke Ikusaba), Gunzo Tamamura, Kyuma Nakatsugi and Horkeukamui as game characters.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "horkeu_kamui",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_afterschool_summoners"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "houzouin_oniwaka",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_afterschool_summoners"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "ikusaba_daisuke",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_afterschool_summoners"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "motoori_shiro",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_afterschool_summoners"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "nakatsugi_kyuuma",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_afterschool_summoners"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "ooki_ikutoshi",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_afterschool_summoners"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "sakimori_toji",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_afterschool_summoners"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "takabushi_kengo",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_afterschool_summoners"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "tamamura_gunzo",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_afterschool_summoners"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "taurus_mask",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_afterschool_summoners"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "yakushimaru_ryota",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_afterschool_summoners"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "The cited first-party index provides explicit Japanese/English identities for the listed characters; both campaign tags Taurus Mask and Ikusaba Daisuke are separately named in its combined character label."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-housamo-official-character-catalog-kurogane-20260928",
+    "campaign_key": "authority:tokyo_afterschool_summoners",
+    "campaign_fingerprint": "b2272417cd3323143731f39c176189666e1193207358db497a50fe35e9903349",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://lifewonders-shop.jp/en/blogs/list-of-characters-appearing-after-tokyo-after-school?page=5",
+    "source_claim": "The LIFEWONDERS official character catalog for Tokyo Afterschool Summoners lists Kurogane in its named character index.",
+    "authority_type": "OFFICIAL_RIGHTS_HOLDER_CHARACTER_CATALOG",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "kajiya_kurogane",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_afterschool_summoners"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "The official publisher-operated catalog identifies Kurogane among Tokyo Afterschool Summoners characters; the canonical campaign tag supplies the family name form."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-housamo-official-character-catalog-kyoma-wakan-20260928",
+    "campaign_key": "authority:tokyo_afterschool_summoners",
+    "campaign_fingerprint": "b2272417cd3323143731f39c176189666e1193207358db497a50fe35e9903349",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://lifewonders-shop.jp/en/blogs/list-of-characters-appearing-after-tokyo-after-school?page=14",
+    "source_claim": "The LIFEWONDERS official Tokyo Afterschool Summoners character catalog lists Kyoma, Wakan Tanka, and Wakan Tanka∞ as separate named characters.",
+    "authority_type": "OFFICIAL_RIGHTS_HOLDER_CHARACTER_CATALOG",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "mononobe_kyoma",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_afterschool_summoners"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "wakan_tanka",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_afterschool_summoners"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "wakan_tanka_mugen",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_afterschool_summoners"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "The infinity-marked roster entry is retained as its own exact character entry and mapped only to the matching Mugen campaign member."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-housamo-official-character-catalog-tetsuya-20260928",
+    "campaign_key": "authority:tokyo_afterschool_summoners",
+    "campaign_fingerprint": "b2272417cd3323143731f39c176189666e1193207358db497a50fe35e9903349",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://lifewonders-shop.jp/en/blogs/list-of-characters-appearing-after-tokyo-after-school?page=9",
+    "source_claim": "The LIFEWONDERS official Tokyo Afterschool Summoners character catalog lists Tetsuya as a named character in the game roster.",
+    "authority_type": "OFFICIAL_RIGHTS_HOLDER_CHARACTER_CATALOG",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "onogami_tetsuya",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "tokyo_afterschool_summoners"
+      }
+    ],
+    "terminal_reviews": [],
+    "notes": "The roster lists this exact character as Tetsuya; the proposal follows the campaign canonical character tag for that roster identity."
+  }
+]
