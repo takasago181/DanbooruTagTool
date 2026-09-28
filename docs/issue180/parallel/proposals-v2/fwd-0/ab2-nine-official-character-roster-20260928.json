@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-nine-official-portal-roster-20260928",
+  "campaign_key": "authority:9-nine-",
+  "campaign_fingerprint": "70e7786f94937565adb597927f8ac89c329a1c2710973005732fd903c11065b5",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://9-nine-project.com/character/",
+  "source_claim": "The official 9-nine- portal's character directory lists 九條都, 新海天, 香坂春風, 結城希亜, ソフィーティア, and 新海翔 as characters in the 9-nine- series.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"kousaka_haruka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"9-nine-"},
+    {"subject_type":"Character","subject_key":"kujou_miyako","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"9-nine-"},
+    {"subject_type":"Character","subject_key":"niimi_kakeru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"9-nine-"},
+    {"subject_type":"Character","subject_key":"niimi_sora","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"9-nine-"},
+    {"subject_type":"Character","subject_key":"sophitia","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"9-nine-"},
+    {"subject_type":"Character","subject_key":"yuuki_noa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"9-nine-"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official portal's source-language character roster names all six campaign members."
+}
