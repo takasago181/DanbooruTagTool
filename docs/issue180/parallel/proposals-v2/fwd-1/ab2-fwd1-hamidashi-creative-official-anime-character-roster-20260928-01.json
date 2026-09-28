@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-hamidashi-creative-official-anime-character-roster-20260928-01",
+  "campaign_key": "authority:hamidashi_creative",
+  "campaign_fingerprint": "d44415bb3a7c1d58745bc404ef008ee3e8c19a368dd47c73ad2ce138b1b14ff4",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://hcanime.com/",
+  "source_claim": "The official Hamidashi Creative anime site identifies the source as the PS4/Nintendo Switch game Hamidashi Creative and its CHARACTER section lists Izumi Hiyori, Kamakura Shio, Nishiki Asumi, and Tokiwa Kano as characters. The official adaptation site ties all four campaign identities directly to the named work.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "izumi_hiyori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hamidashi_creative"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kamakura_shio",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hamidashi_creative"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nishiki_asumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hamidashi_creative"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tokiwa_kano",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "hamidashi_creative"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official anime website attributes the adaptation to the named game and directly lists all four identities as characters."
+}

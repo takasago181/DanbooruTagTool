@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-fate-strange-fake-aniplex-official-story-haruri-20260928-01",
+  "campaign_key": "authority:fate/strange_fake",
+  "campaign_fingerprint": "6ede3f63ad1c6d4185440a04b948a01b921cf4f90ede32bc93e1c12eee570472",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.aniplex.co.jp/lineup/strangefake/story/",
+  "source_claim": "Aniplex's official Fate/strange Fake episode synopsis names Haruri Borzak and states that she summoned a Servant, establishing her as a character within the work. This supports her direct HOME in Fate/strange Fake.",
+  "authority_type": "OFFICIAL_WORK_STORY_SYNOPSIS",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "haruri_borzak",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "fate/strange_fake"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Official episode synopsis identifies Haruri as a person summoning a Servant in the Fate/strange Fake story."
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-girls-band-cry-official-character-roster-20260928-01",
+  "campaign_key": "authority:girls_band_cry",
+  "campaign_fingerprint": "3641c032bec9567124b3cbd271e94c5ebdddfc7a53534bb95f58bcf8346bcbe6",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://girls-band-cry.com/character/",
+  "source_claim": "Toei Animation's official Girls Band Cry character roster lists Awa Subaru, Iseri Nina, Kawaragi Momoka, and Ebizuka Tomo together in the work's CHARACTER section. This supports each campaign character's direct HOME in Girls Band Cry.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "awa_subaru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "girls_band_cry"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ebizuka_tomo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "girls_band_cry"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "iseri_nina",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "girls_band_cry"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kawaragi_momoka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "girls_band_cry"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "All four dispatched identities appear on the official work character roster."
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-fire-force-kodansha-official-character-roster-20260928-01",
+  "campaign_key": "authority:en'en_no_shouboutai",
+  "campaign_fingerprint": "1993d7bd468e5635e6450eb830e37e5477e6476a4d05d8507a3dc0002b415ff9",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://shonenmagazine.com/special_page/fireforce/",
+  "source_claim": "Kodansha's official Weekly Shonen Magazine Fire Force series page lists Shinra Kusakabe, Akitaru Obi, Maki Oze, and Tamaki Kotatsu in its CHARACTER roster and gives each a character description within the Fire Force work. This supports each listed campaign character's direct HOME in Enen no Shouboutai.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "akitaru_oubi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "enen_no_shouboutai"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "maki_oze",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "enen_no_shouboutai"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shinra_kusakabe",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "enen_no_shouboutai"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tamaki_kotatsu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "enen_no_shouboutai"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Official publisher character roster lists all four campaign members as characters of the named Fire Force series."
+}
