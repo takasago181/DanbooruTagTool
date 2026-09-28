@@ -1,0 +1,106 @@
+[
+  {
+    "schema_version": 2,
+    "campaign_key": "authority:elsword",
+    "campaign_fingerprint": "db8afbe760c165400a3397026f5e0d580b894359fc6626318e6194092d966692",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-elsword-kog-character-directory-20260928",
+    "source_url": "https://elsword.koggames.com/home-page/",
+    "source_claim": "The official KOG Games Elsword character directory lists Aisha, Rena, Raven, Chung, Ara, and Noah as Elsword characters.",
+    "authority_type": "FIRST_PARTY_GAME_CHARACTER_DIRECTORY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "aisha_landar",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "elsword"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "rena_erindel",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "elsword"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "raven_cronwell",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "elsword"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "chung_seiker",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "elsword"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "ara_haan",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "elsword"
+      },
+      {
+        "subject_type": "Character",
+        "subject_key": "noah_ebalon",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "elsword"
+      }
+    ],
+    "notes": "The official character directory links each of these named playable characters from the Elsword game site."
+  },
+  {
+    "schema_version": 2,
+    "campaign_key": "authority:elsword",
+    "campaign_fingerprint": "db8afbe760c165400a3397026f5e0d580b894359fc6626318e6194092d966692",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-elsword-kog-ain-profile-20260928",
+    "source_url": "https://elsword.koggames.com/newlandingpage/ain.php",
+    "source_claim": "The official Ain profile identifies the character by the full name Ainchase Ishmael and describes him as Ain, envoy of Goddess Ishmael.",
+    "authority_type": "FIRST_PARTY_GAME_CHARACTER_PROFILE",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "ainchase_ishmael",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "elsword"
+      }
+    ],
+    "notes": "Exact full-name and character-profile match."
+  },
+  {
+    "schema_version": 2,
+    "campaign_key": "authority:elsword",
+    "campaign_fingerprint": "db8afbe760c165400a3397026f5e0d580b894359fc6626318e6194092d966692",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "terminal_reviews": [],
+    "proposal_id": "ab2-elsword-kog-luciela-story-20260928",
+    "source_url": "https://elsword.koggames.com/demon-and-assassin/",
+    "source_claim": "The official Elsword character story names Luciela R. Sourcream and identifies her as the demon character Lu in the game's Lu/Ciel pairing.",
+    "authority_type": "FIRST_PARTY_GAME_CHARACTER_STORY",
+    "relations": [
+      {
+        "subject_type": "Character",
+        "subject_key": "luciela_r._sourcream",
+        "relation_type": "DIRECT_HOME",
+        "object_type": "Copyright",
+        "object_key": "elsword"
+      }
+    ],
+    "notes": "Exact full-name match on the official game publisher site."
+  }
+]
