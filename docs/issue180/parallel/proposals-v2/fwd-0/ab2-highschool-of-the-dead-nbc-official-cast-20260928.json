@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-highschool-of-the-dead-nbc-official-cast-20260928",
+  "campaign_key": "authority:highschool_of_the_dead",
+  "campaign_fingerprint": "9b48ee3bb5ec2172d9a4802b5655b8c9034f6b38edc004b9993f9b75719a089b",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nbcuni.co.jp/anime/lineup/past/index01000000.html?lang=ja",
+  "source_claim": "NBCUniversal's official anime archive identifies Highschool of the Dead and lists Takashi Komuro, Rei Miyamoto, Saeko Busujima, Saya Takagi, and Shizuka Marikawa in its cast.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"komuro_takashi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"highschool_of_the_dead"},
+    {"subject_type":"Character","subject_key":"miyamoto_rei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"highschool_of_the_dead"},
+    {"subject_type":"Character","subject_key":"busujima_saeko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"highschool_of_the_dead"},
+    {"subject_type":"Character","subject_key":"takagi_saya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"highschool_of_the_dead"},
+    {"subject_type":"Character","subject_key":"marikawa_shizuka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"highschool_of_the_dead"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official production archive lists all five exact campaign identities in this title's cast. Canonical tag spellings and copyright key were checked against current dispatch and Issue 70 records."
+}
