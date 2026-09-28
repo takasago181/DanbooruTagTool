@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "worker_slot": 3,
+  "proposal_id": "ro2-f3-limelight-lemonade-jam-official-exact-name-routes-20260928-01",
+  "campaign_key": "authority:limelight_lemonade_jam",
+  "campaign_fingerprint": "48ca02f21c7fdd3ca851ddc1080c41a522956ce715b50c90e5fca01740e95b29",
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.yuzu-soft.com/products/lllj/",
+  "source_claim": "YuzuSoft’s official LimeLight Lemonade Jam character page names Futamihara Ririko and Shimakoshi Tsukimi in its character roster and describes their in-game roles.",
+  "authority_type": "FIRST_PARTY_DEVELOPER_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "futamihara_ririko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "limelight_lemonade_jam"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shimakoshi_tsukimi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "limelight_lemonade_jam"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official roster directly matches these two campaign spellings. The page uses different Japanese-name/romanization forms for the other two packet tags (隠杏珠 and 陽見恵凪), so this source alone is not used to assert those mappings."
+}

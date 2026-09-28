@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "worker_slot": 3,
+  "proposal_id": "ro2-f3-kokoro-iroduku-creator-routes-partial-20260928-01",
+  "campaign_key": "authority:kokoro_iroduku_koi_ga_shitai",
+  "campaign_fingerprint": "1db74776dc42971ecf6950081ee26a7cd1403811cc50d2d6d7b0cf7c5d942865",
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "CREATOR_POST_DISCOVERY",
+      "url_or_query": "https://twitter.com/minori_chigusa/status/1322078771042680832",
+      "result": "A creator-post URL is linked from secondary artwork indexing for an Aoba Miu-tagged image, but the post content was not directly verified and does not establish the campaign roster."
+    },
+    {
+      "route_type": "CREATOR_POST_DISCOVERY",
+      "url_or_query": "https://twitter.com/minori_chigusa/status/1266641115534331904",
+      "result": "A second creator-post URL is surfaced with Kurosu sibling artwork in a secondary tag catalog; exact title-to-character authority was not readable here."
+    },
+    {
+      "route_type": "SECONDARY_SOURCE_ARTWORK_CATALOG",
+      "url_or_query": "https://tbib.org/index.php?id=12997031&page=post&s=view",
+      "result": "The catalog associates the title tag with Kurosu Hajime/Owari artwork and the artist Chigusa Minori, but remains secondary evidence and says nothing reliable about Momiji Ayaka or Momose Akari."
+    }
+  ],
+  "notes": "Secondary artwork tags and creator-post URLs establish a useful discovery path but not an official roster tying all four member identities to a common work. Partial progress only; no relationship is inferred."
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "worker_slot": 3,
+  "proposal_id": "ro2-f3-kirishima-satoshi-creator-route-partial-20260928-01",
+  "campaign_key": "authority:kirishima_satoshi",
+  "campaign_fingerprint": "6777f7c13014a488cf387438ec3b38f6fee7ac22a90a00e4d2a36c8cfbfebeaf",
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "FIRST_PARTY_CREATOR_ROSTER_SEARCH",
+      "url_or_query": "Kirishima Satoshi official creator site bathing elf elf bishop elf cleric leotard elf knightess",
+      "result": "Search did not locate a directly readable first-party creator roster linking the four exact campaign character names to one work."
+    },
+    {
+      "route_type": "SECONDARY_TAG_CATALOG",
+      "url_or_query": "https://safebooru.org/index.php?page=post&s=list&tags=kirishima_satoshi",
+      "result": "Safebooru indexes Kirishima Satoshi as an artist and many unrelated source franchises; its tag catalog does not establish the four original character identities or a shared Copyright home."
+    },
+    {
+      "route_type": "SOURCE_ARTWORK_DISCOVERY",
+      "url_or_query": "https://safebooru.org/index.php?id=244245&page=post&s=view",
+      "result": "A secondary post attributes one original elf illustration to Kirishima Satoshi. It does not name the four exact campaign roles or demonstrate their shared canonical source."
+    }
+  ],
+  "notes": "Artist attribution and sample original artwork were discoverable, but there is no first-party evidence for a single shared home for all four character tags. Partial research only; no relation is inferred."
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "worker_slot": 3,
+  "proposal_id": "ro2-f3-koe-no-katachi-official-four-character-roster-20260928-01",
+  "campaign_key": "authority:koe_no_katachi",
+  "campaign_fingerprint": "4f22ef69354b71621e3fe6c1463ddacb07f6a753cdc6cd1ca8f11998afbb8677",
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://koenokatachi-movie.com/sp/character/",
+  "source_claim": "The official A Silent Voice film character page lists Shouya Ishida, Shouko Nishimiya, Yuzuru Nishimiya, and Naoka Ueno among the film’s characters.",
+  "authority_type": "FIRST_PARTY_FILM_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "ishida_shouya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "koe_no_katachi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nishimiya_shouko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "koe_no_katachi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "nishimiya_yuzuru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "koe_no_katachi"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ueno_naoka",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "koe_no_katachi"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the exact campaign identities named in the source are proposed."
+}

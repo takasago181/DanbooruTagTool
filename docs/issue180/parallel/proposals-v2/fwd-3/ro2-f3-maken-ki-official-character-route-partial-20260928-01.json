@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "worker_slot": 3,
+  "proposal_id": "ro2-f3-maken-ki-official-character-route-partial-20260928-01",
+  "campaign_key": "authority:maken-ki!",
+  "campaign_fingerprint": "8521b847f792d8de0bb2be717b8ecb975844513ac2b1aa9385657e534b52a9fc",
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "FIRST_PARTY_ANIME_CHARACTER_PAGE",
+      "url_or_query": "https://maken-ki-two.com/character/",
+      "result": "The official Maken-Ki! Two character page is accessible, but text extraction exposes only character images and copyright, not exact names that can be mapped safely to all four tags."
+    },
+    {
+      "route_type": "FIRST_PARTY_ANIME_SITE",
+      "url_or_query": "https://maken-ki-two.com/",
+      "result": "The official sequel anime site confirms Maken-Ki! context; no exact full campaign roster was readable in the checked route."
+    },
+    {
+      "route_type": "SECONDARY_CHARACTER_REFERENCE_SEARCH",
+      "url_or_query": "Maken-Ki official character Akaza Chacha Amaya Haruko Himegami Kodama Nijou Aki",
+      "result": "Search surfaced secondary character references, but no first-party source with readable exact names for all four campaign members was established."
+    }
+  ],
+  "notes": "The official character page could not be read at exact-name level through the accessible extraction, while secondary lists are not treated as authority. Partial progress only; no negative relation is inferred."
+}
