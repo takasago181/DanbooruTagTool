@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-yuruyuri-residual-outcome-20260928-01",
+  "campaign_key": "authority:yuruyuri",
+  "campaign_fingerprint": "a4a45995ce2f0c20896dc472eefd9b5b5cd4fae8c5db0c5d10e65957d245216c",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "https://yuruyuri.com/2nd/staff/",
+  "source_claim": "Official YuruYuri anime and Ohmuroke cast sources yielded exact current-packet matches recorded in companion authority batches. Three residual packet names were not established by the checked official routes and remain unresolved.",
+  "authority_type": "OFFICIAL_CHARACTER_ROSTER_RESEARCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_ANIME_CAST","url_or_query":"https://yuruyuri.com/2nd/staff/","result":"The official season two cast list names the core cast and additional characters including Ikeda Chizuru, Nishigaki Nana, Matsumoto Rise, and Mirakurun. It does not explicitly name the three residual tags funami_mari, furutani_kaede, and yoshikawa_tomoko."},
+    {"route_type":"OFFICIAL_SPINOFF_CHARACTER_AND_CAST","url_or_query":"https://ohmuroke.com/","result":"The official Ohmuroke site names Ohmuro Sakurako, Nadeshiko, Hanako, and Furutani Himawari. It does not establish the other three residual tag identities."},
+    {"route_type":"OFFICIAL_ANIME_CAST_AND_STORY","url_or_query":"https://yuruyuri.com/10th/","result":"The official YuruYuri 10th anniversary anime page names Akaza Akane in story and cast context. It does not name the other three residual tags funami_mari, furutani_kaede, and yoshikawa_tomoko."}
+  ],
+  "notes": "PARTIAL campaign research after three distinct safe first-party routes. Positive relations remain recorded in the companion AUTHORITY_BATCH proposals. This is not negative evidence or a terminal conclusion for any unresolved character; continue on another OPEN campaign and do not repeat these exact routes."
+}

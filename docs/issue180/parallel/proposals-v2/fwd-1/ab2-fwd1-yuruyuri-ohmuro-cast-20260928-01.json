@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-yuruyuri-ohmuro-cast-20260928-01",
+  "campaign_key": "authority:yuruyuri",
+  "campaign_fingerprint": "a4a45995ce2f0c20896dc472eefd9b5b5cd4fae8c5db0c5d10e65957d245216c",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://ohmuroke.com/",
+  "source_claim": "The official Ohmuroke movie site describes Ohmuro Sakurako and her sisters and its cast section names Ohmuro Sakurako, Ohmuro Nadeshiko, Ohmuro Hanako, and Furutani Himawari.",
+  "authority_type": "OFFICIAL_SPINOFF_CHARACTER_AND_CAST_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"oomuro_sakurako","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuruyuri"},
+    {"subject_type":"Character","subject_key":"oomuro_nadeshiko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuruyuri"},
+    {"subject_type":"Character","subject_key":"oomuro_hanako","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuruyuri"},
+    {"subject_type":"Character","subject_key":"furutani_himawari","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuruyuri"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official Ohmuroke movie page establishes these named characters as part of the Ohmuroke story spun from the YuruYuri setting; it explicitly describes Ohmuro Sakurako as a character in YuruYuri and names the other three in the official cast/character sections. The exact packet keys are limited to those four matches."
+}

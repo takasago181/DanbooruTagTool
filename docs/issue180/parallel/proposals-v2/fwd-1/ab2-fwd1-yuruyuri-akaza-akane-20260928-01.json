@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-yuruyuri-akaza-akane-20260928-01",
+  "campaign_key": "authority:yuruyuri",
+  "campaign_fingerprint": "a4a45995ce2f0c20896dc472eefd9b5b5cd4fae8c5db0c5d10e65957d245216c",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://yuruyuri.com/10th/",
+  "source_claim": "The official YuruYuri 10th-anniversary anime site names Akaza Akane as Akari's older sister and includes her in the cast.",
+  "authority_type": "OFFICIAL_ANIME_CAST_AND_STORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"akaza_akane","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuruyuri"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The first-party YuruYuri site names 赤座あかね and explicitly identifies her as Akari's older sister. This exact name maps to the current campaign member akaza_akane."
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-yuruyuri-additional-cast-20260928-01",
+  "campaign_key": "authority:yuruyuri",
+  "campaign_fingerprint": "a4a45995ce2f0c20896dc472eefd9b5b5cd4fae8c5db0c5d10e65957d245216c",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://yuruyuri.com/2nd/staff/",
+  "source_claim": "The official YuruYuri season two cast page lists Ikeda Chizuru, Nishigaki Nana, Matsumoto Rise, and the in-story magical-girl character Mirakurun.",
+  "authority_type": "OFFICIAL_ANIME_CAST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"ikeda_chizuru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuruyuri"},
+    {"subject_type":"Character","subject_key":"nishigaki_nana","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuruyuri"},
+    {"subject_type":"Character","subject_key":"matsumoto_rise","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuruyuri"},
+    {"subject_type":"Character","subject_key":"mirakurun","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuruyuri"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official season two page directly labels these four cast members/fictional in-series character. The listed Japanese spellings map to the exact current campaign member keys."
+}

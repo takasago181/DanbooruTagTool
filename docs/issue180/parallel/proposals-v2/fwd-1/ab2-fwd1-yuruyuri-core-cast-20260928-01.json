@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-yuruyuri-core-cast-20260928-01",
+  "campaign_key": "authority:yuruyuri",
+  "campaign_fingerprint": "a4a45995ce2f0c20896dc472eefd9b5b5cd4fae8c5db0c5d10e65957d245216c",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://yuruyuri.com/2nd/staff/",
+  "source_claim": "The official YuruYuri season two staff and cast page lists Akaza Akari, Toshino Kyouko, Funami Yui, Yoshikawa Chinatsu, Sugiura Ayano, and Ikeda Chitose as cast characters.",
+  "authority_type": "OFFICIAL_ANIME_CAST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"akaza_akari","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuruyuri"},
+    {"subject_type":"Character","subject_key":"toshinou_kyouko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuruyuri"},
+    {"subject_type":"Character","subject_key":"funami_yui","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuruyuri"},
+    {"subject_type":"Character","subject_key":"yoshikawa_chinatsu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuruyuri"},
+    {"subject_type":"Character","subject_key":"sugiura_ayano","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuruyuri"},
+    {"subject_type":"Character","subject_key":"ikeda_chitose","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"yuruyuri"}
+  ],
+  "terminal_reviews": [],
+  "notes": "These are exact current campaign character names on the first-party YuruYuri cast page. The page identifies them as characters in the YuruYuri anime; no relation is inferred for other packet members."
+}
