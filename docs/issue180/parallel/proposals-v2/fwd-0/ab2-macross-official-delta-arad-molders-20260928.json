@@ -1,0 +1,24 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-macross-official-delta-arad-molders-20260928",
+  "campaign_key": "authority:macross",
+  "campaign_fingerprint": "1c7d08537e969e7d1a28137bdb9a2f4fcf5493e6f93214a87562bcc303e01efc",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://macross.jp/pages/series?title=macrossdelta",
+  "source_claim": "The official MACROSS Δ page includes Arad Molders by name in its CAST section, paired with voice actor Tomoyuki Morikawa. This is an exact named fictional character entry in the official Macross series source. The accepted source mapping src180-ab2-macross-official-delta-character-roster-20260928 maps exact official character entries to the stable root Copyright macross.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "source_review_id_hint": "src180-ab2-macross-official-delta-character-roster-20260928",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "arad_molders",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "macross"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official cast list explicitly includes Arad Molders. Mecha and the differently named Yami character forms in the campaign are not inferred from this page."
+}
