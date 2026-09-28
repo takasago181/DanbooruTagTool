@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-disgaea-official-first-game-profiles-20260928",
+  "campaign_key": "authority:disgaea",
+  "campaign_fingerprint": "2e14f51b060d7f426bb8314df2065e0b6407e56e1ca5c16807a7b4b0ac01088b",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://disgaea.jp/1/index.html",
+  "source_claim": "Nippon Ichi Software's official 魔界戦記ディスガイア page identifies the first game and lists Laharl and Flonne as named characters in its cast; the page carries the 2003–2005 Nippon Ichi Software copyright.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "laharl",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "disgaea"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "flonne",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "disgaea"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the two named original-game campaign targets are included; other recurring characters or generic units are not inferred."
+}

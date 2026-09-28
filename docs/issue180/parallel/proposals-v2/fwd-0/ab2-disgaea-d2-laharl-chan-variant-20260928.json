@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-disgaea-d2-laharl-chan-variant-20260928",
+  "campaign_key": "authority:disgaea",
+  "campaign_fingerprint": "2e14f51b060d7f426bb8314df2065e0b6407e56e1ca5c16807a7b4b0ac01088b",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://disgaea.jp/sp/d2/character/laharl_chan.html",
+  "source_claim": "Nippon Ichi Software's official Disgaea D2 character profile names Laharl-chan and states that Laharl woke up having become female, directly identifying this form as a variant of Laharl.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "laharl-chan",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "laharl"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This is a character-to-character variant relation, not a new copyright HOME assignment."
+}
