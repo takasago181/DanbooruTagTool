@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-ultra-series-tsuburaya-kaiju-encyclopedia-20260928-02",
+  "campaign_key": "authority:ultra_series",
+  "campaign_fingerprint": "319d728a3dc0370427b5b92f523f09157710bf2c399c2800c8b8f1f3d72fb7fe",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://tsuburaya-prod.com/encyclopedialist",
+  "source_claim": "Tsuburaya Productions’ official Kaiju Encyclopedia lists Alien Baltan, Eleking, Gomora, Alien Mefilas, and Zetton among characters in the Ultraman franchise.",
+  "authority_type": "OFFICIAL_RIGHTSHOLDER_KAIJU_ENCYCLOPEDIA",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "baltan_seijin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "eleking",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "gomora",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "mephilas_seijin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "zetton",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The source is the official Tsuburaya Kaiju Encyclopedia and explicitly lists each mapped monster/alien name. The campaign Japanese-style tags baltan_seijin and mephilas_seijin correspond to the listed Alien Baltan and Alien Mefilas names."
+}

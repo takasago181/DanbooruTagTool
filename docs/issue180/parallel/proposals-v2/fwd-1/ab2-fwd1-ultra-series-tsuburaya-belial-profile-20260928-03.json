@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-ultra-series-tsuburaya-belial-profile-20260928-03",
+  "campaign_key": "authority:ultra_series",
+  "campaign_fingerprint": "319d728a3dc0370427b5b92f523f09157710bf2c399c2800c8b8f1f3d72fb7fe",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://tsuburaya-prod.com/encyclopedia/ultraman-belial",
+  "source_claim": "Tsuburaya’s official profile identifies Ultraman Belial as an Ultra born from the Land of Light and details his role in the Ultraman series and related series.",
+  "authority_type": "OFFICIAL_RIGHTSHOLDER_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "ultraman_belial",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The page is the official Ultraman Belial profile in Tsuburaya’s encyclopedia and names his story connections to Ultraman Zero and Ultraman Geed. The direct HOME is the Ultraman franchise; no relation is inferred from villain role."
+}

@@ -1,0 +1,149 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-ultra-series-tsuburaya-hero-encyclopedia-20260928-01",
+  "campaign_key": "authority:ultra_series",
+  "campaign_fingerprint": "319d728a3dc0370427b5b92f523f09157710bf2c399c2800c8b8f1f3d72fb7fe",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://tsuburaya-prod.com/heroeslist",
+  "source_claim": "Tsuburaya Productions’ official Hero Encyclopedia lists these Ultra heroes as characters in its ULTRAMAN franchise: Ultraman, Ultraseven, Ultraman Ace, Ultraman Jack, Ultraman Taro, Ultraman Tiga, Ultraman Dyna, Ultraman Gaia, Ultraman Agul, Ultraman Cosmos, Ultraman Nexus, Ultraman Mebius, Ultraman Zero, Ultraman Geed, Ultraman Z, Ultraman Blazar, Ultraman Arc, Ultraman Decker, and Ultraman Trigger.",
+  "authority_type": "OFFICIAL_RIGHTSHOLDER_HERO_ENCYCLOPEDIA",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "ultraman",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ultraseven",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ultraman_ace",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ultraman_jack",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ultraman_tarou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ultraman_tiga",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ultraman_dyna",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ultraman_gaia",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ultraman_agul",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ultraman_cosmos",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ultraman_nexus",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ultraman_mebius",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ultraman_zero",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ultraman_geed",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ultraman_z",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ultraman_blazar",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ultraman_arc",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ultraman_decker",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ultraman_trigger",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "ultra_series"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official Tsuburaya character index names each mapped hero under the ULTRAMAN/HERO ENCYCLOPEDIA heading. The tag ultraman_tarou corresponds to the official name Ultraman Taro; no HOME is inferred from a transformation or shared design."
+}
