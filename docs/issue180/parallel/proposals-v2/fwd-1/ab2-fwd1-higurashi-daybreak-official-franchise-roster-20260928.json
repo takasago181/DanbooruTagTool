@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-higurashi-daybreak-official-franchise-roster-20260928",
+  "campaign_key": "authority:higurashi_no_naku_koro_ni",
+  "campaign_fingerprint": "2879082b319d73de9c00b6c6fe19ed3aca2ed4bfdd1712ae1fd7b3a9c07cff6e",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://07th-expansion.net/archives/1436",
+  "source_claim": "07th Expansion’s official Higurashi Daybreak series page identifies Daybreak as an action game based on Higurashi and says its additional cast includes Hanyuu and Kimiyoshi Natsumi; its Mega Edition adds Satoshi Houjou and Tanashi Miyoko as characters in its 19-character roster.",
+  "authority_type": "FIRST_PARTY_GAME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "hanyuu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kimiyoshi_natsumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "houjou_satoshi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tanashi_miyoko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The creator-publisher’s series listing explicitly names these characters as participants in Higurashi game entries."
+}

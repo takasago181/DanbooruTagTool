@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-higurashi-mei-official-character-list-20260928",
+  "campaign_key": "authority:higurashi_no_naku_koro_ni",
+  "campaign_fingerprint": "2879082b319d73de9c00b6c6fe19ed3aca2ed4bfdd1712ae1fd7b3a9c07cff6e",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://higurashi-mei.com/",
+  "source_claim": "The official Higurashi no Naku Koro ni Mei site lists character profiles for Kimiyoshi Kazuho, Akasaka Miyuki, Houtani Nao, Rena Ryuuguu, Mion Sonozaki, Satoko Houjou, and Rika Furude. The Miyuki profile explicitly identifies her as the daughter of detective Mamoru Akasaka.",
+  "authority_type": "OFFICIAL_GAME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "kimiyoshi_kazuho",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "akasaka_miyuki",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "houtani_nao",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ryuuguu_rena",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sonozaki_mion",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "houjou_satoko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "furude_rika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "akasaka_mamoru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official character pages and their exact names/profiles appear under the Higurashi game title; the site credits the Higurashi production committee."
+}

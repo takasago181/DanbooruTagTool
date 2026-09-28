@@ -1,0 +1,107 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-higurashi-07th-original-roster-20260928",
+  "campaign_key": "authority:higurashi_no_naku_koro_ni",
+  "campaign_fingerprint": "2879082b319d73de9c00b6c6fe19ed3aca2ed4bfdd1712ae1fd7b3a9c07cff6e",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://07th-expansion.net/hig_gensaku",
+  "source_claim": "07th Expansion’s official introduction to the original Higurashi sound novel names and profiles Keiichi Maebara, Rena Ryuuguu, Mion and Shion Sonozaki, Satoko and Satoshi Houjou, Rika Furude, Hanyuu, Kyousuke Irie, Rumiko Chie, Kuroudo Oishi, Miyo Takano, and Jiro Tomitake.",
+  "authority_type": "FIRST_PARTY_CREATOR_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "maebara_keiichi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ryuuguu_rena",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sonozaki_mion",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sonozaki_shion",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "houjou_satoko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "houjou_satoshi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "furude_rika",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hanyuu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "irie_kyousuke",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "chie_rumiko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "ooishi_kuraudo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "takano_miyo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tomitake_jirou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "higurashi_no_naku_koro_ni"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "These exact profiles appear under the 07th Expansion official Higurashi work introduction and identify them as characters within the work."
+}
