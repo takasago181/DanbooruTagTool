@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-warhammer40k-official-angron-character-product-20260928",
+  "campaign_key": "authority:warhammer_40k",
+  "campaign_fingerprint": "7c925bb610f9b0937eee87823fa21d35bb28acef76adf18724b4090abd335817",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.warhammer.com/en-US/shop/world-eaters-angron-daemon-primarch-of-khorne-2023",
+  "source_claim": "Games Workshop's official Warhammer product page identifies Angron as a plastic character for Warhammer 40,000 and names him the Daemon Primarch of Khorne. This directly establishes the campaign's exact Angron character tag and its Warhammer 40,000 home.",
+  "authority_type": "FIRST_PARTY_CHARACTER_PRODUCT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "angron",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "warhammer_40k"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the explicitly named Angron relation is included from this product page. Other Primarchs, factions, gods, or similarly themed campaign tags are not inferred. The remaining broad campaign stays open for further authority research."
+}
