@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-kage-no-jitsuryokusha-official-roster-20260928-01",
+  "campaign_key": "authority:kage_no_jitsuryokusha_ni_naritakute!",
+  "campaign_fingerprint": "0451c48dfbd569422dc6d1f1eb6cdd20f90aa17f6935eda7038e1be638c3c8a7",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.shadow-garden-mog.jp/",
+  "source_claim": "The official Master of Garden site presents the series setting and named character entries for Cid Kagenou, Alexia Midgar, Claire Kagenou, and Rose Oriana. The footer identifies the series rights line and the official TV anime site, establishing these roster entries as characters of Kage no Jitsuryokusha ni Naritakute!.",
+  "authority_type": "OFFICIAL_FRANCHISE_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"alexia_midgar","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kage_no_jitsuryokusha_ni_naritakute!"},
+    {"subject_type":"Character","subject_key":"cid_kagenou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kage_no_jitsuryokusha_ni_naritakute!"},
+    {"subject_type":"Character","subject_key":"claire_kagenou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kage_no_jitsuryokusha_ni_naritakute!"},
+    {"subject_type":"Character","subject_key":"rose_oriana","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kage_no_jitsuryokusha_ni_naritakute!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Official game adaptation roster checked at the exact campaign member level."
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-japanese-urban-legends-shared-home-partial-20260928-01",
+  "campaign_key": "authority:japanese_urban_legends",
+  "campaign_fingerprint": "43132201362f7e69bd60ebf5d55fb5ada360d4fd866a0897a16c68740c6eb382",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "The checked publisher and official fiction sources do not establish a shared authored Copyright HOME for Hachishaku-sama, Kuchisake-onna, Mary-san, and Toire no Hanako-san. They are presented as separate folklore/urban-legend figures or as incidents within unrelated authored works, so no aggregate work relation is safe from these routes.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"PUBLISHER_URBAN_LEGEND_COLLECTION","url_or_query":"https://tuttlepublishing.com/japan/japanese-urban-legends-9784805319840","result":"Tuttle's publisher page describes an illustrated 124-tale collection including Slit-Mouthed Woman lore, but does not identify all four campaign tags as characters of one authored Copyright work."},
+    {"route_type":"OFFICIAL_PUBLISHER_FICTION_SERIES","url_or_query":"https://tsubasabunko.jp/product/kyofucollector/321607000511.html","result":"KADOKAWA's official Fear Collector volume page includes an episode titled Hachishaku-sama; it does not establish that the four folklore tags are all characters belonging to that series."},
+    {"route_type":"SECONDARY_FOLKLORE_REFERENCE","url_or_query":"https://yokai.jp/","result":"The folklore reference route treats these as independently circulating legend/folklore concepts rather than establishing a shared rights-holder or single authored-work HOME; it is not first-party authority for assigning one Copyright."}
+  ],
+  "notes": "PARTIAL only. The campaign remains open for exact identity and rights-holder research; no negative or terminal relation is proposed."
+}

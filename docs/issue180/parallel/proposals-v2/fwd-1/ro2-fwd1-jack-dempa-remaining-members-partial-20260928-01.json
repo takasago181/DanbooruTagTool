@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-jack-dempa-remaining-members-partial-20260928-01",
+  "campaign_key": "authority:jack_dempa",
+  "campaign_fingerprint": "c844ae84feff4d715ad44897e4f31ba44036236c3b09198eb44e58590d952a79",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "The official creator Linktree and linked Fantia profile establish the JackDempa creator identity and platform links, but the accessible checked pages do not establish exact HOME relations for Harukawa Syuria, Miyamae Shiho, or Watanabe Ayasa. A Pixiv creator profile route was also attempted but was inaccessible in this reader.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_CREATOR_LINK_HUB","url_or_query":"https://linktr.ee/jackdempa","result":"The creator-owned Linktree identifies 弱電波 JackDempa and links Fantia, FANBOX, X, pixiv and other creator accounts; it does not enumerate the three remaining campaign identities or map them to this creator."},
+    {"route_type":"OFFICIAL_CREATOR_PROFILE","url_or_query":"https://fantia.jp/fanclubs/7","result":"The creator profile identifies 弱電波 (JackDempa), but the accessible profile text does not name Harukawa Syuria, Miyamae Shiho, or Watanabe Ayasa as characters or establish their work HOME."},
+    {"route_type":"OFFICIAL_CREATOR_ILLUSTRATION_PROFILE","url_or_query":"https://www.pixiv.net/users/4203133","result":"The creator-linked Pixiv profile could not be opened by the current reader, so it supplied no exact member evidence."}
+  ],
+  "notes": "PARTIAL only. No relation is proposed for the three unverified members; this does not negate any separately supported positive relation."
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-kamichu-official-cast-20260928-01",
+  "campaign_key": "authority:kamichu!",
+  "campaign_fingerprint": "4c3f00d515d2326732f7f1106907caa11bc97b6cc3903a7c995a24c849d26571",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.aniplex.co.jp/kamichu/about/",
+  "source_claim": "Aniplex's official Kamichu! page identifies the anime and its production, names protagonist Yurie, and lists the exact cast entries for Yurie, Matsuri, Mitsue Shijo, and Miko. The production footer credits Besame Mucho and Aniplex.",
+  "authority_type": "OFFICIAL_WORK_CAST_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"hitotsubashi_yurie","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kamichu!"},
+    {"subject_type":"Character","subject_key":"saegusa_matsuri","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kamichu!"},
+    {"subject_type":"Character","subject_key":"saegusa_miko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kamichu!"},
+    {"subject_type":"Character","subject_key":"shijou_mitsue","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kamichu!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "All four exact campaign members appear in the official cast roster."
+}
