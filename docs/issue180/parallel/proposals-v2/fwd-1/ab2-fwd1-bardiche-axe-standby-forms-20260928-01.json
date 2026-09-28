@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-bardiche-axe-standby-forms-20260928-01",
+  "campaign_key": "base:bardiche_(nanoha)",
+  "campaign_fingerprint": "78ed607d42622a0981b6b479c8f04d2bef081290b0a760cd6e2e8aee99f83112",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nanoha.com/EXGV/character/fate.html",
+  "source_claim": "The official EXCEEDS Fate profile identifies Bardiche as Fate's intelligent device, describes its golden brooch standby form, and names its AX (Axe) form. These explicit states are forms of the same Bardiche device.",
+  "authority_type": "OFFICIAL_CHARACTER_AND_DEVICE_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "bardiche_(axe_form)_(nanoha)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "bardiche_(nanoha)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "bardiche_(standby_form)_(nanoha)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "bardiche_(nanoha)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The first-party profile uses AX (Axe) and explicitly describes a standby shape for Bardiche."
+}

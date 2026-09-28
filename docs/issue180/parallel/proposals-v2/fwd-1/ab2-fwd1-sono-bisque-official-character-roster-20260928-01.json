@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-sono-bisque-official-character-roster-20260928-01",
+  "campaign_key": "authority:sono_bisque_doll_wa_koi_wo_suru",
+  "campaign_fingerprint": "b22046dc48dc32a8a720f2c3d2a2e85debacb280be9347b27ca62d619b3e4986",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://bisquedoll-anime.com/character/",
+  "source_claim": "The official TV anime character directory identifies Kitagawa Marin, Gojo Wakana, Inui Sajuna, Inui Shinju, and Sugaya Nowa as characters in Sono Bisque Doll wa Koi o Suru. The same official page carries the franchise copyright notice for Shinichi Fukuda, Square Enix, and the anime committee.",
+  "authority_type": "OFFICIAL_ANIME_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "gojou_wakana",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sono_bisque_doll_wa_koi_wo_suru"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "inui_sajuna",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sono_bisque_doll_wa_koi_wo_suru"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "inui_shinju",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sono_bisque_doll_wa_koi_wo_suru"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kitagawa_marin",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sono_bisque_doll_wa_koi_wo_suru"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sugaya_nowa",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "sono_bisque_doll_wa_koi_wo_suru"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Each exact member is named in the first-party character directory. No cosplay character is inferred as belonging to this Copyright."
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-bardiche-as-assault-haken-zanber-forms-20260928-01",
+  "campaign_key": "base:bardiche_(nanoha)",
+  "campaign_fingerprint": "78ed607d42622a0981b6b479c8f04d2bef081290b0a760cd6e2e8aee99f83112",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nanoha.com/archive2/chara/cha_711.html",
+  "source_claim": "Official Magical Girl Lyrical Nanoha A's device profiles describe Assault Form as Bardiche's new form, Haken Form as a new close-combat form of Bardiche Assault and an upgraded Scythe Form, and Zanber Form as Bardiche's full-drive mode. The exact form pages are cha_711.html, cha_712.html, and cha_713.html.",
+  "authority_type": "OFFICIAL_DEVICE_FORM_PROFILES",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "bardiche_(assault_form)_(nanoha)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "bardiche_(nanoha)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "bardiche_(haken_form)_(nanoha)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "bardiche_(nanoha)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "bardiche_(scythe_form)_(nanoha)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "bardiche_(nanoha)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "bardiche_(zanber_form)_(nanoha)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "bardiche_(nanoha)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official pages explicitly identify the modes as forms of Bardiche/Bardiche Assault. Haken's description directly identifies Scythe Form as its prior version."
+}

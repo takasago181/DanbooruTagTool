@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd1-sono-bisque-cosplay-character-residuals-20260928-01",
+  "campaign_key": "authority:sono_bisque_doll_wa_koi_wo_suru",
+  "campaign_fingerprint": "b22046dc48dc32a8a720f2c3d2a2e85debacb280be9347b27ca62d619b3e4986",
+  "worker_slot": 1,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "https://bisquedoll-anime.com/1st/special/photo/",
+  "source_claim": "Three distinct official routes were checked for the residual exact identities black_lobelia, kuroe_shizuku, izayoi_arisa, and rizu-kyun. The routes establish these as characters Marin or Sajuna cosplay or as characters from works inside the story, but do not establish them as direct HOME members of the Sono Bisque Doll Copyright.",
+  "authority_type": "OFFICIAL_ANIME_PUBLISHER_AND_PRODUCT_ROUTE_RESEARCH",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_ANIME_CHARACTER_AND_STORY_DIRECTORY",
+      "url_or_query": "https://bisquedoll-anime.com/character/ and https://bisquedoll-anime.com/1st/story/?id=02 and https://bisquedoll-anime.com/1st/story/?id=07 and https://bisquedoll-anime.com/1st/story/?id=11 and https://bisquedoll-anime.com/story/?id=13",
+      "result": "Official pages identify the core cast in the companion AUTHORITY_BATCH. Story guides identify Shizuku, Rizu, Black Lobelia, and Izayoi Arisa as roles/characters Marin or Sajuna cosplay, including names of separate fictional works in the story. This does not establish their direct HOME as the enclosing franchise."
+    },
+    {
+      "route_type": "OFFICIAL_SQUARE_ENIX_MANGA_PUBLISHER",
+      "url_or_query": "https://magazine.jp.square-enix.com/top/anime/detail/sonokisekae/ and https://magazine.jp.square-enix.com/top/comics/detail/9784757559202/",
+      "result": "Square Enix's official series and volume pages identify the manga title and its protagonists Marin and Wakana, but do not provide a canonical HOME mapping for the four cosplay-character identities."
+    },
+    {
+      "route_type": "OFFICIAL_ANIPLEX_LICENSED_PRODUCT_DESCRIPTION",
+      "url_or_query": "https://bisquedoll-anime.com/1st/bddvd/special.html",
+      "result": "Official Blu-ray purchase benefits label Black Lobelia, Shizuku, and Liz as Marin's cosplay forms/illustrations. This confirms their role as depicted through the franchise, not that their underlying character HOME is Sono Bisque Doll."
+    }
+  ],
+  "notes": "Partial campaign progress only. Preserve the five direct cast relations in the companion AUTHORITY_BATCH. The residual entries refer to in-story cosplay characters whose own single canonical Copyright was not safely identified in the checked routes; no negative relation or terminal conclusion is asserted."
+}
