@@ -1,0 +1,156 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-revue-starlight-relive-official-cast-20260928",
+  "campaign_key": "authority:shoujo_kageki_revue_starlight",
+  "campaign_fingerprint": "2477895bd98ea84ea65732e109b318a0862939ce827a5e4a074f84680552f147",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://bushiroad.com/media/13037",
+  "source_claim": "Bushiroad's official press release for the Revue Starlight -Re LIVE- booster pack explicitly identifies the title as the game adaptation and prints character-role credits for the original anime's nine main characters plus Re LIVE cast. It names the exact characters in these 20 current campaign tags: Aijo Karen, Daiba Nana, Hanayagi Kaoruko, Hoshimi Junna, Isurugi Futaba, Kagura Hikari, Liu Mei Fan, Otonashi Ichie, Otori Michiru, Otsuki Aruru, Saijo Claudine, Tanaka Yuyuko, Tendo Maya, Tomoe Tamao, Tsuruhime Yachiyo, Tsuyuzaki Mahiru, Yukishiro Akira, Yumeoji Fumi, Yumeoji Shiori, and Akikaze Rui. The release also states that Re LIVE includes 15 game-original stage girls and carries Project Revue Starlight copyright.",
+  "authority_type": "FIRST_PARTY_PRODUCT_CAST_CREDITS",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "aijo_karen",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kageki_revue_starlight"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "daiba_nana",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kageki_revue_starlight"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hanayagi_kaoruko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kageki_revue_starlight"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "hoshimi_junna",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kageki_revue_starlight"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "isurugi_futaba",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kageki_revue_starlight"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kagura_hikari",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kageki_revue_starlight"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "liu_mei_fan",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kageki_revue_starlight"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "otonashi_ichie",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kageki_revue_starlight"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "otori_michiru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kageki_revue_starlight"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "otsuki_aruru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kageki_revue_starlight"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "saijo_claudine",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kageki_revue_starlight"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tanaka_yuyuko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kageki_revue_starlight"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tendo_maya",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kageki_revue_starlight"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tomoe_tamao",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kageki_revue_starlight"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsuruhime_yachiyo",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kageki_revue_starlight"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "tsuyuzaki_mahiru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kageki_revue_starlight"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yukishiro_akira",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kageki_revue_starlight"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yumeoji_fumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kageki_revue_starlight"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yumeoji_shiori",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kageki_revue_starlight"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "akikaze_rui",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "shoujo_kageki_revue_starlight"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Exact character-role credits in the official title-specific product release are used as evidence. The remaining four campaign members are omitted because this source does not name them; no roster-wide completeness or terminal conclusion is claimed."
+}
