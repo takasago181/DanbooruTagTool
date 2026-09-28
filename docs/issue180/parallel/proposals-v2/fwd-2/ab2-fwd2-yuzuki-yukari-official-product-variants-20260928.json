@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-yuzuki-yukari-official-product-variants-20260928",
+  "campaign_key": "base:yuzuki_yukari",
+  "campaign_fingerprint": "72feff95ec591fac2d4dcde5a78be8b2c43416bce82c2f6d131acc910d5a6f92",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://vocalomakets.com/works",
+  "source_claim": "VOCALOMAKETS' official WORKS page has a dedicated 結月ゆかり product table and groups the named releases across VOCALOID4 (純/穏/凛), VOCALOID6 AI, VOICEROID2, A.I.VOICE/A.I.VOICE2 (including 雫 and 凪), VoiSona/CeVIO AI 結月ゆかり 麗, and other software versions under the same 結月ゆかり character heading. The creator's official character-use guideline identifies 結月ゆかり as a character operated and developed by VOCALOMAKETS and directs software products to their separate license terms.",
+  "authority_type": "VOCALOMAKETS_OFFICIAL_CHARACTER_PRODUCT_CATALOG",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "yuzuki_yukari_(a.i._voice)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "yuzuki_yukari"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yuzuki_yukari_(lin)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "yuzuki_yukari"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yuzuki_yukari_(nagi)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "yuzuki_yukari"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yuzuki_yukari_(onn)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "yuzuki_yukari"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yuzuki_yukari_(rei)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "yuzuki_yukari"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yuzuki_yukari_(shizuku)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "yuzuki_yukari"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yuzuki_yukari_(vocaloid4)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "yuzuki_yukari"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yuzuki_yukari_(vocaloid6)",
+      "relation_type": "VARIANT_OF",
+      "object_type": "Character",
+      "object_key": "yuzuki_yukari"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The page's official WORKS table is headed 結月ゆかり and maps all eight packet members to editions/voice forms of that character; independent AHS official Yukari product page confirms VOCALOID4 凛 and 穏 forms. No HOME_COPYRIGHT is asserted: this catalog evidence documents joint character/product stewardship and multiple synthesis engines, while project policy warns that an engine/platform qualifier alone is not a HOME. Reference: https://vocalomakets.com/guidelines and https://www.ah-soft.com/yukari/."
+}

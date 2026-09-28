@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-homestuck-official-character-evidence-20260928",
+  "campaign_key": "authority:homestuck",
+  "campaign_fingerprint": "11e2dd8eabc65eaba65bf17942bc1ef3b7f10949b487b3a76568093f015095f5",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://homestuck.com/003574",
+  "source_claim": "The official Homestuck first-year recap names John Egbert, Dave Strider, Rose Lalonde, and Jade Harley as the story's characters and recounts their roles in the Homestuck story. Other official Homestuck story pages explicitly identify Karkat Vantas, Vriska Serket, and Dirk Strider as characters appearing in that same work.",
+  "authority_type": "HOMESTUCK_OFFICIAL_STORY_AND_RECAP",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "dave_strider",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "homestuck"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "dirk_strider",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "homestuck"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "jade_harley",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "homestuck"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "john_egbert",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "homestuck"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "karkat_vantas",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "homestuck"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "rose_lalonde",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "homestuck"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "vriska_serket",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "homestuck"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "One official work source family, checked across exact story pages: the first-year recap at https://homestuck.com/003574 names John, Dave, Rose, and Jade; https://homestuck.com/epilogues/meat/10 explicitly uses the full name Karkat Vantas; https://homestuck.com/story/2195 is Vriska Serket's character introduction; and https://homestuck.com/006856 names Dirk Strider in Homestuck dialogue. These are positive direct-work relations only; no extra inferred variant or family edges are asserted."
+}

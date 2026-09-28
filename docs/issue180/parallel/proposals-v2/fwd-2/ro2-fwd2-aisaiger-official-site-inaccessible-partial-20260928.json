@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd2-aisaiger-official-site-inaccessible-partial-20260928",
+  "campaign_key": "authority:hitozuma_sentai_aisaiger",
+  "campaign_fingerprint": "c19cad9bc1490d31a78a5ab47e5605024e15e6cc6624347880cffd14ce670099",
+  "worker_slot": 2,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_ROSTER",
+      "url_or_query": "http://www.discovery-team.jp/ (DISCOVERY's official site URL)",
+      "result": "Direct open of the first-party DISCOVERY domain did not return an accessible page. No official character roster/product page could be checked, so no safe relation was established from this route."
+    }
+  ],
+  "notes": "This records only an inaccessible route for the seven-member Aisaiger campaign. It is not negative HOME evidence and does not terminalize the unit; continue later if a usable first-party source is found. Third-party databases/search results were not used as authority."
+}
