@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-slayers-kadokawa-naga-20260928-01",
+  "campaign_key": "authority:slayers",
+  "campaign_fingerprint": "45bee8ed84eb6a530c044f7c6be1ea0575512f4d2a732af5dc0de16dd60d1443",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.kadokawa.co.jp/product/200805000470/",
+  "source_claim": "KADOKAWA's Fantasia Bunko catalog identifies Naga's introductory appearance as the Slayers Special story 'Naga no Chosen' and calls Naga Lina's nemesis, directly establishing Naga the Serpent as a character of the Slayers franchise.",
+  "authority_type": "RIGHTSHOLDER_PUBLISHER_CATALOG",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"naga_the_serpent","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"slayers"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The publisher page is for the Slayers Special light novel line and explicitly identifies Naga's first appearance and relationship to Lina."
+}

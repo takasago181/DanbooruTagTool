@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-talesweaver-boris-nexon-profile-20260928-01",
+  "campaign_key": "authority:tales_weaver",
+  "campaign_fingerprint": "1b98fd2bfe47db5b11852e97c1c7dedb933e9063685927bfeaeb5ae57abd20db",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://talesweaver.nexon.co.jp/intro/character/boris.aspx",
+  "source_claim": "NEXON official TalesWeaver character profile identifies Boris Jineman by name and describes his story and character.",
+  "authority_type": "OFFICIAL_CHARACTER_PROFILE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "relation_type": "DIRECT_HOME",
+      "subject_type": "Character",
+      "subject_key": "boris_jinneman",
+      "object_type": "Copyright",
+      "object_key": "tales_weaver"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The profile is hosted within the official NEXON TalesWeaver site, under its 登場人物/INTRODUCTION character section."
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd1-slayers-tv-tokyo-try-roster-20260928-01",
+  "campaign_key": "authority:slayers",
+  "campaign_fingerprint": "45bee8ed84eb6a530c044f7c6be1ea0575512f4d2a732af5dc0de16dd60d1443",
+  "worker_slot": 1,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/contents/slayers/try/character.html",
+  "source_claim": "The official TV Tokyo Slayers NET page for Slayers TRY directly presents Lina Inverse, Gourry Gabriev, Zelgadiss Greywords, Amelia Wil Tesla Seyruun, Xellos, and Filia as characters in the Slayers series; the page is published under the Slayers copyright and links the official series portal covering the television seasons.",
+  "authority_type": "OFFICIAL_FRANCHISE_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"amelia_wil_tesla_seyruun","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"slayers"},
+    {"subject_type":"Character","subject_key":"filia_ul_copt","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"slayers"},
+    {"subject_type":"Character","subject_key":"gourry_gabriev","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"slayers"},
+    {"subject_type":"Character","subject_key":"lina_inverse","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"slayers"},
+    {"subject_type":"Character","subject_key":"xelloss","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"slayers"},
+    {"subject_type":"Character","subject_key":"zelgadiss_graywords","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"slayers"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official roster provides character-specific descriptions for Lina, Gourry, Zelgadiss, Amelia, and Xellos, and identifies Filia in the same named character section; the page is the official TV Tokyo portal for the Slayers television series."
+}
