@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-kagurabachi-shueisha-official-character-roster-20260928",
+  "campaign_key": "authority:kagurabachi",
+  "campaign_fingerprint": "902635128cfb21685abb5e14bcc6044dc550a1f99d8d37a72147fb1a8fb72656",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://comic.kagurabachi.jp/en/",
+  "source_claim": "The official Shueisha Kagurabachi comics site identifies all six current campaign characters in its character introduction: Chihiro Rokuhira, Togo Shiba, Hiyuki Kagari, Hakuri Sazanami, Yoji Uruha, and Seichi Samura. The official site copyright credits Takeru Hokazono/Shueisha.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"kagari_hiyuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kagurabachi"},
+    {"subject_type":"Character","subject_key":"rokuhira_chihiro","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kagurabachi"},
+    {"subject_type":"Character","subject_key":"samura_seiichi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kagurabachi"},
+    {"subject_type":"Character","subject_key":"sazanami_hakuri","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kagurabachi"},
+    {"subject_type":"Character","subject_key":"shiba_tougo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kagurabachi"},
+    {"subject_type":"Character","subject_key":"uruha_youji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kagurabachi"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official character introduction explicitly identifies every member of this campaign under Kagurabachi; no unlisted characters are added."
+}

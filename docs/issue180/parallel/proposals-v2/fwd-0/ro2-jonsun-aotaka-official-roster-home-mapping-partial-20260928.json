@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-jonsun-aotaka-official-roster-home-mapping-partial-20260928",
+  "campaign_key": "authority:jonsun",
+  "campaign_fingerprint": "5c99456ea7bb62e82bfc0033230c4c9fca025efb06ba9aec9a94bde7a7a780b4",
+  "worker_slot": 0,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"FIRST_PARTY_CREATOR_PORTFOLIO","url_or_query":"https://jonsunsun.amebaownd.com/posts/6825756/ and the creator's named character posts","result":"The creator identifies an original Ao Taka group photo and explicitly names Shiori and Misaki; other official portfolio posts name Aya, Mami, Riku, and Tamami. The portfolio does not establish a canonical Copyright HOME key for the exact six-member campaign."},
+    {"route_type":"FIRST_PARTY_PUBLISHER_CHARACTER_AND_PRODUCT_CATALOG","url_or_query":"https://kadobun.jp/special/jonsun/aokou-kyoueibu-goods/ ; https://www.kadokawa.co.jp/product/322111000894/","result":"KADOKAWA's official goods page lists Aya, Shiori, Tamami, Mami, Misaki, and Riku under the Ao Taka book/series and the creator calls them Ao Taka members. It establishes roster membership but does not identify which existing canonical Copyright HOME key or Family mapping Issue #180 should use."}
+  ],
+  "notes": "This is useful positive roster progress, but the exact safe relation contract remains unresolved: jonsun is the creator identity, while the generic original discovery label is not itself proof of a shared HOME. No canonical family key or distinct HOME root is established by these checked pages. Keep the broad authority campaign PARTIAL and do not infer a HOME or terminal status."
+}

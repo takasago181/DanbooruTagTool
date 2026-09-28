@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-flcl-production-ig-official-cast-episodes-20260928",
+  "campaign_key": "authority:flcl",
+  "campaign_fingerprint": "db0615cfae4a4e3dd3c0457c4182ab4275a1702c374147066bf4b8da22bcb985",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.production-ig.com/contents/works_sp/09_/index.html",
+  "source_claim": "Production I.G's official FLCL work pages identify the original series and provide its cast and episode descriptions. The official cast lists Naota Nandaba, Haruko Haruhara, Mamimi Samejima, and Kitsurubami; episode 3 names class representative Eri Ninamori and the robot Kanchi (the campaign's Canti); the overview and episode pages place them in FLCL.",
+  "authority_type": "FIRST_PARTY_CAST_AND_EPISODE_CHARACTER_EVIDENCE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"canti","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"flcl"},
+    {"subject_type":"Character","subject_key":"haruhara_haruko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"flcl"},
+    {"subject_type":"Character","subject_key":"kitsurubami","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"flcl"},
+    {"subject_type":"Character","subject_key":"nandaba_naota","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"flcl"},
+    {"subject_type":"Character","subject_key":"ninamori_eri","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"flcl"},
+    {"subject_type":"Character","subject_key":"samejima_mamimi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"flcl"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official Production I.G cast and episode pages explicitly cover all six current campaign members; Kanchi is the official English-page romanization of the robot tagged Canti. No other characters are included."
+}
