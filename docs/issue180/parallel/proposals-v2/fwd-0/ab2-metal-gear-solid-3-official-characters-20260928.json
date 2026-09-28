@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-metal-gear-solid-3-official-characters-20260928",
+  "campaign_key": "authority:metal_gear_(series)",
+  "campaign_fingerprint": "b0a3f0cd94d232457977d4cf6454923e682c148e19203fbdbf492b87b2d82ad1",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.konami.com/mg/history/jp/ja/mgs3",
+  "source_claim": "The official KONAMI METAL GEAR SOLID 3 history and character directory profiles Naked Snake and The Boss, and its story identifies Naked Snake as the future Big Boss.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "naked_snake",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "metal_gear_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "the_boss",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "metal_gear_(series)"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "big_boss",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "metal_gear_(series)"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The page establishes both the exact character entries and the Naked Snake → Big Boss identity/title."
+}
