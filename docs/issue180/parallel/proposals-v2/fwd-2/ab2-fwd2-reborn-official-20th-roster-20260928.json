@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-reborn-official-20th-roster-20260928",
+  "campaign_key": "authority:katekyo_hitman_reborn!",
+  "campaign_fingerprint": "f8ffa8074460362fd4d992e1c00df5a3fa2139c97b83e3184d7f04c6877d2b6b",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://khreborn-anime.jp/news/30/",
+  "source_claim": "The official TV anime site's 20th anniversary notice identifies the pictured franchise characters, including Sawada Tsunayoshi, Gokudera Hayato, Hibari Kyoya, Rokudo Mukuro, Chrome Dokuro, Xanxus, and Yamamoto Takeshi. These seven are exact members of the current packet.",
+  "authority_type": "OFFICIAL_ANIME_ANNIVERSARY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"chrome_dokuro","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"katekyo_hitman_reborn!"},
+    {"subject_type":"Character","subject_key":"gokudera_hayato","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"katekyo_hitman_reborn!"},
+    {"subject_type":"Character","subject_key":"hibari_kyouya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"katekyo_hitman_reborn!"},
+    {"subject_type":"Character","subject_key":"rokudou_mukuro","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"katekyo_hitman_reborn!"},
+    {"subject_type":"Character","subject_key":"sawada_tsunayoshi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"katekyo_hitman_reborn!"},
+    {"subject_type":"Character","subject_key":"xanxus","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"katekyo_hitman_reborn!"},
+    {"subject_type":"Character","subject_key":"yamamoto_takeshi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"katekyo_hitman_reborn!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official notice names 12 Anniversary characters. Only the seven exact packet members above are included; Haru and Kyoko are not added from memory."
+}

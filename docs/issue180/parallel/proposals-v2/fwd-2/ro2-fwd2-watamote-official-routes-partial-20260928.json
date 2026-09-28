@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd2-watamote-official-routes-partial-20260928",
+  "campaign_key": "authority:watashi_ga_motenai_no_wa_dou_kangaetemo_omaera_ga_warui!",
+  "campaign_fingerprint": "37e7fa5aefbd089a90afd68f550536c48511fa33b83996cfafd7fef7dedf4728",
+  "worker_slot": 2,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"OFFICIAL_ANIME_CHARACTER_INDEX","url_or_query":"https://www.tv-tokyo.co.jp/anime/watamote/sp/chara/index.html","result":"The official adaptation page names a small anime cast and uses the nickname Yu-chan without the campaign member's full name. It does not safely enumerate the 20 exact packet identities."},
+    {"route_type":"OFFICIAL_MANGA_CATALOG","url_or_query":"https://www.ganganonline.com/title/29?sscl=crss638","result":"The official manga page confirms the work and its current serialization but its visible catalog text does not enumerate the campaign's exact full character names."},
+    {"route_type":"OFFICIAL_PUBLISHER_VOLUME_CATALOG","url_or_query":"https://magazine.jp.square-enix.com/top/comics/detail/9784757599543/","result":"The official volume 27 listing provides a plot blurb and title identity, but no exact roster covering the packet members or full-name mappings for them."}
+  ],
+  "notes": "This broad 20-member manga campaign remains partial. The checked routes do not safely establish an exact packet-member-to-work relation list; nicknames, inferred surnames, and non-primary fan character lists were not used. This is research progress, not negative evidence."
+}

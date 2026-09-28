@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd2-cookie-touhou-primary-routes-partial-20260928",
+  "campaign_key": "authority:cookie_(touhou)",
+  "campaign_fingerprint": "948059a6c7aefea62e53b93134cf9909e90717794038c0177fb6129f6f44b478",
+  "worker_slot": 2,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {"route_type":"ORIGINAL_VIDEO_SOURCE","url_or_query":"https://www.nicovideo.jp/watch/sm9720246","result":"The original Nico Nico video endpoint could not be read in the research browser. No exact cast/member identity evidence was obtained."},
+    {"route_type":"VIDEO_REPUBLICATION","url_or_query":"https://www.youtube.com/watch?v=amP2mCqqPlQ","result":"A publicly indexed republication of the original voice-drama video was readable, but the page description only says there were about 43 contributors and does not name the packet identities or establish the channel as the rights-holder authority."},
+    {"route_type":"RIGHTS_HOLDER_DERIVATIVE_WORK_GUIDELINE","url_or_query":"https://touhou-project.news/guideline_videoposting/","result":"The official Touhou guidance classifies fan-made video posting as derivative fan activity and discusses third-party IP permissions; it does not identify these Cookie☆ cast/persona names or map them to the official Touhou characters."}
+  ],
+  "notes": "Cookie☆ is a broad derivative-media ecosystem with mixed work/persona identities. These routes establish no safe direct HOME mapping for the ten current packet keys; no wiki, community roster, or Touhou character identity was promoted to evidence. Partial progress only, not a negative or terminal conclusion."
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-da-capo-official-circus-roster-20260928",
+  "campaign_key": "authority:da_capo",
+  "campaign_fingerprint": "06cdfa8a3490e241fe0532117ea8de565a57f9ab5f8c721ab838310317ba2cf1",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://circus-co.jp/dc_portal/stages/",
+  "source_claim": "CIRCUS's official D.C. portal explicitly identifies these characters on its D.C. series character/stage page: Aisia, Miharu Amakase, Nemu Asakura, Otome Asakura, Yume Asakura, Kotori Shirakawa, Nanaka Shirakawa, Koko Tsukishima, Sakura Yoshino, and Anzu Yukimura.",
+  "authority_type": "FIRST_PARTY_SERIES_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"aisia","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"da_capo"},
+    {"subject_type":"Character","subject_key":"amakase_miharu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"da_capo"},
+    {"subject_type":"Character","subject_key":"asakura_nemu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"da_capo"},
+    {"subject_type":"Character","subject_key":"asakura_otome","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"da_capo"},
+    {"subject_type":"Character","subject_key":"asakura_yume","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"da_capo"},
+    {"subject_type":"Character","subject_key":"shirakawa_kotori","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"da_capo"},
+    {"subject_type":"Character","subject_key":"shirakawa_nanaka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"da_capo"},
+    {"subject_type":"Character","subject_key":"tsukishima_koko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"da_capo"},
+    {"subject_type":"Character","subject_key":"yoshino_sakura","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"da_capo"},
+    {"subject_type":"Character","subject_key":"yukimura_anzu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"da_capo"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The checked page is CIRCUS's first-party portal and spans D.C. through D.C.III on Hatsunejima; only the exact ten current packet members named on the page are included."
+}
