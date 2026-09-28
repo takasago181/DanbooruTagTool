@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-honkai-official-impact3-theresa-apocalypse-20260928",
+  "campaign_key": "authority:honkai_(series)",
+  "campaign_fingerprint": "83d872c31dfcd5e82fb752c95bbef9c03498e06c0b305bd44869fee7e1494d44",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://honkaiimpact3.hoyoverse.com/m/global/en-us/news/129853?cate=516",
+  "source_claim": "The official Honkai Impact 3rd v8.1 update preview names Theresa Apocalypse as the new S-rank AstralOp character.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"theresa_apocalypse","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"honkai_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The page gives the full target name and places this character directly in the Honkai Impact 3rd game update."
+}

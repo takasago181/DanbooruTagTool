@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-honkai-official-impact3-v62-character-reference-20260928",
+  "campaign_key": "authority:honkai_(series)",
+  "campaign_fingerprint": "83d872c31dfcd5e82fb752c95bbef9c03498e06c0b305bd44869fee7e1494d44",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://honkaiimpact3.hoyoverse.com/asia/en-us/news/107330?source=v1",
+  "source_claim": "The official Honkai Impact 3rd v6.2 update announcement identifies Bronya in its Story Chapter XXXIII description and names Fu Hua in its Chronicles bug-fix entry.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"bronya_zaychik","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"honkai_(series)"},
+    {"subject_type":"Character","subject_key":"fu_hua","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"honkai_(series)"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official update page names both characters in the Honkai Impact 3rd game context. Bronya is identified in a chapter note as Herrscher of Reason; other Bronya identities/variants are not inferred."
+}
