@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-transformers-hasbro-bios-20260928",
+  "campaign_key": "authority:transformers",
+  "campaign_fingerprint": "3f5a2a4f902d7d35896a092381e377b7d2657c56ece99db98f11853bec3bf793",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://transformers-bios.hasbro.com/en-us/optimus-prime-g1-autobot",
+  "source_claim": "Hasbro's official Transformers character bios identify Optimus Prime (G1), Starscream (G1), Megatron (G2), Arcee (Prime), and Tarn (Comic) as Transformers characters. Each checked profile names the character, faction, and/or origin universe.",
+  "authority_type": "HASBRO_OFFICIAL_CHARACTER_BIOS",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"optimus_prime","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"transformers"},
+    {"subject_type":"Character","subject_key":"starscream","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"transformers"},
+    {"subject_type":"Character","subject_key":"megatron","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"transformers"},
+    {"subject_type":"Character","subject_key":"arcee","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"transformers"},
+    {"subject_type":"Character","subject_key":"tarn","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"transformers"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Additional checked official Hasbro bios: https://transformers-bios.hasbro.com/en-us/starscream-g1-decepticon (G1 Starscream); https://transformers-bios.hasbro.com/en-us/megatron-g2-decepticon (G2 Megatron); https://transformers-bios.hasbro.com/en-us/arcee-autobot (Prime Arcee); https://transformers-bios.hasbro.com/en-us/tarn-decepticon (Comic Tarn). This is a partial source collection for the broad multigenerational campaign; no continuity-wide inference is made for its other members."
+}

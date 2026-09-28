@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-mahjong-soul-anime-official-cast-20260928",
+  "campaign_key": "authority:mahjong_soul",
+  "campaign_fingerprint": "d005c4cc7735fe480180fb0062b83773a54fc49017d6a2f3f635208d61fea8ca",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://mahjongsoul-kang.jp/staffcast/",
+  "source_claim": "The official Jantama Kan!! anime staff/cast page credits the original work as Mahjong Soul (CATFOOD STUDIO) and lists the named characters Ichihime, Nikaido Miki, Wanjiro, Fujita Kana, Fu Ji, Kaavi, and Yagi Yui in its cast.",
+  "authority_type": "OFFICIAL_ADAPTATION_CREDIT_AND_CHARACTER_CAST",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"ichihime","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahjong_soul"},
+    {"subject_type":"Character","subject_key":"nikaidou_miki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahjong_soul"},
+    {"subject_type":"Character","subject_key":"wanjirou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahjong_soul"},
+    {"subject_type":"Character","subject_key":"fujita_kana","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahjong_soul"},
+    {"subject_type":"Character","subject_key":"fu_ji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahjong_soul"},
+    {"subject_type":"Character","subject_key":"kaavi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahjong_soul"},
+    {"subject_type":"Character","subject_key":"yagi_yui","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahjong_soul"}
+  ],
+  "terminal_reviews": [],
+  "notes": "This is partial progress for the 23-member game character campaign: only exact campaign identities named in the official adaptation cast page are included. Unlisted cast members and the wider game roster remain unreviewed."
+}
