@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-armored-core-official-cross-title-model-catalog-20260928-04",
+  "campaign_key": "authority:armored_core",
+  "campaign_fingerprint": "489378ee551095e75d3d9890fd57bedd28fbe48aacb2116bb9a047d8c399031b",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.armoredcore.net/goods.html",
+  "source_claim": "The official Armored Core catalog identifies Nine-Ball among products for the original ARMORED CORE and Line Ark WHITE-GLINT among products for ARMORED CORE for Answer, establishing both exact named mecha within the Armored Core series.",
+  "authority_type": "FIRST_PARTY_OFFICIAL_PRODUCT_CATALOG",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"nineball","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"armored_core"},
+    {"subject_type":"Character","subject_key":"white_glint","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"armored_core"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The catalog ties each exact mecha to an Armored Core title; the proposed canonical HOME is the shared Armored Core franchise."
+}
