@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-angel-tear-syrup-official-characters-20260928",
+  "campaign_key": "authority:nerawareta_megami_tenshi_angel_tear",
+  "campaign_fingerprint": "5df271a9dad3e6620b2d3dca71094c5f085daf0fe741ae47b19efca7a55813ac",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.syrup-soft.com/mm/megami/chara.html",
+  "source_claim": "Syrup's official character page for Nerawareta Megami Tenshi Angel Tear explicitly presents Maishima Yuri / Angel Tear (舞島優理エンゼルティアー), Shizumi Suzune / Holy Rouge (静海涼音ホーリールージュ), and Kurasawa Anzu (倉澤杏) as characters in the title.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "angel_tear",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "nerawareta_megami_tenshi_angel_tear"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "holy_rouge",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "nerawareta_megami_tenshi_angel_tear"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kurasawa_anzu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "nerawareta_megami_tenshi_angel_tear"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "maishima_yuri",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "nerawareta_megami_tenshi_angel_tear"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "shizumi_suzune",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "nerawareta_megami_tenshi_angel_tear"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official character-page image labels pair Maishima Yuri with her Angel Tear form and Shizumi Suzune with her Holy Rouge form; Kurasawa Anzu is individually labeled on the same page. These exact campaign identities are all within the title's first-party character roster."
+}
