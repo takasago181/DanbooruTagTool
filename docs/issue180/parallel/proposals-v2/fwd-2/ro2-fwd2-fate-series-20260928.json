@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-fwd2-fate-series-20260928",
+  "campaign_key": "authority:fate_(series)",
+  "campaign_fingerprint": "68f2fe38e1cb6e85aa8497c7c5a25d0cfdb52a7d69a9e0dd8ac5189d387cd04d",
+  "worker_slot": 2,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "FIRST_PARTY_STUDIO_GAME_CATALOG",
+      "url_or_query": "https://typemoon.com/game/",
+      "result": "The current canonical review of this official catalog records multiple separately listed Fate titles. It establishes broad franchise context but cannot assign one HOME to every member of this 68-tag multi-work campaign."
+    },
+    {
+      "route_type": "FIRST_PARTY_TITLE_CHARACTER_PROFILES",
+      "url_or_query": "https://typemoon.com/products/f-sn/character/",
+      "result": "The existing official-profile review matches five exact Fate/stay night identities to individual profiles and keeps the title-specific findings bounded to those members. The remaining campaign spans additional Fate works and is not covered by those five profiles."
+    },
+    {
+      "route_type": "FIRST_PARTY_FGO_SERVANT_CATALOG",
+      "url_or_query": "https://www.fate-go.jp/trajectory/servant/",
+      "result": "The current official FGO Servant history lists entries such as Beni-enma and Jinako, but FGO appearances alone do not establish the original HOME for every returning character in this mixed Fate campaign. Exact other-work profiles are still required."
+    }
+  ],
+  "notes": "The current official evidence covers only bounded title-specific subsets of this broad 68-member campaign. Existing Issue #180 decisions also keep exact Fate/stay night roots separate from the umbrella Fate root. Record partial progress only; make no campaign-wide HOME assignment and do not use later appearances as origin authority."
+}

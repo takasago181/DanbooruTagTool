@@ -1,0 +1,29 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-touken-awataguchi-20260928",
+  "campaign_key": "authority:touken_ranbu",
+  "campaign_fingerprint": "0634ca6bcfc347c969b771c8151df182dd994ca0f24d283d2a0007f5d3a8489a",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.toukenranbu.jp/character/?school=%E7%B2%9F%E7%94%B0%E5%8F%A3",
+  "source_claim": "The official Touken Ranbu ONLINE character directory's Awataguchi school roster names the listed sword-warrior profiles. These exact named entries are identified as characters in Touken Ranbu ONLINE, supporting direct HOME under the in-catalog touken_ranbu Copyright.",
+  "authority_type": "OFFICIAL_GAME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"nakigitsune","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"touken_ranbu"},
+    {"subject_type":"Character","subject_key":"ichigo_hitofuri","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"touken_ranbu"},
+    {"subject_type":"Character","subject_key":"hirano_toushirou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"touken_ranbu"},
+    {"subject_type":"Character","subject_key":"atsushi_toushirou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"touken_ranbu"},
+    {"subject_type":"Character","subject_key":"gotou_toushirou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"touken_ranbu"},
+    {"subject_type":"Character","subject_key":"shinano_toushirou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"touken_ranbu"},
+    {"subject_type":"Character","subject_key":"maeda_toushirou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"touken_ranbu"},
+    {"subject_type":"Character","subject_key":"akita_toushirou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"touken_ranbu"},
+    {"subject_type":"Character","subject_key":"hakata_toushirou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"touken_ranbu"},
+    {"subject_type":"Character","subject_key":"gokotai","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"touken_ranbu"},
+    {"subject_type":"Character","subject_key":"houchou_toushirou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"touken_ranbu"},
+    {"subject_type":"Character","subject_key":"mouri_toushirou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"touken_ranbu"},
+    {"subject_type":"Character","subject_key":"hakusan_yoshimitsu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"touken_ranbu"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official Awataguchi roster excerpt explicitly exposes these exact named members. Non-roster companion tags and other names not visible in this checked result were omitted. No relation is inferred from co-occurrence."
+}

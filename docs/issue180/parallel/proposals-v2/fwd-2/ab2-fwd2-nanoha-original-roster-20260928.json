@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-nanoha-original-roster-20260928",
+  "campaign_key": "authority:lyrical_nanoha",
+  "campaign_fingerprint": "7713002814465a80db745e702bca653cbf741a1d212eb07e90006132f094f894",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.nanoha.com/archive/charactor.html",
+  "source_claim": "The official Magical Girl Lyrical Nanoha character directory names the exact original-series characters listed below. The directory is specifically for the first Nanoha series, supporting that title's in-catalog Copyright root for these members.",
+  "authority_type": "KING_RECORDS_OFFICIAL_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"alicia_testarossa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_lyrical_nanoha"},
+    {"subject_type":"Character","subject_key":"amy_limietta","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_lyrical_nanoha"},
+    {"subject_type":"Character","subject_key":"arf","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_lyrical_nanoha"},
+    {"subject_type":"Character","subject_key":"arisa_bunnings","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_lyrical_nanoha"},
+    {"subject_type":"Character","subject_key":"chrono_harlaown","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_lyrical_nanoha"},
+    {"subject_type":"Character","subject_key":"lindy_harlaown","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_lyrical_nanoha"},
+    {"subject_type":"Character","subject_key":"presea_testarossa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_lyrical_nanoha"},
+    {"subject_type":"Character","subject_key":"tsukimura_suzuka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_lyrical_nanoha"},
+    {"subject_type":"Character","subject_key":"yuuno_scrya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"mahou_shoujo_lyrical_nanoha"}
+  ],
+  "terminal_reviews": [],
+  "notes": "These nine tag identities are exact name matches on the original-series official character index and are in the current lane campaign. Characters from A's or later titles, devices, and other unmatched entries were not included. No cross-title inheritance or co-occurrence inference is used."
+}
