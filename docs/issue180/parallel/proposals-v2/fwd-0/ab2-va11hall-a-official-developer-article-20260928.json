@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-va11hall-a-official-developer-article-20260928",
+  "campaign_key": "authority:va-11_hall-a",
+  "campaign_fingerprint": "038d76e9391b236cde96c043fe4bd6c66892577b31d8c1646778aa912def124a",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://blog.playstation.com/2019/04/08/va-11-hall-a-serves-up-drinks-on-ps4-may-2/",
+  "source_claim": "Sukeban Games co-founder Fernando Damas's official PlayStation Blog article names Jill Stingray as VA-11 Hall-A's protagonist and Dana Zane as Jill's boss in the game.",
+  "authority_type": "OFFICIAL_DEVELOPER_ARTICLE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"jill_stingray","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"va-11_hall-a"},
+    {"subject_type":"Character","subject_key":"dana_zane","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"va-11_hall-a"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The article is authored by the game's developer and explicitly ties both named characters to VA-11 Hall-A. No claim is made for the other campaign members."
+}

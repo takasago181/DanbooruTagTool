@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-zombie-land-saga-official-movie-cast-20260928",
+  "campaign_key": "authority:zombie_land_saga",
+  "campaign_fingerprint": "eda7c851678c1386d311f657883bb40ced59bb8334ad552172f500aff8e969fe",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://zombielandsaga-movie.com/index.php",
+  "source_claim": "The official Zombie Land Saga movie site's character roster explicitly names the seven Franchouchou members and producer Kotaro Tatsumi.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"hoshikawa_lily","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"zombie_land_saga"},
+    {"subject_type":"Character","subject_key":"konno_junko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"zombie_land_saga"},
+    {"subject_type":"Character","subject_key":"minamoto_sakura","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"zombie_land_saga"},
+    {"subject_type":"Character","subject_key":"mizuno_ai","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"zombie_land_saga"},
+    {"subject_type":"Character","subject_key":"nikaidou_saki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"zombie_land_saga"},
+    {"subject_type":"Character","subject_key":"tatsumi_koutarou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"zombie_land_saga"},
+    {"subject_type":"Character","subject_key":"yamada_tae","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"zombie_land_saga"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Official page names the seven members as characters in the franchise and lists Kotaro as their producer. No relation is inferred for unlisted characters or affiliated works."
+}

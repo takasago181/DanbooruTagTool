@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-death-note-ntv-program-page-20260928",
+  "campaign_key": "authority:death_note",
+  "campaign_fingerprint": "aa6be38624e39816ba6a3f92a80188469a55af1e450d619ff7b5112e628d766a",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.ntv.co.jp/english/pc/2011/03/death-note-1.html",
+  "source_claim": "Nippon TV's official DEATH NOTE program catalog page explicitly names Light Yagami as the story's high-school student protagonist.",
+  "authority_type": "OFFICIAL_BROADCASTER_PROGRAM_PAGE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"yagami_light","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"death_note"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The page identifies the program as DEATH NOTE and separately names Light Yagami in the synopsis. No relation is inferred for the other campaign members."
+}

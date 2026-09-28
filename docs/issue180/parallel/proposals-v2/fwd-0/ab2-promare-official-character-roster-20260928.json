@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-promare-official-character-roster-20260928",
+  "campaign_key": "authority:promare",
+  "campaign_fingerprint": "7812fc62416e0ce204d6b976246d3addcef267ca8b8fe958743e8ef4d070cfc0",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://promare-movie.com/character/",
+  "source_claim": "The official PROMARE movie character directory explicitly identifies Galo Thymos, Aina Ardebit, Lucia Fex, Kray Foresight, Heris Ardebit, Lio Fotia, and Gueira.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"aina_ardebit","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"promare"},
+    {"subject_type":"Character","subject_key":"galo_thymos","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"promare"},
+    {"subject_type":"Character","subject_key":"gueira","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"promare"},
+    {"subject_type":"Character","subject_key":"heris_ardebit","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"promare"},
+    {"subject_type":"Character","subject_key":"kray_foresight","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"promare"},
+    {"subject_type":"Character","subject_key":"lio_fotia","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"promare"},
+    {"subject_type":"Character","subject_key":"lucia_fex","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"promare"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official site's English image labels and Japanese character names directly match all seven in-scope catalog identities. The batch assigns only the film's own copyright root."
+}
