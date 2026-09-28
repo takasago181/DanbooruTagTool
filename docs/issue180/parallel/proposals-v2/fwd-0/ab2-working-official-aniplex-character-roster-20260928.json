@@ -1,0 +1,26 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-working-official-aniplex-character-roster-20260928",
+  "campaign_key": "authority:working!!",
+  "campaign_fingerprint": "5e6e8cf018cd14646ac16d059694042cfa957445941bf46f15652ee551d11600",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.wagnaria.com/character/",
+  "source_claim": "The official Aniplex WORKING!!! character directory identifies the Wagnaria characters by name, including Takanashi Souta, Taneshima Popura, Inami Mahiru, Todoroki Yachiyo, Shirafuji Kyoko, Satou Jun, Souma Hiroomi, Takanashi Nazuna, Yamada Aoi, and Matsumoto Maya. The page copyright identifies the WORKING!! production committees and SQUARE ENIX.",
+  "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"takanashi_souta","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"working!!"},
+    {"subject_type":"Character","subject_key":"taneshima_popura","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"working!!"},
+    {"subject_type":"Character","subject_key":"inami_mahiru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"working!!"},
+    {"subject_type":"Character","subject_key":"todoroki_yachiyo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"working!!"},
+    {"subject_type":"Character","subject_key":"shirafuji_kyouko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"working!!"},
+    {"subject_type":"Character","subject_key":"satou_jun","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"working!!"},
+    {"subject_type":"Character","subject_key":"souma_hiroomi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"working!!"},
+    {"subject_type":"Character","subject_key":"takanashi_nazuna","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"working!!"},
+    {"subject_type":"Character","subject_key":"yamada_aoi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"working!!"},
+    {"subject_type":"Character","subject_key":"matsumoto_maya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"working!!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The page's Japanese labels match all ten proposed canonical campaign subjects. Takanashi Kotori is omitted because this roster does not independently connect the tag to Takanashi Souta's cross-dressed alias."
+}
