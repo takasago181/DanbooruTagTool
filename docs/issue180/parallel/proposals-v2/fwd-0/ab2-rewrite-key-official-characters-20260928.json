@@ -1,0 +1,41 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-rewrite-key-official-character-directory-20260928",
+    "campaign_key": "authority:rewrite",
+    "campaign_fingerprint": "b511a88ee3e32f7b168444645d08eafa7f486399b9cd05681dec21f566853a69",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://key.visualarts.gr.jp/rewrite/character.html",
+    "source_claim": "Key's official Rewrite character page identifies Tennouji Kotarou (天王寺瑚太朗), Kanbe Kotori (神戸小鳥), Ohtori Chihaya (鳳ちはや), Senri Akane (千里朱音), Nakatsu Shizuru (中津静流), and Konohana Lucia (此花ルチア) as Rewrite characters.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"kanbe_kotori","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"rewrite"},
+      {"subject_type":"Character","subject_key":"konohana_lucia","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"rewrite"},
+      {"subject_type":"Character","subject_key":"nakatsu_shizuru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"rewrite"},
+      {"subject_type":"Character","subject_key":"ootori_chihaya","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"rewrite"},
+      {"subject_type":"Character","subject_key":"senri_akane","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"rewrite"},
+      {"subject_type":"Character","subject_key":"tennouji_kotarou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"rewrite"}
+    ],
+    "terminal_reviews": [],
+    "notes": "Only the six exact character entries shown on Key's official character page are mapped."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-rewrite-key-official-chibi-moth-banner-20260928",
+    "campaign_key": "authority:rewrite",
+    "campaign_fingerprint": "b511a88ee3e32f7b168444645d08eafa7f486399b9cd05681dec21f566853a69",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://key.visualarts.gr.jp/rewrite/banner.html",
+    "source_claim": "Key's official Rewrite promotional banner page explicitly labels Chibi-moth (ちびもす) among the Rewrite character banners.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"chibi-moth","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"rewrite"}
+    ],
+    "terminal_reviews": [],
+    "notes": "The page is hosted in Key's Rewrite product site and labels the banner subject ちびもす; no other creature is inferred."
+  }
+]
