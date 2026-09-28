@@ -1,0 +1,44 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-kimikiss-pure-rouge-official-cast-roster-20260928",
+    "campaign_key": "authority:kimi_kiss",
+    "campaign_fingerprint": "53fddfd19ad190ad17509f485597084f5ee2124ae1250d27b2fb9d6c5ddbbb7f",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.kimikiss-pure-rouge.jp/staff.html",
+    "source_claim": "The official KimiKiss pure rouge staff and cast page identifies the characters Satonaka Narumi (里仲なるみ), Aihara Nana (相原菜々), Kawada Tomoko (川田知子), Hoshino Yuumi (星乃結美), Mizusawa Mao (水澤摩央), Sakino Asuka (咲野明日夏), Futami Eriko (二見瑛理子), and Shijou Mitsuki (祇条深月) in the cast list. It identifies Enterbrain as the original work source and the KimiKiss production committee.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"aihara_nana","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_kiss"},
+      {"subject_type":"Character","subject_key":"futami_eriko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_kiss"},
+      {"subject_type":"Character","subject_key":"hoshino_yuumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_kiss"},
+      {"subject_type":"Character","subject_key":"kawada_tomoko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_kiss"},
+      {"subject_type":"Character","subject_key":"mizusawa_mao","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_kiss"},
+      {"subject_type":"Character","subject_key":"sakino_asuka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_kiss"},
+      {"subject_type":"Character","subject_key":"satonaka_narumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_kiss"},
+      {"subject_type":"Character","subject_key":"shijou_mitsuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_kiss"}
+    ],
+    "terminal_reviews": [],
+    "notes": "All eight names are explicitly listed in the official anime cast roster."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-kimikiss-official-aihara-kouichi-reference-20260928",
+    "campaign_key": "authority:kimi_kiss",
+    "campaign_fingerprint": "53fddfd19ad190ad17509f485597084f5ee2124ae1250d27b2fb9d6c5ddbbb7f",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.kimikiss-pure-rouge.jp/special/vol1.html",
+    "source_claim": "The official KimiKiss pure rouge site interview names Aihara Kouichi (相原光一) and explicitly discusses his role in the original game and related KimiKiss drama CDs while introducing the anime adaptation and its cast.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"aihara_kouichi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_kiss"}
+    ],
+    "terminal_reviews": [],
+    "notes": "Aihara Kouichi is named directly in the official site's interview. The anime's different character names are not treated as aliases for him."
+  }
+]
+
