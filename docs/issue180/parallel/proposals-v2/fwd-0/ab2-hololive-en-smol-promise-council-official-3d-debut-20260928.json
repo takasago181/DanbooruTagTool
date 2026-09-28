@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-hololive-en-smol-promise-council-official-3d-debut-20260928",
+  "campaign_key": "authority:hololive",
+  "campaign_fingerprint": "86a1c71b4f1bf83d7f65407a93e53da0ac20d1855bc18f076615afa3cc30982c",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.youtube.com/watch?v=Y0GT0Bixw9o",
+  "source_claim": "Hololive EN's official channel published 'Smol IRyS and Council Members 3D Debut,' establishing the official smol 3D character lineup for IRyS and the Council members (Ceres Fauna, Ouro Kronii, Nanashi Mumei, and Hakos Baelz).",
+  "authority_type": "FIRST_PARTY_CHARACTER_VIDEO",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"smol_irys","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hololive_english"},
+    {"subject_type":"Character","subject_key":"smol_fauna","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hololive_english"},
+    {"subject_type":"Character","subject_key":"smol_kronii","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hololive_english"},
+    {"subject_type":"Character","subject_key":"smol_mumei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hololive_english"},
+    {"subject_type":"Character","subject_key":"smol_baelz","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"hololive_english"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official Hololive EN 3D debut explicitly covers the Smol IRyS and Council character models. The five Council/Project HOPE talent identities were matched using official hololive announcements and the exact dispatched smol character tags. Copyright key hololive_english is canonical in Issue 70."
+}
