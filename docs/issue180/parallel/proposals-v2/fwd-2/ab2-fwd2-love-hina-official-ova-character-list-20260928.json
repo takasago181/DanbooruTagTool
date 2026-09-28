@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-love-hina-official-ova-character-list-20260928",
+  "campaign_key": "authority:love_hina",
+  "campaign_fingerprint": "8fdd144c3f5ec8f802475eea884d060f631d990b6cf7597272fe13c04d539fc8",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://king-cr.jp/special/ova_hina/character/",
+  "source_claim": "King Records' official Love Hina Again character page lists the exact characters Keitaro Urashima, Naru Narusegawa, Kanako Urashima, Shinobu Maehara, Motoko Aoyama, Mitsune Konno, Kaolla Su, Sarah McDougal, and Mutsumi Otohime.",
+  "authority_type": "RIGHTS_HOLDER_OFFICIAL_ANIME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "urashima_keitarou",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "love_hina"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "narusegawa_naru",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "love_hina"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "maehara_shinobu",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "love_hina"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "aoyama_motoko",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "love_hina"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "konno_mitsune",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "love_hina"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "kaolla_su",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "love_hina"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "sarah_mcdougal",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "love_hina"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "otohime_mutsumi",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "love_hina"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Haruka Urashima is not listed on this checked character page and is not included."
+}

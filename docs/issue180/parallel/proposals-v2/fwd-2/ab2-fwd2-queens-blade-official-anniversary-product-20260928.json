@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-queens-blade-official-anniversary-product-20260928",
+  "campaign_key": "authority:queen's_blade",
+  "campaign_fingerprint": "1e07d1dec1ffa8e087f6b2a0800da97305b603bbde5ff1ffeb9e5fbb42f64680",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://queensblade.net/15th/",
+  "source_claim": "The official Queen's Blade 15th Anniversary page explicitly captions a Queen's Blade reproduction artwork/product as Captain Liliana, establishing the exact named campaign character as belonging to the franchise.",
+  "authority_type": "RIGHTS_HOLDER_OFFICIAL_ANNIVERSARY_PRODUCT_CATALOG",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "captain_liliana",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "queen's_blade"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "This item-level source supports only the exact named campaign member Captain Liliana; no broader roster is inferred."
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-rain-code-spike-chunsoft-character-roster-20260928",
+  "campaign_key": "authority:master_detective_archives:_rain_code",
+  "campaign_fingerprint": "d557df5a87b02891aafb22925d82ff50bd77b2a3471b800995f4ff05e2f00c5d",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.spike-chunsoft.co.jp/pages/raincode/en/character/",
+  "source_claim": "Spike Chunsoft's official Master Detective Archives: RAIN CODE character page identifies Desuhiko Thunderbolt, Fubuki Clockford, Halara Nightmare, Vivia Twilight, Yakou Furio, Yuma Kokohead, and Zilch Alexander as characters in the game.",
+  "authority_type": "DEVELOPER_OFFICIAL_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "desuhiko_thunderbolt",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "master_detective_archives:_rain_code"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "fubuki_clockford",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "master_detective_archives:_rain_code"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "halara_nightmare",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "master_detective_archives:_rain_code"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "vivia_twilight",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "master_detective_archives:_rain_code"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yakou_furio",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "master_detective_archives:_rain_code"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "yuma_kokohead",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "master_detective_archives:_rain_code"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "zilch_alexander",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "master_detective_archives:_rain_code"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "Makoto Kagutsuchi and Yomi Hellsmile are not covered by this checked page and are not claimed."
+}
