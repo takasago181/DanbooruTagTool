@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-warcraft-we-ride-forth-official-story-20260928-01",
+  "campaign_key": "authority:warcraft",
+  "campaign_fingerprint": "1dec003330abdcd7f2941bb02f3ec32e510ab6678bb0cd6f7407875c537b31fa",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://worldofwarcraft.blizzard.com/en-us/news/23572626",
+  "source_claim": "Blizzard’s official “We Ride Forth” short story announcement names Sally Whitemane among the Lich King’s Four Horsemen; the linked story follows that character.",
+  "authority_type": "FIRST_PARTY_GAME_STORY_ANNOUNCEMENT",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "sally_whitemane",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "warcraft"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official Blizzard publication names the exact campaign member and places her in the Warcraft story."
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-f3-warcraft-dragon-aspects-official-story-20260928-01",
+  "campaign_key": "authority:warcraft",
+  "campaign_fingerprint": "1dec003330abdcd7f2941bb02f3ec32e510ab6678bb0cd6f7407875c537b31fa",
+  "worker_slot": 3,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://worldofwarcraft.blizzard.com/en-us/news/23876527/the-story-so-far-take-wing-through-time-with-the-dragon-aspects",
+  "source_claim": "Blizzard’s official Dragonflight story recap names Alexstrasza among the Dragon Aspects and explicitly describes Deathwing the Destroyer’s history and defeat.",
+  "authority_type": "FIRST_PARTY_GAME_STORY_ARTICLE",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {
+      "subject_type": "Character",
+      "subject_key": "alexstrasza",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "warcraft"
+    },
+    {
+      "subject_type": "Character",
+      "subject_key": "deathwing",
+      "relation_type": "DIRECT_HOME",
+      "object_type": "Copyright",
+      "object_key": "warcraft"
+    }
+  ],
+  "terminal_reviews": [],
+  "notes": "The official article identifies the exact character names in Warcraft narrative context."
+}
