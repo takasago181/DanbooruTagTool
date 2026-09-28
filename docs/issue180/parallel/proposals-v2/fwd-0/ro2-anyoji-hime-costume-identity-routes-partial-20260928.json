@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ro2-anyoji-hime-costume-identity-routes-partial-20260928",
+  "campaign_key": "base:anyoji_hime",
+  "campaign_fingerprint": "1df25e7f4dcc71ccc83d1c8c4f9cfe521edeeca7cece12435f3bde3efc4dde5c",
+  "worker_slot": 0,
+  "batch_type": "RESEARCH_OUTCOME",
+  "source_url": "",
+  "source_claim": "The checked first-party Love Live sources confirm Anyoji Hime as a Hasunosora member, but the available pages did not establish that the five exact campaign tags are official depictions of that same base character.",
+  "authority_type": "",
+  "evidence_basis": "",
+  "relations": [],
+  "terminal_reviews": [],
+  "outcome_scope": "PARTIAL",
+  "checked_routes": [
+    {
+      "route_type": "OFFICIAL_CHARACTER_PROFILE",
+      "url_or_query": "https://www.lovelive-anime.jp/hasunosora/member/09/",
+      "result": "Official indexed references identify 安養寺姫芽 / Anyoji Hime and her Hasunosora membership. Direct page retrieval returned 403, and the accessible official excerpts did not list or identify the exact seal, sleepover-at-Ginko's, summer-loungewear, summer-training-wear, or winter-loungewear tag scopes."
+    },
+    {
+      "route_type": "FIRST_PARTY_MEMBER_VIDEO",
+      "url_or_query": "https://www.youtube.com/watch?v=FrvyqN6ocGE",
+      "result": "The official Hasunosora channel's 104th-term self-introduction video names Anyoji Hime, confirming the base identity but not the five exact campaign variants."
+    },
+    {
+      "route_type": "OFFICIAL_GOODS_AND_GAME_MATERIALS",
+      "url_or_query": "https://lovelive-hasunosora-store.bnfw.jp/ ; https://www.lovelive-anime.jp/hasunosora/news/detail.php?p=01_4409",
+      "result": "The official Hasunosora store and official project merchandise announcement identify Hime and use Link! Like! Love Live! character artwork, but the checked material did not explicitly associate the five exact campaign variant tags with her."
+    }
+  ],
+  "notes": "This is partial research accounting only. No negative or terminal conclusion is drawn; further dispatch work may identify first-party card/story artwork or a more precise roster covering these variant scopes."
+}
