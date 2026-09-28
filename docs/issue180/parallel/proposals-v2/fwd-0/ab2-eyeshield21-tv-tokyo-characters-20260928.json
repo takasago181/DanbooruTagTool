@@ -1,0 +1,38 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-eyeshield21-tv-tokyo-characters-20260928",
+    "campaign_key": "authority:eyeshield_21",
+    "campaign_fingerprint": "4f4c7b39ba2a7d67aaa717f933ec37ca509f03b3d580d18803bb9bdbe496632c",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.tv-tokyo.co.jp/anime/eyeshield21/chara.html",
+    "source_claim": "TV Tokyo's official Eyeshield 21 character page profiles Sena Kobayakawa, Yoichi Hiruma, and Mamori Anezaki as characters in the series.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"kobayakawa_sena","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eyeshield_21"},
+      {"subject_type":"Character","subject_key":"hiruma_youichi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eyeshield_21"},
+      {"subject_type":"Character","subject_key":"anezaki_mamori","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eyeshield_21"}
+    ],
+    "terminal_reviews": [],
+    "notes": "The page explicitly names and describes each of the three campaign characters."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-eyeshield21-tv-tokyo-cast-suzuna-20260928",
+    "campaign_key": "authority:eyeshield_21",
+    "campaign_fingerprint": "4f4c7b39ba2a7d67aaa717f933ec37ca509f03b3d580d18803bb9bdbe496632c",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.tv-tokyo.co.jp/anime/eyeshield21/staff.html",
+    "source_claim": "TV Tokyo's official staff and cast page explicitly lists Suzuna Taki and her voice performer as a character-role pair for the Eyeshield 21 anime.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"taki_suzuna","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eyeshield_21"}
+    ],
+    "terminal_reviews": [],
+    "notes": "Only the exact campaign character named in the cast roster is included."
+  }
+]

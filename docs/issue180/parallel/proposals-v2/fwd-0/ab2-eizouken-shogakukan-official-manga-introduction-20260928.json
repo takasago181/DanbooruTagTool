@@ -1,0 +1,38 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-eizouken-shogakukan-official-manga-introduction-20260928",
+    "campaign_key": "authority:eizouken_ni_wa_te_wo_dasu_na!",
+    "campaign_fingerprint": "c1be07e063e3c6ae0d7767731f9977bd0fcaa1c6366bff6bbf44dc7069b89987",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://bigcomicbros.net/work/6227/",
+    "source_claim": "Shogakukan's official Big Comic BROS work introduction names Midori Asakusa, Tsubame Mizusaki, and Sayaka Kanamori as the central characters of Keep Your Hands Off Eizouken!.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"asakusa_midori","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eizouken_ni_wa_te_wo_dasu_na!"},
+      {"subject_type":"Character","subject_key":"mizusaki_tsubame","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eizouken_ni_wa_te_wo_dasu_na!"},
+      {"subject_type":"Character","subject_key":"kanamori_sayaka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eizouken_ni_wa_te_wo_dasu_na!"}
+    ],
+    "terminal_reviews": [],
+    "notes": "The publisher introduction explicitly names all three original campaign identities on this page."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-eizouken-shogakukan-volume-3-doumeki-20260928",
+    "campaign_key": "authority:eizouken_ni_wa_te_wo_dasu_na!",
+    "campaign_fingerprint": "c1be07e063e3c6ae0d7767731f9977bd0fcaa1c6366bff6bbf44dc7069b89987",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://bigcomicbros.net/comics/31206/",
+    "source_claim": "Shogakukan's official volume 3 description for Keep Your Hands Off Eizouken! says Doumeki joins Eizouken as a new sound specialist member.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"doumeki_parker","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"eizouken_ni_wa_te_wo_dasu_na!"}
+    ],
+    "terminal_reviews": [],
+    "notes": "The official volume description identifies Doumeki as a new member, and the work title and author match the campaign's Eizouken work."
+  }
+]
