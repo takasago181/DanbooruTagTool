@@ -1,0 +1,43 @@
+[
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-k-on-official-sequel-20260928",
+    "campaign_key": "authority:k-on!",
+    "campaign_fingerprint": "86c33147a5afdab2ebb3ff5029aa76453288df75aeaa80ae9141ef4f8b2dbc30",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.kyotoanimation.co.jp/en/works/k-on02/",
+    "source_claim": "Kyoto Animation's official K-ON!! series description names Yui Hirasawa, Ritsu Tainaka, Mio Akiyama, Tsumugi Kotobuki, and Azusa Nakano as members of the light music club in the work.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"hirasawa_yui","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"k-on!"},
+      {"subject_type":"Character","subject_key":"tainaka_ritsu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"k-on!"},
+      {"subject_type":"Character","subject_key":"akiyama_mio","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"k-on!"},
+      {"subject_type":"Character","subject_key":"kotobuki_tsumugi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"k-on!"},
+      {"subject_type":"Character","subject_key":"nakano_azusa","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"k-on!"}
+    ],
+    "terminal_reviews": [],
+    "notes": "The official sequel page explicitly names all five members; overlap with the first-season page is retained as independent source evidence."
+  },
+  {
+    "schema_version": 2,
+    "proposal_id": "ab2-k-on-tbs-official-event-cast-20260928",
+    "campaign_key": "authority:k-on!",
+    "campaign_fingerprint": "86c33147a5afdab2ebb3ff5029aa76453288df75aeaa80ae9141ef4f8b2dbc30",
+    "worker_slot": 0,
+    "batch_type": "AUTHORITY_BATCH",
+    "source_url": "https://www.tbs.co.jp/anime/k-on/k-on_tv/special/event110220.html",
+    "source_claim": "The official TBS K-ON!! event report identifies the performers by their character roles, including Ui Hirasawa, Nodoka Manabe, Jun Suzuki, and Sawako Yamanaka, in the TV series cast and performance context.",
+    "authority_type": "FIRST_PARTY_CHARACTER_ROSTER",
+    "evidence_basis": "EXTERNAL_AUTHORITY",
+    "relations": [
+      {"subject_type":"Character","subject_key":"hirasawa_ui","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"k-on!"},
+      {"subject_type":"Character","subject_key":"manabe_nodoka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"k-on!"},
+      {"subject_type":"Character","subject_key":"suzuki_jun","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"k-on!"},
+      {"subject_type":"Character","subject_key":"yamanaka_sawako","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"k-on!"}
+    ],
+    "terminal_reviews": [],
+    "notes": "The report names character-role pairs; actor names are not proposed as Character identities."
+  }
+]
