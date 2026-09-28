@@ -1,0 +1,27 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-genshin-inazuma-official-profiles-20260928",
+  "campaign_key": "authority:genshin_impact",
+  "campaign_fingerprint": "238a7d834d354065dbac302085d1068be04e968fde968ff9a8a4d228ecbeebd8",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://genshin.hoyoverse.com/id/character/inazuma?char=3",
+  "source_claim": "HoYoverse's official Genshin Impact Inazuma character directory provides character profiles and descriptions identifying Arataki Itto, Kaedehara Kazuha, Kamisato Ayaka, Kamisato Ayato, Kujou Sara, Kuki Shinobu, Raiden Shogun, Sangonomiya Kokomi, Shikanoin Heizou, Yae Miko, and Yumemizuki Mizuki as characters in the game.",
+  "authority_type": "HOYOVERSE_OFFICIAL_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"arataki_itto","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"genshin_impact"},
+    {"subject_type":"Character","subject_key":"kaedehara_kazuha","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"genshin_impact"},
+    {"subject_type":"Character","subject_key":"kamisato_ayaka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"genshin_impact"},
+    {"subject_type":"Character","subject_key":"kamisato_ayato","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"genshin_impact"},
+    {"subject_type":"Character","subject_key":"kujou_sara","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"genshin_impact"},
+    {"subject_type":"Character","subject_key":"kuki_shinobu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"genshin_impact"},
+    {"subject_type":"Character","subject_key":"raiden_shogun","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"genshin_impact"},
+    {"subject_type":"Character","subject_key":"sangonomiya_kokomi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"genshin_impact"},
+    {"subject_type":"Character","subject_key":"shikanoin_heizou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"genshin_impact"},
+    {"subject_type":"Character","subject_key":"yae_miko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"genshin_impact"},
+    {"subject_type":"Character","subject_key":"yumemizuki_mizuki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"genshin_impact"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only exact character identities described in the official Inazuma profile directory are included. The directory also credits voice actors; those are not character relations and are intentionally excluded, as are unverified non-profile campaign aliases and entities. The broader campaign stays open."
+}

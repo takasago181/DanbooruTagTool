@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-watamote-official-anime-cast-20260928",
+  "campaign_key": "authority:watashi_ga_motenai_no_wa_dou_kangaetemo_omaera_ga_warui!",
+  "campaign_fingerprint": "e604760cadb23346c09d2ee36fec39c5245d897d5e74596023e61643700cfb84",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://www.tv-tokyo.co.jp/anime/watamote/sp/chara/index.html",
+  "source_claim": "TV Tokyo's official Watamote anime character page names Kuroki Tomoko and Kuroki Tomoki, describes Tomoki as Tomoko's younger brother, and identifies the page's series as Watashi ga Motenai no wa Dou Kangaetemo Omaera ga Warui!.",
+  "authority_type": "BROADCASTER_OFFICIAL_CHARACTER_PROFILES",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"kuroki_tomoko","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"watashi_ga_motenai_no_wa_dou_kangaetemo_omaera_ga_warui!"},
+    {"subject_type":"Character","subject_key":"kuroki_tomoki","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"watashi_ga_motenai_no_wa_dou_kangaetemo_omaera_ga_warui!"}
+  ],
+  "terminal_reviews": [],
+  "notes": "The official anime character page establishes these two exact campaign identities only. It does not cover the broader manga-era classmates and later characters in the current 22-member campaign, which remain open."
+}

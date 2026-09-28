@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-fwd2-science-adventure-steinsgate-reboot-cast-20260928",
+  "campaign_key": "authority:science_adventure",
+  "campaign_fingerprint": "6363a2aeb5a11dfafd9a65a506fa09d4040d0662c15ac6a471d5dc2d414c29ae",
+  "worker_slot": 2,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://steinsgate.jp/reboot/ja-jp/",
+  "source_claim": "The official STEINS;GATE RE:BOOT game page identifies its title and provides character profiles for Rintaro Okabe, Mayuri Shiina, Itaru Hashida, Kurisu Makise, Moeka Kiryu, Luka Urushibara, Suzuha Amane, Yugo Tennouji, and Nae Tennouji.",
+  "authority_type": "FIRST_PARTY_GAME_CHARACTER_ROSTER",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"amane_suzuha","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"science_adventure"},
+    {"subject_type":"Character","subject_key":"hashida_itaru","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"science_adventure"},
+    {"subject_type":"Character","subject_key":"kiryuu_moeka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"science_adventure"},
+    {"subject_type":"Character","subject_key":"makise_kurisu","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"science_adventure"},
+    {"subject_type":"Character","subject_key":"okabe_rintarou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"science_adventure"},
+    {"subject_type":"Character","subject_key":"shiina_mayuri","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"science_adventure"},
+    {"subject_type":"Character","subject_key":"tennouji_nae","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"science_adventure"},
+    {"subject_type":"Character","subject_key":"tennouji_yuugo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"science_adventure"},
+    {"subject_type":"Character","subject_key":"urushibara_luka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"science_adventure"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Only the exact STEINS;GATE RE:BOOT campaign identities individually named on this game page are included. The wider campaign also spans other Science Adventure titles and variants, which are not inferred from this single roster."
+}
