@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "proposal_id": "ab2-100kanojo-official-anime-character-directory-20260928",
+  "campaign_key": "authority:kimi_no_koto_ga_dai_dai_dai_dai_daisuki_na_100-nin_no_kanojo",
+  "campaign_fingerprint": "90f360535c0d1d19a4a19b243dd8689ff82c3787f70ce818895c9379b25720e1",
+  "worker_slot": 0,
+  "batch_type": "AUTHORITY_BATCH",
+  "source_url": "https://hyakkano.com/character/rentaro/",
+  "source_claim": "The official TV anime character directory links individual character entries for Rentaro Aijo, Hakari Hanazono, Karane Inda, Shizuka Yoshimoto, Nano Eiai, Kusuri Yakuzen, Hahari Hanazono, Kurumi Haraga, Mei Meido, Iku Sutou, Mimimi Utsukushisugi, Meme Kakure, Chiyo Iin, Yamame Yasashiki, Momiji Momi, Yaku Yakuzen, and Kishika Torotoro. The linked character page carries the anime production committee copyright for the named series.",
+  "authority_type": "FIRST_PARTY_CHARACTER_DIRECTORY",
+  "evidence_basis": "EXTERNAL_AUTHORITY",
+  "relations": [
+    {"subject_type":"Character","subject_key":"aijou_rentarou","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_no_koto_ga_dai_dai_dai_dai_daisuki_na_100-nin_no_kanojo"},
+    {"subject_type":"Character","subject_key":"hanazono_hakari","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_no_koto_ga_dai_dai_dai_dai_daisuki_na_100-nin_no_kanojo"},
+    {"subject_type":"Character","subject_key":"inda_karane","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_no_koto_ga_dai_dai_dai_dai_daisuki_na_100-nin_no_kanojo"},
+    {"subject_type":"Character","subject_key":"yoshimoto_shizuka","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_no_koto_ga_dai_dai_dai_dai_daisuki_na_100-nin_no_kanojo"},
+    {"subject_type":"Character","subject_key":"eiai_nano","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_no_koto_ga_dai_dai_dai_dai_daisuki_na_100-nin_no_kanojo"},
+    {"subject_type":"Character","subject_key":"yakuzen_kusuri","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_no_koto_ga_dai_dai_dai_dai_daisuki_na_100-nin_no_kanojo"},
+    {"subject_type":"Character","subject_key":"hanazono_hahari","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_no_koto_ga_dai_dai_dai_dai_daisuki_na_100-nin_no_kanojo"},
+    {"subject_type":"Character","subject_key":"haraga_kurumi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_no_koto_ga_dai_dai_dai_dai_daisuki_na_100-nin_no_kanojo"},
+    {"subject_type":"Character","subject_key":"meido_mei","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_no_koto_ga_dai_dai_dai_dai_daisuki_na_100-nin_no_kanojo"},
+    {"subject_type":"Character","subject_key":"sutou_iku","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_no_koto_ga_dai_dai_dai_dai_daisuki_na_100-nin_no_kanojo"},
+    {"subject_type":"Character","subject_key":"utsukushisugi_mimimi","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_no_koto_ga_dai_dai_dai_dai_daisuki_na_100-nin_no_kanojo"},
+    {"subject_type":"Character","subject_key":"kakure_meme","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_no_koto_ga_dai_dai_dai_dai_daisuki_na_100-nin_no_kanojo"},
+    {"subject_type":"Character","subject_key":"iin_chiyo","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_no_koto_ga_dai_dai_dai_dai_daisuki_na_100-nin_no_kanojo"},
+    {"subject_type":"Character","subject_key":"yasashiki_yamame","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_no_koto_ga_dai_dai_dai_dai_daisuki_na_100-nin_no_kanojo"},
+    {"subject_type":"Character","subject_key":"momi_momiji","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_no_koto_ga_dai_dai_dai_dai_daisuki_na_100-nin_no_kanojo"},
+    {"subject_type":"Character","subject_key":"yakuzen_yaku","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_no_koto_ga_dai_dai_dai_dai_daisuki_na_100-nin_no_kanojo"},
+    {"subject_type":"Character","subject_key":"torotoro_kishika","relation_type":"DIRECT_HOME","object_type":"Copyright","object_key":"kimi_no_koto_ga_dai_dai_dai_dai_daisuki_na_100-nin_no_kanojo"}
+  ],
+  "terminal_reviews": [],
+  "notes": "Each listed subject is an explicit entry in the official anime site's Character directory navigation, and the official profile page's production copyright names the series. Japanese profile labels were cross-checked with the Issue 70 candidate labels and exact tags with this dispatch. The batch excludes unlisted campaign members and ambiguous alternate names."
+}
