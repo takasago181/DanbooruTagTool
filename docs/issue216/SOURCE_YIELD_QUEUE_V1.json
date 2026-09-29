@@ -1,18 +1,18 @@
 {
-  "accepted_roster_source_count": 31,
+  "accepted_roster_source_count": 30,
   "baseline_unresolved": 13983,
   "candidate_graph_sha256": "218cf30cb21695472e276cce327cd96a132665f3473c8925954059c3432c4bea",
-  "currently_unresearched": 13553,
-  "note": "expected_safe_yield counts only AUTO_MAPPING_CANDIDATE rows from reviewed inventories matching an accepted source ID, URL, and exact scope; it is a priority estimate, never HOME evidence or a guaranteed decision count. Incrementally updated after the Persona 3 exact roster batch; the protected #180 master/graph inputs were unavailable in this worktree, so full deterministic reconstruction remains pending. Incrementally updated after the exact 41-name Gundam SEED DESTINY directory batch; the protected #180 master/graph inputs were unavailable in this worktree, so full deterministic reconstruction remains pending. Incrementally updated after the exact four-member Wonderful Precure cast batch; the protected #180 master/graph inputs were unavailable in this worktree, so full deterministic reconstruction remains pending. Incrementally updated after the official Jupiter cross-work review and Dearly Stars roster batch; the protected #180 master/graph inputs were unavailable in this worktree, so full deterministic reconstruction remains pending. Incrementally adjusted after the 2026-09-30 Delicious Party Precure (8 exact cohort members) and Hirogaru Sky Precure (3 exact cohort members) title-scoped roster batches: aggregate open count is 13,562, source registry is 63, and Top500 open remains 337. The queue CSV root-level unresolved/post-count aggregates remain at the last complete graph snapshot because protected #180 master/graph inputs are not present; top2000_open=1,770 is likewise the last verified pre-batch value, not rederived for these 11 Characters. Incrementally updated after the official Square Enix FINAL FANTASY XVI nine-name directory batch: seven exact unresolved cohort members were accepted to final_fantasy_xvi, including frozen Top500 rank 433 clive_rosfield, so Top500 open is now 336. The previous Top2000 total 1,770 predates the 11 Precure decisions; clive_rosfield is one confirmed additional Top2000 completion, while the other 17 post-Precure/FFXVI members lack available per-character rank rows here, so 1,769 is only an upper bound and the root-level queue remains a last-complete-graph snapshot. Incrementally updated after one Tales of Arise official Japanese title-directory batch with two exact cohort decisions: aggregate open count is 13,553, accepted source registry is 65, reusable accepted roster sources are 31, and Top500 open remains 336. Gundam SEED official-directory preflight had no safe unresolved cohort mapping and was not added to the accepted registry. The precise post-batch Top2000 open count is bounded 1,750–1,769: one confirmed Top500 character (Clive, rank 433) is known; membership of the other 19 newly terminalized Characters in ranks 501–2,000 is unavailable in this checkout.",
+  "currently_unresearched": 13551,
+  "note": "expected_safe_yield counts only AUTO_MAPPING_CANDIDATE rows from reviewed inventories matching an accepted source ID, URL, and exact scope; it is a priority estimate, never HOME evidence or a guaranteed decision count.",
   "post_count_joined_frozen_baseline": 13881,
-  "post_count_joined_open": 13471,
+  "post_count_joined_open": 13449,
   "post_count_missing_open": 102,
   "post_count_sha256": "893fbf07c7d0250e1c30d43b9e01aca69d56e2e6f3d742dcc233e889dfec5aec",
   "protected_master_sha256": "135463a5225b6501db923322284f8e309f217eb5359538088eb6de6d78b77071",
   "queue_order": "reviewed source exact-candidate yield, registered source review need, then unresolved/Top2000/post-count priority; candidate edges and frequency are priority-only",
   "root_count": 2665,
   "schema_version": "issue216-source-yield-queue-v1",
-  "source_registry_count": 65,
-  "top2000_open": 1770,
-  "top500_open": 336
+  "source_registry_count": 66,
+  "top2000_open": 1748,
+  "top500_open": 334
 }
