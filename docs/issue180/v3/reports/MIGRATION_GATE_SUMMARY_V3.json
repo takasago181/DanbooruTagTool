@@ -11,70 +11,70 @@
   "character_population": 35890,
   "closure_sweep_path": "docs/issue180/v3/reports/RESEARCH_UNIT_CLOSURE_SWEEP_V3.csv",
   "evidence_basis_counts": {
-    "APPROVED_REPO_EVIDENCE": 13464,
-    "EXTERNAL_AUTHORITY": 5818,
+    "APPROVED_REPO_EVIDENCE": 13463,
+    "EXTERNAL_AUTHORITY": 6066,
     "REVIEWED_QUALIFIER_COPYRIGHT": 1169,
     "REVIEWED_VARIANT_AUTHORITY": 423,
     "ROOT_POLICY_NORMALIZATION": 17,
-    "SAFE_STRUCTURAL_VARIANT": 4209
+    "SAFE_STRUCTURAL_VARIANT": 4228
   },
-  "evidence_rows": 25100,
-  "external_source_url_count": 1113,
+  "evidence_rows": 25366,
+  "external_source_url_count": 1140,
   "generated_output_directory": "artifacts/issue180-v3",
   "legacy_v1_v2_scripts_executed": false,
   "migration_comparison_path": "docs/issue180/v3/reports/MIGRATION_COMPARISON_V3.csv",
   "migration_counts": {
-    "SAME_HOME": 12494,
-    "V3_UNRESOLVED": 32
+    "SAME_HOME": 12493,
+    "V3_UNRESOLVED": 33
   },
   "migration_difference_classes": {
-    "OLD_DECISION_DEFECT": 32
+    "OLD_DECISION_DEFECT": 33
   },
   "migration_gate": "STOP_CLASSIFIED_DIFFERENCES",
   "missing_roots": 0,
   "multi_home_conflicts": 1,
   "open_closure_classification_counts": {
-    "BATCH_AUTHORITY_RESEARCH": 4429,
+    "BATCH_AUTHORITY_RESEARCH": 4417,
     "CONFLICT_REVIEW": 1
   },
-  "open_closure_classification_rows": 4430,
-  "open_research_units": 4430,
+  "open_closure_classification_rows": 4418,
+  "open_research_units": 4418,
   "pipeline_validation": "PASS",
   "production_runtime_dependency": false,
   "reproducibility": {
-    "first_master_sha256": "2715b66d4872a3620b0c8d62b48164981a02cb7f223d5f0b9ddb5dfc1a6dae8a",
+    "first_master_sha256": "420ee7bc868b403904614c9b12033be32213a72e73b195bc992fb1cb09d153f9",
     "same": true,
-    "second_master_sha256": "2715b66d4872a3620b0c8d62b48164981a02cb7f223d5f0b9ddb5dfc1a6dae8a"
+    "second_master_sha256": "420ee7bc868b403904614c9b12033be32213a72e73b195bc992fb1cb09d153f9"
   },
-  "research_unit_count": 4527,
+  "research_unit_count": 4515,
   "research_unit_status_counts": {
     "IDENTITY_BLOCKED": 7,
     "NO_SAFE_EVIDENCE": 8,
-    "OPEN": 4430,
+    "OPEN": 4418,
     "PARTIALLY_RESOLVED": 7,
     "POLICY_BLOCKED": 75
   },
   "research_unit_type_counts": {
-    "DIRECT_AUTHORITY": 2490,
+    "DIRECT_AUTHORITY": 2483,
     "EVIDENCE_CONFLICT": 1,
     "FAMILY_AUTHORITY": 1516,
     "IDENTITY_REVIEW": 7,
     "ROSTER_MEMBERSHIP": 18,
-    "VARIANT_OFFICIALITY": 495
+    "VARIANT_OFFICIALITY": 490
   },
   "residual_reason_counts": {
-    "DIRECT_AUTHORITY_MISSING": 11254,
+    "DIRECT_AUTHORITY_MISSING": 11006,
     "EVIDENCE_CONFLICT": 1,
     "FAMILY_HOME_MISSING": 2875,
     "FAMILY_MEMBERSHIP_MISSING": 514,
     "IDENTITY_REVIEW_REQUIRED": 7,
-    "VARIANT_OFFICIALITY_MISSING": 813
+    "VARIANT_OFFICIALITY_MISSING": 795
   },
   "schema_version": 3,
-  "source_manifest_sha256": "4457b1246c7893884242532bad60e080f2b146f0f89d28c96852e0d6abc7e552",
+  "source_manifest_sha256": "de0488adfb483c80d2827724433cb5463b161c667fc6f239fcfaff81bc180424",
   "states": {
-    "HOME_CONFIRMED": 20426,
-    "HOME_UNRESOLVED": 15464,
+    "HOME_CONFIRMED": 20692,
+    "HOME_UNRESOLVED": 15198,
     "NOT_OFFICIAL_CHARACTER": 0
   }
 }
