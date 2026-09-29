@@ -2,30 +2,30 @@
   "lanes": {
     "0": {
       "dispatched_open_campaigns": 200,
-      "open_campaigns": 1123,
-      "total_campaigns": 1123
+      "open_campaigns": 1116,
+      "total_campaigns": 1116
     },
     "1": {
-      "dispatched_open_campaigns": 200,
-      "open_campaigns": 1069,
-      "total_campaigns": 1069
-    },
-    "2": {
       "dispatched_open_campaigns": 200,
       "open_campaigns": 1062,
       "total_campaigns": 1062
     },
+    "2": {
+      "dispatched_open_campaigns": 200,
+      "open_campaigns": 1059,
+      "total_campaigns": 1059
+    },
     "3": {
       "dispatched_open_campaigns": 200,
-      "open_campaigns": 1092,
-      "total_campaigns": 1092
+      "open_campaigns": 1079,
+      "total_campaigns": 1079
     }
   },
   "packet_limit_per_lane": 200,
-  "progressed_open_campaigns": 109,
+  "progressed_open_campaigns": 104,
   "queue_ids": [
-    "q2-74cf9be0cca261f65b64"
+    "q2-1424800048a3bb41689d"
   ],
-  "total_forward_campaigns": 4346,
-  "total_open_campaigns": 4346
+  "total_forward_campaigns": 4316,
+  "total_open_campaigns": 4316
 }
