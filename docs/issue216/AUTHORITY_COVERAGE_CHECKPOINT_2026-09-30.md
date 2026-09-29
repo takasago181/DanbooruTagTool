@@ -1,5 +1,13 @@
 # Issue #216 — full-cohort authority coverage checkpoint
 
+## 2026-09-30 Fate/stay night Realta Nua roster batch
+
+- Reviewed the TYPE-MOON [Fate/stay night [Realta Nua] character directory](https://www.typemoon.com/products/fatevita/character/) once as a source-scoped roster. The page has 16 named/image character surfaces; exact catalog candidate generation and scope review accepted four unique unresolved cohort identities: Mitsuzuri Ayako, Matou Shinji, Ryuudou Issei, and Kuzuki Souichirou. Each maps to `fate_(series)` under the explicit Issue #180 Fate/stay night normalization policy, not from the broad `fate_(series)` candidate hint.
+- Five class/title-like surfaces (Rin, Saber, Archer, Berserker, Caster) remain `REVIEW_REQUIRED`; Rider and unmatched/nickname spellings remain unaccepted; already terminal and out-of-cohort identities were not reapplied. The existing Illyasviel profile source was reaudited and confirmed to have one-member scope only.
+- This batch terminalized 4 Characters from 1 new official source review (4.00 terminalized/source). Cumulative cohort: 13,983 accounted; HOME_CONFIRMED 346; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 3; IDENTITY_BLOCKED 2; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,632. Terminalized 351 / 13,983 (2.51%); Top500 UNRESEARCHED 362; Top2000 UNRESEARCHED 1,799.
+- Registry: 44 source records; 349 exact member mappings; 322 reused member rows / 351 terminalized rows = 91.74% source reuse. Missing Copyright roots 0; existing #180 confirmed HOME changed 0; conflicts 0. The rebuilt 2,667-root queue now records the Realta Nua source as reviewed with no remaining open exact candidates; the `fate_(series)` hint remains open for 115 other cohort identities, without treating that hint as HOME evidence.
+- Validation: deterministic exact roster batch PASS (13,983 decisions, 351 exact mappings, 44 sources); source-yield queue rebuilt (2,667 roots; Top500 362; Top2000 1,799); coverage summary valid but correctly incomplete due to 13,632 unresearched rows. Issue #216 suite and checkpoint-level reconstruction are next. Provenance: `BATCH_FATE_STAY_NIGHT_REALTA_NUA_DIRECTORY_2026-09-30.csv` and retained source proposal/roster, mapping generator output, candidate inventory, and source-scoped registry proposal.
+
 ## 2026-09-30 Shiny Colors subunit batch
 
 - Reaudited the already accepted Shiny Colors 2nd-season source scope; it lists 23 older roster members and does not cover the unresolved SHHis/CoMETIK members. Reviewed the official [SHHis roster](https://shinycolors.idolmaster-official.jp/idol/shhis/) and [CoMETIK roster](https://shinycolors.idolmaster-official.jp/idol/cometik/) once each. Their pages state the THE IDOLM@STER SHINY COLORS title and list five exact member surfaces in total; all five were unique unresolved cohort matches mapped to the exact `idolmaster_shiny_colors` root.
@@ -48,12 +56,12 @@
 - Frozen master SHA-256: `135463a5225b6501db923322284f8e309f217eb5359538088eb6de6d78b77071`.
 - Baseline population: 35,890; HOME_CONFIRMED 21,907; HOME_UNRESOLVED 13,983.
 - Frozen unresolved cohort: 13,983 / 13,983 accounted; cohort ID-list SHA-256 `2db82cd3640196a29015124f28ca75f849c5469ba8dede8f2bb0396c6ecf8f31`.
-- Current states: HOME_CONFIRMED 280; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 3; IDENTITY_BLOCKED 2; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,698. Accounted/terminalized: 285 / 13,983 (2.04%).
-- Frozen Top500: 364 UNRESEARCHED; frozen Top2000: 1,814 UNRESEARCHED. Top500 calibration remains incomplete.
-- Additive HOME_CONFIRMED total: 22,171 / 35,890 (61.77%). The original #180 master remains byte-identical; baseline-confirmed rows are outside this cohort and unchanged.
+- Current states: HOME_CONFIRMED 346; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 3; IDENTITY_BLOCKED 2; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,632. Accounted/terminalized: 351 / 13,983 (2.51%).
+- Frozen Top500: 362 UNRESEARCHED; frozen Top2000: 1,799 UNRESEARCHED. Top500 calibration remains incomplete.
+- Additive HOME_CONFIRMED total: 22,253 / 35,890 (62.00%). The original #180 master remains byte-identical; baseline-confirmed rows are outside this cohort and unchanged.
 - HOME cardinality: at most one field/value per decision; missing references to the complete Issue #70 Copyright catalog: 0.
-- Copyright source registry: 37 records; exact member mappings: 283; source reuse ratio: 257/285 = 90.18%; exact mappings per source record: 7.65. This continuation added 15 HOME decisions and one identity terminal across the Prisma Illya, Gundam SEED, and FGO batches. Source efficiency: 16 terminalized Characters / 3 new source reviews.
-- Full-cohort root-priority queue: 2,668 candidate roots, reconstructed from the frozen cohort and read-only Issue #180 master/graph. Current Top500/Top2000 open counts are based on frozen ranks. Expected safe yield is a priority estimate only; candidate roots, queue rank and post counts remain non-evidence.
+- Copyright source registry: 44 records; exact member mappings: 349; source reuse ratio: 322/351 = 91.74%; exact mappings per source record: 7.93. The Realta Nua batch terminalized 4 Characters / 1 new source review. Cumulative throughput: 351 terminalized Characters / 44 source records = 7.98 per source record.
+- Full-cohort root-priority queue: 2,667 candidate roots, reconstructed from the frozen cohort and read-only Issue #180 master/graph. Current Top500/Top2000 open counts are based on frozen ranks. Expected safe yield is a priority estimate only; candidate roots, queue rank and post counts remain non-evidence. Missing roots 0; existing #180 HOME changed 0; conflicts 0.
 
 ## Revalidated members
 
