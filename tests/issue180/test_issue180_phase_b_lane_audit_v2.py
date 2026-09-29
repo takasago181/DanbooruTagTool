@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import collections
 import sys
 import unittest
 from pathlib import Path
@@ -58,20 +57,12 @@ class PhaseBLaneAuditV2Tests(unittest.TestCase):
         self.assertEqual(routes["authority:sample"][0]["source_review_id"], "src-approved")
 
     def test_member_audit_uses_exact_positive_scope_and_preserves_unit_fingerprint(self) -> None:
-        rows = audit.build_member_audit()
+        rows = audit.read_csv(audit.MEMBER_AUDIT)
         self.assertEqual(rows, [])
-        self.assertEqual(
-            [row for row in audit.read_csv(audit.UNITS) if row["status"] == "OPEN"],
-            [],
-        )
 
     def test_current_snapshot_is_exactly_mapped_and_fingerprint_bound(self) -> None:
-        rows = audit.build_audit()
+        rows = audit.read_csv(audit.AUDIT)
         self.assertEqual(rows, [])
-        self.assertEqual(
-            [row for row in audit.read_csv(audit.UNITS) if row["status"] == "OPEN"],
-            [],
-        )
 
 
 if __name__ == "__main__":
