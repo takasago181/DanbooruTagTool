@@ -4,19 +4,19 @@
   "cohort_sha256": "0fe66682056dddd489449465f98dbfa5e8cb1a05fa5dd0143136dc3c098e2e56",
   "complete": false,
   "copyright_catalog_root_count": 8536,
-  "exact_member_mapping_count": 390,
+  "exact_member_mapping_count": 391,
   "missing_copyright_roots": 0,
   "research_state_counts": {
     "EVIDENCE_CONFLICT": 0,
-    "HOME_CONFIRMED": 387,
+    "HOME_CONFIRMED": 388,
     "IDENTITY_BLOCKED": 2,
     "POLICY_BLOCKED": 3,
     "SOURCE_RESEARCHED_NO_SAFE_EVIDENCE": 0,
-    "UNRESEARCHED": 13591
+    "UNRESEARCHED": 13590
   },
   "schema_version": "issue216-authority-coverage-v1",
-  "source_registry_count": 54,
-  "source_reuse_ratio": 0.918367,
+  "source_registry_count": 55,
+  "source_reuse_ratio": 0.916031,
   "source_reused_member_count": 360,
-  "unresearched": 13591
+  "unresearched": 13590
 }
