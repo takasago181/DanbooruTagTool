@@ -6,11 +6,11 @@
 - Frozen master SHA-256: `135463a5225b6501db923322284f8e309f217eb5359538088eb6de6d78b77071`.
 - Baseline population: 35,890; HOME_CONFIRMED 21,907; HOME_UNRESOLVED 13,983.
 - Frozen unresolved cohort: 13,983 / 13,983 accounted; cohort ID-list SHA-256 `2db82cd3640196a29015124f28ca75f849c5469ba8dede8f2bb0396c6ecf8f31`.
-- Current states: HOME_CONFIRMED 51; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 0; IDENTITY_BLOCKED 0; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,932.
-- Stage A Top500: 51 HOME_CONFIRMED, 449 UNRESEARCHED. Calibration Gate is **not passed**.
-- Additive HOME_CONFIRMED total: 21,958 / 35,890 (61.18%). The original #180 master remains byte-identical; baseline-confirmed rows are outside this cohort and unchanged.
+- Current states: HOME_CONFIRMED 52; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 0; IDENTITY_BLOCKED 0; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,931.
+- Stage A Top500: 52 HOME_CONFIRMED, 448 UNRESEARCHED. Calibration Gate is **not passed**.
+- Additive HOME_CONFIRMED total: 21,959 / 35,890 (61.18%). The original #180 master remains byte-identical; baseline-confirmed rows are outside this cohort and unchanged.
 - HOME cardinality: at most one field/value per decision; missing references to the complete Issue #70 Copyright catalog: 0.
-- Copyright source registry: 19 official sources; exact member mappings: 51; source reuse ratio: 38/51 (74.51%), with exact rosters reused across seven Limbus Company members, 15 Cinderella Girls idols, two Shiny Colors members, eight Hasunosora members, and four Aqours members.
+- Copyright source registry: 20 official sources; exact member mappings: 52; source reuse ratio: 38/52 (73.08%), with exact rosters reused across seven Limbus Company members, 15 Cinderella Girls idols, two Shiny Colors members, eight Hasunosora members, and four Aqours members.
 
 ## Revalidated members
 
@@ -33,6 +33,8 @@ An additional 12 Top500 members were verified against two official Love Live! pr
 
 Three more exact profiles are recorded in `BATCH_FATE_CHARACTER_PROFILES_2026-09-30.csv`: Illyasviel from the official Fate/stay night profile is normalized through the exact Issue #180 policy pair to `fate_(series)`; Miyu and Chloe are listed by the official Prisma Illya Drei profiles and map to the exact `fate/kaleid_liner_prisma_illya` Copyright root.
 
+Kafuu Chino's full Japanese name was confirmed on the official Is the Order a Rabbit series site and mapped to `gochuumon_wa_usagi_desu_ka?`; the source record is in `BATCH_GOCHIUSA_PROFILE_2026-09-30.csv`.
+
 ## Validation
 
 - Full cohort freeze/reconstruction from exact #180 master: PASS (13,983 rows).
@@ -41,10 +43,11 @@ Three more exact profiles are recorded in `BATCH_FATE_CHARACTER_PROFILES_2026-09
 - Idolmaster roster batch deterministic check: PASS (17 exact members; two additional sources).
 - Love Live! roster batch deterministic check: PASS (12 exact members; two additional sources).
 - Fate character-profile batch deterministic check: PASS (3 exact members; two additional sources).
-- Authority coverage validator: structurally valid; reports `complete: false`, `UNRESEARCHED=13,932`.
+- GochiUsa profile batch deterministic check: PASS (one exact member; one additional source).
+- Authority coverage validator: structurally valid; reports `complete: false`, `UNRESEARCHED=13,931`.
 - Issue #216 tests: 13 PASS.
 - `git diff --check`: PASS.
-- CI: not run; current Fate profile additions are pending commit/push.
+- CI: not run; current GochiUsa profile addition is pending commit/push.
 
 ## Next work
 
