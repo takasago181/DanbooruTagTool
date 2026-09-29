@@ -3132,7 +3132,7 @@ froggyloch_(vtuber),froggyloch_(vtuber),UNRESEARCHED,,,,,,,,,
 frogiwawa,frogiwawa,UNRESEARCHED,,,,,,,,,
 frolaytia_capistrano,frolaytia_capistrano,UNRESEARCHED,,,,,,,,,
 fu_(dragon_ball),fu_(dragon_ball),UNRESEARCHED,,,,,,,,,
-fu_hua_(phoenix),fu_hua_(phoenix),UNRESEARCHED,,,,,,,,,
+fu_hua_(phoenix),fu_hua_(phoenix),EVIDENCE_CONFLICT,,,src-01736a540dd2e273e81b|src-3129cb9b96211382c810,"Frozen Issue #180 v3 contains two independently validated HOME paths for this exact Character: the official Honkai Impact 3rd battlesuit announcement yields honkai_impact_3rd, while the validated structural variant inheritance path yields honkai_(series).",Both exact paths and evidence IDs are enumerated in SOURCE_EVIDENCE_FU_HUA_PHOENIX_2026-09-30.csv; sources are additive records sourced from the frozen Issue #180 ledger.,2026-09-30,VALIDATED_HOME_PATH_CONFLICT,Do not choose either root. Issue #180 froze this row unresolved with EVIDENCE_CONFLICT because an official battlesuit-specific direct HOME path conflicts with the validated structural variant inheritance path. The #216 terminal preserves both validated roots and no HOME.,honkai_(series)|honkai_impact_3rd
 fu_ji,fu_ji,UNRESEARCHED,,,,,,,,,
 fubukihime,fubukihime,UNRESEARCHED,,,,,,,,,
 fubuzilla_(shirakami_fubuki),fubuzilla_(shirakami_fubuki),UNRESEARCHED,,,,,,,,,

@@ -146,6 +146,36 @@ class AuthorityCoverageTests(unittest.TestCase):
         self.assertEqual(result["source_reuse_ratio"], 1.0)
         self.assertFalse(result["complete"])
 
+    def test_approved_repo_evidence_can_be_an_exact_accepted_source(self) -> None:
+        cohort, sources, members, decisions = self.fixture(["character_a"])
+        url = "https://github.com/example/repo/issues/180"
+        owner = "Example repository's validated evidence ledger"
+        scope = "One exact validated relation and its evidence identifier"
+        source_id = coverage.deterministic_source_id(url, owner, scope)
+        sources.append({
+            "source_id": source_id, "copyright_canonical": "series_a", "source_url": url,
+            "source_type": "APPROVED_REPO_EVIDENCE", "authority_owner": owner,
+            "source_status": "ACCEPTED", "source_scope": scope, "exact_roster_available": "false",
+            "reviewed_at": "2026-09-30", "source_claim": "Validated exact relation supports this root",
+            "provenance": "Versioned validated evidence record", "reusable": "false", "notes": "",
+        })
+        members.append({
+            "source_id": source_id, "canonical_character": "character_a", "matched_surface": "character_a",
+            "mapping_method": "DOCUMENTED_IDENTITY_MAPPING", "mapping_evidence": "Exact validated relation",
+            "reviewed_at": "2026-09-30", "reviewer": "reviewer", "mapping_status": "EXACT_COVERED",
+        })
+        decisions[0].update(
+            research_state="HOME_CONFIRMED", home_copyright="series_a", authority_type="APPROVED_REPO_EVIDENCE",
+            source_ids=source_id, source_claim="Validated exact relation supports this root",
+            provenance="Versioned validated evidence record", reviewed_at="2026-09-30",
+            reason_code="VALIDATED_REPO_RELATION", reason_detail="Exact identity and root path are validated",
+        )
+        self.persist(cohort, sources, members, decisions)
+        result = coverage.validate(self.cohort_path, self.sources_path, self.members_path,
+                                   self.decisions_path, 1, self.roots_path)
+        self.assertEqual(result["exact_member_mapping_count"], 1)
+        self.assertTrue(result["complete"])
+
     def test_ambiguous_mapping_and_conflict_without_two_validated_roots_fail(self) -> None:
         cohort, sources, members, decisions = self.fixture(["character_a"])
         decisions[0].update(research_state="EVIDENCE_CONFLICT", reviewed_at="2026-09-30", provenance="two sources",
