@@ -6,11 +6,11 @@
 - Frozen master SHA-256: `135463a5225b6501db923322284f8e309f217eb5359538088eb6de6d78b77071`.
 - Baseline population: 35,890; HOME_CONFIRMED 21,907; HOME_UNRESOLVED 13,983.
 - Frozen unresolved cohort: 13,983 / 13,983 accounted; cohort ID-list SHA-256 `2db82cd3640196a29015124f28ca75f849c5469ba8dede8f2bb0396c6ecf8f31`.
-- Current states: HOME_CONFIRMED 19; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 0; IDENTITY_BLOCKED 0; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,964.
-- Stage A Top500: 19 HOME_CONFIRMED, 481 UNRESEARCHED. Calibration Gate is **not passed**.
-- Additive HOME_CONFIRMED total: 21,926 / 35,890 (61.09%). The original #180 master remains byte-identical; baseline-confirmed rows are outside this cohort and unchanged.
+- Current states: HOME_CONFIRMED 36; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 0; IDENTITY_BLOCKED 0; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,947.
+- Stage A Top500: 36 HOME_CONFIRMED, 464 UNRESEARCHED. Calibration Gate is **not passed**.
+- Additive HOME_CONFIRMED total: 21,943 / 35,890 (61.14%). The original #180 master remains byte-identical; baseline-confirmed rows are outside this cohort and unchanged.
 - HOME cardinality: at most one field/value per decision; missing references to the complete Issue #70 Copyright catalog: 0.
-- Copyright source registry: 13 official sources; exact member mappings: 19; source reuse ratio: 7/19 (36.84%), from the seven exact Limbus Company Sinners covered by one source.
+- Copyright source registry: 15 official sources; exact member mappings: 36; source reuse ratio: 24/36 (66.67%), with exact rosters reused across seven Limbus Company members, 15 Cinderella Girls idols, and two Shiny Colors members.
 
 ## Revalidated members
 
@@ -25,17 +25,20 @@
 - `urusei_yatsura` — Lum.
 - `persona` — Aigis. The official Persona 3 Reload profile was normalized to the stable Persona series root.
 
-All 19 were rechecked against first-party pages/manuals for exact identity, source scope, and one canonical root. Proposed roots were compared with the existing HOME-root set. Each source/member mapping and claim is recorded in `COPYRIGHT_AUTHORITY_REGISTRY_V1.csv`, `AUTHORITY_SOURCE_MEMBERS_V1.csv`, and `AUTHORITY_COVERAGE_DECISIONS_V1.csv`. The original Top500 proposal ledger remains unmodified.
+The first 19 were rechecked against first-party pages/manuals for exact identity, source scope, and one canonical root. Proposed roots were checked against the complete Issue #70 Copyright catalog and the Issue #180 root policy. Each source/member mapping and claim is recorded in `COPYRIGHT_AUTHORITY_REGISTRY_V1.csv`, `AUTHORITY_SOURCE_MEMBERS_V1.csv`, and `AUTHORITY_COVERAGE_DECISIONS_V1.csv`. The original Top500 proposal ledger remains unmodified.
+
+An additional 17 Top500 members were verified against two official Bandai Namco rosters and recorded in `BATCH_IDOLMASTER_ROSTERS_2026-09-30.csv`: 15 Cinderella Girls idols map to `idolmaster_cinderella_girls`, and Higuchi Madoka and Mayuzumi Fuyuko map to `idolmaster_shiny_colors`. The official roster title and exact listed name establish the subseries and member mapping; the shared `idolmaster` candidate hint did not determine HOME. The batch is reproducible with `apply_reviewed_roster_batch.py`.
 
 ## Validation
 
 - Full cohort freeze/reconstruction from exact #180 master: PASS (13,983 rows).
 - Complete Issue #70 Copyright catalog reconstruction: PASS (8,536 roots; 92,739 source rows; exact source SHA in manifest).
-- Top500 source revalidation deterministic rebuild: PASS (19 exact members / 13 sources).
-- Authority coverage validator: structurally valid; reports `complete: false`, `UNRESEARCHED=13,964`.
+- Top500 first-party source revalidation: PASS (19 exact members / 13 sources).
+- Idolmaster roster batch deterministic check: PASS (17 exact members; two additional sources).
+- Authority coverage validator: structurally valid; reports `complete: false`, `UNRESEARCHED=13,947`.
 - Issue #216 tests: 13 PASS.
 - `git diff --check`: PASS.
-- CI: not run; current root-catalog correction is pending commit/push.
+- CI: not run; current roster additions are pending commit/push.
 
 ## Next work
 
