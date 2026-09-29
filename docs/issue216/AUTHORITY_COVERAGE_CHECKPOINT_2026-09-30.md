@@ -6,11 +6,11 @@
 - Frozen master SHA-256: `135463a5225b6501db923322284f8e309f217eb5359538088eb6de6d78b77071`.
 - Baseline population: 35,890; HOME_CONFIRMED 21,907; HOME_UNRESOLVED 13,983.
 - Frozen unresolved cohort: 13,983 / 13,983 accounted; cohort ID-list SHA-256 `2db82cd3640196a29015124f28ca75f849c5469ba8dede8f2bb0396c6ecf8f31`.
-- Current states: HOME_CONFIRMED 36; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 0; IDENTITY_BLOCKED 0; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,947.
-- Stage A Top500: 36 HOME_CONFIRMED, 464 UNRESEARCHED. Calibration Gate is **not passed**.
-- Additive HOME_CONFIRMED total: 21,943 / 35,890 (61.14%). The original #180 master remains byte-identical; baseline-confirmed rows are outside this cohort and unchanged.
+- Current states: HOME_CONFIRMED 48; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 0; IDENTITY_BLOCKED 0; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,935.
+- Stage A Top500: 48 HOME_CONFIRMED, 452 UNRESEARCHED. Calibration Gate is **not passed**.
+- Additive HOME_CONFIRMED total: 21,955 / 35,890 (61.17%). The original #180 master remains byte-identical; baseline-confirmed rows are outside this cohort and unchanged.
 - HOME cardinality: at most one field/value per decision; missing references to the complete Issue #70 Copyright catalog: 0.
-- Copyright source registry: 15 official sources; exact member mappings: 36; source reuse ratio: 24/36 (66.67%), with exact rosters reused across seven Limbus Company members, 15 Cinderella Girls idols, and two Shiny Colors members.
+- Copyright source registry: 17 official sources; exact member mappings: 48; source reuse ratio: 36/48 (75.00%), with exact rosters reused across seven Limbus Company members, 15 Cinderella Girls idols, two Shiny Colors members, eight Hasunosora members, and four Aqours members.
 
 ## Revalidated members
 
@@ -29,16 +29,19 @@ The first 19 were rechecked against first-party pages/manuals for exact identity
 
 An additional 17 Top500 members were verified against two official Bandai Namco rosters and recorded in `BATCH_IDOLMASTER_ROSTERS_2026-09-30.csv`: 15 Cinderella Girls idols map to `idolmaster_cinderella_girls`, and Higuchi Madoka and Mayuzumi Fuyuko map to `idolmaster_shiny_colors`. The official roster title and exact listed name establish the subseries and member mapping; the shared `idolmaster` candidate hint did not determine HOME. The batch is reproducible with `apply_reviewed_roster_batch.py`.
 
+An additional 12 Top500 members were verified against two official Love Live! project rosters and recorded in `BATCH_LOVE_LIVE_ROSTERS_2026-09-30.csv`: eight Hasunosora members map to `love_live!_hasu_no_sora_jogakuin_school_idol_club`, and four Aqours members map to `love_live!_sunshine!!`. Each mapping records the exact Japanese roster form and its canonical Character identity.
+
 ## Validation
 
 - Full cohort freeze/reconstruction from exact #180 master: PASS (13,983 rows).
 - Complete Issue #70 Copyright catalog reconstruction: PASS (8,536 roots; 92,739 source rows; exact source SHA in manifest).
 - Top500 first-party source revalidation: PASS (19 exact members / 13 sources).
 - Idolmaster roster batch deterministic check: PASS (17 exact members; two additional sources).
-- Authority coverage validator: structurally valid; reports `complete: false`, `UNRESEARCHED=13,947`.
+- Love Live! roster batch deterministic check: PASS (12 exact members; two additional sources).
+- Authority coverage validator: structurally valid; reports `complete: false`, `UNRESEARCHED=13,935`.
 - Issue #216 tests: 13 PASS.
 - `git diff --check`: PASS.
-- CI: not run; current roster additions are pending commit/push.
+- CI: not run; current Love Live! roster additions are pending commit/push.
 
 ## Next work
 

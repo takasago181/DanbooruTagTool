@@ -41,7 +41,7 @@ Each checkpoint is a deterministic snapshot of cohort size, state counts, source
 
 ## Initial coverage checkpoint
 
-The full 13,983-row cohort was frozen from the local ignored #180 master after verifying its exact expected SHA-256. The generated `AUTHORITY_COVERAGE_COHORT_V1.json` records that provenance. The initial decision ledger was seeded with 13,983 `UNRESEARCHED` rows. Independent source revalidation and exact official-roster review have added 36 `HOME_CONFIRMED` decisions across 15 official sources and 36 exact member mappings. The other 464 Top500 members and 13,483 remaining cohort members are still `UNRESEARCHED`; this is an incomplete checkpoint, not a completion claim.
+The full 13,983-row cohort was frozen from the local ignored #180 master after verifying its exact expected SHA-256. The generated `AUTHORITY_COVERAGE_COHORT_V1.json` records that provenance. The initial decision ledger was seeded with 13,983 `UNRESEARCHED` rows. Independent source revalidation and exact official-roster review have added 48 `HOME_CONFIRMED` decisions across 17 official sources and 48 exact member mappings. The other 452 Top500 members and 13,483 remaining cohort members are still `UNRESEARCHED`; this is an incomplete checkpoint, not a completion claim.
 
 The root catalog was corrected from the 1,672 roots used by confirmed #180 HOME rows to the complete 8,536 canonical Copyright rows in `docs/issue70/data/runtime/issue70_catalog_overlay.csv`. The complete source file SHA-256 is `1d346ad75655ea6091f9bce9a4cf58b1cf6f8fac18c7eb441f8edd009ee81433`. `freeze_copyright_root_catalog.py --check` verifies its hash, 92,739-row population, unique category-3 roots, and deterministic output. Candidate roots still do not constitute authority evidence.
 
