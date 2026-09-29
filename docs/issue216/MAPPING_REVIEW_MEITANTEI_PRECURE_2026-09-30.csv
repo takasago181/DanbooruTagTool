@@ -1,0 +1,5 @@
+matched_surface,raw_candidate_status,competing_tags,review_result,review_reason
+明智あんな,AUTO_MAPPING_CANDIDATE,akechi_anna,ACCEPT_EXACT_TITLE_HOME,Unique exact Japanese catalog match and official title cast entry.
+小林みくる,REVIEW_REQUIRED,kobayashi_mikuru | kobayashi_mikuru_(civilian),ACCEPT_EXACT_TITLE_HOME,Official cast pair resolves exact Meitantei Precure character identity; both canonical catalog forms in the collision directly receive the same title HOME. No VARIANT_OF inheritance is asserted.
+帆羽くれあ,REVIEW_REQUIRED,howa_kurea | howa_kurea_(civilian),ACCEPT_EXACT_TITLE_HOME,Official cast pair resolves exact Meitantei Precure character identity; both canonical catalog forms in the collision directly receive the same title HOME. No VARIANT_OF inheritance is asserted.
+森亜るるか,REVIEW_REQUIRED,moria_luluka | moria_luluka_(civilian),ACCEPT_EXACT_TITLE_HOME,Official cast pair resolves exact Meitantei Precure character identity; both canonical catalog forms in the collision directly receive the same title HOME. No VARIANT_OF inheritance is asserted.
