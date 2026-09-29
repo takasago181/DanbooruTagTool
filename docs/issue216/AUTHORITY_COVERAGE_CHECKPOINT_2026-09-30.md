@@ -6,11 +6,11 @@
 - Frozen master SHA-256: `135463a5225b6501db923322284f8e309f217eb5359538088eb6de6d78b77071`.
 - Baseline population: 35,890; HOME_CONFIRMED 21,907; HOME_UNRESOLVED 13,983.
 - Frozen unresolved cohort: 13,983 / 13,983 accounted; cohort ID-list SHA-256 `2db82cd3640196a29015124f28ca75f849c5469ba8dede8f2bb0396c6ecf8f31`.
-- Current states: HOME_CONFIRMED 52; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 0; IDENTITY_BLOCKED 0; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,931.
-- Stage A Top500: 52 HOME_CONFIRMED, 448 UNRESEARCHED. Calibration Gate is **not passed**.
-- Additive HOME_CONFIRMED total: 21,959 / 35,890 (61.18%). The original #180 master remains byte-identical; baseline-confirmed rows are outside this cohort and unchanged.
+- Current states: HOME_CONFIRMED 57; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 0; IDENTITY_BLOCKED 0; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,926.
+- Stage A Top500: 57 HOME_CONFIRMED, 443 UNRESEARCHED. Calibration Gate is **not passed**.
+- Additive HOME_CONFIRMED total: 21,964 / 35,890 (61.20%). The original #180 master remains byte-identical; baseline-confirmed rows are outside this cohort and unchanged.
 - HOME cardinality: at most one field/value per decision; missing references to the complete Issue #70 Copyright catalog: 0.
-- Copyright source registry: 20 official sources; exact member mappings: 52; source reuse ratio: 38/52 (73.08%), with exact rosters reused across seven Limbus Company members, 15 Cinderella Girls idols, two Shiny Colors members, eight Hasunosora members, and four Aqours members.
+- Copyright source registry: 21 official sources; exact member mappings: 57; source reuse ratio: 43/57 (75.44%), with exact rosters reused across five 765PRO ALLSTARS members, seven Limbus Company members, 15 Cinderella Girls idols, two Shiny Colors members, eight Hasunosora members, and four Aqours members.
 
 ## Revalidated members
 
@@ -35,6 +35,8 @@ Three more exact profiles are recorded in `BATCH_FATE_CHARACTER_PROFILES_2026-09
 
 Kafuu Chino's full Japanese name was confirmed on the official Is the Order a Rabbit series site and mapped to `gochuumon_wa_usagi_desu_ka?`; the source record is in `BATCH_GOCHIUSA_PROFILE_2026-09-30.csv`.
 
+Five 765PRO ALLSTARS members (Iori Minase, Hibiki Ganaha, Yayoi Takatsuki, Yukiho Hagiwara, and Azusa Miura) are listed by exact Japanese name under the official Million Live anime site's `765PRO ALLSTARS` directory section. The existing Issue #180 official-idol-directory normalization supports the single `idolmaster` root; the batch does not use the event/live source or candidate-root hints as HOME evidence. See `BATCH_765PRO_ROSTER_2026-09-30.csv`.
+
 ## Validation
 
 - Full cohort freeze/reconstruction from exact #180 master: PASS (13,983 rows).
@@ -44,10 +46,11 @@ Kafuu Chino's full Japanese name was confirmed on the official Is the Order a Ra
 - Love Live! roster batch deterministic check: PASS (12 exact members; two additional sources).
 - Fate character-profile batch deterministic check: PASS (3 exact members; two additional sources).
 - GochiUsa profile batch deterministic check: PASS (one exact member; one additional source).
-- Authority coverage validator: structurally valid; reports `complete: false`, `UNRESEARCHED=13,931`.
+- 765PRO ALLSTARS roster batch deterministic check: PASS (five exact members; one official source).
+- Authority coverage validator: structurally valid; reports `complete: false`, `UNRESEARCHED=13,926`.
 - Issue #216 tests: 13 PASS.
 - `git diff --check`: PASS.
-- CI: not run; current GochiUsa profile addition is pending commit/push.
+- CI: not run; the 765PRO batch and checkpoint update are pending commit/push.
 
 ## Next work
 
