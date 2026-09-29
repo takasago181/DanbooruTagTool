@@ -96,6 +96,9 @@ def build(master_path: Path, graph_path: Path, post_counts_path: Path):
     members_by_root: dict[str, set[str]] = defaultdict(set)
     source_ids_by_root: dict[str, set[str]] = defaultdict(set)
     roster_ids_by_root: dict[str, set[str]] = defaultdict(set)
+    reviewed_source_ids: set[str] = set()
+    safe_candidate_tags_by_root: dict[str, set[str]] = defaultdict(set)
+    review_required_tags_by_root: dict[str, set[str]] = defaultdict(set)
     for source in source_rows:
         root = source["copyright_canonical"]
         if root in roots and source["source_status"] == "ACCEPTED":
@@ -109,27 +112,72 @@ def build(master_path: Path, graph_path: Path, post_counts_path: Path):
                 and member["mapping_status"] == "EXACT_COVERED"):
             members_by_root[source["copyright_canonical"]].add(member["canonical_character"])
 
+    # A registered roster at a root does not imply that it covers every Character
+    # hinted at that root. Count only exact, unique candidates from a retained source
+    # inventory whose source ID, URL, and exact scope still match the accepted registry.
+    for candidate_path in sorted(ISSUE216.glob("SOURCE_MAPPING_CANDIDATES_*.csv")):
+        for candidate in read_csv(candidate_path):
+            source = sources.get(candidate.get("source_id", ""))
+            if not source or source["source_status"] != "ACCEPTED":
+                continue
+            if (candidate.get("source_url") != source["source_url"]
+                    or candidate.get("source_scope") != source["source_scope"]):
+                continue
+            reviewed_source_ids.add(source["source_id"])
+            tag = candidate.get("canonical_character", "")
+            if tag not in open_tags:
+                continue
+            root = source["copyright_canonical"]
+            if candidate.get("candidate_status") == "AUTO_MAPPING_CANDIDATE":
+                safe_candidate_tags_by_root[root].add(tag)
+            elif candidate.get("candidate_status") == "REVIEW_REQUIRED":
+                review_required_tags_by_root[root].add(tag)
+
     root_members: dict[str, set[str]] = defaultdict(set)
     for tag in open_tags:
         for root in hint_by_tag.get(tag, set()):
+            root_members[root].add(tag)
+    # A source-derived candidate can expose a more specific root than a broad catalog
+    # hint. Add it to the queue only; this never confirms HOME.
+    for root, tags in safe_candidate_tags_by_root.items():
+        for tag in tags:
+            root_members[root].add(tag)
+    for root, tags in review_required_tags_by_root.items():
+        for tag in tags:
             root_members[root].add(tag)
 
     fields = [
         "candidate_root", "hint_kind", "unresolved_count", "top500_count", "top2000_count",
         "total_post_count_sum", "max_post_count", "known_official_source_count",
-        "reusable_accepted_source_count", "likely_roster_availability", "existing_exact_mappings",
-        "remaining_unmapped_count", "expected_safe_yield", "source_yield_class", "priority_rank",
+        "reusable_accepted_source_count", "reviewed_source_count", "likely_roster_availability",
+        "existing_exact_mappings", "remaining_unmapped_count", "open_exact_candidate_count",
+        "review_required_count", "expected_safe_yield", "source_yield_class", "priority_rank",
     ]
     queue = []
     for root, tags in root_members.items():
-        mapped = members_by_root[root] & tags
+        mapped = members_by_root[root] & cohort
         roster_ids = roster_ids_by_root[root]
         counts_for_tags = [counts.get(tag, 0) for tag in tags]
         top500 = sum(ranks.get(tag, 10**9) <= 500 for tag in tags)
         top2000 = sum(ranks.get(tag, 10**9) <= 2000 for tag in tags)
-        # A registered exact-roster source is a high-yield review opportunity, not proof.
-        has_roster = bool(roster_ids)
-        potential = len(tags) - len(mapped)
+        exact_candidates = safe_candidate_tags_by_root[root] & tags
+        review_required = review_required_tags_by_root[root] & tags
+        unreviewed_rosters = roster_ids - reviewed_source_ids
+        if exact_candidates:
+            source_class = "REUSE_SOURCE_EXACT_CANDIDATES"
+            availability = "REVIEWED_ROSTER_HAS_EXACT_COHORT_CANDIDATES"
+        elif review_required:
+            source_class = "REVIEW_SOURCE_IDENTITY_CANDIDATES"
+            availability = "REVIEWED_ROSTER_HAS_AMBIGUOUS_COHORT_CANDIDATES"
+        elif unreviewed_rosters:
+            source_class = "REVIEW_REGISTERED_SOURCE_SCOPE"
+            availability = "REGISTERED_ROSTER_NOT_YET_IN_CANDIDATE_INVENTORY"
+        elif roster_ids:
+            source_class = "DISCOVER_ADDITIONAL_OFFICIAL_SOURCE"
+            availability = "REGISTERED_ROSTER_REVIEWED_NO_OPEN_EXACT_MATCH"
+        else:
+            source_class = "DISCOVER_OFFICIAL_SOURCE"
+            availability = "SOURCE_DISCOVERY_REQUIRED"
         queue.append({
             "candidate_root": root,
             "hint_kind": "Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only",
@@ -137,15 +185,24 @@ def build(master_path: Path, graph_path: Path, post_counts_path: Path):
             "total_post_count_sum": str(sum(counts_for_tags)), "max_post_count": str(max(counts_for_tags, default=0)),
             "known_official_source_count": str(len(source_ids_by_root[root])),
             "reusable_accepted_source_count": str(len(roster_ids)),
-            "likely_roster_availability": "REGISTERED_ROSTER_SOURCE" if has_roster else "SOURCE_DISCOVERY_REQUIRED",
-            "existing_exact_mappings": str(len(mapped)), "remaining_unmapped_count": str(potential),
-            "expected_safe_yield": str(potential if has_roster else 0),
-            "source_yield_class": "REUSE_SOURCE_FIRST" if has_roster else "DISCOVER_OFFICIAL_SOURCE",
+            "reviewed_source_count": str(len(source_ids_by_root[root] & reviewed_source_ids)),
+            "likely_roster_availability": availability,
+            "existing_exact_mappings": str(len(mapped)), "remaining_unmapped_count": str(len(tags)),
+            "open_exact_candidate_count": str(len(exact_candidates)),
+            "review_required_count": str(len(review_required)),
+            "expected_safe_yield": str(len(exact_candidates)),
+            "source_yield_class": source_class,
             "priority_rank": "",
         })
-    # Primary ordering is source-reuse opportunity then open exact-member surface; counts only break ties.
+    # Safe source reuse is based on actual unique exact candidates, not merely the
+    # presence of any roster at the same root. Then finish registered source review
+    # before source discovery; cohort size/frequency only break ties.
     queue.sort(key=lambda r: (
-        -int(r["expected_safe_yield"]), -int(r["remaining_unmapped_count"]),
+        -int(r["expected_safe_yield"]),
+        {"REUSE_SOURCE_EXACT_CANDIDATES": 0, "REVIEW_SOURCE_IDENTITY_CANDIDATES": 1,
+         "REVIEW_REGISTERED_SOURCE_SCOPE": 2, "DISCOVER_ADDITIONAL_OFFICIAL_SOURCE": 3,
+         "DISCOVER_OFFICIAL_SOURCE": 4}[r["source_yield_class"]],
+        -int(r["remaining_unmapped_count"]), -int(r["top2000_count"]),
         -int(r["total_post_count_sum"]), r["candidate_root"],
     ))
     for i, row in enumerate(queue, 1):
@@ -165,10 +222,10 @@ def build(master_path: Path, graph_path: Path, post_counts_path: Path):
             and source["reusable"].lower() == "true"
             for source in source_rows
         ),
-        "queue_order": "registered reusable source yield, unresolved exact-member surface, post-count tie-break; candidate edges and frequency are priority-only",
+        "queue_order": "reviewed source exact-candidate yield, registered source review need, then unresolved/Top2000/post-count priority; candidate edges and frequency are priority-only",
         "protected_master_sha256": master_hash, "candidate_graph_sha256": sha256(graph_path),
         "post_count_sha256": sha256(post_counts_path),
-        "note": "expected_safe_yield is a review-priority upper-bound estimate for roots with a registered accepted exact roster; it is not evidence or a guaranteed decision count.",
+        "note": "expected_safe_yield counts only AUTO_MAPPING_CANDIDATE rows from reviewed inventories matching an accepted source ID, URL, and exact scope; it is a priority estimate, never HOME evidence or a guaranteed decision count.",
     }
     return fields, queue, summary
 
