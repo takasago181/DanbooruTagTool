@@ -1,9 +1,10 @@
 {
-  "schema_version": "issue216-copyright-root-catalog-v1",
-  "baseline_issue": 180,
-  "baseline_commit": "9c0db59c0f1dc56402c955e718a37d9de1849d7e",
-  "baseline_master_sha256": "135463a5225b6501db923322284f8e309f217eb5359538088eb6de6d78b77071",
-  "confirmed_character_count": 21907,
-  "root_count": 1672,
-  "root_catalog_sha256": "4b5f756a1b82992bdad01fc4c1c39a4977eadc2f08ba1a472e95d5d10806337d"
+  "schema_version": "issue216-copyright-root-catalog-v2",
+  "catalog_issue": 70,
+  "catalog_path": "docs/issue70/data/runtime/issue70_catalog_overlay.csv",
+  "catalog_sha256": "1d346ad75655ea6091f9bce9a4cf58b1cf6f8fac18c7eb441f8edd009ee81433",
+  "catalog_row_count": 92739,
+  "copyright_category": "3",
+  "copyright_root_count": 8536,
+  "root_catalog_sha256": "87536017608e65d9119e6f05e7d50fa1fdafef7ea20fcf15bf1931df094d1ae1"
 }

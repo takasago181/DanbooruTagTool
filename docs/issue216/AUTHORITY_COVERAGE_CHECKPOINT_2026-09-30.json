@@ -3,6 +3,7 @@
   "baseline_cohort_size": 13983,
   "cohort_sha256": "0fe66682056dddd489449465f98dbfa5e8cb1a05fa5dd0143136dc3c098e2e56",
   "complete": false,
+  "copyright_catalog_root_count": 8536,
   "exact_member_mapping_count": 19,
   "missing_copyright_roots": 0,
   "research_state_counts": {
@@ -18,4 +19,4 @@
   "source_reuse_ratio": 0.368421,
   "source_reused_member_count": 7,
   "unresearched": 13964
-}
+}\n

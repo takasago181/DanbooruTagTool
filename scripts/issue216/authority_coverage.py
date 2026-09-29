@@ -98,7 +98,7 @@ def validate(cohort_path: Path, sources_path: Path, members_path: Path, decision
         root_rows = read_csv(roots_path)
         require_fields(roots_path, root_rows, ROOT_FIELDS)
         known_roots = {row["copyright_canonical"] for row in root_rows}
-        if len(known_roots) != len(root_rows) or any(not row["provenance"] for row in root_rows):
+        if len(known_roots) != len(root_rows) or any(not row["copyright_canonical"] or not row["provenance"] for row in root_rows):
             raise ValueError("frozen Copyright root catalog must be unique and provenance-complete")
 
     errors: list[str] = []
@@ -231,6 +231,7 @@ def validate(cohort_path: Path, sources_path: Path, members_path: Path, decision
         "exact_member_mapping_count": len(exact_members),
         "source_reused_member_count": reused_members,
         "source_reuse_ratio": round(reused_members / len(members), 6) if members else 0.0,
+        "copyright_catalog_root_count": len(known_roots) if known_roots is not None else None,
         "missing_copyright_roots": sum(
             row["research_state"] == "HOME_CONFIRMED" and known_roots is not None and row["home_copyright"] not in known_roots
             for row in decisions

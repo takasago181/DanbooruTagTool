@@ -22,7 +22,7 @@ The coverage validator has no `post_count`, popularity, co-occurrence, or candid
 The coverage data contract is:
 
 - `AUTHORITY_COVERAGE_COHORT_V1.csv`: frozen `cohort_id`, canonical Character, baseline state and baseline HOME.
-- `COPYRIGHT_ROOTS_V1.csv`: existing HOME roots observed in the frozen confirmed master; newly confirmed roots must be present here, proving zero missing-root references within the baseline-supported authority set.
+- `COPYRIGHT_ROOTS_V1.csv`: the complete 8,536-row canonical Copyright inventory from the exact Issue #70 catalog used by the #180 validator. This is the target tag universe for root-existence validation; use as authority that a name is a catalog root only, never as evidence that a Character belongs to it.
 - `COPYRIGHT_AUTHORITY_REGISTRY_V1.csv`: deterministic `src-` ID plus source owner, URL, authority type, status, exact scope/roster availability, review date, claim, provenance, reuse flag and notes.
 - `AUTHORITY_SOURCE_MEMBERS_V1.csv`: one reviewed exact member mapping per covered Character and source. Only exact canonical identity, validated alias, reviewed name mapping, or documented identity mapping are accepted.
 - `AUTHORITY_COVERAGE_DECISIONS_V1.csv`: exactly one terminal or `UNRESEARCHED` decision per cohort row, with source IDs, claim, provenance and explicit reason.
@@ -43,6 +43,6 @@ Each checkpoint is a deterministic snapshot of cohort size, state counts, source
 
 The full 13,983-row cohort was frozen from the local ignored #180 master after verifying its exact expected SHA-256. The generated `AUTHORITY_COVERAGE_COHORT_V1.json` records that provenance. The initial decision ledger was seeded with 13,983 `UNRESEARCHED` rows. Independent revalidation of the 19 previously source-checked Top500 proposals added 19 `HOME_CONFIRMED` decisions across 13 official sources and 19 exact member mappings. The other 481 Top500 members and 13,483 remaining cohort members are still `UNRESEARCHED`; this is an incomplete checkpoint, not a completion claim.
 
-The root catalog currently contains 1,672 canonical Copyright roots already used by the 21,907 confirmed #180 rows. It is intentionally a HOME-root existence set, not the entire 8,536-tag Copyright catalog.
+The root catalog was corrected from the 1,672 roots used by confirmed #180 HOME rows to the complete 8,536 canonical Copyright rows in `docs/issue70/data/runtime/issue70_catalog_overlay.csv`. The complete source file SHA-256 is `1d346ad75655ea6091f9bce9a4cf58b1cf6f8fac18c7eb441f8edd009ee81433`. `freeze_copyright_root_catalog.py --check` verifies its hash, 92,739-row population, unique category-3 roots, and deterministic output. Candidate roots still do not constitute authority evidence.
 
 The source master remains a protected ignored artifact and is not copied into this branch. Reproducing the freeze from a clean checkout requires the exact #180 master artifact to be made available as a read-only input. The Top500 snapshot is not a substitute.

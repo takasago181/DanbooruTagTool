@@ -9,7 +9,7 @@
 - Current states: HOME_CONFIRMED 19; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 0; IDENTITY_BLOCKED 0; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,964.
 - Stage A Top500: 19 HOME_CONFIRMED, 481 UNRESEARCHED. Calibration Gate is **not passed**.
 - Additive HOME_CONFIRMED total: 21,926 / 35,890 (61.09%). The original #180 master remains byte-identical; baseline-confirmed rows are outside this cohort and unchanged.
-- HOME cardinality: at most one field/value per decision; missing references to the frozen baseline-supported HOME-root set: 0.
+- HOME cardinality: at most one field/value per decision; missing references to the complete Issue #70 Copyright catalog: 0.
 - Copyright source registry: 13 official sources; exact member mappings: 19; source reuse ratio: 7/19 (36.84%), from the seven exact Limbus Company Sinners covered by one source.
 
 ## Revalidated members
@@ -30,12 +30,12 @@ All 19 were rechecked against first-party pages/manuals for exact identity, sour
 ## Validation
 
 - Full cohort freeze/reconstruction from exact #180 master: PASS (13,983 rows).
-- Baseline-supported HOME root catalog reconstruction: PASS (1,672 roots).
+- Complete Issue #70 Copyright catalog reconstruction: PASS (8,536 roots; 92,739 source rows; exact source SHA in manifest).
 - Top500 source revalidation deterministic rebuild: PASS (19 exact members / 13 sources).
 - Authority coverage validator: structurally valid; reports `complete: false`, `UNRESEARCHED=13,964`.
 - Issue #216 tests: 13 PASS.
 - `git diff --check`: PASS.
-- CI: not run; checkpoint is not yet pushed.
+- CI: not run; current root-catalog correction is pending commit/push.
 
 ## Next work
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Freeze the set of already-confirmed #180 HOME roots for missing-root checks."""
+"""Freeze the complete canonical Copyright inventory used by Issue #180."""
 from __future__ import annotations
 
 import argparse
@@ -9,7 +9,10 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-MASTER_SHA256 = "135463a5225b6501db923322284f8e309f217eb5359538088eb6de6d78b77071"
+CATALOG = ROOT / "docs/issue70/data/runtime/issue70_catalog_overlay.csv"
+CATALOG_SHA256 = "1d346ad75655ea6091f9bce9a4cf58b1cf6f8fac18c7eb441f8edd009ee81433"
+CATALOG_ROWS = 92_739
+COPYRIGHT_ROWS = 8_536
 FIELDS = ["copyright_canonical", "provenance"]
 
 
@@ -21,55 +24,62 @@ def digest(path: Path) -> str:
     return h.hexdigest()
 
 
-def build(master_path: Path) -> tuple[list[dict[str, str]], dict[str, object]]:
-    master_hash = digest(master_path)
-    if master_hash != MASTER_SHA256:
-        raise SystemExit(f"frozen #180 master SHA mismatch: {master_hash}")
-    with master_path.open(encoding="utf-8-sig", newline="") as stream:
+def build(catalog_path: Path) -> tuple[list[dict[str, str]], dict[str, object]]:
+    catalog_hash = digest(catalog_path)
+    if catalog_hash != CATALOG_SHA256:
+        raise SystemExit(f"Issue #70 catalog SHA mismatch: {catalog_hash}")
+    with catalog_path.open(encoding="utf-8-sig", newline="") as stream:
         rows = list(csv.DictReader(stream))
-    if len(rows) != 35_890:
-        raise SystemExit(f"frozen #180 master population mismatch: {len(rows)}")
-    if sum(row["final_state"] == "HOME_CONFIRMED" for row in rows) != 21_907:
-        raise SystemExit("frozen #180 confirmed count mismatch")
-    roots = sorted({row["home_copyright"] for row in rows
-                    if row["final_state"] == "HOME_CONFIRMED" and row["home_copyright"]})
-    if any(row["final_state"] == "HOME_CONFIRMED" and not row["home_copyright"] for row in rows):
-        raise SystemExit("frozen #180 master has confirmed rows without HOME")
+    if len(rows) != CATALOG_ROWS:
+        raise SystemExit(f"Issue #70 catalog population mismatch: {len(rows)}")
+    copyrights = [row for row in rows if row.get("category") == "3"]
+    roots = sorted(row["canonical_tag"] for row in copyrights)
+    if len(copyrights) != COPYRIGHT_ROWS or len(set(roots)) != len(roots) or any(not root for root in roots):
+        raise SystemExit("Issue #70 catalog Copyright inventory failed count/uniqueness checks")
     output = [{"copyright_canonical": root,
-               "provenance": f"Observed as an existing HOME_CONFIRMED Copyright in Issue #180 master {MASTER_SHA256}."}
+               "provenance": f"Canonical Copyright category 3 row in Issue #70 catalog {CATALOG_SHA256}."}
               for root in roots]
-    manifest = {"schema_version": "issue216-copyright-root-catalog-v1", "baseline_issue": 180,
-                "baseline_commit": "9c0db59c0f1dc56402c955e718a37d9de1849d7e",
-                "baseline_master_sha256": master_hash, "confirmed_character_count": 21_907,
-                "root_count": len(roots), "root_catalog_sha256": hashlib.sha256(
+    manifest = {"schema_version": "issue216-copyright-root-catalog-v2", "catalog_issue": 70,
+                "catalog_path": "docs/issue70/data/runtime/issue70_catalog_overlay.csv",
+                "catalog_sha256": catalog_hash, "catalog_row_count": len(rows),
+                "copyright_category": "3", "copyright_root_count": len(roots),
+                "root_catalog_sha256": hashlib.sha256(
                     ("\n".join(roots) + "\n").encode("utf-8")).hexdigest()}
     return output, manifest
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--master", type=Path, required=True)
+    parser.add_argument("--catalog", type=Path, default=CATALOG)
     parser.add_argument("--roots", type=Path, default=ROOT / "docs/issue216/COPYRIGHT_ROOTS_V1.csv")
     parser.add_argument("--manifest", type=Path, default=ROOT / "docs/issue216/COPYRIGHT_ROOTS_V1.json")
     parser.add_argument("--check", action="store_true")
+    parser.add_argument("--upgrade-home-root-v1", action="store_true",
+                        help="replace the earlier confirmed-HOME-only set after validating its known v1 manifest")
     args = parser.parse_args()
-    output, manifest = build(args.master)
+    output, manifest = build(args.catalog)
     if args.check:
         with args.roots.open(encoding="utf-8-sig", newline="") as stream:
             actual = list(csv.DictReader(stream))
         if actual != output or json.loads(args.manifest.read_text(encoding="utf-8")) != manifest:
             raise SystemExit("frozen Copyright root catalog differs from deterministic reconstruction")
-        print(f"Copyright root catalog reproducibility: PASS ({len(output)} roots)")
+        print(f"complete Copyright root catalog reproducibility: PASS ({len(output)} roots)")
         return
     if args.roots.exists() or args.manifest.exists():
-        raise SystemExit("refusing to overwrite frozen Copyright root catalog")
+        if not args.upgrade_home_root_v1 or not (args.roots.exists() and args.manifest.exists()):
+            raise SystemExit("refusing to overwrite frozen Copyright root catalog")
+        previous = json.loads(args.manifest.read_text(encoding="utf-8"))
+        if (previous.get("schema_version") != "issue216-copyright-root-catalog-v1"
+                or previous.get("root_count") != 1672
+                or previous.get("root_catalog_sha256") != "4b5f756a1b82992bdad01fc4c1c39a4977eadc2f08ba1a472e95d5d10806337d"):
+            raise SystemExit("existing roots are not the exact known v1 HOME-only catalog; refusing upgrade")
     args.roots.parent.mkdir(parents=True, exist_ok=True)
     with args.roots.open("w", encoding="utf-8", newline="") as stream:
         writer = csv.DictWriter(stream, fieldnames=FIELDS, lineterminator="\n")
         writer.writeheader()
         writer.writerows(output)
     args.manifest.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
-    print(f"frozen existing Copyright roots: {len(output)}")
+    print(f"frozen complete Copyright root catalog: {len(output)}")
 
 
 if __name__ == "__main__":
