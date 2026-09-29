@@ -1,5 +1,13 @@
 # Issue #216 — full-cohort authority coverage checkpoint
 
+## 2026-09-30 Fate/strange Fake roster batch
+
+- Reaudited the current first-party [Fate/strange Fake character directory](https://fate-strange-fake.com/character/) as one 27-surface work roster. The source URL also has a prior #180 accepted review for Hansa/Jester; this #216 batch retains its own exact directory scope and reuses no other Character's decision.
+- Five exact, unique unresolved identities were confirmed to the existing `fate_(series)` root under the explicit #180 `fate/strange_fake` normalization: `flat_escardos`, `kuruoka_tsubaki`, `lord_el-melloi_ii`, `orlando_reeve`, and `tine_chelc`. Class labels and catalog collisions remain `REVIEW_REQUIRED`; 10 unmatched surfaces, seven out-of-cohort identities, and all earlier terminal rows were not applied.
+- This source review terminalized 5 Characters / 1 source = 5.00 per review. Cumulative cohort: 13,983 accounted; HOME_CONFIRMED 364; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 3; IDENTITY_BLOCKED 2; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,614. Terminalized 369 / 13,983 (2.64%); Top500 UNRESEARCHED 356; Top2000 UNRESEARCHED 1,789.
+- Registry: 47 source records; 367 exact member mappings; 340 reused member rows / 369 terminalized rows = 92.14% source reuse. Missing Copyright roots 0; existing #180 confirmed HOME changed 0; conflicts 0. Queue: 2,665 roots; `fate_(series)` has 100 unresearched identities (Top500 14; Top2000 39); its four retained #216 roster candidate inventories are all reviewed.
+- Validation: source batch PASS (13,983 decisions, 369 exact mappings, 47 sources); queue reproducibility PASS (2,665 roots; 13,614 open rows); frozen cohort PASS (13,983); complete root catalog PASS (8,536); Issue #216 tests PASS (16); `git diff --check` PASS. Full #180 regression and CI remain final-gate work. Batch/provenance: `BATCH_FATE_STRANGE_FAKE_DIRECTORY_2026-09-30.csv` and its source proposal, roster, candidate inventory, and retained registry proposal.
+
 ## 2026-09-30 Fate/Zero and Fate/Apocrypha root batch
 
 - Processed two first-party root rosters: the [Fate/Zero official character directory](https://www.fate-zero.jp/characters/) (21 exact surfaces) and the [Fate/Apocrypha official character directory](https://fate-apocrypha.com/character/) (25 exact surfaces). Exact candidate generation and source-scope review accepted 11 Fate/Zero and 2 Fate/Apocrypha cohort identities; the already-authorized Issue #180 work-to-root normalizations map `fate/zero` and `fate/apocrypha` to `fate_(series)`.
@@ -65,12 +73,12 @@
 - Frozen master SHA-256: `135463a5225b6501db923322284f8e309f217eb5359538088eb6de6d78b77071`.
 - Baseline population: 35,890; HOME_CONFIRMED 21,907; HOME_UNRESOLVED 13,983.
 - Frozen unresolved cohort: 13,983 / 13,983 accounted; cohort ID-list SHA-256 `2db82cd3640196a29015124f28ca75f849c5469ba8dede8f2bb0396c6ecf8f31`.
-- Current states: HOME_CONFIRMED 359; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 3; IDENTITY_BLOCKED 2; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,619. Accounted/terminalized: 364 / 13,983 (2.60%).
-- Frozen Top500: 357 UNRESEARCHED; frozen Top2000: 1,790 UNRESEARCHED. Top500 calibration remains incomplete.
-- Additive HOME_CONFIRMED total: 22,266 / 35,890 (62.04%). The original #180 master remains byte-identical; baseline-confirmed rows are outside this cohort and unchanged.
+- Current states: HOME_CONFIRMED 364; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 3; IDENTITY_BLOCKED 2; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,614. Accounted/terminalized: 369 / 13,983 (2.64%).
+- Frozen Top500: 356 UNRESEARCHED; frozen Top2000: 1,789 UNRESEARCHED. Top500 calibration remains incomplete.
+- Additive HOME_CONFIRMED total: 22,271 / 35,890 (62.05%). The original #180 master remains byte-identical; baseline-confirmed rows are outside this cohort and unchanged.
 - HOME cardinality: at most one field/value per decision; missing references to the complete Issue #70 Copyright catalog: 0.
-- Copyright source registry: 46 records; exact member mappings: 362; source reuse ratio: 335/364 = 92.03%; exact mappings per source record: 7.87. The latest two-source root batch terminalized 13 Characters / 2 new source reviews = 6.50 per review. Cumulative throughput: 364 terminalized Characters / 46 source records = 7.91 per source record.
-- Full-cohort root-priority queue: 2,666 candidate roots, reconstructed from the frozen cohort and read-only Issue #180 master/graph. Current Top500/Top2000 open counts are based on frozen ranks. Expected safe yield is a priority estimate only; candidate roots, queue rank and post counts remain non-evidence. Missing roots 0; existing #180 HOME changed 0; conflicts 0.
+- Copyright source registry: 47 records; exact member mappings: 367; source reuse ratio: 340/369 = 92.14%; exact mappings per source record: 7.81. The latest roster batch terminalized 5 Characters / 1 new source review = 5.00 per review. Cumulative throughput: 369 terminalized Characters / 47 source records = 7.85 per source record.
+- Full-cohort root-priority queue: 2,665 candidate roots, reconstructed from the frozen cohort and read-only Issue #180 master/graph. Current Top500/Top2000 open counts are based on frozen ranks. Expected safe yield is a priority estimate only; candidate roots, queue rank and post counts remain non-evidence. Missing roots 0; existing #180 HOME changed 0; conflicts 0.
 
 ## Revalidated members
 
