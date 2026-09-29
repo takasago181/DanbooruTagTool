@@ -71,6 +71,34 @@ class AuthorityCoverageTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "requires a researched source"):
             coverage.validate(self.cohort_path, self.sources_path, self.members_path, self.decisions_path, 1, self.roots_path)
 
+    def test_source_researched_without_home_root_is_terminal_but_not_home_authority(self) -> None:
+        cohort, sources, members, decisions = self.fixture(["character_a"])
+        source_id = coverage.deterministic_source_id("https://example.org/profile", "Example Publisher", "official profile")
+        sources.append({
+            "source_id": source_id, "copyright_canonical": "", "source_url": "https://example.org/profile",
+            "source_type": "OFFICIAL_CHARACTER_PROFILE", "authority_owner": "Example Publisher",
+            "source_status": "SOURCE_INSUFFICIENT", "source_scope": "official profile",
+            "exact_roster_available": "false", "reviewed_at": "2026-09-30", "source_claim": "Profile reviewed; no unique HOME shown",
+            "provenance": "Independent source review", "reusable": "false", "notes": "Research only; no HOME root assigned",
+        })
+        members.append({"source_id": source_id, "canonical_character": "character_a", "matched_surface": "Character A",
+                        "mapping_method": "REVIEWED_NAME_MAPPING", "mapping_evidence": "Exact profile name mapping",
+                        "reviewed_at": "2026-09-30", "reviewer": "reviewer", "mapping_status": "EXACT_COVERED"})
+        decisions[0].update(research_state="SOURCE_RESEARCHED_NO_SAFE_EVIDENCE", source_ids=source_id,
+                            source_claim="Profile did not establish a unique HOME", provenance="source review",
+                            reviewed_at="2026-09-30", reason_code="NO_UNIQUE_HOME", reason_detail="No canonical product root was established")
+        self.persist(cohort, sources, members, decisions)
+        result = coverage.validate(self.cohort_path, self.sources_path, self.members_path, self.decisions_path, 1, self.roots_path)
+        self.assertEqual(result["research_state_counts"]["SOURCE_RESEARCHED_NO_SAFE_EVIDENCE"], 1)
+        self.assertEqual(result["unresearched"], 0)
+
+        decisions[0].update(research_state="HOME_CONFIRMED", home_copyright="series_a",
+                            authority_type="OFFICIAL_CHARACTER_PROFILE", reviewed_at="2026-09-30",
+                            reason_code="UNSAFE_PROMOTION", reason_detail="Insufficient source cannot establish HOME")
+        self.persist(cohort, sources, members, decisions)
+        with self.assertRaisesRegex(ValueError, "ACCEPTED exact-member authority source"):
+            coverage.validate(self.cohort_path, self.sources_path, self.members_path, self.decisions_path, 1, self.roots_path)
+
     def test_post_count_is_not_an_evidence_field(self) -> None:
         self.assertNotIn("post_count", coverage.DECISION_FIELDS)
         self.assertNotIn("post_count", coverage.SOURCE_FIELDS)

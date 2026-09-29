@@ -6,11 +6,11 @@
 - Frozen master SHA-256: `135463a5225b6501db923322284f8e309f217eb5359538088eb6de6d78b77071`.
 - Baseline population: 35,890; HOME_CONFIRMED 21,907; HOME_UNRESOLVED 13,983.
 - Frozen unresolved cohort: 13,983 / 13,983 accounted; cohort ID-list SHA-256 `2db82cd3640196a29015124f28ca75f849c5469ba8dede8f2bb0396c6ecf8f31`.
-- Current states: HOME_CONFIRMED 61; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 0; IDENTITY_BLOCKED 0; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,922.
-- Stage A Top500: 61 HOME_CONFIRMED, 439 UNRESEARCHED. Calibration Gate is **not passed**.
-- Additive HOME_CONFIRMED total: 21,968 / 35,890 (61.21%). The original #180 master remains byte-identical; baseline-confirmed rows are outside this cohort and unchanged.
+- Current states: HOME_CONFIRMED 64; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 1; IDENTITY_BLOCKED 0; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,918.
+- Stage A Top500: 64 HOME_CONFIRMED, 1 POLICY_BLOCKED, 435 UNRESEARCHED. Calibration Gate is **not passed**.
+- Additive HOME_CONFIRMED total: 21,971 / 35,890 (61.22%). The original #180 master remains byte-identical; baseline-confirmed rows are outside this cohort and unchanged.
 - HOME cardinality: at most one field/value per decision; missing references to the complete Issue #70 Copyright catalog: 0.
-- Copyright source registry: 25 official sources; exact member mappings: 61; source reuse ratio: 43/61 (70.49%), with exact rosters reused across five 765PRO ALLSTARS members, seven Limbus Company members, 15 Cinderella Girls idols, two Shiny Colors members, eight Hasunosora members, and four Aqours members.
+- Copyright source registry: 29 sources (28 HOME-authority sources plus one research-only non-HOME source); exact member mappings: 65; source reuse ratio: 43/65 (66.15%), with exact rosters reused across five 765PRO ALLSTARS members, seven Limbus Company members, 15 Cinderella Girls idols, two Shiny Colors members, eight Hasunosora members, and four Aqours members.
 
 ## Revalidated members
 
@@ -41,6 +41,10 @@ Three additional Top100 members were mapped from first-party sources: Mai Shiran
 
 Hoto Cocoa was confirmed from the official GochiUsa Cocoa character profile. An independent Japanese character-name listing corroborates that the official profile's Cocoa is 保登心愛, solely as exact identity mapping evidence; it is not HOME authority. See `BATCH_GOCHIUSA_COCOA_PROFILE_2026-09-30.csv`.
 
+Amate Yuzuriha, Yoshida Yuuko, and Shirogane Naoto were confirmed from their official GQuuuuuuX, Machikado Mazoku, and Persona 4 profiles respectively. Amate's specific `gundam_gquuuuuux` root was selected from the named official work; the broad `gundam` candidate hint was not used. Persona 4 was normalized through the existing Issue #180 `persona` root authority. See `BATCH_TOP100_OFFICIAL_PROFILES_2026-09-30.csv`.
+
+Super Sonico was researched through the official biography and terminalized as `POLICY_BLOCKED`: the official page establishes an event-mascot origin and a broad cross-product career, while the #180 single-HOME policy does not permit promoting an event or company tag alone to fictional HOME. No HOME was assigned. See `BATCH_SUPER_SONICO_POLICY_REVIEW_2026-09-30.csv`.
+
 ## Validation
 
 - Full cohort freeze/reconstruction from exact #180 master: PASS (13,983 rows).
@@ -53,10 +57,12 @@ Hoto Cocoa was confirmed from the official GochiUsa Cocoa character profile. An 
 - 765PRO ALLSTARS roster batch deterministic check: PASS (five exact members; one official source).
 - Top100 character-profile batch deterministic check: PASS (three exact members; three official sources).
 - GochiUsa Cocoa profile batch deterministic check: PASS (one exact member; one official source; independent mapping reference recorded).
-- Authority coverage validator: structurally valid; reports `complete: false`, `UNRESEARCHED=13,922`.
-- Issue #216 tests: 13 PASS.
+- Top100 official-profile batch deterministic check: PASS (three exact members; three official sources).
+- Super Sonico terminal research batch deterministic check: PASS (one policy-blocked result; no HOME root assigned).
+- Authority coverage validator: structurally valid; reports `complete: false`, `UNRESEARCHED=13,918`.
+- Issue #216 tests: 14 PASS, including no-HOME-root research source handling.
 - `git diff --check`: PASS.
-- CI: not run; the latest GochiUsa Cocoa profile batch checkpoint is pending commit/push.
+- CI: not run; the GochiUsa Cocoa, Top100 profile, and policy-terminal batches are pending commit/push.
 
 ## Next work
 

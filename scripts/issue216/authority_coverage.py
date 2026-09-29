@@ -125,9 +125,11 @@ def validate(cohort_path: Path, sources_path: Path, members_path: Path, decision
             errors.append(f"invalid source_status for {source['source_id']}: {source['source_status']}")
         if source["exact_roster_available"] not in {"true", "false"} or source["reusable"] not in {"true", "false"}:
             errors.append(f"invalid boolean registry field for {source['source_id']}")
-        for field in ("copyright_canonical", "source_url", "authority_owner", "source_scope", "reviewed_at", "source_claim", "provenance"):
+        for field in ("source_url", "authority_owner", "source_scope", "reviewed_at", "source_claim", "provenance"):
             if not source[field]:
                 errors.append(f"missing {field} for source {source['source_id']}")
+        if source["source_status"] == "ACCEPTED" and not source["copyright_canonical"]:
+            errors.append(f"ACCEPTED HOME authority requires one canonical Copyright root: {source['source_id']}")
 
     member_keys: set[tuple[str, str]] = set()
     exact_members: set[tuple[str, str]] = set()
