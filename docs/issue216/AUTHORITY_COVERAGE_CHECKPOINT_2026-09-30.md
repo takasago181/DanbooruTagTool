@@ -1,5 +1,14 @@
 # Issue #216 — full-cohort authority coverage checkpoint
 
+## 2026-09-30 Fate/Zero and Fate/Apocrypha root batch
+
+- Processed two first-party root rosters: the [Fate/Zero official character directory](https://www.fate-zero.jp/characters/) (21 exact surfaces) and the [Fate/Apocrypha official character directory](https://fate-apocrypha.com/character/) (25 exact surfaces). Exact candidate generation and source-scope review accepted 11 Fate/Zero and 2 Fate/Apocrypha cohort identities; the already-authorized Issue #180 work-to-root normalizations map `fate/zero` and `fate/apocrypha` to `fate_(series)`.
+- Fate/Zero decisions: `emiya_kiritsugu`, `hisau_maiya`, `irisviel_von_einzbern`, `kayneth_el-melloi_archibald`, `kotomine_risei`, `matou_kariya`, `sola-ui_nuada-re_sophia-ri`, `tohsaka_aoi`, `tohsaka_tokiomi`, `uryuu_ryuunosuke`, and `waver_velvet`. Fate/Apocrypha decisions: `fiore_forvedge_yggdmillennia` and `shishigou_kairi`.
+- Class labels and colliding catalog identities remain `REVIEW_REQUIRED`; unmatched names, out-of-cohort identities, and previously terminal rows were not added. Each directory only covers its published work-specific roster.
+- This root batch terminalized 13 Characters / 2 new source reviews = 6.50 per review. Cumulative cohort: 13,983 accounted; HOME_CONFIRMED 359; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 3; IDENTITY_BLOCKED 2; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,619. Terminalized 364 / 13,983 (2.60%); Top500 UNRESEARCHED 357; Top2000 UNRESEARCHED 1,790.
+- Registry: 46 source records; 362 exact member mappings; 335 reused member rows / 364 terminalized rows = 92.03% source reuse. Missing Copyright roots 0; existing #180 confirmed HOME changed 0; conflicts 0. Queue: 2,666 roots; `fate_(series)` has 104 still-unresearched identities (Top500 15; Top2000 40), and all three registered rosters with retained candidate inventories have been reviewed.
+- Validation: both source batches PASS (13,983 decisions, 364 exact mappings, 46 sources); deterministic source-yield queue PASS (2,666 roots; 13,619 open); full cohort PASS (13,983); complete Copyright-root catalog PASS (8,536); Issue #216 tests PASS (16); `git diff --check` PASS. Full #180 regression, reproducibility review and CI remain final-gate work. Provenance: `BATCH_FATE_ZERO_DIRECTORY_2026-09-30.csv`, `BATCH_FATE_APOCRYPHA_DIRECTORY_2026-09-30.csv`, and the corresponding source proposal, roster and candidate files.
+
 ## 2026-09-30 Fate/stay night Realta Nua roster batch
 
 - Reviewed the TYPE-MOON [Fate/stay night [Realta Nua] character directory](https://www.typemoon.com/products/fatevita/character/) once as a source-scoped roster. The page has 16 named/image character surfaces; exact catalog candidate generation and scope review accepted four unique unresolved cohort identities: Mitsuzuri Ayako, Matou Shinji, Ryuudou Issei, and Kuzuki Souichirou. Each maps to `fate_(series)` under the explicit Issue #180 Fate/stay night normalization policy, not from the broad `fate_(series)` candidate hint.
@@ -56,12 +65,12 @@
 - Frozen master SHA-256: `135463a5225b6501db923322284f8e309f217eb5359538088eb6de6d78b77071`.
 - Baseline population: 35,890; HOME_CONFIRMED 21,907; HOME_UNRESOLVED 13,983.
 - Frozen unresolved cohort: 13,983 / 13,983 accounted; cohort ID-list SHA-256 `2db82cd3640196a29015124f28ca75f849c5469ba8dede8f2bb0396c6ecf8f31`.
-- Current states: HOME_CONFIRMED 346; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 3; IDENTITY_BLOCKED 2; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,632. Accounted/terminalized: 351 / 13,983 (2.51%).
-- Frozen Top500: 362 UNRESEARCHED; frozen Top2000: 1,799 UNRESEARCHED. Top500 calibration remains incomplete.
-- Additive HOME_CONFIRMED total: 22,253 / 35,890 (62.00%). The original #180 master remains byte-identical; baseline-confirmed rows are outside this cohort and unchanged.
+- Current states: HOME_CONFIRMED 359; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 3; IDENTITY_BLOCKED 2; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,619. Accounted/terminalized: 364 / 13,983 (2.60%).
+- Frozen Top500: 357 UNRESEARCHED; frozen Top2000: 1,790 UNRESEARCHED. Top500 calibration remains incomplete.
+- Additive HOME_CONFIRMED total: 22,266 / 35,890 (62.04%). The original #180 master remains byte-identical; baseline-confirmed rows are outside this cohort and unchanged.
 - HOME cardinality: at most one field/value per decision; missing references to the complete Issue #70 Copyright catalog: 0.
-- Copyright source registry: 44 records; exact member mappings: 349; source reuse ratio: 322/351 = 91.74%; exact mappings per source record: 7.93. The Realta Nua batch terminalized 4 Characters / 1 new source review. Cumulative throughput: 351 terminalized Characters / 44 source records = 7.98 per source record.
-- Full-cohort root-priority queue: 2,667 candidate roots, reconstructed from the frozen cohort and read-only Issue #180 master/graph. Current Top500/Top2000 open counts are based on frozen ranks. Expected safe yield is a priority estimate only; candidate roots, queue rank and post counts remain non-evidence. Missing roots 0; existing #180 HOME changed 0; conflicts 0.
+- Copyright source registry: 46 records; exact member mappings: 362; source reuse ratio: 335/364 = 92.03%; exact mappings per source record: 7.87. The latest two-source root batch terminalized 13 Characters / 2 new source reviews = 6.50 per review. Cumulative throughput: 364 terminalized Characters / 46 source records = 7.91 per source record.
+- Full-cohort root-priority queue: 2,666 candidate roots, reconstructed from the frozen cohort and read-only Issue #180 master/graph. Current Top500/Top2000 open counts are based on frozen ranks. Expected safe yield is a priority estimate only; candidate roots, queue rank and post counts remain non-evidence. Missing roots 0; existing #180 HOME changed 0; conflicts 0.
 
 ## Revalidated members
 
