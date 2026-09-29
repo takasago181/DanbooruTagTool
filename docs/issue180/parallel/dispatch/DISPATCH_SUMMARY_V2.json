@@ -2,13 +2,13 @@
   "lanes": {
     "0": {
       "dispatched_open_campaigns": 200,
-      "open_campaigns": 1139,
-      "total_campaigns": 1139
+      "open_campaigns": 1136,
+      "total_campaigns": 1136
     },
     "1": {
       "dispatched_open_campaigns": 200,
-      "open_campaigns": 1097,
-      "total_campaigns": 1097
+      "open_campaigns": 1091,
+      "total_campaigns": 1091
     },
     "2": {
       "dispatched_open_campaigns": 200,
@@ -17,15 +17,15 @@
     },
     "3": {
       "dispatched_open_campaigns": 200,
-      "open_campaigns": 1117,
-      "total_campaigns": 1117
+      "open_campaigns": 1114,
+      "total_campaigns": 1114
     }
   },
   "packet_limit_per_lane": 200,
   "progressed_open_campaigns": 113,
   "queue_ids": [
-    "q2-2e1a9216737fcf40a975"
+    "q2-6c91cac318f8cf4cc51c"
   ],
-  "total_forward_campaigns": 4417,
-  "total_open_campaigns": 4417
+  "total_forward_campaigns": 4405,
+  "total_open_campaigns": 4405
 }
