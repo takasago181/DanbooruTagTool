@@ -1,5 +1,5 @@
 candidate_root,hint_kind,unresolved_count,top500_count,top2000_count,total_post_count_sum,max_post_count,known_official_source_count,reusable_accepted_source_count,likely_roster_availability,existing_exact_mappings,remaining_unmapped_count,expected_safe_yield,source_yield_class,priority_rank
-idolmaster,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,120,7,24,44008,11175,1,1,REGISTERED_ROSTER_SOURCE,0,120,120,REUSE_SOURCE_FIRST,1
+idolmaster,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,119,7,23,43329,11175,1,1,REGISTERED_ROSTER_SOURCE,0,119,119,REUSE_SOURCE_FIRST,1
 limbus_company,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,51,0,3,6385,636,2,2,REGISTERED_ROSTER_SOURCE,0,51,51,REUSE_SOURCE_FIRST,2
 fate/kaleid_liner_prisma_illya,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,3,0,0,326,205,1,1,REGISTERED_ROSTER_SOURCE,0,3,3,REUSE_SOURCE_FIRST,3
 original,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,1646,2,78,187512,2169,0,0,SOURCE_DISCOVERY_REQUIRED,0,1646,0,DISCOVER_OFFICIAL_SOURCE,4

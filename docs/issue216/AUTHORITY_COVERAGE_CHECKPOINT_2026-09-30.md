@@ -1,5 +1,14 @@
 # Issue #216 — full-cohort authority coverage checkpoint
 
+## 2026-09-30 source-driven continuation
+
+- Source-first execution remains active; the queue was deterministically rebuilt from the frozen #180 master, structure graph, and post-count source. Candidate roots and post counts remain priority metadata only.
+- Reviewed the official The Idolmaster Million Live! anime site's distinct `MILLIONSTARS` directory once as a 39-name batch, excluding adjacent 765PRO and staff sections. Exact roster matching found one unresolved cohort identity: `julia_(idolmaster)`. Its exact `ジュリア` name and the page's explicit `MILLIONSTARS` section were manually disambiguated from the separate Cowboy Bebop `julia` identity. Added one source-scoped mapping to `idolmaster_million_live!`; all other matched catalog identities were already outside the frozen unresolved cohort.
+- Current cohort: 13,983 accounted; HOME_CONFIRMED 265; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 3; IDENTITY_BLOCKED 1; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,714. Terminalized 269 (1.92%); Top500 UNRESEARCHED 366; Top2000 UNRESEARCHED 1,821.
+- Current sources: 34 registry rows; 268 exact member mappings (269 member rows including one ambiguous identity-review mapping); 243 reused member rows / 269 total member rows = 90.33% source reuse; 268 exact mappings / 34 reviewed source records = 7.88 mappings per source. This turn's reviewed source yielded 1 terminalized Character / 1 new source review.
+- Missing Copyright roots 0; existing #180 confirmed HOME changed 0; conflicting decisions 0. Source-driven queue: 2,668 roots; all 13,714 open rows represented. Candidate root `idolmaster` now has 119 open rows (Top500 7, Top2000 23); `limbus_company` has 51 (Top500 0, Top2000 3). Candidate-root hints were not used as HOME evidence.
+- Validation: full #216 focused suite PASS (16 tests; rerun with normal filesystem permissions after sandbox ACL fixture errors); deterministic source-yield queue PASS; 8,536-root Copyright catalog reproducibility PASS; `git diff --check` PASS. No #180 baseline master, production data, or production runtime was changed.
+
 ## Baseline and current coverage
 
 - Issue #180 authority commit: `9c0db59c0f1dc56402c955e718a37d9de1849d7e`.
