@@ -1,9 +1,9 @@
 {
-  "accepted_roster_source_count": 26,
+  "accepted_roster_source_count": 28,
   "baseline_unresolved": 13983,
   "candidate_graph_sha256": "218cf30cb21695472e276cce327cd96a132665f3473c8925954059c3432c4bea",
-  "currently_unresearched": 13573,
-  "note": "expected_safe_yield counts only AUTO_MAPPING_CANDIDATE rows from reviewed inventories matching an accepted source ID, URL, and exact scope; it is a priority estimate, never HOME evidence or a guaranteed decision count. Incrementally updated after the Persona 3 exact roster batch; the protected #180 master/graph inputs were unavailable in this worktree, so full deterministic reconstruction remains pending. Incrementally updated after the exact 41-name Gundam SEED DESTINY directory batch; the protected #180 master/graph inputs were unavailable in this worktree, so full deterministic reconstruction remains pending. Incrementally updated after the exact four-member Wonderful Precure cast batch; the protected #180 master/graph inputs were unavailable in this worktree, so full deterministic reconstruction remains pending. Incrementally updated after the official Jupiter cross-work review and Dearly Stars roster batch; the protected #180 master/graph inputs were unavailable in this worktree, so full deterministic reconstruction remains pending.",
+  "currently_unresearched": 13562,
+  "note": "expected_safe_yield counts only AUTO_MAPPING_CANDIDATE rows from reviewed inventories matching an accepted source ID, URL, and exact scope; it is a priority estimate, never HOME evidence or a guaranteed decision count. Incrementally updated after the Persona 3 exact roster batch; the protected #180 master/graph inputs were unavailable in this worktree, so full deterministic reconstruction remains pending. Incrementally updated after the exact 41-name Gundam SEED DESTINY directory batch; the protected #180 master/graph inputs were unavailable in this worktree, so full deterministic reconstruction remains pending. Incrementally updated after the exact four-member Wonderful Precure cast batch; the protected #180 master/graph inputs were unavailable in this worktree, so full deterministic reconstruction remains pending. Incrementally updated after the official Jupiter cross-work review and Dearly Stars roster batch; the protected #180 master/graph inputs were unavailable in this worktree, so full deterministic reconstruction remains pending. Incrementally adjusted after the 2026-09-30 Delicious Party Precure (8 exact cohort members) and Hirogaru Sky Precure (3 exact cohort members) title-scoped roster batches: aggregate open count is 13,562, source registry is 63, and Top500 open remains 337. The queue CSV root-level unresolved/post-count aggregates remain at the last complete graph snapshot because protected #180 master/graph inputs are not present; top2000_open=1,770 is likewise the last verified pre-batch value, not rederived for these 11 Characters.",
   "post_count_joined_frozen_baseline": 13881,
   "post_count_joined_open": 13471,
   "post_count_missing_open": 102,
@@ -12,7 +12,7 @@
   "queue_order": "reviewed source exact-candidate yield, registered source review need, then unresolved/Top2000/post-count priority; candidate edges and frequency are priority-only",
   "root_count": 2665,
   "schema_version": "issue216-source-yield-queue-v1",
-  "source_registry_count": 61,
+  "source_registry_count": 63,
   "top2000_open": 1770,
   "top500_open": 337
 }
