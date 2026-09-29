@@ -1,0 +1,3 @@
+matched_surface,raw_candidate_status,competing_tags,review_result,review_reason
+Lightning,REVIEW_REQUIRED,lightning_farron,ACCEPT_EXACT_TITLE_HOME,"Official FINAL FANTASY XIII profile uses the exact character name Lightning; Character catalog has the exact title-qualified alias lightning (ff13) uniquely attached to lightning_farron. Scope explicitly excludes the separate lightning_farron_(modern_jacket) cohort tag, for which no validated variant edge is supplied."
+Galenth Dysley,NO_MATCH,,NO_SAFE_COHORT_MAPPING,"Official page names Galenth Dysley, but exact catalog candidate generation returns no canonical Character identity; no cohort mapping is accepted."

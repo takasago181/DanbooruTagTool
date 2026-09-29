@@ -1,9 +1,9 @@
 {
-  "accepted_roster_source_count": 44,
+  "accepted_roster_source_count": 45,
   "baseline_unresolved": 13983,
   "candidate_graph_sha256": "218cf30cb21695472e276cce327cd96a132665f3473c8925954059c3432c4bea",
-  "currently_unresearched": 13468,
-  "note": "expected_safe_yield counts only AUTO_MAPPING_CANDIDATE rows from reviewed inventories matching an accepted source ID, URL, and exact scope; it is a priority estimate, never HOME evidence or a guaranteed decision count. Full Top2000/post-count queue values remain stale until the frozen #180 post-count and hint-graph inputs are supplied; do not treat cached fields as current. Exact cohort UNRESEARCHED count, Top500 open count, source registry count, and accepted reusable roster source count are current.",
+  "currently_unresearched": 13451,
+  "note": "expected_safe_yield counts only AUTO_MAPPING_CANDIDATE rows from reviewed inventories matching an accepted source ID, URL, and exact scope; it is a priority estimate, never HOME evidence or a guaranteed decision count. Global unresolved and Top500 counts, and source registry count, are refreshed from current ledgers. Root-level counts, Top2000/post-count joins and priority order remain cached from the prior full deterministic build: the frozen #180 master and hint graph are not present in this checkout, so no substitute inputs were used.",
   "post_count_joined_frozen_baseline": 13881,
   "post_count_joined_open": 13390,
   "post_count_missing_open": 102,
@@ -12,7 +12,7 @@
   "queue_order": "reviewed source exact-candidate yield, registered source review need, then unresolved/Top2000/post-count priority; candidate edges and frequency are priority-only",
   "root_count": 2665,
   "schema_version": "issue216-source-yield-queue-v1",
-  "source_registry_count": 88,
+  "source_registry_count": 91,
   "top2000_open": 1734,
-  "top500_open": 316
+  "top500_open": 311
 }
