@@ -48,6 +48,7 @@ def build(roster: list[dict[str, str]], catalog_path: Path, cohort_path: Path, d
             if edge["relation_type"] == "VARIANT_OF" and edge["review_state"] == "VALIDATED":
                 variant_edges[edge["object_key"]].append(edge)
     catalog = [r for r in read_csv(catalog_path) if r.get("category") == "4"]
+    canonical_tags = {row.get("canonical_tag", "") for row in catalog if row.get("canonical_tag", "")}
     index: dict[str, set[str]] = defaultdict(set)
     qualified_alias_index: dict[str, set[str]] = defaultdict(set)
     search_surface_index: dict[str, set[str]] = defaultdict(set)
@@ -94,7 +95,15 @@ def build(roster: list[dict[str, str]], catalog_path: Path, cohort_path: Path, d
                 or registered["source_scope"] != source_row["source_scope"]):
             raise ValueError(f"roster input does not match an accepted source registry scope: {source_row}")
         seen.add(key)
-        candidates = sorted(index.get(norm(source_row["matched_surface"]), set()))
+        candidates = set(index.get(norm(source_row["matched_surface"]), set()))
+        # Official English display names often exactly match the canonical
+        # Character tag after the catalog's standard whitespace-to-underscore
+        # spelling (for example, "Clive Rosfield" -> "clive_rosfield").
+        # Admit only an exact existing canonical tag; this is not fuzzy lookup.
+        canonical_slug = exact_tag_slug(source_row["matched_surface"])
+        if canonical_slug in canonical_tags:
+            candidates.add(canonical_slug)
+        candidates = sorted(candidates)
         contextual_candidates = sorted(
             qualified_alias_index.get(norm(source_row["matched_surface"]), set())
             | search_surface_index.get(norm(source_row["matched_surface"]), set())

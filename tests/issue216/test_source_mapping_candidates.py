@@ -83,6 +83,38 @@ class SourceMappingCandidatesTests(unittest.TestCase):
             self.assertEqual(candidates[5]["canonical_character"], "")
             self.assertEqual(candidates[5]["competing_tags"], "yorick_(shiori_novella)")
 
+    def test_exact_english_display_name_can_match_canonical_tag_slug(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            roster_path = root / "roster.csv"
+            catalog_path = root / "catalog.csv"
+            cohort_path = root / "cohort.csv"
+            decisions_path = root / "decisions.csv"
+            sources_path = root / "sources.csv"
+            write_csv(roster_path, ["source_id", "source_url", "source_scope", "matched_surface"], [
+                {"source_id": "src-test", "source_url": "https://example.test/roster", "source_scope": "test roster", "matched_surface": "Clive Rosfield"},
+                {"source_id": "src-test", "source_url": "https://example.test/roster", "source_scope": "test roster", "matched_surface": "Clive R."},
+            ])
+            write_csv(catalog_path, ["canonical_tag", "category", "display_ja", "search_ja", "aliases"], [
+                {"canonical_tag": "clive_rosfield", "category": "4", "display_ja": "クライヴ・ロズフィールド", "search_ja": "", "aliases": ""},
+            ])
+            write_csv(cohort_path, ["cohort_id", "canonical_character"], [
+                {"cohort_id": "clive_rosfield", "canonical_character": "clive_rosfield"},
+            ])
+            write_csv(decisions_path, ["canonical_character", "research_state"], [
+                {"canonical_character": "clive_rosfield", "research_state": "UNRESEARCHED"},
+            ])
+            write_csv(sources_path, ["source_id", "source_url", "source_scope", "source_status"], [
+                {"source_id": "src-test", "source_url": "https://example.test/roster", "source_scope": "test roster", "source_status": "ACCEPTED"},
+            ])
+            candidates = build(
+                roster=read_csv(roster_path), catalog_path=catalog_path, cohort_path=cohort_path,
+                decisions_path=decisions_path, sources_path=sources_path,
+            )
+            self.assertEqual(candidates[0]["candidate_status"], "AUTO_MAPPING_CANDIDATE")
+            self.assertEqual(candidates[0]["canonical_character"], "clive_rosfield")
+            self.assertEqual(candidates[1]["candidate_status"], "NO_MATCH")
+
 
 if __name__ == "__main__":
     unittest.main()
