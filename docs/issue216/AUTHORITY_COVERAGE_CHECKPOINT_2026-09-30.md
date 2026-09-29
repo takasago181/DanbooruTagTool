@@ -1,5 +1,14 @@
 # Issue #216 — full-cohort authority coverage checkpoint
 
+## 2026-09-30 Shiny Colors subunit batch
+
+- Reaudited the already accepted Shiny Colors 2nd-season source scope; it lists 23 older roster members and does not cover the unresolved SHHis/CoMETIK members. Reviewed the official [SHHis roster](https://shinycolors.idolmaster-official.jp/idol/shhis/) and [CoMETIK roster](https://shinycolors.idolmaster-official.jp/idol/cometik/) once each. Their pages state the THE IDOLM@STER SHINY COLORS title and list five exact member surfaces in total; all five were unique unresolved cohort matches mapped to the exact `idolmaster_shiny_colors` root.
+- The source batches resolved `nanakusa_nichika`, `aketa_mikoto`, `ikaruga_luca`, `suzuki_hana`, and `ikuta_haruki`. Two are in the frozen Top500 and all five are in Top2000. No `idolmaster` candidate hint was used as HOME evidence.
+- Current cohort: 13,983 accounted; HOME_CONFIRMED 342; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 3; IDENTITY_BLOCKED 2; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,636. Terminalized 347 / 13,983 (2.48%); Top500 UNRESEARCHED 362; Top2000 UNRESEARCHED 1,800.
+- Current source metrics: 43 source records; 345 exact member mappings; 318 reused member rows / 347 terminalized rows = 91.64% source reuse. This batch terminalized 5 Characters / 2 new official source reviews = 2.50 per reviewed source.
+- Missing Copyright roots 0; existing #180 confirmed HOME changed 0; conflicts 0. Queue: 2,667 remaining roots; broad `idolmaster` hint now has 71 unresolved (Top500 5; Top2000 17).
+- Validation: both exact source batches PASS (full-cohort rows 13,983; exact mappings 347; source records 43); source-yield queue rebuild/check PASS (2,667 roots; 13,636 open rows); Issue #216 focused suite PASS (16 tests); `git diff --check` PASS. Full #180 regression and CI remain final-gate work. Batch/provenance: `BATCH_SHINY_COLORS_SHHIS_ROSTER_2026-09-30.csv`, `BATCH_SHINY_COLORS_COMETIK_ROSTER_2026-09-30.csv`, with raw and reviewed candidate inventories retained.
+
 ## 2026-09-30 SideM source batch
 
 - Audited the full official [THE IDOLM@STER SideM anime CHARACTER directory](https://imas-sidem.com/character/) once and retained all 50 published name surfaces. Exact normalized catalog matching generated 46 unique cohort candidates; manual review accepted 43 exact identities to the specific `idolmaster_side-m` Copyright root.
