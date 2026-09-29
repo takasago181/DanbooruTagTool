@@ -51,6 +51,8 @@ def build(batch_path: Path) -> tuple[list[dict[str, str]], list[dict[str, str]],
     decisions = read_csv(ISSUE216 / "AUTHORITY_COVERAGE_DECISIONS_V1.csv")
     sources = read_csv(ISSUE216 / "COPYRIGHT_AUTHORITY_REGISTRY_V1.csv")
     members = read_csv(ISSUE216 / "AUTHORITY_SOURCE_MEMBERS_V1.csv")
+    source_by_id = {row["source_id"]: row for row in sources}
+    member_by_key = {(row["source_id"], row["canonical_character"]): row for row in members}
     known_roots = {row["copyright_canonical"] for row in read_csv(ISSUE216 / "COPYRIGHT_ROOTS_V1.csv")}
     cohort_by_tag = {row["canonical_character"]: row for row in cohort}
     decision_by_tag = {row["canonical_character"]: row for row in decisions}
@@ -81,19 +83,13 @@ def build(batch_path: Path) -> tuple[list[dict[str, str]], list[dict[str, str]],
             raise ValueError(f"one exact source has inconsistent HOME/type/claim: {url}")
         home = source_rows[0]["home_copyright"]
         source_type = source_rows[0]["source_type"]
-        claim = "Official roster explicitly lists these reviewed exact members: " + "; ".join(
-            f"{row['canonical_character']} ({row['matched_surface']})" for row in sorted(source_rows, key=lambda x: x["canonical_character"])
-        )
         source_id = deterministic_source_id(url, owner, scope)
-        new_sources.append({
-            "source_id": source_id, "copyright_canonical": home, "source_url": url,
-            "source_type": source_type, "authority_owner": owner, "source_status": "ACCEPTED",
-            "source_scope": scope, "exact_roster_available": "true", "reviewed_at": REVIEWED_AT,
-            "source_claim": claim,
-            "provenance": f"Independent first-party roster review on {REVIEWED_AT}; exact cohort members recorded in this batch.",
-            "reusable": "true" if len(source_rows) > 1 else "false",
-            "notes": "Covers listed exact members only; absence is not evidence.",
-        })
+        prior_source = source_by_id.get(source_id)
+        if prior_source and any(prior_source[field] != expected for field, expected in {
+            "copyright_canonical": home, "source_url": url, "source_type": source_type,
+            "authority_owner": owner, "source_status": "ACCEPTED", "source_scope": scope,
+        }.items()):
+            raise ValueError(f"refusing to change accepted source identity/scope: {source_id}")
         for row in source_rows:
             tag = row["canonical_character"]
             new_members.append({
@@ -112,22 +108,43 @@ def build(batch_path: Path) -> tuple[list[dict[str, str]], list[dict[str, str]],
                 "reason_detail": row["reason_detail"], "validated_home_candidates": "",
             })
             if current["research_state"] == "HOME_CONFIRMED" and current != decision:
-                raise ValueError(f"refusing to replace a different HOME_CONFIRMED decision: {tag}")
+                immutable_authority = ("home_copyright", "authority_type", "source_ids", "source_claim")
+                if any(current[field] != decision[field] for field in immutable_authority):
+                    raise ValueError(f"refusing to replace a different HOME_CONFIRMED authority: {tag}")
             proposed_decisions[tag] = decision
 
     merged_sources = {row["source_id"]: row for row in sources}
-    for row in new_sources:
-        prior = merged_sources.get(row["source_id"])
-        if prior and prior != row:
-            raise ValueError(f"source ID collision with different registered metadata: {row['source_id']}")
-        merged_sources[row["source_id"]] = row
     merged_members = {(row["source_id"], row["canonical_character"]): row for row in members}
     for row in new_members:
         key = (row["source_id"], row["canonical_character"])
         prior = merged_members.get(key)
         if prior and prior != row:
-            raise ValueError(f"source/member mapping collision: {key}")
+            immutable_mapping = ("matched_surface", "mapping_method", "reviewed_at", "reviewer", "mapping_status")
+            if any(prior[field] != row[field] for field in immutable_mapping):
+                raise ValueError(f"source/member mapping collision: {key}")
         merged_members[key] = row
+    for (url, owner, scope), source_rows in sorted(by_source.items()):
+        source_id = deterministic_source_id(url, owner, scope)
+        all_source_members = sorted(
+            (row for (sid, _), row in merged_members.items() if sid == source_id),
+            key=lambda row: row["canonical_character"],
+        )
+        member_claim = "; ".join(
+            f"{row['canonical_character']} ({row['matched_surface']})" for row in all_source_members
+        )
+        home = source_rows[0]["home_copyright"]
+        source_type = source_rows[0]["source_type"]
+        source = {
+            "source_id": source_id, "copyright_canonical": home, "source_url": url,
+            "source_type": source_type, "authority_owner": owner, "source_status": "ACCEPTED",
+            "source_scope": scope, "exact_roster_available": "true", "reviewed_at": REVIEWED_AT,
+            "source_claim": "Official source explicitly lists exact reviewed cohort members: " + member_claim,
+            "provenance": f"Independent first-party source review on {REVIEWED_AT}; scope preserved; exact mapped members are enumerated in AUTHORITY_SOURCE_MEMBERS_V1.csv.",
+            "reusable": "true" if len(all_source_members) > 1 else "false",
+            "notes": "Covers listed exact members only; absence is not evidence.",
+        }
+        merged_sources[source_id] = source
+        new_sources.append(source)
     merged_decisions = [proposed_decisions.get(row["canonical_character"], row) for row in decisions]
     return (
         sorted(merged_sources.values(), key=lambda row: row["source_id"]),
@@ -171,7 +188,7 @@ def main() -> None:
     validate(ISSUE216 / "AUTHORITY_COVERAGE_COHORT_V1.csv", ISSUE216 / "COPYRIGHT_AUTHORITY_REGISTRY_V1.csv",
              ISSUE216 / "AUTHORITY_SOURCE_MEMBERS_V1.csv", ISSUE216 / "AUTHORITY_COVERAGE_DECISIONS_V1.csv",
              roots_path=ISSUE216 / "COPYRIGHT_ROOTS_V1.csv")
-    print(f"applied exact reviewed roster members: {len(read_csv(args.batch))}; new sources: {len(new_sources)}")
+    print(f"applied exact reviewed roster members: {len(read_csv(args.batch))}; updated source entries: {len(new_sources)}")
 
 
 if __name__ == "__main__":

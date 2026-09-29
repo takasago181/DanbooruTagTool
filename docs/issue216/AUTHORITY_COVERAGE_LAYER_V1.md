@@ -31,11 +31,14 @@ The validator rejects confirmed HOME without an accepted source, exact member ma
 
 ## Execution order
 
-1. Calibrate all frozen Top500 rows and reach zero `UNRESEARCHED` there.
-2. Expand the frozen post-count ranking through rank 2,000. Counts affect priority only.
-3. Batch by candidate Copyright root and reuse official rosters/directories. Record exact member mappings, not roster-wide assumptions.
-4. Research remaining long-tail identity, policy, variant, avatar and ambiguous cases individually where batching does not cover them.
-5. Reconcile all 13,983 rows and stop only when the validator reports `complete: true`.
+1. Re-audit accepted source scopes against all currently `UNRESEARCHED` cohort rows; generate exact roster/catalog mapping candidates and accept only reviewed unique mappings.
+2. Rebuild the full-cohort Copyright-root priority queue from candidate-root/family hints, existing hints, official-source availability, reusable source scopes and frozen frequency ranks. Queue fields are work-priority metadata only; they never enter HOME evidence.
+3. Review high expected-safe-yield official rosters/directories first. Record one authority source with an explicit exact scope and a batch of exact/reviewed member mappings. Reuse the same URL/scope and member table instead of repeating Character-level lookups.
+4. Use Top500 and Top2000 as progress cross-checks of root/source batches, not as a sequential Character work queue. Counts affect priority only.
+5. Send authority-reviewed no-safe-evidence, policy-ineligible, identity-unresolved and conflicting cases to their explicit terminal states. Continue long-tail root/source batches and individual research only where no safe roster batch covers the identity.
+6. Reconcile all 13,983 rows and stop only when the validator reports `complete: true`.
+
+The source-yield queue records each root's unresolved and Top500/Top2000 counts, post-count sum/max, known official and reusable accepted sources, likely roster availability, mapped/unmapped counts, and an `expected_safe_yield` priority estimate. That estimate is not guaranteed coverage and is never evidence. A source can cover only exact listed members inside its recorded scope. Candidate generation uses exact normalized catalog names and accepted exact member mappings; qualifier-bearing alias head matches remain `REVIEW_REQUIRED`, while collisions and missing matches remain review/no-match outcomes.
 
 Each checkpoint is a deterministic snapshot of cohort size, state counts, source count/reuse, and the cohort hash. A checkpoint never changes the completion rule.
 

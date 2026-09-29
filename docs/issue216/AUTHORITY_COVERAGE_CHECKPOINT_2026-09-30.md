@@ -6,11 +6,12 @@
 - Frozen master SHA-256: `135463a5225b6501db923322284f8e309f217eb5359538088eb6de6d78b77071`.
 - Baseline population: 35,890; HOME_CONFIRMED 21,907; HOME_UNRESOLVED 13,983.
 - Frozen unresolved cohort: 13,983 / 13,983 accounted; cohort ID-list SHA-256 `2db82cd3640196a29015124f28ca75f849c5469ba8dede8f2bb0396c6ecf8f31`.
-- Current states: HOME_CONFIRMED 64; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 1; IDENTITY_BLOCKED 0; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,918.
-- Stage A Top500: 64 HOME_CONFIRMED, 1 POLICY_BLOCKED, 435 UNRESEARCHED. Calibration Gate is **not passed**.
-- Additive HOME_CONFIRMED total: 21,971 / 35,890 (61.22%). The original #180 master remains byte-identical; baseline-confirmed rows are outside this cohort and unchanged.
+- Current states: HOME_CONFIRMED 264; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 3; IDENTITY_BLOCKED 1; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,715. Accounted/terminalized: 268 / 13,983 (1.92%).
+- Frozen Top500: 366 UNRESEARCHED; frozen Top2000: 1,822 UNRESEARCHED. Top500 calibration remains incomplete.
+- Additive HOME_CONFIRMED total: 22,171 / 35,890 (61.77%). The original #180 master remains byte-identical; baseline-confirmed rows are outside this cohort and unchanged.
 - HOME cardinality: at most one field/value per decision; missing references to the complete Issue #70 Copyright catalog: 0.
-- Copyright source registry: 29 sources (28 HOME-authority sources plus one research-only non-HOME source); exact member mappings: 65; source reuse ratio: 43/65 (66.15%), with exact rosters reused across five 765PRO ALLSTARS members, seven Limbus Company members, 15 Cinderella Girls idols, two Shiny Colors members, eight Hasunosora members, and four Aqours members.
+- Copyright source registry: 33 records; exact member mappings: 267; source reuse ratio: 243/268 (90.67%, including one ambiguous research mapping in the member denominator); reusable accepted source records: 8. This turn added 200 roster HOME decisions (195 Idolmaster members, five additional Limbus Company Sinners), two policy terminals and one identity terminal. Source efficiency: 203 terminalized Characters / 7 new source reviews = 29.0 per source review.
+- Full-cohort root-priority queue: 2,668 candidate roots, reconstructed from the frozen cohort and read-only Issue #180 master/graph. Current Top500/Top2000 open counts are based on frozen ranks. Expected safe yield is a priority estimate only; candidate roots, queue rank and post counts remain non-evidence.
 
 ## Revalidated members
 
@@ -45,6 +46,12 @@ Amate Yuzuriha, Yoshida Yuuko, and Shirogane Naoto were confirmed from their off
 
 Super Sonico was researched through the official biography and terminalized as `POLICY_BLOCKED`: the official page establishes an event-mascot origin and a broad cross-product career, while the #180 single-HOME policy does not permit promoting an event or company tag alone to fictional HOME. No HOME was assigned. See `BATCH_SUPER_SONICO_POLICY_REVIEW_2026-09-30.csv`.
 
+The source-driven execution layer now includes a deterministic full-cohort `SOURCE_YIELD_QUEUE_V1.csv/.json`, exact normalized roster-to-catalog candidate generation, ambiguity/no-match statuses, and reviewed batch compilation. Re-auditing already registered official rosters yielded 195 exact Idolmaster identities in two batch applications without per-Character page lookups. An additional five Limbus Company Sinners were confirmed from the already reviewed first-party Sinner Owner's Manual; the prior seven-member source scope remains unchanged, and the 12-name scope is registered separately at the same URL. The official page names the complete Sinner roster, but only five previously unresolved cohort members were newly mapped in this batch. See `BATCH_LIMBUS_SINNER_OWNER_MANUAL_SCOPE_REUSE_2026-09-30.csv`.
+
+The official Hololive talent directory was reviewed as one 81-name source batch. Exact catalog matching produced no safely unique unresolved cohort identity; 63 names required review due to catalog search surfaces or multiple variants, 16 had no safe catalog match, and two mapped outside the frozen cohort. The sole unresolved cohort alias collision, `yorick_(shiori_novella)`, is now `IDENTITY_BLOCKED`: the directory proves Shiori Novella is a talent but does not prove the catalog's Yorick identity is that same Character. No HOME was assigned. Proposal, roster, candidate and terminal batch records are preserved in the `SOURCE_*_HOLOLIVE_DIRECTORY_2026-09-30` and `BATCH_HOLOLIVE_DIRECTORY_IDENTITY_BLOCK_2026-09-30.csv` files. The #180 confirmed base roster did not provide a validated variant path for any additional unresolved Hololive cohort row, so no inheritance was applied.
+
+The terminal-state path was also exercised for Kasane Teto and Yuzuki Yukari after reviewing their official cross-product voice lineups. Both are `POLICY_BLOCKED` under the current single-HOME rule; no HOME or source-member mapping was added for them. The unresolved cohort is now 13,716, and no state was assigned from candidate-root, popularity, co-occurrence or absence from a partial source.
+
 ## Validation
 
 - Full cohort freeze/reconstruction from exact #180 master: PASS (13,983 rows).
@@ -59,11 +66,16 @@ Super Sonico was researched through the official biography and terminalized as `
 - GochiUsa Cocoa profile batch deterministic check: PASS (one exact member; one official source; independent mapping reference recorded).
 - Top100 official-profile batch deterministic check: PASS (three exact members; three official sources).
 - Super Sonico terminal research batch deterministic check: PASS (one policy-blocked result; no HOME root assigned).
-- Authority coverage validator: structurally valid; reports `complete: false`, `UNRESEARCHED=13,918`.
-- Issue #216 tests: 14 PASS, including no-HOME-root research source handling.
+- Existing-source Idolmaster reuse batches deterministic check: PASS (195 exact members).
+- Limbus 12-name roster scope extension batch deterministic check: PASS (five new exact members; prior seven-member scope preserved; evidence-only correction preserved the same HOME and source identity).
+- Hololive directory identity-terminal batch deterministic check: PASS (one `IDENTITY_BLOCKED`, no HOME).
+- Source-yield queue deterministic reconstruction: PASS (2,668 roots; Top500 open 366; Top2000 open 1,822).
+- Authority coverage validator: structurally valid; reports `complete: false`, `UNRESEARCHED=13,715`.
+- Issue #216 focused tests: 16 PASS.
+- Full frozen Top500 cohort rebuild could not be checked from this worktree because its script hardcodes the absent local master path; the full 13,983 unresolved cohort was independently reconstructed using the explicit read-only master path and passed.
 - `git diff --check`: PASS.
 - CI: not run; the GochiUsa Cocoa, Top100 profile, and policy-terminal batches are pending commit/push.
 
 ## Next work
 
-Continue Stage A over every remaining member in ranks 1–500, reusing reviewed official sources only for exact mappings. Then continue by post-count priority through rank 2,000 and by Copyright-root batches across the remaining frozen cohort. Keep partial/ambiguous members open until they receive a safe terminal reason. No main merge, production apply, Picker implementation, or mutation of the #180 master is authorized by this research checkpoint.
+Continue by source-yield order: resolve the remaining exact members available from registered source scopes, then discover/review high-density official directories and rosters as Copyright-root batches. Treat Top500 and Top2000 completion as cross-checks of those batches rather than sequential Character work. Send ambiguous, policy-ineligible or insufficient-evidence results to an explicit valid terminal state only after authority review; otherwise leave them `UNRESEARCHED`. Continue through all 13,983 cohort rows to zero UNRESEARCHED. No main merge, production apply, Picker implementation, or mutation of the #180 master is authorized by this research checkpoint.
