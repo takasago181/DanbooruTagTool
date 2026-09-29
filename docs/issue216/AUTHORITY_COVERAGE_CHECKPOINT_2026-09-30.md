@@ -5,8 +5,9 @@
 - Rebuilt the 2,668-root queue from frozen #180 inputs. Corrected `expected_safe_yield`: it now counts only open `AUTO_MAPPING_CANDIDATE` rows from a retained candidate inventory whose accepted source ID, URL, and exact scope still match. A roster elsewhere at the same root no longer implies coverage of every open Character. The queue separately marks ambiguous matches, unreviewed registered scopes, and reviewed sources with no open exact matches.
 - Reused the official Million Live anime site's distinct `MILLIONSTARS` directory once as a 39-name batch, excluding adjacent 765PRO and staff sections. Exact roster matching yielded `julia_(idolmaster)`; its exact `ジュリア` name under the explicit MILLIONSTARS heading was manually disambiguated from the separate Cowboy Bebop `julia` identity. Added one source-scoped mapping to `idolmaster_million_live!`.
 - Reused the official Fate/kaleid liner Prisma Illya Drei character directory as a 26-surface batch (13 Japanese and 13 English official name surfaces). Three exact unique cohort mappings were accepted: `erica_ainsworth`, `luviagelita_edelfelt`, and `bazett_fraga_mcremitz`, all normalized to the existing #216 Prisma Illya root policy. The directory's `Angelica` entry gives no surname; because the exact name collided with other catalog identities and the official context did not uniquely prove the frozen identity, `angelica_ainsworth` was terminalized `IDENTITY_BLOCKED` with HOME empty.
-- Current cohort: 13,983 accounted; HOME_CONFIRMED 268; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 3; IDENTITY_BLOCKED 2; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,710. Terminalized 273 (1.95%); Top500 UNRESEARCHED 366; Top2000 UNRESEARCHED 1,819.
-- Current sources: 35 registry rows; 271 exact member mappings (273 member rows including two ambiguous identity-review mappings); 246 reused member rows / 273 total member rows = 90.11% source reuse; 271 exact mappings / 35 reviewed source records = 7.74 mappings per source. This continuation reviewed one new roster page and terminalized four Characters (3 HOME, 1 identity block): 4 terminalized Characters / 1 new page review.
+- Reviewed the [official Mobile Suit Gundam SEED character directory](https://gundam-official.com/seed/seed/character/) as a 38-name batch scoped only to the original SEED television series. Exact catalog matching yielded 11 unique unresolved cohort members mapped to `gundam_seed`; 26 names had no safe cohort match, and `アイシャ` collided with three Character identities, so it was not accepted. The source scope excludes SEED DESTINY, Stargazer, and other Gundam works.
+- Current cohort: 13,983 accounted; HOME_CONFIRMED 279; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 3; IDENTITY_BLOCKED 2; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,699. Terminalized 284 (2.03%); Top500 UNRESEARCHED 364; Top2000 UNRESEARCHED 1,815.
+- Current sources: 36 registry rows; 282 exact member mappings; 257 reused member rows / 284 total member rows = 90.49% source reuse; 282 exact mappings / 36 reviewed source records = 7.83 mappings per source. This continuation reviewed two new roster pages and terminalized 15 Characters (14 HOME, 1 identity block): 7.5 terminalized Characters / new source review.
 - Missing Copyright roots 0; existing #180 confirmed HOME changed 0; conflicting decisions 0. The queue shows no unreviewed registered source with measured exact yield. The broad `idolmaster` candidate root remains 119 open (Top500 7, Top2000 23); `limbus_company` remains 51 open (Top500 0, Top2000 3). Root hints, popularity, and post counts remain priority metadata only.
 - Validation: Issue #216 focused suite PASS (16 tests); full cohort reconstruction PASS (13,983); exact source-batch and terminal-batch checks PASS; deterministic source-yield queue PASS; Copyright catalog reproducibility PASS (8,536 roots). No #180 baseline master, production data, or production runtime was changed.
 
@@ -16,11 +17,11 @@
 - Frozen master SHA-256: `135463a5225b6501db923322284f8e309f217eb5359538088eb6de6d78b77071`.
 - Baseline population: 35,890; HOME_CONFIRMED 21,907; HOME_UNRESOLVED 13,983.
 - Frozen unresolved cohort: 13,983 / 13,983 accounted; cohort ID-list SHA-256 `2db82cd3640196a29015124f28ca75f849c5469ba8dede8f2bb0396c6ecf8f31`.
-- Current states: HOME_CONFIRMED 268; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 3; IDENTITY_BLOCKED 2; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,710. Accounted/terminalized: 273 / 13,983 (1.95%).
-- Frozen Top500: 366 UNRESEARCHED; frozen Top2000: 1,819 UNRESEARCHED. Top500 calibration remains incomplete.
+- Current states: HOME_CONFIRMED 279; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 3; IDENTITY_BLOCKED 2; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,699. Accounted/terminalized: 284 / 13,983 (2.03%).
+- Frozen Top500: 364 UNRESEARCHED; frozen Top2000: 1,815 UNRESEARCHED. Top500 calibration remains incomplete.
 - Additive HOME_CONFIRMED total: 22,171 / 35,890 (61.77%). The original #180 master remains byte-identical; baseline-confirmed rows are outside this cohort and unchanged.
 - HOME cardinality: at most one field/value per decision; missing references to the complete Issue #70 Copyright catalog: 0.
-- Copyright source registry: 35 records; exact member mappings: 271; source reuse ratio: 246/273 = 90.11%; exact mappings per source record: 7.74. This continuation added three Prisma Illya HOME decisions and one identity terminal from one reviewed roster page. Source efficiency for this batch: 4 terminalized Characters / 1 new source review.
+- Copyright source registry: 36 records; exact member mappings: 282; source reuse ratio: 257/284 = 90.49%; exact mappings per source record: 7.83. This continuation added 14 HOME decisions and one identity terminal across the Prisma Illya and Gundam SEED batches. Source efficiency: 15 terminalized Characters / 2 new source reviews.
 - Full-cohort root-priority queue: 2,668 candidate roots, reconstructed from the frozen cohort and read-only Issue #180 master/graph. Current Top500/Top2000 open counts are based on frozen ranks. Expected safe yield is a priority estimate only; candidate roots, queue rank and post counts remain non-evidence.
 
 ## Revalidated members
@@ -79,8 +80,8 @@ The terminal-state path was also exercised for Kasane Teto and Yuzuki Yukari aft
 - Existing-source Idolmaster reuse batches deterministic check: PASS (195 exact members).
 - Limbus 12-name roster scope extension batch deterministic check: PASS (five new exact members; prior seven-member scope preserved; evidence-only correction preserved the same HOME and source identity).
 - Hololive directory identity-terminal batch deterministic check: PASS (one `IDENTITY_BLOCKED`, no HOME).
-- Source-yield queue deterministic reconstruction: PASS (2,668 roots; Top500 open 366; Top2000 open 1,819; 13,710 open cohort rows).
-- Authority coverage validator: structurally valid; reports `complete: false`, `UNRESEARCHED=13,710`.
+- Source-yield queue deterministic reconstruction: PASS (2,668 roots; Top500 open 364; Top2000 open 1,815; 13,699 open cohort rows).
+- Authority coverage validator: structurally valid; reports `complete: false`, `UNRESEARCHED=13,699`.
 - Issue #216 focused tests: 16 PASS.
 - Full frozen Top500 cohort rebuild could not be checked from this worktree because its script hardcodes the absent local master path; the full 13,983 unresolved cohort was independently reconstructed using the explicit read-only master path and passed.
 - `git diff --check`: PASS.
