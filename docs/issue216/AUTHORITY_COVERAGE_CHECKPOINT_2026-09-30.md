@@ -6,11 +6,11 @@
 - Frozen master SHA-256: `135463a5225b6501db923322284f8e309f217eb5359538088eb6de6d78b77071`.
 - Baseline population: 35,890; HOME_CONFIRMED 21,907; HOME_UNRESOLVED 13,983.
 - Frozen unresolved cohort: 13,983 / 13,983 accounted; cohort ID-list SHA-256 `2db82cd3640196a29015124f28ca75f849c5469ba8dede8f2bb0396c6ecf8f31`.
-- Current states: HOME_CONFIRMED 57; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 0; IDENTITY_BLOCKED 0; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,926.
-- Stage A Top500: 57 HOME_CONFIRMED, 443 UNRESEARCHED. Calibration Gate is **not passed**.
-- Additive HOME_CONFIRMED total: 21,964 / 35,890 (61.20%). The original #180 master remains byte-identical; baseline-confirmed rows are outside this cohort and unchanged.
+- Current states: HOME_CONFIRMED 60; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 0; IDENTITY_BLOCKED 0; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,923.
+- Stage A Top500: 60 HOME_CONFIRMED, 440 UNRESEARCHED. Calibration Gate is **not passed**.
+- Additive HOME_CONFIRMED total: 21,967 / 35,890 (61.21%). The original #180 master remains byte-identical; baseline-confirmed rows are outside this cohort and unchanged.
 - HOME cardinality: at most one field/value per decision; missing references to the complete Issue #70 Copyright catalog: 0.
-- Copyright source registry: 21 official sources; exact member mappings: 57; source reuse ratio: 43/57 (75.44%), with exact rosters reused across five 765PRO ALLSTARS members, seven Limbus Company members, 15 Cinderella Girls idols, two Shiny Colors members, eight Hasunosora members, and four Aqours members.
+- Copyright source registry: 24 official sources; exact member mappings: 60; source reuse ratio: 43/60 (71.67%), with exact rosters reused across five 765PRO ALLSTARS members, seven Limbus Company members, 15 Cinderella Girls idols, two Shiny Colors members, eight Hasunosora members, and four Aqours members.
 
 ## Revalidated members
 
@@ -37,6 +37,8 @@ Kafuu Chino's full Japanese name was confirmed on the official Is the Order a Ra
 
 Five 765PRO ALLSTARS members (Iori Minase, Hibiki Ganaha, Yayoi Takatsuki, Yukiho Hagiwara, and Azusa Miura) are listed by exact Japanese name under the official Million Live anime site's `765PRO ALLSTARS` directory section. The existing Issue #180 official-idol-directory normalization supports the single `idolmaster` root; the batch does not use the event/live source or candidate-root hints as HOME evidence. See `BATCH_765PRO_ROSTER_2026-09-30.csv`.
 
+Three additional Top100 members were mapped from first-party sources: Mai Shiranui from SNK's Fatal Fury title archive to the established `fatal_fury` root; Reisalin Stout from Koei Tecmo's Atelier Ryza character directory to `atelier_(series)` under existing #180 series-root decisions; and Kana Arima from the Oshi no Ko official character profile to `oshi_no_ko`. Exact Japanese names, source scopes, claims, and normalizations are recorded in `BATCH_TOP100_CHARACTER_PROFILES_2026-09-30.csv`.
+
 ## Validation
 
 - Full cohort freeze/reconstruction from exact #180 master: PASS (13,983 rows).
@@ -47,10 +49,11 @@ Five 765PRO ALLSTARS members (Iori Minase, Hibiki Ganaha, Yayoi Takatsuki, Yukih
 - Fate character-profile batch deterministic check: PASS (3 exact members; two additional sources).
 - GochiUsa profile batch deterministic check: PASS (one exact member; one additional source).
 - 765PRO ALLSTARS roster batch deterministic check: PASS (five exact members; one official source).
-- Authority coverage validator: structurally valid; reports `complete: false`, `UNRESEARCHED=13,926`.
+- Top100 character-profile batch deterministic check: PASS (three exact members; three official sources).
+- Authority coverage validator: structurally valid; reports `complete: false`, `UNRESEARCHED=13,923`.
 - Issue #216 tests: 13 PASS.
 - `git diff --check`: PASS.
-- CI: not run; the 765PRO batch and checkpoint update are pending commit/push.
+- CI: not run; the 765PRO and Top100 profile batches are on the pushed continuation branch; the latest profile batch checkpoint is pending commit/push.
 
 ## Next work
 
