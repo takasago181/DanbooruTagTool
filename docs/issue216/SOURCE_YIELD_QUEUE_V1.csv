@@ -1,5 +1,5 @@
 candidate_root,hint_kind,unresolved_count,top500_count,top2000_count,total_post_count_sum,max_post_count,known_official_source_count,reusable_accepted_source_count,reviewed_source_count,likely_roster_availability,existing_exact_mappings,remaining_unmapped_count,open_exact_candidate_count,review_required_count,expected_safe_yield,source_yield_class,priority_rank
-vocaloid,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,128,10,29,39869,2615,2,2,2,REGISTERED_ROSTER_REVIEWED_NO_OPEN_EXACT_MATCH,4,128,0,0,0,DISCOVER_ADDITIONAL_OFFICIAL_SOURCE,1
+vocaloid,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,125,9,29,39869,2615,3,3,3,REGISTERED_ROSTER_REVIEWED_NO_OPEN_EXACT_MATCH,6,125,0,0,0,DISCOVER_ADDITIONAL_OFFICIAL_SOURCE,1
 fate_(series),Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,94,13,37,71648,18082,7,5,6,REGISTERED_ROSTER_REVIEWED_NO_OPEN_EXACT_MATCH,27,94,0,0,0,DISCOVER_ADDITIONAL_OFFICIAL_SOURCE,2
 persona,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,77,1,11,15504,2642,3,1,1,REGISTERED_ROSTER_REVIEWED_NO_OPEN_EXACT_MATCH,4,77,0,0,0,DISCOVER_ADDITIONAL_OFFICIAL_SOURCE,3
 idolmaster,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,67,4,15,29232,11175,1,1,1,REGISTERED_ROSTER_REVIEWED_NO_OPEN_EXACT_MATCH,8,67,0,0,0,DISCOVER_ADDITIONAL_OFFICIAL_SOURCE,4
@@ -9,7 +9,7 @@ hirogaru_sky!_precure,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal 
 fate/kaleid_liner_prisma_illya,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,2,0,0,263,205,1,1,1,REGISTERED_ROSTER_REVIEWED_NO_OPEN_EXACT_MATCH,5,2,0,0,0,DISCOVER_ADDITIONAL_OFFICIAL_SOURCE,8
 original,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,1646,2,78,187512,2169,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,1646,0,0,0,DISCOVER_OFFICIAL_SOURCE,9
 indie_virtual_youtuber,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,327,8,38,55924,3144,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,327,0,0,0,DISCOVER_OFFICIAL_SOURCE,10
-gundam,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,259,3,35,44102,2046,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,268,0,0,0,DISCOVER_OFFICIAL_SOURCE,11
+gundam,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,255,3,35,44102,2046,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,264,0,0,0,DISCOVER_OFFICIAL_SOURCE,11
 yu-gi-oh!,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,206,1,27,37291,1969,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,206,0,0,0,DISCOVER_OFFICIAL_SOURCE,12
 final_fantasy,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,201,6,43,46041,2252,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,201,0,0,0,DISCOVER_OFFICIAL_SOURCE,13
 project_moon,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,150,6,28,34921,1950,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,150,0,0,0,DISCOVER_OFFICIAL_SOURCE,14
@@ -17,7 +17,7 @@ hololive,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; pr
 nijisanji,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,129,4,19,28259,2024,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,129,0,0,0,DISCOVER_OFFICIAL_SOURCE,16
 precure,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,108,6,36,36883,2556,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,113,0,0,0,DISCOVER_OFFICIAL_SOURCE,17
 tales_of_(series),Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,108,1,26,23988,1135,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,108,0,0,0,DISCOVER_OFFICIAL_SOURCE,18
-love_live!,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,106,8,17,29588,2776,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,106,0,0,0,DISCOVER_OFFICIAL_SOURCE,19
+love_live!,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,95,2,17,29588,2776,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,106,0,0,0,DISCOVER_OFFICIAL_SOURCE,19
 honkai_(series),Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,101,7,25,34243,3392,1,0,0,SOURCE_DISCOVERY_REQUIRED,1,101,0,0,0,DISCOVER_OFFICIAL_SOURCE,20
 dragon_ball,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,98,6,19,22613,1705,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,98,0,0,0,DISCOVER_OFFICIAL_SOURCE,21
 kamen_rider,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,92,0,1,8817,391,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,92,0,0,0,DISCOVER_OFFICIAL_SOURCE,22
