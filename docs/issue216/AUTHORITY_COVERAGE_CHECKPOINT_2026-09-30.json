@@ -1,0 +1,21 @@
+{
+  "accounted": 13983,
+  "baseline_cohort_size": 13983,
+  "cohort_sha256": "0fe66682056dddd489449465f98dbfa5e8cb1a05fa5dd0143136dc3c098e2e56",
+  "complete": false,
+  "exact_member_mapping_count": 19,
+  "missing_copyright_roots": 0,
+  "research_state_counts": {
+    "EVIDENCE_CONFLICT": 0,
+    "HOME_CONFIRMED": 19,
+    "IDENTITY_BLOCKED": 0,
+    "POLICY_BLOCKED": 0,
+    "SOURCE_RESEARCHED_NO_SAFE_EVIDENCE": 0,
+    "UNRESEARCHED": 13964
+  },
+  "schema_version": "issue216-authority-coverage-v1",
+  "source_registry_count": 13,
+  "source_reuse_ratio": 0.368421,
+  "source_reused_member_count": 7,
+  "unresearched": 13964
+}

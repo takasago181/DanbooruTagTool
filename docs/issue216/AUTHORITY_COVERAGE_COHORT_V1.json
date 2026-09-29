@@ -1,0 +1,11 @@
+{
+  "schema_version": "issue216-authority-coverage-cohort-v1",
+  "baseline_issue": 180,
+  "baseline_commit": "9c0db59c0f1dc56402c955e718a37d9de1849d7e",
+  "baseline_master_sha256": "135463a5225b6501db923322284f8e309f217eb5359538088eb6de6d78b77071",
+  "baseline_character_population": 35890,
+  "baseline_home_unresolved": 13983,
+  "cohort_sha256": "2db82cd3640196a29015124f28ca75f849c5469ba8dede8f2bb0396c6ecf8f31",
+  "cohort_order": "canonical Character ascending; deterministic identity order only",
+  "scope": "Only Characters HOME_UNRESOLVED in the frozen Issue #180 master; original master is immutable."
+}
