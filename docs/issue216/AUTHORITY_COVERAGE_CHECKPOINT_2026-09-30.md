@@ -1,3 +1,10 @@
+## 2026-09-30 Fate/Requiem collaboration source batch
+
+- Reused the official [Fate/Requiem × Fate/Grand Order collaboration announcement](https://news.fate-go.jp/2020/requiem/) as a work-scoped source review. Its exact, unqualified event-limited character name 宇津見エリセ maps uniquely to unresolved `utsumi_erice`; the official collaboration title plus the existing #180 `fate/requiem` normalization supports `fate_(series)`. No variant inheritance or candidate hint was used. The separate FGO-wide timeline remains appearance-only for crossover entries, so its other unresolved candidates were not promoted.
+- This source batch terminalized 1 Character / 1 newly reviewed source URL (1.00 per source review). Frozen cohort: 13,983; terminalized 380 (2.72%); HOME_CONFIRMED 375; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 3; IDENTITY_BLOCKED 2; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,603. Top500 UNRESEARCHED 350; Top2000 UNRESEARCHED 1,782.
+- Registry: 50 records; 378 exact member mappings; 350 reused member rows / 380 terminalized rows = 92.11%; missing Copyright roots 0; existing #180 confirmed HOME changed 0; conflicts 0. `fate_(series)` queue row now has 97 open (Top500 13; Top2000 38); highest-priority `fate/grand_order` remains 71 open (Top500 2; Top2000 8). No high-yield root is complete.
+- The new batch was first checked for exact scope and cohort integrity; Issue #216 focused tests PASS (16), `git diff --check` PASS, and coverage/root/cardinality validation PASS. The cumulative queue counts were adjusted for this exact terminal row; full deterministic queue reconstruction against the frozen external #180 master/graph is still pending. The immutable source roster, generated mapping-candidate inventory, and reviewed batch are retained as `SOURCE_ROSTER_FGO_REQUIEM_COLLAB_EVENT_2026-09-30.csv`, `SOURCE_MAPPING_CANDIDATES_FGO_REQUIEM_COLLAB_EVENT_2026-09-30.csv`, and `BATCH_FGO_REQUIEM_UTSUMI_ERICE_2026-09-30.csv`.
+
 # Issue #216 — full-cohort authority coverage checkpoint
 
 
