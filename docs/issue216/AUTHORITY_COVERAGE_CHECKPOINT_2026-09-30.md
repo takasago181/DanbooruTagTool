@@ -1,5 +1,15 @@
 # Issue #216 — full-cohort authority coverage checkpoint
 
+## 2026-09-30 KiraKira root batch
+
+- Reconstructed the Copyright-root queue from the complete frozen cohort. `kirakira_precure_a_la_mode` had 13 unresolved Characters and is now complete (13/13); all decisions came from two first-party, work-specific Toei cast sources. No broad `precure` hint or popularity field was treated as HOME evidence.
+- The Toei character/cast directory listed 31 named surfaces; exact normalized matching and scope review yielded nine unique unresolved identities. The separate official series cast page paired Cure forms with names and yielded the remaining four exact identities (`cure_chocolat`, `cure_custard`, `cure_gelato`, `cure_parfait`). Seven already terminal cohort surfaces were not re-applied and two out-of-cohort labels were excluded.
+- Current cohort: 13,983 accounted; HOME_CONFIRMED 293; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 0; POLICY_BLOCKED 3; IDENTITY_BLOCKED 2; EVIDENCE_CONFLICT 0; UNRESEARCHED 13,685. Terminalized 298 / 13,983 (2.13%); Top500 UNRESEARCHED 364; Top2000 UNRESEARCHED 1,806.
+- Current source metrics: 39 source records; 296 exact member mappings; 270 reused member rows / 298 terminalized rows = 90.60% source reuse. This root batch terminalized 13 Characters from two new reviewed sources: 6.50 terminalized Characters / new source review, with 6.50 newly mapped Characters per source.
+- Missing Copyright roots 0; existing #180 confirmed HOME changed 0; conflicts 0. Candidate generation, source scope and root completion were checked against the immutable cohort and Issue #180 root graph.
+- Validation: both source batches passed deterministic batch validation; source-yield queue rebuild/check PASS (2,668 roots; Top500 364; Top2000 1,806; UNRESEARCHED 13,685); Issue #216 focused suite PASS (16 tests); `git diff --check` PASS. Full #180 regression and CI remain final-gate work.
+- Sources: [Toei KiraKira character/cast directory](https://lineup.toei-anim.co.jp/ja/tv/precure_alamode/character/) and [official KiraKira series cast page](https://www.toei-anim.co.jp/tv/precure_alamode/info/). Batch records: `BATCH_KIRAKIRA_PRECURE_DIRECTORY_2026-09-30.csv` and `BATCH_KIRAKIRA_PRECURE_CAST_2026-09-30.csv`.
+
 ## 2026-09-30 source-driven continuation
 
 - Rebuilt the 2,668-root queue from frozen #180 inputs. Corrected `expected_safe_yield`: it now counts only open `AUTO_MAPPING_CANDIDATE` rows from a retained candidate inventory whose accepted source ID, URL, and exact scope still match. A roster elsewhere at the same root no longer implies coverage of every open Character. The queue separately marks ambiguous matches, unreviewed registered scopes, and reviewed sources with no open exact matches.
