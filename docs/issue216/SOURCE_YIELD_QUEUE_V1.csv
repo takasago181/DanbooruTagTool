@@ -15,7 +15,7 @@ project_moon,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier
 hololive,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,140,14,54,56251,4046,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,140,0,0,0,DISCOVER_OFFICIAL_SOURCE,14
 vocaloid,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,135,12,33,49873,5720,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,135,0,0,0,DISCOVER_OFFICIAL_SOURCE,15
 nijisanji,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,129,4,19,28259,2024,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,129,0,0,0,DISCOVER_OFFICIAL_SOURCE,16
-precure,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,127,13,50,48632,2556,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,127,0,0,0,DISCOVER_OFFICIAL_SOURCE,17
+precure,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,126,13,49,47880,2556,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,126,0,0,0,DISCOVER_OFFICIAL_SOURCE,17
 tales_of_(series),Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,110,1,26,24151,1135,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,110,0,0,0,DISCOVER_OFFICIAL_SOURCE,18
 love_live!,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,106,8,17,29588,2776,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,106,0,0,0,DISCOVER_OFFICIAL_SOURCE,19
 honkai_(series),Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,103,8,27,40202,5401,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,103,0,0,0,DISCOVER_OFFICIAL_SOURCE,20
@@ -174,7 +174,7 @@ free!,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; prior
 suzumiya_haruhi_no_yuuutsu,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,10,1,2,3616,2168,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,10,0,0,0,DISCOVER_OFFICIAL_SOURCE,173
 kourin_tenshi_en_ciel_rena,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,10,0,2,2518,829,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,10,0,0,0,DISCOVER_OFFICIAL_SOURCE,174
 kouyoku_senki_exs-tia_concert,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,10,0,2,2241,405,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,10,0,0,0,DISCOVER_OFFICIAL_SOURCE,175
-kimi_to_idol_precure,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,10,0,2,1903,389,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,10,0,0,0,DISCOVER_OFFICIAL_SOURCE,176
+kimi_to_idol_precure,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,10,0,2,1903,389,1,0,1,SOURCE_DISCOVERY_REQUIRED,1,10,0,0,0,DISCOVER_OFFICIAL_SOURCE,176
 shirobako,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,10,0,2,1729,536,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,10,0,0,0,DISCOVER_OFFICIAL_SOURCE,177
 fairy_tail,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,10,0,2,1696,360,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,10,0,0,0,DISCOVER_OFFICIAL_SOURCE,178
 sword_art_online,Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only,10,0,1,1824,724,0,0,0,SOURCE_DISCOVERY_REQUIRED,0,10,0,0,0,DISCOVER_OFFICIAL_SOURCE,179

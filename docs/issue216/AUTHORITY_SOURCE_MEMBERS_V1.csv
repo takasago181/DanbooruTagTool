@@ -1,4 +1,5 @@
 source_id,canonical_character,matched_surface,mapping_method,mapping_evidence,reviewed_at,reviewer,mapping_status
+src-0adf516a79fcb49ee1a2,sakura_uta_(precure),咲良うた,REVIEWED_NAME_MAPPING,Official series page lists 咲良うた in the five named main cast entries. Exact normalized candidate generator result is unique in the Character catalog and in the frozen unresolved cohort.,2026-09-30,Codex independent first-party source review,EXACT_COVERED
 src-10884c42956e32eb1139,misumi_uika,三角 初華 / Uika Misumi,REVIEWED_NAME_MAPPING,三角 初華 / Uika Misumi -> reviewed canonical name mapping to misumi_uika,2026-09-30,Codex independent first-party source review,EXACT_COVERED
 src-17714e02f1749942ccef,ada_wong,Ada Wong,REVIEWED_NAME_MAPPING,Ada Wong -> reviewed canonical name mapping to ada_wong,2026-09-30,Codex independent first-party source review,EXACT_COVERED
 src-187463c79e7d4da85cbe,flat_escardos,フラット・エスカルドス,REVIEWED_NAME_MAPPING,Official page lists exact surface フラット・エスカルドス. Reviewed candidate basis: One unique exact normalized roster/catalog name match; requires source-scope review.,2026-09-30,Codex independent first-party source review,EXACT_COVERED
