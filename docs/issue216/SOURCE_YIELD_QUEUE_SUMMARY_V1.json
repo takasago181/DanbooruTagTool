@@ -1,0 +1,18 @@
+{
+  "accepted_roster_source_count": 31,
+  "baseline_unresolved": 13983,
+  "candidate_graph_sha256": "218cf30cb21695472e276cce327cd96a132665f3473c8925954059c3432c4bea",
+  "currently_unresearched": 13528,
+  "note": "expected_safe_yield counts only AUTO_MAPPING_CANDIDATE rows from reviewed inventories matching an accepted source ID, URL, and exact scope; it is a priority estimate, never HOME evidence or a guaranteed decision count.",
+  "post_count_joined_frozen_baseline": 13881,
+  "post_count_joined_open": 13426,
+  "post_count_missing_open": 102,
+  "post_count_sha256": "893fbf07c7d0250e1c30d43b9e01aca69d56e2e6f3d742dcc233e889dfec5aec",
+  "protected_master_sha256": "135463a5225b6501db923322284f8e309f217eb5359538088eb6de6d78b77071",
+  "queue_order": "reviewed source exact-candidate yield, registered source review need, then unresolved/Top2000/post-count priority; candidate edges and frequency are priority-only",
+  "root_count": 2665,
+  "schema_version": "issue216-source-yield-queue-v1",
+  "source_registry_count": 73,
+  "top2000_open": 1738,
+  "top500_open": 330
+}

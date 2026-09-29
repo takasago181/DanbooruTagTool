@@ -20,7 +20,12 @@ INPUT_FIELDS = [
     "mapping_evidence", "mapping_status", "reason_code", "reason_detail",
 ]
 TERMINAL_STATES = {"SOURCE_RESEARCHED_NO_SAFE_EVIDENCE", "POLICY_BLOCKED", "IDENTITY_BLOCKED"}
-NON_ACCEPTED_STATUSES = {"PARTIAL", "SOURCE_UNAVAILABLE", "SOURCE_INSUFFICIENT", "REJECTED"}
+NON_ACCEPTED_STATUSES = {
+    "PARTIAL", "SOURCE_UNAVAILABLE", "SOURCE_INSUFFICIENT", "REJECTED",
+    # Input-only marker: reuse an already accepted exact source for a researched
+    # non-HOME conclusion without downgrading or duplicating its registry row.
+    "REUSE_ACCEPTED_FOR_NON_HOME",
+}
 REVIEWED_AT = "2026-09-30"
 REVIEWER = "Codex independent authority-source review"
 
@@ -70,26 +75,40 @@ def build(batch_path: Path):
         if any(len({row[field] for row in source_rows}) != 1 for field in invariant_fields):
             raise ValueError(f"one source has inconsistent type/status: {url}")
         source_id = deterministic_source_id(url, owner, scope)
-        claim = "Non-accepted research source reviewed for exact members: " + "; ".join(
-            f"{row['canonical_character']} ({row['matched_surface']}): {row['source_claim']}"
-            for row in sorted(source_rows, key=lambda item: item["canonical_character"])
-        )
-        source = {
-            "source_id": source_id, "copyright_canonical": "", "source_url": url,
-            "source_type": source_rows[0]["source_type"], "authority_owner": owner,
-            "source_status": source_rows[0]["source_status"], "source_scope": scope,
-            "exact_roster_available": "false", "reviewed_at": REVIEWED_AT,
-            "source_claim": claim,
-            "provenance": f"Independent source research recorded by {batch_path.name} on {REVIEWED_AT}.",
-            "reusable": "true" if len(source_rows) > 1 else "false",
-            "notes": "Research evidence only; no HOME root is assigned or implied.",
-        }
+        reuse_accepted = source_rows[0]["source_status"] == "REUSE_ACCEPTED_FOR_NON_HOME"
         prior_source = merged_sources.get(source_id)
-        if prior_source and prior_source != source:
-            raise ValueError(f"source ID collision with different registry metadata: {source_id}")
-        if not prior_source:
-            new_source_count += 1
-        merged_sources[source_id] = source
+        if reuse_accepted:
+            if not prior_source or any(prior_source[field] != expected for field, expected in {
+                "source_url": url,
+                "authority_owner": owner,
+                "source_scope": scope,
+                "source_type": source_rows[0]["source_type"],
+                "source_status": "ACCEPTED",
+                "exact_roster_available": "true",
+            }.items()):
+                raise ValueError(f"non-HOME reuse requires the same previously accepted exact source: {url}")
+            source = prior_source
+        else:
+            claim = "Non-accepted research source reviewed for exact members: " + "; ".join(
+                f"{row['canonical_character']} ({row['matched_surface']}): {row['source_claim']}"
+                for row in sorted(source_rows, key=lambda item: item["canonical_character"])
+            )
+            source = {
+                "source_id": source_id, "copyright_canonical": "", "source_url": url,
+                "source_type": source_rows[0]["source_type"], "authority_owner": owner,
+                "source_status": source_rows[0]["source_status"], "source_scope": scope,
+                "exact_roster_available": "false", "reviewed_at": REVIEWED_AT,
+                "source_claim": claim,
+                "provenance": f"Independent source research recorded by {batch_path.name} on {REVIEWED_AT}.",
+                "reusable": "true" if len(source_rows) > 1 else "false",
+                "notes": "Research evidence only; no HOME root is assigned or implied.",
+            }
+            prior_source = merged_sources.get(source_id)
+            if prior_source and prior_source != source:
+                raise ValueError(f"source ID collision with different registry metadata: {source_id}")
+            if not prior_source:
+                new_source_count += 1
+            merged_sources[source_id] = source
         for row in source_rows:
             tag = row["canonical_character"]
             member = {
