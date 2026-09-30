@@ -1,0 +1,386 @@
+{
+  "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2",
+  "main_sha": "4e85099737e0f01adbd2dea9640abded9af20638",
+  "files": [
+    {
+      "path": "docs/knowledge/CURRENT_PRODUCT_GOAL_20260909.md",
+      "sha256": "1b5eca5a58fbb5aaf903c73be6123cd868bad3ed5648a314c816c196f0c938bb",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/GENERATION_KNOWLEDGE_CORPUS.md",
+      "sha256": "20f14a156e06c5b8c2506123af10206ab140686bba1c29cdc0d3ba21781b9ac3",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/GENERATION_KNOWLEDGE_INDEX.md",
+      "sha256": "ee61b5690e5cf220114157bdea507120c82a1cbd6deda6ad3f07778db88345f6",
+      "classification": "重複入口・本文への転載不要"
+    },
+    {
+      "path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+      "sha256": "e32f4e3086c78edfb3bf4b028855564eaf1ef56d13977fd04672135ffc4eec9b",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/KNOWLEDGE_CATALOG.md",
+      "sha256": "5b28a8cc8d9fdaa748e1f308e691d9f99bad4bfc3add742e62723cb445f251e2",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/KNOWLEDGE_HANDOFF_CURRENT_20260909.md",
+      "sha256": "041307de83f1e921c944815c8d774c29f87a83b677b91fb8d0f10b0b4d5052ca",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/KNOWLEDGE_REASSESSMENT_20260909.md",
+      "sha256": "c8442f5a85f13bde291be36109079134d359e499afcb26a69c39da13a2f829bd",
+      "classification": "HISTORICAL・現行判定と照合"
+    },
+    {
+      "path": "docs/knowledge/PRODUCT_GOAL_EVOLUTION_20260909.md",
+      "sha256": "46922a1aaaef72bc6be7255febe554d6191414818081b3036b273e26b8d592ed",
+      "classification": "HISTORICAL・現行判定と照合"
+    },
+    {
+      "path": "docs/knowledge/catalog/00_FOUNDATIONS_AND_AUTHORITY.md",
+      "sha256": "1bea783dc2790de38ac9f6617bd5a1fb4a92aa6528ee150d721c9518a9319c3b",
+      "classification": "直接利用可能・解説"
+    },
+    {
+      "path": "docs/knowledge/catalog/01_MODEL_FAMILIES.md",
+      "sha256": "0456a1831d90eb01f7b9e5246ce43cad8613c53e2c4b96d7de92bd08fd8505f7",
+      "classification": "直接利用可能・解説"
+    },
+    {
+      "path": "docs/knowledge/catalog/02_PROMPT_SUPPORT_AND_COMPOSITION.md",
+      "sha256": "d2aa0f573927f9d355934dcf62274cbf72dd8f6ab0480528dc1e73e4fa672815",
+      "classification": "直接利用可能・解説"
+    },
+    {
+      "path": "docs/knowledge/catalog/03_FAILURE_TESTING_AND_EVALUATION.md",
+      "sha256": "662daef2065675f7434f1160bcf1c7ef35c45970bd09ed9759b3b2176286923d",
+      "classification": "直接利用可能・解説"
+    },
+    {
+      "path": "docs/knowledge/catalog/04_TOOLS_POSTPROCESS_AND_LORA.md",
+      "sha256": "41cc6503a743e634a5e076dea597e2333ebe0b9598b8d140a7549e9553be57fe",
+      "classification": "直接利用可能・解説"
+    },
+    {
+      "path": "docs/knowledge/catalog/05_HARD_NICHE_ADULT_GENERATION.md",
+      "sha256": "d35fcd958ccd9b1d29ec6356b566e294c99084f0872e2844de77b363ef2724af",
+      "classification": "直接利用可能・解説"
+    },
+    {
+      "path": "docs/knowledge/catalog/06_SEMANTICS_ALIAS_TRIGGER.md",
+      "sha256": "6387605c5a394609433938991fde5597e5e8dc8b8905e325a9a36e1e01a8c74d",
+      "classification": "直接利用可能・解説"
+    },
+    {
+      "path": "docs/knowledge/catalog/07_WAI17_LOCAL_TEST_PROFILE.md",
+      "sha256": "9b2a1b9cfcb3fbbca85db13b19f4c0cf8c7bbfdcc715b62e20076cdad195a8c0",
+      "classification": "HISTORICAL・現行判定と照合"
+    },
+    {
+      "path": "docs/knowledge/catalog/08_SOURCE_AND_SITE_AUDITS.md",
+      "sha256": "b2e76ad1ef01b9ba85adc3797f4f7be8a8011414e6bc6c3285272b804d5e9cf1",
+      "classification": "直接利用可能・解説"
+    },
+    {
+      "path": "docs/knowledge/catalog/09_OPEN_QUESTIONS_AND_HOLD.md",
+      "sha256": "7f3baed21142ec00828d29041127aa352c21041cab4a1772cb1132fdbb40e9e2",
+      "classification": "HOLD・削除せず参照"
+    },
+    {
+      "path": "docs/knowledge/catalog/10_FILE_MAP.md",
+      "sha256": "0be646dd73342a752bc348bab4a6e69d455ed967f620776ceeb4405dd95e4719",
+      "classification": "重複入口・本文への転載不要"
+    },
+    {
+      "path": "docs/knowledge/catalog/README.md",
+      "sha256": "05a16ff9ac7ce2cee2b2cfafbb7c5ab3b4c19c11dc0150f1f51ab349b19d0cfd",
+      "classification": "直接利用可能・解説"
+    },
+    {
+      "path": "docs/knowledge/current/ASSET_INVENTORY.md",
+      "sha256": "ab1fb3eef06a461ece9e1cff2d274dbeccced530669b1bdd9b114fa6f0d53175",
+      "classification": "重複入口・本文への転載不要"
+    },
+    {
+      "path": "docs/knowledge/current/CLAIM_REGISTRY.csv",
+      "sha256": "57c48e2f1d21b2c05c78b87efb53a4deca601c999e77130958cf818b05178c4c",
+      "classification": "直接利用可能・判定正本"
+    },
+    {
+      "path": "docs/knowledge/current/CURRENT_QUICK_REFERENCE.md",
+      "sha256": "a75ac1d9e2b2ada4c1152f4b098303c66f3d0f0b6b2d983a50b51e627e6ed01d",
+      "classification": "直接利用可能・判定正本"
+    },
+    {
+      "path": "docs/knowledge/current/HOLD_CONFLICT_REGISTER.md",
+      "sha256": "fc1945ad3d3667beb8f6e3fa53ad32a5970b40c7573045f69071158fa4731301",
+      "classification": "HOLD・削除せず参照"
+    },
+    {
+      "path": "docs/knowledge/current/KNOWLEDGE_GOVERNANCE.md",
+      "sha256": "3314a22e58be5e4c47ed569aad10c2469038dd0b8a731cfa80e401dbea1b6888",
+      "classification": "直接利用可能・判定正本"
+    },
+    {
+      "path": "docs/knowledge/current/LABEL_MIGRATION_MAP.md",
+      "sha256": "d4b9a8e75e1bda823a6011d34a7208ebe1e0175b1916a4eba3dbf0cd0c761c5f",
+      "classification": "直接利用可能・判定正本"
+    },
+    {
+      "path": "docs/knowledge/current/LEGACY_MAP.md",
+      "sha256": "4bf11bd698643ffec8cb98db2eaa297f1de9692f517f9b95ef790f967d564710",
+      "classification": "HISTORICAL・現行判定と照合"
+    },
+    {
+      "path": "docs/knowledge/current/PRACTICAL_GENERATION_NOOB_ANIMA.md",
+      "sha256": "2775cc26d6d8ae9cdd49a54f7d42a756d5254e30d53d9209c8502d18507f7ed6",
+      "classification": "直接利用可能・判定正本"
+    },
+    {
+      "path": "docs/knowledge/current/PRACTICAL_GENERATION_READINESS_AUDIT_20260913.md",
+      "sha256": "ffbf6cd93c052bbbe539c5cbba91ebdee144aa41edae65a5657278fb8c106f58",
+      "classification": "直接利用可能・判定正本"
+    },
+    {
+      "path": "docs/knowledge/current/READING_ROUTES.md",
+      "sha256": "77b858354a7ca2b1ddebdbf6396c71d9e4ee96fdfc32a4b8b6b9d29eb58f2b9d",
+      "classification": "直接利用可能・判定正本"
+    },
+    {
+      "path": "docs/knowledge/current/README.md",
+      "sha256": "94ae41c116c9ba647bd884f416e475fb7ecfc6e51d714a7ffd5304f6638a7fd1",
+      "classification": "直接利用可能・判定正本"
+    },
+    {
+      "path": "docs/knowledge/current/RESEARCH_BACKLOG_20260913.md",
+      "sha256": "84a29e1f9f2dea51380a5ce1017a047afb01e260fe0342245bbcfac7e2af0e40",
+      "classification": "直接利用可能・判定正本"
+    },
+    {
+      "path": "docs/knowledge/current/SELF_AUDIT_20260909.md",
+      "sha256": "db3cc930134787d53101f33b75143cf2d254f6eaabe827eff239fceff1f954da",
+      "classification": "重複入口・本文への転載不要"
+    },
+    {
+      "path": "docs/knowledge/current/VERSION_FRESHNESS_LEDGER.csv",
+      "sha256": "acdefb7f85868b60531ea55ac6686782eba8a5e545ff57860f9ffd165ea78f36",
+      "classification": "直接利用可能・判定正本"
+    },
+    {
+      "path": "docs/knowledge/current/issue44_evaluator_coverage_20260910/ISSUE44_HANDOFF_TO_30.md",
+      "sha256": "af67ef28d7236ff2018e593331ef8a3351cca5c25a2fa434d81297b60e3ea05d",
+      "classification": "補助監査・詳細は原資料へ"
+    },
+    {
+      "path": "docs/knowledge/current/issue44_evaluator_coverage_20260910/README.md",
+      "sha256": "6ef65c431fb84917fdda27f14281e81bc7c6b9db9955b60992420288b7d53456",
+      "classification": "補助監査・詳細は原資料へ"
+    },
+    {
+      "path": "docs/knowledge/current/issue44_evaluator_coverage_20260910/representative_calibration_cases.csv",
+      "sha256": "2b536415e0609fe8cdc83918483e54d0a04de869fe9eb7638c8ffd0af26ff5fc",
+      "classification": "補助監査・詳細は原資料へ"
+    },
+    {
+      "path": "docs/knowledge/current/issue44_evaluator_coverage_20260910/special2788_evaluator_coverage.csv",
+      "sha256": "a939b83510ba56867a58b3b48ba0601a53a6301b2ccd61e234e07a9d0f3695b4",
+      "classification": "補助監査・詳細は原資料へ"
+    },
+    {
+      "path": "docs/knowledge/current/issue44_evaluator_coverage_20260910/summary.json",
+      "sha256": "7d739bbaa2e1fd3245e7e2120e3c5ca1b098941b988e2e3ca1c7b0b82d958ced",
+      "classification": "補助監査・詳細は原資料へ"
+    },
+    {
+      "path": "docs/knowledge/research/AIARTRECIPE_PRACTICAL_FINDINGS_20260909.md",
+      "sha256": "db198cfe7cc4f08f01c7c37931203141c6d9ed96792058c4f11417fd03e30bf1",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/AIARTRECIPE_SITE_AUDIT_20260909.md",
+      "sha256": "0b8131cabb67d7a242e777ee03da2239c9c7a832a84943c3ad12a7d51ff018fc",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/BATCH_A_FALSE_ASSUMPTION_PREVENTION_20260909.md",
+      "sha256": "1a80ebd90cac0177b49dd665332f759da1ac229ba87e91962032905754c57cfe",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/BATCH_A_SOURCES_20260909.md",
+      "sha256": "6831e019cffd8596d1bcd4ffcab06b07aad3d2439386b92009e37561b915548f",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/BATCH_B_MINIMUM_SUFFICIENT_PROMPT_20260909.md",
+      "sha256": "f05ae03600466a10fc41884ce3f0bf2ac14ec084b8e7272162e1cb07011a45b0",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/BATCH_B_SOURCES_20260909.md",
+      "sha256": "f978a9e9b314b72608ae511a2fb35588dca41b601e2d663a254facb9b34008a1",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/BATCH_C_EVIDENCE_RELIABILITY_20260909.md",
+      "sha256": "f7c05a71ebce6954780294e09f62a037e01afa0ae7cfb7de6edb741383fa90c0",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/BATCH_C_SOURCES_20260909.md",
+      "sha256": "0ecf29a5aede978b6f7b0c80719162ef8190ae0a11302fda46cf32ed419d1b01",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/BATCH_D_RUNTIME_PROMPT_REPRO_COMPOSITION_20260910.md",
+      "sha256": "23850c94d99a8d8cd0e0f369aa9c9bfd8336194e3e566dfbb4b2c78540eb4b93",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/BATCH_E_EXISTING_PROMPT_SURFACE_CLASSIFICATION_20260913.md",
+      "sha256": "f718e6fe26ff57a276fc38806297a42cf12c4924074f484be1ed21b314ac597f",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/BATCH_F_PROMPT_SEMANTIC_ROLE_DECOMPOSITION_20260913.md",
+      "sha256": "904204331d472f0b7f23ad373d842d7c9b38a810c874e829aba107796ed42044",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/BATCH_G_BEGINNER_SAFE_JAPANESE_EXPLANATION_20260913.md",
+      "sha256": "5c8d977ee720bf0b57bc1de117f44732c8e355117ea11a2c73cad4f2db8c1bd8",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/BATCH_H_DANBOORU_CATEGORY_RELATION_UNKNOWN_HANDLING_20260913.md",
+      "sha256": "d9c6383bf8b5667df3ea90d0f408d2d0a84bfcef101d95ba2fc98d245c65e01b",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/BATCH_I_MODEL_PROMPT_CONVENTIONS_QUALITY_ARTIST_ORDER_NEGATIVE_FRESHNESS_20260913.md",
+      "sha256": "c505aff73bd96dbfeeb44a0f8639c33293c817d5fe9d199a0ff3e889d35238f8",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/BATCH_J_EXISTING_PROMPT_CONFLICT_EXPLANATION_20260913.md",
+      "sha256": "b50a7b6ff3f2b0ea91330d50969ad884919183ed283461da3b22090dd430f7ca",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/BATCH_K_EVALUATOR_FRESHNESS_RECHECK_20260913.md",
+      "sha256": "0bf6c931394f279a36e8facb8d1a0b2084859e94e6b5ac75c3528dd4949ab84b",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/BATCH_L_NOOB_ANIMA_PRACTICAL_GENERATION_DEEP_DIVE_20260913.md",
+      "sha256": "0f6bec2b926190a8e36c14f54791353ecb3d262a378e669a813f4edf1d98740c",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/BATCH_M_JAPANESE_PRACTICAL_SOURCE_AUDIT_NOOB_ANIMA_20260913.md",
+      "sha256": "8c4ea253b1278c49dcc8e0b5dc15857278c3b8f4de6dee9c7da5ba867faf15c8",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/BATCH_N_SCENE_INTENT_DISCOVERY_WORKFLOW_20260917.md",
+      "sha256": "8c3999684be00b51bf33ec3ba6345720216c96484e0e71c2188366e695ff5c09",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/DANBOORU_WIKI_SEMANTIC_AUDIT_20260909.md",
+      "sha256": "e0c234e36e10aa22496f0b5f34e4fabddab6e0ff76add92423a0016e12f59772",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/E621_WIKI_SEMANTIC_TRIGGER_AUDIT_20260909.md",
+      "sha256": "cb8c0f31a8bd2657be35a76bcbad6119dab78bc840705a65e9699540a1e4a967",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/HARD_FETISH_ANAL_INSERTION_20260909.md",
+      "sha256": "a2dd624afdb330ab6c5eb2b1cb8215550a60281361a28d9a5c4583d85966849c",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/HARD_FETISH_BDSM_RESTRAINT_20260909.md",
+      "sha256": "5cc7081130dd7edceadcc652643f3b914c145f7ddcdb9230f1765c2f7f6f7d2a",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/HARD_FETISH_COMPOSITE_FAILURE_MATRIX_20260909.md",
+      "sha256": "eec7e9ef40c8ebe6862b3169e8bc10923d8599aaba6659894980c57d53a22ba1",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/HARD_FETISH_FLUID_EXCRETION_20260909.md",
+      "sha256": "04489b24a891226cd13a04a34f70109cdd1294c82128f3a91755caf78305622a",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/HARD_FETISH_GENERATION_INDEX_20260909.md",
+      "sha256": "9c34708555e80524411d4025e74f478051016337a2e1fb4b3f95d6f52a95f9c1",
+      "classification": "重複入口・本文への転載不要"
+    },
+    {
+      "path": "docs/knowledge/research/HARD_FETISH_MACHINE_DEVICE_20260909.md",
+      "sha256": "f4cc8b6f17f49c9d267da45770fe1a4de84317d6b15ad621a3a541a3b19e1135",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/HARD_FETISH_MODEL_FAMILY_MATRIX_20260909.md",
+      "sha256": "d3b941b7d1e2c5fcdf1977ddd222a41a6f8fc732deebe2de693f9f200e834066",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/HARD_FETISH_RARE_EXTREME_20260909.md",
+      "sha256": "9b51db4ab67420ed51469e442ed74bdebcc15c798446947de9e0683b52c97216",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/HARD_FETISH_SOURCES_20260909.md",
+      "sha256": "6bc4395965e7e675821c54e5aa4dbb09b6810487d6abe234624ec34092e79a91",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/HARD_FETISH_TENTACLE_FANTASY_20260909.md",
+      "sha256": "029a1862a54808a5a47c7293dd47621e595f7a1a0247cbc75e330a6729f57caf",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/HF_MODEL_DISCUSSIONS_AUDIT_20260909.md",
+      "sha256": "0e036999fd5f7f793c05a81252f141276c2b59213cbbd3475d01c535fa1cb9f3",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/SOURCE_AUTHORITY_MATRIX_20260909.md",
+      "sha256": "120e6332ae4664e014fc334936465ed66e6371274fdc86c0800a9c812f88e72f",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/TOSHIAKI_WIKI_COVERAGE_MAP_20260909.md",
+      "sha256": "027c36cbfc2fc0edd5564ea0073f6c68cfbb478d2c969beca88fa02f36455f7e",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/TOSHIAKI_WIKI_PRACTICAL_FINDINGS_20260909.md",
+      "sha256": "62b23e574ee413f8fcf382886608d50c7da68fb99348c43e089eba8fba613d41",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/TOSHIAKI_WIKI_SITE_AUDIT_20260909.md",
+      "sha256": "d805d9aab49c232661b3e00d2b06a9d640e01624750ae2053641e1dfb13eaef3",
+      "classification": "複数資料を統合"
+    },
+    {
+      "path": "docs/knowledge/research/WAI17_LOCAL_ENV_TEST_BASELINE_20260909.md",
+      "sha256": "af8b909ae7b54139d9134f4df7553772df89a603a67e7cfd90bfa3bcd8df7b85",
+      "classification": "HISTORICAL・現行判定と照合"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "pages": 230,
+  "pdf_sha256": "7f662a1f149117564f36ecf37e19a917288437fde551061c80c3edc58d541152",
+  "page_size": "A5 148 × 210 mm",
+  "font_min_pt": 11.0,
+  "body_pt": 13.5,
+  "leading": 19.6,
+  "diagram_pt": 12,
+  "links": 855,
+  "internal_links": 643,
+  "external_links": 212,
+  "claim_count": 90,
+  "chapters": 14,
+  "status_counts": {
+    "ACCEPTED": 66,
+    "HOLD": 8,
+    "CANDIDATE": 4,
+    "HISTORICAL": 2,
+    "REJECTED": 10
+  },
+  "blank_pages": [],
+  "problems": [],
+  "rendered_all_pages": true,
+  "phone_canvas": [
+    1080,
+    2400
+  ],
+  "render_path": "C:\\Users\\takas\\.codex\\worktrees\\92f0\\DanbooruTagTool\\tmp\\pdfs\\issue44-smartphone\\7f662a1f1491",
+  "real_android_iphone_test": false,
+  "automated_result": "PASS"
+}

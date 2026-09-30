@@ -1,0 +1,152 @@
+{
+  "S-WAI-001": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://huggingface.co/LyliaEngine/waiIllustriousSDXL_v170/blob/main/README.md",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-ILL-001": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://huggingface.co/OnomaAIResearch/Illustrious-xl-early-release-v0",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-ILL-002": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://arxiv.org/abs/2409.19946",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-NOOB-EPS-001": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://huggingface.co/Laxhar/noobai-XL-1.1/blob/main/README.md",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-NOOB-VP-001": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://huggingface.co/Laxhar/noobai-XL-Vpred-1.0/blob/main/README.md",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-ANIMA-001": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://huggingface.co/circlestone-labs/Anima",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-ANIMA-002": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://huggingface.co/circlestone-labs/Anima/discussions/99",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-ANIMA-003": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://huggingface.co/circlestone-labs/Anima/discussions/120",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-ANIMA-004": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://huggingface.co/circlestone-labs/Anima/discussions/140",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-ANIMA-005": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://huggingface.co/circlestone-labs/Anima/discussions/136",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-RESEARCH-001": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://arxiv.org/abs/2408.14339",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-RESEARCH-002": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://arxiv.org/abs/2301.13826",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-RESEARCH-003": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://arxiv.org/abs/2302.05543",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-RESEARCH-004": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": null,
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-TOOL-001": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://github.com/Bing-su/adetailer/blob/main/README.md",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-TOOL-002": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://github.com/Bing-su/adetailer/wiki/Advanced",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-TOOL-003": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://github.com/NEC-O/illustrious-lora-trainer/blob/main/docs/TRAINING_GUIDE.md",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-JA-001": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://note.com/drawthingsguide/n/n49f84ee6804f",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-JA-002": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://note.com/itsuki_ailab/n/n298758cec98e",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-JA-003": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://note.com/mith_mmk/n/ne833c441c99f",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-JA-004": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://note.com/novapen_create/n/nf4a63d6e94e6",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-JA-005": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://note.com/ai_0049/n/n74ccab5370e0",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-JA-006": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://note.com/tasty_cougar8018/n/n10b362494efd",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-KO-001": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://crowsaint.tistory.com/entry/TensorAI%ED%95%A0%EB%A6%AC%ED%80%B8-%EB%A7%8C%EB%93%A4%EA%B8%B03%EC%B0%A8",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-KO-002": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://onebrotravel.tistory.com/entry/ComfyUI-%EC%B4%88%EA%B0%84%EB%8B%A8-%EC%9E%85%EB%AC%B8%EA%B0%80%EC%9D%B4%EB%93%9C-%E2%80%94-Anima%EB%A1%9C-%EC%B2%AB-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%83%9D%EC%84%B1",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-ZH-001": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://github.com/NEC-O/illustrious-lora-trainer/blob/main/docs/TRAINING_GUIDE.md",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-ZH-002": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://github.com/shuaixn/anima-prompt-writing/blob/main/references/prompt-rules.md",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-EVAL-001": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://huggingface.co/SmilingWolf/wd-eva02-large-tagger-v3",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-EVAL-002": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://huggingface.co/Redstonexs/kagami-24k",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  },
+  "S-EVAL-003": {
+    "registry_path": "docs/knowledge/GENERATION_KNOWLEDGE_SOURCES.md",
+    "source_url": "https://huggingface.co/cella110n/cl_tagger_v2",
+    "corpus_sha": "9142071e6b10a456a89cb8594ae62d95a07a50b2"
+  }
+}
