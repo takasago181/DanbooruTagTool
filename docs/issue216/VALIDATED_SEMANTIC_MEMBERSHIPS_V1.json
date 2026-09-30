@@ -1,20 +1,20 @@
 {
   "AUTO_ACCEPT": 0,
   "DEEP_RESEARCH": 24,
-  "FAST_REVIEW": 10593,
-  "TERMINAL_ACCOUNTED": 3284,
+  "FAST_REVIEW": 10560,
+  "TERMINAL_ACCOUNTED": 3317,
   "TERMINAL_BLOCKED": 82,
   "candidate_roots_are_evidence": false,
   "character_specific_deep_research_count": 24,
   "character_specific_deep_research_rate": 0.001716,
   "cohort_count": 13983,
   "cohort_sha256": "0fe66682056dddd489449465f98dbfa5e8cb1a05fa5dd0143136dc3c098e2e56",
-  "decisions_sha256": "c758bdf8045435af997c482bdcd8db1c326d7d7d7c0b9f4608ffd3a707a32284",
-  "members_sha256": "400b57dc076155732d782429f47f2d04af6842329d46abb99bee555155d4fccc",
+  "decisions_sha256": "49d6b34b30a169e224c19aff1f3c2f58841046014b32409a7e1127fbe7410924",
+  "members_sha256": "3a872770d0fe47d4df0f74ef176b02c44189151daec0922ad82831affa634d54",
   "over_research_check_row_count": 14028,
   "roots_sha256": "7a993f652479ffc30194f59716f8bc0c6dbcad3a50497d102b0f21fdac4c8770",
   "schema_version": "issue216-validated-semantic-membership-v1",
-  "sources_sha256": "cd5ab8ab8c3417fb25801c2c8834e8cbb02f7bf91b5d1c8c7224dcddc6816f07",
-  "unique_character_count": 3302,
-  "validated_membership_row_count": 3318
+  "sources_sha256": "45f769da69b6fac0d95ff1cb3aeb314b74bb141b4ba497c8f60a0f4499a19ecc",
+  "unique_character_count": 3335,
+  "validated_membership_row_count": 3351
 }
