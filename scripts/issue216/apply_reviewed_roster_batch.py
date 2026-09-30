@@ -167,7 +167,10 @@ def build(batch_path: Path) -> tuple[list[dict[str, str]], list[dict[str, str]],
 
 def validate_proposed(sources: list[dict[str, str]], members: list[dict[str, str]],
                       decisions: list[dict[str, str]]) -> None:
-    with tempfile.TemporaryDirectory(prefix=".issue216-batch-check-", dir=ISSUE216) as folder:
+    # Keep disposable validation files in the configured temp directory. Some
+    # Windows checkouts inherit restrictive ACLs under docs/issue216, which
+    # lets TemporaryDirectory create a folder but prevents writing into it.
+    with tempfile.TemporaryDirectory(prefix="issue216-batch-check-") as folder:
         temp = Path(folder)
         paths = {
             "sources": temp / "sources.csv", "members": temp / "members.csv",

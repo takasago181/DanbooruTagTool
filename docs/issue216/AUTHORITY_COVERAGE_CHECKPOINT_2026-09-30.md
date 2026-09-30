@@ -641,3 +641,33 @@ The existing Million Live official source scope was replayed across its full 39-
 | Missing Copyright roots / existing #180 HOME changed / conflicts | 0 / 0 / 1 unchanged |
 
 All 114 source records were rejoined to the exact-scope inventories: 0 open AUTO candidates and 21 open REVIEW_REQUIRED surfaces involving 19 unresolved Characters. Deterministic membership reconstruction and the cohort authority validator pass all invariants; the cohort remains incomplete only because 13,135 rows are UNRESEARCHED. Focused Issue #216 tests pass 26/26. Root-level expected-yield counts and current Top2000 are still unavailable without the exact frozen #180 master, structure graph, and post-count snapshot. Full #180 regression, final reproducibility, CI, clean pushed branch, and `UNRESEARCHED = 0` remain pending.
+
+
+## Accepted curated Touhou membership reuse checkpoint — 2026-09-30
+
+Reused the already reviewed #180 Danbooru/Safebooru curated Touhou Character list. Its exact linked entries establish Chen under Perfect Cherry Blossom, Aki Shizuha and Aki Minoriko under Mountain of Faith, Tanned Cirno under Embodiment of Scarlet Devil, and Goutokuji Mike under Unconnected Marketeers. The batch scope enumerates only those five exact identities. Existing #180 `touhou` root normalization applies; no candidate root, post count, co-occurrence, or RelatedCopyright edge was treated as membership evidence. `otonashi_kotori` remains supported by the accepted 765PRO roster; no character-specific interview lookup was required.
+
+This checkpoint added 5 HOME decisions across 2 exact membership scopes reusing an already reviewed URL: 5 terminalized / 0 new external URL reviews / 2 membership scopes. Character-specific Deep Research remains an exception path at 19 unresolved Characters (0.1359% of the frozen cohort).
+
+| Measure | Current |
+|---|---:|
+| Frozen cohort / accounted | 13,983 / 13,983 |
+| Terminalized / coverage | 853 / 6.1003% |
+| HOME_CONFIRMED / no-safe-source / policy / identity / conflict | 817 / 18 / 6 / 11 / 1 |
+| UNRESEARCHED | 13130 |
+| AUTO_ACCEPT / FAST_REVIEW / DEEP_RESEARCH / terminal blocked | 0 / 13111 / 19 / 36 |
+| Character-specific Deep Research / cohort rate | 19 / 0.1359% |
+| Source registry / accepted reusable roster sources | 116 / 65 |
+| Exact member mappings / unique exact Characters / source-member rows | 842 / 840 / 855 |
+| Reused member rows / source reuse ratio | 795 / 855 (92.98%) |
+| Characters per registered source | 7.24 |
+| Top500 / Top2000 still UNRESEARCHED | 290 / 1618 |
+| New terminalized / new external URL reviews / validated membership scopes | 5 / 0 / 2 |
+| Missing roots / existing #180 HOME changed / conflicts | 0 / 0 / 1 unchanged |
+
+All 116 registry sources were rejoined to their exact URL/scope inventories: 0 open AUTO candidates and 21 REVIEW_REQUIRED surfaces remain, covering 19 unresolved identities. Top500 and Top2000 counts were recomputed from the frozen cohort and hash-verified post-count snapshot; counts are routing priority only. Per-root queue counts/order remain cached because the frozen #180 master and structure graph are unavailable.
+
+The focused #216 suite, deterministic membership projection, full source re-audit, complete cohort validator, #180 immutable-HOME check, and `git diff --check` are run for this checkpoint below. Full #180 regression, final reproducibility/CI, clean pushed branch, and `UNRESEARCHED = 0` remain pending.
+
+
+Checkpoint validation: `python -m pytest tests/issue216 -q -p no:cacheprovider` PASS (26/26); `python -m pytest tests/issue180 -q -p no:cacheprovider` PASS (60/60); deterministic membership projection PASS; exact-scope audit covers 116/116 sources (0 open AUTO, 21 REVIEW_REQUIRED surfaces across 19 unresolved identities); cohort validator passes all invariants and reports incomplete only for 13,130 UNRESEARCHED rows; Python syntax compilation and `git diff --check` PASS. Existing #180 confirmed HOME mutation count remains 0.

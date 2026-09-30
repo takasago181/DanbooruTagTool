@@ -1,0 +1,2 @@
+matched_surface,candidate_status,canonical_character,review_outcome,review_detail
+Chen,AUTO_MAPPING_CANDIDATE,chen,ACCEPT_EXACT_CURATED_MEMBERSHIP,The accepted Issue #180 curated Touhou list explicitly names Chen under Perfect Cherry Blossom and links the exact canonical Character tag chen. The existing validated #180 Touhou root normalization is reused; no other work, variant, or unlisted member is inferred.
