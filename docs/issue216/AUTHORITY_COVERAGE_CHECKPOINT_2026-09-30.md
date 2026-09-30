@@ -481,3 +481,27 @@ All 97 current registry records were joined back to the full cohort using accept
 | Latest exact-qualifier batch yield | 11 / 1 reused policy evidence review; 0 external URL lookups |
 
 Top500 and Top2000 counts were recomputed from the frozen cohort and SHA-256-verified Issue #70 post-count snapshot; frequency was used only for ranking. Post counts join 13,881 cohort rows, leaving 102 rows without a count. The per-root queue remains explicitly cached because the frozen #180 master and `structure_graph_v3.csv` are unavailable in this checkout; no substitute graph or candidate-root evidence was inferred. The source reuse re-audit, deterministic membership projection, cohort validator, and `git diff --check` are checkpoint gates; the final full #180 regression, full reproducibility, CI, clean pushed branch, and `UNRESEARCHED = 0` remain pending. No #180 confirmed HOME or production data changed.
+
+
+## Validated exact-root qualifier bulk checkpoint — 2026-09-30
+
+Reused the 10 `root_review=PASS` rows in the existing Issue #180 `exact_root_semantic_authority_batch02.csv` together with the frozen Issue #180 policy A1. A deterministic exact-suffix join found 266 currently open canonical Character keys, all with the matching terminal Copyright qualifier and no earlier nested qualifier segment. This is semantic membership from the canonical tag qualifier plus an already validated normalization rule; candidate-root hints, fuzzy name matches, and character-specific searches were not used. The batch generated ten scoped `APPROVED_REPO_EVIDENCE` source entries and 266 exact member mappings. Validator accepted the entire batch; no competing accepted root, missing catalog root, or existing HOME overwrite was found.
+
+| Measure | Current |
+|---|---:|
+| Frozen baseline / accounted | 13,983 / 13,983 |
+| Terminalized / coverage | 828 / 5.92% |
+| HOME_CONFIRMED | 794 |
+| SOURCE_RESEARCHED_NO_SAFE_EVIDENCE / POLICY_BLOCKED / IDENTITY_BLOCKED / EVIDENCE_CONFLICT | 18 / 6 / 9 / 1 |
+| UNRESEARCHED | 13,155 |
+| AUTO_ACCEPT / FAST_REVIEW / DEEP_RESEARCH / terminal blocked | 0 / 13,155 / 0 / 34 |
+| Character-specific Deep Research count / rate | 0 / 0.00% |
+| Source registry / reusable accepted sources | 107 / 60 |
+| Exact mapped Characters / source-member rows | 819 / 830 |
+| Reused member rows / source reuse ratio | 776 / 830 (93.49%) |
+| Top500 / Top2000 still UNRESEARCHED | 297 / 1,632 |
+| New terminalized Characters / validated membership scopes in this batch | 266 / 10 = 26.60 |
+| New external URL reviews for this batch | 0 |
+| Missing roots / existing #180 HOME changes / conflicts | 0 / 0 / 1 unchanged |
+
+The full 107-record registry was rejoined to cohort decisions and exact source scopes. A separate exact-key scan of existing accepted #180 curated Character-list files found no additional open cohort member: those roster identities are already terminal or outside the cohort. Its retained exact candidate inventories contain no open safe matches after recorded source-scope/candidate disposition. The 266 qualifiers reduce the outstanding cohort, but no precision rule was relaxed. Root-level unresolved aggregates remain cached because the frozen #180 master/structure graph are still absent; frequency-derived global Top500/Top2000 counts are recomputed separately and are not evidence. Focused tests and full cohort validation are next for this checkpoint.
