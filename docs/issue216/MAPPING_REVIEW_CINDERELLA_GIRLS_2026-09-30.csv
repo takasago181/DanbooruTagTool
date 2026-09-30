@@ -1,0 +1,4 @@
+matched_surface,candidate_status,canonical_character,review_outcome,review_detail
+クラリス,REVIEW_REQUIRED,clarice_(idolmaster),ALREADY_TERMINAL_NO_REMAP,The exact member on the official Cinderella Girls idol directory is Clarice of THE IDOLM@STER and is already terminal under the accepted Cinderella Girls source. Preserve the existing decision and provenance.
+クラリス,REVIEW_REQUIRED,clarice_(disney),EXCLUDE_OUT_OF_SCOPE,The source scope is the official Cinderella Girls idol directory. Its exact クラリス entry identifies clarice_(idolmaster), already terminal; it does not establish membership for the distinct Disney Character identity clarice_(disney).
+クラリス,REVIEW_REQUIRED,clarisse_(granblue_fantasy),EXCLUDE_OUT_OF_SCOPE,The source scope is the official Cinderella Girls idol directory and does not list or establish membership for the distinct Granblue Fantasy identity.

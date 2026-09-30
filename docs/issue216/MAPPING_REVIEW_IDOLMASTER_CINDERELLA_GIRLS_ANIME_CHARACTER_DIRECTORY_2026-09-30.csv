@@ -1,0 +1,4 @@
+matched_surface,candidate_status,canonical_character,review_outcome,review_detail
+アナスタシア,REVIEW_REQUIRED,anastasia_(idolmaster),ALREADY_TERMINAL_NO_REMAP,The exact Cinderella Girls member is already HOME_CONFIRMED under idolmaster_cinderella_girls by a prior accepted official roster. Preserve its existing source and provenance; no new mapping or decision update is needed.
+アナスタシア,REVIEW_REQUIRED,anastasia_(fate),EXCLUDE_OUT_OF_SCOPE,This exact source is the official Cinderella Girls anime Character roster and does not list Fate characters; the Fate Anastasia identity is outside its declared source scope.
+ルーキートレーナー,REVIEW_REQUIRED,aoki_kei,HOLD_ROLE_ALIAS_IDENTITY,"The official page gives only the role title Rookie Trainer and the catalog match exists only as a search surface, not a unique validated identity alias; keep unresolved pending stronger identity evidence."

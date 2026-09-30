@@ -563,3 +563,55 @@ Checkpoint gates: deterministic membership rebuild, all-source exact-scope re-au
 
 
 Final checkpoint validation after the qualifier-policy batch: `python -m pytest tests/issue216 -q -p no:cacheprovider` passed 26/26; deterministic membership reconstruction passed; all-source re-audit covered 113/113 registry records; the authority validator accepted all invariants and reports incomplete only because 13,142 rows remain UNRESEARCHED; `git diff --check` and Python syntax compilation passed.
+
+
+## Title-scoped Cinderella Girls source checkpoint — 2026-09-30
+
+Reviewed the official TV anime [Character directory](https://imas-cinderella.com/character/) once as a complete series source, then exact-joined its 62 named page surfaces to the Character catalog and frozen cohort. The deterministic generator found three unresolved unique exact identities: Senkawa Chihiro, Executive Mishiro, and Aoki Sei (Veteran Trainer). All three map to the existing `idolmaster_cinderella_girls` root, which is separately PASS-validated in #180 by Shibuya Rin. The page also surfaced Rookie Trainer only as a role/search alias (`aoki_kei`), so that identity remains Deep Research. Anastasia's same-work exact identity was already HOME_CONFIRMED and its prior source/provenance was preserved; no redundant mapping was written.
+
+The reused Million Live roster was reviewed for its ambiguous `Producer` role. The official page shows a generic Producer role and Chief Producer with no unique canonical mapping; `p-head_producer` is now `IDENTITY_BLOCKED` without HOME. The Cinderella Girls anime producer candidate was marked outside the Million Live source scope. Four other retained FGO candidate surfaces were explicitly excluded from that source's scope (Disney Hercules, Mobile Suit Nemo, Project Moon Roland, and Tenkaichi Fuma Kotaro). These scope dispositions remove false source edges, and none is used as HOME evidence.
+
+| Measure | Current |
+|---|---:|
+| Baseline cohort / accounted | 13,983 / 13,983 |
+| Terminalized / coverage | 845 / 6.0431% |
+| HOME_CONFIRMED / no-safe-source / policy / identity / conflict | 810 / 18 / 6 / 10 / 1 |
+| UNRESEARCHED | 13138 |
+| AUTO_ACCEPT / FAST_REVIEW / DEEP_RESEARCH / terminal blocked | 0 / 13114 / 24 / 35 |
+| Character-specific Deep Research candidates | 24 (0.172% of cohort) |
+| Source registry / reusable accepted sources | 114 / 64 |
+| Exact source-member mappings / unique exact Characters / source-member rows | 835 / 833 / 847 |
+| Reused member rows / source reuse ratio | 789 / 847 (93.15%) |
+| Characters per registered source | 7.31 |
+| All-source audit: open AUTO / REVIEW_REQUIRED surfaces | 0 / 27 |
+| Top500 / Top2000 still UNRESEARCHED | 296 / 1624 |
+| Since pushed checkpoint: terminalized / URL reviews / source scopes | 4 / 2 / 2 = 2.00 per URL and per scope |
+| Missing roots / existing #180 HOME changes / conflicts | 0 / 0 / 1 unchanged |
+
+Root-level unresolved aggregates remain cached because the frozen #180 master and `structure_graph_v3.csv` are absent from this checkout; current global counts and the source-registry re-audit are refreshed. Popularity remains ranking-only.
+
+## Membership reuse follow-up checkpoint — 2026-09-30
+
+Reused validated source scopes to resolve the remaining exact work-level identities without Character-specific Deep Research. The official Cinderella Girls anime directory contributes three new exact HOME memberships. Its `Rookie Trainer` surface is only a role label and does not identify the catalog `aoki_kei` entry, so that row is `IDENTITY_BLOCKED` with no HOME. The accepted Gundam SEED directory's exact `アイシャ` entry was contextually resolved to `aisha_landar`; same-name candidates from Last Origin and Saga were explicitly excluded from the SEED scope. `otonashi_kotori` continues to rely on the accepted 765PRO roster membership; its creator interview is not a required authority.
+
+The complete 765PRO ALLSTARS section on the already reviewed Million Live page was also exact-joined against the cohort. Its 13 identities were all already terminal or outside the frozen unresolved cohort, so it added no duplicate source registration or decision. The current 114-source exact URL/scope re-audit yields 0 open AUTO candidates and 24 open REVIEW_REQUIRED surfaces covering 21 unresolved Characters. New source-scope dispositions removed false cross-work collision candidates from Character-specific Deep Research.
+
+| Measure | Current |
+|---|---:|
+| Frozen baseline / accounted | 13,983 / 13,983 |
+| Terminalized / coverage | 847 / 6.0588% |
+| HOME_CONFIRMED / no-safe-source / policy / identity / conflict | 811 / 18 / 6 / 11 / 1 |
+| UNRESEARCHED | 13,136 |
+| AUTO_ACCEPT / FAST_REVIEW / DEEP_RESEARCH / terminal blocked | 0 / 13,115 / 21 / 36 |
+| Character-specific Deep Research / cohort rate | 21 / 0.1502% |
+| Source registry / accepted reusable sources | 114 / 64 |
+| Exact member rows / unique exact Characters / all source-member rows | 836 / 834 / 849 |
+| Reused source-member rows / source reuse ratio | 790 / 849 (93.05%) |
+| Exact Characters per registered source | 7.32 |
+| Top500 still UNRESEARCHED | 295 |
+| Top2000 still UNRESEARCHED | Last verified 1,624 before this checkpoint; stale until the exact post-count snapshot is available |
+| Since pushed HEAD: terminalized / new external URL reviews / source scopes | 6 / 1 / 3 |
+| Terminalized per external URL review / per source scope | 6.00 / 2.00 |
+| Missing Copyright roots / existing #180 HOME changed / conflicts | 0 / 0 / 1 unchanged |
+
+The validated membership projection reports 822 evidence rows and identifies 21 remaining Deep Research candidates. Source registry re-audit, exact mapping schema/scope/root/cardinality and immutable-HOME checks passed. The cohort validator accepts all invariants and remains incomplete only because 13,136 rows are UNRESEARCHED. Focused Issue #216 tests pass 26/26, deterministic membership reconstruction matches, Python syntax compilation and `git diff --check` pass. Root-level expected-yield counts and the current Top2000 value remain unavailable because this checkout does not contain the exact frozen #180 master, structure graph, or post-count snapshot. Full #180 regression, final reproducibility, CI, clean pushed branch, and `UNRESEARCHED = 0` remain pending.
