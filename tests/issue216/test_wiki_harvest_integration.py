@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import unittest
 
+from scripts.issue216.harvest_danbooru_wiki_membership import canonical_source_url
+
 try:
     from integrate_danbooru_wiki_membership_harvest import retain_or_register_source
 except ModuleNotFoundError:
@@ -9,6 +11,12 @@ except ModuleNotFoundError:
 
 
 class WikiHarvestIntegrationTests(unittest.TestCase):
+    def test_source_url_normalization_is_stable_for_repeat_fetch_filter(self):
+        self.assertEqual(
+            canonical_source_url("HTTPS://Danbooru.Donmai.US/wiki_pages/foo///"),
+            "https://danbooru.donmai.us/wiki_pages/foo",
+        )
+
     def test_repeat_harvest_preserves_enriched_accepted_source_record(self):
         sid = "src-example"
         prior = {

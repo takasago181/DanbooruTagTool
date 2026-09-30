@@ -20,6 +20,7 @@ import urllib.parse
 import urllib.request
 from collections import defaultdict
 from pathlib import Path
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[2]
 ISSUE216 = ROOT / "docs/issue216"
@@ -152,8 +153,40 @@ def explicit_member_links(body: str) -> list[tuple[str, str]]:
 
 
 def load_root_rows() -> list[str]:
-    with (ISSUE216 / "SOURCE_YIELD_QUEUE_V1.csv").open(encoding="utf-8-sig", newline="") as stream:
-        return sorted({row["candidate_root"].strip() for row in csv.DictReader(stream) if row.get("candidate_root", "").strip()})
+    # Queue v2 is ordered by measured exact roster overlap and empirical source
+    # family yield. Keep that order; alphabetic sorting silently discarded the
+    # research priority signal and repeatedly favored no meaningful portfolio.
+    queue_v2 = ISSUE216 / "SOURCE_YIELD_QUEUE_V2.csv"
+    queue_path = queue_v2 if queue_v2.exists() else ISSUE216 / "SOURCE_YIELD_QUEUE_V1.csv"
+    with queue_path.open(encoding="utf-8-sig", newline="") as stream:
+        rows = list(csv.DictReader(stream))
+    if queue_path == queue_v2:
+        rows.sort(key=lambda row: int(row.get("priority_rank", "0") or 0))
+    return list(dict.fromkeys(row["candidate_root"].strip() for row in rows
+                              if row.get("candidate_root", "").strip()))
+
+
+def canonical_source_url(value: str) -> str:
+    parsed = urlparse((value or "").strip())
+    path = re.sub(r"/+", "/", parsed.path).rstrip("/")
+    return urllib.parse.urlunparse((parsed.scheme.lower(), parsed.netloc.lower(), path, "", parsed.query, ""))
+
+
+def reviewed_source_urls() -> set[str]:
+    """URLs whose source scope is already in a reviewed/current registry or scout row."""
+    urls = set()
+    for path in (ISSUE216 / "COPYRIGHT_AUTHORITY_REGISTRY_V1.csv",
+                 ISSUE216 / "ROSTER_SCOUT_INVENTORY_V1.csv"):
+        if not path.exists():
+            continue
+        with path.open(encoding="utf-8-sig", newline="") as stream:
+            for row in csv.DictReader(stream):
+                if path.name.startswith("ROSTER_SCOUT") and row.get("review_state", "").upper() not in {"SCOUTED", "REGISTRY_REJOIN"}:
+                    continue
+                value = row.get("source_url", "").strip()
+                if value:
+                    urls.add(canonical_source_url(value))
+    return urls
 
 
 def run(output_dir: Path, roots: list[str] | None = None) -> dict[str, object]:
@@ -229,8 +262,13 @@ def run(output_dir: Path, roots: list[str] | None = None) -> dict[str, object]:
         except Exception as error:
             return page_id, title, None, str(error)
 
-    selected_pages = sorted((pid, str(meta["title"])) for pid, meta in page_candidates.items()
-                            if len(source_roots_by_page.get(pid, set())) == 1)
+    reviewed_urls = reviewed_source_urls()
+    candidate_scoped_pages = [(pid, str(meta["title"])) for pid, meta in page_candidates.items()
+                              if len(source_roots_by_page.get(pid, set())) == 1]
+    selected_pages = sorted((pid, title) for pid, title in candidate_scoped_pages
+                            if canonical_source_url(
+                                f"https://danbooru.donmai.us/wiki_pages/{urllib.parse.quote(title, safe='()!:#,._-')}"
+                            ) not in reviewed_urls)
     with concurrent.futures.ThreadPoolExecutor(max_workers=THREADS) as pool:
         futures = [pool.submit(fetch_page, pid, title) for pid, title in selected_pages]
         for index, future in enumerate(concurrent.futures.as_completed(futures), 1):
@@ -264,6 +302,7 @@ def run(output_dir: Path, roots: list[str] | None = None) -> dict[str, object]:
     (output_dir / "PAGE_FETCH_ERRORS.json").write_text(json.dumps(page_errors, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     summary = {
         "candidate_root_count": len(root_rows), "unique_wiki_pages_discovered": len(page_candidates),
+        "reviewed_source_url_repeats_skipped": len(candidate_scoped_pages) - len(selected_pages),
         "unique_explicit_scope_pages_fetched": len(selected_pages), "open_exact_membership_rows": len(page_evidence),
         "unique_open_characters": len({row["canonical_character"] for row in page_evidence}),
         "characters_with_multiple_roots": sum(1 for tag in {row["canonical_character"] for row in page_evidence}
