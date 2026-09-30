@@ -1,2 +1,0 @@
-matched_surface,raw_candidate_status,competing_tags,review_result,review_reason
-チドリ,AUTO_MAPPING_CANDIDATE,yoshino_chidori,ACCEPT_EXACT_PERSONA_3_RELOAD_MEMBER,Official Atlus Persona 3 Reload profile lists Chidori and uniquely maps the exact Japanese surface チドリ to yoshino_chidori in the frozen cohort. HOME uses persona in line with existing #180-compatible Persona 3 Reload root normalization; the competing persona_3 proposal is not used.

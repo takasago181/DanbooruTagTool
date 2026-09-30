@@ -37,7 +37,11 @@ def audit(directory: Path = ISSUE216) -> list[dict[str, str]]:
     members = read(directory / "AUTHORITY_SOURCE_MEMBERS_V1.csv")
     decisions = {row["canonical_character"]: row for row in read(directory / "AUTHORITY_COVERAGE_DECISIONS_V1.csv")}
     cohort = {row["canonical_character"] for row in read(directory / "AUTHORITY_COVERAGE_COHORT_V1.csv")}
-    inventories = sorted(directory.glob("SOURCE_MAPPING_CANDIDATES_*.csv"))
+    scratch_inventory_dir = ROOT / ".tmp-issue216-work/tracked-mapping-artifacts-2026-09-30"
+    inventories = sorted({
+        *directory.glob("SOURCE_MAPPING_CANDIDATES_*.csv"),
+        *(scratch_inventory_dir.rglob("SOURCE_MAPPING_CANDIDATES_*.csv") if scratch_inventory_dir.exists() else []),
+    })
     rows: list[dict[str, str]] = []
     for source in sources:
         matching = []

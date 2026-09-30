@@ -1,4 +1,0 @@
-matched_surface,candidate_status,canonical_character,review_outcome,review_detail
-アイシャ,REVIEW_REQUIRED,aisha_landar,ACCEPT_EXACT_CONTEXTUAL_IDENTITY,The original Mobile Suit Gundam SEED official character directory lists this exact name within its closed work scope. The three catalog name collisions are from other works; the source scope resolves the exact SEED identity as aisha_landar. The source root gundam_seed is already validated.
-アイシャ,REVIEW_REQUIRED,aisha_(last_origin),EXCLUDE_OUT_OF_SCOPE,The original Mobile Suit Gundam SEED directory identifies the listed アイシャ as aisha_landar; the separate Last Origin identity is outside this official source's work scope.
-アイシャ,REVIEW_REQUIRED,aisha_(saga),EXCLUDE_OUT_OF_SCOPE,The original Mobile Suit Gundam SEED directory identifies the listed アイシャ as aisha_landar; the separate Saga identity is outside this official source's work scope.

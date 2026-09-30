@@ -115,7 +115,11 @@ def build(master_path: Path, graph_path: Path, post_counts_path: Path):
     # A registered roster at a root does not imply that it covers every Character
     # hinted at that root. Count only exact, unique candidates from a retained source
     # inventory whose source ID, URL, and exact scope still match the accepted registry.
-    for candidate_path in sorted(ISSUE216.glob("SOURCE_MAPPING_CANDIDATES_*.csv")):
+    candidate_paths = set(ISSUE216.glob("SOURCE_MAPPING_CANDIDATES_*.csv"))
+    scratch_candidates = ROOT / ".tmp-issue216-work/tracked-mapping-artifacts-2026-09-30"
+    if scratch_candidates.exists():
+        candidate_paths.update(scratch_candidates.rglob("SOURCE_MAPPING_CANDIDATES_*.csv"))
+    for candidate_path in sorted(candidate_paths):
         for candidate in read_csv(candidate_path):
             source = sources.get(candidate.get("source_id", ""))
             if not source or source["source_status"] != "ACCEPTED":

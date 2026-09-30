@@ -59,7 +59,11 @@ def build(cohort_path: Path, sources_path: Path, members_path: Path, decisions_p
             accepted[member["canonical_character"]].append((source, member))
 
     candidates: dict[str, list[tuple[dict[str, str], dict[str, str], str]]] = defaultdict(list)
-    for candidate_path in sorted(candidates_dir.glob("SOURCE_MAPPING_CANDIDATES_*.csv")):
+    candidate_paths = set(candidates_dir.glob("SOURCE_MAPPING_CANDIDATES_*.csv"))
+    scratch_candidates = ROOT / ".tmp-issue216-work/tracked-mapping-artifacts-2026-09-30"
+    if candidates_dir.resolve() == ISSUE216.resolve() and scratch_candidates.exists():
+        candidate_paths.update(scratch_candidates.rglob("SOURCE_MAPPING_CANDIDATES_*.csv"))
+    for candidate_path in sorted(candidate_paths):
         review_path = candidate_path.with_name(candidate_path.name.replace(
             "SOURCE_MAPPING_CANDIDATES_", "MAPPING_REVIEW_", 1))
         reviews: dict[tuple[str, str], str] = {}
