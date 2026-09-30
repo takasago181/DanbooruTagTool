@@ -17,7 +17,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 ISSUE216 = ROOT / "docs/issue216"
+SUMMARY_ALIAS = ISSUE216 / "SOURCE_YIELD_QUEUE_SUMMARY_V1.json"
 MASTER_SHA256 = "135463a5225b6501db923322284f8e309f217eb5359538088eb6de6d78b77071"
+GRAPH_SHA256 = "218cf30cb21695472e276cce327cd96a132665f3473c8925954059c3432c4bea"
+POST_COUNTS_SHA256 = "893fbf07c7d0250e1c30d43b9e01aca69d56e2e6f3d742dcc233e889dfec5aec"
 BASELINE = 13_983
 
 
@@ -55,10 +58,36 @@ def add_open_membership_routes(root_members: dict[str, set[str]], members_by_roo
     return defaultdict(set, {root: tags for root, tags in root_members.items() if tags})
 
 
-def build(master_path: Path, graph_path: Path, post_counts_path: Path):
+def queue_priority_key(row: dict[str, str]) -> tuple:
+    """Order exact reuse and batchable authority work before discovery/long-tail work."""
+    source_class_priority = {
+        "REUSE_SOURCE_EXACT_CANDIDATES": 0,
+        "REVIEW_REGISTERED_SOURCE_SCOPE": 1,
+        "REVIEW_SOURCE_IDENTITY_CANDIDATES": 2,
+        "DISCOVER_ADDITIONAL_OFFICIAL_SOURCE": 3,
+        "DISCOVER_OFFICIAL_SOURCE": 4,
+        "NO_CANDIDATE_ROOT_SOURCE_DISCOVERY": 5,
+    }
+    return (
+        source_class_priority[row["source_yield_class"]],
+        -int(row["expected_safe_yield"]),
+        -int(row["remaining_unmapped_count"]),
+        -int(row["reusable_accepted_source_count"]),
+        -int(row["known_official_source_count"]),
+        -int(row["top500_count"] or 0),
+        -int(row["top2000_count"] or 0),
+        -int(row["total_post_count_sum"] or 0),
+        row["candidate_root"],
+    )
+
+
+def build(master_path: Path, graph_path: Path, post_counts_path: Path | None):
     master_hash = sha256(master_path)
     if master_hash != MASTER_SHA256:
         raise ValueError(f"#180 master SHA mismatch: expected {MASTER_SHA256}, got {master_hash}")
+    graph_hash = sha256(graph_path)
+    if graph_hash != GRAPH_SHA256:
+        raise ValueError(f"#180 structure graph SHA mismatch: expected {GRAPH_SHA256}, got {graph_hash}")
     master = read_csv(master_path)
     unresolved = {
         row["canonical_tag"]: row for row in master if row["final_state"] == "HOME_UNRESOLVED"
@@ -71,17 +100,37 @@ def build(master_path: Path, graph_path: Path, post_counts_path: Path):
     if cohort != set(unresolved) or set(decisions) != cohort:
         raise ValueError("frozen #216 cohort/decisions do not equal the protected #180 unresolved set")
     open_tags = {tag for tag, row in decisions.items() if row["research_state"] == "UNRESEARCHED"}
+    top500_meta = json.loads((ISSUE216 / "TOP500_COHORT_V1.json").read_text(encoding="utf-8-sig"))
+    if (top500_meta.get("baseline_commit") != "9c0db59c0f1dc56402c955e718a37d9de1849d7e"
+            or top500_meta.get("baseline_master_sha256") != MASTER_SHA256
+            or top500_meta.get("post_count_file_sha256") != POST_COUNTS_SHA256
+            or top500_meta.get("cohort_size") != 500):
+        raise ValueError("frozen Top500 metadata does not match the #180 baseline")
+    top500_rows = read_csv(ISSUE216 / "TOP500_COHORT_V1.csv")
+    top500_tags = {row["canonical_character"] for row in top500_rows}
+    top500_ranks = {int(row["rank"]) for row in top500_rows}
+    if len(top500_rows) != 500 or len(top500_tags) != 500 or top500_ranks != set(range(1, 501)):
+        raise ValueError("frozen Top500 cohort must contain exactly ranks 1..500")
+    if not top500_tags <= cohort:
+        raise ValueError("frozen Top500 cohort contains members outside the #180 unresolved baseline")
 
     baseline_counts: dict[str, int] = {}
     joined_baseline_tags: set[str] = set()
-    with gzip.open(post_counts_path, "rt", encoding="utf-8-sig", newline="") as f:
-        for row in csv.DictReader(f):
-            tag = row["character_tag"]
-            if tag in unresolved:
-                joined_baseline_tags.add(tag)
-                baseline_counts[tag] = max(baseline_counts.get(tag, 0), int(row["character_post_count"]))
-    if len(joined_baseline_tags) != 13_881:
-        raise ValueError(f"unexpected frozen-baseline post-count join size: {len(joined_baseline_tags)}")
+    post_count_hash = ""
+    if post_counts_path is not None:
+        post_count_hash = sha256(post_counts_path)
+        if post_count_hash != POST_COUNTS_SHA256:
+            raise ValueError(
+                f"#180 post-count SHA mismatch: expected {POST_COUNTS_SHA256}, got {post_count_hash}"
+            )
+        with gzip.open(post_counts_path, "rt", encoding="utf-8-sig", newline="") as f:
+            for row in csv.DictReader(f):
+                tag = row["character_tag"]
+                if tag in unresolved:
+                    joined_baseline_tags.add(tag)
+                    baseline_counts[tag] = max(baseline_counts.get(tag, 0), int(row["character_post_count"]))
+        if len(joined_baseline_tags) != 13_881:
+            raise ValueError(f"unexpected frozen-baseline post-count join size: {len(joined_baseline_tags)}")
     ranks = {tag: rank for rank, (tag, _) in enumerate(sorted(baseline_counts.items(), key=lambda x: (-x[1], x[0])), 1)}
     counts = {tag: baseline_counts[tag] for tag in open_tags if tag in baseline_counts}
 
@@ -185,9 +234,9 @@ def build(master_path: Path, graph_path: Path, post_counts_path: Path):
     for root, tags in root_members.items():
         mapped = members_by_root[root] & cohort
         roster_ids = roster_ids_by_root[root]
-        counts_for_tags = [counts.get(tag, 0) for tag in tags]
-        top500 = sum(ranks.get(tag, 10**9) <= 500 for tag in tags)
-        top2000 = sum(ranks.get(tag, 10**9) <= 2000 for tag in tags)
+        counts_for_tags = [counts[tag] for tag in tags if tag in counts]
+        top500 = len(tags & open_tags & top500_tags)
+        top2000 = sum(ranks.get(tag, 10**9) <= 2000 for tag in tags) if post_counts_path else None
         exact_candidates = safe_candidate_tags_by_root[root] & tags
         review_required = review_required_tags_by_root[root] & tags
         unreviewed_rosters = roster_ids - reviewed_source_ids
@@ -209,8 +258,10 @@ def build(master_path: Path, graph_path: Path, post_counts_path: Path):
         queue.append({
             "candidate_root": root,
             "hint_kind": "Issue #180 DISCOVERY_HINT/MEMBER_OF and/or exact terminal qualifier; priority only",
-            "unresolved_count": str(len(tags)), "top500_count": str(top500), "top2000_count": str(top2000),
-            "total_post_count_sum": str(sum(counts_for_tags)), "max_post_count": str(max(counts_for_tags, default=0)),
+            "unresolved_count": str(len(tags)), "top500_count": str(top500),
+            "top2000_count": "" if top2000 is None else str(top2000),
+            "total_post_count_sum": "" if not post_counts_path else str(sum(counts_for_tags)),
+            "max_post_count": "" if not post_counts_path else str(max(counts_for_tags, default=0)),
             "known_official_source_count": str(len(source_ids_by_root[root])),
             "reusable_accepted_source_count": str(len(roster_ids)),
             "reviewed_source_count": str(len(source_ids_by_root[root] & reviewed_source_ids)),
@@ -225,32 +276,25 @@ def build(master_path: Path, graph_path: Path, post_counts_path: Path):
     rooted_tags = set().union(*root_members.values()) if root_members else set()
     rootless_tags = open_tags - rooted_tags
     if rootless_tags:
-        rootless_counts = [counts.get(tag, 0) for tag in rootless_tags]
+        rootless_counts = [counts[tag] for tag in rootless_tags if tag in counts]
         queue.append({
             "candidate_root": "",
             "hint_kind": "No candidate root/family/source hint; source discovery only",
             "unresolved_count": str(len(rootless_tags)),
-            "top500_count": str(sum(ranks.get(tag, 10**9) <= 500 for tag in rootless_tags)),
-            "top2000_count": str(sum(ranks.get(tag, 10**9) <= 2000 for tag in rootless_tags)),
-            "total_post_count_sum": str(sum(rootless_counts)),
-            "max_post_count": str(max(rootless_counts, default=0)),
+            "top500_count": str(len(rootless_tags & open_tags & top500_tags)),
+            "top2000_count": "" if not post_counts_path else str(sum(ranks.get(tag, 10**9) <= 2000 for tag in rootless_tags)),
+            "total_post_count_sum": "" if not post_counts_path else str(sum(rootless_counts)),
+            "max_post_count": "" if not post_counts_path else str(max(rootless_counts, default=0)),
             "known_official_source_count": "0", "reusable_accepted_source_count": "0",
             "reviewed_source_count": "0", "likely_roster_availability": "NO_CANDIDATE_ROOT_OR_REGISTERED_SOURCE",
             "existing_exact_mappings": "0", "remaining_unmapped_count": str(len(rootless_tags)),
             "open_exact_candidate_count": "0", "review_required_count": "0", "expected_safe_yield": "0",
             "source_yield_class": "NO_CANDIDATE_ROOT_SOURCE_DISCOVERY", "priority_rank": "",
         })
-    # Safe source reuse is based on actual unique exact candidates, not merely the
-    # presence of any roster at the same root. Then finish registered source review
-    # before source discovery; cohort size/frequency only break ties.
-    queue.sort(key=lambda r: (
-        -int(r["expected_safe_yield"]),
-        {"REUSE_SOURCE_EXACT_CANDIDATES": 0, "REVIEW_SOURCE_IDENTITY_CANDIDATES": 1,
-         "REVIEW_REGISTERED_SOURCE_SCOPE": 2, "DISCOVER_ADDITIONAL_OFFICIAL_SOURCE": 3,
-         "DISCOVER_OFFICIAL_SOURCE": 4, "NO_CANDIDATE_ROOT_SOURCE_DISCOVERY": 5}[r["source_yield_class"]],
-        -int(r["remaining_unmapped_count"]), -int(r["top2000_count"]),
-        -int(r["total_post_count_sum"]), r["candidate_root"],
-    ))
+    # Prioritize exact candidates from accepted sources, then registered roster review
+    # and roster discovery. Current unresolved cohort yield dominates; post counts only
+    # break ties when the exact frozen snapshot is available.
+    queue.sort(key=queue_priority_key)
     for i, row in enumerate(queue, 1):
         row["priority_rank"] = str(i)
 
@@ -260,12 +304,13 @@ def build(master_path: Path, graph_path: Path, post_counts_path: Path):
         "baseline_unresolved": len(unresolved), "currently_unresearched": len(open_tags),
         "root_count": len(queue), "post_count_joined_open": len(counts),
         "post_count_joined_frozen_baseline": len(joined_baseline_tags),
-        "post_count_missing_open": len(open_tags) - len(counts),
-        "top500_open": sum(ranks.get(tag, 10**9) <= 500 for tag in open_tags),
-        "top2000_open": sum(ranks.get(tag, 10**9) <= 2000 for tag in open_tags),
+        "post_count_missing_open": len(open_tags) - len(counts) if post_counts_path else None,
+        "post_count_snapshot_current_for_decision_set": bool(post_counts_path),
+        "top500_open": len(open_tags & top500_tags),
+        "top2000_open": sum(ranks.get(tag, 10**9) <= 2000 for tag in open_tags) if post_counts_path else None,
         "rootless_open_count": len(rootless_tags),
-        "rootless_top500_open": sum(ranks.get(tag, 10**9) <= 500 for tag in rootless_tags),
-        "rootless_top2000_open": sum(ranks.get(tag, 10**9) <= 2000 for tag in rootless_tags),
+        "rootless_top500_open": len(rootless_tags & open_tags & top500_tags),
+        "rootless_top2000_open": sum(ranks.get(tag, 10**9) <= 2000 for tag in rootless_tags) if post_counts_path else None,
         "rootless_tags": sorted(rootless_tags),
         "candidate_root_count": len(queue) - bool(rootless_tags),
         "source_registry_count": len(source_rows), "accepted_roster_source_count": sum(
@@ -273,9 +318,10 @@ def build(master_path: Path, graph_path: Path, post_counts_path: Path):
             and source["reusable"].lower() == "true"
             for source in source_rows
         ),
-        "queue_order": "reviewed source exact-candidate yield, registered source review need, then unresolved/Top2000/post-count priority; candidate edges and frequency are priority-only",
-        "protected_master_sha256": master_hash, "candidate_graph_sha256": sha256(graph_path),
-        "post_count_sha256": sha256(post_counts_path),
+        "queue_order": "accepted exact-source candidates; registered roster review; source discovery; within class expected safe yield, current unresolved count and reusable source count; frozen Top500 then hash-validated Top2000/post-count as tie-breaks. Candidate edges and frequency are priority-only.",
+        "protected_master_sha256": master_hash, "candidate_graph_sha256": graph_hash,
+        "post_count_sha256": post_count_hash or None,
+        "post_count_status": "HASH_VALIDATED_CURRENT" if post_counts_path else "UNAVAILABLE_NOT_USED",
         "note": "expected_safe_yield counts only AUTO_MAPPING_CANDIDATE rows from reviewed inventories matching an accepted source ID, URL, and exact scope; it is a priority estimate, never HOME evidence or a guaranteed decision count.",
     }
     return fields, queue, summary
@@ -285,21 +331,29 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--master", type=Path, required=True)
     parser.add_argument("--graph", type=Path, required=True)
-    parser.add_argument("--post-counts", type=Path, default=ROOT / "docs/issue70/data/source/character_copyright_evidence_full.csv.gz")
+    default_post_counts = ROOT / "docs/issue70/data/source/character_copyright_evidence_full.csv.gz"
+    parser.add_argument("--post-counts", type=Path, default=default_post_counts if default_post_counts.exists() else None)
     parser.add_argument("--output", type=Path, default=ISSUE216 / "SOURCE_YIELD_QUEUE_V1.csv")
     parser.add_argument("--summary", type=Path, default=ISSUE216 / "SOURCE_YIELD_QUEUE_V1.json")
+    parser.add_argument("--summary-alias", type=Path, default=SUMMARY_ALIAS)
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
     fields, queue, summary = build(args.master, args.graph, args.post_counts)
     if args.check:
-        if read_csv(args.output) != queue or json.loads(args.summary.read_text(encoding="utf-8")) != summary:
+        if (read_csv(args.output) != queue
+                or json.loads(args.summary.read_text(encoding="utf-8")) != summary
+                or json.loads(args.summary_alias.read_text(encoding="utf-8")) != summary):
             raise SystemExit("source-yield queue differs from deterministic reconstruction")
         print(f"source-yield queue reproducibility: PASS ({len(queue)} roots; {summary['currently_unresearched']} open rows)")
         return
     args.output.parent.mkdir(parents=True, exist_ok=True)
     write_csv(args.output, fields, queue)
-    args.summary.write_text(json.dumps(summary, ensure_ascii=False, sort_keys=True, indent=2) + "\n", encoding="utf-8")
-    print(f"source-yield queue built: {len(queue)} roots; top500 open={summary['top500_open']}; top2000 open={summary['top2000_open']}")
+    summary_text = json.dumps(summary, ensure_ascii=False, sort_keys=True, indent=2) + "\n"
+    args.summary.write_text(summary_text, encoding="utf-8")
+    args.summary_alias.write_text(summary_text, encoding="utf-8")
+    print(f"source-yield queue built: {len(queue)} roots; open={summary['currently_unresearched']}; "
+          f"top500={summary['top500_open']}; top2000={summary['top2000_open']}; "
+          f"post_count_status={summary['post_count_status']}")
 
 
 if __name__ == "__main__":
