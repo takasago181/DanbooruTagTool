@@ -797,3 +797,14 @@ Checkpoint validation for the curated Danganronpa batch: `python -m pytest tests
 - Deterministic random QA: 40/40 source-backed HOME rows passed exact-member, root-scope, and unique-highest-priority checks; the sample contains all 13 re-audited HOME rescues plus 27 deterministic sample rows. QA record: `.tmp-issue216-work/BROWSE_HOME_QA_SAMPLE_2026-09-30.csv`.
 - Validation: Issue #216 focused tests 29/29 PASS; Issue #180 regression 60/60 PASS; deterministic membership rebuild/check PASS; authority ledger valid and intentionally incomplete only because 13,003 rows remain UNRESEARCHED; source reuse re-audit PASS; `git diff --check` PASS. CI was not run for this checkpoint.
 - This is not completion. Continue root/source batches toward `UNRESEARCHED=0`; no main merge or production apply. The current source/member/decision/audit ledgers are the checkpoint inputs.
+
+
+## 2026-09-30 Capcom Mega Man Star Force roster batch
+
+- Reviewed Capcom’s official [Mega Man Star Force: Pegasus manual](https://static.capcom.com/megaman/starforce/MMSF_PEGASUS_manual.pdf) once. The manual names the Character roster; exact frozen-cohort matches `geo_stelar_(mega_man)`, `omega-xis_(mega_man)`, `sonia_strumm_(mega_man)`, and `luna_platz_(mega_man)` map to the existing canonical `mega_man_star_force_(series)` root. The grouped FM-ians entry and all other unlisted identities were excluded.
+- Batch yield: 4 HOME decisions / 1 newly reviewed external URL = **4.00 terminalized per source review**. This is membership-source evidence; candidate roots and post counts did not support HOME.
+- Cohort 13,983 / accounted 13,983; processed terminalized 984 (7.04%); HOME_CONFIRMED 951; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 18; POLICY_BLOCKED 3; IDENTITY_BLOCKED 11; EVIDENCE_CONFLICT 1; UNRESEARCHED 12999. Top500 UNRESEARCHED 246; Top2000 remains stale at 1,574.
+- Registry 144 (90 accepted reusable); exact member mappings 1004 across 971 unique Characters; source reuse ratio 93.31%; 1017 source-member rows. Membership routing AUTO_ACCEPT 0; FAST_REVIEW 12,977; DEEP_RESEARCH 22 (0.1573%). Source re-audit: 144 sources; 0 open AUTO candidates; 27 REVIEW_REQUIRED surfaces.
+- Browse HOME QA updated to 40/40: all 13 policy-rescued cases, the four Star Force roster matches, and 23 deterministic source-backed samples. Existing #180 confirmed HOME changes 0; missing roots 0; no new conflicts.
+- Validation after this batch: Issue #216 focused tests 29/29 PASS; Issue #180 regression 60/60 PASS; deterministic membership rebuild/check PASS; source registry reuse audit PASS; authority coverage ledger valid and incomplete only because UNRESEARCHED remains; `git diff --check` PASS. CI was not run.
+- Files: source registry, source-member mapping ledger, decision ledger, validated semantic membership table, source re-audit, and checkpoint. Continue source/root batches; this is not completion.
