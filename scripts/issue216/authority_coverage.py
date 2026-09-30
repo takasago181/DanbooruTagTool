@@ -43,7 +43,7 @@ SOURCE_FIELDS = [
 ]
 MEMBER_FIELDS = [
     "source_id", "canonical_character", "matched_surface", "mapping_method", "mapping_evidence",
-    "reviewed_at", "reviewer", "mapping_status",
+    "reviewed_at", "reviewer", "mapping_status", "browse_home_tier", "browse_home_basis",
 ]
 DECISION_FIELDS = [
     "cohort_id", "canonical_character", "research_state", "home_copyright", "authority_type",
@@ -133,6 +133,7 @@ def validate(cohort_path: Path, sources_path: Path, members_path: Path, decision
 
     member_keys: set[tuple[str, str]] = set()
     exact_members: set[tuple[str, str]] = set()
+    accepted_exact_by_character: dict[str, list[tuple[dict[str, str], dict[str, str]]]] = {}
     for member in members:
         key = (member["source_id"], member["canonical_character"])
         if key in member_keys:
@@ -144,8 +145,17 @@ def validate(cohort_path: Path, sources_path: Path, members_path: Path, decision
             errors.append(f"member mapping is not an approved exact/reviewed method: {key}")
         if not all(member[f] for f in ("matched_surface", "mapping_evidence", "reviewed_at", "reviewer")):
             errors.append(f"member mapping lacks identity review provenance: {key}")
+        tier = member.get("browse_home_tier", "").strip()
+        basis = member.get("browse_home_basis", "").strip()
+        if bool(tier) != bool(basis):
+            errors.append(f"Browse HOME priority requires both tier and basis: {key}")
+        if tier and tier not in {"1", "2", "3", "4", "5"}:
+            errors.append(f"invalid Browse HOME priority tier: {key} -> {tier}")
         if member["mapping_status"] == "EXACT_COVERED":
             exact_members.add(key)
+            source = source_by_id.get(member["source_id"])
+            if source and source["source_status"] == "ACCEPTED":
+                accepted_exact_by_character.setdefault(member["canonical_character"], []).append((source, member))
         elif member["mapping_status"] not in {"AMBIGUOUS_REVIEW", "REJECTED"}:
             errors.append(f"invalid mapping_status for {key}: {member['mapping_status']}")
 
@@ -195,6 +205,32 @@ def validate(cohort_path: Path, sources_path: Path, members_path: Path, decision
                 errors.append(f"HOME_CONFIRMED requires an ACCEPTED exact-member authority source: {decision['cohort_id']}")
             if validated_roots != {decision["home_copyright"]}:
                 errors.append(f"HOME differs from or conflicts with the exact mapped authority roots: {decision['cohort_id']}")
+            all_roots = {source["copyright_canonical"] for source, _ in
+                         accepted_exact_by_character.get(decision["canonical_character"], [])}
+            tiers_by_root: dict[str, set[int]] = {}
+            priority_complete = True
+            for source, member in accepted_exact_by_character.get(decision["canonical_character"], []):
+                tier = member.get("browse_home_tier", "").strip()
+                basis = member.get("browse_home_basis", "").strip()
+                if not tier or not basis:
+                    if len(all_roots) > 1:
+                        priority_complete = False
+                        break
+                    continue
+                tiers_by_root.setdefault(source["copyright_canonical"], set()).add(int(tier))
+            if len(all_roots) == 1 and tiers_by_root.get(decision["home_copyright"]) == {5}:
+                errors.append(f"secondary product membership alone cannot support Browse HOME: {decision['cohort_id']}")
+            elif len(all_roots) > 1:
+                eligible = {root: tiers for root, tiers in tiers_by_root.items()
+                            if root in all_roots and 5 not in tiers}
+                if (not priority_complete or any(len(tiers) != 1 for tiers in eligible.values())
+                        or set(eligible) == set()):
+                    errors.append(f"multiple accepted HOME roots require explicit Browse HOME priorities: {decision['cohort_id']}")
+                else:
+                    best_tier = min(next(iter(tiers)) for tiers in eligible.values())
+                    winners = [root for root, tiers in eligible.items() if next(iter(tiers)) == best_tier]
+                    if set(winners) != {decision["home_copyright"]}:
+                        errors.append(f"HOME is not the unique highest Browse HOME priority: {decision['cohort_id']}")
             if decision["home_copyright"] == cohort_row["baseline_home"] and cohort_row["baseline_home"]:
                 pass
             elif cohort_row["baseline_home"]:

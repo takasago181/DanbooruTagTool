@@ -2,13 +2,13 @@
 
 ## Contract
 
-This layer is additive to the immutable Issue #180 master. Its only members are the 13,983 Characters whose frozen #180 state is `HOME_UNRESOLVED`; it never includes or rewrites the 21,907 baseline-confirmed rows. The #180 HOME policy remains unchanged: zero or one canonical HOME, validated authority only, conflicts unresolved, and no co-occurrence, popularity, candidate-score, or candidate-root inference.
+This layer is additive to the immutable Issue #180 master. Its only members are the 13,983 Characters whose frozen #180 state is `HOME_UNRESOLVED`; it never includes or rewrites the 21,907 baseline-confirmed rows. Issue #216 records a Browse HOME: one stable, semantically appropriate representative Copyright root for browsing, not an exclusive legal-ownership claim. Priority selection and its source-backed tiers are defined in `MEMBERSHIP_RESEARCH_POLICY_V1.md`; same-tier or unsupported conflicts remain unresolved. No co-occurrence, popularity, candidate-score, or candidate-root inference is allowed.
 
 Every frozen cohort member has exactly one research state:
 
 - `UNRESEARCHED` — no terminal classification; cannot satisfy completion.
 - `SOURCE_RESEARCHED_NO_SAFE_EVIDENCE` — at least one scoped authority source was actually reviewed and the recorded findings cannot safely prove one HOME.
-- `POLICY_BLOCKED` — the single-HOME product policy excludes or cannot normalize the relationship.
+- `POLICY_BLOCKED` — Browse HOME policy leaves no stable representative root, or equally ranked validated roots remain after the priority review.
 - `IDENTITY_BLOCKED` — the Character identity or exact source mapping is not established.
 - `EVIDENCE_CONFLICT` — at least two validated candidate roots remain; no winner is selected.
 - `HOME_CONFIRMED` — one HOME is supported by accepted authority and an exact reviewed member mapping.

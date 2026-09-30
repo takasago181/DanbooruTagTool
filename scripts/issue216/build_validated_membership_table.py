@@ -25,6 +25,7 @@ TABLE_FIELDS = [
     "source_id", "identity_status", "competing_root_count", "validation_state",
     "provenance", "cohort_state", "next_action",
 ]
+BROWSE_HOME_TIERS = {1, 2, 3, 4, 5}
 
 
 def sha256(path: Path) -> str:
@@ -89,15 +90,56 @@ def build(cohort_path: Path, sources_path: Path, members_path: Path, decisions_p
     for tag, pairs in sorted(accepted.items()):
         roots_for_tag = {source["copyright_canonical"] for source, _ in pairs}
         root_count = len(roots_for_tag)
-        validation_state = "VALIDATED_UNIQUE" if root_count == 1 else "VALIDATED_CONFLICT"
+        selected_root = next(iter(roots_for_tag)) if root_count == 1 else ""
+        priority_by_root: dict[str, set[int]] = defaultdict(set)
+        priority_complete = True
+        for source, member in pairs:
+            tier = member.get("browse_home_tier", "").strip()
+            basis = member.get("browse_home_basis", "").strip()
+            if not tier or not basis:
+                priority_complete = False
+                continue
+            try:
+                tier_value = int(tier)
+            except ValueError:
+                priority_complete = False
+                continue
+            if tier_value not in BROWSE_HOME_TIERS:
+                priority_complete = False
+                continue
+            priority_by_root[source["copyright_canonical"]].add(tier_value)
+        priority_resolved = False
+        if root_count == 1 and next(iter(priority_by_root.get(selected_root, set())), 0) == 5:
+            selected_root = ""
+        if root_count > 1 and priority_complete and all(len(priority_by_root[root]) == 1 for root in roots_for_tag):
+            eligible_roots = {root for root in roots_for_tag if next(iter(priority_by_root[root])) < 5}
+            if eligible_roots:
+                best_tier = min(next(iter(priority_by_root[root])) for root in eligible_roots)
+                winners = [root for root in eligible_roots if next(iter(priority_by_root[root])) == best_tier]
+                if len(winners) == 1:
+                    selected_root = winners[0]
+                    priority_resolved = True
+        validation_state = (
+            "VALIDATED_UNIQUE" if root_count == 1 and selected_root else
+            "MEMBERSHIP_ONLY_NOT_BROWSE_HOME" if root_count == 1 else
+            "VALIDATED_PRIORITY" if priority_resolved else "VALIDATED_CONFLICT"
+        )
         decision = decisions[tag]
+        if decision["research_state"] == "HOME_CONFIRMED" and root_count > 1:
+            if not priority_resolved or selected_root != decision["home_copyright"]:
+                raise ValueError(f"confirmed Browse HOME does not match the unique highest-priority root: {tag}")
         for source, member in sorted(pairs, key=lambda pair: (pair[0]["copyright_canonical"], pair[0]["source_id"])):
             if decision["research_state"] == "HOME_CONFIRMED":
-                next_action = "TERMINAL_ACCOUNTED"
+                if not selected_root:
+                    raise ValueError(f"HOME_CONFIRMED is supported only by a secondary product membership: {tag}")
+                next_action = ("TERMINAL_ACCOUNTED" if source["copyright_canonical"] == selected_root
+                               else "LOWER_PRIORITY_MEMBERSHIP")
             elif decision["research_state"] != "UNRESEARCHED":
                 next_action = "TERMINAL_BLOCKED"
-            elif root_count == 1:
+            elif source["copyright_canonical"] == selected_root:
                 next_action = "AUTO_ACCEPT_MEMBERSHIP"
+            elif priority_resolved:
+                next_action = "LOWER_PRIORITY_MEMBERSHIP"
             else:
                 next_action = "DEEP_RESEARCH"
             rows.append({
@@ -109,7 +151,9 @@ def build(cohort_path: Path, sources_path: Path, members_path: Path, decisions_p
                 "identity_status": "EXACT_REVIEWED" if member["mapping_status"] == "EXACT_COVERED" else "NOT_VALIDATED",
                 "competing_root_count": str(root_count),
                 "validation_state": validation_state,
-                "provenance": f"{source['source_url']} | {source['source_claim']} | {member['mapping_evidence']}",
+                "provenance": f"{source['source_url']} | {source['source_claim']} | {member['mapping_evidence']}"
+                               + (f" | Browse HOME priority P{member.get('browse_home_tier')}: {member.get('browse_home_basis')}"
+                                  if member.get("browse_home_tier") else ""),
                 "cohort_state": decision["research_state"],
                 "next_action": next_action,
             })
@@ -145,7 +189,14 @@ def build(cohort_path: Path, sources_path: Path, members_path: Path, decisions_p
             "provenance": "", "cohort_state": state, "next_action": action,
         })
 
-    action_by_tag = {row["canonical_character"]: row["next_action"] for row in rows}
+    action_by_tag: dict[str, str] = {}
+    action_rank = {"AUTO_ACCEPT_MEMBERSHIP": 0, "DEEP_RESEARCH": 1, "FAST_REVIEW": 2,
+                   "TERMINAL_BLOCKED": 3, "TERMINAL_ACCOUNTED": 4, "LOWER_PRIORITY_MEMBERSHIP": 5}
+    for row in rows:
+        tag = row["canonical_character"]
+        action = row["next_action"]
+        if tag not in action_by_tag or action_rank.get(action, 99) < action_rank.get(action_by_tag[tag], 99):
+            action_by_tag[tag] = action
     summary = {
         "schema_version": "issue216-validated-semantic-membership-v1",
         "cohort_count": len(cohort),

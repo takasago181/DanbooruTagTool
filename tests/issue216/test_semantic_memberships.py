@@ -45,7 +45,8 @@ class SemanticMembershipTests(unittest.TestCase):
         ])
         return decisions
 
-    def add_source(self, source_id: str, root: str, tags: list[str], mapping_status: str = "EXACT_COVERED") -> None:
+    def add_source(self, source_id: str, root: str, tags: list[str], mapping_status: str = "EXACT_COVERED",
+                   browse_home_tier: str = "", browse_home_basis: str = "") -> None:
         url = f"https://example.test/{source_id}"
         scope = f"closed curated roster {source_id}"
         expected_id = coverage.deterministic_source_id(url, "Accepted curator", scope)
@@ -65,6 +66,7 @@ class SemanticMembershipTests(unittest.TestCase):
                 "source_id": expected_id, "canonical_character": tag, "matched_surface": tag,
                 "mapping_method": "EXACT_CANONICAL", "mapping_evidence": "Exact canonical tag in explicit curated roster",
                 "reviewed_at": "2026-09-30", "reviewer": "curation review", "mapping_status": mapping_status,
+                "browse_home_tier": browse_home_tier, "browse_home_basis": browse_home_basis,
             })
         self.write(self.sources_path, coverage.SOURCE_FIELDS, sources)
         self.write(self.members_path, coverage.MEMBER_FIELDS, members)
@@ -125,6 +127,44 @@ class SemanticMembershipTests(unittest.TestCase):
         self.assertEqual(summary["AUTO_ACCEPT"], 0)
         self.assertEqual({row["next_action"] for row in rows}, {"DEEP_RESEARCH"})
         self.assertEqual({row["competing_root_count"] for row in rows}, {"2"})
+
+    def test_explicit_browse_priority_selects_origin_root_over_secondary_product(self) -> None:
+        self.fixture(["character_a"])
+        self.add_source("primary-origin", "series_a", ["character_a"], browse_home_tier="1",
+                        browse_home_basis="Validated original work/IP root")
+        self.add_source("secondary-product", "series_b", ["character_a"], browse_home_tier="3",
+                        browse_home_basis="Validated secondary product ecosystem")
+        rows, summary = build(self.cohort_path, self.sources_path, self.members_path,
+                              self.decisions_path, self.roots_path, expected_size=1)
+        by_root = {row["semantic_root"]: row for row in rows}
+        self.assertEqual(summary["AUTO_ACCEPT"], 1)
+        self.assertEqual(by_root["series_a"]["next_action"], "AUTO_ACCEPT_MEMBERSHIP")
+        self.assertEqual(by_root["series_b"]["next_action"], "LOWER_PRIORITY_MEMBERSHIP")
+        decisions, count = build_decisions(self.cohort_path, self.sources_path, self.members_path,
+                                           self.decisions_path, self.roots_path, expected_size=1)
+        self.assertEqual(count, 1)
+        self.assertEqual(decisions[0]["home_copyright"], "series_a")
+
+    def test_equal_browse_priority_roots_remain_blocked(self) -> None:
+        self.fixture(["character_a"])
+        self.add_source("equal-priority-a", "series_a", ["character_a"], browse_home_tier="2",
+                        browse_home_basis="Validated independent brand root")
+        self.add_source("equal-priority-b", "series_b", ["character_a"], browse_home_tier="2",
+                        browse_home_basis="Validated independent brand root")
+        rows, summary = build(self.cohort_path, self.sources_path, self.members_path,
+                              self.decisions_path, self.roots_path, expected_size=1)
+        self.assertEqual(summary["AUTO_ACCEPT"], 0)
+        self.assertEqual(summary["DEEP_RESEARCH"], 1)
+
+    def test_secondary_product_membership_alone_is_not_browse_home_authority(self) -> None:
+        self.fixture(["character_a"])
+        self.add_source("secondary-product-only", "series_a", ["character_a"], browse_home_tier="5",
+                        browse_home_basis="Validated later product use only; no origin or primary identity")
+        rows, summary = build(self.cohort_path, self.sources_path, self.members_path,
+                              self.decisions_path, self.roots_path, expected_size=1)
+        self.assertEqual(summary["AUTO_ACCEPT"], 0)
+        self.assertEqual(summary["DEEP_RESEARCH"], 1)
+        self.assertEqual(rows[0]["validation_state"], "MEMBERSHIP_ONLY_NOT_BROWSE_HOME")
 
     def test_fuzzy_or_ambiguous_membership_is_excluded(self) -> None:
         self.fixture(["character_a"])
