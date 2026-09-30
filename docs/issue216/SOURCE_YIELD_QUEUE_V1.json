@@ -1,9 +1,9 @@
 {
-  "accepted_roster_source_count": 70,
+  "accepted_roster_source_count": 87,
   "baseline_unresolved": 13983,
   "candidate_graph_sha256": "218cf30cb21695472e276cce327cd96a132665f3473c8925954059c3432c4bea",
-  "currently_unresearched": 12988,
-  "note": "Global cohort state is current: frozen baseline 13,983; UNRESEARCHED 12,988. Top500 was recomputed from the frozen cohort. Top2000 and post-count joined-open counts are stale after current batch. Per-root counts/order remain cached because frozen #180 master and structure graph are unavailable. Candidate roots and post counts are priority only, never HOME evidence.",
+  "currently_unresearched": 12987,
+  "note": "Global cohort state is current: frozen baseline 13,983; UNRESEARCHED 12,987. Top500 was recomputed from the frozen cohort. Top2000 and post-count joined-open counts are stale after current batch. Per-root counts/order remain cached because frozen #180 master and structure graph are unavailable. Candidate roots and post counts are priority only, never HOME evidence.",
   "post_count_joined_frozen_baseline": 13881,
   "post_count_joined_open": 12994,
   "post_count_missing_open": 92,
@@ -15,7 +15,7 @@
   "schema_version": "issue216-source-yield-queue-v1",
   "source_registry_count": 149,
   "top2000_open": 1574,
-  "top500_open": 243,
+  "top500_open": 242,
   "accepted_reusable_source_count": 96,
   "top2000_count_status": "STALE_AFTER_CURRENT_BATCH; exact rank snapshot unavailable in checkout",
   "post_count_joined_open_status": "STALE_AFTER_CURRENT_BATCH"
