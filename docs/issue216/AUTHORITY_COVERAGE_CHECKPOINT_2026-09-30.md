@@ -720,3 +720,16 @@ Checkpoint validation for the curated Danganronpa batch: `python -m pytest tests
 - Missing Copyright roots 0; existing #180 confirmed HOME changed 0; conflict count 1 unchanged. Root-level queue counts/order remain explicitly cached because the exact frozen #180 master and `structure_graph_v3.csv` are unavailable in this checkout; cohort-wide Top500/Top2000 counts were independently recomputed from the frozen cohort and hash-verified Issue #70 post-count snapshot for priority only.
 - Batch validator, deterministic membership-table rebuild/check, membership-batch check, source registry re-audit, `tests/issue216` (26/26), `tests/issue180` (60/60), cohort/root/cardinality validation, and `git diff --check` PASS.
 - Retained artifacts: `PROPOSED_SOURCE_HOLOLIVE_CURATED_MASCOT_MEMBERSHIP_2026-09-30.csv`, `MAPPING_CANDIDATES_HOLOLIVE_CURATED_MASCOT_LIST_PREFLIGHT_2026-09-30.csv`, and `BATCH_HOLOLIVE_CURATED_MASCOT_MEMBERSHIP_2026-09-30.csv`.
+
+## 2026-09-30 curated VOCALOID membership checkpoint
+
+- Batch: reviewed the explicit linked-member section `List of VOCALOID products` in the accepted curated Danbooru list. Exact catalog mapping generated for 118 listed surfaces; 32 exact unique cohort matches were reviewed as one source batch.
+- Outcomes: 21 HOME_CONFIRMED to the validated `vocaloid` root; 11 POLICY_BLOCKED for exact identities whose same roster entry explicitly spans multiple engine/franchise memberships. Ambiguous/no-match entries were not inferred from.
+- Batch yield: 32 terminalized Characters / 1 new membership-source review = 32. The source was reviewed once; its exact mappings are reusable across the cohort.
+- Baseline cohort 13,983; terminalized 929; HOME_CONFIRMED 882; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 18; POLICY_BLOCKED 17; IDENTITY_BLOCKED 11; EVIDENCE_CONFLICT 1; UNRESEARCHED 13,054; coverage 6.641%.
+- Registry 120 (69 reusable accepted rosters); exact member mappings 918 over 931 source-member rows; 916 unique exact mapped cohort identities; reused-source ratio 93.56%; 7.63 exact mapped Characters per registered source.
+- Source re-audit: all 120 registered sources rejoined; 0 open AUTO candidates, 29 REVIEW_REQUIRED surfaces across 25 identities. Source inventory remains scope-limited; no unlisted member was terminalized.
+- Top500 UNRESEARCHED 256. Top2000 is retained as the previous 1,577 priority snapshot and is explicitly stale after this batch because its exact rank input is unavailable in this checkout. Candidate-root queue counts/order remain cached for the same missing frozen #180 master/graph inputs.
+- Missing Copyright roots 0; existing #180 confirmed HOME changed 0; new conflicts 0 (one pre-existing conflict remains). Focused #216 tests 26/26 PASS; full #180 regression 60/60 PASS; deterministic membership rebuild and `git diff --check` PASS. Production unchanged.
+- Deep Research queue: 24 identities (0.1716% of baseline). AUTO_ACCEPT 0 outstanding; FAST_REVIEW 13,030; terminal blocked 47. Source-specific deep research was not expanded for exact unique curated members.
+- Branch remains `codex/issue216-unresolved-coverage-7073`; checkpoint follows after commit/push.
