@@ -671,3 +671,29 @@ The focused #216 suite, deterministic membership projection, full source re-audi
 
 
 Checkpoint validation: `python -m pytest tests/issue216 -q -p no:cacheprovider` PASS (26/26); `python -m pytest tests/issue180 -q -p no:cacheprovider` PASS (60/60); deterministic membership projection PASS; exact-scope audit covers 116/116 sources (0 open AUTO, 21 REVIEW_REQUIRED surfaces across 19 unresolved identities); cohort validator passes all invariants and reports incomplete only for 13,130 UNRESEARCHED rows; Python syntax compilation and `git diff --check` PASS. Existing #180 confirmed HOME mutation count remains 0.
+
+
+## Core Danganronpa curated membership batch — 2026-09-30
+
+Reused the explicit Danbooru curated [Danganronpa character list](https://shima.donmai.us/wiki_pages/list_of_danganronpa_characters), which groups exact linked Character entries by debut game. A single scoped source batch enumerated 46 surfaces from the complete Trigger Happy Havoc and Goodbye Despair headings. Deterministic exact matching produced 27 unique unresolved cohort identities and all 27 were accepted to the already validated `danganronpa_(series)` root: 27 terminalized / 1 new source review = **27.00 per source review**. The other source surfaces were retained as candidate outcomes only: 10 outside cohort, 8 without safe catalog match, and the repeated `Togami Byakuya` identity surface was left REVIEW_REQUIRED. No neighboring game/spinoff/crossover section or unlisted identity was extended into scope.
+
+| Measure | Current |
+|---|---:|
+| Frozen cohort / accounted | 13,983 / 13,983 |
+| Terminalized / coverage | 880 / 6.2934% |
+| HOME_CONFIRMED / no-safe-source / policy / identity / conflict | 844 / 18 / 6 / 11 / 1 |
+| UNRESEARCHED | 13103 |
+| AUTO_ACCEPT / FAST_REVIEW / DEEP_RESEARCH / terminal blocked | 0 / 13084 / 19 / 36 |
+| Character-specific Deep Research / cohort rate | 19 / 0.1359% |
+| Source registry / reusable accepted roster sources | 117 / 66 |
+| Exact member mappings / unique mapped Characters / source-member rows | 869 / 867 / 882 |
+| Reused member rows / source reuse ratio | 822 / 882 (93.20%) |
+| Characters per registered source | 7.41 |
+| Top500 / Top2000 still UNRESEARCHED | 279 / 1594 |
+| New terminalized / new external URL reviews / new source scopes | 27 / 1 / 1 |
+| Missing roots / existing #180 HOME changed / conflicts | 0 / 0 / 1 unchanged |
+
+The full registry re-audit now covers 117 sources: 0 open AUTO candidates and 21 REVIEW_REQUIRED surfaces across 19 unresolved identities. Candidate roots and post counts remain priority-only. No high-yield Copyright root is declared complete from this partial two-game batch.
+
+
+Checkpoint validation for the curated Danganronpa batch: `python -m pytest tests/issue216 -q -p no:cacheprovider` PASS (26/26); `python -m pytest tests/issue180 -q -p no:cacheprovider` PASS (60/60); deterministic membership reconstruction PASS; all-source audit covers 117/117 sources (0 open AUTO and 21 REVIEW_REQUIRED surfaces across 19 identities); cohort validator passes all invariants and reports incomplete only for 13,103 UNRESEARCHED rows; `git diff --check` PASS.
