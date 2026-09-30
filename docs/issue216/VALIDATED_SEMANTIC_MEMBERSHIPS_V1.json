@@ -10,11 +10,11 @@
   "cohort_count": 13983,
   "cohort_sha256": "0fe66682056dddd489449465f98dbfa5e8cb1a05fa5dd0143136dc3c098e2e56",
   "decisions_sha256": "5fd134abdb7e907cfdc4b0a853df074dfc141159d25c1ab597adf7e6f22fc183",
-  "members_sha256": "3a03de12b6e5dff67c5f5be530c1b5f9d7fa088194738e77f89fea692d71b0fb",
+  "members_sha256": "c9609b67850dd02277ad9334b27bf5ae73ec226fe43d64ecbe8474ecaf8bfeb8",
   "over_research_check_row_count": 13990,
   "roots_sha256": "7a993f652479ffc30194f59716f8bc0c6dbcad3a50497d102b0f21fdac4c8770",
   "schema_version": "issue216-validated-semantic-membership-v1",
-  "sources_sha256": "ee02ed5932413dd612d2db6d7c5dfb5d4a27f5bcc4f6d5e2b52b16ae8d9fe1fe",
+  "sources_sha256": "019dee55de2c96a7ff4a6b9f4b5c58c3bd403e3c6ee1f661d835296cf2f030cb",
   "unique_character_count": 949,
   "validated_membership_row_count": 951
 }
