@@ -615,3 +615,29 @@ The complete 765PRO ALLSTARS section on the already reviewed Million Live page w
 | Missing Copyright roots / existing #180 HOME changed / conflicts | 0 / 0 / 1 unchanged |
 
 The validated membership projection reports 822 evidence rows and identifies 21 remaining Deep Research candidates. Source registry re-audit, exact mapping schema/scope/root/cardinality and immutable-HOME checks passed. The cohort validator accepts all invariants and remains incomplete only because 13,136 rows are UNRESEARCHED. Focused Issue #216 tests pass 26/26, deterministic membership reconstruction matches, Python syntax compilation and `git diff --check` pass. Root-level expected-yield counts and the current Top2000 value remain unavailable because this checkout does not contain the exact frozen #180 master, structure graph, or post-count snapshot. Full #180 regression, final reproducibility, CI, clean pushed branch, and `UNRESEARCHED = 0` remain pending.
+
+## Reused Fate membership checkpoint — 2026-09-30
+
+Reused the already accepted, exact-scope Fate/Apocrypha official directory and its validated `fate_(series)` root. The exact roster name ジャンヌ・ダルク was resolved to `janne_d'arc`; the same-name Azur Lane identity was explicitly excluded from this source scope. No character-specific source search was needed. The Fate/stay night and Fate/Zero directories were also rejoined to the cohort; their exact Tohsaka Rin entries do not cover the distinct Honkai: Star Rail identity, so those candidate edges were excluded from both source scopes.
+
+The existing Million Live official source scope was replayed across its full 39-member MILLIONSTARS roster. It yielded no new unresolved cohort identity: the exact roster surfaces were already terminal or outside the frozen cohort. The complete source surface list, exact candidate projection, and collision dispositions are retained; no duplicate source or HOME decision was added.
+
+| Measure | Current |
+|---|---:|
+| Frozen baseline / accounted | 13,983 / 13,983 |
+| Terminalized / coverage | 848 / 6.0659% |
+| HOME_CONFIRMED / no-safe-source / policy / identity / conflict | 812 / 18 / 6 / 11 / 1 |
+| UNRESEARCHED | 13,135 |
+| AUTO_ACCEPT / FAST_REVIEW / DEEP_RESEARCH / terminal blocked | 0 / 13,116 / 19 / 36 |
+| Character-specific Deep Research / cohort rate | 19 / 0.1359% |
+| Source registry / accepted reusable sources | 114 / 64 |
+| Exact member rows / unique exact Characters / all source-member rows | 837 / 835 / 850 |
+| Reused source-member rows / source reuse ratio | 791 / 850 (93.06%) |
+| Exact Characters per registered source | 7.32 |
+| Top500 still UNRESEARCHED | 295 |
+| Top2000 still UNRESEARCHED | Last verified 1,624 before this checkpoint; stale until the exact post-count snapshot is available |
+| Since pushed HEAD: terminalized / new external URL reviews / reused scopes | 1 / 0 / 1 |
+| Terminalized per reused membership scope | 1.00 |
+| Missing Copyright roots / existing #180 HOME changed / conflicts | 0 / 0 / 1 unchanged |
+
+All 114 source records were rejoined to the exact-scope inventories: 0 open AUTO candidates and 21 open REVIEW_REQUIRED surfaces involving 19 unresolved Characters. Deterministic membership reconstruction and the cohort authority validator pass all invariants; the cohort remains incomplete only because 13,135 rows are UNRESEARCHED. Focused Issue #216 tests pass 26/26. Root-level expected-yield counts and current Top2000 are still unavailable without the exact frozen #180 master, structure graph, and post-count snapshot. Full #180 regression, final reproducibility, CI, clean pushed branch, and `UNRESEARCHED = 0` remain pending.
