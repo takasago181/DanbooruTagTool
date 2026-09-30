@@ -203,8 +203,8 @@ def validate(cohort_path: Path, sources_path: Path, members_path: Path, decision
             validated_roots = {source_by_id[source_id]["copyright_canonical"] for source_id in exact_accepted_ids}
             if not exact_accepted_ids:
                 errors.append(f"HOME_CONFIRMED requires an ACCEPTED exact-member authority source: {decision['cohort_id']}")
-            if validated_roots != {decision["home_copyright"]}:
-                errors.append(f"HOME differs from or conflicts with the exact mapped authority roots: {decision['cohort_id']}")
+            if decision["home_copyright"] not in validated_roots:
+                errors.append(f"HOME lacks an exact accepted member mapping to its root: {decision['cohort_id']}")
             all_roots = {source["copyright_canonical"] for source, _ in
                          accepted_exact_by_character.get(decision["canonical_character"], [])}
             tiers_by_root: dict[str, set[int]] = {}

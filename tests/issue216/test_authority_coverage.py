@@ -113,6 +113,50 @@ class AuthorityCoverageTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "HOME_CONFIRMED lacks exact reviewed member mapping"):
             coverage.validate(self.cohort_path, self.sources_path, self.members_path, self.decisions_path, 1, self.roots_path)
 
+    def test_unique_browse_priority_can_select_home_with_secondary_membership(self) -> None:
+        cohort, sources, members, decisions = self.fixture(["character_a"])
+        source_rows = []
+        member_rows = []
+        for index, (root, tier, basis) in enumerate((
+            ("series_a", "3", "Validated origin ecosystem"),
+            ("series_b", "5", "Later product use only"),
+        )):
+            url = f"https://example.org/roster-{index}"
+            owner = "Example publisher"
+            scope = "Exact Character roster entry"
+            source_id = coverage.deterministic_source_id(url, owner, scope)
+            source_rows.append({
+                "source_id": source_id, "copyright_canonical": root, "source_url": url,
+                "source_type": "OFFICIAL_CHARACTER_ROSTER", "authority_owner": owner,
+                "source_status": "ACCEPTED", "source_scope": scope, "exact_roster_available": "true",
+                "reviewed_at": "2026-09-30", "source_claim": "Exact member listed",
+                "provenance": "Reviewed official roster", "reusable": "true", "notes": "Exact member only",
+            })
+            member_rows.append({
+                "source_id": source_id, "canonical_character": "character_a", "matched_surface": "Character A",
+                "mapping_method": "REVIEWED_NAME_MAPPING", "mapping_evidence": "Exact official member name",
+                "reviewed_at": "2026-09-30", "reviewer": "reviewer", "mapping_status": "EXACT_COVERED",
+                "browse_home_tier": tier, "browse_home_basis": basis,
+            })
+        sources.extend(source_rows)
+        members.extend(member_rows)
+        decisions[0].update(
+            research_state="HOME_CONFIRMED", home_copyright="series_a", authority_type="OFFICIAL_CHARACTER_ROSTER",
+            source_ids="|".join(sorted(row["source_id"] for row in source_rows)),
+            source_claim="One exact origin membership and one later product membership",
+            provenance="Both scoped first-party sources reviewed", reviewed_at="2026-09-30",
+            reason_code="BROWSE_HOME_PRIORITY", reason_detail="Tier 3 origin outranks tier 5 product context",
+        )
+        self.persist(cohort, sources, members, decisions)
+        self.write(self.roots_path, coverage.ROOT_FIELDS, [
+            {"copyright_canonical": "series_a", "provenance": "canonical root"},
+            {"copyright_canonical": "series_b", "provenance": "canonical root"},
+        ])
+        result = coverage.validate(self.cohort_path, self.sources_path, self.members_path,
+                                   self.decisions_path, 1, self.roots_path)
+        self.assertEqual(result["research_state_counts"]["HOME_CONFIRMED"], 1)
+        self.assertEqual(result["unresearched"], 0)
+
     def test_existing_confirmed_home_in_cohort_is_rejected(self) -> None:
         cohort, sources, members, decisions = self.fixture(["character_a"])
         cohort[0]["baseline_state"] = "HOME_CONFIRMED"
