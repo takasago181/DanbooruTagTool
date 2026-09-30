@@ -733,3 +733,13 @@ Checkpoint validation for the curated Danganronpa batch: `python -m pytest tests
 - Missing Copyright roots 0; existing #180 confirmed HOME changed 0; new conflicts 0 (one pre-existing conflict remains). Focused #216 tests 26/26 PASS; full #180 regression 60/60 PASS; deterministic membership rebuild and `git diff --check` PASS. Production unchanged.
 - Deep Research queue: 24 identities (0.1716% of baseline). AUTO_ACCEPT 0 outstanding; FAST_REVIEW 13,030; terminal blocked 47. Source-specific deep research was not expanded for exact unique curated members.
 - Branch remains `codex/issue216-unresolved-coverage-7073`; checkpoint follows after commit/push.
+
+
+## 2026-09-30 Issue #180 exact final-qualifier reuse batch
+
+- Rejoined the frozen #216 cohort against the already PASS-reviewed Issue #180 `FAMILY_QUALIFIER` map. Exact terminal qualifiers only; nested inner qualifiers, candidate roots, popularity and fuzzy matching were not used. The exact final `fate` qualifier maps to `fate_(series)` for 5 still-unresolved identities, and `kancolle` maps to `kantai_collection` for 6.
+- Applied 11 exact decisions as `APPROVED_REPO_EVIDENCE`; no new external URL was researched and no new qualifier normalization was introduced. This reused existing #180 evidence and left all existing confirmed HOME values untouched.
+- Frozen cohort 13,983 / accounted 13,983; terminalized 940 (6.722%); HOME_CONFIRMED 893; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 18; POLICY_BLOCKED 17; IDENTITY_BLOCKED 11; EVIDENCE_CONFLICT 1; UNRESEARCHED 13043. Top500 unresolved 256; Top2000 count remains stale from the previous exact rank snapshot.
+- Registry 122; exact mapping rows 929 across 942 source-member rows; source reuse ratio 94.80%; 7.6 unique exact mapped cohort members per registered source. The batch added 11 terminal decisions from 2 reused qualifier/root mappings, with 0 new external URL reviews.
+- Missing roots 0; existing #180 HOME changes 0; conflicts introduced 0 (one pre-existing conflict remains). Issue #216 tests 26/26 and Issue #180 regression 60/60 PASS; authority ledger cardinality/root checks passed with the lane intentionally incomplete while UNRESEARCHED remains.
+- Retained exact batch at `BATCH_VALIDATED_FINAL_QUALIFIER_REUSE_2026-09-30.csv`; deterministic validated membership table rebuilt.
