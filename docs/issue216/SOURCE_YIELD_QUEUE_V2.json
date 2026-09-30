@@ -1,12 +1,12 @@
 {
-  "accepted_roster_source_count": 913,
+  "accepted_roster_source_count": 924,
   "baseline_unresolved": 13983,
   "candidate_graph_sha256": "218cf30cb21695472e276cce327cd96a132665f3473c8925954059c3432c4bea",
-  "candidate_root_count": 2049,
-  "currently_unresearched": 10261,
+  "candidate_root_count": 2041,
+  "currently_unresearched": 10185,
   "note": "Yield/status/route fields are scheduling metadata only. KNOWN_ZERO and SCOPE_EXHAUSTED are limited to the reviewed COMPLETE source scopes; they do not establish root-wide or Character-wide nonmembership and never establish or deny HOME.",
   "post_count_joined_frozen_baseline": 13881,
-  "post_count_joined_open": 10176,
+  "post_count_joined_open": 10100,
   "post_count_missing_open": 85,
   "post_count_sha256": "893fbf07c7d0250e1c30d43b9e01aca69d56e2e6f3d742dcc233e889dfec5aec",
   "post_count_snapshot_current_for_decision_set": true,
@@ -14,7 +14,7 @@
   "protected_master_sha256": "135463a5225b6501db923322284f8e309f217eb5359538088eb6de6d78b77071",
   "queue_order": "Current accepted exact open mappings; measured exact open roster overlap; empirical source-family yield; explicit roster found awaiting extraction; high unresolved/top cohort routes; unknown tail. Post counts are routing tie-breaks only; expected_safe_yield v1 is retained for history but ignored for order.",
   "registry_rejoined_source_scope_count": 894,
-  "root_count": 2050,
+  "root_count": 2042,
   "rootless_open_count": 85,
   "rootless_tags": [
     "aiboo_(mint_fantome)",
@@ -107,15 +107,15 @@
   "rootless_top500_open": 0,
   "schema_version": "issue216-source-yield-queue-v2",
   "scout_inventory": "C:\\Users\\takas\\.codex\\worktrees\\7073\\DanbooruTagTool\\docs\\issue216\\ROSTER_SCOUT_INVENTORY_V1.csv",
-  "scouted_root_count": 15,
-  "scouted_source_scope_count": 17,
-  "source_registry_count": 1061,
-  "top2000_open": 1049,
-  "top500_open": 145,
+  "scouted_root_count": 25,
+  "scouted_source_scope_count": 55,
+  "source_registry_count": 1078,
+  "top2000_open": 1034,
+  "top500_open": 143,
   "yield_state_counts": {
-    "ESTIMATED": 216,
-    "KNOWN_POSITIVE": 12,
+    "ESTIMATED": 223,
+    "KNOWN_POSITIVE": 0,
     "KNOWN_ZERO": 1,
-    "UNKNOWN": 1821
+    "UNKNOWN": 1818
   }
 }
