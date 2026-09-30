@@ -751,3 +751,13 @@ Checkpoint validation for the curated Danganronpa batch: `python -m pytest tests
 - Registry 127; exact mappings 959 across 972 member rows; reuse ratio 93.62%; 7.54 unique mapped cohort Characters per registered source. 30 terminalized / 0 new external reviews (not applicable; inherited mappings reused).
 - Membership routing: AUTO_ACCEPT 0; FAST_REVIEW 12991; DEEP_RESEARCH 22 (rate 0.1573%); terminal blocked 47. Reusable validated memberships reduced the deep-research queue by 2 without additional Character-specific research.
 - Missing roots 0; existing #180 HOME changes 0; conflicts introduced 0 (one prior conflict remains). Issue #216 tests 26/26, Issue #180 regression 60/60, deterministic membership rebuild/check and `git diff --check` PASS.
+## 2026-09-30 Nintendo Splatoon character membership batch
+
+- Reviewed Nintendo's official amiibo Character Lineup once and scoped it only to entries whose adjacent series label is exactly “Splatoon series”; entries labelled “Splatoon Raiders series” and “Super Smash Bros. series” were excluded. Four exact unique cohort matches were confirmed: `inkling_girl`, `inkling_boy`, `octoling_girl`, and `octoling_boy`.
+- Reviewed Nintendo's official Splatoon 3 world page once for the explicit playable character classes Inkling and Octoling (“Play as either!”). Their exact catalog identities `inkling_player_character` and `octoling_player_character` were mapped to the existing Splatoon series root. This was the requested player/avatar exception review; no other gendered or named variants were inferred from these two class labels.
+- Two official source URLs yielded 6 HOME decisions (**3 terminalized per new URL review**). Mapping candidates that did not have a safe exact identity were excluded from the decision batch and remain unassigned.
+- Frozen cohort 13,983 / accounted 13,983; terminalized 976 (6.98%); HOME_CONFIRMED 929; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 18; POLICY_BLOCKED 17; IDENTITY_BLOCKED 11; EVIDENCE_CONFLICT 1; UNRESEARCHED 13007. Top500 UNRESEARCHED 250; Top2000 count remains stale.
+- Registry 129; accepted reusable sources 76; exact mappings 965 / 978 source-member rows; source reuse ratio 93.66%; 7.47 unique mapped cohort members per registered source.
+- Membership routing: AUTO_ACCEPT 0; FAST_REVIEW 12985; DEEP_RESEARCH 22 (0.1573%); terminal blocked 47.
+- Missing roots 0; existing #180 HOME changes 0; conflicts introduced 0 (one prior conflict remains). Issue #216 tests 26/26, Issue #180 regression 60/60, deterministic membership table check, source reuse audit, and `git diff --check` PASS.
+- Batch: `BATCH_SPLATOON_NINTENDO_PLAYER_AND_AMIIBO_CHARACTER_MEMBERSHIP_2026-09-30.csv`.
