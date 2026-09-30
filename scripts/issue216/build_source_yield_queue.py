@@ -101,8 +101,11 @@ def build(master_path: Path, graph_path: Path, post_counts_path: Path):
     review_required_tags_by_root: dict[str, set[str]] = defaultdict(set)
     for source in source_rows:
         root = source["copyright_canonical"]
-        if root in roots and source["source_status"] == "ACCEPTED":
+        if root in roots and source["source_type"] in {
+                "OFFICIAL_CHARACTER_ROSTER", "OFFICIAL_CHARACTER_PROFILE", "OFFICIAL_GAME_ROSTER",
+                "OFFICIAL_SERIES_DIRECTORY", "OFFICIAL_PUBLISHER_ROSTER", "FIRST_PARTY_OTHER"}:
             source_ids_by_root[root].add(source["source_id"])
+        if root in roots and source["source_status"] == "ACCEPTED":
             if (source["exact_roster_available"].lower() == "true"
                     and source["reusable"].lower() == "true"):
                 roster_ids_by_root[root].add(source["source_id"])
@@ -143,6 +146,12 @@ def build(master_path: Path, graph_path: Path, post_counts_path: Path):
     for tag in open_tags:
         for root in hint_by_tag.get(tag, set()):
             root_members[root].add(tag)
+    # Accepted exact roster membership is already a validated routing surface. Include
+    # it in the queue even when the original #180 hint omitted that root; membership
+    # remains evidence only through the accepted source/member rows, not through this
+    # priority projection.
+    for root, tags in members_by_root.items():
+        root_members[root].update(tags & open_tags)
     # A source-derived candidate can expose a more specific root than a broad catalog
     # hint. Add it to the queue only; this never confirms HOME.
     for root, tags in safe_candidate_tags_by_root.items():
@@ -200,6 +209,24 @@ def build(master_path: Path, graph_path: Path, post_counts_path: Path):
             "source_yield_class": source_class,
             "priority_rank": "",
         })
+    rooted_tags = set().union(*root_members.values()) if root_members else set()
+    rootless_tags = open_tags - rooted_tags
+    if rootless_tags:
+        rootless_counts = [counts.get(tag, 0) for tag in rootless_tags]
+        queue.append({
+            "candidate_root": "",
+            "hint_kind": "No candidate root/family/source hint; source discovery only",
+            "unresolved_count": str(len(rootless_tags)),
+            "top500_count": str(sum(ranks.get(tag, 10**9) <= 500 for tag in rootless_tags)),
+            "top2000_count": str(sum(ranks.get(tag, 10**9) <= 2000 for tag in rootless_tags)),
+            "total_post_count_sum": str(sum(rootless_counts)),
+            "max_post_count": str(max(rootless_counts, default=0)),
+            "known_official_source_count": "0", "reusable_accepted_source_count": "0",
+            "reviewed_source_count": "0", "likely_roster_availability": "NO_CANDIDATE_ROOT_OR_REGISTERED_SOURCE",
+            "existing_exact_mappings": "0", "remaining_unmapped_count": str(len(rootless_tags)),
+            "open_exact_candidate_count": "0", "review_required_count": "0", "expected_safe_yield": "0",
+            "source_yield_class": "NO_CANDIDATE_ROOT_SOURCE_DISCOVERY", "priority_rank": "",
+        })
     # Safe source reuse is based on actual unique exact candidates, not merely the
     # presence of any roster at the same root. Then finish registered source review
     # before source discovery; cohort size/frequency only break ties.
@@ -207,7 +234,7 @@ def build(master_path: Path, graph_path: Path, post_counts_path: Path):
         -int(r["expected_safe_yield"]),
         {"REUSE_SOURCE_EXACT_CANDIDATES": 0, "REVIEW_SOURCE_IDENTITY_CANDIDATES": 1,
          "REVIEW_REGISTERED_SOURCE_SCOPE": 2, "DISCOVER_ADDITIONAL_OFFICIAL_SOURCE": 3,
-         "DISCOVER_OFFICIAL_SOURCE": 4}[r["source_yield_class"]],
+         "DISCOVER_OFFICIAL_SOURCE": 4, "NO_CANDIDATE_ROOT_SOURCE_DISCOVERY": 5}[r["source_yield_class"]],
         -int(r["remaining_unmapped_count"]), -int(r["top2000_count"]),
         -int(r["total_post_count_sum"]), r["candidate_root"],
     ))
@@ -223,6 +250,11 @@ def build(master_path: Path, graph_path: Path, post_counts_path: Path):
         "post_count_missing_open": len(open_tags) - len(counts),
         "top500_open": sum(ranks.get(tag, 10**9) <= 500 for tag in open_tags),
         "top2000_open": sum(ranks.get(tag, 10**9) <= 2000 for tag in open_tags),
+        "rootless_open_count": len(rootless_tags),
+        "rootless_top500_open": sum(ranks.get(tag, 10**9) <= 500 for tag in rootless_tags),
+        "rootless_top2000_open": sum(ranks.get(tag, 10**9) <= 2000 for tag in rootless_tags),
+        "rootless_tags": sorted(rootless_tags),
+        "candidate_root_count": len(queue) - bool(rootless_tags),
         "source_registry_count": len(source_rows), "accepted_roster_source_count": sum(
             source["source_status"] == "ACCEPTED" and source["exact_roster_available"].lower() == "true"
             and source["reusable"].lower() == "true"

@@ -16,10 +16,16 @@ import tempfile
 from collections import defaultdict
 from pathlib import Path
 
-from authority_coverage import (
-    DECISION_FIELDS, MEMBER_FIELDS, SOURCE_FIELDS, deterministic_source_id,
-    read_csv, validate,
-)
+try:
+    from authority_coverage import (
+        DECISION_FIELDS, MEMBER_FIELDS, SOURCE_FIELDS, deterministic_source_id,
+        read_csv, validate,
+    )
+except ModuleNotFoundError:  # package import from tests/tools
+    from scripts.issue216.authority_coverage import (
+        DECISION_FIELDS, MEMBER_FIELDS, SOURCE_FIELDS, deterministic_source_id,
+        read_csv, validate,
+    )
 
 ROOT = Path(__file__).resolve().parents[2]
 ISSUE216 = ROOT / "docs/issue216"
@@ -72,6 +78,24 @@ def page_root(title: str, roots: set[str], aliases: dict[str, set[str]]) -> str 
         for root in mapped_roots
     }
     return next(iter(matches)) if len(matches) == 1 else None
+
+
+def retain_or_register_source(merged_sources: dict[str, dict[str, str]], source: dict[str, str],
+                              new_source_ids: set[str]) -> None:
+    """Preserve an accepted source record when its exact identity/scope recurs."""
+    sid = source["source_id"]
+    prior = merged_sources.get(sid)
+    if prior:
+        identity_fields = (
+            "source_id", "copyright_canonical", "source_url", "source_type",
+            "authority_owner", "source_status", "source_scope",
+            "exact_roster_available", "reusable",
+        )
+        if any(prior.get(field, "") != source.get(field, "") for field in identity_fields):
+            raise ValueError(f"deterministic source identity collision: {sid}")
+        return
+    merged_sources[sid] = source
+    new_source_ids.add(sid)
 
 
 def build(harvest_path: Path) -> tuple[list[dict[str, str]], list[dict[str, str]], list[dict[str, str]], dict[str, object]]:
@@ -135,12 +159,9 @@ def build(harvest_path: Path) -> tuple[list[dict[str, str]], list[dict[str, str]
                            "were parsed once, then title/root scope and cohort identity were revalidated."),
             "reusable": "true", "notes": "Exact linked members only; page absence is not evidence.",
         }
-        prior = merged_sources.get(sid)
-        if prior and prior != source:
-            raise ValueError(f"deterministic source identity collision: {sid}")
-        merged_sources[sid] = source
-        if prior is None:
-            new_source_ids.add(sid)
+        # A later exact-member batch may enrich an already-reviewed claim. Retain
+        # the durable row and reject only deterministic source identity/scope drift.
+        retain_or_register_source(merged_sources, source, new_source_ids)
         for row in sorted(page_rows, key=lambda item: (item["canonical_character"], item["section_heading"])):
             tag = row["canonical_character"]
             key = (sid, tag)
