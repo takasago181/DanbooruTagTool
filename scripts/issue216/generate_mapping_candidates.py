@@ -95,29 +95,32 @@ def build(roster: list[dict[str, str]], catalog_path: Path, cohort_path: Path, d
                 or registered["source_scope"] != source_row["source_scope"]):
             raise ValueError(f"roster input does not match an accepted source registry scope: {source_row}")
         seen.add(key)
-        candidates = set(index.get(norm(source_row["matched_surface"]), set()))
+        direct_candidates = set(index.get(norm(source_row["matched_surface"]), set()))
         # Official English display names often exactly match the canonical
         # Character tag after the catalog's standard whitespace-to-underscore
         # spelling (for example, "Clive Rosfield" -> "clive_rosfield").
         # Admit only an exact existing canonical tag; this is not fuzzy lookup.
         canonical_slug = exact_tag_slug(source_row["matched_surface"])
         if canonical_slug in canonical_tags:
-            candidates.add(canonical_slug)
-        candidates = sorted(candidates)
-        contextual_candidates = sorted(
+            direct_candidates.add(canonical_slug)
+        contextual_candidates = (
             qualified_alias_index.get(norm(source_row["matched_surface"]), set())
             | search_surface_index.get(norm(source_row["matched_surface"]), set())
-        ) if not candidates else []
-        selected = candidates[0] if len(candidates) == 1 else ""
-        if not candidates:
+        )
+        # Contextual surfaces never independently qualify for AUTO, but they
+        # remain competing identities when a direct display/alias also matches.
+        candidates = sorted(direct_candidates | contextual_candidates)
+        direct_selected = sorted(direct_candidates)
+        selected = direct_selected[0] if len(direct_selected) == 1 else ""
+        if not direct_candidates:
             if contextual_candidates:
                 status = "REVIEW_REQUIRED"
                 basis = "Name is present only as a qualifier-bearing alias or catalog search surface; identity review is required."
-                candidates = contextual_candidates
             else:
                 status, basis = "NO_MATCH", "No exact normalized match in Character catalog fields."
         elif len(candidates) > 1:
             status, basis = "REVIEW_REQUIRED", "Exact normalized surface collides across canonical Character identities."
+            selected = ""
         elif selected not in cohort:
             status, basis = "OUTSIDE_COHORT", "Unique exact catalog match is outside frozen #216 unresolved cohort."
             selected = ""

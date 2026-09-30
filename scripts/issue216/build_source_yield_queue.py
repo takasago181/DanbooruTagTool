@@ -45,6 +45,16 @@ def write_csv(path: Path, fields: list[str], rows: list[dict[str, str]]) -> None
         writer.writerows(rows)
 
 
+def add_open_membership_routes(root_members: dict[str, set[str]], members_by_root: dict[str, set[str]],
+                               open_tags: set[str]) -> dict[str, set[str]]:
+    """Route only open exact members and omit roots whose mapped members are terminal."""
+    for root, tags in members_by_root.items():
+        open_members = tags & open_tags
+        if open_members:
+            root_members.setdefault(root, set()).update(open_members)
+    return defaultdict(set, {root: tags for root, tags in root_members.items() if tags})
+
+
 def build(master_path: Path, graph_path: Path, post_counts_path: Path):
     master_hash = sha256(master_path)
     if master_hash != MASTER_SHA256:
@@ -150,8 +160,7 @@ def build(master_path: Path, graph_path: Path, post_counts_path: Path):
     # it in the queue even when the original #180 hint omitted that root; membership
     # remains evidence only through the accepted source/member rows, not through this
     # priority projection.
-    for root, tags in members_by_root.items():
-        root_members[root].update(tags & open_tags)
+    root_members = add_open_membership_routes(root_members, members_by_root, open_tags)
     # A source-derived candidate can expose a more specific root than a broad catalog
     # hint. Add it to the queue only; this never confirms HOME.
     for root, tags in safe_candidate_tags_by_root.items():
@@ -160,6 +169,10 @@ def build(master_path: Path, graph_path: Path, post_counts_path: Path):
     for root, tags in review_required_tags_by_root.items():
         for tag in tags:
             root_members[root].add(tag)
+
+    # Candidate sources can cover only terminal members. Do not emit empty root rows:
+    # they are not research queue work and would distort rank ownership/sharding.
+    root_members = {root: tags for root, tags in root_members.items() if tags}
 
     fields = [
         "candidate_root", "hint_kind", "unresolved_count", "top500_count", "top2000_count",

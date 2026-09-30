@@ -20,6 +20,40 @@ class SourceMappingCandidatesTests(unittest.TestCase):
         self.assertEqual(norm(" 三峰　結華 "), norm("三峰結華"))
         self.assertNotEqual(norm("ゆいか"), norm("三峰結華"))
 
+    def test_direct_display_match_is_reviewed_when_search_surface_has_competing_identity(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            roster_path = root / "roster.csv"
+            catalog_path = root / "catalog.csv"
+            cohort_path = root / "cohort.csv"
+            decisions_path = root / "decisions.csv"
+            sources_path = root / "sources.csv"
+            write_csv(roster_path, ["source_id", "source_url", "source_scope", "matched_surface"], [
+                {"source_id": "src-test", "source_url": "https://example.test/roster", "source_scope": "test roster", "matched_surface": "千夜"},
+            ])
+            write_csv(catalog_path, ["canonical_tag", "category", "display_ja", "search_ja", "aliases"], [
+                {"canonical_tag": "qian_ye_(qys3)", "category": "4", "display_ja": "千夜", "search_ja": "", "aliases": ""},
+                {"canonical_tag": "ujimatsu_chiya", "category": "4", "display_ja": "宇治松千夜", "search_ja": "千夜", "aliases": ""},
+            ])
+            write_csv(cohort_path, ["cohort_id", "canonical_character"], [
+                {"cohort_id": "qian_ye_(qys3)", "canonical_character": "qian_ye_(qys3)"},
+                {"cohort_id": "ujimatsu_chiya", "canonical_character": "ujimatsu_chiya"},
+            ])
+            write_csv(decisions_path, ["canonical_character", "research_state"], [
+                {"canonical_character": "qian_ye_(qys3)", "research_state": "UNRESEARCHED"},
+                {"canonical_character": "ujimatsu_chiya", "research_state": "UNRESEARCHED"},
+            ])
+            write_csv(sources_path, ["source_id", "source_url", "source_scope", "source_status"], [
+                {"source_id": "src-test", "source_url": "https://example.test/roster", "source_scope": "test roster", "source_status": "ACCEPTED"},
+            ])
+            candidates = build(
+                roster=read_csv(roster_path), catalog_path=catalog_path, cohort_path=cohort_path,
+                decisions_path=decisions_path, sources_path=sources_path,
+            )
+            self.assertEqual(candidates[0]["candidate_status"], "REVIEW_REQUIRED")
+            self.assertEqual(candidates[0]["canonical_character"], "")
+            self.assertEqual(candidates[0]["competing_tags"], "qian_ye_(qys3) | ujimatsu_chiya")
+
     def test_exact_unique_match_becomes_candidate_and_ambiguity_requires_review(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
