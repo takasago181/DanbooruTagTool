@@ -421,3 +421,63 @@ Continue by source-yield order: resolve the remaining exact members available fr
 - Separately, audited every open-cohort row against the protected #180 graph for a `VALIDATED VARIANT_OF` edge whose base has one `HOME_CONFIRMED` master root and no competing validated root. Exactly two rows qualify: `cyrene_(demiurge)_(honkai:_star_rail)` inherits `honkai:_star_rail`, and `kei_(aris)_(blue_archive)` inherits `blue_archive`. Both exact evidence paths were reused as `APPROVED_REPO_EVIDENCE`; candidate-only variant links remain untouched. Both are in frozen Top500, so Top500 UNRESEARCHED fell by two.
 - Current cohort: 13,983; terminalized 442 (3.16%); HOME_CONFIRMED 426; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 5; POLICY_BLOCKED 3; IDENTITY_BLOCKED 7; EVIDENCE_CONFLICT 1; UNRESEARCHED 13,541. Source registry: 71; exact member mappings: 434; source-reused member rows: 397; reuse ratio: 89.62%. The ratio includes seven explicit ambiguous/rejected member records from the FGO terminal scope. Missing Copyright roots: 0; existing #180 confirmed HOME changed: 0.
 - Full rebuilt queue: 2,665 roots; Top500 UNRESEARCHED 332; Top2000 UNRESEARCHED 1,742; source-yield reproducibility PASS. Issue #216 focused tests: 18/18 PASS; `git diff --check` PASS. Final #180 regression, final deterministic reconstruction/reproducibility, CI, final Gate, and all remaining source-driven batches are pending.
+
+
+## Source-driven continuation checkpoint — 2026-09-30
+
+Continued on `codex/issue216-unresolved-coverage-7073`, preserving the frozen cohort and existing #180 HOME assignments. Three new official sources and one existing accepted source batch produced 15 exact HOME decisions: FGO THE STAGE - Solomon (Romani Archaman and the explicitly gendered male/female Fujimaru Ritsuka identities); two title-qualified Fate/Zero identities from the already accepted Fate/Zero directory; Chidori from the official Persona 3 Reload roster; and nine exact Endwalker Patch 6.0 Key Characters from the official Japanese FFXIV page. The Endwalker batch used three machine-generated exact candidates and six manually reviewed unique Japanese-name/catalog matches. The FGO raw Gilgamesh candidate was rejected because its only exact catalog match is a Final Fantasy identity. Endwalker `クルル` was not assigned because its exact collision maps to an unrelated outside-cohort Character; `光に佇む淑女` remains unmapped because the official page does not establish the canonical identity.
+
+The source registry re-audit covered all 48 accepted reusable roster sources. Retained candidate inventories were matched on source ID, URL and exact scope. No safe unmapped exact candidate remained in those inventories; one raw FGO Gilgamesh AUTO candidate was explicitly rejected. Report: `SOURCE_REGISTRY_REAUDIT_2026-09-30.csv`.
+
+| Measure | Current |
+|---|---:|
+| Frozen baseline cohort | 13,983 |
+| Terminalized | 547 (3.91%) |
+| HOME_CONFIRMED | 514 |
+| SOURCE_RESEARCHED_NO_SAFE_EVIDENCE | 18 |
+| POLICY_BLOCKED | 6 |
+| IDENTITY_BLOCKED | 8 |
+| EVIDENCE_CONFLICT | 1 |
+| UNRESEARCHED | 13436 |
+| Coverage | 3.91% |
+| Source registry / accepted reusable rosters | 94 / 48 |
+| Exact source-member rows / unique exact mappings | 548 / 538 |
+| Reuse rows / source-member rows | 496 / 548 (90.51%) |
+| Top500 / Top2000 still UNRESEARCHED | 306 / 1688 |
+| Missing Copyright roots / changed existing #180 HOME / new conflicts | 0 / 0 / 0 |
+| Terminalized Characters / new source reviews since prior pushed checkpoint | 15 / 3 = 5.00 |
+
+The exact frozen #180 master and `structure_graph_v3.csv` are absent both in this checkout and the primary repository path. Per-root unresolved/Top500/Top2000/post-count values and the root priority order therefore remain cached and explicitly marked; no replacement hint graph was inferred. The hash-verified post-count snapshot permits cohort-wide Top500 and Top2000 open counts to be recomputed without treating frequency as evidence.
+
+Validation: all four reviewed batch inputs in this continuation passed the source-batch validator; the authority coverage ledger validates; `python -m pytest tests/issue216 -q` passed 18/18; `git diff --check` passed. Existing #180 confirmed HOME changes: 0; missing roots: 0; current conflicting decisions: 1 (unchanged). This is a continuing checkpoint, not completion.
+
+
+## Membership-driven continuation checkpoint — 2026-09-30
+
+The research flow now projects only accepted exact membership evidence onto the frozen cohort. Added `MEMBERSHIP_RESEARCH_POLICY_V1.md`, deterministic membership-table generation, safe bulk-decision projection, and regressions for exact curated roster reuse, candidate-root-only rejection, competing roots, fuzzy mappings, scope leakage, deterministic output, and existing HOME preservation. The Kotori regression is in the accepted 765PRO staff directory batch: the work-level roster is enough to validate `otonashi_kotori`; its character-specific interview is no longer required by the decision. The exact Persona terminal qualifier rule already validated in #180 was reused for 11 open `_(persona)` tags; `mortis_(persona)_(bang_dream!)` was excluded because its outer qualifier conflicts. Issue #216 tests pass 25/25.
+
+All 97 current registry records were joined back to the full cohort using accepted source/member IDs, exact URL/scope, and recorded candidate-review dispositions. The retained source inventories have 0 safe open exact candidates and 0 open review candidates. The only raw AUTO candidate in that re-audit was FGO-stage `ギルガメッシュ -> gilgamesh_(final_fantasy)`; the recorded wrong-identity rejection is honored. Roster-root audits found no newly supportable open exact members for Touhou, Project Moon/Limbus, BanG Dream, Vocaloid, or Fate. Their existing validated scopes/root policies remain available for reuse. No candidate hints were promoted to membership evidence.
+
+| Measure | Current |
+|---|---:|
+| Frozen baseline cohort / accounted | 13,983 / 13,983 |
+| Terminalized / coverage | 562 / 4.02% |
+| HOME_CONFIRMED | 528 |
+| SOURCE_RESEARCHED_NO_SAFE_EVIDENCE | 18 |
+| POLICY_BLOCKED | 6 |
+| IDENTITY_BLOCKED | 9 |
+| EVIDENCE_CONFLICT | 1 |
+| UNRESEARCHED | 13,421 |
+| Membership action mix (AUTO_ACCEPT / FAST_REVIEW / DEEP_RESEARCH / terminal blocked) | 0 / 13,421 / 0 / 34 |
+| Character-specific Deep Research count / rate | 0 / 0.00% |
+| Source registry / accepted reusable sources | 97 / 50 |
+| Exact mapped Characters / source-member rows | 553 / 564 |
+| Reused member rows / reuse ratio | 510 / 564 (90.43%) |
+| Mean mapped Characters per registered source | 5.70 |
+| Top500 / Top2000 still UNRESEARCHED | 305 / 1,684 |
+| Missing Copyright roots / changed existing #180 HOME / conflicts | 0 / 0 / 1 (the same explicit conflict) |
+| New terminalized Characters / reviewed scopes since pushed-base delta | 30 / 6 = 5.00 |
+| New terminalized Characters / external URL reviews | 30 / 4 = 7.50 |
+| Latest exact-qualifier batch yield | 11 / 1 reused policy evidence review; 0 external URL lookups |
+
+Top500 and Top2000 counts were recomputed from the frozen cohort and SHA-256-verified Issue #70 post-count snapshot; frequency was used only for ranking. Post counts join 13,881 cohort rows, leaving 102 rows without a count. The per-root queue remains explicitly cached because the frozen #180 master and `structure_graph_v3.csv` are unavailable in this checkout; no substitute graph or candidate-root evidence was inferred. The source reuse re-audit, deterministic membership projection, cohort validator, and `git diff --check` are checkpoint gates; the final full #180 regression, full reproducibility, CI, clean pushed branch, and `UNRESEARCHED = 0` remain pending. No #180 confirmed HOME or production data changed.

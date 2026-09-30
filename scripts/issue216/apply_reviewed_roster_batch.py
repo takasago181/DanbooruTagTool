@@ -20,7 +20,7 @@ INPUT_FIELDS = [
     "source_scope", "source_claim", "matched_surface", "mapping_evidence", "reason_code", "reason_detail",
 ]
 REVIEWED_AT = "2026-09-30"
-REVIEWER = "Codex independent first-party source review"
+REVIEWER = "Codex validated authority evidence review"
 
 
 def write_csv_atomic(path: Path, fields: list[str], rows: list[dict[str, str]]) -> None:
@@ -92,9 +92,14 @@ def build(batch_path: Path) -> tuple[list[dict[str, str]], list[dict[str, str]],
             raise ValueError(f"refusing to change accepted source identity/scope: {source_id}")
         for row in source_rows:
             tag = row["canonical_character"]
+            mapping_method = (
+                "DOCUMENTED_IDENTITY_MAPPING"
+                if row["source_type"] == "APPROVED_REPO_EVIDENCE"
+                else "REVIEWED_NAME_MAPPING"
+            )
             new_members.append({
                 "source_id": source_id, "canonical_character": tag,
-                "matched_surface": row["matched_surface"], "mapping_method": "REVIEWED_NAME_MAPPING",
+                "matched_surface": row["matched_surface"], "mapping_method": mapping_method,
                 "mapping_evidence": row["mapping_evidence"], "reviewed_at": REVIEWED_AT,
                 "reviewer": REVIEWER, "mapping_status": "EXACT_COVERED",
             })
@@ -108,9 +113,8 @@ def build(batch_path: Path) -> tuple[list[dict[str, str]], list[dict[str, str]],
                 "reason_detail": row["reason_detail"], "validated_home_candidates": "",
             })
             if current["research_state"] == "HOME_CONFIRMED" and current != decision:
-                immutable_authority = ("home_copyright", "authority_type", "source_ids", "source_claim")
-                if any(current[field] != decision[field] for field in immutable_authority):
-                    raise ValueError(f"refusing to replace a different HOME_CONFIRMED authority: {tag}")
+                if current["home_copyright"] != decision["home_copyright"]:
+                    raise ValueError(f"refusing to replace a different HOME_CONFIRMED root: {tag}")
             proposed_decisions[tag] = decision
 
     merged_sources = {row["source_id"]: row for row in sources}
@@ -138,8 +142,8 @@ def build(batch_path: Path) -> tuple[list[dict[str, str]], list[dict[str, str]],
             "source_id": source_id, "copyright_canonical": home, "source_url": url,
             "source_type": source_type, "authority_owner": owner, "source_status": "ACCEPTED",
             "source_scope": scope, "exact_roster_available": "true", "reviewed_at": REVIEWED_AT,
-            "source_claim": "Official source explicitly lists exact reviewed cohort members: " + member_claim,
-            "provenance": f"Independent first-party source review on {REVIEWED_AT}; scope preserved; exact mapped members are enumerated in AUTHORITY_SOURCE_MEMBERS_V1.csv.",
+            "source_claim": source_rows[0]["source_claim"] + " Exact cohort mappings: " + member_claim,
+            "provenance": f"Validated authority evidence reviewed on {REVIEWED_AT}; scope preserved; exact mapped members are enumerated in AUTHORITY_SOURCE_MEMBERS_V1.csv.",
             "reusable": "true" if len(all_source_members) > 1 else "false",
             "notes": "Covers listed exact members only; absence is not evidence.",
         }

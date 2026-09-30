@@ -1,0 +1,6 @@
+matched_surface,candidate_status,canonical_character,review_outcome,review_detail
+青羽美咲,AUTO_MAPPING_CANDIDATE,aoba_misaki,ACCEPT_EXACT_MEMBERSHIP,Exact unique Japanese catalog identity listed under the official 765 Production & Staff section; root follows accepted 765PRO -> idolmaster normalization.
+音無小鳥,AUTO_MAPPING_CANDIDATE,otonashi_kotori,ACCEPT_EXACT_MEMBERSHIP,Exact unique Japanese catalog identity listed under the official 765 Production & Staff section; root follows accepted 765PRO -> idolmaster normalization. This roster membership is sufficient; no individual interview is required.
+プロデューサー,REVIEW_REQUIRED,,HOLD_AMBIGUOUS_ROLE,Generic role label does not identify one canonical Character.
+チーフプロデューサー,REVIEW_REQUIRED,,HOLD_IDENTITY_UNRESOLVED,Role title is shown without a canonical Character identity mapping.
+高木順二朗,AUTO_MAPPING_CANDIDATE,takagi_junjirou,ACCEPT_EXACT_MEMBERSHIP,Exact unique Japanese catalog identity listed under the official 765 Production & Staff section; root follows accepted 765PRO -> idolmaster normalization.
