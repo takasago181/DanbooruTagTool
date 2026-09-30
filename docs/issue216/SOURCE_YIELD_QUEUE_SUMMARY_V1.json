@@ -1,12 +1,12 @@
 {
-  "accepted_reusable_source_count": 67,
-  "accepted_roster_source_count": 67,
+  "accepted_reusable_source_count": 68,
+  "accepted_roster_source_count": 68,
   "baseline_unresolved": 13983,
   "candidate_graph_sha256": "218cf30cb21695472e276cce327cd96a132665f3473c8925954059c3432c4bea",
-  "currently_unresearched": 13098,
-  "note": "Global cohort/source/priority counts current. Top500=274 and Top2000=1589 UNRESEARCHED, recomputed from frozen cohort plus hash-verified Issue #70 post-count snapshot (priority only). All 118 sources were rejoined to exact URL/scope candidate inventories: 0 open AUTO and 20 open REVIEW_REQUIRED surfaces across 19 Characters. Validated membership table has 18 unresolved Character-specific DEEP_RESEARCH cases. Per-root unresolved counts/order remain cached because the exact frozen #180 master and structure graph are unavailable; candidate hints and frequency remain priority-only, never HOME evidence.",
+  "currently_unresearched": 13086,
+  "note": "Global cohort/source/priority counts current. Top500=262 and Top2000=1577 UNRESEARCHED, recomputed from frozen cohort plus hash-verified Issue #70 post-count snapshot (priority only). All 119 sources were rejoined to exact URL/scope candidate inventories: 0 open AUTO and 20 open REVIEW_REQUIRED surfaces across 19 Characters. Validated membership table has 18 unresolved Character-specific DEEP_RESEARCH cases. Per-root unresolved counts/order remain cached because the exact frozen #180 master and structure graph are unavailable; candidate hints and frequency remain priority-only, never HOME evidence.",
   "post_count_joined_frozen_baseline": 13881,
-  "post_count_joined_open": 13006,
+  "post_count_joined_open": 12994,
   "post_count_missing_open": 92,
   "post_count_sha256": "893fbf07c7d0250e1c30d43b9e01aca69d56e2e6f3d742dcc233e889dfec5aec",
   "post_count_snapshot_current_for_decision_set": true,
@@ -15,8 +15,8 @@
   "root_count": 2665,
   "root_queue_rebuild_status": "MISSING_FROZEN_ISSUE180_MASTER_AND_STRUCTURE_GRAPH",
   "schema_version": "issue216-source-yield-queue-v1",
-  "source_registry_count": 118,
+  "source_registry_count": 119,
   "top2000_count_status": "RECOMPUTED_FROM_FROZEN_COHORT_AND_HASH_VERIFIED_ISSUE70_POST_COUNT_SNAPSHOT; priority only",
-  "top2000_open": 1589,
-  "top500_open": 274
+  "top2000_open": 1577,
+  "top500_open": 262
 }
