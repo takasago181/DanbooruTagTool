@@ -41,7 +41,7 @@ def write_csv_atomic(path: Path, fields: list[str], rows: list[dict[str, str]]) 
             temp_path.unlink()
 
 
-def build(batch_path: Path) -> tuple[list[dict[str, str]], list[dict[str, str]], list[dict[str, str]], list[dict[str, str]]]:
+def build(batch_path: Path, reviewed_at: str = REVIEWED_AT) -> tuple[list[dict[str, str]], list[dict[str, str]], list[dict[str, str]], list[dict[str, str]]]:
     batch = read_csv(batch_path)
     if not batch:
         raise ValueError("review batch is empty")
@@ -100,7 +100,7 @@ def build(batch_path: Path) -> tuple[list[dict[str, str]], list[dict[str, str]],
             new_members.append({
                 "source_id": source_id, "canonical_character": tag,
                 "matched_surface": row["matched_surface"], "mapping_method": mapping_method,
-                "mapping_evidence": row["mapping_evidence"], "reviewed_at": REVIEWED_AT,
+                "mapping_evidence": row["mapping_evidence"], "reviewed_at": reviewed_at,
                 "reviewer": REVIEWER, "mapping_status": "EXACT_COVERED",
             })
             current = decision_by_tag[tag]
@@ -114,7 +114,7 @@ def build(batch_path: Path) -> tuple[list[dict[str, str]], list[dict[str, str]],
                     if source_type == "APPROVED_REPO_EVIDENCE"
                     else f"Exact reviewed first-party roster member mapping in {batch_path.name}; source: {url}"
                 ),
-                "reviewed_at": REVIEWED_AT, "reason_code": row["reason_code"],
+                "reviewed_at": reviewed_at, "reason_code": row["reason_code"],
                 "reason_detail": row["reason_detail"], "validated_home_candidates": "",
             })
             if current["research_state"] == "HOME_CONFIRMED" and current != decision:
@@ -147,10 +147,12 @@ def build(batch_path: Path) -> tuple[list[dict[str, str]], list[dict[str, str]],
             "source_id": source_id, "copyright_canonical": home, "source_url": url,
             "source_type": source_type, "authority_owner": owner, "source_status": "ACCEPTED",
             "source_scope": scope,
-            "exact_roster_available": "false" if source_type == "APPROVED_REPO_EVIDENCE" else "true",
-            "reviewed_at": REVIEWED_AT,
+            "exact_roster_available": "false" if source_type in {
+                "APPROVED_REPO_EVIDENCE", "OFFICIAL_CHARACTER_PROFILE",
+            } else "true",
+            "reviewed_at": reviewed_at,
             "source_claim": source_rows[0]["source_claim"] + " Exact cohort mappings: " + member_claim,
-            "provenance": f"Validated authority evidence reviewed on {REVIEWED_AT}; scope preserved; exact mapped members are enumerated in AUTHORITY_SOURCE_MEMBERS_V1.csv.",
+                "provenance": f"Validated authority evidence reviewed on {reviewed_at}; scope preserved; exact mapped members are enumerated in AUTHORITY_SOURCE_MEMBERS_V1.csv.",
             "reusable": "true" if len(all_source_members) > 1 else "false",
             "notes": "Covers listed exact members only; absence is not evidence.",
         }
@@ -189,9 +191,11 @@ def validate_proposed(sources: list[dict[str, str]], members: list[dict[str, str
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--batch", type=Path, required=True)
+    parser.add_argument("--reviewed-at", default=REVIEWED_AT,
+                        help="ISO review date to record (defaults to the legacy batch date)")
     parser.add_argument("--check", action="store_true", help="validate the proposed merge without writing")
     args = parser.parse_args()
-    sources, members, decisions, new_sources = build(args.batch)
+    sources, members, decisions, new_sources = build(args.batch, args.reviewed_at)
     validate_proposed(sources, members, decisions)
     if args.check:
         print(f"review batch valid: {len(decisions)} cohort decisions, {len(members)} exact mappings, {len(sources)} sources")
