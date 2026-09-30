@@ -108,7 +108,12 @@ def build(batch_path: Path) -> tuple[list[dict[str, str]], list[dict[str, str]],
             decision.update({
                 "research_state": "HOME_CONFIRMED", "home_copyright": home,
                 "authority_type": source_type, "source_ids": source_id, "source_claim": row["source_claim"],
-                "provenance": f"Exact reviewed first-party roster member mapping in {batch_path.name}; source: {url}",
+                "provenance": (
+                    f"Exact validated repository-policy membership mapping in {batch_path.name}; "
+                    f"terminal qualifier/root normalization evidence: {url}"
+                    if source_type == "APPROVED_REPO_EVIDENCE"
+                    else f"Exact reviewed first-party roster member mapping in {batch_path.name}; source: {url}"
+                ),
                 "reviewed_at": REVIEWED_AT, "reason_code": row["reason_code"],
                 "reason_detail": row["reason_detail"], "validated_home_candidates": "",
             })
