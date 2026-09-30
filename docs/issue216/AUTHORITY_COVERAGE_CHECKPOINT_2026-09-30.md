@@ -761,3 +761,15 @@ Checkpoint validation for the curated Danganronpa batch: `python -m pytest tests
 - Membership routing: AUTO_ACCEPT 0; FAST_REVIEW 12985; DEEP_RESEARCH 22 (0.1573%); terminal blocked 47.
 - Missing roots 0; existing #180 HOME changes 0; conflicts introduced 0 (one prior conflict remains). Issue #216 tests 26/26, Issue #180 regression 60/60, deterministic membership table check, source reuse audit, and `git diff --check` PASS.
 - Batch: `BATCH_SPLATOON_NINTENDO_PLAYER_AND_AMIIBO_CHARACTER_MEMBERSHIP_2026-09-30.csv`.
+
+
+## 2026-09-30 Kasane Teto multi-engine policy membership batch
+
+- Reused TwinDrill's official [Kasane Teto site](https://kasaneteto.jp/) and its existing character-history review. The official pages identify one collaboratively created singable character and list its UTAU, Synthesizer V AI, and VOICEPEAK product entries. The three exact cohort edition tags (`kasane_teto_(utau)`, `kasane_teto_(sv)`, `kasane_teto_(voicepeak)`) were mapped to those named product surfaces and terminalized `POLICY_BLOCKED` under the already reviewed `MULTI_ENGINE_SYNTHETIC_CHARACTER_NO_SINGLE_HOME` rule; engine qualifiers did not become HOME evidence.
+- No individual Character interview or further source lookup was required. The separate `kasane_teto_(halloween)` tag is not covered by these product surfaces and remains UNRESEARCHED.
+- One source-scope review terminalized 3 Characters; 3.00 terminalized / new official URL review. HOME_CONFIRMED is unchanged.
+- Frozen cohort 13,983 / accounted 13,983; processed/terminalized 979 (7.00%); HOME_CONFIRMED 929; SOURCE_RESEARCHED_NO_SAFE_EVIDENCE 18; POLICY_BLOCKED 20; IDENTITY_BLOCKED 11; EVIDENCE_CONFLICT 1; UNRESEARCHED 13,004. Top500 UNRESEARCHED 248; Top2000 snapshot remains stale at 1,575.
+- Registry 130 sources; accepted reusable sources 76; exact member mappings 968 over 981 source-member rows; source reuse ratio 93.68%; 7.43 unique mapped Characters per registered source.
+- Membership routing: AUTO_ACCEPT 0; FAST_REVIEW 12,982; DEEP_RESEARCH 22 (0.1573%); terminal-blocked 50. Source registry re-audit: 130 sources, 0 open AUTO, 27 REVIEW_REQUIRED surfaces.
+- Missing roots 0; existing #180 HOME changed 0; conflicts introduced 0 (one pre-existing conflict remains). Issue #216 tests 26/26, Issue #180 regression 60/60, deterministic membership rebuild, authority checks, and `git diff --check` PASS.
+- Batch: `BATCH_SYNTHETIC_VOICE_POLICY_REVIEW_VARIANTS_2026-09-30.csv`.
