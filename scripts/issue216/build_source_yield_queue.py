@@ -124,14 +124,16 @@ def build(master_path: Path, graph_path: Path, post_counts_path: Path):
                     or candidate.get("source_scope") != source["source_scope"]):
                 continue
             reviewed_source_ids.add(source["source_id"])
-            tag = candidate.get("canonical_character", "")
-            if tag not in open_tags:
-                continue
             root = source["copyright_canonical"]
-            if candidate.get("candidate_status") == "AUTO_MAPPING_CANDIDATE":
-                safe_candidate_tags_by_root[root].add(tag)
-            elif candidate.get("candidate_status") == "REVIEW_REQUIRED":
-                review_required_tags_by_root[root].add(tag)
+            candidate_tags = {candidate.get("canonical_character", "").strip()}
+            candidate_tags.update(
+                tag.strip() for tag in candidate.get("competing_tags", "").split("|") if tag.strip()
+            )
+            for tag in candidate_tags & open_tags:
+                if candidate.get("candidate_status") == "AUTO_MAPPING_CANDIDATE":
+                    safe_candidate_tags_by_root[root].add(tag)
+                elif candidate.get("candidate_status") == "REVIEW_REQUIRED":
+                    review_required_tags_by_root[root].add(tag)
 
     root_members: dict[str, set[str]] = defaultdict(set)
     for tag in open_tags:

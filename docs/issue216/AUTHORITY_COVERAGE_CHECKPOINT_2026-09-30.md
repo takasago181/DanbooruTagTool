@@ -505,3 +505,61 @@ Reused the 10 `root_review=PASS` rows in the existing Issue #180 `exact_root_sem
 | Missing roots / existing #180 HOME changes / conflicts | 0 / 0 / 1 unchanged |
 
 The full 107-record registry was rejoined to cohort decisions and exact source scopes. A separate exact-key scan of existing accepted #180 curated Character-list files found no additional open cohort member: those roster identities are already terminal or outside the cohort. Its retained exact candidate inventories contain no open safe matches after recorded source-scope/candidate disposition. The 266 qualifiers reduce the outstanding cohort, but no precision rule was relaxed. Root-level unresolved aggregates remain cached because the frozen #180 master/structure graph are still absent; frequency-derived global Top500/Top2000 counts are recomputed separately and are not evidence. Focused tests and full cohort validation are next for this checkpoint.
+
+
+## Membership reuse checkpoint — 2026-09-30
+
+Rejoined all 111 registered sources against the full frozen cohort and their exact URL/scope candidate inventories. The prior audit projection counted only `canonical_character` and missed possible identities carried in `competing_tags`; the corrected audit finds **0 open AUTO candidates and 31 REVIEW_REQUIRED source surfaces involving 29 unresolved Characters**. The 29 exact ambiguous identities are now surfaced as `DEEP_RESEARCH`; candidate rows remain routing/review metadata and never become HOME evidence. This corrects earlier checkpoint prose that said no open review candidates remained.
+
+Applied 11 bulk membership decisions since the pushed base: 2 FFIV DFFOO official-roster exact members and 9 exact Cure identities from Toei's series-filtered official store selector. Toei's single URL is represented by three root-bounded source scopes (Hirogaru Sky: 4, DokiDoki: 1, Kimi to Idol: 4). For those 9, exact Japanese selector surfaces uniquely match catalog display names, while existing PASS #180 evidence supplies the title-specific root policy. Eleven other store candidates remain open because their root normalization is not validated; broad `precure` inference was not used. Kotori remains grounded in the accepted 765PRO work-level roster and has no individual-interview requirement.
+
+| Measure | Current |
+|---|---:|
+| Frozen cohort / accounted | 13,983 / 13,983 |
+| Terminalized / coverage | 839 / 6.0001% |
+| HOME_CONFIRMED / no-safe-source / policy / identity / conflict | 805 / 18 / 6 / 9 / 1 |
+| UNRESEARCHED | 13144 |
+| AUTO_ACCEPT / FAST_REVIEW / DEEP_RESEARCH / terminal blocked | 0 / 13115 / 29 / 34 |
+| Character-specific Deep Research candidates | 29 (0.207% of cohort); no new per-character web lookups in this checkpoint |
+| Source registry / reusable accepted sources | 111 / 63 |
+| Exact source-member mappings / unique exact mapped Characters / source-member rows | 830 / 828 / 841 |
+| Reused member rows / source reuse ratio | 786 / 841 (93.46%) |
+| Characters per registered source | 7.46 |
+| Open exact AUTO candidates / ambiguous REVIEW_REQUIRED surfaces | 0 / 31 (29 distinct open Characters) |
+| Top500 / Top2000 still UNRESEARCHED | 297 / 1626 |
+| New terminalized / external URL reviews | 11 / 2 = 5.50 |
+| New terminalized / validated source scopes | 11 / 4 = 2.75 |
+| Missing roots / existing #180 HOME changes / conflicts | 0 / 0 / 1 unchanged |
+
+The per-root queue remains cached, not current: this checkout lacks the frozen #180 master and `structure_graph_v3.csv`. Its current global unresolved count, source registry size, post-count join, and Top500/Top2000 counters are refreshed in `SOURCE_YIELD_QUEUE_SUMMARY_V1.json`; stale per-root aggregates are explicitly marked. Frequency remains ranking metadata only.
+
+Validation: source registry re-audit rebuilt from all 111 sources; deterministic membership projection reports 816 validated evidence rows; full cohort authority validator passed its invariants (expected incomplete while UNRESEARCHED remains). Focused Issue #216 suite passed 26/26. Existing #180 confirmed HOME changes: 0; missing roots: 0; current conflict count: 1 unchanged. Final full #180 regression, reproducibility, CI, clean pushed branch, and `UNRESEARCHED = 0` remain pending.
+
+
+## Exact approved qualifier reuse checkpoint — 2026-09-30
+
+Continued source/membership-driven processing after the roster batch. A deterministic join over all 158 PASS rows in the existing #180 `FAMILY_QUALIFIER` policy found two exact terminal canonical-qualifier matches in the still-open cohort: `megurine_luka_(toeto)` → `toeto_(vocaloid)` and `yoshi_(nagatoro)` → `ijiranaide_nagatoro-san`. Both use the exact final qualifier, have unique PASS root mappings and existing catalog roots, and have no earlier nested qualifier. The two records are `APPROVED_REPO_EVIDENCE` (not rosters); the registry flag now correctly records `exact_roster_available=false`. No member-level web lookup was added.
+
+| Measure | Current |
+|---|---:|
+| Baseline / accounted | 13,983 / 13,983 |
+| Terminalized / coverage | 841 / 6.0144% |
+| HOME_CONFIRMED / no-safe-source / policy / identity / conflict | 807 / 18 / 6 / 9 / 1 |
+| UNRESEARCHED | 13142 |
+| AUTO_ACCEPT / FAST_REVIEW / DEEP_RESEARCH / terminal blocked | 0 / 13113 / 29 / 34 |
+| Character-specific Deep Research candidates | 29 (0.207% of cohort) |
+| Registry / reusable accepted sources | 113 / 63 |
+| Exact member mappings / unique exact Characters / source-member rows | 832 / 830 / 843 |
+| Reused member rows / reuse ratio | 786 / 843 (93.24%) |
+| Characters per registered source | 7.35 |
+| Source audit: open exact AUTO / REVIEW_REQUIRED surfaces | 0 / 31 (29 distinct Characters) |
+| Top500 / Top2000 still UNRESEARCHED | 297 / 1626 |
+| Since pushed base: terminalized / new URLs / validated scopes | 13 / 2 / 6; 6.50 per URL, 2.17 per scope |
+| Missing roots / existing #180 HOME changes / conflicts | 0 / 0 / 1 unchanged |
+
+The six validated scopes are DFFOO FFIV, three Toei Precure title-filter scopes on one URL, and the two already validated Issue #180 qualifier-policy scopes. Root-level queue counts remain cached because the exact #180 master and structure graph are unavailable. Updated global summary confirms Top500/Top2000 priority counts use the frozen cohort and verified post-count snapshot only.
+
+Checkpoint gates: deterministic membership rebuild, all-source exact-scope re-audit, cohort authority validator, and focused Issue #216 tests are recorded below after the current source batch. `UNRESEARCHED = 0`, full #180 regression, reproducibility, CI, and final clean pushed branch remain pending.
+
+
+Final checkpoint validation after the qualifier-policy batch: `python -m pytest tests/issue216 -q -p no:cacheprovider` passed 26/26; deterministic membership reconstruction passed; all-source re-audit covered 113/113 registry records; the authority validator accepted all invariants and reports incomplete only because 13,142 rows remain UNRESEARCHED; `git diff --check` and Python syntax compilation passed.

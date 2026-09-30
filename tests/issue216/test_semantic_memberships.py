@@ -9,12 +9,9 @@ from scripts.issue216 import authority_coverage as coverage
 from scripts.issue216.apply_validated_membership_batch import build_decisions
 from scripts.issue216.build_validated_membership_table import build
 
-ROOT = Path(__file__).resolve().parents[2]
-
-
 class SemanticMembershipTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.temp = tempfile.TemporaryDirectory(prefix=".test-semantic-memberships-", dir=ROOT / "docs/issue216")
+        self.temp = tempfile.TemporaryDirectory(prefix="test-semantic-memberships-")
         self.root = Path(self.temp.name)
         self.cohort_path = self.root / "cohort.csv"
         self.sources_path = self.root / "sources.csv"
@@ -95,6 +92,29 @@ class SemanticMembershipTests(unittest.TestCase):
         self.assertEqual(rows[0]["source_id"], "")
         self.assertEqual(rows[0]["next_action"], "FAST_REVIEW")
         self.assertEqual(summary["AUTO_ACCEPT"], 0)
+
+    def test_ambiguous_competing_tags_are_counted_as_deep_research_candidates(self) -> None:
+        self.fixture(["character_a", "character_b"])
+        self.add_source("ambiguous-roster", "series_a", [])
+        source = coverage.read_csv(self.sources_path)[0]
+        candidate_path = self.root / "SOURCE_MAPPING_CANDIDATES_TEST.csv"
+        self.write(candidate_path, [
+            "source_id", "source_url", "source_scope", "matched_surface", "canonical_character",
+            "candidate_status", "candidate_basis", "competing_tags",
+        ], [{
+            "source_id": source["source_id"], "source_url": source["source_url"],
+            "source_scope": source["source_scope"], "matched_surface": "shared name",
+            "canonical_character": "", "candidate_status": "REVIEW_REQUIRED",
+            "candidate_basis": "two exact identities", "competing_tags": "character_a|character_b",
+        }])
+        rows, summary = build(self.cohort_path, self.sources_path, self.members_path,
+                              self.decisions_path, self.roots_path, expected_size=2,
+                              candidates_dir=self.root)
+        by_tag = {row["canonical_character"]: row for row in rows}
+        self.assertEqual(set(by_tag), {"character_a", "character_b"})
+        self.assertTrue(all(row["next_action"] == "DEEP_RESEARCH" for row in rows))
+        self.assertEqual(summary["DEEP_RESEARCH"], 2)
+        self.assertTrue(all(row["semantic_root"] == "" for row in rows))
 
     def test_competing_membership_roots_block_auto_accept(self) -> None:
         self.fixture(["character_a"])

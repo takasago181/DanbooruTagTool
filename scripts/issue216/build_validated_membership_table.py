@@ -36,7 +36,8 @@ def sha256(path: Path) -> str:
 
 
 def build(cohort_path: Path, sources_path: Path, members_path: Path, decisions_path: Path,
-          roots_path: Path, expected_size: int = BASELINE_SIZE) -> tuple[list[dict[str, str]], dict[str, object]]:
+          roots_path: Path, expected_size: int = BASELINE_SIZE,
+          candidates_dir: Path = ISSUE216) -> tuple[list[dict[str, str]], dict[str, object]]:
     validate(cohort_path, sources_path, members_path, decisions_path, expected_size=expected_size,
              roots_path=roots_path)
     cohort = read_csv(cohort_path)
@@ -57,7 +58,7 @@ def build(cohort_path: Path, sources_path: Path, members_path: Path, decisions_p
             accepted[member["canonical_character"]].append((source, member))
 
     candidates: dict[str, list[tuple[dict[str, str], dict[str, str], str]]] = defaultdict(list)
-    for candidate_path in sorted(ISSUE216.glob("SOURCE_MAPPING_CANDIDATES_*.csv")):
+    for candidate_path in sorted(candidates_dir.glob("SOURCE_MAPPING_CANDIDATES_*.csv")):
         review_path = candidate_path.with_name(candidate_path.name.replace(
             "SOURCE_MAPPING_CANDIDATES_", "MAPPING_REVIEW_", 1))
         reviews: dict[tuple[str, str], str] = {}
@@ -69,15 +70,20 @@ def build(cohort_path: Path, sources_path: Path, members_path: Path, decisions_p
                 reviews[(surface, tag)] = status
         for candidate in read_csv(candidate_path):
             source = sources.get(candidate.get("source_id", ""))
-            tag = candidate.get("canonical_character", "")
-            if (not source or source["source_status"] != "ACCEPTED" or tag not in open_tags
+            candidate_tags = {candidate.get("canonical_character", "").strip()}
+            candidate_tags.update(
+                tag.strip() for tag in candidate.get("competing_tags", "").split("|") if tag.strip()
+            )
+            candidate_tags.discard("")
+            if (not source or source["source_status"] != "ACCEPTED"
                     or candidate.get("source_url") != source["source_url"]
                     or candidate.get("source_scope") != source["source_scope"]):
                 continue
-            review_status = reviews.get((candidate.get("matched_surface", ""), tag), "")
-            if review_status.upper().startswith(("REJECT", "EXCLUDE")):
-                continue
-            candidates[tag].append((source, candidate, review_status))
+            for tag in sorted(candidate_tags & open_tags):
+                review_status = reviews.get((candidate.get("matched_surface", ""), tag), "")
+                if review_status.upper().startswith(("REJECT", "EXCLUDE")):
+                    continue
+                candidates[tag].append((source, candidate, review_status))
 
     rows: list[dict[str, str]] = []
     for tag, pairs in sorted(accepted.items()):
@@ -126,7 +132,7 @@ def build(cohort_path: Path, sources_path: Path, members_path: Path, decisions_p
                     "evidence_class": source["source_type"], "source_id": source["source_id"],
                     "identity_status": candidate.get("candidate_status", "UNREVIEWED"),
                     "competing_root_count": "0", "validation_state": validation_state,
-                    "provenance": f"Candidate only; not HOME evidence. Surface={candidate.get('matched_surface', '')}; review={review_status or 'pending'}",
+                    "provenance": f"Candidate only; not HOME evidence. Surface={candidate.get('matched_surface', '')}; competing_tags={candidate.get('competing_tags', '')}; review={review_status or 'pending'}",
                     "cohort_state": state, "next_action": action,
                 })
             continue

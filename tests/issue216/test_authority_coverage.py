@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 class AuthorityCoverageTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.temp = tempfile.TemporaryDirectory(prefix=".test-authority-coverage-", dir=ROOT / "docs/issue216")
+        self.temp = tempfile.TemporaryDirectory(prefix="test-authority-coverage-")
         self.root = Path(self.temp.name)
         self.cohort_path = self.root / "cohort.csv"
         self.sources_path = self.root / "sources.csv"
