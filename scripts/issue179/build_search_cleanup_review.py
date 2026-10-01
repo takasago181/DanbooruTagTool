@@ -1,0 +1,113 @@
+from __future__ import annotations
+
+import csv
+import re
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+SOURCE = ROOT / "docs/issue70/data/runtime/issue70_catalog_overlay_2d_final.csv"
+OUT = ROOT / "artifacts/issue179-search-cleanup"
+OUT_CSV = OUT / "SEARCH_CLEANUP_CANDIDATES_V1.csv"
+
+# Confirmed by the retained B001/B002 semantic review or by an unambiguous
+# non-identity/fandom pattern. This script only proposes removals; it does not
+# modify Issue70 source data or production.
+EXACT_REMOVE = {
+    "ミクの日", "初音ミクイラスト", "ぼ喜多", "絵フブキ",
+    "腐レイバーン", "ス腐ラトゥーン", "VOICEROIDドット絵部", "コッショリ",
+    "異端なるセイレム", "アビラヴィ", "おかころ", "絵かゆ", "エロおにぎり",
+    "エンイラ", "性癖を露見・共有するための道具", "ぼっち・ざ・けいおん!",
+    "サ腐マス", "ノボクダ",
+    "東方うごイラ", "東方グラマラス", "東方ショタ化", "東方モータリゼーション",
+    "東方好きな人RT", "東方版もうひとつの深夜の真剣お絵描き60分一本勝負",
+    "ア艦これ", "シンスイカッコカリ", "北斗の艦",
+    "艦これ版深夜の真剣お絵描き60分一本勝負", "艦これ版真剣お絵描き60分一本勝負",
+    "艦これ集合絵", "艦ショタ",
+    "pkg版深夜の真剣お絵描き60分一本勝負", "ポケモンFA", "ポケモン×人間",
+    "ポケモンと生活", "ポケモンイラスト", "ポケモントレーナー版深夜の真剣お絵描き60分一本勝負",
+    "ポケモン人間絵", "ポケモン擬人化", "ポケモン機械化", "ポケ擬", "星座タロット風ポケモン",
+    "FE版深夜の真剣お絵描き60分一本勝負", "FE腐向け", "ガチホモエムブレム",
+    "オリキュア", "オリジナルプリキュア", "マイプリキュア", "腐リキュア",
+    "グラ腐ル", "夢アカ", "ゼルダの伝説【腐】", "ROお絵描き",
+    "プロセカ衣装デザイン", "腐ロセカ", "ww版深夜の真剣お絵描き60分一本勝負", "ワンドロウィッチーズ",
+    "腐ゼロ", "腐滅の刃", "進撃の巨人イラコン", "進撃の百合", "進撃の腐人",
+    "あんさん腐るスターズ", "あんさん腐るスターズ!", "あんスタCPなし", "あんスタFA", "あんスタNL",
+    "水星の腐女", "水星の魔女最終回", "逆裁腐向け", "百合パラ", "腐リパラ",
+    "TF腐向け", "金カム腐", "金カ夢", "腐よ腐よ", "まじコナ腐", "腐向けKTR",
+    "松野家次男版深夜の真剣お絵描き60分一本勝負", "エムマス【腐】", "腐ロメア",
+    "bllプラス", "ブルーロックFA", "夢ルーロック", "夢ロック", "腐ルーロック", "青檻プラス",
+    "モ腐サイコ100", "転腐ら", "東京【腐】リベンジャーズ", "鉄血のオル腐ェンズ",
+    "ワートリ【腐】", "文スト【腐】", "黒バス【腐】", "dcst腐向け", "ヒ腐マイ",
+    "腐パン", "モンスト腐", "ヴァンガ【腐】cf_vanguard", "逃げ若【腐】",
+    "腐リチャン", "レインコード【腐】", "メギド【腐】", "プリマジファンアート", "腐リマジ",
+    "DbDアートdbdfanart", "蒼穹のファ腐ナー", "マオのお絵描き帳", "エ腐ケーエイト",
+    "忍たま-腐", "イニD腐向け", "ドリ腐", "忍殺腐向け", "【腐】ぼくまち",
+    "ずとまよファンアート", "オルガルイラスト部", "戦コレイラコン3ファンアート",
+    "ケムリクサファンアート", "星界ファンアート", "産子ギャルファンアート",
+}
+
+# These hit crude regexes but are identity/title terms. Explicitly protect them.
+PROTECTED = {
+    "腐敗の女神マレニア", "腐敗の女神、マレニア",
+    "お絵描き娘", "お絵描き娘2009", "お絵描き娘2011", "お絵描き娘2012",
+    "リトル・イラストリアス", "リトル・イラストリアス(アズールレーン)",
+    "チェンジ!!ゲッターロボ世界最後の日", "世界最後の日",
+}
+
+SAFE_PATTERNS = [
+    re.compile(r"深夜の真剣お絵描き"),
+    re.compile(r"真剣お絵描き"),
+    re.compile(r"ファンアート", re.I),
+    re.compile(r"(?:^|[^敗])腐向け"),
+    re.compile(r"【腐】"),
+]
+
+FIELDS = [
+    "row_id", "canonical_tag", "category", "post_count",
+    "old_search_ja", "proposed_search_ja", "removed_terms",
+    "reason", "review_state",
+]
+
+def split_pipe(value: str) -> list[str]:
+    return [x.strip() for x in (value or "").split("|") if x.strip()]
+
+def should_remove(term: str) -> bool:
+    if term in PROTECTED:
+        return False
+    if term in EXACT_REMOVE:
+        return True
+    return any(p.search(term) for p in SAFE_PATTERNS)
+
+def main() -> None:
+    OUT.mkdir(parents=True, exist_ok=True)
+    rows: list[dict[str, str]] = []
+    with SOURCE.open("r", encoding="utf-8-sig", newline="") as fh:
+        for src in csv.DictReader(fh):
+            terms = split_pipe(src.get("search_ja", ""))
+            removed = [t for t in terms if should_remove(t)]
+            if not removed:
+                continue
+            kept = [t for t in terms if t not in removed]
+            rows.append({
+                "row_id": src["row_id"],
+                "canonical_tag": src["canonical_tag"],
+                "category": src["category"],
+                "post_count": src["post_count"],
+                "old_search_ja": " | ".join(terms),
+                "proposed_search_ja": " | ".join(kept),
+                "removed_terms": " | ".join(removed),
+                "reason": "CONFIRMED_NON_IDENTITY_OR_FANDOM_SEARCH_TERM",
+                "review_state": "PROPOSED_SECOND_REVIEW",
+            })
+
+    rows.sort(key=lambda r: (-int(r["post_count"]), r["canonical_tag"]))
+    with OUT_CSV.open("w", encoding="utf-8-sig", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=FIELDS, lineterminator="\n")
+        w.writeheader()
+        w.writerows(rows)
+
+    removed_count = sum(len(split_pipe(r["removed_terms"])) for r in rows)
+    print(f"SEARCH_CLEANUP_CANDIDATES rows={len(rows)} removed_terms={removed_count}")
+
+if __name__ == "__main__":
+    main()
