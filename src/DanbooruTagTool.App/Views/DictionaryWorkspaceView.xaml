@@ -158,10 +158,29 @@
                 </Border>
                 <Border Background="#EAF4FC" BorderBrush="{DynamicResource PrimaryBrush}" BorderThickness="1" CornerRadius="8" Padding="7,5" Margin="0,4,0,0"
                         Visibility="{Binding ShowRelationBanner, Converter={StaticResource BoolVisibilityLocal}}">
+                    <StackPanel>
                     <DockPanel>
                         <Button DockPanel.Dock="Right" Content="関連表示を解除" Command="{Binding ClearRelatedBrowseCommand}" Style="{DynamicResource CompactButton}" Padding="7,2" MinHeight="25" Margin="8,0,0,0"/>
-                        <TextBlock Text="{Binding RelationBannerText}" FontWeight="Medium" VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding RelationBannerText}" FontWeight="Medium" VerticalAlignment="Center" TextWrapping="Wrap"/>
                     </DockPanel>
+                    <StackPanel Visibility="{Binding ShowBrowseGroups, Converter={StaticResource BoolVisibilityLocal}}" Margin="0,5,0,0">
+                        <WrapPanel>
+                            <Button Content="{Binding HomeCharacterCountLabel}" Command="{Binding ShowAllHomeCharactersCommand}" Style="{DynamicResource CompactButton}" MinHeight="26" Margin="0,0,5,4"/>
+                            <Button Content="グループ一覧に戻る" Command="{Binding BackToBrowseGroupsCommand}" Style="{DynamicResource CompactButton}" MinHeight="26" Margin="0,0,0,4"/>
+                        </WrapPanel>
+                        <ScrollViewer MaxHeight="170" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                            <ItemsControl ItemsSource="{Binding BrowseGroupOptions}">
+                                <ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate><DataTemplate>
+                                    <Button Command="{Binding DataContext.SelectBrowseGroupCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding Id}" Style="{StaticResource UnifiedFacetButtonLocal}">
+                                        <TextBlock Text="{Binding Label}" TextWrapping="Wrap" MaxWidth="260"/>
+                                    </Button>
+                                </DataTemplate></ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                        <TextBlock Text="{Binding BrowseGroupHint}" TextWrapping="Wrap" Margin="0,4,0,0"/>
+                    </StackPanel>
+                    </StackPanel>
                 </Border>
             </StackPanel>
             <Border Grid.Row="3" Background="#F8FBFD" BorderBrush="{DynamicResource BorderBrushSoft}" BorderThickness="1" CornerRadius="8" Padding="6,4" Margin="0,0,0,4" Visibility="{Binding ShowUnifiedRefinement, Converter={StaticResource BoolVisibilityLocal}}">
