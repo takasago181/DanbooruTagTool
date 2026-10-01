@@ -39,6 +39,11 @@ public class Issue179QualityOverlayTests
             e.Canonical == "fujimaru_ritsuka_(female)_(decisive_battle_chaldea_uniform)");
         Assert.Equal("藤丸立香（女性）（決戦用カルデア制服）", ritsuka.Japanese);
 
+        Assert.Equal("矢倉蓬咲", after.Single(e => e.Canonical == "yakura_yomogi").Japanese);
+        Assert.Equal("四宮寧月", after.Single(e => e.Canonical == "shinomiya_shizuku").Japanese);
+        Assert.Equal("須賀蕾叶", after.Single(e => e.Canonical == "suga_raika").Japanese);
+        Assert.Equal("馬橋心玖", after.Single(e => e.Canonical == "mahashi_miku").Japanese);
+
         Assert.Empty(after.Single(e => e.Canonical == "ace_attorney").JapaneseSearch);
         Assert.Empty(after.Single(e => e.Canonical == "kuroshitsuji").JapaneseSearch);
 
