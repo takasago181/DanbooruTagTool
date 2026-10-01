@@ -16,6 +16,8 @@ public interface IRuntimeCatalogQuery : ICatalog
     IReadOnlyList<BrowsePath> SpecialNavigationPaths { get; }
     IReadOnlyList<SearchHit> Search(string query);
     IReadOnlyList<CatalogEntry> RelatedByCatalogMetadata(CatalogEntry entry);
+    IReadOnlyList<CatalogEntry> RelatedByBrowseHome(CatalogEntry entry);
+    IReadOnlyList<CatalogEntry> SearchCharactersByCopyright(string query);
 }
 
 /// <summary>
@@ -34,6 +36,7 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
     private readonly IReadOnlyDictionary<string, IReadOnlyList<CatalogEntry>> specialByPath;
     private readonly IReadOnlyDictionary<string, IReadOnlyList<CatalogEntry>> copyrightEntries;
     private readonly IReadOnlyDictionary<string, IReadOnlyList<CatalogEntry>> charactersByCopyright;
+    private readonly IReadOnlyDictionary<string, IReadOnlyList<CatalogEntry>> charactersByHome;
     private readonly IReadOnlyList<SearchDocument> searchDocuments;
     private readonly IReadOnlyList<BrowsePath> generalPaths;
     private readonly IReadOnlyList<BrowsePath> specialPaths;
@@ -111,6 +114,16 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
         specialByPath = FreezeLists(specialPathRows);
         copyrightEntries = FreezeLists(copyrightRows);
         charactersByCopyright = FreezeLists(charactersByCopyrightRows);
+        var roots = copyrightRows.Keys.ToHashSet(StringComparer.Ordinal);
+        var homeRows = new Dictionary<string, List<CatalogEntry>>(StringComparer.Ordinal);
+        foreach (var entry in Entries.Where(e => e.EffectiveCategory == "Character"))
+        {
+            if (entry.EffectiveBrowseHome is not { } home) continue;
+            if (string.IsNullOrWhiteSpace(home) || !roots.Contains(home))
+                throw new ArgumentException("Unknown Browse HOME: " + home);
+            Add(homeRows, home, entry);
+        }
+        charactersByHome = FreezeLists(homeRows);
         searchDocuments = Freeze(documents);
         generalPaths = FreezePaths(false);
         specialPaths = FreezePaths(true);
@@ -120,6 +133,18 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
     public IReadOnlyList<CatalogEntry> Entries { get; }
 
     public CatalogEntry? FindById(string id) => byId.GetValueOrDefault(id);
+
+    // Deliberately independent of legacy co-occurrence metadata.
+    public IReadOnlyList<CatalogEntry> RelatedByBrowseHome(CatalogEntry entry)
+        => entry.EffectiveCategory switch
+        {
+            "Character" => entry.EffectiveBrowseHome is { } home
+                ? copyrightEntries.GetValueOrDefault(home) ?? [] : [],
+            "Copyright" => entry.Canonical is { } root
+                ? (charactersByHome.GetValueOrDefault(root) ?? []).Where(e => e.CanBrowse)
+                    .OrderByDescending(e => e.Usage).ToArray() : [],
+            _ => []
+        };
 
     public CatalogEntry? Resolve(string surface)
     {
@@ -140,6 +165,11 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
     public IReadOnlyList<BrowsePath> BrowsePaths(bool special) => special ? specialPaths : generalPaths;
 
     public IReadOnlyList<BrowsePath> SpecialNavigationPaths => specialNavigationPaths;
+
+    public IReadOnlyList<CatalogEntry> SearchCharactersByCopyright(string query)
+        => Search(query).Where(hit => hit.Entry.EffectiveCategory == "Copyright")
+            .SelectMany(hit => RelatedByBrowseHome(hit.Entry)).Where(e => e.CanSearch)
+            .DistinctBy(e => e.Id).ToArray();
 
     public IReadOnlyList<SearchHit> Search(string query)
     {

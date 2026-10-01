@@ -37,6 +37,11 @@ public sealed record CatalogEntry(string Id, string? Canonical, string English, 
     public string? EffectivePromptToken => PromptToken ?? Canonical;
     public string EffectiveCategory => string.IsNullOrWhiteSpace(TagCategory) ? (IsSpecial ? "Special" : "General") : TagCategory;
     public string[] RelatedCopyright { get; init; } = [];
+    public string? FormalHomeCopyright { get; init; }
+    public string? ReviewedBrowseHome { get; init; }
+    public string? EffectiveBrowseHome => FormalHomeCopyright ?? ReviewedBrowseHome;
+    public string BrowseHomeSource => FormalHomeCopyright is not null ? "FORMAL_HOME" :
+        ReviewedBrowseHome is not null ? "REVIEWED_BROWSE_FALLBACK" : "UNRESOLVED";
     public string[] UnifiedBrowseRouteIds { get; init; } = [];
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public UnifiedBrowseFacetClassification? UnifiedBrowseFacets { get; init; }
@@ -65,6 +70,8 @@ public sealed class Catalog(IReadOnlyList<CatalogEntry> entries) : IRuntimeCatal
     public IReadOnlyList<BrowsePath> SpecialNavigationPaths => index.SpecialNavigationPaths;
     public IReadOnlyList<SearchHit> Search(string query) => index.Search(query);
     public IReadOnlyList<CatalogEntry> RelatedByCatalogMetadata(CatalogEntry entry) => index.RelatedByCatalogMetadata(entry);
+    public IReadOnlyList<CatalogEntry> RelatedByBrowseHome(CatalogEntry entry) => index.RelatedByBrowseHome(entry);
+    public IReadOnlyList<CatalogEntry> SearchCharactersByCopyright(string query) => index.SearchCharactersByCopyright(query);
 }
 
 public interface IGeneralBrowseProvider

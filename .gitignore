@@ -3,6 +3,7 @@ __pycache__/
 **/__pycache__/
 *.py[cod]
 *.pyo
+.tmp-issue216-work/
 .pytest_cache/
 .pytest_*/
 .pytest-*/
@@ -75,4 +76,3 @@ data/generation/audit/
 /translation_quarantine/
 /_local/
 /DanbooruTagTool.lnk
-

@@ -415,7 +415,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
 
         if (relatedSource is not null)
         {
-            var relatedEntries = catalog.RelatedByCatalogMetadata(relatedSource);
+            var relatedEntries = catalog.RelatedByBrowseHome(relatedSource);
             if (!string.IsNullOrWhiteSpace(Query))
             {
                 var relatedIds = relatedEntries.Select(entry => entry.Id).ToHashSet(StringComparer.Ordinal);
@@ -434,6 +434,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
             {
                 var category = SearchTargetCategory(SearchTarget);
                 entries = hits.Select(hit => hit.Entry).Where(entry => entry.EffectiveCategory == category);
+                if (SearchTarget == DictionarySearchTarget.Character)
+                    entries = entries.Concat(catalog.SearchCharactersByCopyright(Query)).DistinctBy(entry => entry.Id);
             }
             else if (Scope == UnifiedBrowseScope.Tags && unifiedState.HasBrowseConstraints)
             {
@@ -591,10 +593,18 @@ public sealed class DictionaryWorkspaceViewModel : Observable
 
     public void OpenRelated(CatalogEntry entry)
     {
-        // Current Character <-> Copyright metadata was built from co-occurrence
-        // evidence and produced false ownership relations in real use. Keep the
-        // raw metadata in the catalog, but do not expose it as a product truth.
-        if (entry.EffectiveCategory is "Character" or "Copyright") return;
+        if (!canMutate() || catalog.RelatedByBrowseHome(entry).Count == 0) return;
+        relatedSource = entry;
+        var targetScope = entry.EffectiveCategory == "Copyright" ? UnifiedBrowseScope.Character : UnifiedBrowseScope.Copyright;
+        unifiedState = CloneState(unifiedState.WithScope(targetScope));
+        browse = BrowseKeyForState(unifiedState);
+        SetSearchTargetValue(SearchTargetForScope(targetScope), refresh: false);
+        Query = "";
+        Notify(nameof(ShowRelationBanner));
+        Notify(nameof(RelationBannerText));
+        Notify(nameof(CanGoBack));
+        ClearRelatedBrowseCommand.Refresh();
+        RefreshResults();
     }
 
     public void ClearRelatedBrowse()
@@ -989,13 +999,12 @@ public sealed class DictionaryWorkspaceViewModel : Observable
 
     private int RelationCountFor(CatalogEntry entry)
     {
-        // #177 disables the only card-level metadata relations that were previously
-        // surfaced (Character <-> Copyright). Other categories must stay at zero too;
-        // exposing their metadata counts would create a visible button with no action.
-        return 0;
+        return catalog.RelatedByBrowseHome(entry).Count;
     }
 
-    private string? RelationSummaryFor(CatalogEntry entry) => null;
+    private string? RelationSummaryFor(CatalogEntry entry)
+        => entry.EffectiveCategory == "Character" && catalog.RelatedByBrowseHome(entry).FirstOrDefault() is { } home
+            ? "作品: " + home.Label : null;
     private void ToggleFacet(object? parameter)
     {
         if (specialBrowse == null || parameter is not SpecialBrowseFacetOptionViewModel option) return;
@@ -1050,7 +1059,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     private IReadOnlyList<EntryViewModel> RelatedFor(CatalogEntry entry)
     {
         if (entry.EffectiveCategory is "Character" or "Copyright")
-            return [];
+            return Rows(catalog.RelatedByBrowseHome(entry));
         if (specialBrowse == null || !entry.IsSpecial)
             return Rows(catalog.RelatedByCatalogMetadata(entry));
         var route = specialBrowse.Get(entry.Id); if (route == null || !route.CanBrowse) return [];

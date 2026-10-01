@@ -1,0 +1,13 @@
+family,home_copyright,evidence_url,evidence_type,root_review,scope_note
+x-men,x-men,https://www.marvel.com/teams-and-groups/x-men/in-comics,MARVEL_OFFICIAL_XMEN_ROSTER,PASS,"Official X-Men member roster; exact x-men qualifier only; nested variants remain unresolved"
+dragon_ball,dragon_ball,https://en.dragon-ball-official.com/about,DRAGON_BALL_OFFICIAL_SERIES_PORTAL,PASS,"Official portal describes Dragon Ball as the series root across media; exact qualifier only; nested variants remain unresolved"
+transformers,transformers,https://newsroom.hasbro.com/news-releases/news-release-details/40-years-one-legacy-hasbro-celebrates-transformers-40th,HASBRO_OFFICIAL_FRANCHISE_CONTEXT,PASS,"Hasbro identifies TRANSFORMERS as the franchise and names canonical characters; exact qualifier only"
+precure,precure,https://www.bandai.co.jp/character/precure.php,BANDAI_OFFICIAL_SERIES_CONTEXT,PASS,"Bandai official character surface identifies プリキュアシリーズ; exact qualifier only; nested variants remain unresolved"
+final_fantasy,final_fantasy,https://jp.finalfantasy.com/?lang=ja,SQUARE_ENIX_OFFICIAL_SERIES_PORTAL,PASS,"Square Enix official portal identifies FINAL FANTASY as a series root with title lineup/history; exact qualifier only"
+megami_tensei,megami_tensei,https://www.atlus.co.jp/title/,ATLUS_OFFICIAL_SERIES_CONTEXT,PASS,"ATLUS official titles page identifies 真・女神転生 as a series; accepted catalog root is megami_tensei; exact qualifier only"
+nijisanji,nijisanji,https://www.anycolor.co.jp/en/service/nijisanji,ANYCOLOR_OFFICIAL_PROJECT_CONTEXT,PASS,"ANYCOLOR identifies NIJISANJI as its VTuber/Virtual Liver project and managed Liver group; exact qualifier only; costume variants remain unresolved"
+persona,persona,https://persona.atlus.com/series/,ATLUS_OFFICIAL_PERSONA_SERIES,PASS,"ATLUS official Persona series portal; exact qualifier only"
+yu-gi-oh!,yu-gi-oh!,https://www.yugioh-card.com/en/,KONAMI_OFFICIAL_FRANCHISE_CONTEXT,PASS,"Official Yu-Gi-Oh site identifies Yu-Gi-Oh as a franchise spanning manga television games and TCG; exact qualifier only"
+marvel,marvel,https://www.marvel.com/characters?nav=1,MARVEL_OFFICIAL_CHARACTER_ROSTER,PASS,"Marvel official Character list establishes Marvel character-root context; exact qualifier only; nested variants remain unresolved"
+idolmaster,idolmaster,https://idollist.idolmaster-official.jp/,BANDAI_NAMCO_OFFICIAL_IDOL_ROSTER,PASS,"THE IDOLM@STER official idol directory; exact qualifier only"
+disney,disney,https://www.disney.co.jp/fc,DISNEY_OFFICIAL_WORK_GROUPED_CHARACTER_ROSTER,UNRESOLVED_UMBRELLA,"Disney official character directory groups characters under title-level works; corporate umbrella is not accepted as canonical HOME"

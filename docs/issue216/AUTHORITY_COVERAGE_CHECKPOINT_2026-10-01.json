@@ -1,0 +1,62 @@
+{
+  "schema_version": "issue216-authority-coverage-checkpoint-v1",
+  "checkpoint_date": "2026-10-01",
+  "branch": "codex/issue216-unresolved-coverage-7073",
+  "parent_head": "00c279917a1bd8d3f845987c0931ac7ba39f073e",
+  "baseline_cohort": 13983,
+  "processed_terminalized": 3708,
+  "coverage_percent": 26.5179,
+  "states": {
+    "HOME_CONFIRMED": 3625,
+    "SOURCE_RESEARCHED_NO_SAFE_EVIDENCE": 68,
+    "POLICY_BLOCKED": 2,
+    "IDENTITY_BLOCKED": 12,
+    "EVIDENCE_CONFLICT": 1,
+    "UNRESEARCHED": 10275
+  },
+  "top500_unresearched": 145,
+  "top2000_unresearched": 1049,
+  "source_registry_count": 1056,
+  "reusable_accepted_roster_source_count": 909,
+  "exact_member_mapping_count": 3748,
+  "source_reuse_ratio": 0.879851,
+  "new_wave": {
+    "terminalized": 86,
+    "reviewed_source_scopes": 10,
+    "unique_new_source_urls": 2,
+    "terminalized_per_reviewed_scope": 8.6,
+    "terminalized_per_new_url": 43.0,
+    "final_fantasy_members": 73,
+    "hololive_mascot_members": 13,
+    "legacy_proposal_recovery_included": false
+  },
+  "scout": {
+    "roots_checked": 15,
+    "source_scopes": 17,
+    "unique_urls": 17,
+    "source_rows_found": 15,
+    "source_rows_unknown": 2,
+    "zero_open_overlap_scopes": 13,
+    "unknown_open_overlap_scopes": 4,
+    "existing_exact_terminal_members_rejoined": 101,
+    "new_terminalized": 0,
+    "repeated_source_fetches": 0
+  },
+  "invariants": {
+    "frozen_master_sha256": "135463a5225b6501db923322284f8e309f217eb5359538088eb6de6d78b77071",
+    "missing_copyright_roots": 0,
+    "existing_issue180_home_changed": 0,
+    "home_cardinality_0_to_1": true,
+    "main_merge": false,
+    "production_apply": false
+  },
+  "validation": {
+    "issue216_tests": "51/51 PASS",
+    "issue180_tests": "60/60 PASS",
+    "semantic_membership_rebuild": "PASS",
+    "queue_v1_rebuild": "PASS",
+    "queue_v2_reproducibility": "PASS",
+    "git_diff_check": "PASS"
+  },
+  "remaining": "Continue source-driven harvest and route accounting until UNRESEARCHED=0; no terminal state may be inferred from candidate roots, post counts, or partial-roster absence."
+}

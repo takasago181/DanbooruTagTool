@@ -1,0 +1,254 @@
+{
+  "version": 2,
+  "attribute_families": [
+    "new_year",
+    "summer",
+    "casual",
+    "school_uniform",
+    "female",
+    "male",
+    "young",
+    "timeskip",
+    "stand",
+    "racehorse",
+    "human",
+    "character",
+    "cat"
+  ],
+  "ordinal_costume_regex": "^[0-9]+(?:st|nd|rd|th)_costume$",
+  "broad_families": [
+    "disney",
+    "marvel",
+    "final_fantasy",
+    "idolmaster",
+    "precure",
+    "yu-gi-oh!",
+    "nijisanji",
+    "dragon_ball",
+    "mega_man",
+    "tales",
+    "persona",
+    "megami_tensei",
+    "zelda",
+    "kirby",
+    "naruto",
+    "neptunia",
+    "nanoha",
+    "x-men",
+    "transformers",
+    "mario",
+    "vtuber",
+    "cookie",
+    "project_moon",
+    "vocaloid",
+    "nintendo",
+    "namco",
+    "capcom",
+    "cygames",
+    "type-moon",
+    "cevio",
+    "utau",
+    "synthesizer_v",
+    "voiceroid",
+    "voicevox",
+    "voicepeak",
+    "coefont",
+    "a.i._voice",
+    "gynoid_talk",
+    "talkex",
+    "voisona",
+    "fromsoftware",
+    "snk",
+    "arika",
+    "alicesoft"
+  ],
+  "non_home_families": [
+    "project_voltage",
+    "original",
+    "pixiv_fantasia",
+    "vrchat",
+    "marvel_vs._capcom",
+    "sushiro",
+    "futaba_channel"
+  ],
+  "broad_pass_types": [
+    "ROOT_POLICY_REVIEWED",
+    "OFFICIAL_ROSTER_ROOT_POLICY",
+    "FIRST_PARTY_CANONICAL_ROOT",
+    "CURATED_ROSTER_ROOT_POLICY"
+  ],
+  "piapro_policy_characters": [
+    "hatsune_miku",
+    "kagamine_rin",
+    "kagamine_len",
+    "megurine_luka",
+    "meiko_(vocaloid)",
+    "kaito_(vocaloid)"
+  ],
+  "root_policy_normalization": {
+    "fate/zero": "fate_(series)",
+    "fate/extra": "fate_(series)",
+    "fate/apocrypha": "fate_(series)",
+    "fate/grand_order": "fate_(series)",
+    "fate/prototype": "fate_(series)",
+    "fate/stay_night": "fate_(series)",
+    "fate/strange_fake": "fate_(series)",
+    "fate/grand_order_arcade": "fate_(series)",
+    "fate/samurai_remnant": "fate_(series)",
+    "pokemon_go": "pokemon",
+    "pokemon_masters_ex": "pokemon",
+    "pokemon_legends:_z-a": "pokemon",
+    "pokemon_adventures": "pokemon",
+    "pokemon_pokopia": "pokemon",
+    "splatoon_3": "splatoon_(series)",
+    "splatoon_raiders": "splatoon_(series)",
+    "blue_archive_the_animation": "blue_archive"
+  },
+  "root_policy_review_hint_prefixes": [
+    [
+      "fire_emblem_",
+      "fire_emblem"
+    ],
+    [
+      "fire_emblem:",
+      "fire_emblem"
+    ],
+    [
+      "mega_man_",
+      "mega_man_(series)"
+    ],
+    [
+      "mega_man:",
+      "mega_man_(series)"
+    ],
+    [
+      "xenoblade_",
+      "xenoblade_chronicles_(series)"
+    ],
+    [
+      "sekaiju_",
+      "sekaiju_no_meikyuu"
+    ],
+    [
+      "tales_",
+      "tales_of_(series)"
+    ],
+    [
+      "kirby_",
+      "kirby_(series)"
+    ],
+    [
+      "naruto_",
+      "naruto_(series)"
+    ],
+    [
+      "zelda_",
+      "the_legend_of_zelda"
+    ],
+    [
+      "sailor_moon_",
+      "bishoujo_senshi_sailor_moon"
+    ],
+    [
+      "sonic_",
+      "sonic_(series)"
+    ],
+    [
+      "mario_",
+      "mario_(series)"
+    ],
+    [
+      "super_mario_",
+      "mario_(series)"
+    ],
+    [
+      "pikmin_",
+      "pikmin_(series)"
+    ],
+    [
+      "symphogear_",
+      "senki_zesshou_symphogear"
+    ]
+  ],
+  "root_policy_review_hint_exact": {
+    "jojolion": "jojo_no_kimyou_na_bouken"
+  },
+  "official_origin_classes": [
+    "OFFICIAL_IDENTITY",
+    "OFFICIAL_ALIAS",
+    "OFFICIAL_VARIANT"
+  ],
+  "allow_autonomous_not_official_pass": false,
+  "allow_autonomous_broad_family_pass": false,
+  "variant_qualifier_families": [
+    "swimsuit",
+    "bunny",
+    "maid",
+    "dress",
+    "qipao",
+    "sleepwear",
+    "halloween",
+    "kimono",
+    "school_swimsuit",
+    "sportswear",
+    "first_ascension",
+    "final_ascension",
+    "swimsuit_costume",
+    "sygna_suit",
+    "outfit_2",
+    "outfit_3",
+    "outfit_4",
+    "post-graduation_casual",
+    "summer_2020",
+    "summer_2022",
+    "2020_summer",
+    "2020_winter",
+    "summer_uniform",
+    "black_dress",
+    "blue_dress",
+    "red_dress",
+    "formal_dress",
+    "stage_dress",
+    "vintage_dress",
+    "pajamas_costume",
+    "bunny_costume",
+    "battle_costume",
+    "movie_costume",
+    "princess_costume",
+    "street_casual",
+    "spring_casual",
+    "underworld_casual",
+    "underworld_uniform",
+    "school_cardigan",
+    "holiday_outfit",
+    "senpai_killer_outfit",
+    "sf6_outfit_3",
+    "sf4_alternate",
+    "swimsuit_skin"
+  ],
+  "not_official_origin_classes": [
+    "FANWORK_PAIRING",
+    "FANWORK_HASHTAG",
+    "FANWORK_EVENT",
+    "FANWORK_MEME",
+    "FANWORK_COMMUNITY",
+    "FANWORK_CROSSOVER",
+    "FANWORK_DERIVATIVE",
+    "NON_IDENTITY_DESCRIPTION"
+  ],
+  "mandatory_unqualified_group_min_rows": 50,
+  "mandatory_variant_pattern_min_rows": 5,
+  "mandatory_family_discovery_min_rows": 10,
+  "mandatory_discovery_group_min_confirmed_members": 5,
+  "zero_yield_discovery_group_exemptions": [
+    "original",
+    "indie_virtual_youtuber"
+  ],
+  "mandatory_family_review_min_pass": 10,
+  "mandatory_variant_review_min_pass": 5,
+  "direct_character_evidence_url_denylist": [
+    "https://www.anycolor.co.jp/en/service/nijisanji",
+    "https://www.yugioh-card.com/en/products/",
+    "https://www.dmm.com/netgame/feature/kancolle.html"
+  ]
+}

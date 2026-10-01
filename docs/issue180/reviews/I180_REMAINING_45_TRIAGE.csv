@@ -1,0 +1,46 @@
+canonical_tag,triage_bucket,proposed_next_authority,reason
+shirakami_fubuki,BULK_CURATED_LIST,hololive roster,Official hololive roster can resolve this with the same authority pattern already accepted in B002
+mori_calliope,BULK_CURATED_LIST,hololive roster,Official hololive roster can resolve this with the same authority pattern already accepted in B002
+usada_pekora,BULK_CURATED_LIST,hololive roster,Official hololive roster can resolve this with the same authority pattern already accepted in B002
+nekomata_okayu,BULK_CURATED_LIST,hololive roster,Official hololive roster can resolve this with the same authority pattern already accepted in B002
+takanashi_kiara,BULK_CURATED_LIST,hololive roster,Official hololive roster can resolve this with the same authority pattern already accepted in B002
+sakura_miko,BULK_CURATED_LIST,hololive roster,Official hololive roster can resolve this with the same authority pattern already accepted in B002
+komeiji_koishi,BULK_CURATED_LIST,Touhou official curated evidence,Same ecosystem and authority family as accepted B002 Touhou characters; require explicit roster/list evidence before confirmation
+kochiya_sanae,BULK_CURATED_LIST,Touhou official curated evidence,Same ecosystem and authority family as accepted B002 Touhou characters; require explicit roster/list evidence before confirmation
+konpaku_youmu,BULK_CURATED_LIST,Touhou official curated evidence,Same ecosystem and authority family as accepted B002 Touhou characters; require explicit roster/list evidence before confirmation
+cirno,BULK_CURATED_LIST,Touhou official curated evidence,Same ecosystem and authority family as accepted B002 Touhou characters; require explicit roster/list evidence before confirmation
+alice_margatroid,BULK_CURATED_LIST,Touhou official curated evidence,Same ecosystem and authority family as accepted B002 Touhou characters; require explicit roster/list evidence before confirmation
+hatsune_miku,ROOT_OR_VARIANT_POLICY,Piapro Characters root,Crypton officially groups Miku Rin Len Luka MEIKO KAITO as Piapro Characters but current catalog lacks an accepted Piapro/Crypton HOME root
+kagamine_rin,ROOT_OR_VARIANT_POLICY,Piapro Characters root,Official identity is clear but HOME root is not represented/approved
+kagamine_len,ROOT_OR_VARIANT_POLICY,Piapro Characters root,Official identity is clear but HOME root is not represented/approved
+megurine_luka,ROOT_OR_VARIANT_POLICY,Piapro Characters root,Official identity is clear but HOME root is not represented/approved
+hatsune_miku_(colorful_drop),ROOT_OR_VARIANT_POLICY,base Character inheritance,Qualifier is a variant label rather than a Copyright; resolve base Miku HOME first then use A4 if official variant is proven
+hatsune_miku_(high_fever),ROOT_OR_VARIANT_POLICY,base Character inheritance,Qualifier is a variant label rather than a Copyright; resolve base Miku HOME first then use A4 if official variant is proven
+floren_(xenoblade),ROOT_OR_VARIANT_POLICY,qualifier root normalization,Qualifier looks like an IP token but root mapping is not yet approved
+kaguya_(cho_kaguya-hime!),ROOT_OR_VARIANT_POLICY,qualifier root normalization,Qualifier looks like an IP token but root mapping is not yet approved
+cherry_(lucky_star),ROOT_OR_VARIANT_POLICY,qualifier root normalization,Qualifier looks like an IP token but root mapping is not yet approved
+rem_(re:zero),ROOT_OR_VARIANT_POLICY,qualifier root normalization,Official Re:Zero evidence exists; approve canonical Copyright root mapping before auto-confirm
+elegg_(nikke),ROOT_OR_VARIANT_POLICY,qualifier root normalization,Qualifier looks like an IP token but root mapping is not yet approved
+elysia_(honkai_impact),ROOT_OR_VARIANT_POLICY,qualifier root normalization,Qualifier rejects HSR but canonical Honkai Impact root mapping remains unapproved
+elysia_(herrscher_of_human:_ego)_(honkai_impact),ROOT_OR_VARIANT_POLICY,qualifier root normalization,Final qualifier is honkai_impact; canonical root mapping remains unapproved
+elysia_(miss_pink_elf)_(honkai_impact),ROOT_OR_VARIANT_POLICY,qualifier root normalization,Final qualifier is honkai_impact; canonical root mapping remains unapproved
+ishmael_(project_moon),ROOT_OR_VARIANT_POLICY,qualifier root normalization,Qualifier is broader than a specific work and needs reviewed root semantics
+aya_(trickcal),ROOT_OR_VARIANT_POLICY,qualifier root normalization,Qualifier looks like an IP token but root mapping is not yet approved
+noise_(classic_diva)_(nikke),ROOT_OR_VARIANT_POLICY,qualifier root normalization,Final qualifier is nikke; approve canonical root mapping and treat classic_diva as variant context
+kirby,INDIVIDUAL_RESEARCH,official origin/root proof,Unqualified identity needs an independently accepted canonical HOME
+ferb_fletcher,INDIVIDUAL_RESEARCH,official origin/root proof,Unqualified identity needs an independently accepted canonical HOME
+kasane_teto,INDIVIDUAL_RESEARCH,origin/root policy,Multiple software/ecosystem associations make a forced VOCALOID HOME unsafe
+sakayori_iroha,INDIVIDUAL_RESEARCH,official origin/root proof,Legacy relation only; no accepted independent HOME authority
+yuzuki_yukari,INDIVIDUAL_RESEARCH,official origin/root proof,Official character exists but exact stable HOME root needs separate policy/evidence
+nakano_azusa,INDIVIDUAL_RESEARCH,official origin/root proof,Unqualified identity needs an independently accepted canonical HOME
+adachi_rei,INDIVIDUAL_RESEARCH,official origin/root proof,Unqualified identity needs an independently accepted canonical HOME
+fate_testarossa,INDIVIDUAL_RESEARCH,official origin/root proof,Name collision with Fate sampling makes legacy relation unusable
+billy_butcher,INDIVIDUAL_RESEARCH,official origin/root proof,Unqualified identity needs an independently accepted canonical HOME
+eugene_kidd,INDIVIDUAL_RESEARCH,identity disambiguation,Unqualified identity may be ambiguous; establish identity before HOME
+northern_ocean_princess,INDIVIDUAL_RESEARCH,official curated authority,Legacy Kancolle relation is plausible but independent accepted evidence is still required
+rensouhou-chan,INDIVIDUAL_RESEARCH,official curated authority,Legacy Kancolle relation is plausible but independent accepted evidence is still required
+amaterasu_(mythology),INDIVIDUAL_RESEARCH,identity/scope review,Qualifier is generic mythology rather than a product Copyright
+andou_nene,INDIVIDUAL_RESEARCH,official origin/root proof,Unqualified identity needs an independently accepted canonical HOME
+nurgle,INDIVIDUAL_RESEARCH,identity/scope review,Generic franchise/mythology-like identity requires disambiguation and product-scope review
+spider_baelz,INDIVIDUAL_RESEARCH,identity/officialness review,Possible derivative/variant identity; do not inherit hololive HOME without officialness proof
+tsukumo_san,INDIVIDUAL_RESEARCH,identity/officialness review,Unqualified identity needs independent officialness and HOME proof

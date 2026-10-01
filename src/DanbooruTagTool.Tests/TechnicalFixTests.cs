@@ -106,6 +106,7 @@ public class TechnicalFixTests(ITestOutputHelper output)
             "data/special2788/product_fit_verdicts.csv", AcceptedAssetImporter.ProductionProfileRelativePath, AcceptedAssetImporter.PromotionRelativePath, AcceptedAssetImporter.Issue107PromotionRelativePath,
             Issue118SpecialCanonicalCorrectionOverlay.RelativePath,
             Issue70CatalogOverlayImporter.RelativePath,
+            Issue216BrowseHomeImporter.RelativePath,
             "docs/issue56/rollout/issue56_ui_genre_taxonomy_v1.json",
             AcceptedGeneralTaxonomyImporter.TaxonomyRelativePath, AcceptedGeneralTaxonomyImporter.SidecarRelativePath,
             AcceptedGeneralTaxonomyImporter.ManifestRelativePath

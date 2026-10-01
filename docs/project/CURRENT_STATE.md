@@ -49,6 +49,14 @@
   - research-only。main merge / production applyは別Gate
   - HEAD / progressはlive branch/Issueから再取得する
 
+- **#216 — Completed HOME coverage / reviewed Browse HOME runtime integration**
+  - branch: `codex/issue216-unresolved-coverage-7073`
+  - formal frozen cohort completed: 13,983 accounted; UNRESEARCHED=0
+  - reviewed Browse overlay completed; runtime fallback projection adds 7,409 product-catalog Characters
+  - user explicitly authorized main merge, clean publish, bounded production promotion, and workstation final validation on 2026-10-01
+  - formal #180/#216 HOME remains immutable and has priority; reviewed fallback is Browse/search only
+  - promotion results and live HEAD are recorded on Issue #216; UserData is protected
+
 - **#188 — Project-wide execution efficiency**
   - branch: Issue単位の小さいDEV branch/PRで実施
   - state: active; next 10 actual #180 worker/coordinator runs must record telemetry, followed by a duration/orchestration summary and a disposition of the current state/progress/cache lint warning

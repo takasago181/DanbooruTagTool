@@ -188,6 +188,7 @@ public static class AcceptedAssetImporter
         {
             var issue70Path = Authority(Issue70CatalogOverlayImporter.RelativePath);
             var issue70 = Issue70CatalogOverlayImporter.Read(issue70Path);
+            issue70 = Issue216BrowseHomeImporter.Apply(Authority(Issue216BrowseHomeImporter.RelativePath), issue70);
             var existingCanonical = entries.Where(e => e.Canonical != null).Select(e => e.Canonical!).ToHashSet(StringComparer.Ordinal);
             var overlap = issue70.Where(e => e.Canonical != null && existingCanonical.Contains(e.Canonical)).Select(e => e.Canonical!).Take(5).ToArray();
             if (overlap.Length > 0) throw new InvalidDataException("Issue #70 canonical overlaps existing General/Special: " + string.Join(", ", overlap));
