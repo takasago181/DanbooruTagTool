@@ -339,8 +339,10 @@ def build(args: argparse.Namespace) -> tuple[list[dict[str, str]], list[dict[str
         "alias_sha256": sha256(args.alias_index), "tag_catalog_sha256": sha256(args.tag_catalog),
         "existing_home_mutations": 0,
         "missing_roots": 0,
-        "external_web_research_needed_after_semantic_pass": None,
+        "external_web_research_needed_after_semantic_pass": 0 if open_after == 0 else None,
         "state_note": (
+            "All frozen cohort members are terminal; no UNRESEARCHED authority routes remain."
+            if open_after == 0 else
             f"Remaining UNRESEARCHED is {open_after}; how many need external Web Research is not yet determined "
             "because source-scope/roster and route-level review remains."
         ),

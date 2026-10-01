@@ -1,18 +1,18 @@
 {
   "cohort_size": 13983,
-  "unresearched": 10051,
+  "unresearched": 0,
   "category_counts": {
-    "A_DIRECT_IMPLICATION_MISSING_BUT_STRONG_IP_ROUTE": 8399,
-    "B_VARIANT_IDENTITY_MISSING": 627,
+    "A_DIRECT_IMPLICATION_MISSING_BUT_STRONG_IP_ROUTE": 0,
+    "B_VARIANT_IDENTITY_MISSING": 0,
     "C_MULTIPLE_COPYRIGHT_IMPLICATION_CONFLICT": 0,
-    "D_CREATOR_ARTIST_QUALIFIED_OC": 973,
+    "D_CREATOR_ARTIST_QUALIFIED_OC": 0,
     "E_REAL_PERSON_MASCOT_NON_WORK_CANDIDATE": 0,
     "F_PLATFORM_COMPANY_GENERIC_FAMILY_CANDIDATE": 0,
-    "G_ROOTLESS_IN_FROZEN_STRUCTURAL_GRAPH": 32,
-    "H_OTHER_LONG_TAIL": 20
+    "G_ROOTLESS_IN_FROZEN_STRUCTURAL_GRAPH": 0,
+    "H_OTHER_LONG_TAIL": 0
   },
-  "classified_rows": 10051,
-  "creator_artist_qualified_candidate_count": 979,
+  "classified_rows": 0,
+  "creator_artist_qualified_candidate_count": 0,
   "real_person_mascot_nonwork_classified": 0,
   "platform_company_generic_family_classified": 0,
   "nonwork_note": "No Character was closed based on a name/category signal. E/F classifications require accepted explicit semantic authority and are not established by the current input set; possible cases remain in A/G/H for route research.",

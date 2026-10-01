@@ -1,0 +1,44 @@
+name: Issue216 authority coverage
+
+on:
+  push:
+    branches: [codex/issue216-unresolved-coverage-7073]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install pytest
+      - name: Focused coverage and relevant Issue180 regression
+        run: python -m pytest tests/issue216 tests/issue180 -q -p no:cacheprovider
+      - name: Require complete frozen-cohort accounting and accepted HOME provenance
+        run: python scripts/issue216/authority_coverage.py
+      - name: Reproduce accepted semantic membership projection
+        run: python scripts/issue216/build_validated_membership_table.py --check
+      - name: Verify frozen research snapshots and final ledger fingerprints
+        run: |
+          python - <<'PY'
+          import hashlib, json, tarfile
+          from pathlib import Path
+          root = Path("docs/issue216")
+          report = json.loads((root / "AUTHORITY_COVERAGE_CHECKPOINT_2026-10-01_COMPLETION.json").read_text())
+          assert report["frozen_cohort"] == report["accounted"] == 13983
+          assert report["state_counts"]["UNRESEARCHED"] == 0
+          assert report["top500_unresearched"] == report["top2000_unresearched"] == 0
+          assert report["existing_issue180_HOME_changed"] == report["missing_roots"] == 0
+          for name, expected in report["artifact_sha256"].items():
+              assert hashlib.sha256((root / name).read_bytes()).hexdigest() == expected, name
+          for name, metadata in report["frozen_review_packages"].items():
+              path = root / name
+              assert hashlib.sha256(path.read_bytes()).hexdigest() == metadata["sha256"], name
+              with tarfile.open(path, "r:gz") as archive:
+                  assert len([m for m in archive.getmembers() if m.isfile()]) == metadata["files"], name
+          PY

@@ -31,6 +31,34 @@ The validator rejects confirmed HOME without an accepted source, exact member ma
 
 ## Execution order
 
+### Completion-mode override — 2026-10-01
+
+The user-authorized completion mode supersedes the discovery schedule below. Its
+record is `AUTHORITY_COVERAGE_CHECKPOINT_2026-10-01_COMPLETION.json` and `.md`.
+Run one actual bounded standard authority pass over each shared variant/type,
+creator class, or retained IP/source strategy. Reuse the active semantic snapshot,
+verified aliases, reviewed official/curated scopes, original explicit-list bodies,
+and validated repository identity evidence. Record input fingerprints and the
+observed per-subject result. Stop additional source hunting after that pass.
+
+When this reviewed package supplies no exact safe HOME proof, its covered research
+subjects may become `SOURCE_RESEARCHED_NO_SAFE_EVIDENCE`. This state reports the
+bounded pass's result; it does not assert nonmembership, no meaningful HOME, or
+exhaustion of every possible external source. Missing ledger evidence alone and
+absence from a partial roster alone remain insufficient. Nonaccepted completion
+review sources and rejected HOME mappings are recorded separately from accepted
+exact membership evidence using the existing registry/member/decision schemas.
+
+Hold Top2000 subjects, including Top500, out of ordinary long-tail closure. Perform
+an explicit per-subject authority check; exact title-array API batches may retrieve
+their canonical wiki pages together. Wiki prose or its first Copyright link does
+not create HOME. Exact documented identity aliases may resolve a previously
+reviewed official roster member. Existing #180 HOME assignments remain immutable.
+
+The source snapshots used in the completion pass are frozen in the two
+`DANBOORU_*_REVIEW_INPUTS_2026-10-01.tar.gz` packages. Their hashes and scopes are in
+the completion checkpoint. The older discovery sequence below is historical.
+
 1. Re-audit accepted source scopes against all currently `UNRESEARCHED` cohort rows; generate exact roster/catalog mapping candidates and accept only reviewed unique mappings.
 2. Rebuild the full-cohort Copyright-root priority queue from candidate-root/family hints, existing hints, reviewed source-scope inventories, and frozen frequency ranks. `expected_safe_yield` counts only open `AUTO_MAPPING_CANDIDATE` rows in a retained inventory whose accepted source ID, URL, and exact scope still match the registry. Merely having a source under the same root never makes all root members expected yield. Queue fields are work-priority metadata only; they never enter HOME evidence.
 3. Review high expected-safe-yield official rosters/directories first. Record one authority source with an explicit exact scope and a batch of exact/reviewed member mappings. Reuse the same URL/scope and member table instead of repeating Character-level lookups.
