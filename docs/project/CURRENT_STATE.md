@@ -1,6 +1,6 @@
 # CURRENT STATE
 
-最終更新: 2026-10-01 (#223 Browse Groups deployed; HOLD/unclassified retained)
+最終更新: 2026-10-02 (#226 production promotion complete; #228 not started)
 
 このファイルは **現在地だけ** を保持する人間向けsummary。
 過去のrouting/runtime/taxonomy/完了記録は `docs/project/CURRENT_STATE_HISTORY.md` に保存する。
@@ -16,6 +16,15 @@
 ## 1. Current routing
 
 現在の主要な独立lane:
+
+### #226 Generation image library — COMPLETE / production APPLIED
+
+PR #238 is merged; clean published source main `49963dc129a1725c8a74d7f29aeb960884b67569` is installed at `C:\Codex\DanbooruTagTool-App`. Generation Library uses separate schema1 SQLite DB and reconstructible thumbnail cache. Full Release 276 PASS / 3 opt-in SKIP / 0 FAIL; focused 35 PASS; isolated unchanged-threshold performance Gate PASS. Native installed real PNG scan/metadata/thumbnail/search, annotation restart, Prompt restore + Undo/Recovery, preset editor, real Forge send/one successful generate, diff and missing-file annotation protection passed.
+
+Catalog/#179/#180/#216/#223 unchanged; whole prior runtime/UserData backup retained. Promotion excluded UserData; after explicit UI smoke original Prompt/Recovery and both Presets equal backup, only Workspace/PromptWidth changed. Exact hashes/evidence: `docs/project/LAST_KNOWN_GOOD.json`, `docs/issue226/PRODUCTION_CHECKPOINT_2026-10-02.json`.
+
+Manual scan/rename limitations remain; actual WebP/JPEG preview, different PC and physical network disconnect unverified. Full Recipe application remains disabled. **#228 implementation not started; stop after this production closeout.**
+
 
 - **#223 — Browse Groups: COMPLETE / production deployed**
 
@@ -94,9 +103,9 @@ No default further classification: ambiguous HOLD and unclassified remain preser
   - BODY: **247**
   - THEME: **108**
 - current Special authority: Issue #76 shallow kind/body/theme model
-- production LKG: `docs/project/LAST_KNOWN_GOOD.json` and `.md` (source main `bbbd6cac7368edab9d6faf096070ec77452cc49b`)
-- runtime shape: 7 total files; single-file self-contained win-x64; root DLL 0; PDB 0; external catalog/UserData/ForgeBridge/manifest schema 3
-- current production EXE SHA256: `A65D3056E0BFDD177E1D37B1A4CD9C9FF2FD208725D1311005389E9E7027E21E`; catalog SHA256 `D91A68186661127F16E2AE102B4DD9F3A96EAE578B3C989A8B4F17169639FC6F`
+- production LKG: `docs/project/LAST_KNOWN_GOOD.json` and `.md` (source main `49963dc129a1725c8a74d7f29aeb960884b67569`)
+- runtime shape: 13 total files including UserData/cache; single-file self-contained win-x64; root DLL 0; PDB 0; external catalog/UserData/ForgeBridge/manifest schema 3
+- current production EXE SHA256: `A805FBBD80B735F354AB0CC2FBFE7F4B24A93436243888A6C6A1A4EAE8431FBE`; catalog SHA256 `D91A68186661127F16E2AE102B4DD9F3A96EAE578B3C989A8B4F17169639FC6F`
 - current UI mitigation authority: #177
   - Artist hidden
   - legacy RelatedCopyright remains excluded; #216 formal HOME / reviewed Browse fallback now powers Character-Copyright Browse/search

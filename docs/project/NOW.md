@@ -1,6 +1,6 @@
 # NOW — いま何をやっているか
 
-最終整理: 2026-10-01 JST (#223 Browse Groups deployed)
+最終整理: 2026-10-02 JST (#226 production promotion complete)
 
 このファイルは、GitHubを開いたときに**現在の主作業・進捗・次の行動**を人間がすぐ把握するためのdashboardです。
 
@@ -12,7 +12,15 @@
 
 ---
 
-## #223 Browse Groups — COMPLETE / production deployed
+## #226 Generation image library — COMPLETE / production APPLIED
+
+PR #238 is merged; clean published source main `49963dc129a1725c8a74d7f29aeb960884b67569` is installed at `C:\Codex\DanbooruTagTool-App`. Generation Library uses separate schema1 SQLite DB and reconstructible thumbnail cache. Full Release 276 PASS / 3 opt-in SKIP / 0 FAIL; focused 35 PASS; isolated unchanged-threshold performance Gate PASS. Native installed real PNG scan/metadata/thumbnail/search, annotation restart, Prompt restore + Undo/Recovery, preset editor, real Forge send/one successful generate, diff and missing-file annotation protection passed.
+
+Catalog/#179/#180/#216/#223 unchanged; whole prior runtime/UserData backup retained. Promotion excluded UserData; after explicit UI smoke original Prompt/Recovery and both Presets equal backup, only Workspace/PromptWidth changed. Exact hashes/evidence: `docs/project/LAST_KNOWN_GOOD.json`, `docs/issue226/PRODUCTION_CHECKPOINT_2026-10-02.json`.
+
+Manual scan/rename limitations remain; actual WebP/JPEG preview, different PC and physical network disconnect unverified. Full Recipe application remains disabled. **#228 implementation not started; stop after this production closeout.**
+
+## #223 Browse Groups — completed release history (still included)
 
 PR #224 merged and clean-published from main `bbbd6cac7368edab9d6faf096070ec77452cc49b`. Production apply is complete.
 7 HOME / 64 display-only groups / 2,467 grouped Characters / 2,072 other-unclassified / 21 HOLD (included in unclassified).
@@ -37,8 +45,8 @@ PR #219 production-closeout merge checkpoint:
 
 Current repository main is **live GitHub main**; do not treat the checkpoint SHA above as a permanently pinned HEAD.
 
-Current production runtime includes #179 reviewed quality corrections and #223 Browse Groups and was built from:
-`bbbd6cac7368edab9d6faf096070ec77452cc49b`
+Current production runtime includes #179 reviewed quality corrections, #223 Browse Groups and #226 Library and was built from:
+`49963dc129a1725c8a74d7f29aeb960884b67569`
 
 Production:
 - runtime: `C:\Codex\DanbooruTagTool-App`
@@ -49,14 +57,15 @@ Production:
 - UNRESOLVED: **2,336**
 - precedence: **FORMAL_HOME -> REVIEWED_BROWSE_FALLBACK -> UNRESOLVED**
 - formal authority mutations: **0**
-- UserData before/after: byte-identical; saved **13-tag Prompt** retained
-- final installed catalog: **259 PASS / 3 explicit opt-in SKIP**; candidate **260 PASS / 2 SKIP**
+- UserData promotion: byte-identical; explicit smoke changes only UI Workspace/PromptWidth; saved **13-tag Prompt/Recovery and 2 Presets** equal backup
+- current full Release: **276 PASS / 3 opt-in SKIP / 0 FAIL**; focused **35 PASS**; isolated performance **1 PASS**
 - Python #223/#216/#180 regression: **124 PASS**
 - CI / performance gates: **PASS**
 
 Exact current runtime hashes and validation evidence are authoritative in:
 - `docs/project/LAST_KNOWN_GOOD.json`
-- `docs/issue223/PRODUCTION_CHECKPOINT_2026-10-01.json` (current release)
+- `docs/issue226/PRODUCTION_CHECKPOINT_2026-10-02.json` (current release)
+- `docs/issue223/PRODUCTION_CHECKPOINT_2026-10-01.json` (previous Browse Groups release)
 - `docs/issue179/PRODUCTION_CHECKPOINT_2026-10-01.json` (previous reviewed overlay release)
 - `docs/issue216/PRODUCTION_PROMOTION_2026-10-01.json` (previous HOME integration release)
 
@@ -207,10 +216,10 @@ mainへ反映済み:
 - self-contained `win-x64`
 - real `UserData` はuser-owned protected state
 - current repository main: use live `main` (dashboard does not pin a self-invalidating HEAD)
-- production binary source main: `bbbd6cac7368edab9d6faf096070ec77452cc49b`
-- current production EXE SHA256: `A65D3056E0BFDD177E1D37B1A4CD9C9FF2FD208725D1311005389E9E7027E21E`
+- production binary source main: `49963dc129a1725c8a74d7f29aeb960884b67569`
+- current production EXE SHA256: `A805FBBD80B735F354AB0CC2FBFE7F4B24A93436243888A6C6A1A4EAE8431FBE`
 - catalog SHA256: `D91A68186661127F16E2AE102B4DD9F3A96EAE578B3C989A8B4F17169639FC6F`
-- runtime manifest SHA256: `805FDC0EFCDC044F776F1DB0D83699C248C797192808E35BAADC912A40E7DE05`
+- runtime manifest SHA256: `776F9733B3DC1181117910400DB337716BD97ACDDFF2A9B9406D6CC4E6C640E9`
 - exact runtime authority: `docs/project/LAST_KNOWN_GOOD.json`
 
 
