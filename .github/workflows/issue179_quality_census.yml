@@ -31,6 +31,9 @@ jobs:
       - name: Prepare Stage B review batches
         run: python scripts/issue179/prepare_stage_b_batches.py
 
+      - name: Build confirmed search-cleanup candidates
+        run: python scripts/issue179/build_search_cleanup_review.py
+
       - name: Validate Stage B review ledgers
         run: python scripts/issue179/validate_stage_b_reviews.py
 
@@ -66,4 +69,10 @@ jobs:
         with:
           name: issue179-quality-census
           path: artifacts/issue179-quality-census/
+          if-no-files-found: error
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: issue179-search-cleanup
+          path: artifacts/issue179-search-cleanup/
           if-no-files-found: error
