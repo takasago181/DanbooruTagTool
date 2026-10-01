@@ -1,0 +1,145 @@
+name: Issue179 Character Copyright Quality Census
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - "scripts/issue179/**"
+      - "docs/issue179/**"
+      - ".github/workflows/issue179_quality_census.yml"
+      - ".gitattributes"
+      - "docs/issue70/data/runtime/issue70_catalog_overlay.csv"
+      - "docs/issue70/data/runtime/issue70_catalog_overlay_2d_final.csv"
+      - "docs/issue70/scope/full_scope_ledger.csv"
+      - "docs/issue70/finalization/FINAL_SEMANTIC_FIXES.csv"
+
+permissions:
+  contents: read
+
+jobs:
+  census:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build read-only quality census
+        run: python scripts/issue179/build_quality_census.py
+
+      - name: Prepare Stage B review batches
+        run: python scripts/issue179/prepare_stage_b_batches.py
+
+      - name: Build confirmed search-cleanup candidates
+        run: python scripts/issue179/build_search_cleanup_review.py
+
+      - name: Build conservative display-cleanup candidates
+        run: python scripts/issue179/build_display_cleanup_review.py
+
+      - name: Compile reviewed correction ledger
+        run: python scripts/issue179/build_correction_ledger.py
+
+      - name: Complete remaining Stage B review
+        run: python scripts/issue179/complete_stage_b_review.py
+
+      - name: Build deterministic runtime correction projection
+        run: python scripts/issue179/build_runtime_projection.py
+
+      - name: Audit post-overlay runtime residuals
+        run: python scripts/issue179/audit_post_overlay_runtime.py
+
+      - name: Validate Stage B review ledgers
+        run: python scripts/issue179/validate_stage_b_reviews.py
+
+      - name: Verify tracked runtime projection is current
+        run: |
+          cmp artifacts/issue179-runtime/ISSUE179_RUNTIME_PROJECTION_V1.csv docs/issue179/runtime/ISSUE179_RUNTIME_PROJECTION_V1.csv
+          cmp artifacts/issue179-runtime/manifest.json docs/issue179/runtime/manifest.json
+
+      - name: Validate artifact contract
+        run: |
+          python - <<'PY'
+          import csv, json
+          from pathlib import Path
+          root = Path("artifacts/issue179-quality-census")
+          summary = json.loads((root / "summary.json").read_text(encoding="utf-8"))
+          assert summary["population"]["total"] == 44426
+          assert summary["population"]["by_category"] == {"Character": 35890, "Copyright": 8536}
+          assert summary["population"]["current_runtime"] == {"Character": 35278, "Copyright": 7616}
+          assert summary["artist_audit_rows"] == 0
+          assert summary["pilot_rows"] == 500
+          assert summary["pilot_clean_control_rows"] == 100
+          assert summary["clean_control_rows"] == 100
+          assert summary["production_modified"] is False
+          with (root / "quality_census.csv").open(encoding="utf-8-sig", newline="") as f:
+              assert sum(1 for _ in csv.DictReader(f)) == 44426
+          with (root / "pilot_manifest.csv").open(encoding="utf-8-sig", newline="") as f:
+              assert sum(1 for _ in csv.DictReader(f)) == 500
+          stage_b = root / "stage_b"
+          batches = sorted(stage_b.glob("I179-B*.csv"))
+          assert len(batches) == 10
+          assert all(sum(1 for _ in csv.DictReader(p.open(encoding="utf-8-sig", newline=""))) == 50 for p in batches)
+          with (stage_b / "STAGE_B_REVIEW_MANIFEST.csv").open(encoding="utf-8-sig", newline="") as f:
+              assert sum(1 for _ in csv.DictReader(f)) == 500
+          print("Issue179 census + Stage B contract PASS")
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: issue179-quality-census
+          path: artifacts/issue179-quality-census/
+          if-no-files-found: error
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: issue179-search-cleanup
+          path: artifacts/issue179-search-cleanup/
+          if-no-files-found: error
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: issue179-display-cleanup
+          path: artifacts/issue179-display-cleanup/
+          if-no-files-found: error
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: issue179-corrections
+          path: artifacts/issue179-corrections/
+          if-no-files-found: error
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: issue179-stage-b-completion
+          path: artifacts/issue179-stage-b-completion/
+          if-no-files-found: error
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: issue179-post-overlay-audit
+          path: artifacts/issue179-post-overlay-audit/
+          if-no-files-found: error
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: issue179-runtime
+          path: artifacts/issue179-runtime/
+          if-no-files-found: error
+
+  dotnet-regression:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Run Issue179/216/70 regression boundary
+        run: >-
+          dotnet test src/DanbooruTagTool.Tests/DanbooruTagTool.Tests.csproj
+          -c Release
+          --filter "FullyQualifiedName~Issue179QualityOverlayTests|FullyQualifiedName~Issue216BrowseHomeTests|FullyQualifiedName~Issue70IntegrationTests"
+          --logger "console;verbosity=minimal"

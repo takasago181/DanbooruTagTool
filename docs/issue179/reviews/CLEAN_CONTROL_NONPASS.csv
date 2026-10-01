@@ -1,0 +1,27 @@
+row_id,canonical_tag,category,post_count,display_ja,search_ja,aliases,clear_verdict,dimension,confidence,note
+I70-035953,ragnarok_online,Copyright,32187,ラグナロクオンライン,ROお絵描き | ラグナロクオンライン,/ro | ragnarokonline,REVIEW,search,MEDIUM,ROお絵描き looks like a fanart/community retrieval term rather than copyright identity; verify before deletion.
+I70-000262,yazawa_nico,Character,7817,矢澤にこ,矢澤にこ | 矢泽にこ,,REVIEW,search,MEDIUM,Mixed simplified/Japanese surface 矢泽にこ requires multilingual-search policy review.
+I70-036544,yuuki_bakuhatsu_bang_bravern,Copyright,2300,勇気爆発バーンブレイバーン,ブレバン | 勇気爆発バーンブレイバーン | 腐レイバーン,bang brave bang bravern | bang_brave_bang_bravern,DEFECT,search,HIGH,"腐レイバーン is a 腐向け/fanwork label, not the copyright identity."
+I70-038479,good_omens,Copyright,338,グッドオーメンズ,,,REVIEW,scope,HIGH,"Official current surface is live-action TV; source also exists as a novel, so mixed-media product-scope review is required."
+I70-018786,curakuru_(character),Character,123,クラクルさん,,,REVIEW,identity,LOW,Obscure identity; insufficient intrinsic evidence to count as semantic PASS.
+I70-027634,handa_shin'ichi,Character,72,半田真一,,handa shinichi | steve grim | steve_grim | handa_shinichi,REVIEW,identity/search,LOW,Steve Grim alias mapping requires verification.
+I70-003022,harmony_(pokemon),Character,1114,セイカ,セイカ | Harmony | Pokémon LEGENDS Z-A,female protagonist (pokemon legends: z-a) | female_protagonist_(pokemon_legends:_z-a),DEFECT,search,HIGH,"Search includes Pokémon LEGENDS Z-A, the work title rather than this character identity."
+I70-008766,milk_(cookie),Character,329,牛乳(クッキー☆),性癖を露見・共有するための道具 | 牛乳の牛乳 | 牛乳(クッキー☆),,DEFECT,search,HIGH,"Search contains descriptive sentence 性癖を露見・共有するための道具, not an identity alias."
+I70-035916,girls'_frontline,Copyright,79648,ドールズフロントライン,ドルフロ | ドールズフロントライン | 銃を持った戦術人形,gfl | girls frontline | girls_frontline,DEFECT,search,HIGH,Search includes descriptive 銃を持った戦術人形 rather than a title/alias.
+I70-035960,marvel,Copyright,28885,マーベル,マーベル | マーベル・コミック | マーヴル | マーヴルスーパーヒーローズ,marvel cinematic universe | marvel_cinematic_universe,REVIEW,search/alias,MEDIUM,MCU is a sub-franchise rather than a strict synonym of Marvel; verify intended umbrella-search behavior.
+I70-035974,voiceroid,Copyright,24707,VOICEROID,VOICEROIDドット絵部 | コッショリ | ボイスロイド,,DEFECT,search,HIGH,"VOICEROIDドット絵部 and コッショリ are content/community terms, not copyright identity aliases."
+I70-000350,remielle_dan,Character,6801,レミエール・ダン,レミエール・ダン,ramiel (zenless zone zero) | ramiel_(zenless_zone_zero),REVIEW,identity/alias,MEDIUM,Japanese display and Ramiel alias may reflect locale/current-name mapping; verify.
+I70-036676,nier,Copyright,1840,ニーア,ニーアゲシュタルト | ニーアレプリカント,nier gestalt | nier replicant | nier_gestalt | nier_replicant,DEFECT,search/ranking,HIGH,ニーアゲシュタルト and ニーアレプリカント are specific child titles; exact-search contamination can compete with their own copyright rows.
+I70-038862,wild_arms_5,Copyright,278,野生の腕5,,,DEFECT,display,HIGH,野生の腕5 is a literal/machine-style mistranslation; published Japanese title is ワイルドアームズ ザ フィフスヴァンガード.
+I70-039886,google_chrome,Copyright,179,グーグル・クローム,,chrome (browser) | chrome_(browser),REVIEW,scope,MEDIUM,Brand/software copyright may be low-value for 2D character-generation scope; requires policy review.
+I70-031696,ella_of_the_sky,Character,59,天空のエラ,,,REVIEW,identity/display,LOW,Obscure identity/title; insufficient independent evidence.
+I70-035935,boku_no_hero_academia,Copyright,44139,僕のヒーローアカデミア,ヒロアカ | 僕のヒーローアカデミア | 夢アカ,my hero academia | my_hero_academia,REVIEW,search,MEDIUM,夢アカ may be fandom/dream-content terminology rather than copyright identity; verify.
+I70-038875,growlanser,Copyright,276,グロラン,グロラン | グローランサー,,DEFECT,display,HIGH,グロラン is an abbreviation; official title is グローランサー and should be the display identity.
+I70-000034,doodle_sensei_(blue_archive),Character,22140,アロナの似顔絵（ブルーアーカイブ）,アロナの似顔絵,arona's sensei doodle (blue archive) | arona's_sensei_doodle_(blue_archive),REVIEW,identity/display,MEDIUM,Meme/doodle entity is tagged Character; verify whether this is a useful character identity rather than an image/motif tag.
+I70-039198,bird/binary,Copyright,238,异鸟代码,,,REVIEW,display,LOW,Chinese display surface may be official title or untranslated fallback; verify Japanese-facing policy.
+I70-034072,yuurei-chan,Character,54,ユリチャン,,,REVIEW,display,LOW,ユリチャン does not transparently match canonical yuurei-chan; verify source identity.
+I70-002404,nearl_(arknights),Character,1406,ニアール,ニアール | ニアール(アークナイツ) | 二アール,,REVIEW,search,MEDIUM,二アール looks like typo-tolerance rather than identity; verify search policy.
+I70-000110,stelle_(honkai:_star_rail),Character,13114,星（崩壊：スターレイル）,星（崩壊：スターレイル） | 星(スターレイル) | ベクターX,female trailblazer (honkai: star rail) | trailblazer (honkai: star rail) (female) | female_trailblazer_(honkai:_star_rail) | trailblazer_(honkai:_star_rail)_(female),REVIEW,search,MEDIUM,ベクターX is not self-evidently an identity alias; verify provenance.
+I70-044195,loveit?_(biz),Copyright,52,Loveit?,,,REVIEW,identity/scope,LOW,Obscure copyright; insufficient evidence to count as semantic PASS.
+I70-035950,splatoon_(series),Copyright,33575,スプラトゥーン,スプラトゥーン | ス腐ラトゥーン,splatoon,DEFECT,search,HIGH,"ス腐ラトゥーン is fandom/腐向け wordplay, not the copyright identity."
+I70-036492,coca-cola,Copyright,2491,コカコーラ,コカコーラ | コカ・コーラ,coca cola | coca_cola,REVIEW,scope,MEDIUM,Real-world brand may be low-value for the intended 2D character/copyright discovery surface; policy review required.
