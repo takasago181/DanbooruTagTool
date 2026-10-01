@@ -53,6 +53,29 @@ public class Issue226LibraryWorkflowTests
         var first = vm.Images[0]; vm.Selected = first; vm.Note = "saved"; vm.Selected = vm.Images[1]; vm.Selected = first; Assert.Equal("saved", vm.Note);
         await vm.Next.ExecuteAsync(null); Assert.Equal(5, vm.Images.Count); Assert.False(vm.Next.CanExecute(null)); await vm.Previous.ExecuteAsync(null); Assert.Equal(60, vm.Images.Count);
     }
+    [Fact]
+    public async Task FailedAnnotationSaveKeepsInputAndBlocksSelectionOrCloseUntilCorrected()
+    {
+        using var d = new LibraryFixture(); var main = new MainViewModel(Fixtures.Catalog(), new MemoryStore(), new MemoryClipboard(), paths: new(d.Path));
+        var vm = main.GenerationLibrary!;
+        Issue226LibraryFoundationTests.WritePng(Path.Combine(d.Images, "a.png")); Issue226LibraryFoundationTests.WritePng(Path.Combine(d.Images, "b.png"));
+        await vm.AddRootAsync(d.Images); await vm.ScanAsync(); vm.Selected = vm.Images[0]; var original = vm.Selected;
+        vm.Rating = 9; vm.Note = "retain unsaved"; Assert.False(vm.FlushAnnotation()); vm.Selected = vm.Images[1]; Assert.Same(original, vm.Selected); Assert.Equal("retain unsaved", vm.Note);
+        vm.Rating = 4; Assert.True(vm.FlushAnnotation()); vm.Selected = vm.Images[1]; vm.Selected = original; Assert.Equal("retain unsaved", vm.Note);
+    }
+    [Theory]
+    [InlineData(".jpg")]
+    [InlineData(".webp")]
+    public async Task MultiFormatMetadataAndThumbnailFailureAreIsolated(string extension)
+    {
+        using var d = new LibraryFixture(); var path = Path.Combine(d.Images, "fixture" + extension);
+        Issue226LibraryFoundationTests.WriteExif(path, Issue226LibraryFoundationTests.Info);
+        var store = d.Store(); var root = store.AddRoot(d.Images); var scan = new GenerationLibraryScanner(store, new ExifGenerationMetadataReader()).Scan(root);
+        Assert.Equal(1, scan.Added); Assert.Equal(0, scan.Errors); var row = store.Query(new()).Images.Single(); Assert.Equal("OK", row.MetadataStatus);
+        var thumbnail = await new GenerationThumbnailCache(Path.Combine(d.Path, "cache")).GetAsync(row);
+        if (extension == ".jpg") Assert.NotNull(thumbnail); // WebP depends on the OS WIC codec; unsupported decoding remains safe.
+        Assert.Equal("42", store.Metadata(row.Id)!.Value("Seed"));
+    }
     private sealed class RecordingBridge : IForgeBridgeClient
     {
         public ForgeBridgeSendRequest? Request; public int Count;

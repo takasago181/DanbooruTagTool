@@ -56,7 +56,7 @@ public partial class MainWindow : Window
         DictionaryWorkspace.BrowseScrollChanged += QueueUiSave;
         PromptEditor.EditRatioChanged += SaveGeometry;
         SizeChanged += (_, _) => QueueUiSave(); LocationChanged += (_, _) => QueueUiSave();
-        Closing += (_, _) => { SaveGeometry(); feedbackTimer.Stop(); uiTimer.Stop(); if (presetDialog != null) presetDialog.Close(); if (forgeSettingsDialog != null) forgeSettingsDialog.Close(); if (generationImportDialog != null) generationImportDialog.Close(); };
+        Closing += (_, e) => { if (vm.GenerationLibrary?.FlushAnnotation() == false) { e.Cancel = true; return; } vm.GenerationLibrary?.CancelPendingScan(); SaveGeometry(); feedbackTimer.Stop(); uiTimer.Stop(); if (presetDialog != null) presetDialog.Close(); if (forgeSettingsDialog != null) forgeSettingsDialog.Close(); if (generationImportDialog != null) generationImportDialog.Close(); };
         Loaded += (_, _) => { vm.UpdateChipLanguage(); SyncNavigationSelection(); };
     }
     private static bool IsLegacyNavWidth(double width) => Math.Abs(width - 210) < 0.5 || Math.Abs(width - 230) < 0.5;

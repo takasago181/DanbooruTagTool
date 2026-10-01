@@ -207,6 +207,8 @@ public sealed class GenerationLibraryViewModel : Observable
         try { EnsureStore(); store!.Backup(destination); Status = "Library DBをバックアップしました（フォルダー設定・評価・メモを含みます）。"; }
         catch (Exception e) when (StorageError(e) || e is ArgumentException) { Status = "バックアップできません: " + e.Message; }
     }
+    public bool FlushAnnotation() => !annotationPending || PersistAnnotation();
+    public void CancelPendingScan() => cancellation?.Cancel();
     private static bool StorageError(Exception e) => e is IOException or UnauthorizedAccessException or SqliteException or InvalidDataException;
     public void RefreshCommands()
     {
