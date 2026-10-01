@@ -21,6 +21,7 @@ public partial class LoraLibraryView : UserControl
     private void InsertClick(object sender, RoutedEventArgs e) => Vm?.Insert(false);
     private void RecipeClick(object sender, RoutedEventArgs e) => Vm?.Insert(true);
     private void CopyNegativeClick(object sender, RoutedEventArgs e) => Vm?.CopyNegative();
+    private void AppendNegativeClick(object sender, RoutedEventArgs e) => Vm?.AppendNegative();
     private void CopyTriggersClick(object sender, RoutedEventArgs e) => Vm?.CopyTriggers();
     private void AddTriggerClick(object sender, RoutedEventArgs e) => Vm?.AddTrigger();
     private void PresetClick(object sender, RoutedEventArgs e) => Vm?.CreatePreset();

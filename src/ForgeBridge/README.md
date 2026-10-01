@@ -8,6 +8,7 @@ registers the local routes and loads the polling script.
 The bridge exposes only loopback routes:
 
 - `GET /dtt-bridge/health`
+- `POST /dtt-bridge/token-count` (explicit read-only loaded-model counter, `token_count_v1`)
 - `POST /dtt-bridge/prompt`
 - `GET /dtt-bridge/pending`
 - `POST /dtt-bridge/result`
@@ -20,13 +21,12 @@ A `send_and_generate` request uses those same UI fields, waits for the UI to
 observe the Prompt changes, then clicks Forge's existing txt2img Generate
 button.
 
-DTT Generation Recipes are reference/persistence metadata. They store
-Model, Seed, Steps, Sampler, Scheduler, CFG, Width and Height, and can be
-prefilled from PNG metadata, but the desktop UI no longer auto-applies those
-recipe values to Forge. Set generation conditions manually in Forge.
+DTT Generation Recipes use a separate API-first `/sdapi/v1/txt2img` client
+for explicit Recipe API generation, with actual PNG metadata round-trip checks.
+This bridge's Prompt/current-settings Generate path does not apply recipe settings.
 
 The bridge still keeps its existing protocol compatibility for older clients,
-but the current DTT recipe UI does not expose recipe apply/generate actions.
+but the desktop does not use the bridge to apply recipe settings.
 
 Recipe support is capability-gated as `recipe_settings`, so older bridge
 installs continue to support Prompt-only send and the previous Generate path
@@ -36,3 +36,9 @@ Generate and recipe actions are acknowledged back to the desktop client so a
 missing control or Generate failure is reported instead of silently claiming
 success. The bridge still never calls
 `/sdapi/v1/txt2img` directly.
+
+The optional token endpoint delegates to the installed Forge UI counter without
+generation/model loading/options mutation. It refuses FakeInitialModel heuristic,
+missing loaded checkpoint or busy queue, and reports model/engine/tokenizer and
+the actual engine's chunk contract where exposed. Unknown stays unavailable.
+Source/license review and verified limits: `docs/issue232/IMPLEMENTATION.md`.

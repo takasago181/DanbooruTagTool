@@ -37,6 +37,9 @@ public partial class MainWindow : Window
         // Repair that collapsed state and migrate the old 70:30 default to 75:25.
         var ratio = vm.Ui.EditRatio <= .251 || Math.Abs(vm.Ui.EditRatio - .7) < .001 ? .75 : Math.Clamp(vm.Ui.EditRatio, .3, .85);
         PromptEditor.ApplyEditRatio(ratio);
+        NegativeEditor.ApplyEditRatio(ratio);
+        vm.Negative.ScrollToChip += NegativeEditor.BringChipIntoView;
+        vm.Negative.PropertyChanged += (_, e) => { if (e.PropertyName == nameof(vm.Negative.DirectEditing) && vm.Negative.DirectEditing) Dispatcher.BeginInvoke(NegativeEditor.FocusDirectEditor, DispatcherPriority.Input); };
         feedbackTimer.Tick += (_, _) => { feedbackTimer.Stop(); if (vm.Status == "✓ コピーしました") vm.Status = ""; };
         uiTimer.Tick += (_, _) => { uiTimer.Stop(); SaveGeometry(); };
         vm.PropertyChanged += (_, e) =>
@@ -48,7 +51,7 @@ public partial class MainWindow : Window
             }
             if (e.PropertyName == nameof(vm.DirectEditing) && vm.DirectEditing)
             {
-                Dispatcher.BeginInvoke(PromptEditor.FocusDirectEditor, DispatcherPriority.Input);
+                if (vm.Prompt.DirectEditing) Dispatcher.BeginInvoke(PromptEditor.FocusDirectEditor, DispatcherPriority.Input);
             }
             if (e.PropertyName == nameof(vm.BrowseKey)) Dispatcher.BeginInvoke(SyncNavigationSelection, DispatcherPriority.Loaded);
         };
@@ -151,6 +154,17 @@ public partial class MainWindow : Window
     {
         if (vm.DirectEditing) return;
         bool ctrl = Keyboard.Modifiers.HasFlag(ModifierKeys.Control);
+        if (vm.WorkspaceIndex == 1 && vm.Intelligence.ActiveSide == 1)
+        {
+            if (ctrl && e.Key == Key.F) NegativeEditor.FocusFind();
+            else if (Keyboard.FocusedElement is TextBox) return;
+            else if (ctrl && e.Key == Key.Z) vm.Negative.Undo.Execute(null);
+            else if (ctrl && e.Key == Key.Y) vm.Negative.Redo.Execute(null);
+            else if (ctrl && e.Key == Key.A) vm.Negative.SelectAll();
+            else if (e.Key == Key.Delete) vm.Negative.Delete.Execute(null);
+            else if (e.Key == Key.Escape) vm.Negative.ClearSelection(); else return;
+            e.Handled = true; return;
+        }
         if (ctrl && e.Key == Key.F) { if (vm.WorkspaceIndex == 2) GenerationLibraryWorkspace.FocusSearch(); else if (vm.WorkspaceIndex == 1) PromptEditor.FocusFind(); else DictionaryWorkspace.FocusSearch(); e.Handled = true; return; }
         if (Keyboard.FocusedElement is TextBox) return;
         if (ctrl && e.Key == Key.Z) vm.Undo.Execute(null);
@@ -172,6 +186,7 @@ public partial class MainWindow : Window
         };
         if (dialog.ShowDialog(this) == true) vm.ImportGenerationPng(dialog.FileName);
     }
+    private async void TokenCountClick(object sender, RoutedEventArgs e) => await vm.Intelligence.CountAsync();
 
     private void WindowDragOver(object sender, DragEventArgs e)
     {

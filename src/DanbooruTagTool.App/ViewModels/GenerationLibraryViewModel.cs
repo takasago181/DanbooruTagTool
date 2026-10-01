@@ -99,6 +99,8 @@ public sealed class GenerationLibraryViewModel : Observable
     public AsyncRelayCommand Next { get; }
     public RelayCommand AllRoots { get; }
     public RelayCommand RestorePrompt { get; }
+    public PromptWorkspace? NegativeWorkspace { get; set; }
+    public RelayCommand RestoreNegative { get; }
     public RelayCommand CreatePreset { get; }
     public AsyncRelayCommand Send { get; }
     public AsyncRelayCommand Generate { get; }
@@ -118,6 +120,7 @@ public sealed class GenerationLibraryViewModel : Observable
         Next = new(_ => LoadPageAsync(delta: 60), _ => !Busy && offset + Images.Count < total);
         AllRoots = new(_ => SelectedRoot = null, _ => !Busy);
         RestorePrompt = new(_ => { if (metadata is not null && canMutate()) { workspace.Replace(metadata.Positive); Status = "Positive Promptを復元しました。Undo / 回復で戻せます。"; } }, _ => !Busy && canMutate() && metadata is not null);
+        RestoreNegative = new(_ => { if (metadata is not null && canMutate()) { NegativeWorkspace?.Replace(metadata.Negative); Status = "Negativeを置換しました。NegativeのUndo/回復で戻せます。"; } }, _ => !Busy && canMutate() && metadata is not null && NegativeWorkspace is not null);
         CreatePreset = new(_ => { if (metadata is not null && canMutate()) createPreset(metadata); }, _ => !Busy && canMutate() && metadata is not null);
         Send = new(_ => SendAsync(false), _ => !Busy && canMutate() && metadata is not null);
         Generate = new(_ => SendAsync(true), _ => !Busy && canMutate() && metadata is not null);
@@ -229,7 +232,7 @@ public sealed class GenerationLibraryViewModel : Observable
     private static bool StorageError(Exception e) => e is IOException or UnauthorizedAccessException or SqliteException or InvalidDataException;
     public void RefreshCommands()
     {
-        Refresh?.Refresh(); Scan?.Refresh(); Previous?.Refresh(); Next?.Refresh(); AllRoots?.Refresh(); RestorePrompt?.Refresh(); CreatePreset?.Refresh();
+        Refresh?.Refresh(); Scan?.Refresh(); Previous?.Refresh(); Next?.Refresh(); AllRoots?.Refresh(); RestorePrompt?.Refresh(); RestoreNegative?.Refresh(); CreatePreset?.Refresh();
         Send?.Refresh(); Generate?.Refresh(); GenerateRecipe?.Refresh(); SetCompareLeft?.Refresh(); Compare?.Refresh(); CancelScan?.Refresh();
     }
 }

@@ -21,6 +21,9 @@ public sealed class GenerationPresetsViewModel : Observable
 
     public ObservableCollection<GenerationPreset> Presets { get; } = [];
     public PromptWorkspace Workspace => workspace;
+    public PromptWorkspace? NegativeWorkspace { get; set; }
+    public RelayCommand ApplyPresetNegative { get; }
+    public RelayCommand CapturePresetNegative { get; }
 
     public GenerationPreset? SelectedPreset
     {
@@ -68,6 +71,8 @@ public sealed class GenerationPresetsViewModel : Observable
 
         NewPreset = Normal(_ => BeginNewPreset());
         ApplyPreset = Normal(p => ApplyPresetToPrompt(p as GenerationPreset), p => p is GenerationPreset);
+        ApplyPresetNegative = Normal(p => { if (p is GenerationPreset preset) { NegativeWorkspace?.Replace(preset.Negative); setStatus("Preset Negativeを置換しました。NegativeのUndo/回復で戻せます。"); } }, p => p is GenerationPreset && NegativeWorkspace is not null);
+        CapturePresetNegative = Normal(_ => PresetNegative = NegativeWorkspace?.English ?? "");
         CopyPresetNegative = Normal(p => CopyPresetNegativeText(p as GenerationPreset), p => p is GenerationPreset);
         CapturePresetPositive = Normal(_ => PresetPositive = PromptParser.Serialize(Workspace.Items));
         SavePreset = Normal(_ => SavePresetValue());

@@ -43,6 +43,9 @@ public sealed class PromptEditorViewModel : Observable
     public ObservableCollection<ChipViewModel> Chips { get; } = [];
     public IReadOnlyList<PromptCategoryGroup> CategoryGroups { get => categoryGroups; private set => Set(ref categoryGroups, value); }
     public PromptWorkspace Workspace => workspace;
+    public string SideLabel { get; init; } = "Prompt";
+    public string EditorTitle => SideLabel + "編集";
+    public string PreviewTitle => SideLabel == "Negative Prompt" ? "English Negative" : "実際のEnglish " + SideLabel;
     public event Action<Guid>? ScrollToChip;
     public string English => PromptOutputFormatter.Serialize(Workspace.Items, OutputProfile);
     public IReadOnlyList<PromptOutputProfileOption> OutputProfiles { get; } =
@@ -70,11 +73,11 @@ public sealed class PromptEditorViewModel : Observable
     public string ViewHint => IsCategoryView
         ? "Promptをカテゴリ別に読みやすく表示します。元の並び順・内容は変わりません。"
         : "日本語表示のPromptを並べ替え・削除できます。見えている順序がそのままコピーされます。";
-    public string Count => $"現在のPrompt · {Chips.Count}件";
+    public string Count => $"現在の{SideLabel} · {Chips.Count}件";
     public string EditorCount => $"{Chips.Count}件";
     public bool HasPrompt => Chips.Count > 0;
     public string Unresolved => Chips.Count(c => c.Item.Kind == PromptItemKind.Raw) is var n && n > 0 ? $"未解決 {n}" : "";
-    public bool CanEditPrompt => !DirectEditing;
+    public bool CanEditPrompt => !DirectEditing && canMutate();
     public bool CanEditOrderedPrompt => CanEditPrompt && IsOrderedView;
     public bool DirectEditing { get => directEditing; private set { if (Set(ref directEditing, value)) { Notify(nameof(CanEditPrompt)); Notify(nameof(CanEditOrderedPrompt)); RefreshCommands(); } } }
     public string DirectText { get => directText; set => Set(ref directText, value); }
@@ -171,6 +174,7 @@ public sealed class PromptEditorViewModel : Observable
         foreach (var chip in Chips) chip.Match = Find.Length > 0 && (chip.Item.Display.Contains(Find, StringComparison.OrdinalIgnoreCase) || chip.Item.Surface.Contains(Find, StringComparison.OrdinalIgnoreCase));
         Notify(nameof(FindMatchSummary)); FindPrevious.Refresh(); FindNextCommand.Refresh();
     }
+    public void RefreshEditAvailability() { Notify(nameof(CanEditPrompt)); Notify(nameof(CanEditOrderedPrompt)); RefreshCommands(); }
     private void RefreshCommands()
     {
         foreach (var command in new[] { Copy, Import, New, Recover, Undo, Redo, Delete, DeleteOne, Inspect, FindPrevious, FindNextCommand, OpenEditor, StartDirect, ApplyDirect, CancelDirect, ApplyWeight, OpenPresets }) command.Refresh();

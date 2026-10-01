@@ -70,7 +70,7 @@
     <TextBox Text="{Binding Positive, Mode=OneWay}" IsReadOnly="True" TextWrapping="Wrap" MaxHeight="180" VerticalScrollBarVisibility="Auto"/>
     <TextBlock Text="Negative" Style="{StaticResource LibraryLabel}"/>
     <TextBox Text="{Binding Negative, Mode=OneWay}" IsReadOnly="True" TextWrapping="Wrap" MaxHeight="120" VerticalScrollBarVisibility="Auto"/>
-    <WrapPanel Margin="0,8"><Button Content="Prompt復元" Command="{Binding RestorePrompt}"/><Button Content="Preset化" Command="{Binding CreatePreset}"/></WrapPanel>
+    <WrapPanel Margin="0,8"><Button Content="Negative置換" Command="{Binding RestoreNegative}"/><Button Content="Positive復元" Command="{Binding RestorePrompt}"/><Button Content="Preset化" Command="{Binding CreatePreset}"/></WrapPanel>
     <WrapPanel><Button Content="Forgeへ送る" Command="{Binding Send}"/><Button Content="Forgeで生成" Command="{Binding Generate}" ToolTip="Positive/Negativeを送り、Forgeの現在の設定で生成します。画像のModel/Seed等は自動適用しません。"/></WrapPanel>
     <TextBlock Text="Forgeの現在の設定で生成します。" TextWrapping="Wrap" FontSize="12" Margin="0,5"/>
     <Button Content="画像RecipeをAPIで1画像生成" Command="{Binding GenerateRecipe}" Margin="0,8,0,0" ToolTip="保存されたPositive/Negativeと生成条件を使います。Forge --apiが必要です。"/>

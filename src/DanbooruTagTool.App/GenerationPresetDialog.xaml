@@ -58,7 +58,7 @@
                                         </TextBlock.Style>
                                     </TextBlock>
                                     <WrapPanel>
-                                        <Button Content="Positive追加" Command="{Binding DataContext.ApplyPreset, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="8,4" MinHeight="28"/>
+                                        <Button Content="Negative置換" Command="{Binding DataContext.PresetEditor.ApplyPresetNegative, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="8,4" MinHeight="28"/><Button Content="Positive追加" Command="{Binding DataContext.ApplyPreset, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="8,4" MinHeight="28"/>
                                         <Button Content="Negativeコピー" Command="{Binding DataContext.CopyPresetNegative, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="8,4" MinHeight="28" Margin="0"/>
                                         <Button Content="Forgeへ送る" Command="{Binding DataContext.SendPresetToForge, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="8,4" MinHeight="28" ToolTip="現在のvisible English Promptと、このプリセットのNegativeをForgeへ送ります。"/>
                                         <Button Content="Recipe API生成" Command="{Binding DataContext.Forge.GeneratePresetRecipe, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="8,4" MinHeight="28" ToolTip="このPresetのPositive/Negativeと生成条件で1画像生成。Forge --apiが必要。指定条件を実画像metadataと照合します。"/>
@@ -81,7 +81,7 @@
                     <TextBox Text="{Binding PresetDescription, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,8"/>
                     <DockPanel Margin="0,0,0,3"><TextBlock Text="Positive" FontWeight="SemiBold"/><Button DockPanel.Dock="Right" Content="現在のPromptから取得" Command="{Binding CapturePresetPositive}" Padding="8,4" MinHeight="28" Margin="8,0,0,0"/></DockPanel>
                     <TextBox Text="{Binding PresetPositive, UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" TextWrapping="Wrap" MinHeight="150" VerticalScrollBarVisibility="Auto" Margin="0,0,0,8" ToolTip="canonical形式または生成向け形式で入力できます。未解決部分はそのまま保持されます。"/>
-                    <TextBlock Text="Negative" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                    <DockPanel><TextBlock Text="Negative" FontWeight="SemiBold" Margin="0,0,0,3"/><Button DockPanel.Dock="Right" Content="現在のNegativeから取得" Command="{Binding PresetEditor.CapturePresetNegative}"/></DockPanel>
                     <TextBox Text="{Binding PresetNegative, UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" TextWrapping="Wrap" MinHeight="150" VerticalScrollBarVisibility="Auto" Margin="0,0,0,10"/>
 
                     <Expander Header="生成条件（参照用・任意）" IsExpanded="False" Margin="0,0,0,12" Foreground="{StaticResource InkBrush}" FontWeight="SemiBold">

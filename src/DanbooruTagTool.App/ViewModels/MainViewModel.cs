@@ -13,6 +13,9 @@ namespace DanbooruTagTool.App.ViewModels;
 public sealed class MainViewModel : Observable
 {
     public PromptWorkspace Workspace { get; }
+    public PromptWorkspace NegativeWorkspace { get; }
+    public PromptEditorViewModel Negative { get; }
+    public PromptIntelligenceViewModel Intelligence { get; }
     public DictionaryWorkspaceViewModel Dictionary { get; }
     public PromptEditorViewModel Prompt { get; }
     public GenerationPresetsViewModel PresetEditor { get; }
@@ -35,26 +38,36 @@ public sealed class MainViewModel : Observable
     {
         var runtime = RuntimeCatalogIndex.Create(catalog);
         Workspace = new(new PromptParser(runtime));
+        NegativeWorkspace = new(new PromptParser(runtime));
         UserState = new(store);
         var state = UserState.Load();
         if (state != null) Workspace.Restore(state.Prompt);
-        var canMutate = () => Prompt?.CanEditPrompt ?? true;
+        if (state?.Negative is { } negative) NegativeWorkspace.Restore(negative);
+        var canMutate = () => !(Prompt?.DirectEditing ?? false) && !(Negative?.DirectEditing ?? false);
         Prompt = new(runtime, Workspace, clipboard, Persist, canMutate, message => Status = message,
             chip => Dictionary?.InspectChip(chip), () => PresetsRequested?.Invoke());
+        Negative = new(runtime, NegativeWorkspace, clipboard, Persist, canMutate, message => Status = message,
+            chip => Dictionary?.InspectChip(chip), () => PresetsRequested?.Invoke()) { SideLabel = "Negative Prompt" };
         Dictionary = new(runtime, Workspace, general ?? new PendingGeneralBrowseProvider(), Persist, canMutate, specialBrowse);
         Forge = new(forgeBridge ?? new ForgeBridgeClient(), Persist, canMutate, () => Prompt?.English ?? "", message => Status = message, () => ForgeSettingsRequested?.Invoke(), paths is null ? null : Path.Combine(paths.Root, "UserData", "ForgeResults"));
+        Forge.CurrentNegative = () => Negative.English;
+        Intelligence = new(Workspace, NegativeWorkspace, () => Forge.ForgeUrl, positiveText: () => Prompt.English, negativeText: () => Negative.English);
         PresetEditor = new(runtime, Workspace, clipboard, Persist, canMutate, message => Status = message);
+        PresetEditor.NegativeWorkspace = NegativeWorkspace;
         GenerationImport = new(Workspace, clipboard, message => Status = message, snapshot =>
         {
             PresetEditor.BeginNewPresetFromSnapshot(snapshot);
             PresetsRequested?.Invoke();
         });
+        GenerationImport.NegativeWorkspace = NegativeWorkspace;
+        GenerationImport.CanMutate = canMutate;
         if (paths is not null) GenerationLibrary = new(paths, Workspace, snapshot =>
         {
             PresetEditor.BeginNewPresetFromSnapshot(snapshot);
             PresetsRequested?.Invoke();
         }, Forge, canMutate);
         if (GenerationLibrary is not null) Forge.IndexRecipeResult = GenerationLibrary.IndexRecipeResultAsync;
+        if (GenerationLibrary is not null) GenerationLibrary.NegativeWorkspace = NegativeWorkspace;
         if (paths is not null) LoraLibrary = new(paths, Workspace, new PromptParser(runtime), clipboard, canMutate, preset =>
         {
             PresetEditor.BeginNewPreset();
@@ -62,21 +75,25 @@ public sealed class MainViewModel : Observable
             PresetEditor.PresetName = preset.Name; PresetEditor.PresetDescription = preset.Description;
             PresetsRequested?.Invoke();
         });
+        if (LoraLibrary is not null) LoraLibrary.NegativeWorkspace = NegativeWorkspace;
         Prompt.Restore(UserState.Ui); Dictionary.Restore(UserState.Ui); Forge.Restore(UserState.Ui); PresetEditor.Restore(state);
         WireNotifications();
         Workspace.Changed += OnPromptChanged;
+        NegativeWorkspace.Changed += () => { Negative.RefreshFromWorkspace(); Intelligence.Refresh(); Persist(); };
+        Negative.PropertyChanged += (_, e) => { if (e.PropertyName == nameof(Negative.DirectEditing)) { Prompt.RefreshEditAvailability(); GenerationLibrary?.RefreshCommands(); Notify(nameof(DirectEditing)); Notify(nameof(CanEditPrompt)); } if (e.PropertyName == nameof(Negative.OutputProfile)) Intelligence.Refresh(); };
+        Negative.RefreshFromWorkspace(); Intelligence.Refresh();
         Prompt.RefreshFromWorkspace(); Dictionary.RefreshResults();
         if (UserState.Ui.SelectedEntry is { } selected) Dictionary.SelectedEntry = Dictionary.Results.FirstOrDefault(row => row.Entry.Id == selected);
     }
 
     private void WireNotifications()
     {
-        Prompt.PropertyChanged += (_, e) => Notify(e.PropertyName);
+        Prompt.PropertyChanged += (_, e) => { Notify(e.PropertyName); if (e.PropertyName == nameof(Prompt.OutputProfile)) Intelligence.Refresh(); if (e.PropertyName == nameof(Prompt.DirectEditing)) { Negative.RefreshEditAvailability(); GenerationLibrary?.RefreshCommands(); } };
         Dictionary.PropertyChanged += (_, e) => Notify(e.PropertyName);
         Forge.PropertyChanged += (_, e) => Notify(e.PropertyName);
         PresetEditor.PropertyChanged += (_, e) => Notify(e.PropertyName);
     }
-    private void OnPromptChanged() { Prompt.RefreshFromWorkspace(); Dictionary.RefreshPromptState(); GenerationLibrary?.RefreshCommands(); Persist(); }
+    private void OnPromptChanged() { Prompt.RefreshFromWorkspace(); Dictionary.RefreshPromptState(); GenerationLibrary?.RefreshCommands(); Intelligence.Refresh(); Persist(); }
     public void RefreshResults() => Dictionary.RefreshResults();
     public bool ImportGenerationPng(string path)
     {
@@ -109,7 +126,7 @@ public sealed class MainViewModel : Observable
     public void SaveUi(UiState value) { UserState.SaveUi(value); Persist(); }
     public void Persist()
     {
-        try { UserState.Persist(Workspace, Dictionary, Prompt, PresetEditor, Forge); Notify(nameof(Ui)); }
+        try { UserState.Persist(Workspace, Dictionary, Prompt, PresetEditor, Forge, NegativeWorkspace); Notify(nameof(Ui)); }
         catch (Exception e) when (e is IOException or Microsoft.Data.Sqlite.SqliteException) { Status = "自動保存できません: " + e.Message; }
     }
 
@@ -141,7 +158,7 @@ public sealed class MainViewModel : Observable
     public bool IsCategoryView { get => Prompt.IsCategoryView; set => Prompt.IsCategoryView = value; } public bool IsOrderedView { get => Prompt.IsOrderedView; set => Prompt.IsOrderedView = value; }
     public bool CategoryEnglish { get => Prompt.CategoryEnglish; set => Prompt.CategoryEnglish = value; } public bool MultiSelect { get => Prompt.MultiSelect; set => Prompt.MultiSelect = value; }
     public bool HasSelection => Prompt.HasSelection; public string SelectionSummary => Prompt.SelectionSummary; public string Count => Prompt.Count; public bool HasPrompt => Prompt.HasPrompt; public string Unresolved => Prompt.Unresolved;
-    public bool CanEditPrompt => Prompt.CanEditPrompt; public bool CanEditOrderedPrompt => Prompt.CanEditOrderedPrompt; public bool DirectEditing => Prompt.DirectEditing;
+    public bool CanEditPrompt => Prompt.CanEditPrompt && Negative.CanEditPrompt; public bool CanEditOrderedPrompt => Prompt.CanEditOrderedPrompt; public bool DirectEditing => Prompt.DirectEditing || Negative.DirectEditing;
     public string DirectText { get => Prompt.DirectText; set => Prompt.DirectText = value; } public string Weight { get => Prompt.Weight; set => Prompt.Weight = value; } public bool WeightVisible => Prompt.WeightVisible;
     public string Find { get => Prompt.Find; set => Prompt.Find = value; } public bool HasFindQuery => Prompt.HasFindQuery; public string FindMatchSummary => Prompt.FindMatchSummary;
     public RelayCommand Copy => Prompt.Copy; public RelayCommand Import => Prompt.Import; public RelayCommand New => Prompt.New; public RelayCommand Recover => Prompt.Recover; public RelayCommand Undo => Prompt.Undo; public RelayCommand Redo => Prompt.Redo; public RelayCommand Delete => Prompt.Delete; public RelayCommand DeleteOne => Prompt.DeleteOne; public RelayCommand Inspect => Prompt.Inspect; public RelayCommand FindPrevious => Prompt.FindPrevious; public RelayCommand FindNextCommand => Prompt.FindNextCommand; public RelayCommand OpenEditor => Prompt.OpenEditor; public RelayCommand StartDirect => Prompt.StartDirect; public RelayCommand ApplyDirect => Prompt.ApplyDirect; public RelayCommand CancelDirect => Prompt.CancelDirect; public RelayCommand ApplyWeight => Prompt.ApplyWeight;

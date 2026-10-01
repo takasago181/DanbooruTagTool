@@ -557,7 +557,15 @@
             </TabItem>
 
             <TabItem Header="Prompt編集" Style="{StaticResource WorkspaceTabItem}">
-               <views:PromptEditorView x:Name="PromptEditor" DataContext="{Binding Prompt}"/>
+               <DockPanel>
+                <Expander DockPanel.Dock="Bottom" Header="Prompt診断 / token・chunk（警告のみ）" Margin="0,6">
+                 <StackPanel MaxHeight="200"><WrapPanel><TextBlock Text="Counter Steps" VerticalAlignment="Center"/><TextBox Text="{Binding Intelligence.Steps}" Width="70"/><Button Content="Forge token照会" Click="TokenCountClick" ToolTip="生成しません。読み込み済みモデルのcounterを明示照会します。"/></WrapPanel><ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="150"><StackPanel><TextBlock Text="{Binding Intelligence.TokenStatus}" TextWrapping="Wrap"/><ItemsControl ItemsSource="{Binding Intelligence.Boundaries}"><ItemsControl.ItemTemplate><DataTemplate><TextBlock><Run Text="{Binding Side}"/><Run Text=" node "/><Run Text="{Binding Node}"/><Run Text=" : "/><Run Text="{Binding Kind}"/></TextBlock></DataTemplate></ItemsControl.ItemTemplate></ItemsControl><ItemsControl ItemsSource="{Binding Intelligence.Warnings}"><ItemsControl.ItemTemplate><DataTemplate><TextBlock Text="{Binding Message}" TextWrapping="Wrap"/></DataTemplate></ItemsControl.ItemTemplate></ItemsControl></StackPanel></ScrollViewer></StackPanel>
+                </Expander>
+                <TabControl x:Name="PromptSides" SelectedIndex="{Binding Intelligence.ActiveSide}">
+                 <TabItem Header="Positive"><views:PromptEditorView x:Name="PromptEditor" DataContext="{Binding Prompt}"/></TabItem>
+                 <TabItem Header="Negative"><DockPanel><WrapPanel DockPanel.Dock="Top"><Button Content="Positive + NegativeをForgeへ" Command="{Binding Forge.SendWorkspacePair}" ToolTip="両Workspaceを送信しForgeのNegativeを置換します。空欄も置換します。生成はしません。"/><WrapPanel DataContext="{Binding Negative}"><Button Content="Negativeを読込" Command="{Binding Import}"/><Button Content="Negativeを新規" Command="{Binding New}"/><Button Content="Negativeを回復" Command="{Binding Recover}"/></WrapPanel></WrapPanel><views:PromptEditorView x:Name="NegativeEditor" DataContext="{Binding Negative}"/></DockPanel></TabItem>
+                </TabControl>
+               </DockPanel>
             </TabItem>
             <TabItem Header="生成画像" Style="{StaticResource WorkspaceTabItem}">
                 <views:GenerationLibraryView x:Name="GenerationLibraryWorkspace" DataContext="{Binding GenerationLibrary}"/>

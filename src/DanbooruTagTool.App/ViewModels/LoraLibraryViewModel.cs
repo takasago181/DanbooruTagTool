@@ -25,6 +25,7 @@ public sealed class LoraLibraryViewModel(PortablePaths paths, PromptWorkspace wo
     public ObservableCollection<string> Roots { get; } = [];
     public ObservableCollection<LoraTriggerEditor> Triggers { get; } = [];
     public string Search { get; set; } = "";
+    public PromptWorkspace? NegativeWorkspace { get; set; }
     public bool FavoriteOnly { get; set; }
     public bool Busy { get => busy; private set { Set(ref busy, value); Notify(nameof(CanEdit)); } }
     public bool CanEdit => !Busy && canMutate();
@@ -124,6 +125,7 @@ public sealed class LoraLibraryViewModel(PortablePaths paths, PromptWorkspace wo
         catch (Exception e) when (StorageError(e) || e is ArgumentException) { Status = e.Message; }
     }
     public void CopyNegative() { clipboard.Write(NegativeAdditions); Status = "Recipe Negative追加をコピーしました。"; }
+    public void AppendNegative() { if (CanEdit && NegativeWorkspace is not null) { NegativeWorkspace.AppendPreset(parser.Parse(NegativeAdditions)); Status = "Recipe NegativeをNegative Workspaceへ追加しました。NegativeのUndoで戻せます。"; } }
     public void CopyTriggers() { clipboard.Write(string.Join(", ", Triggers.Where(t => t.Enabled && !string.IsNullOrWhiteSpace(t.Text)).Select(t => t.Text.Trim()))); Status = "選択trigger wordsをコピーしました。"; }
     public void CreatePreset()
     {

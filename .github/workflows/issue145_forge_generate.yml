@@ -24,5 +24,7 @@ jobs:
         run: dotnet test src/DanbooruTagTool.sln -c Release --nologo
       - name: Check Forge bridge Python syntax
         run: python -m py_compile src/ForgeBridge/scripts/dtt_bridge.py
+      - name: Test read-only Forge token adapter
+        run: python -B scripts/maintenance/test_forge_token_counter.py
       - name: Check Forge bridge JavaScript syntax
         run: node --check src/ForgeBridge/javascript/dtt_bridge.js

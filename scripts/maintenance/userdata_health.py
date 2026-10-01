@@ -20,7 +20,7 @@ def inspect(path: Path) -> dict:
         if not {"id", "version", "payload"}.issubset(columns): raise ValueError("user_state schema missing required columns")
         row = db.execute("SELECT version,payload FROM user_state WHERE id=1").fetchone()
         if row is not None:
-            if row[0] != 1: raise ValueError(f"unsupported UserData version {row[0]}")
+            if row[0] not in (1, 2): raise ValueError(f"unsupported UserData version {row[0]}")
             json.loads(row[1])
     return {"ok": True, "path": str(path.resolve()), "sha256": digest, "bytes": path.stat().st_size, "state_present": row is not None}
 

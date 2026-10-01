@@ -20,7 +20,7 @@ if($Mode -eq 'Candidate'){
   $invalid=@($userFiles | Where-Object {
     $relative=$_.FullName.Substring($user.Length).TrimStart('\\')
     $known=$relative -in @('README.txt','user.db','generation-library.db','generation-library.db-journal','generation-library.db-wal','generation-library.db-shm','lora-library.db','lora-library.db-journal','lora-library.db-wal','lora-library.db-shm')
-    $migrationBackup=$relative -match '^(generation-library|lora-library)\.db\.before-migration-[a-f0-9]{32}\.bak$'
+    $migrationBackup=$relative -match '^(user|generation-library|lora-library)\.db\.before-migration-[a-f0-9]{32}\.bak$'
     $thumbnail=$relative -match '^Cache\\GenerationThumbnails\\[A-F0-9]{64}(\.png|\.[a-f0-9]{32}\.tmp)$'
     -not ($known -or $migrationBackup -or $thumbnail)
   })

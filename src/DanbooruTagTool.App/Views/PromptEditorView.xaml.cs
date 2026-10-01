@@ -17,7 +17,17 @@ public partial class PromptEditorView : UserControl
     private int dropGap;
 
     public event Action? EditRatioChanged;
-    public PromptEditorView() => InitializeComponent();
+    public PromptEditorView()
+    {
+        InitializeComponent();
+        SizeChanged += (_, _) =>
+        {
+            var compact = ActualHeight < 300;
+            ViewHintText.Visibility = compact ? Visibility.Collapsed : Visibility.Visible;
+            DragHintText.Visibility = compact ? Visibility.Collapsed : Visibility.Visible;
+            EditorScroll.Margin = compact ? new Thickness(0) : new Thickness(0, 0, 0, 24);
+        };
+    }
     private PromptEditorViewModel? ViewModel => DataContext as PromptEditorViewModel;
     public double EditRatio => EditorColumn.Width.Value / (EditorColumn.Width.Value + EnglishColumn.Width.Value);
     public void ApplyEditRatio(double ratio)
