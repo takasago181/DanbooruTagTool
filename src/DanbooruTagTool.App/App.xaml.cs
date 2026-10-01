@@ -25,7 +25,10 @@ public partial class App : Application
                 var result = AcceptedAssetImporter.Read(e.Args[1], e.Args[2], profile);
                 var specialBrowseEntries = SpecialBrowseV2Overlay.Bake(new Catalog(result.Entries));
                 var unifiedBrowseEntries = UnifiedBrowseOverlay.Bake(new Catalog(specialBrowseEntries), e.Args[2]);
-                var bakedEntries = Issue118SexualIntentV2Overlay.Bake(new Catalog(unifiedBrowseEntries), e.Args[2], result.SourceHashes);
+                var issue132Entries = Issue132RouteOverlay.Bake(new Catalog(unifiedBrowseEntries));
+                var issue118Entries = Issue118SexualIntentV2Overlay.Bake(new Catalog(issue132Entries), e.Args[2], result.SourceHashes);
+                var bakedEntries = Issue199GeneralFacetOverlay.Bake(new Catalog(issue118Entries));
+                result.SourceHashes[Issue199GeneralFacetOverlay.RelativePath] = Issue199GeneralFacetOverlay.ExpectedSha256;
                 CatalogDatabase.Build(Path.Combine(output, "catalog.db"), bakedEntries, JsonSerializer.Serialize(result.SourceHashes));
                 File.WriteAllText(Path.Combine(output, "import-report.json"), JsonSerializer.Serialize(new
                 {
@@ -50,6 +53,13 @@ public partial class App : Application
                         NonSexual = Issue118SexualIntentV2Overlay.NonSexualCount,
                         Unclassified = Issue118SexualIntentV2Overlay.UnclassifiedCount,
                         BackingRows = bakedEntries.Count(x => x.EffectiveCategory is "General" or "Special")
+                    },
+                    UnifiedGeneralFacets = new
+                    {
+                        Identities = Issue199GeneralFacetOverlay.IdentityCount,
+                        Assignments = Issue199GeneralFacetOverlay.AssignmentCount,
+                        BodyAssignments = Issue199GeneralFacetOverlay.BodyAssignmentCount,
+                        ThemeAssignments = Issue199GeneralFacetOverlay.ThemeAssignmentCount
                     },
                     Sources = result.SourceHashes
                 }, new JsonSerializerOptions { WriteIndented = true }));

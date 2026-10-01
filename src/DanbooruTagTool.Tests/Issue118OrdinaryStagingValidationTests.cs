@@ -28,6 +28,10 @@ public sealed class Issue118OrdinaryStagingValidationTests(ITestOutputHelper out
         Assert.Equal(30_629, catalog.Entries.Count(entry => entry.EffectiveCategory == "General"));
         Assert.Equal(3_059, catalog.Entries.Count(entry => entry.EffectiveCategory == "Special"));
         Assert.Equal(33_688, catalog.Entries.Count);
+        var generalFacetEntries = catalog.Entries.Where(entry => entry.EffectiveCategory == "General" && entry.UnifiedBrowseFacets is not null).ToArray();
+        Assert.Equal(Issue199GeneralFacetOverlay.IdentityCount, generalFacetEntries.Select(Issue118SexualIntentV2Overlay.SourceIdentity).Distinct(StringComparer.Ordinal).Count());
+        Assert.Equal(Issue199GeneralFacetOverlay.AssignmentCount, generalFacetEntries.Sum(entry =>
+            entry.UnifiedBrowseFacets!.BodySiteIds.Length + entry.UnifiedBrowseFacets.ThemeIds.Length));
         Assert.DoesNotContain(catalog.Entries, entry => entry.EffectiveCategory is "Character" or "Copyright" or "Artist");
 
         var authority = AcceptedAssetImporter.Csv(Path.Combine(authorityRoot, Issue118SexualIntentV2Overlay.RelativePath))

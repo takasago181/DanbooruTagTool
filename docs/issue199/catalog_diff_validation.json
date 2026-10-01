@@ -1,0 +1,15 @@
+{
+  "live_main_sha": "807f33909aeb4203979e95b0d7d9f6e34856a246",
+  "baseline_catalog_sha256": "24665d7c92b9de9b22d92c7713f4e9876dc9c15b98e02324bbe670448bea7ff9",
+  "candidate_catalog_sha256": "5759156ff79d794ddc70dd5459af9b80f8cb204c4527be16fd368ff40be9f141",
+  "entry_count": 124895,
+  "changed_entries_after_ignoring_new_facet_field": 0,
+  "entries_with_new_facet_metadata": 346,
+  "facet_assignments": 355,
+  "route_arrays_identical": true,
+  "sexual_intent_identical": true,
+  "special_browse_v2_identical": true,
+  "baseline_catalog_bytes": 131063808,
+  "candidate_catalog_bytes": 131072000,
+  "catalog_bytes_delta": 8192
+}

@@ -7,23 +7,38 @@ Codexは独立班ではなくDEV（開発班）の実装担当。
 
 常設班はDEVとKNOWLEDGE。旧PROMPT班は廃止され、Prompt/generation-effectiveness知識はKNOWLEDGE #44へ統合された。
 
+## 1.5. Execution architecture
+
+Project-wide execution efficiency authority:
+
+- `docs/project/EXECUTION_ARCHITECTURE.md`
+- `docs/project/CURRENT_ROUTING.json`
+
+New Codex session / lane selection remains a **cold start** and follows the full gate below.
+
+Recurring same-lane automation or deterministic append-only resume may use the compact **warm resume** path defined by Issue #188 when contract/routing fingerprints match. Do not generalize warm-resume shortcuts to production promotion, protected-data mutation, cleanup, or uncertain routing.
+
 ## 2. 作業開始ゲート
 
-新規セッション・再開・task branch作成前に必ず:
+新規セッション・lane選択・task branch作成前の **cold start** では必ず:
 
 1. `git status --short --branch`
 2. `git fetch origin --prune`
 3. GitHub live `origin/main` のHEADを確認
-4. `origin/main:docs/project/CURRENT_STATE.md`
-5. `origin/main:docs/project/PERMANENT_RULES.md`
-6. `CURRENT_STATE.md` が示す対象DEV laneのlive GitHub Issue本文と最新コメントを取得
-7. Issue title / state / body / latest checkpoint / completion condition / blockerを確認
-8. 必要なら `docs/PRODUCT_GOAL_LOCK.md` と当該Issueが参照する現行仕様を読む
-9. branch-local管理文書との差分はその後に確認する
+4. `origin/main:docs/project/CURRENT_ROUTING.json`
+5. `origin/main:docs/project/NOW.md`
+6. `origin/main:docs/project/CURRENT_STATE.md`
+7. routingが示す対象DEV laneのlive GitHub Issue本文と最新コメントを取得
+8. `origin/main:docs/project/PERMANENT_RULES.md`
+9. Issue title / state / body / latest checkpoint / completion condition / blockerを確認
+10. product behavior / UX / scope判断が関係する場合は `docs/PRODUCT_GOAL_LOCK.md` と当該Issueが参照する現行仕様を読む
+11. branch-local管理文書との差分はその後に確認する
+
+同一lane・同一contractのrecurring Automation / append-only warm resumeでは、このfull gateを毎run再実行しない。Section 1.5 / `EXECUTION_ARCHITECTURE.md` のcompact warm-resume pathを使う。
 
 現在地の優先順位:
 
-`live main CURRENT_STATE -> target live Issue -> latest checkpoint -> PERMANENT_RULES -> task branch/local worktree`
+`live main -> CURRENT_ROUTING.json -> NOW.md -> CURRENT_STATE.md -> target live Issue -> latest checkpoint -> PERMANENT_RULES -> task branch/local worktree`
 
 古いbranch、旧handoff、過去Stage資料で現在地を巻き戻さない。
 矛盾時はfail-closedで停止する。
@@ -79,47 +94,57 @@ v1でデフォルトにしない:
 
 ## 4. Current active DEV routing
 
-### Post-#131 runtime baseline
+### Live authority — 2026-09-23
 
-Current live main authority:
+Routing-sync base before the 2026-09-23 management update:
 
-`10d4a8e1e48b75eb37ef97713e93293d2695c5e0`
+`95b53e6d114432358a2a1cea4e8554fcfae65bfd`
 
-Current user-facing runtime:
+This is a snapshot base, **not a permanent current-main pointer**. Always fetch live `origin/main` before selecting a lane.
 
-`C:\Codex\DanbooruTagTool-App`
+Current user-facing runtime remains:
 
-Current operational facts:
-- PR #131 UI refinement is completed;
-- PR #133 runtime/portable hardening is merged;
-- self-contained `win-x64` portable runtime is the current workstation launch target;
-- shortcut target and working directory point to `C:\Codex\DanbooruTagTool-App`;
-- `runtime-manifest.json` is the runtime provenance/hash contract;
-- `artifacts/current/` is retained fallback/reference only;
-- explicit `RenderMode.SoftwareOnly` has been removed; current WPF uses automatic Windows/WPF render selection;
-- performance benchmark remains pending and must not be inferred from functional smoke results.
+`C:\\Codex\\DanbooruTagTool-App`
 
-### Current default next DEV/AUDIT task
+Runtime/performance/portable hardening is already completed. **Do not route by default to Performance / Runtime Load Audit.**
 
-The default next runtime lane is **Performance / Runtime Load Audit**.
+Current major independent research lanes are:
 
-This lane is measurement-first. It may add isolated benchmark scripts/docs, but it does not own production optimization until evidence is reviewed.
+- **#179** — Character/Copyright identity, Japanese display/search, ranking, and 2D-scope quality audit. Artist audit excluded.
+- **#180** — Character -> single canonical HOME Copyright authority reconstruction. Research-only until separately accepted.
+- **#132** — full 31,003-identity tag discoverability/classification usability audit.
 
-SoftwareOnly A/B authority:
-- A: `e64f3f7cb02df8f5c5fd65dc4132f0e398769b9d`
-- B: `10d4a8e1e48b75eb37ef97713e93293d2695c5e0`
+When the user selects one lane, work only that lane. Never combine #179/#180/#132 branches, datasets, or semantic decisions.
 
-Do not use stale #64/#66/#117 text as active routing merely because it remains in historical documents or Issue history.
+### #132 execution routing
 
-### Independent lanes
+#132 is no longer at bounded-prototype / pre-handoff status.
 
-The following are independent from runtime/performance:
-- #70 Character / Copyright / Artist;
-- taxonomy-usability / classification audit;
-- Stage10 learning;
-- KNOWLEDGE #44.
+Current execution:
+- branch: `research/taxonomy-usability-audit`
+- 3 normal ChatGPT Automation workers + 1 coordinator
+- 300 identities per worker run **ceiling, not quota**
+- compact normal preflight via `docs/issue132/parallel/WORKER_EXECUTION_CARD_V1.md`; reread full frozen docs only on drift/contradiction
+- 25-row immutable checkpoints for new work
+- strict per-row finalization before moving on; ambiguity/proper noun/specialist/sexual-boundary uncertainty requires `RESEARCHED`, unresolved meaning uses `SEMANTIC_UNRESOLVED`
+- cumulative lane-local 100-row QA: all high-risk rows + deterministic ordinary CHECKED spot-checks
+- no redundant full-25 second reread, no status write/CI wait after every checkpoint, and no anticipated-time `EXECUTION_LIMIT` self-stop
+- frozen Pass-A semantic contract remains unchanged
+- no production mutation / main merge from the research lane
 
-When multiple lanes exist, work only the user-selected lane and do not mix branches, commits, protected data, or production decisions.
+Read `research/taxonomy-usability-audit:docs/issue132/parallel/CURRENT_AUTOMATION_OPERATION.md` for live operational cadence and `research/taxonomy-usability-audit:docs/issue132/parallel/WORKER_EXECUTION_CARD_V1.md` for the compact worker rules. These are branch-local execution authority; do not infer that a duplicate main copy exists. Old `READY FOR CODEX LUNA PASS A`, 100-row, or 200-row target wording is historical/frozen context, not current execution routing.
+
+### Runtime baseline
+
+- PR #131 UI refinement completed.
+- PR #133 portable/runtime hardening completed.
+- PR #135 performance/runtime optimization completed.
+- self-contained `win-x64` runtime remains the workstation launch target.
+- `runtime-manifest.json` remains runtime provenance/hash contract.
+- `artifacts/current/` is fallback/reference only.
+- Artist remains hidden and old unreliable Character<->Copyright relation UI remains disabled by #177.
+
+Do not use stale #64/#66/#117/performance text as active routing merely because it remains in historical documents.
 
 ## 5. Stage10 relationship
 
@@ -140,10 +165,10 @@ CodexはStage10学習を理由に、本体v1へ自動Prompt最適化・direct ge
 ## 6. Special / Generalの役割
 
 ### Special
-- 2,788 identityはfreeze済み
-- ニッチ/複雑概念の深い発見面
-- #56のUI browse taxonomyを使う
-- product-fit eligibilityは#63のsidecarを使う
+- current production Special populationは **3,059** stable identities（ID 1..3,088中29 gaps）
+- current browse authorityはIssue #76のshallow kind/body/theme model
+- historical 2,788 base / #56 deep taxonomyはprovenanceとして保持し、current production population/browse authorityと混同しない
+- canonical identityとbrowse taxonomyは分離し、#132 researchは既存authorityを直接書き換えない
 
 ### General
 - production Japanese overlay 30,629 canonical entriesが対象
@@ -189,12 +214,22 @@ WPF migrationを理由にexisting `data/` を先に移動・整理しない。
 
 ## 9. 読む仕様を必要最小限にする
 
-常時読む:
-1. `docs/project/CURRENT_STATE.md`
-2. `docs/project/PERMANENT_RULES.md`
-3. target live DEV Issue
-4. `docs/PRODUCT_GOAL_LOCK.md`
-5. target Issueが指定する仕様
+### cold startで読む
+1. `docs/project/CURRENT_ROUTING.json`
+2. `docs/project/NOW.md`
+3. `docs/project/CURRENT_STATE.md`
+4. target live DEV Issue
+5. `docs/project/PERMANENT_RULES.md`
+6. product behavior / UX / scope判断が関係する場合だけ `docs/PRODUCT_GOAL_LOCK.md`
+7. target Issueが指定する仕様
+
+### warm resumeで読む
+1. compact routing / contract fingerprint
+2. task-local immutable progress listing
+3. next bounded input
+4. changed evidenceだけ
+
+`CURRENT_STATE_HISTORY.md` や変更されていない大型spec群を通常のwarm resume read setへ入れない。
 
 Issue #64作業時:
 - `docs/project/CURRENT_DEV_TASK.md`

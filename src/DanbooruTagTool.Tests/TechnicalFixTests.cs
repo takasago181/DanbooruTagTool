@@ -105,18 +105,22 @@ public class TechnicalFixTests(ITestOutputHelper output)
         {
             "data/special2788/product_fit_verdicts.csv", AcceptedAssetImporter.ProductionProfileRelativePath, AcceptedAssetImporter.PromotionRelativePath, AcceptedAssetImporter.Issue107PromotionRelativePath,
             Issue118SpecialCanonicalCorrectionOverlay.RelativePath,
+            Issue70CatalogOverlayImporter.RelativePath,
+            Issue216BrowseHomeImporter.RelativePath,
             "docs/issue56/rollout/issue56_ui_genre_taxonomy_v1.json",
             AcceptedGeneralTaxonomyImporter.TaxonomyRelativePath, AcceptedGeneralTaxonomyImporter.SidecarRelativePath,
             AcceptedGeneralTaxonomyImporter.ManifestRelativePath
         });
         foreach (var file in files) { var dest = Path.Combine(isolated.Path, file); Directory.CreateDirectory(Path.GetDirectoryName(dest)!); File.Copy(Path.Combine(authority!,file),dest); }
-        var before = AcceptedAssetImporter.Read(source!, isolated.Path, CatalogBuildProfile.Ordinary);
+        var before = AcceptedAssetImporter.Read(source!, isolated.Path);
         Assert.Equal(28226,before.Entries.Count(e=>!e.IsSpecial && e.BrowseClassification==BrowseClassificationStatus.Proposed));
         Assert.Equal(2403,before.Entries.Count(e=>!e.IsSpecial && e.BrowseClassification==BrowseClassificationStatus.Unresolved));
         Assert.All(before.Entries.Where(e=>!e.IsSpecial && e.BrowseClassification==BrowseClassificationStatus.Unresolved), e=>Assert.Empty(e.Paths));
         File.WriteAllText(Path.Combine(isolated.Path,"docs/issue56/rollout/reviewed/stray.csv"), "invalid unexpected input");
-        var after = AcceptedAssetImporter.Read(source!, isolated.Path, CatalogBuildProfile.Ordinary);
-        Assert.Equal(33688, after.Entries.Length); Assert.Equal(AcceptedAssetImporter.ProductionSpecialCount, after.Entries.Count(e => e.IsSpecial));
+        var after = AcceptedAssetImporter.Read(source!, isolated.Path);
+        Assert.Equal(before.Entries.Length, after.Entries.Length);
+        Assert.Equal(AcceptedAssetImporter.ProductionSpecialCount, after.Entries.Count(e => e.EffectiveCategory == "Special"));
+        Assert.Equal(Issue70CatalogOverlayImporter.TotalCount, after.Entries.Count(e => e.EffectiveCategory is "Character" or "Copyright" or "Artist"));
         Assert.Equal(JsonSerializer.Serialize(before), JsonSerializer.Serialize(after));
         Assert.DoesNotContain(after.SourceHashes.Keys, k => k.Contains("stray"));
         Assert.All(Issue56Inputs.MappingHashes, p => Assert.Equal(p.Value, after.SourceHashes[p.Key]));

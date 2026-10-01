@@ -1,5 +1,6 @@
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Text.Json.Serialization;
 
 namespace DanbooruTagTool.Core;
 
@@ -18,6 +19,9 @@ public sealed record SpecialBrowseV2Classification(
     string[] BodySiteIds,
     string[] ThemeIds,
     SpecialBrowseV2Status Status);
+
+/// <summary>Generic pre-baked unified body/theme memberships for General browse rows.</summary>
+public sealed record UnifiedBrowseFacetClassification(string[] BodySiteIds, string[] ThemeIds);
 
 public sealed record CatalogEntry(string Id, string? Canonical, string English, string? Japanese,
     bool IsSpecial, long? Usage, string[] Aliases, string[] JapaneseSearch, BrowsePath[] Paths,
@@ -39,6 +43,8 @@ public sealed record CatalogEntry(string Id, string? Canonical, string English, 
     public string BrowseHomeSource => FormalHomeCopyright is not null ? "FORMAL_HOME" :
         ReviewedBrowseHome is not null ? "REVIEWED_BROWSE_FALLBACK" : "UNRESOLVED";
     public string[] UnifiedBrowseRouteIds { get; init; } = [];
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public UnifiedBrowseFacetClassification? UnifiedBrowseFacets { get; init; }
     public SexualIntentClass? SexualIntent { get; init; }
     public SexualIntentClassificationStatus SexualIntentStatus { get; init; } = SexualIntentClassificationStatus.Unclassified;
     public string SexualIntentSource { get; init; } = "";

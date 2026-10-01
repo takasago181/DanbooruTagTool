@@ -56,8 +56,15 @@ public class ProductionTests(ITestOutputHelper output)
         var sourceRoot=Environment.GetEnvironmentVariable("DTT_SOURCE_ROOT"); var authorityRoot=Environment.GetEnvironmentVariable("DTT_AUTHORITY_ROOT");
         if(sourceRoot!=null && authorityRoot!=null)
         {
-            using var report=JsonDocument.Parse(File.ReadAllText(Path.Combine(Path.GetDirectoryName(path)!,"import-report.json")));
-            foreach(var p in report.RootElement.GetProperty("Sources").EnumerateObject())
+            var reportPath=Path.Combine(Path.GetDirectoryName(path)!,"import-report.json");
+            using var report=JsonDocument.Parse(File.Exists(reportPath)
+                ? File.ReadAllText(reportPath)
+                : File.ReadAllText(Path.Combine(Path.GetDirectoryName(Path.GetDirectoryName(path)!)!,"runtime-manifest.json")));
+            var sources=File.Exists(reportPath)
+                ? report.RootElement.GetProperty("Sources")
+                : report.RootElement.GetProperty("production_contract").GetProperty("source_hashes");
+            if(!File.Exists(reportPath)) Assert.Equal(AcceptedAssetImporter.Hash(path),report.RootElement.GetProperty("catalog_sha256").GetString(),StringComparer.OrdinalIgnoreCase);
+            foreach(var p in sources.EnumerateObject())
             { var root=AcceptedAssetImporter.ProtectedInputs.Contains(p.Name)?sourceRoot:authorityRoot; Assert.Equal(p.Value.GetString(),AcceptedAssetImporter.Hash(Path.Combine(root,p.Name))); }
         }
     }
@@ -92,15 +99,17 @@ public class ProductionTests(ITestOutputHelper output)
         var store=new UserStateStore(Path.Combine(temp.Path,"UserData","user.db"));
         var clipboard=new MemoryClipboard();
         var vm=new MainViewModel(catalog,store,clipboard,provider);
-        var sample=catalog.Entries.First(e=>!e.IsSpecial && e.BrowseClassification==BrowseClassificationStatus.Proposed && e.CanBrowse && e.Paths.Length>0 && e.Paths[0].SubgenreId.Length>0 && !catalog.Entries.Any(s=>s.IsSpecial && s.Canonical==e.Canonical && s.CanSearch));
-        var category=vm.Navigation.Single(n=>n.Key=="general").Children.Single(n=>n.Key=="general:"+sample.Paths[0].GenreId+">");
-        Assert.Contains(category.Children,n=>n.Key=="general:"+sample.Paths[0].Key);
-        vm.NavigateTo("general");
-        vm.NavigateTo(category.Key);
-        vm.NavigateTo("general:"+sample.Paths[0].Key);
+        var sample=catalog.Entries.First(e=>!e.IsSpecial && e.BrowseClassification==BrowseClassificationStatus.Proposed && e.CanBrowse && e.Paths.Length>0 && UnifiedBrowseTaxonomy.GeneralLocal(e.Paths[0]) is not null && !catalog.Entries.Any(s=>s.IsSpecial && s.Canonical==e.Canonical && s.CanSearch));
+        var path=sample.Paths[0];
+        var routeId=UnifiedBrowseTaxonomy.GeneralRoute(path.GenreId)!;
+        var routeNode=vm.Navigation.SelectMany(n=>n.Children).Single(n=>n.Key=="route:"+routeId);
+        Assert.Contains(vm.Navigation.SelectMany(n=>n.Children),n=>n.Key==routeNode.Key);
+        vm.NavigateTo(routeNode.Key);
+        var local=UnifiedBrowseTaxonomy.GeneralLocal(path)!;
+        vm.Dictionary.ToggleBrowseFacet.Execute(new BrowseFacetOptionViewModel(BrowseFacetKind.Local,local.Id,local.Label));
         vm.Back.Execute(null);
-        Assert.Equal(category.Key,vm.BrowseKey);
-        vm.NavigateTo("general:"+sample.Paths[0].Key);
+        Assert.Equal(routeNode.Key,vm.BrowseKey);
+        vm.Dictionary.ToggleBrowseFacet.Execute(new BrowseFacetOptionViewModel(BrowseFacetKind.Local,local.Id,local.Label));
         Assert.Contains(vm.Results,r=>r.Entry.Canonical==sample.Canonical);
 
         vm.Query=sample.Japanese!; vm.RefreshResults();
@@ -117,6 +126,6 @@ public class ProductionTests(ITestOutputHelper output)
         Assert.Equal(1,restarted.WorkspaceIndex);
         Assert.Equal(vm.English,restarted.English);
         Assert.Contains(restarted.Chips,c=>c.Item.Canonical==sample.Canonical);
-        output.WriteLine($"General path {sample.Paths[0].Label}; Japanese query {sample.Japanese}; canonical add/undo/redo/copy and SQLite restart restore PASS");
+        output.WriteLine($"Unified route {routeNode.Label} / local {local.Label}; Japanese query {sample.Japanese}; canonical add/undo/redo/copy and SQLite restart restore PASS");
     }
 }

@@ -1,115 +1,45 @@
-# CURRENT DEV TASK — POST-#131 RUNTIME / PERFORMANCE AUDIT
+# CURRENT DEV TASK — COMPATIBILITY ROUTING POINTER
 
-最終同期: 2026-09-20
+最終更新: 2026-09-28
 
-## Routing status
+このファイルは旧workflowとの互換用ポインタです。
+**current routingの内容をここへ複製しない。**
 
-- Live main authority is the post-sync main containing this block; the optimization merge before sync was `eebccbf7feafff6f86546c4624841d5978953dd6`.
-- PR #133 `[MAINT] Post-#131 runtime and portable production hardening` is merged.
-- PR #135 post-#131 performance/runtime optimization is merged and production-validated.
-- Post-#131 production/runtime integration is complete.
-- #117/#118 implementation and the former local-runtime gate are no longer the current DEV task.
-- #131 UI refinement is complete and already represented in the current runtime.
-- Performance / Runtime Load Audit and the safe post-audit optimization lane are complete. The adopted change defers unused `Related` projection while preserving compatibility; no further optimization candidate is adopted without new measurement evidence.
-- #70 Character/Copyright/Artist work and taxonomy-usability/classification audit are independent lanes. Do not mix their branches, commits, data, or decisions into this task.
+## Current authority
 
-## Current production runtime authority
+1. live GitHub `main`
+2. `docs/project/CURRENT_ROUTING.json`
+3. `docs/project/CURRENT_STATE.md`
+4. selected live Issue + latest checkpoint
+5. `docs/project/PERMANENT_RULES.md`
+6. task-specific contract/spec
 
-User-facing workstation runtime:
+## Active lanes
 
-`C:\Codex\DanbooruTagTool-App`
+- #179: `research/issue179-character-quality-audit` (standby / draft research retained)
+- #180: `research/issue180-single-home-pilot`
+- #188: project-wide execution-efficiency infrastructure
 
-Current runtime contract:
+Issue/branch HEAD/progressはこのファイルの固定値ではなく、live GitHubから取得する。
 
-- self-contained `win-x64`;
-- shortcut target: `C:\Codex\DanbooruTagTool-App\DanbooruTagTool.exe`;
-- shortcut working directory: `C:\Codex\DanbooruTagTool-App`;
-- `runtime-manifest.json` records build/main provenance and runtime hashes;
-- current catalog SHA-256:
-  `DFDC93581F2E8E3041FBC497F9A1C5CFD458977EF57462E05902F27D29B97CF9`;
-- the final production EXE and manifest hashes are recorded in the fresh post-sync runtime promotion report;
-- current catalog totals:
-  - Total 33,688
-  - General 30,629
-  - Special 3,059
-  - Character/Copyright/Artist 0 / 0 / 0
-  - runtime identities 31,003
-  - SEXUAL 1,506
-  - NON_SEXUAL 27,707
-  - CONTEXTUAL 1,786
-  - UNCLASSIFIED 4.
+## Resume rule
 
-The older local `artifacts/current/` runtime is retained as a fallback/reference artifact but is **not the current user-facing launch target**.
+- cold start: `CHAT_START_PROTOCOL.md` のfull authority recovery
+- warm resume: `EXECUTION_ARCHITECTURE.md` のcompact fingerprint + task-local immutable progress
+- production / protected-data / delete: warm-resume shortcutを一般化しない
 
-## UserData authority
+## Maintenance baseline pointer
 
-`UserData` is user-owned state, not a deploy artifact.
+- Post-#210 finalization is tracked in `CURRENT_ROUTING.json` / `NOW.md` / `CURRENT_STATE.md`; this compatibility file remains a pointer and does not duplicate lane history.
+- Current production Last Known Good snapshot: `docs/project/LAST_KNOWN_GOOD.json` and `.md`.
+- Canonical runtime pipeline: `docs/maintenance/PORTABLE_RUNTIME_PIPELINE.md`.
+- Skipped Release-test classification: `docs/project/RELEASE_TEST_SKIP_INVENTORY.json`.
 
-The validated portable promotion copied the existing user database byte-for-byte and verified source/destination SHA equality before and after runtime launch.
+## Historical task details
 
-Permanent operational rule:
+旧Performance/runtime/#117/#132/#199/#201等の詳細をcurrent taskとしてここへ再掲載しない。
+必要なら:
+- `docs/project/CURRENT_STATE_HISTORY.md`
+- live Issue / PR / Git history
 
-- never delete, overwrite, reset, mirror-delete, or silently replace real `UserData`;
-- runtime publishing is code/catalog/runtime -> target only;
-- UserData preservation is a separate explicit step and must be hash-checked when a runtime is promoted;
-- do not use `git clean -fdx`, `git clean -fdX`, `robocopy /MIR`, or broad runtime-directory replacement against protected local state.
-
-## Rendering authority
-
-PR #133 removed the explicit:
-
-`RenderOptions.ProcessRenderMode = RenderMode.SoftwareOnly`
-
-Current main therefore uses normal WPF/Windows automatic render selection.
-
-The A/B rendering audit is complete. Automatic WPF render selection remains the
-baseline: idle CPU/disk settled to approximately zero and no clear total-load
-win justified restoring SoftwareOnly.
-
-## Performance audit boundaries
-
-Measure before optimizing.
-
-Required categories include:
-
-- startup;
-- settled idle;
-- dictionary scrolling;
-- Japanese / English / mixed search;
-- route/facet/content/DeepOnly switching;
-- Prompt add/remove/edit/order/category operations;
-- resize;
-- post-operation idle;
-- CPU / GPU / Working Set / Private memory / threads / handles / disk read-write;
-- leak/drift checks.
-
-Do not change production behavior merely because code looks suspicious.
-
-Any optimization after the SoftwareOnly A/B must be:
-
-`baseline -> measurement -> candidate -> same-condition measurement -> regression -> adopt/reject`.
-
-## Protected boundaries
-
-This current task does not own:
-
-- #70 Character/Copyright/Artist data;
-- taxonomy-usability/classification audit;
-- General/Special semantic membership;
-- #118 content-intent semantics;
-- PromptToken/search semantics;
-- canonical identity;
-- real UserData;
-- ForgeBridge behavior.
-
-Do not merge those lanes into the performance audit.
-
-## Stop rule
-
-Performance audit may add isolated measurement scripts/docs on its own branch.
-
-Additional optimizations require new measurement evidence and must not cross the
-#70, taxonomy, classification, canonical, PromptToken, ForgeBridge, catalog, or
-real UserData boundaries.
-
-Historical #117/#118 implementation details remain available from their Issues, commits, and Git history; they are no longer the routing task represented by this file.
+を参照する。
