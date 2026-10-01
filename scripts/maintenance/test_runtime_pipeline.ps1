@@ -29,6 +29,7 @@ try {
  Assert-Fails {& (Join-Path $PSScriptRoot 'check_runtime_shape.ps1') -RuntimeRoot $runtime -Mode Candidate | Out-Null} 'nested candidate UserData rejection'
  Remove-Item -LiteralPath (Join-Path $runtime 'UserData/nested/user.db') -Force;Remove-Item -LiteralPath (Join-Path $runtime 'UserData/nested') -Force
  Set-Content (Join-Path $runtime 'UserData/generation-library.db') 'library'
+ Set-Content (Join-Path $runtime 'UserData/lora-library.db') 'lora library'
  New-Item -ItemType Directory -Path (Join-Path $runtime 'UserData/Cache/GenerationThumbnails') -Force|Out-Null
  $cacheFile=Join-Path $runtime ('UserData/Cache/GenerationThumbnails/'+('A'*64)+'.png');Set-Content $cacheFile 'reconstructible cache'
  & (Join-Path $PSScriptRoot 'check_runtime_shape.ps1') -RuntimeRoot $runtime -Mode Candidate | Out-Null
