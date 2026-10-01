@@ -45,7 +45,7 @@ public sealed class PromptEditorViewModel : Observable
     public PromptWorkspace Workspace => workspace;
     public string SideLabel { get; init; } = "Prompt";
     public string EditorTitle => SideLabel + "編集";
-    public string PreviewTitle => "実際のEnglish " + SideLabel;
+    public string PreviewTitle => SideLabel == "Negative Prompt" ? "English Negative" : "実際のEnglish " + SideLabel;
     public event Action<Guid>? ScrollToChip;
     public string English => PromptOutputFormatter.Serialize(Workspace.Items, OutputProfile);
     public IReadOnlyList<PromptOutputProfileOption> OutputProfiles { get; } =
