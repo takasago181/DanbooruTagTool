@@ -17,3 +17,7 @@ docs/issue216/BROWSE_HOME_RUNTIME_MANIFEST_V1.json text eol=lf
 
 # Embedded accepted Browse assets must retain their hash across Windows checkout.
 src/DanbooruTagTool.Data/UnifiedBrowseData/*.csv text eol=lf
+
+# Issue #179 reviewed runtime projection is byte-hashed during catalog builds.
+docs/issue179/runtime/*.csv text eol=lf
+docs/issue179/runtime/*.json text eol=lf
