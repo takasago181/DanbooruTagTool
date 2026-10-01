@@ -51,6 +51,33 @@ public class Issue179QualityOverlayTests
         });
     }
 
+
+    [Fact]
+    public void OverlayComposesWithBrowseHomeWithoutChangingAuthorityCounts()
+    {
+        var root = FindRepoRoot();
+        var issue70Path = Path.Combine(root, Issue70CatalogOverlayImporter.RelativePath);
+        var projectionPath = Path.Combine(root, Issue179QualityOverlay.RelativePath);
+        var homePath = Path.Combine(root, Issue216BrowseHomeImporter.RelativePath);
+
+        var issue70 = Issue70CatalogOverlayImporter.Read(issue70Path);
+        var quality = Issue179QualityOverlay.Apply(projectionPath, issue70Path, issue70);
+        var combined = Issue216BrowseHomeImporter.Apply(homePath, quality);
+
+        Assert.Equal(issue70.Length, combined.Length);
+        Assert.Equal(35278, combined.Count(e => e.EffectiveCategory == "Character"));
+        Assert.Equal(7616, combined.Count(e => e.EffectiveCategory == "Copyright"));
+        Assert.Equal(48313, combined.Count(e => e.EffectiveCategory == "Artist"));
+        Assert.Equal(25533, combined.Count(e => e.FormalHomeCopyright is not null));
+        Assert.Equal(7409, combined.Count(e => e.ReviewedBrowseHome is not null));
+        Assert.Equal(2336, combined.Count(e =>
+            e.EffectiveCategory == "Character" && e.EffectiveBrowseHome is null));
+
+        var chen = combined.Single(e => e.Canonical == "chen");
+        Assert.Equal("touhou", chen.EffectiveBrowseHome);
+        Assert.Equal("REVIEWED_BROWSE_FALLBACK", chen.BrowseHomeSource);
+    }
+
     [Fact]
     public void ProjectionIsPinnedToReviewedArtifact()
     {
