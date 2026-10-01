@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "source_issue70_sha256": "bf366734b41b2be9e6cb52de919ef55b7312445e1715f96a357db37abda8dad5",
-  "accepted_field_changes": 1220,
-  "distinct_rows": 1214,
+  "accepted_field_changes": 1221,
+  "distinct_rows": 1215,
   "display_rows": 221,
-  "search_rows": 999,
+  "search_rows": 1000,
   "empty_search_replacements": 3,
-  "projection_sha256": "130f83d7a68ffb57b9f3a2d7d25a01476dc0d063bc35fa15d197bade279c620b",
+  "projection_sha256": "baaf25b1257fcc4386996f2436eecbc206df97684563b97622dc51bd41fe93ff",
   "home_authority_modified": false,
   "source_data_mutated": false
 }

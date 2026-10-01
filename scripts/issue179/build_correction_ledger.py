@@ -209,8 +209,8 @@ def main() -> None:
     # Frozen current audit counts. Fail if candidate logic drifts silently.
     search_count = sum(r["field"] == "search_ja" for r in accepted)
     display_count = sum(r["field"] == "display_ja" for r in accepted)
-    if search_count != 999:
-        raise SystemExit(f"expected 999 accepted search rows, got {search_count}")
+    if search_count != 1000:
+        raise SystemExit(f"expected 1000 accepted search rows, got {search_count}")
     if display_count != 221:
         raise SystemExit(f"expected 221 accepted display rows, got {display_count}")
     if len(holds) != 17:

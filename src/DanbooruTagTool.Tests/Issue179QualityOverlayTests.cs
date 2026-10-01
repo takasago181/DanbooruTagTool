@@ -44,6 +44,12 @@ public class Issue179QualityOverlayTests
         Assert.Equal("須賀蕾叶", after.Single(e => e.Canonical == "suga_raika").Japanese);
         Assert.Equal("馬橋心玖", after.Single(e => e.Canonical == "mahashi_miku").Japanese);
 
+        // The shared surface is an identity for Azur Lane, but only a surname for Mari.
+        Assert.Contains("イラストリアス", after.Single(e => e.Canonical == "illustrious_(azur_lane)").JapaneseSearch);
+        Assert.DoesNotContain("イラストリアス", after.Single(e => e.Canonical == "makinami_mari_illustrious").JapaneseSearch);
+        Assert.Contains("真希波・マリ・イラストリアス", after.Single(e => e.Canonical == "makinami_mari_illustrious").JapaneseSearch);
+        Assert.DoesNotContain("エンイラ(アズールレーン)", after.Single(e => e.Canonical == "enterprise_(azur_lane)").JapaneseSearch);
+
         Assert.Empty(after.Single(e => e.Canonical == "ace_attorney").JapaneseSearch);
         Assert.Empty(after.Single(e => e.Canonical == "kuroshitsuji").JapaneseSearch);
 

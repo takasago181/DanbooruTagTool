@@ -1,6 +1,6 @@
 # CURRENT STATE
 
-最終更新: 2026-10-01 (#180/#216/#188 closeout; #179 standby)
+最終更新: 2026-10-01 (#179 continued audit / production integration Gate)
 
 このファイルは **現在地だけ** を保持する人間向けsummary。
 過去のrouting/runtime/taxonomy/完了記録は `docs/project/CURRENT_STATE_HISTORY.md` に保存する。
@@ -36,11 +36,15 @@
   - production-size intent-first scenario regression coverage added
   - catalog/runtime/UserData remain unchanged from #199 production
 - **#179 — Character/Copyright quality audit**
-  - state: **standby / next product-quality lane**
-  - retained research branch: `research/issue179-character-quality-audit`
+  - state: **final audit validated; user-authorized production integration pending CI / clean publish**
+  - active continuation branch: `audit/issue179-refresh-20261001`; PR #220
+  - historical research branch: `research/issue179-character-quality-audit` (evidence only)
   - old Draft PR #181: **closed as stale merge path**
   - Stage A 44,426-row census evidence is retained
-  - resume from a fresh branch off live `main`; revalidate/reuse Stage A evidence
+  - keep existing continuation commits/evidence; do not restart from main
+  - accepted projection 1,215 rows / 1,221 field changes (display 221, search 1,000); display HOLD 17
+  - audit checkpoint: `docs/issue179/FINAL_CHECKPOINT_2026-10-01.json`
+  - user authorized main merge, clean build and bounded production apply after all Gates; UserData protected
   - scope: Character/Copyright identity・日本語display/search・ranking・2D scope品質
   - Artist監査は対象外
   - completed #180/#216 HOME authority is separate and must not be reopened by default

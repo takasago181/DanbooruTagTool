@@ -1,6 +1,6 @@
 {
   "schema_version": "project-current-routing-v1",
-  "generated_at": "2026-10-01T08:30:00+00:00",
+  "generated_at": "2026-10-01T09:47:39.576966+00:00",
   "purpose": "compact machine-readable routing snapshot; not a permanent branch-head authority",
   "live_main_snapshot": null,
   "must_refetch_live_heads_before_write": true,
@@ -17,16 +17,16 @@
       "issue": 179,
       "kind": "research",
       "title": "Character/Copyright identity, Japanese display/search, ranking, and 2D scope quality",
-      "branch": "research/issue179-character-quality-audit",
+      "branch": "audit/issue179-refresh-20261001",
       "branch_head_snapshot": null,
-      "phase": "standby / Stage A evidence retained; stale PR #181 closed",
+      "phase": "final census/overlay validated; user-authorized main integration and bounded production promotion pending CI",
       "isolation": [
         "completed #180/#216 authority",
         "other active lanes"
       ],
-      "production_mutation": false,
+      "production_mutation": true,
       "head_policy": "fetch_live_before_work_or_write",
-      "progress_source": "live Issue #179 + retained research branch/evidence; resume from fresh live-main branch"
+      "progress_source": "live Issue #179 / PR #220 / docs/issue179/FINAL_CHECKPOINT_2026-10-01.json"
     }
   ],
   "completed_or_non_default": [

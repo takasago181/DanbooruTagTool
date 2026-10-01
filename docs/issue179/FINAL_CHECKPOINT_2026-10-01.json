@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "base_preserved": "72bdf26e682cea74a2f65d89f54fda28d2b16eb4",
+  "census_rows": 44426,
+  "stage_b_reviewed": 500,
+  "corrections": {
+    "accepted_field_changes": 1221,
+    "accepted_search_rows": 1000,
+    "accepted_display_rows": 221,
+    "display_holds": 17,
+    "source_data_mutated": false,
+    "production_modified": false,
+    "home_authority_modified": false
+  },
+  "projection": {
+    "schema_version": 1,
+    "source_issue70_sha256": "bf366734b41b2be9e6cb52de919ef55b7312445e1715f96a357db37abda8dad5",
+    "accepted_field_changes": 1221,
+    "distinct_rows": 1215,
+    "display_rows": 221,
+    "search_rows": 1000,
+    "empty_search_replacements": 3,
+    "projection_sha256": "baaf25b1257fcc4386996f2436eecbc206df97684563b97622dc51bd41fe93ff",
+    "home_authority_modified": false,
+    "source_data_mutated": false
+  },
+  "post_overlay": {
+    "runtime_rows": 42894,
+    "character_rows": 35278,
+    "copyright_rows": 7616,
+    "projection_rows": 1215,
+    "before": {
+      "display_underscore_rows": 13,
+      "display_mixed_ascii_qualifier_rows": 1716,
+      "search_normalized_duplicate_rows": 889,
+      "search_non_identity_regex_rows": 52,
+      "search_fandom_community_regex_rows": 62,
+      "search_descriptive_phrase_rows": 1,
+      "display_collision_rows": 272,
+      "search_collision_rows": 2052
+    },
+    "after": {
+      "display_underscore_rows": 13,
+      "display_mixed_ascii_qualifier_rows": 1563,
+      "search_normalized_duplicate_rows": 0,
+      "search_non_identity_regex_rows": 9,
+      "search_fandom_community_regex_rows": 3,
+      "search_descriptive_phrase_rows": 0,
+      "display_collision_rows": 266,
+      "search_collision_rows": 2041
+    },
+    "delta": {
+      "display_underscore_rows": 0,
+      "display_mixed_ascii_qualifier_rows": -153,
+      "search_normalized_duplicate_rows": -889,
+      "search_non_identity_regex_rows": -43,
+      "search_fandom_community_regex_rows": -59,
+      "search_descriptive_phrase_rows": -1,
+      "display_collision_rows": -6,
+      "search_collision_rows": -11
+    },
+    "residual_regex_signal_rows": 12,
+    "interpretation": "Collision and mixed-ASCII counts are triage signals, not defects. Residual regex rows require semantic interpretation because legitimate names such as Illustrious, Fukawa, Emori, Oekaki Musume and title words can match the regex.",
+    "source_data_mutated": false,
+    "home_authority_modified": false,
+    "production_modified": false
+  },
+  "stage_b": {
+    "stage_b_total": 500,
+    "retained_human_calibration_rows": 100,
+    "rule_assisted_bulk_rows": 400,
+    "identity": {
+      "PASS": 494,
+      "REVIEW": 6
+    },
+    "display": {
+      "FAIL_NAME": 8,
+      "FAIL_OVERDISAMBIGUATION": 2,
+      "FAIL_QUALIFIER": 49,
+      "FAIL_TRANSLATION": 34,
+      "PASS": 218,
+      "REVIEW": 189
+    },
+    "search": {
+      "FAIL_COLLISION": 2,
+      "FAIL_DUPLICATE_NOISE": 24,
+      "FAIL_MISSING_ALIAS": 1,
+      "FAIL_NON_IDENTITY_TERM": 24,
+      "PASS": 223,
+      "REVIEW": 226
+    },
+    "ranking": {
+      "FAIL_AMBIGUITY": 1,
+      "PASS": 174,
+      "REVIEW": 325
+    },
+    "scope": {
+      "PASS_IN_2D": 491,
+      "REVIEW": 9
+    },
+    "confidence": {
+      "HIGH": 242,
+      "LOW": 4,
+      "MEDIUM": 254
+    },
+    "second_review_required": {
+      "false": 216,
+      "true": 284
+    },
+    "clean_control_sample_rows": 100,
+    "clean_control_nonpass_rows": 26,
+    "clean_control_confirmed_defect_rows": 9,
+    "clean_control_review_rows": 17,
+    "correction_ledger_field_changes": 1221,
+    "bulk_review_policy": "Accepted correction-ledger changes inherit their completed second review; unresolved collision/qualifier/scope signals remain REVIEW rather than being forced to PASS/FAIL.",
+    "production_modified": false,
+    "home_authority_modified": false
+  },
+  "stage_b_unique_review_rows": 373,
+  "focused_dotnet_passed": 12,
+  "issue216_issue180_python_passed": 121,
+  "frozen_issue70_and_home_files_changed": false,
+  "failure_fix": "Stale accepted search count and projection synchronization; one Enterprise search cleanup row missing in tracked projection. Mari-only Illustrious removal retained; Azur Lane identity surface retained. Runtime manifest LF deterministic across OS."
+}
