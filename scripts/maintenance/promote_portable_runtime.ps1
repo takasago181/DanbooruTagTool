@@ -20,7 +20,7 @@ function Stop-InstalledApp {
  foreach($process in $named){try{$path=[IO.Path]::GetFullPath($process.Path)}catch{throw 'Could not identify a running DanbooruTagTool process safely.'};if($path -eq [IO.Path]::GetFullPath($prodExe)){if(-not $process.CloseMainWindow()){throw 'Unable to close installed app gracefully.'};if(-not $process.WaitForExit(15000)){throw 'Installed app did not close safely.'}}}
 }
 function Smoke-Installed {
- $p=Start-Process -FilePath $prodExe -WorkingDirectory $production -PassThru
+ $p=Start-Process -FilePath $prodExe -WorkingDirectory $production -WindowStyle Hidden -PassThru
  try{$title='';for($i=0;$i -lt 40;$i++){Start-Sleep -Milliseconds 250;$p.Refresh();if($p.HasExited){throw "Installed WPF process exited with code $($p.ExitCode)."};$title=$p.MainWindowTitle;if($title){break}};if($title -ne 'DanbooruTagTool v1'){throw "Installed WPF smoke title mismatch: '$title'."}}
  finally{if(-not $p.HasExited){[void]$p.CloseMainWindow();if(-not $p.WaitForExit(10000)){Stop-Process -Id $p.Id -Force}}}
 }

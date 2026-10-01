@@ -2,7 +2,15 @@ name: Issue216 authority coverage
 
 on:
   push:
-    branches: [codex/issue216-unresolved-coverage-7073]
+    branches: [codex/issue216-unresolved-coverage-7073, main]
+  pull_request:
+    paths:
+      - "src/**"
+      - "docs/issue216/**"
+      - "scripts/issue216/**"
+      - "tests/issue216/**"
+      - ".gitattributes"
+      - ".github/workflows/issue216_authority_coverage.yml"
   workflow_dispatch:
 
 permissions:

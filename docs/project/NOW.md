@@ -12,6 +12,10 @@
 
 ---
 
+## Current user-authorized #216 production integration
+
+The completed #216 formal coverage and independently reviewed Browse HOME fallback are being integrated into live main, followed by the canonical clean publisher and bounded runtime promotion. Formal HOME wins; reviewed fallback adds 7,409 runtime-eligible Characters. Actual runtime hashes, UserData preservation and final workstation checks will be recorded on Issue #216 and in the updated LKG after successful promotion.
+
 ## 1. COMPLETE — #132 Tag classification usability / discoverability
 
 2026-09-27 production promotion completed from live main f229ee4d2c3f5ea03dc964634a6d39d7f730710e.
