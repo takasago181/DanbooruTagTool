@@ -1,12 +1,6 @@
 name: Issue179 Character Copyright Quality Census
 
 on:
-  push:
-    branches: [ audit/issue179-refresh-20261001 ]
-    paths:
-      - "scripts/issue179/**"
-      - "docs/issue179/**"
-      - ".github/workflows/issue179_quality_census.yml"
   pull_request:
     branches: [ main ]
     paths:
@@ -19,15 +13,13 @@ on:
       - "docs/issue70/finalization/FINAL_SEMANTIC_FIXES.csv"
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   census:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref || github.ref_name }}
 
       - uses: actions/setup-python@v5
         with:
@@ -53,21 +45,6 @@ jobs:
 
       - name: Validate Stage B review ledgers
         run: python scripts/issue179/validate_stage_b_reviews.py
-
-      - name: One-shot sync reviewed runtime projection
-        if: github.event_name == 'push' && github.ref_name == 'audit/issue179-refresh-20261001'
-        run: |
-          mkdir -p docs/issue179/runtime
-          cp artifacts/issue179-runtime/ISSUE179_RUNTIME_PROJECTION_V1.csv docs/issue179/runtime/ISSUE179_RUNTIME_PROJECTION_V1.csv
-          cp artifacts/issue179-runtime/manifest.json docs/issue179/runtime/manifest.json
-          rm -f docs/issue179/runtime/ISSUE179_RUNTIME_PROJECTION_V1.csv.gz
-          if ! git diff --quiet -- docs/issue179/runtime; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add docs/issue179/runtime
-            git commit -m "data(issue179): sync reviewed runtime projection"
-            git push origin HEAD:audit/issue179-refresh-20261001
-          fi
 
       - name: Validate artifact contract
         run: |
