@@ -151,7 +151,7 @@ public partial class MainWindow : Window
     {
         if (vm.DirectEditing) return;
         bool ctrl = Keyboard.Modifiers.HasFlag(ModifierKeys.Control);
-        if (ctrl && e.Key == Key.F) { if (vm.WorkspaceIndex == 1) PromptEditor.FocusFind(); else DictionaryWorkspace.FocusSearch(); e.Handled = true; return; }
+        if (ctrl && e.Key == Key.F) { if (vm.WorkspaceIndex == 2) GenerationLibraryWorkspace.FocusSearch(); else if (vm.WorkspaceIndex == 1) PromptEditor.FocusFind(); else DictionaryWorkspace.FocusSearch(); e.Handled = true; return; }
         if (Keyboard.FocusedElement is TextBox) return;
         if (ctrl && e.Key == Key.Z) vm.Undo.Execute(null);
         else if (ctrl && e.Key == Key.Y) vm.Redo.Execute(null);

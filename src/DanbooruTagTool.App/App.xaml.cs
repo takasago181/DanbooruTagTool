@@ -9,11 +9,18 @@ using DanbooruTagTool.Data;
 namespace DanbooruTagTool.App;
 public partial class App : Application
 {
-    protected override void OnStartup(StartupEventArgs e)
+    protected override async void OnStartup(StartupEventArgs e)
     {
         base.OnStartup(e);
         try
         {
+            if (e.Args.FirstOrDefault() == "--validate-library")
+            {
+                if (e.Args.Length != 2) throw new ArgumentException("--validate-library <new-empty-output-directory>");
+                ShutdownMode = ShutdownMode.OnExplicitShutdown;
+                await GenerationLibraryValidation.RunAsync(e.Args[1]);
+                Shutdown(0); return;
+            }
             if (e.Args.FirstOrDefault() == "--build-catalog")
             {
                 if (e.Args.Length != 4 && e.Args.Length != 6)
@@ -75,7 +82,7 @@ public partial class App : Application
                 try { specialBrowse = SpecialBrowseV2Overlay.FromCatalog(catalog); }
                 catch (InvalidDataException ex) { warning = ex.Message; }
             }
-            var vm = new MainViewModel(catalog, new UserStateStore(paths.User), new ClipboardService(), GeneralBrowseProvider.FromCatalog(catalog), specialBrowse: specialBrowse);
+            var vm = new MainViewModel(catalog, new UserStateStore(paths.User), new ClipboardService(), GeneralBrowseProvider.FromCatalog(catalog), specialBrowse: specialBrowse, paths: paths);
             if (warning != null) vm.Status = warning;
             var window = new MainWindow(vm); MainWindow = window; window.Show();
         }

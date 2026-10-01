@@ -26,9 +26,14 @@ public static partial class GenerationLibraryMetadata
     // Only the unambiguous simple numeric <lora:name:weight> form is indexed.
     [GeneratedRegex(@"<lora:([^<>:\r\n]+):([+-]?(?:\d+(?:\.\d*)?|\.\d+))>", RegexOptions.IgnoreCase)]
     private static partial Regex LoraPattern();
-    public static IReadOnlyList<GenerationLora> Loras(GenerationMetadataSnapshot metadata) =>
-        LoraPattern().Matches(metadata.Positive).Select(m => new GenerationLora(m.Groups[1].Value,
-            decimal.Parse(m.Groups[2].Value, CultureInfo.InvariantCulture), m.Value)).ToArray();
+    public static IReadOnlyList<GenerationLora> Loras(GenerationMetadataSnapshot metadata)
+    {
+        var result = new List<GenerationLora>();
+        foreach (Match m in LoraPattern().Matches(metadata.Positive))
+            if (decimal.TryParse(m.Groups[2].Value, NumberStyles.Number, CultureInfo.InvariantCulture, out var weight))
+                result.Add(new(m.Groups[1].Value, weight, m.Value));
+        return result;
+    }
 }
 
 public sealed record MetadataDifference(string Field, string? Left, string? Right, string State);
