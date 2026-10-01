@@ -17,7 +17,7 @@ LOWER_ASCII_RE = re.compile(r"[a-z]{3,}")
 FIELDS = [
     "row_id", "canonical_tag", "category", "post_count",
     "old_display_ja", "proposed_display_ja", "reason",
-    "source_search_term", "review_state",
+    "source_search_term", "review_state", "review_note",
 ]
 
 def norm(value: str) -> str:
@@ -85,6 +85,7 @@ def main() -> None:
                     "reason": "EXISTING_SEARCH_HAS_LOCALIZED_QUALIFIER",
                     "source_search_term": candidates[0],
                     "review_state": "PROPOSED_SECOND_REVIEW",
+                    "review_note": "",
                 })
                 continue
 
@@ -106,13 +107,46 @@ def main() -> None:
                         "reason": "UNQUALIFIED_CANONICAL_CONTEXT_SUFFIX_NO_DISPLAY_COLLISION",
                         "source_search_term": base,
                         "review_state": "PROPOSED_SECOND_REVIEW",
+                    "review_note": "",
                     })
 
     # One proposal per row. Prefer localized qualifier repair if both paths hit.
     dedup: dict[str, dict[str, str]] = {}
     for row in out:
         dedup.setdefault(row["row_id"], row)
-    final = sorted(dedup.values(), key=lambda r: (-int(r["post_count"]), r["canonical_tag"]))
+    final = list(dedup.values())
+
+    # Second-review safety gate. The proposal is accepted only when it cannot
+    # create a new proposed-display collision and the current row is not already
+    # in a display collision. Localized-qualifier repairs must also replace the
+    # changed raw qualifier with a non-ASCII-letter surface; abbreviations such
+    # as FGO/LCB/TF2 remain HOLD for individual review.
+    proposed_counts: dict[str, int] = {}
+    for row in final:
+        proposed_counts[row["proposed_display_ja"]] = proposed_counts.get(row["proposed_display_ja"], 0) + 1
+
+    census_by_id = {r["row_id"]: r for r in rows}
+    for row in final:
+        src = census_by_id[row["row_id"]]
+        collision_free = int(src.get("display_collision_other_rows") or "0") == 0
+        unique_proposal = proposed_counts[row["proposed_display_ja"]] == 1
+        safe = collision_free and unique_proposal
+
+        if row["reason"] == "EXISTING_SEARCH_HAS_LOCALIZED_QUALIFIER":
+            old_g = groups(row["old_display_ja"])
+            new_g = groups(row["proposed_display_ja"])
+            changed = [n for o, n in zip(old_g, new_g) if o != n]
+            if not changed or any(re.search(r"[A-Za-z]", g) for g in changed):
+                safe = False
+
+        if safe:
+            row["review_state"] = "SECOND_REVIEW_ACCEPTED"
+            row["review_note"] = "collision-safe conservative second review"
+        else:
+            row["review_state"] = "HOLD_INDIVIDUAL_REVIEW"
+            row["review_note"] = "abbreviation/current-or-proposed collision requires individual review"
+
+    final.sort(key=lambda r: (-int(r["post_count"]), r["canonical_tag"]))
 
     with OUT_CSV.open("w", encoding="utf-8-sig", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=FIELDS, lineterminator="\n")
@@ -120,9 +154,11 @@ def main() -> None:
         w.writerows(final)
 
     reasons: dict[str, int] = {}
+    states: dict[str, int] = {}
     for row in final:
         reasons[row["reason"]] = reasons.get(row["reason"], 0) + 1
-    print(f"DISPLAY_CLEANUP_CANDIDATES rows={len(final)} reasons={reasons}")
+        states[row["review_state"]] = states.get(row["review_state"], 0) + 1
+    print(f"DISPLAY_CLEANUP_CANDIDATES rows={len(final)} reasons={reasons} states={states}")
 
 if __name__ == "__main__":
     main()
