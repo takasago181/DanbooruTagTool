@@ -73,6 +73,8 @@
     <WrapPanel Margin="0,8"><Button Content="Prompt復元" Command="{Binding RestorePrompt}"/><Button Content="Preset化" Command="{Binding CreatePreset}"/></WrapPanel>
     <WrapPanel><Button Content="Forgeへ送る" Command="{Binding Send}"/><Button Content="Forgeで生成" Command="{Binding Generate}" ToolTip="Positive/Negativeを送り、Forgeの現在の設定で生成します。画像のModel/Seed等は自動適用しません。"/></WrapPanel>
     <TextBlock Text="Forgeの現在の設定で生成します。" TextWrapping="Wrap" FontSize="12" Margin="0,5"/>
+    <Button Content="画像RecipeをAPIで1画像生成" Command="{Binding GenerateRecipe}" Margin="0,8,0,0" ToolTip="保存されたPositive/Negativeと生成条件を使います。Forge --apiが必要です。"/>
+    <TextBlock Text="{Binding RecipeStatus}" TextWrapping="Wrap" FontSize="12" Margin="0,5"/>
     <Expander Header="生成metadata（未知parameterも保持）" IsExpanded="True" Margin="0,8"><TextBox Text="{Binding RawInfotext, Mode=OneWay}" IsReadOnly="True" TextWrapping="Wrap" MaxHeight="300" VerticalScrollBarVisibility="Auto"/></Expander>
     <WrapPanel><Button Content="左画像に保持" Command="{Binding SetCompareLeft}"/><Button Content="選択画像と比較" Command="{Binding Compare}"/></WrapPanel>
     <ItemsControl ItemsSource="{Binding Differences}"><ItemsControl.ItemTemplate><DataTemplate><Border BorderBrush="#DCE3ED" BorderThickness="0,0,0,1" Padding="0,6"><StackPanel><TextBlock><Run Text="{Binding Field}"/><Run Text=" · "/><Run Text="{Binding State}"/></TextBlock><TextBlock Text="{Binding Left, StringFormat=左: {0}}" TextWrapping="Wrap"/><TextBlock Text="{Binding Right, StringFormat=右: {0}}" TextWrapping="Wrap"/></StackPanel></Border></DataTemplate></ItemsControl.ItemTemplate></ItemsControl>

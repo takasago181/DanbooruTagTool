@@ -102,6 +102,8 @@ public sealed class GenerationLibraryViewModel : Observable
     public RelayCommand CreatePreset { get; }
     public AsyncRelayCommand Send { get; }
     public AsyncRelayCommand Generate { get; }
+    public AsyncRelayCommand GenerateRecipe { get; }
+    public string RecipeStatus => forge.RecipeStatus;
     public RelayCommand SetCompareLeft { get; }
     public RelayCommand Compare { get; }
     public RelayCommand CancelScan { get; }
@@ -119,6 +121,13 @@ public sealed class GenerationLibraryViewModel : Observable
         CreatePreset = new(_ => { if (metadata is not null && canMutate()) createPreset(metadata); }, _ => !Busy && canMutate() && metadata is not null);
         Send = new(_ => SendAsync(false), _ => !Busy && canMutate() && metadata is not null);
         Generate = new(_ => SendAsync(true), _ => !Busy && canMutate() && metadata is not null);
+        GenerateRecipe = new(async _ =>
+        {
+            if (metadata is null) return;
+            var preset = new GenerationPreset(Guid.NewGuid(), "image recipe", "", metadata.Positive, metadata.Negative, GenerationRecipe.FromMetadata(metadata));
+            await forge.GenerateRecipeAsync(preset);
+        }, _ => !Busy && canMutate() && metadata is not null);
+        forge.PropertyChanged += (_, e) => { if (e.PropertyName == nameof(forge.RecipeStatus)) Notify(nameof(RecipeStatus)); };
         SetCompareLeft = new(_ => { compareLeft = metadata; Differences.Clear(); Status = "比較する左画像を保持しました。右画像を選択して比較してください。"; Compare?.Refresh(); }, _ => metadata is not null);
         Compare = new(_ => { if (compareLeft is null || metadata is null) return; Differences.Clear(); foreach (var row in GenerationMetadataDiff.Compare(compareLeft, metadata)) Differences.Add(row); }, _ => compareLeft is not null && metadata is not null);
         CancelScan = new(_ => cancellation?.Cancel(), _ => Busy);
@@ -208,11 +217,19 @@ public sealed class GenerationLibraryViewModel : Observable
         catch (Exception e) when (StorageError(e) || e is ArgumentException) { Status = "バックアップできません: " + e.Message; }
     }
     public bool FlushAnnotation() => !annotationPending || PersistAnnotation();
+    public async Task IndexRecipeResultAsync(string imagePath)
+    {
+        var resultStore = new GenerationLibraryStore(paths.GenerationLibrary);
+        var root = resultStore.AddRoot(Path.GetDirectoryName(imagePath)!);
+        var scan = await Task.Run(() => new GenerationLibraryScanner(resultStore, new PngGenerationMetadataReader()).Scan(root));
+        if (!scan.Complete || scan.Errors != 0) throw new InvalidDataException("生成PNGのLibraryスキャンに失敗しました。");
+        await LoadPageAsync(reset: true);
+    }
     public void CancelPendingScan() => cancellation?.Cancel();
     private static bool StorageError(Exception e) => e is IOException or UnauthorizedAccessException or SqliteException or InvalidDataException;
     public void RefreshCommands()
     {
         Refresh?.Refresh(); Scan?.Refresh(); Previous?.Refresh(); Next?.Refresh(); AllRoots?.Refresh(); RestorePrompt?.Refresh(); CreatePreset?.Refresh();
-        Send?.Refresh(); Generate?.Refresh(); SetCompareLeft?.Refresh(); Compare?.Refresh(); CancelScan?.Refresh();
+        Send?.Refresh(); Generate?.Refresh(); GenerateRecipe?.Refresh(); SetCompareLeft?.Refresh(); Compare?.Refresh(); CancelScan?.Refresh();
     }
 }
