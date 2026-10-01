@@ -10,9 +10,9 @@ namespace DanbooruTagTool.Data;
 public static class Issue179QualityOverlay
 {
     public const string RelativePath = "docs/issue179/runtime/ISSUE179_RUNTIME_PROJECTION_V1.csv";
-    public const string ExpectedSha256 = "ae18db177b455bbda3ea191a3ca5df7cbb8621174350393de119737b143df50e";
-    public const int ExpectedRows = 1180;
-    public const int ExpectedDisplayRows = 217;
+    public const string ExpectedSha256 = "7366ecaedc8ddbf03c56b522d34e1e5f0dfe24b14a185fefc0b8e709378fbb6a";
+    public const int ExpectedRows = 1184;
+    public const int ExpectedDisplayRows = 221;
     public const int ExpectedSearchRows = 969;
     public const int ExpectedEmptySearchRows = 2;
 
