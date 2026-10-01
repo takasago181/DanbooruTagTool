@@ -1,0 +1,228 @@
+{
+  "schema_version": 1,
+  "captured_utc": "2026-10-01T10:03:00.737274+00:00",
+  "runtime_source_main": "a317efdc831b45b2a088fb9d4cdeb7873472253e",
+  "merged_pull_requests": [
+    220,
+    221
+  ],
+  "retained_audit_base": "72bdf26e682cea74a2f65d89f54fda28d2b16eb4",
+  "production": {
+    "ok": true,
+    "production_root": "C:\\Codex\\DanbooruTagTool-App",
+    "exe_sha256": "E14C3DAD00034C5E19EBFB57245BB609889328E1DAEC3C0127751787134511F2",
+    "catalog_sha256": "FF98CA4E952907B1A9021DA21CDB7DEE867A42DD1ABA1D47619BB901A7C462C5",
+    "manifest_sha256": "CFDE7116F32EB0DCB91CF52619FA4CBA65B133D359F741780AD9273E09B60B0A",
+    "userdata_byte_identical": true,
+    "managed_paths": [
+      "DanbooruTagTool.exe",
+      "runtime-manifest.json",
+      "Data/catalog.db",
+      "ForgeBridge/javascript/dtt_bridge.js",
+      "ForgeBridge/scripts/dtt_bridge.py"
+    ]
+  },
+  "projection": {
+    "schema_version": 1,
+    "source_issue70_sha256": "bf366734b41b2be9e6cb52de919ef55b7312445e1715f96a357db37abda8dad5",
+    "accepted_field_changes": 1221,
+    "distinct_rows": 1215,
+    "display_rows": 221,
+    "search_rows": 1000,
+    "empty_search_replacements": 3,
+    "projection_sha256": "baaf25b1257fcc4386996f2436eecbc206df97684563b97622dc51bd41fe93ff",
+    "home_authority_modified": false,
+    "source_data_mutated": false
+  },
+  "catalog_delta": {
+    "ok": true,
+    "total": 124895,
+    "identity_changes": 0,
+    "rows_changed": 1215,
+    "field_changes": {
+      "Label": 221,
+      "JapaneseSearch": 1000,
+      "Japanese": 221
+    },
+    "derived_label_changes": 221,
+    "other_payload_changes": 0,
+    "home_authority_changes": 0,
+    "home_source_counts": {
+      "FORMAL_HOME": 25533,
+      "REVIEWED_BROWSE_FALLBACK": 7409,
+      "UNRESOLVED": 2336
+    },
+    "category_counts": {
+      "General": 30629,
+      "Special": 3059,
+      "Character": 35278,
+      "Copyright": 7616,
+      "Artist": 48313
+    },
+    "examples": {
+      "illustrious_(azur_lane)": {
+        "Japanese": "イラストリアス（アズールレーン）",
+        "JapaneseSearch": [
+          "イラストリアス（アズールレーン）",
+          "イラストリアス"
+        ],
+        "FormalHomeCopyright": "azur_lane",
+        "ReviewedBrowseHome": null
+      },
+      "makinami_mari_illustrious": {
+        "Japanese": "真希波・マリ・イラストリアス",
+        "JapaneseSearch": [
+          "真希波・マリ・イラストリアス"
+        ],
+        "FormalHomeCopyright": "neon_genesis_evangelion",
+        "ReviewedBrowseHome": null
+      },
+      "enterprise_(azur_lane)": {
+        "Japanese": "エンタープライズ（アズールレーン）",
+        "JapaneseSearch": [
+          "エンタープライズ",
+          "エンタープライズ(アズールレーン)",
+          "エンプラ",
+          "ベルエン(アズールレーン)"
+        ],
+        "FormalHomeCopyright": "azur_lane",
+        "ReviewedBrowseHome": null
+      },
+      "jahy": {
+        "Japanese": "ジャヒー様",
+        "JapaneseSearch": [
+          "ジャヒー",
+          "ジャヒー様"
+        ],
+        "FormalHomeCopyright": null,
+        "ReviewedBrowseHome": "jahy-sama_wa_kujikenai!"
+      },
+      "super_sailor_jupiter": {
+        "Japanese": "スーパーセーラージュピター",
+        "JapaneseSearch": [
+          "スーパーセーラージュピター"
+        ],
+        "FormalHomeCopyright": null,
+        "ReviewedBrowseHome": "bishoujo_senshi_sailor_moon"
+      }
+    },
+    "candidate_catalog_sha256": "ff98ca4e952907b1a9021da21cdb7dee867a42dd1aba1d47619bb901a7c462c5"
+  },
+  "validation": {
+    "stage_a_census_rows": 44426,
+    "stage_b_reviewed": 500,
+    "display_holds": 17,
+    "stage_b_unique_review_subjects": 373,
+    "post_overlay_regex_review_rows": 12,
+    "focused_dotnet_179_70_216_passed": 12,
+    "standard_windows": {
+      "passed": 236,
+      "skipped": 19,
+      "total": 255
+    },
+    "candidate_and_installed_each": {
+      "passed": 252,
+      "skipped": 3,
+      "total": 255
+    },
+    "issue216_issue180_python_passed": 121,
+    "ci": {
+      "issue179": 36845035971,
+      "issue216_pr": 36845035939,
+      "fixture_fix": 36845691458,
+      "merged_main": 36845903186,
+      "all": "PASS"
+    },
+    "performance": {
+      "SearchBlocked": false,
+      "FilterSearchHitsBlocked": false,
+      "BrowseBlocked": false,
+      "ManagedMemoryBlocked": false,
+      "CombinedRetainedMemoryDeltaBytes": -128040,
+      "QueryDeltas": {
+        "SearchEnglish": {
+          "BaselineMedianMs": 59.4354,
+          "CandidateMedianMs": 58.7627,
+          "PercentIncrease": -1.1318170652506736
+        },
+        "SearchJapanese": {
+          "BaselineMedianMs": 40.8205,
+          "CandidateMedianMs": 39.7981,
+          "PercentIncrease": -2.5046239022060104
+        },
+        "SearchMixed": {
+          "BaselineMedianMs": 62.1503,
+          "CandidateMedianMs": 61.1081,
+          "PercentIncrease": -1.6769026054580607
+        },
+        "FilterSearchHits": {
+          "BaselineMedianMs": 0.0109,
+          "CandidateMedianMs": 0.011,
+          "PercentIncrease": 0.917431192660545
+        },
+        "BrowseNeutral": {
+          "BaselineMedianMs": 0.8495,
+          "CandidateMedianMs": 0.9042,
+          "PercentIncrease": 6.439081812831074
+        },
+        "BrowseLargeRoute": {
+          "BaselineMedianMs": 0.5102,
+          "CandidateMedianMs": 0.4749,
+          "PercentIncrease": -6.918855350842806
+        },
+        "BrowseBodyFacet": {
+          "BaselineMedianMs": 0.716,
+          "CandidateMedianMs": 0.7178,
+          "PercentIncrease": 0.2513966480446961
+        },
+        "BrowseThemeFacet": {
+          "BaselineMedianMs": 1.0595,
+          "CandidateMedianMs": 1.0021,
+          "PercentIncrease": -5.41764983482776
+        },
+        "BrowseSexualBodyTheme": {
+          "BaselineMedianMs": 0.7061,
+          "CandidateMedianMs": 0.7172,
+          "PercentIncrease": 1.5720152952839541
+        },
+        "BrowseGeneralPurposeBodyTheme": {
+          "BaselineMedianMs": 0.699,
+          "CandidateMedianMs": 0.7099,
+          "PercentIncrease": 1.5593705293276139
+        }
+      }
+    },
+    "performance_candidate_catalog_sha256": "ff98ca4e952907b1a9021da21cdb7dee867a42dd1aba1d47619bb901a7c462c5",
+    "projection_reconstruction": "byte-identical PASS",
+    "home_authority_changed": 0,
+    "missing_home_roots": 0,
+    "identity_category_changes": 0,
+    "artist_changes": 0,
+    "issue70_source_changed": 0
+  },
+  "real_userdata": {
+    "inventory": [
+      {
+        "path": "README.txt",
+        "bytes": 108,
+        "sha256": "B6A25CC3334885F0249D7AF6B1D2954C4B778B79D9C322C13D4F24F262F6B28E"
+      },
+      {
+        "path": "user.db",
+        "bytes": 24576,
+        "sha256": "3664C3A84A97E45EB067A1EE6949864227139077107126631A606E8DD63AAF73"
+      }
+    ],
+    "byte_identical_after_promotion_and_final_readonly_launch": true,
+    "copied_or_embedded": false,
+    "saved_prompt_tag_count": 13
+  },
+  "workstation": {
+    "candidate_jahy_search_display": "ジャヒー様; HOME ジャヒー様はくじけない！ observed in WPF accessibility",
+    "candidate_illustrious_search": "Azur Lane exact Japanese identity retained and appears ahead of Mari substring match",
+    "installed_launch": "PASS; saved 13-tag Prompt restored",
+    "visual_capture": "NOT_VERIFIED; white client-area screenshots as previously observed on prior production; accessibility checks passed; no rendering policy changed"
+  },
+  "audit_evidence_ignored": ".tmp-issue179-continuation\\promotion",
+  "residual_policy": "Retain 17 display holds, 373 Stage B REVIEW subjects and 12 regex residuals; overlapping signals are not confirmed errors."
+}
