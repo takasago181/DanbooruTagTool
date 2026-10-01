@@ -16,8 +16,10 @@
 
 Issue #180 (formal HOME authority rebuild) and Issue #216 (remaining coverage + reviewed Browse fallback) are **completed and closed**.
 
-Current repository head after PR #219 documentation merge:
+PR #219 production-closeout merge checkpoint:
 `a2896f27604c66f6beede84c3ff0d83c7ec92bb9`
+
+Current repository main is **live GitHub main**; do not treat the checkpoint SHA above as a permanently pinned HEAD.
 
 Current production runtime was built from:
 `cbfab29134ed41e15c25ba24e1426c8411d65207`
@@ -106,7 +108,8 @@ The following owner-level residuals were re-derived by #201. No high-confidence 
 - #180: **CLOSED / completed**
 - #216: **CLOSED / completed**
 - PR #219: **merged**
-- current main: `a2896f27604c66f6beede84c3ff0d83c7ec92bb9`
+- production-closeout merge checkpoint: `a2896f27604c66f6beede84c3ff0d83c7ec92bb9`
+- repository HEAD: use live `main`
 - production: deployed
 - research branches / immutable ledgers: provenanceとして保持
 
@@ -163,7 +166,7 @@ mainへ反映済み:
 重要:
 - #179は#180/#216のHOME ownershipとは別テーマ
 - 再開時はold PRをmergeしない
-- current main `a2896f27604c66f6beede84c3ff0d83c7ec92bb9` からfresh branchを切り、Stage A evidenceをrevalidate/reuseする
+- live `main` からfresh branchを切り、Stage A evidenceをrevalidate/reuseする
 
 
 ---
@@ -184,7 +187,7 @@ mainへ反映済み:
 - user-facing: `C:\Codex\DanbooruTagTool-App`
 - self-contained `win-x64`
 - real `UserData` はuser-owned protected state
-- current repository main: `a2896f27604c66f6beede84c3ff0d83c7ec92bb9`
+- current repository main: use live `main` (dashboard does not pin a self-invalidating HEAD)
 - production binary source main: `cbfab29134ed41e15c25ba24e1426c8411d65207`
 - current production EXE SHA256: `1CF2A2E4CA9924E9372F6CDD8FCFA8B45C47F96A48079BBAEE325BD8A0652313`
 - catalog SHA256: `72E81FF3123FF6872F4F7136C1EE19B9BC42BF58B5DC4CB96B49120893539A8C`
