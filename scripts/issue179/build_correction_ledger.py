@@ -213,8 +213,8 @@ def main() -> None:
         raise SystemExit(f"expected 969 accepted search rows, got {search_count}")
     if display_count != 221:
         raise SystemExit(f"expected 221 accepted display rows, got {display_count}")
-    if len(holds) != 13:
-        raise SystemExit(f"expected 13 display holds, got {len(holds)}")
+    if len(holds) != 17:
+        raise SystemExit(f"expected 17 display holds, got {len(holds)}")
 
     with LEDGER.open("w", encoding="utf-8-sig", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=LEDGER_FIELDS, lineterminator="\n")
