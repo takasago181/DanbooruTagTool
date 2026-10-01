@@ -7,6 +7,7 @@ on:
       - "scripts/issue179/**"
       - "docs/issue179/**"
       - ".github/workflows/issue179_quality_census.yml"
+      - ".gitattributes"
       - "docs/issue70/data/runtime/issue70_catalog_overlay.csv"
       - "docs/issue70/data/runtime/issue70_catalog_overlay_2d_final.csv"
       - "docs/issue70/scope/full_scope_ledger.csv"
