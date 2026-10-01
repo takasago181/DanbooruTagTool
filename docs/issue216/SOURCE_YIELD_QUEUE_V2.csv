@@ -3,7 +3,7 @@ idolmaster_cinderella_girls,1,0,0,108,108,2,2,190,1,0,1,0,ESTIMATED,FOUND,UNKNOW
 transformers,6,0,0,352,83,2,3,32,6,0,0,0,ESTIMATED,FOUND,PARTIAL,17,10,0,0,3,24,25.182,3,APPROVED_REPO_EVIDENCE,25.182,NO,2,2
 snowbreak:_containment_zone,1,0,0,108,108,0,1,10,1,0,0,0,ESTIMATED,FOUND,UNKNOWN,,10,0,0,1,10,15.625,1,safebooru.donmai.us,15.625,NO,2,3
 persona,40,1,3,7498,2642,8,5,34,40,0,0,0,ESTIMATED,FOUND,PARTIAL,18,32,0,3,8,32,11.000,8,github.com,11.000,NO,2,4
-idolmaster,34,0,7,5587,572,3,3,28,34,0,0,0,ESTIMATED,FOUND,PARTIAL,341,31,0,6,4,31,10.000,4,idollist.idolmaster-official.jp,10.000,NO,2,5
+idolmaster,32,0,7,5395,572,4,4,30,32,0,0,0,ESTIMATED,FOUND,PARTIAL,341,31,0,6,4,31,10.000,4,idollist.idolmaster-official.jp,10.000,NO,2,5
 danganronpa_(series),6,0,0,1572,287,0,1,27,6,0,0,0,ESTIMATED,FOUND,UNKNOWN,,27,0,0,1,27,9.250,1,shima.donmai.us,9.250,NO,2,6
 spy_x_family,1,0,0,201,201,2,1,9,1,0,0,0,ESTIMATED,FOUND,UNKNOWN,,8,0,0,1,8,8.000,1,spy-family.net,8.000,NO,2,7
 doraemon,1,0,0,57,57,1,1,8,1,0,0,0,ESTIMATED,FOUND,UNKNOWN,,8,0,0,1,8,8.000,1,www.tv-asahi.co.jp,8.000,NO,2,8
@@ -32,7 +32,7 @@ donkey_kong_(series),2,0,0,350,218,1,1,3,2,0,0,0,ESTIMATED,FOUND,UNKNOWN,,3,0,0,
 kirby_(series),78,0,4,9153,624,0,1,6,78,0,0,0,ESTIMATED,FOUND,PARTIAL,6,6,0,0,1,6,3.227,1,ACCEPTED_CURATED_ROSTER,3.227,NO,2,31
 mario_(series),53,0,3,6821,697,1,1,6,53,0,0,0,ESTIMATED,FOUND,PARTIAL,5,6,0,0,2,6,3.227,2,ACCEPTED_CURATED_ROSTER,3.227,NO,2,32
 sonic_(series),41,0,4,5624,721,0,1,8,41,0,0,0,ESTIMATED,FOUND,PARTIAL,8,8,0,0,1,8,3.227,1,ACCEPTED_CURATED_ROSTER,3.227,NO,2,33
-dragon_ball,38,1,7,7442,1386,1,3,59,38,0,0,0,ESTIMATED,FOUND,PARTIAL,13,47,0,1,4,46,3.227,4,ACCEPTED_CURATED_ROSTER,3.227,NO,2,34
+dragon_ball,33,1,6,6605,1386,3,4,64,33,0,0,0,ESTIMATED,FOUND,PARTIAL,13,47,0,1,4,46,3.227,4,ACCEPTED_CURATED_ROSTER,3.227,NO,2,34
 mahou_shoujo_madoka_magica,32,1,8,8357,1243,0,1,39,32,0,0,0,ESTIMATED,FOUND,PARTIAL,39,39,0,0,1,39,3.227,1,ACCEPTED_CURATED_ROSTER,3.227,NO,2,35
 digimon,23,0,0,1904,179,0,1,5,23,0,0,0,ESTIMATED,FOUND,PARTIAL,5,5,0,0,1,5,3.227,1,ACCEPTED_CURATED_ROSTER,3.227,NO,2,36
 toaru_majutsu_no_index,21,1,1,3680,1287,0,1,1,21,0,0,0,ESTIMATED,FOUND,PARTIAL,1,1,0,0,1,1,3.227,1,ACCEPTED_CURATED_ROSTER,3.227,NO,2,37
@@ -187,39 +187,39 @@ lollipop_chainsaw,1,0,0,47,47,0,1,1,1,0,0,0,ESTIMATED,FOUND,UNKNOWN,,1,0,0,1,1,3
 princession_orchestra,1,0,0,46,46,0,1,1,1,0,0,0,ESTIMATED,FOUND,UNKNOWN,,1,0,0,1,1,3.058,1,danbooru.donmai.us,3.058,NO,2,186
 prison_school,1,0,0,46,46,0,1,2,1,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,3.058,1,danbooru.donmai.us,3.058,NO,2,187
 powerpuff_girls,1,0,0,32,32,0,1,6,1,0,0,0,ESTIMATED,FOUND,UNKNOWN,,6,0,0,1,6,3.058,1,danbooru.donmai.us,3.058,NO,2,188
-fate/grand_order,69,1,5,10531,1157,2,1,4,69,0,7,0,ESTIMATED,FOUND,UNKNOWN,,3,0,0,1,3,3.000,1,stage.fate-go.jp,3.000,NO,2,189
-fate_(series),59,5,18,18783,2028,9,7,62,59,0,0,0,ESTIMATED,FOUND,PARTIAL,1,53,0,0,8,52,3.000,8,fate-apocrypha.com,3.000,NO,2,190
-super_smash_bros.,6,0,1,1415,760,1,1,3,6,0,0,0,ESTIMATED,FOUND,UNKNOWN,,3,0,0,1,3,3.000,1,www.smashbros.com,3.000,NO,2,191
-shokugeki_no_souma,6,0,1,1006,338,1,1,3,6,0,0,0,ESTIMATED,FOUND,UNKNOWN,,3,0,0,1,3,3.000,1,www.shonenjump.com,3.000,NO,2,192
-nichijou,3,0,1,749,585,1,1,3,3,0,1,0,ESTIMATED,FOUND,UNKNOWN,,3,0,0,1,3,3.000,1,shinonome-lab.com,3.000,NO,2,193
-omori,3,0,1,664,547,1,1,4,3,0,0,0,ESTIMATED,FOUND,UNKNOWN,,3,0,0,1,3,3.000,1,www.omocat-shop.com,3.000,NO,2,194
-blue_lock,3,0,1,578,423,2,1,4,3,0,0,0,ESTIMATED,FOUND,UNKNOWN,,3,0,0,1,3,3.000,1,tv.bluelock-pr.com,3.000,NO,2,195
-hazbin_hotel,2,0,0,141,83,1,1,3,2,0,0,0,ESTIMATED,FOUND,UNKNOWN,,3,0,0,1,3,3.000,1,www.aboutamazon.com,3.000,NO,2,196
-kimi_no_na_wa.,2,0,0,97,75,1,1,3,2,0,0,0,ESTIMATED,FOUND,UNKNOWN,,3,0,0,1,3,3.000,1,kiminona.com,3.000,NO,2,197
-cyberpunk:_edgerunners,2,0,0,73,43,1,1,2,2,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,3.000,1,www.cyberpunk.net,3.000,NO,2,198
-koi_suru_kokoro_to_mahou_no_kotoba,1,0,0,88,88,1,1,3,1,0,0,0,ESTIMATED,FOUND,UNKNOWN,,3,0,0,1,3,3.000,1,hearts.amusecraft.com,3.000,NO,2,199
-sky_girls,1,0,0,70,70,1,1,3,1,0,0,0,ESTIMATED,FOUND,UNKNOWN,,3,0,0,1,3,3.000,1,ssl.jcstaff.co.jp,3.000,NO,2,200
-ryuuko_no_ken,3,0,1,1171,800,1,1,2,3,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.500,1,www.snk-corp.co.jp,2.500,NO,2,201
-jewelpet_(series),3,0,0,183,97,1,1,2,3,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.500,1,www.tv-tokyo.co.jp,2.500,NO,2,202
-sword_art_online,7,0,0,720,217,1,1,3,7,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.000,1,www.swordart-online.net,2.000,NO,2,203
-tekken,6,0,0,617,156,1,1,2,6,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.000,1,tekken.com,2.000,NO,2,204
-kimetsu_no_yaiba,5,0,2,1117,391,1,1,2,5,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.000,1,kimetsu.com,2.000,NO,2,205
-inazuma_eleven_(series),4,0,0,232,64,1,1,2,4,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.000,1,zukan.inazuma.jp,2.000,NO,2,206
-minecraft,3,0,0,258,154,1,1,2,3,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.000,1,www.minecraft.net,2.000,NO,2,207
-yu_yu_hakusho,3,0,0,186,75,1,1,2,3,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.000,1,www.monster-strike.com,2.000,NO,2,208
-walt_disney's_peter_pan,1,0,0,124,124,1,1,2,1,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.000,1,movies.disney.com,2.000,NO,2,209
-zootopia,1,0,0,103,103,1,1,2,1,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.000,1,www.disney.co.jp,2.000,NO,2,210
-gangsta,1,0,0,72,72,1,1,2,1,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.000,1,gangsta-project.com,2.000,NO,2,211
-witchblade_(anime),1,0,0,69,69,1,1,2,1,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.000,1,www.gonzo.co.jp,2.000,NO,2,212
-mortal_kombat_(series),1,0,0,53,53,3,2,6,1,0,0,0,ESTIMATED,FOUND,UNKNOWN,,5,0,0,2,5,2.000,2,mk30.mortalkombat.com,2.000,NO,2,213
-isekai_maou_to_shoukan_shoujo_no_dorei_majutsu,1,0,0,52,52,1,1,2,1,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.000,1,season1.isekaimaou-anime.com,2.000,NO,2,214
-voiceroid,15,2,5,9137,4432,3,3,3,15,0,0,0,ESTIMATED,FOUND,UNKNOWN,,3,0,0,3,3,1.857,3,www.ah-soft.com,1.857,NO,2,215
-nitroplus,3,0,1,783,595,1,1,1,3,0,0,0,ESTIMATED,FOUND,UNKNOWN,,1,0,0,1,1,1.000,1,supersonico.jp,1.000,NO,2,216
-gundam,202,1,22,29816,1155,0,0,0,202,0,0,0,UNKNOWN,FOUND,PARTIAL,53,36,0,1,9,32,0.000,9,GUNDAM Official localized title-specific CHARACTER directories,0.000,NO,3,217
-hololive,110,2,36,29624,2309,0,2,30,110,0,0,0,UNKNOWN,FOUND,PARTIAL,83,25,0,0,3,30,0.000,3,hololive.hololivepro.com,0.000,NO,3,218
+hololive,107,2,33,27703,2309,1,3,33,107,0,0,0,ESTIMATED,FOUND,PARTIAL,83,25,0,0,3,30,3.000,3,hololive.hololivepro.com,3.000,NO,2,189
+fate/grand_order,69,1,5,10531,1157,2,1,4,69,0,7,0,ESTIMATED,FOUND,UNKNOWN,,3,0,0,1,3,3.000,1,stage.fate-go.jp,3.000,NO,2,190
+fate_(series),59,5,18,18783,2028,9,7,62,59,0,0,0,ESTIMATED,FOUND,PARTIAL,1,53,0,0,8,52,3.000,8,fate-apocrypha.com,3.000,NO,2,191
+super_smash_bros.,6,0,1,1415,760,1,1,3,6,0,0,0,ESTIMATED,FOUND,UNKNOWN,,3,0,0,1,3,3.000,1,www.smashbros.com,3.000,NO,2,192
+shokugeki_no_souma,6,0,1,1006,338,1,1,3,6,0,0,0,ESTIMATED,FOUND,UNKNOWN,,3,0,0,1,3,3.000,1,www.shonenjump.com,3.000,NO,2,193
+nichijou,3,0,1,749,585,1,1,3,3,0,1,0,ESTIMATED,FOUND,UNKNOWN,,3,0,0,1,3,3.000,1,shinonome-lab.com,3.000,NO,2,194
+omori,3,0,1,664,547,1,1,4,3,0,0,0,ESTIMATED,FOUND,UNKNOWN,,3,0,0,1,3,3.000,1,www.omocat-shop.com,3.000,NO,2,195
+blue_lock,3,0,1,578,423,2,1,4,3,0,0,0,ESTIMATED,FOUND,UNKNOWN,,3,0,0,1,3,3.000,1,tv.bluelock-pr.com,3.000,NO,2,196
+hazbin_hotel,2,0,0,141,83,1,1,3,2,0,0,0,ESTIMATED,FOUND,UNKNOWN,,3,0,0,1,3,3.000,1,www.aboutamazon.com,3.000,NO,2,197
+kimi_no_na_wa.,2,0,0,97,75,1,1,3,2,0,0,0,ESTIMATED,FOUND,UNKNOWN,,3,0,0,1,3,3.000,1,kiminona.com,3.000,NO,2,198
+cyberpunk:_edgerunners,2,0,0,73,43,1,1,2,2,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,3.000,1,www.cyberpunk.net,3.000,NO,2,199
+koi_suru_kokoro_to_mahou_no_kotoba,1,0,0,88,88,1,1,3,1,0,0,0,ESTIMATED,FOUND,UNKNOWN,,3,0,0,1,3,3.000,1,hearts.amusecraft.com,3.000,NO,2,200
+sky_girls,1,0,0,70,70,1,1,3,1,0,0,0,ESTIMATED,FOUND,UNKNOWN,,3,0,0,1,3,3.000,1,ssl.jcstaff.co.jp,3.000,NO,2,201
+ryuuko_no_ken,3,0,1,1171,800,1,1,2,3,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.500,1,www.snk-corp.co.jp,2.500,NO,2,202
+jewelpet_(series),3,0,0,183,97,1,1,2,3,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.500,1,www.tv-tokyo.co.jp,2.500,NO,2,203
+sword_art_online,7,0,0,720,217,1,1,3,7,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.000,1,www.swordart-online.net,2.000,NO,2,204
+tekken,6,0,0,617,156,1,1,2,6,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.000,1,tekken.com,2.000,NO,2,205
+kimetsu_no_yaiba,5,0,2,1117,391,1,1,2,5,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.000,1,kimetsu.com,2.000,NO,2,206
+inazuma_eleven_(series),4,0,0,232,64,1,1,2,4,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.000,1,zukan.inazuma.jp,2.000,NO,2,207
+minecraft,3,0,0,258,154,1,1,2,3,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.000,1,www.minecraft.net,2.000,NO,2,208
+yu_yu_hakusho,3,0,0,186,75,1,1,2,3,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.000,1,www.monster-strike.com,2.000,NO,2,209
+walt_disney's_peter_pan,1,0,0,124,124,1,1,2,1,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.000,1,movies.disney.com,2.000,NO,2,210
+zootopia,1,0,0,103,103,1,1,2,1,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.000,1,www.disney.co.jp,2.000,NO,2,211
+gangsta,1,0,0,72,72,1,1,2,1,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.000,1,gangsta-project.com,2.000,NO,2,212
+witchblade_(anime),1,0,0,69,69,1,1,2,1,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.000,1,www.gonzo.co.jp,2.000,NO,2,213
+mortal_kombat_(series),1,0,0,53,53,3,2,6,1,0,0,0,ESTIMATED,FOUND,UNKNOWN,,5,0,0,2,5,2.000,2,mk30.mortalkombat.com,2.000,NO,2,214
+isekai_maou_to_shoukan_shoujo_no_dorei_majutsu,1,0,0,52,52,1,1,2,1,0,0,0,ESTIMATED,FOUND,UNKNOWN,,2,0,0,1,2,2.000,1,season1.isekaimaou-anime.com,2.000,NO,2,215
+voiceroid,15,2,5,9137,4432,3,3,3,15,0,0,0,ESTIMATED,FOUND,UNKNOWN,,3,0,0,3,3,1.857,3,www.ah-soft.com,1.857,NO,2,216
+nitroplus,3,0,1,783,595,1,1,1,3,0,0,0,ESTIMATED,FOUND,UNKNOWN,,1,0,0,1,1,1.000,1,supersonico.jp,1.000,NO,2,217
+gundam,202,1,22,29816,1155,0,0,0,202,0,0,0,UNKNOWN,FOUND,PARTIAL,53,36,0,1,9,32,0.000,9,GUNDAM Official localized title-specific CHARACTER directories,0.000,NO,3,218
 nijisanji,68,2,10,15038,2024,0,2,61,68,0,0,0,UNKNOWN,FOUND,PARTIAL,172,41,0,4,4,41,0.000,4,Safebooru explicit curated Copyright Character member lists,0.000,NO,3,219
 touhou,49,1,8,9998,1505,0,3,12,49,0,0,0,UNKNOWN,FOUND,PARTIAL,320,11,0,0,3,11,0.000,3,Danbooru curated explicit Character list,0.000,NO,3,220
-final_fantasy,46,1,3,7182,2252,2,3,50,46,0,0,0,UNKNOWN,FOUND,PARTIAL,15,54,0,0,10,50,0.000,10,final-fantasy-tactics-the-ivalice-chronicles.square-enix-games.com,0.000,NO,3,221
+final_fantasy,45,1,3,7086,2252,2,3,50,45,0,0,0,UNKNOWN,FOUND,PARTIAL,15,54,0,0,10,50,0.000,10,final-fantasy-tactics-the-ivalice-chronicles.square-enix-games.com,0.000,NO,3,221
 precure,40,2,10,9145,1665,0,1,44,40,0,0,0,UNKNOWN,FOUND,PARTIAL,14,46,0,7,7,43,0.000,7,Toei Animation title-specific Precure cast directories,0.000,NO,3,222
 marvel,25,1,2,3889,1292,0,1,26,25,0,0,0,UNKNOWN,FOUND,PARTIAL,2896,25,0,0,2,26,0.000,2,OFFICIAL_CHARACTER_DIRECTORY,0.000,NO,3,223
 splatoon_(series),24,0,6,4450,593,3,2,7,24,0,0,0,UNKNOWN,FOUND,PARTIAL,31,7,0,1,4,7,0.000,4,Nintendo / Splatoon official website,0.000,NO,3,224
@@ -460,7 +460,7 @@ dream_hunter_rem,1,0,1,317,317,0,0,0,1,0,0,0,UNKNOWN,UNKNOWN,UNKNOWN,,0,0,0,0,0,
 rikai_no_aru_karen-chan,1,0,1,315,315,0,0,0,1,0,0,0,UNKNOWN,UNKNOWN,UNKNOWN,,0,0,0,0,0,0.000,0,,0.000,NO,5,459
 fall_guys,1,0,1,310,310,0,0,0,1,0,0,0,UNKNOWN,UNKNOWN,UNKNOWN,,0,0,0,0,0,0.000,0,,0.000,NO,5,460
 versailles_no_bara,1,0,1,310,310,1,0,1,1,0,0,0,UNKNOWN,UNKNOWN,UNKNOWN,,0,0,0,0,0,0.000,0,,0.000,NO,5,461
-umamusume,41,0,3,4432,489,1,1,7,41,0,0,0,KNOWN_ZERO,FOUND,COMPLETE,173,7,0,0,1,7,6.702,1,OFFICIAL_CHARACTER_ROSTER,6.702,SCOPE_EXHAUSTED,6,462
+umamusume,41,0,3,4432,489,1,1,7,41,0,0,0,KNOWN_ZERO,FOUND,COMPLETE,173,7,0,0,1,7,6.632,1,OFFICIAL_CHARACTER_ROSTER,6.632,SCOPE_EXHAUSTED,6,462
 ,79,0,0,0,0,0,0,0,79,0,0,0,UNKNOWN,UNKNOWN,UNKNOWN,,0,0,0,0,0,0.000,0,,0.000,NO,6,463
 kamen_rider,42,0,0,3027,159,0,0,0,42,0,0,0,UNKNOWN,UNKNOWN,UNKNOWN,,0,0,0,0,0,0.000,0,,0.000,NO,6,464
 cookie_run,32,0,0,2664,224,0,0,0,32,0,0,0,UNKNOWN,UNKNOWN,UNKNOWN,,0,0,0,0,0,0.000,0,,0.000,NO,6,465
