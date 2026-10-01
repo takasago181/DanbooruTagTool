@@ -1,0 +1,1246 @@
+[
+  {
+    "Name": "sexual / breast / pose",
+    "Query": "\u80F8",
+    "Filters": {
+      "ContentIntent": 2,
+      "PrimaryRouteId": "POSE_POSITION",
+      "LocalSubrouteId": null,
+      "BodySiteIds": [
+        "BREAST_NIPPLE"
+      ],
+      "ThemeIds": [],
+      "DeepOnly": false
+    },
+    "BrowseCount": 10,
+    "SearchCount": 8,
+    "ExpectedTags": [
+      "sideways_perpendicular_paizuri"
+    ],
+    "ExpectedFound": [
+      "sideways_perpendicular_paizuri"
+    ],
+    "BrowseExamples": [
+      {
+        "Canonical": "arm_between_breasts",
+        "Japanese": "\u80F8\u306E\u9593\u306B\u8155",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "arm_under_breasts",
+        "Japanese": "\u80F8\u306E\u4E0B\u306B\u8155",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "arms_under_breasts",
+        "Japanese": "\u80F8\u306E\u4E0B\u306B\u4E21\u8155",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "bouncing_breasts",
+        "Japanese": "\u63FA\u308C\u308B\u80F8",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "breasts_on_another\u0027s_back",
+        "Japanese": "\u4ED6\u4EBA\u306E\u80CC\u4E2D\u306B\u4E57\u3063\u305F\u80F8",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "breast_shake",
+        "Japanese": "\u80F8\u3092\u63FA\u3089\u3059",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "ofuda_on_nipples",
+        "Japanese": "\u4E73\u9996\u306E\u4E0A\u306B\u672D\u30FB\u304A\u672D\u3092\u7F6E\u304F\uFF0F\u8CBC\u308B\u63CF\u5199",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "presenting_own_breasts",
+        "Japanese": "\u81EA\u5206\u306E\u80F8\u3092\u898B\u305B\u3064\u3051\u308B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "sideways_perpendicular_paizuri",
+        "Japanese": "\u6A2A\u5411\u304D\u30FB\u76F4\u89D2\u914D\u7F6E\u3067\u884C\u3046\u30D1\u30A4\u30BA\u30EA",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "weapon_between_breasts",
+        "Japanese": "\u80F8\u306E\u9593\u306E\u6B66\u5668",
+        "EffectiveCategory": "General"
+      }
+    ],
+    "SearchExamples": [
+      {
+        "Canonical": "bouncing_breasts",
+        "Japanese": "\u63FA\u308C\u308B\u80F8",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "arm_under_breasts",
+        "Japanese": "\u80F8\u306E\u4E0B\u306B\u8155",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "arms_under_breasts",
+        "Japanese": "\u80F8\u306E\u4E0B\u306B\u4E21\u8155",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "arm_between_breasts",
+        "Japanese": "\u80F8\u306E\u9593\u306B\u8155",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "presenting_own_breasts",
+        "Japanese": "\u81EA\u5206\u306E\u80F8\u3092\u898B\u305B\u3064\u3051\u308B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "breasts_on_another\u0027s_back",
+        "Japanese": "\u4ED6\u4EBA\u306E\u80CC\u4E2D\u306B\u4E57\u3063\u305F\u80F8",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "weapon_between_breasts",
+        "Japanese": "\u80F8\u306E\u9593\u306E\u6B66\u5668",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "breast_shake",
+        "Japanese": "\u80F8\u3092\u63FA\u3089\u3059",
+        "EffectiveCategory": "Special"
+      }
+    ]
+  },
+  {
+    "Name": "sexual / buttock / oral contact",
+    "Query": "\u809B\u9580 \u8210\u3081\u308B",
+    "Filters": {
+      "ContentIntent": 2,
+      "PrimaryRouteId": "ACTION_CONTACT",
+      "LocalSubrouteId": null,
+      "BodySiteIds": [
+        "BUTTOCK_ANAL"
+      ],
+      "ThemeIds": [],
+      "DeepOnly": false
+    },
+    "BrowseCount": 63,
+    "SearchCount": 1,
+    "ExpectedTags": [
+      "anilingus",
+      "ass-to-mouth"
+    ],
+    "ExpectedFound": [
+      "anilingus",
+      "ass-to-mouth"
+    ],
+    "BrowseExamples": [
+      {
+        "Canonical": "anal",
+        "Japanese": "\u809B\u9580\u3078\u306E\u633F\u5165\u30FB\u8CAB\u5165",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "anal_ball_wear",
+        "Japanese": "\u809B\u9580\u7528\u30DC\u30FC\u30EB\u5668\u5177\u3092\u8EAB\u306B\u3064\u3051\u305F\u8863\u88C5\u30FB\u72B6\u614B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "anal_beads",
+        "Japanese": "\u30A2\u30CA\u30EB\u30D3\u30FC\u30BA",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "anal_object_insertion",
+        "Japanese": "\u809B\u9580\u3078\u306E\u7269\u4F53\u633F\u5165",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "anal_tail",
+        "Japanese": "\u5C3B\u306B\u88C5\u7740\u3059\u308B\u30D7\u30E9\u30B0\u578B\u306E\u5C3B\u5C3E",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "gaping",
+        "Japanese": "\u958B\u3044\u305F\u72B6\u614B\u30FB\u62E1\u5F35\u3002\u5358\u72EC\u3067\u306F\u6587\u8108\u4F9D\u5B58",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "holding_butt_plug",
+        "Japanese": "\u30A2\u30CA\u30EB\u30D7\u30E9\u30B0\u3092\u6301\u3064",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "after_anal",
+        "Japanese": "\u30A2\u30CA\u30EB\u6027\u4EA4\u30FB\u809B\u9580\u633F\u5165\u306E\u76F4\u5F8C",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "anal_fingering",
+        "Japanese": "\u809B\u9580\u3092\u6307\u3067\u523A\u6FC0\u3059\u308B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "anal_fisting",
+        "Japanese": "\u809B\u9580\u3078\u306E\u62F3\u30FB\u624B\u306E\u633F\u5165",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "anal_grip",
+        "Japanese": "\u809B\u9580\u304C\u633F\u5165\u7269\u3092\u7DE0\u3081\u4ED8\u3051\u308B\u63CF\u5199",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "anal_invitation",
+        "Japanese": "\u30A2\u30CA\u30EB\u884C\u70BA\u3092\u8A98\u3046\u30FB\u63D0\u793A\u3059\u308B",
+        "EffectiveCategory": "Special"
+      }
+    ],
+    "SearchExamples": [
+      {
+        "Canonical": "female_rimming_male",
+        "Japanese": "\u5973\u6027\u304C\u7537\u6027\u306E\u809B\u9580\u3092\u8210\u3081\u308B",
+        "EffectiveCategory": "General"
+      }
+    ]
+  },
+  {
+    "Name": "sexual / mouth / action",
+    "Query": "\u53E3",
+    "Filters": {
+      "ContentIntent": 2,
+      "PrimaryRouteId": "ACTION_CONTACT",
+      "LocalSubrouteId": null,
+      "BodySiteIds": [
+        "MOUTH_ORAL"
+      ],
+      "ThemeIds": [],
+      "DeepOnly": false
+    },
+    "BrowseCount": 89,
+    "SearchCount": 38,
+    "ExpectedTags": [
+      "fellatio",
+      "cunnilingus"
+    ],
+    "ExpectedFound": [
+      "fellatio",
+      "cunnilingus"
+    ],
+    "BrowseExamples": [
+      {
+        "Canonical": "fellatio",
+        "Japanese": "\u30D5\u30A7\u30E9\u30C1\u30AA",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "oral",
+        "Japanese": "\u53E3\u6DEB",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "after_cunnilingus",
+        "Japanese": "\u5973\u6027\u5668\u3078\u306E\u53E3\u6DEB\u306E\u76F4\u5F8C\u306E\u72B6\u614B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "after_fellatio",
+        "Japanese": "\u30D5\u30A7\u30E9\u30C1\u30AA\u306E\u76F4\u5F8C",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "anilingus",
+        "Japanese": "\u809B\u9580\u3078\u306E\u53E3\u6DEB",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "applying_gag",
+        "Japanese": "\u733F\u8F61\u3092\u88C5\u7740\u3059\u308B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "ass-to-mouth",
+        "Japanese": "\u5C3B\u304B\u3089\u53E3\u3078\u306E\u63A5\u89E6",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "autofellatio",
+        "Japanese": "\u81EA\u5206\u306E\u9670\u830E\u3092\u81EA\u5206\u3067\u54A5\u3048\u308B\u30FB\u30AA\u30FC\u30C8\u30D5\u30A7\u30E9\u30C1\u30AA",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "breast_sucking",
+        "Japanese": "\u4E73\u623F\u30FB\u4E73\u9996\u3092\u53E3\u3067\u5438\u3046\u884C\u70BA",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "cleanup_fellatio",
+        "Japanese": "\u6027\u884C\u70BA\u5F8C\u306E\u7CBE\u6DB2\u306A\u3069\u3092\u53E3\u3067\u8210\u3081\u53D6\u308B\u30D5\u30A7\u30E9\u30C1\u30AA\u7CFB\u8868\u73FE",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "cloth_gag",
+        "Japanese": "\u5E03\u88FD\u306E\u733F\u8F61",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "condom_in_mouth",
+        "Japanese": "\u53E3\u306B\u30B3\u30F3\u30C9\u30FC\u30E0",
+        "EffectiveCategory": "Special"
+      }
+    ],
+    "SearchExamples": [
+      {
+        "Canonical": "oral",
+        "Japanese": "\u53E3\u6DEB",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "fellatio",
+        "Japanese": "\u9670\u830E\u3092\u53E3\u3067\u5438\u3046\u63CF\u5199",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "cum_in_mouth",
+        "Japanese": "\u53E3\u5185\u306E\u7CBE\u6DB2",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "breast_sucking",
+        "Japanese": "\u4E73\u623F\u30FB\u4E73\u9996\u3092\u53E3\u3067\u5438\u3046\u884C\u70BA",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "irrumatio",
+        "Japanese": "\u76F8\u624B\u306E\u53E3\u3078\u80FD\u52D5\u7684\u306B\u633F\u5165\u3059\u308B\u53E3\u6DEB",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "condom_in_mouth",
+        "Japanese": "\u53E3\u306B\u30B3\u30F3\u30C9\u30FC\u30E0",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "finger_in_another\u0027s_mouth",
+        "Japanese": "\u53E3\u5185\u6307\u8CAC\u3081",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "anilingus",
+        "Japanese": "\u809B\u9580\u3078\u306E\u53E3\u6DEB",
+        "EffectiveCategory": "Special"
+      }
+    ]
+  },
+  {
+    "Name": "sexual / female genital / pose",
+    "Query": "\u5973\u6027\u5668",
+    "Filters": {
+      "ContentIntent": 2,
+      "PrimaryRouteId": "POSE_POSITION",
+      "LocalSubrouteId": null,
+      "BodySiteIds": [
+        "FEMALE_GENITAL"
+      ],
+      "ThemeIds": [],
+      "DeepOnly": false
+    },
+    "BrowseCount": 3,
+    "SearchCount": 3,
+    "ExpectedTags": [
+      "presenting_own_pussy"
+    ],
+    "ExpectedFound": [
+      "presenting_own_pussy"
+    ],
+    "BrowseExamples": [
+      {
+        "Canonical": "ofuda_on_pussy",
+        "Japanese": "\u5973\u6027\u5668\u306E\u4E0A\u306B\u672D\u30FB\u304A\u672D\u3092\u7F6E\u304F\uFF0F\u8CBC\u308B\u63CF\u5199",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "presenting_own_pussy",
+        "Japanese": "\u5973\u6027\u5668\u3092\u898B\u305B\u308B\u30FB\u5DEE\u3057\u51FA\u3059\u63CF\u5199",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "pussy_sandwich",
+        "Japanese": "\u5973\u6027\u5668\u3092\u8EAB\u4F53\u30FB\u7269\u4F53\u306A\u3069\u3067\u4E21\u5074\u304B\u3089\u631F\u3080\u6027\u7684\u8868\u73FE",
+        "EffectiveCategory": "Special"
+      }
+    ],
+    "SearchExamples": [
+      {
+        "Canonical": "presenting_own_pussy",
+        "Japanese": "\u81EA\u5206\u306E\u5973\u6027\u5668\u3092\u63D0\u793A\u3059\u308B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "ofuda_on_pussy",
+        "Japanese": "\u5973\u6027\u5668\u306E\u4E0A\u306B\u672D\u30FB\u304A\u672D\u3092\u7F6E\u304F\uFF0F\u8CBC\u308B\u63CF\u5199",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "pussy_sandwich",
+        "Japanese": "\u5973\u6027\u5668\u3092\u8EAB\u4F53\u30FB\u7269\u4F53\u306A\u3069\u3067\u4E21\u5074\u304B\u3089\u631F\u3080\u6027\u7684\u8868\u73FE",
+        "EffectiveCategory": "Special"
+      }
+    ]
+  },
+  {
+    "Name": "sexual / male genital / action",
+    "Query": "\u7537\u6027\u5668",
+    "Filters": {
+      "ContentIntent": 2,
+      "PrimaryRouteId": "ACTION_CONTACT",
+      "LocalSubrouteId": null,
+      "BodySiteIds": [
+        "MALE_GENITAL"
+      ],
+      "ThemeIds": [],
+      "DeepOnly": false
+    },
+    "BrowseCount": 113,
+    "SearchCount": 1,
+    "ExpectedTags": [
+      "fellatio",
+      "handjob"
+    ],
+    "ExpectedFound": [
+      "fellatio",
+      "handjob"
+    ],
+    "BrowseExamples": [
+      {
+        "Canonical": "fellatio",
+        "Japanese": "\u30D5\u30A7\u30E9\u30C1\u30AA",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "footjob",
+        "Japanese": "\u8DB3\u306B\u3088\u308B\u6027\u7684\u523A\u6FC0",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "handjob",
+        "Japanese": "\u624B\u6DEB",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "paizuri",
+        "Japanese": "\u30D1\u30A4\u30BA\u30EA",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "after_fellatio",
+        "Japanese": "\u30D5\u30A7\u30E9\u30C1\u30AA\u306E\u76F4\u5F8C",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "ball_busting",
+        "Japanese": "\u777E\u4E38\u3078\u306E\u6253\u6483\u30FB\u82E6\u75DB\u8868\u73FE",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "biting_testicles",
+        "Japanese": "\u777E\u4E38\u3092\u565B\u3080\u82E6\u75DB\u8868\u73FE",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "caressing_testicles",
+        "Japanese": "\u777E\u4E38\u3092\u64AB\u3067\u308B\u6027\u7684\u523A\u6FC0",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "cbt",
+        "Japanese": "\u7537\u6027\u5668\u30FB\u777E\u4E38\u3078\u306E\u82E6\u75DB\u3092\u6027\u7684\u30D5\u30A7\u30C6\u30A3\u30C3\u30B7\u30E5\u3068\u3057\u3066\u6271\u3046\u3082\u306E",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "chastity_cage_emission",
+        "Japanese": "\u8C9E\u64CD\u30B1\u30FC\u30B8\u88C5\u7740\u4E2D\u306B\u6DB2\u4F53\u30FB\u5206\u6CCC\u7269\u304C\u51FA\u308B\u63CF\u5199",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "chocolate_on_penis",
+        "Japanese": "\u9670\u830E\u306B\u30C1\u30E7\u30B3\u30EC\u30FC\u30C8\u304C\u4ED8\u7740\u3057\u3066\u3044\u308B\u63CF\u5199",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "condom_on_penis",
+        "Japanese": "\u9670\u830E\u306B\u30B3\u30F3\u30C9\u30FC\u30E0\u3092\u88AB\u305B\u3066\u3044\u308B\u63CF\u5199",
+        "EffectiveCategory": "Special"
+      }
+    ],
+    "SearchExamples": [
+      {
+        "Canonical": "cbt",
+        "Japanese": "\u7537\u6027\u5668\u30FB\u777E\u4E38\u3078\u306E\u82E6\u75DB\u3092\u6027\u7684\u30D5\u30A7\u30C6\u30A3\u30C3\u30B7\u30E5\u3068\u3057\u3066\u6271\u3046\u3082\u306E",
+        "EffectiveCategory": "Special"
+      }
+    ]
+  },
+  {
+    "Name": "sexual / restraint / action",
+    "Query": "\u62D8\u675F",
+    "Filters": {
+      "ContentIntent": 2,
+      "PrimaryRouteId": "ACTION_CONTACT",
+      "LocalSubrouteId": null,
+      "BodySiteIds": [],
+      "ThemeIds": [
+        "BDSM_RESTRAINT"
+      ],
+      "DeepOnly": false
+    },
+    "BrowseCount": 163,
+    "SearchCount": 55,
+    "ExpectedTags": [
+      "bondage",
+      "bound_arms"
+    ],
+    "ExpectedFound": [
+      "bondage",
+      "bound_arms"
+    ],
+    "BrowseExamples": [
+      {
+        "Canonical": "bondage",
+        "Japanese": "\u62D8\u675F\u30FB\u7DCA\u7E1B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "bound",
+        "Japanese": "\u7E1B\u3089\u308C\u305F\u72B6\u614B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "restrained",
+        "Japanese": "\u62D8\u675F\u72B6\u614B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "after_rape",
+        "Japanese": "\u5F37\u5236\u7684\u306A\u6027\u884C\u70BA\u5F8C\u306B\u5FC3\u8EAB\u304C\u6D88\u8017\u30FB\u6253\u3061\u306E\u3081\u3055\u308C\u305F\u88AB\u5BB3\u8005",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "anal_hook",
+        "Japanese": "\u809B\u9580\u306B\u7528\u3044\u308B\u30D5\u30C3\u30AF\u578BBDSM\u5668\u5177",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "applying_gag",
+        "Japanese": "\u733F\u8F61\u3092\u88C5\u7740\u3059\u308B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "arms_bound_apart",
+        "Japanese": "\u4E21\u8155\u3092\u96E2\u3057\u305F\u72B6\u614B\u3067\u62D8\u675F",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "ball_and_chain_restraint",
+        "Japanese": "\u7403\u72B6\u306E\u91CD\u308A\u3068\u9396\u3092\u4F7F\u3063\u305F\u62D8\u675F\u5177\u30FB\u62D8\u675F\u8868\u73FE",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "ball_busting",
+        "Japanese": "\u777E\u4E38\u3078\u306E\u6253\u6483\u30FB\u82E6\u75DB\u8868\u73FE",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "bitchsuit",
+        "Japanese": "\u56DB\u80A2\u3092\u66F2\u3052\u305F\u59FF\u52E2\u306A\u3069\u306B\u56FA\u5B9A\u3059\u308BBDSM\u8863\u88C5",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "biting_testicles",
+        "Japanese": "\u777E\u4E38\u3092\u565B\u3080\u82E6\u75DB\u8868\u73FE",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "bondage_outfit",
+        "Japanese": "\u62D8\u675F\u30FBBDSM\u7528\u8863\u88C5",
+        "EffectiveCategory": "Special"
+      }
+    ],
+    "SearchExamples": [
+      {
+        "Canonical": "bound",
+        "Japanese": "\u62D8\u675F\u3055\u308C\u3066\u3044\u308B",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "bondage",
+        "Japanese": "\u62D8\u675F\u30FB\u7DCA\u7E1B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "restrained",
+        "Japanese": "\u62D8\u675F\u72B6\u614B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "bound_wrists",
+        "Japanese": "\u624B\u9996\u62D8\u675F",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "shibari",
+        "Japanese": "\u30ED\u30FC\u30D7\u3092\u7528\u3044\u305F\u62D8\u675F\u30FB\u7DCA\u7E1B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "bound_arms",
+        "Japanese": "\u4E21\u8155\u3092\u62D8\u675F\u3057\u305F\u72B6\u614B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "bound_legs",
+        "Japanese": "\u811A\u3092\u62D8\u675F\u3057\u305F\u72B6\u614B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "bound_ankles",
+        "Japanese": "\u8DB3\u9996\u62D8\u675F",
+        "EffectiveCategory": "Special"
+      }
+    ]
+  },
+  {
+    "Name": "sexual / pregnancy or lactation",
+    "Query": "\u6388\u4E73",
+    "Filters": {
+      "ContentIntent": 2,
+      "PrimaryRouteId": null,
+      "LocalSubrouteId": null,
+      "BodySiteIds": [],
+      "ThemeIds": [
+        "REPRO_PREGNANCY_LACTATION"
+      ],
+      "DeepOnly": false
+    },
+    "BrowseCount": 28,
+    "SearchCount": 5,
+    "ExpectedTags": [
+      "breastfeeding",
+      "self_milking"
+    ],
+    "ExpectedFound": [
+      "breastfeeding",
+      "self_milking"
+    ],
+    "BrowseExamples": [
+      {
+        "Canonical": "lactation",
+        "Japanese": "\u4E73\u6C41\u30FB\u6BCD\u4E73\u304C\u51FA\u308B\u72B6\u614B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "artificial_insemination",
+        "Japanese": "\u4EBA\u5DE5\u6388\u7CBE",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "breast_milk_in_container",
+        "Japanese": "\u5BB9\u5668\u306B\u6BCD\u4E73",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "breastfeeding",
+        "Japanese": "\u6388\u4E73\u30FB\u4E73\u623F\u304B\u3089\u6BCD\u4E73\u3092\u98F2\u307E\u305B\u308B\u884C\u70BA",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "implied_pregnancy",
+        "Japanese": "\u598A\u5A20\u306E\u793A\u5506",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "impregnation",
+        "Japanese": "\u598A\u5A20\u3055\u305B\u308B\u30FB\u53D7\u7CBE\u3092\u76EE\u7684\u3068\u3057\u305F\u6027\u7684\u8868\u73FE",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "lactating_into_container",
+        "Japanese": "\u5BB9\u5668\u306B\u643E\u4E73",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "lactation_through_clothes",
+        "Japanese": "\u8863\u670D\u8D8A\u3057\u306B\u4E73\u6C41\u304C\u67D3\u307F\u51FA\u3059\u30FB\u5206\u6CCC\u3059\u308B\u63CF\u5199",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "projectile_lactation",
+        "Japanese": "\u5674\u304D\u51FA\u3059\u6BCD\u4E73",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "requesting_impregnation",
+        "Japanese": "\u598A\u5A20\u3055\u305B\u3066\u307B\u3057\u3044\u3068\u6C42\u3081\u308B\u30FB\u61C7\u9858\u3059\u308B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "breeding_mount",
+        "Japanese": "\u7E41\u6B96\u30FB\u4EA4\u5C3E\u3092\u60F3\u8D77\u3055\u305B\u308B\u6027\u7684\u306A\u8DE8\u308A\u30FB\u56FA\u5B9A\u59FF\u52E2",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "egg_implantation",
+        "Japanese": "\u7523\u307F\u4ED8\u3051",
+        "EffectiveCategory": "General"
+      }
+    ],
+    "SearchExamples": [
+      {
+        "Canonical": "breastfeeding",
+        "Japanese": "\u6388\u4E73",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "forced_lactation",
+        "Japanese": "\u5F37\u5236\u7684\u306A\u4E73\u6C41\u5206\u6CCC",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "male_lactation",
+        "Japanese": "\u7537\u6027\u306E\u4E73\u6C41\u5206\u6CCC",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "excessive_lactation",
+        "Japanese": "\u904E\u5270\u306A\u4E73\u6C41\u5206\u6CCC",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "implied_lactation",
+        "Japanese": "\u4E73\u6C41\u5206\u6CCC\u306E\u793A\u5506",
+        "EffectiveCategory": "Special"
+      }
+    ]
+  },
+  {
+    "Name": "sexual / clothing and pattern",
+    "Query": "\u7E1E\u6A21\u69D8\u306E\u4E0B\u7740",
+    "Filters": {
+      "ContentIntent": 2,
+      "PrimaryRouteId": "CLOTHING_EXPOSURE",
+      "LocalSubrouteId": null,
+      "BodySiteIds": [],
+      "ThemeIds": [],
+      "DeepOnly": false
+    },
+    "BrowseCount": 1162,
+    "SearchCount": 1,
+    "ExpectedTags": [
+      "striped_underwear"
+    ],
+    "ExpectedFound": [
+      "striped_underwear"
+    ],
+    "BrowseExamples": [
+      {
+        "Canonical": "anal_ball_wear",
+        "Japanese": "\u809B\u9580\u7528\u30DC\u30FC\u30EB\u5668\u5177\u3092\u8EAB\u306B\u3064\u3051\u305F\u8863\u88C5\u30FB\u72B6\u614B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "areola_slip",
+        "Japanese": "\u4E73\u8F2A\u304C\u8863\u670D\u304B\u3089\u898B\u3048\u308B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "ass_visible_through_thighs",
+        "Japanese": "\u592A\u3082\u3082\u306E\u9593\u304B\u3089\u898B\u3048\u308B\u5C3B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "black_bra",
+        "Japanese": "\u9ED2\u3044\u30D6\u30E9",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "black_panties",
+        "Japanese": "\u9ED2\u3044\u30D1\u30F3\u30C4",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "blindfold",
+        "Japanese": "\u76EE\u96A0\u3057",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "bottomless",
+        "Japanese": "\u4E0B\u534A\u8EAB\u88F8",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "bow_panties",
+        "Japanese": "\u30EA\u30DC\u30F3\u4ED8\u304D\u30D1\u30F3\u30C4",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "breasts_out",
+        "Japanese": "\u4E73\u623F\u3092\u8863\u670D\u304B\u3089\u9732\u51FA\u3055\u305B\u308B\u72B6\u614B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "cameltoe",
+        "Japanese": "\u8863\u670D\u8D8A\u3057\u306E\u5973\u6027\u5668\u5F62\u72B6",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "cleavage_cutout",
+        "Japanese": "\u80F8\u5143\u306E\u958B\u53E3\u90E8\u304B\u3089\u80F8\u306E\u8C37\u9593\u3092\u898B\u305B\u308B\u8863\u88C5",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "clothed_female_nude_male",
+        "Japanese": "\u7740\u8863\u5973\u6027\u3068\u88F8\u4F53\u7537\u6027\u306E\u7D44\u307F\u5408\u308F\u305B",
+        "EffectiveCategory": "Special"
+      }
+    ],
+    "SearchExamples": [
+      {
+        "Canonical": "striped_underwear",
+        "Japanese": "\u7E1E\u6A21\u69D8\u306E\u4E0B\u7740",
+        "EffectiveCategory": "General"
+      }
+    ]
+  },
+  {
+    "Name": "sexual / nonhuman and body",
+    "Query": "\u89E6\u624B",
+    "Filters": {
+      "ContentIntent": 2,
+      "PrimaryRouteId": "NONHUMAN_TRANSFORM",
+      "LocalSubrouteId": null,
+      "BodySiteIds": [],
+      "ThemeIds": [],
+      "DeepOnly": false
+    },
+    "BrowseCount": 52,
+    "SearchCount": 20,
+    "ExpectedTags": [
+      "tentacle_sex"
+    ],
+    "ExpectedFound": [
+      "tentacle_sex"
+    ],
+    "BrowseExamples": [
+      {
+        "Canonical": "animal_penis",
+        "Japanese": "\u52D5\u7269\u306E\u9670\u830E",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "bestiality",
+        "Japanese": "\u4EBA\u3068\u52D5\u7269\u306E\u6027\u884C\u70BA",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "breast_expansion",
+        "Japanese": "\u4E73\u623F\u304C\u7570\u5E38\u30FB\u8A87\u5F35\u3057\u3066\u5927\u304D\u304F\u306A\u308B\u8868\u73FE",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "consensual_tentacles",
+        "Japanese": "\u5408\u610F\u4E0B\u306E\u89E6\u624B\u6027\u884C\u70BA",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "dog_penis",
+        "Japanese": "\u72AC\u79D1\u52D5\u7269\u306E\u9670\u830E",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "grabbed_by_tentacles",
+        "Japanese": "\u89E6\u624B\u306B\u63B4\u307E\u308C\u3066\u3044\u308B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "horse_penis",
+        "Japanese": "\u99AC\u306E\u9670\u830E",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "implied_bestiality",
+        "Japanese": "\u52D5\u7269\u3068\u306E\u6027\u884C\u70BA\u3092\u793A\u5506\u3059\u308B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "inflation",
+        "Japanese": "\u4F53\u5185\u81A8\u5F35",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "tail_anus",
+        "Japanese": "\u5C3B\u5C3E\u306B\u809B\u9580\u304C\u3042\u308B\u3001\u307E\u305F\u306F\u5C3B\u5C3E\u72B6\u90E8\u4F4D\u306E\u809B\u9580",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "tentacle_in_mouth",
+        "Japanese": "\u53E3\u5185\u306B\u5165\u308B\u89E6\u624B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "tentacle_pit",
+        "Japanese": "\u591A\u6570\u306E\u89E6\u624B\u306B\u56F2\u307E\u308C\u305F\u7A74\u30FB\u7A7A\u9593",
+        "EffectiveCategory": "Special"
+      }
+    ],
+    "SearchExamples": [
+      {
+        "Canonical": "tentacle_sex",
+        "Japanese": "\u89E6\u624B\u306B\u3088\u308B\u6027\u884C\u70BA",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "grabbed_by_tentacles",
+        "Japanese": "\u89E6\u624B\u306B\u63B4\u307E\u308C\u3066\u3044\u308B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "tentacle_pit",
+        "Japanese": "\u591A\u6570\u306E\u89E6\u624B\u306B\u56F2\u307E\u308C\u305F\u7A74\u30FB\u7A7A\u9593",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "tentacle_in_mouth",
+        "Japanese": "\u53E3\u5185\u306B\u5165\u308B\u89E6\u624B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "tentacles_under_clothes",
+        "Japanese": "\u8863\u670D\u306E\u5185\u5074\u306B\u89E6\u624B\u304C\u5165\u308A\u8FBC\u3080\u8868\u73FE",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "consensual_tentacles",
+        "Japanese": "\u5408\u610F\u4E0B\u306E\u89E6\u624B\u6027\u884C\u70BA",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "tentacles_on_male",
+        "Japanese": "\u7537\u6027\u306B\u89E6\u624B\u304C\u7D61\u3080\u30FB\u4F5C\u7528\u3059\u308B\u8868\u73FE",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "penis_tentacle",
+        "Japanese": "\u9670\u830E\u306B\u4F3C\u305F\u5F62\u72B6\u30FB\u6A5F\u80FD\u306E\u89E6\u624B",
+        "EffectiveCategory": "Special"
+      }
+    ]
+  },
+  {
+    "Name": "sexual / composition and camera",
+    "Query": "\u80F8\u5143 \u69CB\u56F3",
+    "Filters": {
+      "ContentIntent": 2,
+      "PrimaryRouteId": "COMPOSITION_CAMERA",
+      "LocalSubrouteId": null,
+      "BodySiteIds": [],
+      "ThemeIds": [],
+      "DeepOnly": false
+    },
+    "BrowseCount": 18,
+    "SearchCount": 1,
+    "ExpectedTags": [
+      "breast_focus",
+      "pov_breasts"
+    ],
+    "ExpectedFound": [
+      "breast_focus",
+      "pov_breasts"
+    ],
+    "BrowseExamples": [
+      {
+        "Canonical": "pantyshot",
+        "Japanese": "\u4E0B\u7740\u304C\u898B\u3048\u308B\u69CB\u56F3",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "ass_focus",
+        "Japanese": "\u81C0\u90E8\u3092\u5F37\u8ABF\u3059\u308B\u69CB\u56F3",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "crotch_focus",
+        "Japanese": "\u80A1\u9593\u3092\u5F37\u8ABF\u3059\u308B\u69CB\u56F3",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "downblouse",
+        "Japanese": "\u80F8\u5143\u3092\u4E0A\u304B\u3089\u8997\u304F\u69CB\u56F3",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "futanari_pov",
+        "Japanese": "\u3075\u305F\u306A\u308A\u30AD\u30E3\u30E9\u30AF\u30BF\u30FC\u8996\u70B9\u306E\u69CB\u56F3",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "panty_peek",
+        "Japanese": "\u4E0B\u7740\u30FB\u30D1\u30F3\u30C6\u30A3\u304C\u8863\u670D\u304B\u3089\u4E00\u90E8\u8997\u3044\u3066\u3044\u308B\u72B6\u614B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "pantyshot_through_reflection",
+        "Japanese": "\u53CD\u5C04\u30D1\u30F3\u30C1\u30E9",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "penis_focus",
+        "Japanese": "\u9670\u830E\u3092\u5F37\u8ABF\u3057\u305F\u69CB\u56F3",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "pov_breasts",
+        "Japanese": "\u4E00\u4EBA\u79F0\u8996\u70B9\u306E\u80F8",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "pov_crotch",
+        "Japanese": "\u4E00\u4EBA\u79F0\u8996\u70B9\u306E\u81EA\u5206\u306E\u80A1\u9593",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "pussy_focus",
+        "Japanese": "\u5973\u6027\u5668\u3092\u5F37\u8ABF\u3057\u305F\u69CB\u56F3",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "upskirt",
+        "Japanese": "\u30B9\u30AB\u30FC\u30C8\u5185\u3092\u4E0B\u304B\u3089\u8997\u304F\u69CB\u56F3",
+        "EffectiveCategory": "Special"
+      }
+    ],
+    "SearchExamples": [
+      {
+        "Canonical": "downblouse",
+        "Japanese": "\u80F8\u5143\u3092\u4E0A\u304B\u3089\u8997\u304F\u69CB\u56F3",
+        "EffectiveCategory": "Special"
+      }
+    ]
+  },
+  {
+    "Name": "general-purpose contextual clothing",
+    "Query": "\u7E1E\u6A21\u69D8\u306E\u4E0B\u7740",
+    "Filters": {
+      "ContentIntent": 1,
+      "PrimaryRouteId": "CLOTHING_EXPOSURE",
+      "LocalSubrouteId": null,
+      "BodySiteIds": [],
+      "ThemeIds": [],
+      "DeepOnly": false
+    },
+    "BrowseCount": 8673,
+    "SearchCount": 1,
+    "ExpectedTags": [
+      "striped_underwear"
+    ],
+    "ExpectedFound": [
+      "striped_underwear"
+    ],
+    "BrowseExamples": [
+      {
+        "Canonical": "adapted_costume",
+        "Japanese": "\u30A2\u30EC\u30F3\u30B8\u8863\u88C5",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "alternate_costume",
+        "Japanese": "\u5225\u8863\u88C5",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "apron",
+        "Japanese": "\u30A8\u30D7\u30ED\u30F3",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "areola_slip",
+        "Japanese": "\u4E73\u8F2A\u304C\u8863\u670D\u304B\u3089\u898B\u3048\u308B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "armband",
+        "Japanese": "\u8155\u7AE0",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "armlet",
+        "Japanese": "\u8155\u8F2A",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "armor",
+        "Japanese": "\u30A2\u30FC\u30DE\u30FC",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "ascot",
+        "Japanese": "\u30A2\u30B9\u30B3\u30C3\u30C8\u30BF\u30A4",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "asymmetrical_legwear",
+        "Japanese": "\u975E\u5BFE\u79F0\u306E\u30EC\u30C3\u30B0\u30A6\u30A7\u30A2",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "bare_arms",
+        "Japanese": "\u8155\u306E\u9732\u51FA",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "bare_legs",
+        "Japanese": "\u811A\u306E\u9732\u51FA",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "bare_shoulders",
+        "Japanese": "\u80A9\u51FA\u3057",
+        "EffectiveCategory": "General"
+      }
+    ],
+    "SearchExamples": [
+      {
+        "Canonical": "striped_underwear",
+        "Japanese": "\u7E1E\u6A21\u69D8\u306E\u4E0B\u7740",
+        "EffectiveCategory": "General"
+      }
+    ]
+  },
+  {
+    "Name": "general-purpose contextual action",
+    "Query": "\u624B\u3092\u7F6E\u304F",
+    "Filters": {
+      "ContentIntent": 1,
+      "PrimaryRouteId": "ACTION_CONTACT",
+      "LocalSubrouteId": "ACTION_CONTACT/INTERACTION",
+      "BodySiteIds": [],
+      "ThemeIds": [],
+      "DeepOnly": false
+    },
+    "BrowseCount": 2041,
+    "SearchCount": 29,
+    "ExpectedTags": [
+      "hand_on_another\u0027s_head"
+    ],
+    "ExpectedFound": [
+      "hand_on_another\u0027s_head"
+    ],
+    "BrowseExamples": [
+      {
+        "Canonical": "bound",
+        "Japanese": "\u7E1B\u3089\u308C\u305F\u72B6\u614B",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "carrying",
+        "Japanese": "\u904B\u3093\u3067\u3044\u308B",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "eating",
+        "Japanese": "\u98DF\u3079\u3066\u3044\u308B",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "finger_to_mouth",
+        "Japanese": "\u53E3\u306B\u6307",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "girl_on_top",
+        "Japanese": "\u5973\u6027\u304C\u5225\u306E\u4EBA\u7269\u306E\u4E0A\u5074\u306B\u4F4D\u7F6E\u3059\u308B\u69CB\u56F3",
+        "EffectiveCategory": "Special"
+      },
+      {
+        "Canonical": "hand_in_pocket",
+        "Japanese": "\u30DD\u30B1\u30C3\u30C8\u306B\u624B",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "hand_on_another\u0027s_head",
+        "Japanese": "\u4ED6\u4EBA\u306E\u982D\u306B\u624B\u3092\u7F6E\u304F",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "hand_on_own_chest",
+        "Japanese": "\u81EA\u5206\u306E\u80F8\u306B\u624B\u3092\u7F6E\u304F",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "hand_on_own_face",
+        "Japanese": "\u81EA\u5206\u306E\u9854\u306B\u624B\u3092\u7F6E\u304F",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "hand_on_own_hip",
+        "Japanese": "\u8170\u306B\u624B",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "holding",
+        "Japanese": "\u6301\u3064",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "holding_hands",
+        "Japanese": "\u624B\u3092\u3064\u306A\u3050",
+        "EffectiveCategory": "General"
+      }
+    ],
+    "SearchExamples": [
+      {
+        "Canonical": "hand_on_own_chest",
+        "Japanese": "\u81EA\u5206\u306E\u80F8\u306B\u624B\u3092\u7F6E\u304F",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "hand_on_own_face",
+        "Japanese": "\u81EA\u5206\u306E\u9854\u306B\u624B\u3092\u7F6E\u304F",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "hand_on_another\u0027s_head",
+        "Japanese": "\u4ED6\u4EBA\u306E\u982D\u306B\u624B\u3092\u7F6E\u304F",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "hand_on_another\u0027s_shoulder",
+        "Japanese": "\u4ED6\u4EBA\u306E\u80A9\u306B\u624B\u3092\u7F6E\u304F",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "hand_on_own_cheek",
+        "Japanese": "\u81EA\u5206\u306E\u982C\u306B\u624B\u3092\u7F6E\u304F",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "hand_on_another\u0027s_face",
+        "Japanese": "\u4ED6\u4EBA\u306E\u9854\u306B\u624B\u3092\u7F6E\u304F",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "hand_on_own_chin",
+        "Japanese": "\u81EA\u5206\u306E\u984E\u306B\u624B\u3092\u7F6E\u304F",
+        "EffectiveCategory": "General"
+      },
+      {
+        "Canonical": "hand_on_own_head",
+        "Japanese": "\u81EA\u5206\u306E\u982D\u306B\u624B\u3092\u7F6E\u304F",
+        "EffectiveCategory": "General"
+      }
+    ]
+  }
+]
