@@ -39,7 +39,7 @@
     "#201 practical discoverability finish complete through PR #202; no production taxonomy/catalog delta; practical intent-first scenario regression gate added",
     "#204 live Unified filter refresh and visual stability follow-up complete; production baseline retained",
     "#210 catalog validation/publish/promotion pipeline complete through PR #212; production promoted from live main a90f5b652d4239709005d020417a236ea9d97ebb; UserData byte-identical",
-    "#211 post-#210 hygiene finalization merged via PR #214; maintenance Issues #52/#138/#203/#210 closed; #188 remains open for its exact 10-run telemetry and state-cache-warning disposition",
+    "#211 post-#210 hygiene finalization merged via PR #214; maintenance Issues #52/#138/#203/#210 closed; historical #188 wait-on-#180 wording retired at final #188 closeout",
     "#180 Character -> HOME Copyright authority rebuild complete/closed; final frozen master SHA256 135463a5225b6501db923322284f8e309f217eb5359538088eb6de6d78b77071",
     "#216 full unresolved coverage + reviewed Browse HOME runtime integration complete/closed; production fallback 7,409 Characters",
     "#188 execution-efficiency foundation and stale-current-authority cleanup complete/closed; reopen only for a concrete new overhead defect"
