@@ -1,6 +1,6 @@
 # CURRENT STATE
 
-最終更新: 2026-10-02 (#228 merged; #229/#232 authorized STOP POINT lane)
+最終更新: 2026-10-02 (#228/#229/#232 merged; STOP POINT reached)
 
 このファイルは **現在地だけ** を保持する人間向けsummary。
 過去のrouting/runtime/taxonomy/完了記録は `docs/project/CURRENT_STATE_HISTORY.md` に保存する。
@@ -23,7 +23,7 @@ PR #238 is merged; clean published source main `49963dc129a1725c8a74d7f29aeb9608
 
 Catalog/#179/#180/#216/#223 unchanged; whole prior runtime/UserData backup retained. Promotion excluded UserData; after explicit UI smoke original Prompt/Recovery and both Presets equal backup, only Workspace/PromptWidth changed. Exact hashes/evidence: `docs/project/LAST_KNOWN_GOOD.json`, `docs/issue226/PRODUCTION_CHECKPOINT_2026-10-02.json`.
 
-Manual scan/rename limitations remain; actual WebP/JPEG preview, different PC and physical network disconnect unverified. Production still uses the #226 build. #228 is merged through PR #240 (`36b52ca353fff6d4283840397ae2324f3e296e4b`), not production-applied. API round-trip evidence: `docs/issue228/IMPLEMENTATION.md`. User authorized #229 then #232; stop after those merge/checkpoints and prepare UI/UX consolidation inventory. Do not start #230/#231 or other large workspaces.
+Manual scan/rename limitations remain; actual WebP/JPEG preview, different PC and physical network disconnect unverified. Production remains the #226 build. #228/#229/#232 are COMPLETE / merged via PR #240/#242/#243; latest feature merge `761e71215f0eb4ccc108761aad0a2c8846a5e8d8`. Final protected-source Release 340 PASS / 4 opt-in SKIP / 0 FAIL; CI and clean publish / disposable runtime gates PASS. No production apply. **STOP POINT reached: UI/UX consolidation待ち。新機能実装停止。** Current UI map, UX debt, unimplemented consolidation proposals and exact commits/tests/protection/limits: `docs/issue225/STOP_POINT_2026-10-02.md`. Do not start #230/#231 or other large workspaces without user confirmation.
 
 
 - **#223 — Browse Groups: COMPLETE / production deployed**

@@ -1,6 +1,6 @@
 # NOW — いま何をやっているか
 
-最終整理: 2026-10-02 JST (#228 merged; #229/#232 STOP POINT lane)
+最終整理: 2026-10-02 JST (#228/#229/#232 merged; STOP POINT reached)
 
 このファイルは、GitHubを開いたときに**現在の主作業・進捗・次の行動**を人間がすぐ把握するためのdashboardです。
 
@@ -18,7 +18,7 @@ PR #238 is merged; clean published source main `49963dc129a1725c8a74d7f29aeb9608
 
 Catalog/#179/#180/#216/#223 unchanged; whole prior runtime/UserData backup retained. Promotion excluded UserData; after explicit UI smoke original Prompt/Recovery and both Presets equal backup, only Workspace/PromptWidth changed. Exact hashes/evidence: `docs/project/LAST_KNOWN_GOOD.json`, `docs/issue226/PRODUCTION_CHECKPOINT_2026-10-02.json`.
 
-Manual scan/rename limitations remain; actual WebP/JPEG preview, different PC and physical network disconnect unverified. Production remains #226. #228 API-first Recipe is merged via PR #240 (merge `36b52ca353fff6d4283840397ae2324f3e296e4b`), not applied to production. Authorized sequence: #229 Local LoRA, then #232 Negative/Prompt Intelligence; stop after their merged checkpoints for UI/UX consolidation. No #230/#231/new large workspace before user confirmation.
+Manual scan/rename limitations remain; actual WebP/JPEG preview, different PC and physical network disconnect unverified. **STOP POINT reached — UI/UX consolidation待ち。新機能実装停止。** #228/#229/#232 are COMPLETE / merged via PR #240/#242/#243. Main feature snapshot `761e71215f0eb4ccc108761aad0a2c8846a5e8d8`; full protected-source 340 PASS / 4 SKIP / 0 FAIL, CI / clean publish / disposable Windows gates PASS. Production stays #226; no runtime or extension promotion. See `docs/issue225/STOP_POINT_2026-10-02.md` for completed commits/tests, current UI map, UX debt, consolidation proposals and remaining verification. No #230/#231 or another large workspace before user confirmation.
 
 ## #223 Browse Groups — completed release history (still included)
 

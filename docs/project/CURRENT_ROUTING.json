@@ -1,6 +1,6 @@
 {
   "schema_version": "project-current-routing-v1",
-  "generated_at": "2026-10-01T16:44:31.0385390Z",
+  "generated_at": "2026-10-01T17:32:29.7984349Z",
   "purpose": "compact machine-readable routing snapshot; not a permanent branch-head authority",
   "live_main_snapshot": null,
   "must_refetch_live_heads_before_write": true,
@@ -12,9 +12,7 @@
     "docs/project/PERMANENT_RULES.md",
     "task-specific contract/spec"
   ],
-  "active_lanes": [
-    "#225 user-authorized overnight #229/#232; STOP after #228/#229/#232 merge/checkpoints for UI/UX consolidation"
-  ],
+  "active_lanes": [],
   "completed_or_non_default": [
     "Performance / Runtime Load Audit",
     "portable/runtime hardening",
@@ -32,7 +30,10 @@
     "#179 reviewed display/search overlay deployed through PR #220/#221; 1,215 rows, display 221 / search 1,000; formal HOME and Issue70 source unchanged; residual REVIEW/HOLD retained",
     "#223 display-only Browse Groups complete and production-deployed through PR #224; 7 HOME / 64 groups / 2,467 grouped / 2,072 unclassified / 21 HOLD; HOME authority and #179/#70 unchanged; UserData byte-identical",
     "#226 generation image library complete via PR #238; production APPLIED from source main 49963dc129a1725c8a74d7f29aeb960884b67569; schema1 separate DB; real Forge one-image/UI/search/missing/UserData closeout PASS; production unchanged",
-    "#228 API-first GenerationRecipe merged through PR #240; actual PNG/Library round-trip PASS; not production-applied"
+    "#228 API-first GenerationRecipe merged through PR #240; actual PNG/Library round-trip PASS; not production-applied",
+    "#229 Local LoRA complete via PR #242; offline SHA-keyed personal inventory/recipes; not production-applied",
+    "#232 Negative/Prompt intelligence complete via PR #243; versioned backed-up UserData2; full protected regression 340 PASS/4 SKIP; not production-applied",
+    "#225 STOP POINT reached after #228/#229/#232 merged checkpoints; UI/UX consolidation waiting for user; no #230/#231/new large workspaces; docs/issue225/STOP_POINT_2026-10-02.md"
   ],
   "protected_boundaries": [
     "UserData is user-owned",
