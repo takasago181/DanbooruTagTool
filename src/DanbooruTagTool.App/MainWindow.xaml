@@ -562,6 +562,9 @@
             <TabItem Header="生成画像" Style="{StaticResource WorkspaceTabItem}">
                 <views:GenerationLibraryView x:Name="GenerationLibraryWorkspace" DataContext="{Binding GenerationLibrary}"/>
             </TabItem>
+            <TabItem Header="LoRA Library" Style="{StaticResource WorkspaceTabItem}">
+                <views:LoraLibraryView x:Name="LoraLibraryWorkspace" DataContext="{Binding LoraLibrary}"/>
+            </TabItem>
         </TabControl>
     </DockPanel>
 </Window>

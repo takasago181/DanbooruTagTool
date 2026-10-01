@@ -1,6 +1,6 @@
 # CURRENT STATE
 
-最終更新: 2026-10-02 (#226 production promotion complete; #228 not started)
+最終更新: 2026-10-02 (#228 merged; #229/#232 authorized STOP POINT lane)
 
 このファイルは **現在地だけ** を保持する人間向けsummary。
 過去のrouting/runtime/taxonomy/完了記録は `docs/project/CURRENT_STATE_HISTORY.md` に保存する。
@@ -23,7 +23,7 @@ PR #238 is merged; clean published source main `49963dc129a1725c8a74d7f29aeb9608
 
 Catalog/#179/#180/#216/#223 unchanged; whole prior runtime/UserData backup retained. Promotion excluded UserData; after explicit UI smoke original Prompt/Recovery and both Presets equal backup, only Workspace/PromptWidth changed. Exact hashes/evidence: `docs/project/LAST_KNOWN_GOOD.json`, `docs/issue226/PRODUCTION_CHECKPOINT_2026-10-02.json`.
 
-Manual scan/rename limitations remain; actual WebP/JPEG preview, different PC and physical network disconnect unverified. Full Recipe application remains disabled. **#228 implementation not started; stop after this production closeout.**
+Manual scan/rename limitations remain; actual WebP/JPEG preview, different PC and physical network disconnect unverified. Production still uses the #226 build. #228 is merged through PR #240 (`36b52ca353fff6d4283840397ae2324f3e296e4b`), not production-applied. API round-trip evidence: `docs/issue228/IMPLEMENTATION.md`. User authorized #229 then #232; stop after those merge/checkpoints and prepare UI/UX consolidation inventory. Do not start #230/#231 or other large workspaces.
 
 
 - **#223 — Browse Groups: COMPLETE / production deployed**

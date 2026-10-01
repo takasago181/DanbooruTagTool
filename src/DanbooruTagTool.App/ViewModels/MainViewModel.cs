@@ -18,6 +18,7 @@ public sealed class MainViewModel : Observable
     public GenerationPresetsViewModel PresetEditor { get; }
     public GenerationImportViewModel GenerationImport { get; }
     public GenerationLibraryViewModel? GenerationLibrary { get; }
+    public LoraLibraryViewModel? LoraLibrary { get; }
     public ForgeViewModel Forge { get; }
     public UserStateCoordinator UserState { get; }
     private string status = "";
@@ -54,6 +55,13 @@ public sealed class MainViewModel : Observable
             PresetsRequested?.Invoke();
         }, Forge, canMutate);
         if (GenerationLibrary is not null) Forge.IndexRecipeResult = GenerationLibrary.IndexRecipeResultAsync;
+        if (paths is not null) LoraLibrary = new(paths, Workspace, new PromptParser(runtime), clipboard, canMutate, preset =>
+        {
+            PresetEditor.BeginNewPreset();
+            PresetEditor.PresetPositive = preset.Positive; PresetEditor.PresetNegative = preset.Negative;
+            PresetEditor.PresetName = preset.Name; PresetEditor.PresetDescription = preset.Description;
+            PresetsRequested?.Invoke();
+        });
         Prompt.Restore(UserState.Ui); Dictionary.Restore(UserState.Ui); Forge.Restore(UserState.Ui); PresetEditor.Restore(state);
         WireNotifications();
         Workspace.Changed += OnPromptChanged;

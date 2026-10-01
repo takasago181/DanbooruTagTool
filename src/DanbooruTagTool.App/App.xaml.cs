@@ -14,6 +14,12 @@ public partial class App : Application
         base.OnStartup(e);
         try
         {
+            if (e.Args.FirstOrDefault() == "--validate-lora")
+            {
+                if (e.Args.Length != 2) throw new ArgumentException("--validate-lora <new-empty-output-directory>");
+                ShutdownMode = ShutdownMode.OnExplicitShutdown;
+                await LoraLibraryValidation.RunAsync(e.Args[1]); Shutdown(0); return;
+            }
             if (e.Args.FirstOrDefault() == "--validate-library")
             {
                 if (e.Args.Length != 2) throw new ArgumentException("--validate-library <new-empty-output-directory>");
