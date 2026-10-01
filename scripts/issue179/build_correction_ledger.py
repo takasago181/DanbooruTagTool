@@ -57,6 +57,46 @@ EXPLICIT_REVIEWED_FIXES = [
         "reason_code": "WRONG_CHARACTER_SEARCH_NAME_REPAIR",
         "evidence_provenance": "OFFICIAL:https://sailormoon-official.com/stage/information/_-shining_theater_260714.php",
     },
+    {
+        "row_id": "I70-006618",
+        "canonical_tag": "jahy",
+        "category": "Character",
+        "field": "display_ja",
+        "old_value": "邪神ちゃん（ジャヒー様はくじけない！）",
+        "proposed_value": "ジャヒー様",
+        "reason_code": "WRONG_CHARACTER_NAME_REPAIR",
+        "evidence_provenance": "OFFICIAL:https://jahysama-anime.com/character/",
+    },
+    {
+        "row_id": "I70-006618",
+        "canonical_tag": "jahy",
+        "category": "Character",
+        "field": "search_ja",
+        "old_value": "邪神ちゃん | ジャヒー | ジャヒー様 | 火曜日のジャヒー様",
+        "proposed_value": "ジャヒー | ジャヒー様",
+        "reason_code": "WRONG_IDENTITY_AND_NON_IDENTITY_SEARCH_REPAIR",
+        "evidence_provenance": "OFFICIAL:https://jahysama-anime.com/character/",
+    },
+    {
+        "row_id": "I70-006727",
+        "canonical_tag": "jashin-chan",
+        "category": "Character",
+        "field": "display_ja",
+        "old_value": "邪神ちゃん（邪神ちゃんドロップキック）",
+        "proposed_value": "邪神ちゃん",
+        "reason_code": "POST_COLLISION_OVERDISAMBIGUATION_REPAIR",
+        "evidence_provenance": "INTERNAL:canonical+existing search; Jahy wrong-name collision removed",
+    },
+    {
+        "row_id": "I70-002825",
+        "canonical_tag": "fujimaru_ritsuka_(female)_(decisive_battle_chaldea_uniform)",
+        "category": "Character",
+        "field": "display_ja",
+        "old_value": "藤丸立香（男性）（female / decisive battle chaldea uniform）",
+        "proposed_value": "藤丸立香（女性）（決戦用カルデア制服）",
+        "reason_code": "SEX_QUALIFIER_AND_LOCALIZED_VARIANT_REPAIR",
+        "evidence_provenance": "INTERNAL:canonical female qualifier + existing search 決戦用カルデア制服",
+    },
 ]
 
 def main() -> None:
@@ -99,7 +139,7 @@ def main() -> None:
                 "final_status": "ACCEPTED_AUDIT_OVERLAY",
             })
         else:
-            if r["row_id"] not in {"I70-010624", "I70-012005"}:
+            if r["row_id"] not in {"I70-010624", "I70-012005", "I70-006618", "I70-006727"}:
                 holds.append({
                     "row_id": r["row_id"],
                     "canonical_tag": r["canonical_tag"],
@@ -129,12 +169,12 @@ def main() -> None:
     # Frozen current audit counts. Fail if candidate logic drifts silently.
     search_count = sum(r["field"] == "search_ja" for r in accepted)
     display_count = sum(r["field"] == "display_ja" for r in accepted)
-    if search_count != 967:
-        raise SystemExit(f"expected 967 accepted search rows, got {search_count}")
-    if display_count != 214:
-        raise SystemExit(f"expected 214 accepted display rows, got {display_count}")
-    if len(holds) != 19:
-        raise SystemExit(f"expected 19 display holds, got {len(holds)}")
+    if search_count != 969:
+        raise SystemExit(f"expected 969 accepted search rows, got {search_count}")
+    if display_count != 217:
+        raise SystemExit(f"expected 217 accepted display rows, got {display_count}")
+    if len(holds) != 17:
+        raise SystemExit(f"expected 17 display holds, got {len(holds)}")
 
     with LEDGER.open("w", encoding="utf-8-sig", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=LEDGER_FIELDS, lineterminator="\n")
