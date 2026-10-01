@@ -8,7 +8,9 @@ left untouched in Forge.
 from __future__ import annotations
 
 import ipaddress
+import asyncio
 import json
+import re
 import secrets
 import time
 from collections import deque
@@ -181,7 +183,7 @@ async def _health(request: Request) -> JSONResponse:
             "protocolVersion": PROTOCOL_VERSION,
             "ok": True,
             "ready": True,
-            "capabilities": ["prompt", "generate", "result_ack", "recipe_settings"],
+            "capabilities": ["prompt", "generate", "result_ack", "recipe_settings", "token_count_v1"],
         }
     )
 
@@ -326,11 +328,68 @@ async def _result(request: Request) -> JSONResponse:
     return JSONResponse(content={"protocolVersion": PROTOCOL_VERSION, "result": result})
 
 
+def _count_loaded_prompt(prompt: str, negative: bool, steps: int) -> dict:
+    # Delegate behavior to the installed Forge counter; never infer 75-token counts.
+    from modules import sd_models, ui
+    from modules.call_queue import queue_lock
+    if not queue_lock.acquire(blocking=False):
+        raise RuntimeError("Forge busy; retry when idle")
+    try:
+        model = sd_models.model_data.sd_model
+        info = getattr(model, "sd_checkpoint_info", None)
+        if model is None or type(model).__name__ == "FakeInitialModel" or info is None:
+            raise RuntimeError("No loaded model/tokenizer; heuristic counter refused")
+        counter = ui.update_token_counter(prompt, steps, [], is_positive=not negative)
+        match = re.search(r">(\d+)/(\d+)</span>", counter)
+        if not match or sd_models.model_data.sd_model is not model:
+            raise RuntimeError("Forge counter unavailable or model changed")
+        engine = getattr(model, "text_processing_engine_l", None) or getattr(model, "text_processing_engine", None)
+        tokenizer = getattr(engine, "tokenizer", None)
+        # Only the exact installed SD engine exposes this chunk contract.
+        chunk_length = getattr(engine, "chunk_length", None)
+        if not isinstance(chunk_length, int) or isinstance(chunk_length, bool) or chunk_length <= 0:
+            chunk_length = None
+        count, capacity = map(int, match.groups())
+        return {"protocolVersion": 1, "source": "Forge.ui.update_token_counter", "model": info.title,
+                "modelHash": getattr(info, "shorthash", "") or "", "engine": type(model).__name__,
+                "tokenizer": type(tokenizer).__name__ if tokenizer is not None else "model-owned/unspecified",
+                "count": count, "capacity": capacity, "chunkLength": chunk_length,
+                "chunks": capacity // chunk_length if chunk_length and capacity % chunk_length == 0 else None,
+                "negative": negative, "steps": steps, "styles": "none", "text": prompt}
+    finally:
+        queue_lock.release()
+
+
+async def _token_count(request: Request) -> JSONResponse:
+    if not _is_loopback(request):
+        return _json_error(403, "local_only", "loopback access required")
+    body = await _body(request)
+    if body is None:
+        return _json_error(413, "oversized", "payload too large")
+    try:
+        payload = json.loads(body.decode("utf-8"))
+        if not isinstance(payload, dict) or set(payload) != {"protocolVersion", "text", "negative", "steps"}:
+            raise ValueError("token request fields invalid")
+        if type(payload["protocolVersion"]) is not int or payload["protocolVersion"] != 1:
+            raise ValueError("token protocol mismatch")
+        if not isinstance(payload["text"], str) or len(payload["text"]) > MAX_TEXT_LENGTH or type(payload["negative"]) is not bool:
+            raise ValueError("token text/side invalid")
+        if type(payload["steps"]) is not int or not 1 <= payload["steps"] <= 150:
+            raise ValueError("token steps invalid")
+        result = await asyncio.to_thread(_count_loaded_prompt, payload["text"], payload["negative"], payload["steps"])
+        return JSONResponse(content=result)
+    except (UnicodeDecodeError, ValueError, KeyError):
+        return _json_error(400, "malformed", "token payload invalid")
+    except Exception:
+        return _json_error(409, "counter_unavailable", "Loaded model counter unavailable/busy. No model load or heuristic fallback.")
+
+
 def _on_app_started(_demo, app) -> None:
     global _registered
     if _registered:
         return
     app.add_api_route("/dtt-bridge/health", _health, methods=["GET"])
+    app.add_api_route("/dtt-bridge/token-count", _token_count, methods=["POST"])
     app.add_api_route("/dtt-bridge/prompt", _prompt, methods=["POST"])
     app.add_api_route("/dtt-bridge/pending", _pending_request, methods=["GET"])
     app.add_api_route("/dtt-bridge/result", _result_report, methods=["POST"])

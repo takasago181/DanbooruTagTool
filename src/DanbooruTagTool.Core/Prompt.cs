@@ -6,7 +6,7 @@ namespace DanbooruTagTool.Core;
 public enum PromptItemKind { Normal, Weighted, Lora, Control, Raw }
 public enum PromptOutputProfile { Canonical, GenerationFriendly }
 public sealed record PromptItem(Guid Id, string Surface, string? Canonical, string? Japanese,
-    PromptItemKind Kind, string? StructuredName = null, decimal? Weight = null, string? CatalogId = null)
+    PromptItemKind Kind, string? StructuredName = null, decimal? Weight = null, string? CatalogId = null, string Separator = ",")
 {
     public string Display => Kind switch
     {
@@ -22,6 +22,7 @@ public sealed class PromptParser(ICatalog catalog)
 {
     private static readonly Regex Weighted = new(@"^\(((?:[^():\[\]<>\\]|\\[()])+):(-?\d+(?:\.\d+)?)\)$", RegexOptions.CultureInvariant);
     private static readonly Regex Lora = new(@"^<lora:([^:<>\r\n]+):(-?\d+(?:\.\d+)?)>$", RegexOptions.CultureInvariant);
+    private static readonly Regex Control = new(@"\b(?:BREAK|AND)\b", RegexOptions.CultureInvariant);
     public PromptItem[] Parse(string text)
     {
         if (text.Length == 0) return [];
@@ -43,13 +44,31 @@ public sealed class PromptParser(ICatalog catalog)
             else if (c == ',' && stack.Count == 0) { parts.Add(text[start..i]); start = i + 1; }
         }
         parts.Add(text[start..]);
-        return parts.Select(Recognize).ToArray();
+        if (stack.Count > 0) return [Recognize(text) with { Kind = PromptItemKind.Raw, Canonical = null, Japanese = null }];
+        return parts.SelectMany(ParseControls).ToArray();
+    }
+    private IEnumerable<PromptItem> ParseControls(string surface)
+    {
+        // Lossless lexical controls only at top level. Nested/scheduled syntax remains raw.
+        var depth = 0; var escaped = false; var cursor = 0; var separator = ",";
+        var controls = Control.Matches(surface).ToDictionary(m => m.Index);
+        for (var i = 0; i < surface.Length; i++)
+        {
+            var c = surface[i]; if (escaped) { escaped = false; continue; } if (c == '\\') { escaped = true; continue; }
+            if (c is '(' or '[' or '<' or '{') depth++; else if (c is ')' or ']' or '>' or '}') depth--;
+            if (depth != 0 || !controls.TryGetValue(i, out var match)) continue;
+            var before = surface[cursor..i]; var whitespace = before.Length - before.TrimEnd().Length;
+            if (!string.IsNullOrWhiteSpace(before)) { yield return Recognize(before[..(before.Length - whitespace)]) with { Separator = separator }; separator = ""; }
+            yield return new(Guid.NewGuid(), before[(before.Length - whitespace)..] + match.Value, null, null, PromptItemKind.Control, match.Value, Separator: separator);
+            separator = ""; i += match.Length - 1; cursor = i + 1;
+        }
+        if (cursor == 0 || cursor < surface.Length) yield return Recognize(surface[cursor..]) with { Separator = separator };
     }
     private static bool Matches(char a, char b) => (a, b) is ('(', ')') or ('[', ']') or ('<', '>') or ('{', '}');
     private PromptItem Recognize(string surface)
     {
         var t = surface.Trim();
-        if (t == "BREAK") return new(Guid.NewGuid(), surface, null, null, PromptItemKind.Control);
+        if (t is "BREAK" or "AND") return new(Guid.NewGuid(), surface, null, null, PromptItemKind.Control, t);
         var l = Lora.Match(t);
         if (l.Success && decimal.TryParse(l.Groups[2].Value, CultureInfo.InvariantCulture, out var lw))
             return new(Guid.NewGuid(), surface, null, null, PromptItemKind.Lora, l.Groups[1].Value, lw);
@@ -84,7 +103,7 @@ public sealed class PromptParser(ICatalog catalog)
         }
         return result.ToString();
     }
-    public static string Serialize(IEnumerable<PromptItem> items) => string.Join(",", items.Select(i => i.Surface));
+    public static string Serialize(IEnumerable<PromptItem> items) => string.Concat(items.Select((item, index) => (index == 0 ? "" : item.Separator) + item.Surface));
 }
 
 public static class PromptOutputFormatter
@@ -92,10 +111,10 @@ public static class PromptOutputFormatter
     private static readonly Regex Weighted = new(@"^\(((?:[^():\[\]<>\\]|\\[()])+):-?\d+(?:\.\d+)?\)$", RegexOptions.CultureInvariant);
 
     public static string Serialize(IEnumerable<PromptItem> items, PromptOutputProfile profile) =>
-        string.Join(",", items.Select(item => Format(item, profile)));
+        PromptParser.Serialize(items.Select(item => item with { Surface = Format(item, profile) }));
 
     public static string SerializeCanonical(IEnumerable<PromptItem> items) =>
-        string.Join(",", items.Select(CanonicalSurface));
+        PromptParser.Serialize(items.Select(item => item with { Surface = CanonicalSurface(item) }));
 
     public static string Format(PromptItem item, PromptOutputProfile profile)
     {

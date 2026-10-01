@@ -18,6 +18,7 @@ public sealed class ForgeViewModel : Observable
     private string recipeStatus = "API生成は1画像。未指定条件はForge既定値。指定条件は実画像で照合し、不一致は失敗として出力を保持します。";
     public string RecipeStatus { get => recipeStatus; private set => Set(ref recipeStatus, value); }
     public Func<string, Task>? IndexRecipeResult { get; set; }
+    public Func<string>? CurrentNegative { get; set; }
     public AsyncRelayCommand GeneratePresetRecipe { get; }
     private string forgeUrl = ForgeBridgeProtocol.DefaultUrl, forgeExtensionPath = "";
     public string ForgeUrl { get => forgeUrl; set => Set(ref forgeUrl, value); }
@@ -27,6 +28,7 @@ public sealed class ForgeViewModel : Observable
     public AsyncRelayCommand SendToForge { get; }
     public AsyncRelayCommand GenerateInForge { get; }
     public AsyncRelayCommand SendPresetToForge { get; }
+    public AsyncRelayCommand SendWorkspacePair { get; }
 
     public ForgeViewModel(IForgeBridgeClient bridge, Action persist, Func<bool> canMutate, Func<string> english, Action<string> setStatus, Action openSettings, string? apiOutput = null, IForgeGenerationApiClient? api = null)
     {
@@ -37,6 +39,7 @@ public sealed class ForgeViewModel : Observable
         SendToForge = new(_ => SendAsync(null, CancellationToken.None), _ => canMutate());
         GenerateInForge = new(_ => GenerateAsync(null, CancellationToken.None), _ => canMutate());
         SendPresetToForge = new(p => SendAsync(p as GenerationPreset, CancellationToken.None), p => canMutate() && p is GenerationPreset);
+        SendWorkspacePair = new(_ => SendPayloadAsync(english(), CurrentNegative?.Invoke() ?? "", ForgeNegativeMode.Replace, ForgeBridgeAction.SendOnly, CancellationToken.None), _ => canMutate() && CurrentNegative is not null);
     }
     public void Restore(UiState ui) { forgeUrl = ui.ForgeUrl; forgeExtensionPath = ui.ForgeExtensionPath; }
     public Task SendAsync(GenerationPreset? preset, CancellationToken cancellationToken)
@@ -50,7 +53,7 @@ public sealed class ForgeViewModel : Observable
         return SendCoreAsync(preset, ForgeBridgeAction.SendAndGenerate, cancellationToken);
     }
     private async Task SendCoreAsync(GenerationPreset? preset, ForgeBridgeAction action, CancellationToken cancellationToken)
-        => await SendPayloadAsync(english(), preset?.Negative, preset == null ? ForgeNegativeMode.Unchanged : ForgeNegativeMode.Replace, action, cancellationToken);
+        => await SendPayloadAsync(english(), preset?.Negative, preset is null ? ForgeNegativeMode.Unchanged : ForgeNegativeMode.Replace, action, cancellationToken);
 
     // Image-library sends explicit Positive/Negative without mutating PromptWorkspace.
     public Task SendImageAsync(GenerationPreset preset, CancellationToken cancellationToken = default)

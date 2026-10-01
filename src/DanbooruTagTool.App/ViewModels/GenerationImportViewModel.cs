@@ -20,6 +20,9 @@ public sealed class GenerationImportViewModel : Observable
     private readonly Action<string> setStatus;
     private readonly Action<GenerationMetadataSnapshot> createPreset;
     private GenerationMetadataSnapshot? snapshot;
+    public PromptWorkspace? NegativeWorkspace { get; set; }
+    public Func<bool> CanMutate { get; set; } = () => true;
+    public RelayCommand RestoreNegative { get; }
 
     public GenerationMetadataSnapshot? Snapshot
     {
@@ -67,7 +70,8 @@ public sealed class GenerationImportViewModel : Observable
         this.setStatus = setStatus;
         this.createPreset = createPreset;
 
-        RestorePositive = new(_ => Restore(), _ => HasSnapshot && !string.IsNullOrWhiteSpace(Positive));
+        RestorePositive = new(_ => Restore(), _ => CanMutate() && HasSnapshot && !string.IsNullOrWhiteSpace(Positive));
+        RestoreNegative = new(_ => { if (CanMutate() && Snapshot is not null) { NegativeWorkspace?.Replace(Snapshot.Negative); setStatus("PNG Negativeを置換しました。NegativeのUndo/回復で戻せます。"); } }, _ => CanMutate() && HasSnapshot && NegativeWorkspace is not null);
         CopyNegative = new(_ => Copy(Negative, "Negative Promptをコピーしました"), _ => HasNegative);
         CopyInfo = new(_ => Copy(RawInfotext, "生成情報をコピーしました"), _ => HasSnapshot);
         CreatePreset = new(_ => CreatePresetFromSnapshot(), _ => HasSnapshot);
@@ -77,7 +81,7 @@ public sealed class GenerationImportViewModel : Observable
 
     private void Restore()
     {
-        if (Snapshot is null || string.IsNullOrWhiteSpace(Snapshot.Positive)) return;
+        if (!CanMutate() || Snapshot is null || string.IsNullOrWhiteSpace(Snapshot.Positive)) return;
         workspace.Replace(Snapshot.Positive);
         setStatus("✓ 生成PNGのPositive Promptを復元しました");
     }
@@ -128,6 +132,7 @@ public sealed class GenerationImportViewModel : Observable
     private void RefreshCommands()
     {
         RestorePositive.Refresh();
+        RestoreNegative.Refresh();
         CopyNegative.Refresh();
         CopyInfo.Refresh();
         CreatePreset.Refresh();

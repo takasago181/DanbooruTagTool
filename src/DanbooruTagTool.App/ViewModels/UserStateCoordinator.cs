@@ -18,7 +18,7 @@ public sealed class UserStateCoordinator(IUserStateStore store) : Observable
     }
     public void SaveUi(UiState value) => Ui = value;
     public void Persist(PromptWorkspace workspace, DictionaryWorkspaceViewModel dictionary, PromptEditorViewModel prompt,
-        GenerationPresetsViewModel presets, ForgeViewModel forge)
+        GenerationPresetsViewModel presets, ForgeViewModel forge, PromptWorkspace? negative = null)
     {
         Ui = Ui with
         {
@@ -39,6 +39,6 @@ public sealed class UserStateCoordinator(IUserStateStore store) : Observable
             ForgeUrl = forge.ForgeUrl,
             ForgeExtensionPath = forge.ForgeExtensionPath
         };
-        store.Save(new(workspace.Snapshot(), Ui, presets.Presets.ToArray()));
+        store.Save(new(workspace.Snapshot(), Ui, presets.Presets.ToArray(), negative?.Snapshot()));
     }
 }

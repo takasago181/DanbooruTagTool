@@ -14,6 +14,12 @@ public partial class App : Application
         base.OnStartup(e);
         try
         {
+            if (e.Args.FirstOrDefault() == "--validate-prompt-intelligence")
+            {
+                if (e.Args.Length != 2) throw new ArgumentException("--validate-prompt-intelligence <new-empty-output-directory>");
+                ShutdownMode = ShutdownMode.OnExplicitShutdown;
+                await PromptIntelligenceValidation.RunAsync(e.Args[1]); Shutdown(0); return;
+            }
             if (e.Args.FirstOrDefault() == "--validate-lora")
             {
                 if (e.Args.Length != 2) throw new ArgumentException("--validate-lora <new-empty-output-directory>");
