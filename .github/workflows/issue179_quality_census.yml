@@ -1,6 +1,12 @@
 name: Issue179 Character Copyright Quality Census
 
 on:
+  push:
+    branches: [ audit/issue179-refresh-20261001 ]
+    paths:
+      - "scripts/issue179/**"
+      - "docs/issue179/**"
+      - ".github/workflows/issue179_quality_census.yml"
   pull_request:
     branches: [ main ]
     paths:
@@ -49,7 +55,7 @@ jobs:
         run: python scripts/issue179/validate_stage_b_reviews.py
 
       - name: One-shot sync reviewed runtime projection
-        if: github.event_name == 'pull_request' && github.head_ref == 'audit/issue179-refresh-20261001'
+        if: github.event_name == 'push' && github.ref_name == 'audit/issue179-refresh-20261001'
         run: |
           mkdir -p docs/issue179/runtime
           cp artifacts/issue179-runtime/ISSUE179_RUNTIME_PROJECTION_V1.csv docs/issue179/runtime/ISSUE179_RUNTIME_PROJECTION_V1.csv
