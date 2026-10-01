@@ -559,6 +559,9 @@
             <TabItem Header="Prompt編集" Style="{StaticResource WorkspaceTabItem}">
                <views:PromptEditorView x:Name="PromptEditor" DataContext="{Binding Prompt}"/>
             </TabItem>
+            <TabItem Header="生成画像" Style="{StaticResource WorkspaceTabItem}">
+                <views:GenerationLibraryView x:Name="GenerationLibraryWorkspace" DataContext="{Binding GenerationLibrary}"/>
+            </TabItem>
         </TabControl>
     </DockPanel>
 </Window>

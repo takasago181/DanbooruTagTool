@@ -28,7 +28,14 @@ try {
  New-Item -ItemType Directory -Path (Join-Path $runtime 'UserData/nested') -Force|Out-Null;Set-Content (Join-Path $runtime 'UserData/nested/user.db') 'wrong path'
  Assert-Fails {& (Join-Path $PSScriptRoot 'check_runtime_shape.ps1') -RuntimeRoot $runtime -Mode Candidate | Out-Null} 'nested candidate UserData rejection'
  Remove-Item -LiteralPath (Join-Path $runtime 'UserData/nested/user.db') -Force;Remove-Item -LiteralPath (Join-Path $runtime 'UserData/nested') -Force
- $baseline=Join-Path $temp 'baseline.json';$userRoot=Join-Path $runtime 'UserData';$userFile=Join-Path $userRoot 'user.db';$baselineFiles=@(Get-ChildItem -LiteralPath $userRoot -File -Recurse|ForEach-Object {[pscustomobject]@{path=$_.FullName.Substring($userRoot.Length).TrimStart('\\');bytes=$_.Length;sha256=(Get-FileHash $_.FullName -Algorithm SHA256).Hash}});@{files=$baselineFiles}|ConvertTo-Json -Depth 4|Set-Content $baseline
+ Set-Content (Join-Path $runtime 'UserData/generation-library.db') 'library'
+ New-Item -ItemType Directory -Path (Join-Path $runtime 'UserData/Cache/GenerationThumbnails') -Force|Out-Null
+ $cacheFile=Join-Path $runtime ('UserData/Cache/GenerationThumbnails/'+('A'*64)+'.png');Set-Content $cacheFile 'reconstructible cache'
+ & (Join-Path $PSScriptRoot 'check_runtime_shape.ps1') -RuntimeRoot $runtime -Mode Candidate | Out-Null
+ $unexpectedCache=Join-Path $runtime 'UserData/Cache/GenerationThumbnails/unexpected.txt';Set-Content $unexpectedCache 'unexpected'
+ Assert-Fails {& (Join-Path $PSScriptRoot 'check_runtime_shape.ps1') -RuntimeRoot $runtime -Mode Candidate | Out-Null} 'unexpected thumbnail filename rejection'
+ Remove-Item -LiteralPath $unexpectedCache
+ $baseline=Join-Path $temp 'baseline.json';$userRoot=(Get-Item -LiteralPath (Join-Path $runtime 'UserData')).FullName;$userFile=Join-Path $userRoot 'user.db';$baselineFiles=@(Get-ChildItem -LiteralPath $userRoot -File -Recurse|ForEach-Object {[pscustomobject]@{path=$_.FullName.Substring($userRoot.Length).TrimStart('\\');bytes=$_.Length;sha256=(Get-FileHash $_.FullName -Algorithm SHA256).Hash}});@{files=$baselineFiles}|ConvertTo-Json -Depth 4|Set-Content $baseline
  & (Join-Path $PSScriptRoot 'check_runtime_shape.ps1') -RuntimeRoot $runtime -Mode Installed -UserDataBaseline $baseline | Out-Null
  Set-Content $userFile 'changed'
  Assert-Fails {& (Join-Path $PSScriptRoot 'check_runtime_shape.ps1') -RuntimeRoot $runtime -Mode Installed -UserDataBaseline $baseline | Out-Null} 'installed UserData baseline mismatch'

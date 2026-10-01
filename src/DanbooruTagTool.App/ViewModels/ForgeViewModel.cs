@@ -40,13 +40,21 @@ public sealed class ForgeViewModel : Observable
         return SendCoreAsync(preset, ForgeBridgeAction.SendAndGenerate, cancellationToken);
     }
     private async Task SendCoreAsync(GenerationPreset? preset, ForgeBridgeAction action, CancellationToken cancellationToken)
+        => await SendPayloadAsync(english(), preset?.Negative, preset == null ? ForgeNegativeMode.Unchanged : ForgeNegativeMode.Replace, action, cancellationToken);
+
+    // Image-library sends explicit Positive/Negative without mutating PromptWorkspace.
+    public Task SendImageAsync(GenerationPreset preset, CancellationToken cancellationToken = default)
+        => canMutate() ? SendPayloadAsync(preset.Positive, preset.Negative, ForgeNegativeMode.Replace, ForgeBridgeAction.SendOnly, cancellationToken) : Task.CompletedTask;
+    public Task GenerateImageAsync(GenerationPreset preset, CancellationToken cancellationToken = default)
+        => canMutate() ? SendPayloadAsync(preset.Positive, preset.Negative, ForgeNegativeMode.Replace, ForgeBridgeAction.SendAndGenerate, cancellationToken) : Task.CompletedTask;
+    private async Task SendPayloadAsync(string positive, string? negative, ForgeNegativeMode negativeMode, ForgeBridgeAction action, CancellationToken cancellationToken)
     {
         var result = await bridge.SendAsync(
             ForgeUrl,
             new ForgeBridgeSendRequest(
-                english(),
-                preset == null ? ForgeNegativeMode.Unchanged : ForgeNegativeMode.Replace,
-                preset?.Negative,
+                positive,
+                negativeMode,
+                negative,
                 action),
             cancellationToken);
         setStatus(result.Status);

@@ -17,6 +17,7 @@ public sealed class MainViewModel : Observable
     public PromptEditorViewModel Prompt { get; }
     public GenerationPresetsViewModel PresetEditor { get; }
     public GenerationImportViewModel GenerationImport { get; }
+    public GenerationLibraryViewModel? GenerationLibrary { get; }
     public ForgeViewModel Forge { get; }
     public UserStateCoordinator UserState { get; }
     private string status = "";
@@ -29,7 +30,7 @@ public sealed class MainViewModel : Observable
     public event Action<Guid>? ScrollToChip { add => Prompt.ScrollToChip += value; remove => Prompt.ScrollToChip -= value; }
 
     public MainViewModel(ICatalog catalog, IUserStateStore store, IClipboardService clipboard,
-        IGeneralBrowseProvider? general = null, IForgeBridgeClient? forgeBridge = null, SpecialBrowseV2Index? specialBrowse = null)
+        IGeneralBrowseProvider? general = null, IForgeBridgeClient? forgeBridge = null, SpecialBrowseV2Index? specialBrowse = null, PortablePaths? paths = null)
     {
         var runtime = RuntimeCatalogIndex.Create(catalog);
         Workspace = new(new PromptParser(runtime));
@@ -47,6 +48,11 @@ public sealed class MainViewModel : Observable
             PresetEditor.BeginNewPresetFromSnapshot(snapshot);
             PresetsRequested?.Invoke();
         });
+        if (paths is not null) GenerationLibrary = new(paths, Workspace, snapshot =>
+        {
+            PresetEditor.BeginNewPresetFromSnapshot(snapshot);
+            PresetsRequested?.Invoke();
+        }, Forge, canMutate);
         Prompt.Restore(UserState.Ui); Dictionary.Restore(UserState.Ui); Forge.Restore(UserState.Ui); PresetEditor.Restore(state);
         WireNotifications();
         Workspace.Changed += OnPromptChanged;
@@ -61,7 +67,7 @@ public sealed class MainViewModel : Observable
         Forge.PropertyChanged += (_, e) => Notify(e.PropertyName);
         PresetEditor.PropertyChanged += (_, e) => Notify(e.PropertyName);
     }
-    private void OnPromptChanged() { Prompt.RefreshFromWorkspace(); Dictionary.RefreshPromptState(); Persist(); }
+    private void OnPromptChanged() { Prompt.RefreshFromWorkspace(); Dictionary.RefreshPromptState(); GenerationLibrary?.RefreshCommands(); Persist(); }
     public void RefreshResults() => Dictionary.RefreshResults();
     public bool ImportGenerationPng(string path)
     {

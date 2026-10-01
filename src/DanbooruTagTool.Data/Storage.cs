@@ -9,6 +9,8 @@ public sealed record PortablePaths(string Root)
 {
     public string Catalog => Path.Combine(Root, "Data", "catalog.db");
     public string User => Path.Combine(Root, "UserData", "user.db");
+    public string GenerationLibrary => Path.Combine(Root, "UserData", "generation-library.db");
+    public string GenerationThumbnails => Path.Combine(Root, "UserData", "Cache", "GenerationThumbnails");
 }
 public sealed record UiState(int Workspace = 0, string Browse = "tags", string Query = "",
     string? SelectedEntry = null, double BrowseScroll = 0, double NavWidth = 300, double PromptWidth = 400,
