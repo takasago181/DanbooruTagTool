@@ -23,7 +23,7 @@ if($Mode -eq 'Candidate'){
     $thumbnail=$relative -match '^Cache\\GenerationThumbnails\\[A-F0-9]{64}(\.png|\.[a-f0-9]{32}\.tmp)$'
     -not ($known -or $migrationBackup -or $thumbnail)
   })
-  if($invalid.Count){throw 'Candidate UserData contains files outside the documented disposable shape.'}
+  if($invalid.Count){$invalidRelative=@($invalid | ForEach-Object {$_.FullName.Substring($user.Length).TrimStart('\\')});throw "Candidate UserData contains files outside the documented disposable shape: $($invalidRelative -join ', ')"}
 } elseif(-not $UserDataBaseline){throw 'Installed mode requires a complete UserData baseline.'}
 else {
   $baseline=Get-Content -LiteralPath $UserDataBaseline -Raw | ConvertFrom-Json
