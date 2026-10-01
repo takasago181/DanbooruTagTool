@@ -61,6 +61,19 @@ public class Issue216BrowseHomeTests
     }
 
     [Fact]
+    public void HomeStringsReuseCanonicalRootWithoutChangingProvenance()
+    {
+        var name = new string("work".ToCharArray());
+        var root = Root(name);
+        var character = Character("hero", reviewed: new string("work".ToCharArray()));
+        var catalog = new Catalog([character, root]);
+        var normalized = catalog.Resolve("hero")!;
+        Assert.Same(name, normalized.ReviewedBrowseHome);
+        Assert.Equal(character.BrowseHomeSource, normalized.BrowseHomeSource);
+        Assert.Equal(character.EffectiveBrowseHome, normalized.EffectiveBrowseHome);
+    }
+
+    [Fact]
     public void UnknownRootRejected()
         => Assert.Throws<ArgumentException>(() => new Catalog([Character("hero", reviewed: "absent")]));
 

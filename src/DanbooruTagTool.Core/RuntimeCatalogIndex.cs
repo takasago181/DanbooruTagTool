@@ -47,7 +47,21 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
 
     public RuntimeCatalogIndex(IReadOnlyList<CatalogEntry> entries)
     {
-        Entries = Freeze(entries);
+        // Persisted JSON repeats the same root name for thousands of Characters.
+        // Share existing canonical Copyright strings without changing identity.
+        var homeNames = entries.Where(e => e.EffectiveCategory == "Copyright" && e.Canonical is not null)
+            .Select(e => e.Canonical!).Distinct(StringComparer.Ordinal)
+            .ToDictionary(name => name, StringComparer.Ordinal);
+        Entries = Freeze(entries.Select(entry =>
+        {
+            if (entry.EffectiveCategory != "Character") return entry;
+            var formal = entry.FormalHomeCopyright is { } formalName
+                ? homeNames.GetValueOrDefault(formalName) ?? formalName : null;
+            var reviewed = entry.ReviewedBrowseHome is { } reviewedName
+                ? homeNames.GetValueOrDefault(reviewedName) ?? reviewedName : null;
+            return ReferenceEquals(formal, entry.FormalHomeCopyright) && ReferenceEquals(reviewed, entry.ReviewedBrowseHome)
+                ? entry : entry with { FormalHomeCopyright = formal, ReviewedBrowseHome = reviewed };
+        }));
 
         var id = new Dictionary<string, CatalogEntry>(StringComparer.Ordinal);
         var canonicalRows = new Dictionary<string, List<CatalogEntry>>(StringComparer.Ordinal);
