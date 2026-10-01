@@ -1,6 +1,6 @@
 # NOW — いま何をやっているか
 
-最終整理: 2026-10-01 JST (post-#180/#216 closeout + GitHub cleanup)
+最終整理: 2026-10-01 JST (#179 reviewed quality overlay deployed)
 
 このファイルは、GitHubを開いたときに**現在の主作業・進捗・次の行動**を人間がすぐ把握するためのdashboardです。
 
@@ -12,6 +12,12 @@
 
 ---
 
+## #179 reviewed display/search overlay — deployed
+
+PR #220/#221 merged and clean-published to the current runtime. Final changes: **1,215 rows**, **1,221 fields** (display **221**, search **1,000**); only Enterprise's one previously reviewed cleanup row was added during this continuation. Identity, Artist, Issue70 source, formal HOME and reviewed Browse fallback unchanged.
+
+Stage A **44,426** and Stage B **500/500** review paths validated. Display HOLD **17**, Stage B REVIEW subjects **373**, regex residuals **12** retained as overlapping review signals. Candidate and installed regressions each **252 PASS / 3 opt-in SKIP**; #179/#70/#216 composition **12 PASS**, Python #216/#180 **121 PASS**, CI and performance PASS. UserData byte-identical; saved 13-tag Prompt restored. See the #179 production checkpoint and LKG. This accepted overlay deployment is complete; no automatic further correction of ambiguous signals is authorized.
+
 ## Character / Copyright Browse — COMPLETE / production deployed
 
 Issue #180 (formal HOME authority rebuild) and Issue #216 (remaining coverage + reviewed Browse fallback) are **completed and closed**.
@@ -21,8 +27,8 @@ PR #219 production-closeout merge checkpoint:
 
 Current repository main is **live GitHub main**; do not treat the checkpoint SHA above as a permanently pinned HEAD.
 
-Current production runtime was built from:
-`cbfab29134ed41e15c25ba24e1426c8411d65207`
+Current production runtime includes #179 reviewed quality corrections and was built from:
+`a317efdc831b45b2a088fb9d4cdeb7873472253e`
 
 Production:
 - runtime: `C:\Codex\DanbooruTagTool-App`
@@ -34,13 +40,14 @@ Production:
 - precedence: **FORMAL_HOME -> REVIEWED_BROWSE_FALLBACK -> UNRESOLVED**
 - formal authority mutations: **0**
 - UserData before/after: byte-identical; saved **13-tag Prompt** retained
-- final candidate + installed catalog: **249 PASS / 3 explicit opt-in SKIP**
+- final candidate + installed catalog: **252 PASS / 3 explicit opt-in SKIP**
 - Python #216/#180 regression: **121 PASS**
 - CI / performance gates: **PASS**
 
 Exact current runtime hashes and validation evidence are authoritative in:
 - `docs/project/LAST_KNOWN_GOOD.json`
-- `docs/issue216/PRODUCTION_PROMOTION_2026-10-01.json`
+- `docs/issue179/PRODUCTION_CHECKPOINT_2026-10-01.json` (current release)
+- `docs/issue216/PRODUCTION_PROMOTION_2026-10-01.json` (previous HOME integration release)
 
 Known non-blocking limitation: automated Windows screenshot capture returns a white client area (also reproduced on the prior production runtime), so machine-captured final visual appearance is **NOT_VERIFIED**. Installed launch/title and saved Prompt accessibility passed.
 
@@ -147,7 +154,7 @@ mainへ反映済み:
 
 ---
 
-## 4. STANDBY — #179 Character/Copyright quality audit
+## 4. #179 — reviewed overlay deployed / residual review standby
 
 目的:
 - Character/Copyright identity
@@ -157,15 +164,17 @@ mainへ反映済み:
 
 状態:
 - Issue: **#179 OPEN**
-- research branch: `research/issue179-character-quality-audit` (evidence retained)
+- continuation branch: `audit/issue179-refresh-20261001` (all commits and evidence retained)
+- historical research branch: `research/issue179-character-quality-audit` (evidence only)
 - old Draft PR **#181 CLOSED** as a stale merge path
-- Stage A 44,426-row census evidence is retained
+- Stage A 44,426 validated; Stage B 500/500 review paths; accepted overlay deployed
 - Artist auditは対象外
 
 重要:
 - #179は#180/#216のHOME ownershipとは別テーマ
 - 再開時はold PRをmergeしない
-- live `main` からfresh branchを切り、Stage A evidenceをrevalidate/reuseする
+- existing continuation branch and accepted projection are the resume path; do not discard/restart completed audit work
+- residual REVIEW/HOLD is retained; formal #180/#216 authority and Issue70 source remain immutable
 
 
 ---

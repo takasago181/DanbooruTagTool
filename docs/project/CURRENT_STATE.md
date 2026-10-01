@@ -1,6 +1,6 @@
 # CURRENT STATE
 
-最終更新: 2026-10-01 (#179 continued audit / production integration Gate)
+最終更新: 2026-10-01 (#179 reviewed overlay deployed; REVIEW/HOLD retained)
 
 このファイルは **現在地だけ** を保持する人間向けsummary。
 過去のrouting/runtime/taxonomy/完了記録は `docs/project/CURRENT_STATE_HISTORY.md` に保存する。
@@ -36,15 +36,17 @@
   - production-size intent-first scenario regression coverage added
   - catalog/runtime/UserData remain unchanged from #199 production
 - **#179 — Character/Copyright quality audit**
-  - state: **final audit validated; user-authorized production integration pending CI / clean publish**
-  - active continuation branch: `audit/issue179-refresh-20261001`; PR #220
+  - state: **reviewed display/search overlay production-promoted; residual REVIEW/HOLD retained**
+  - retained continuation branch: `audit/issue179-refresh-20261001`; merged PR #220/#221
   - historical research branch: `research/issue179-character-quality-audit` (evidence only)
   - old Draft PR #181: **closed as stale merge path**
   - Stage A 44,426-row census evidence is retained
   - keep existing continuation commits/evidence; do not restart from main
   - accepted projection 1,215 rows / 1,221 field changes (display 221, search 1,000); display HOLD 17
   - audit checkpoint: `docs/issue179/FINAL_CHECKPOINT_2026-10-01.json`
-  - user authorized main merge, clean build and bounded production apply after all Gates; UserData protected
+  - clean main source `a317efdc831b45b2a088fb9d4cdeb7873472253e` promoted; installed 252 PASS / 3 opt-in SKIP; all CI PASS; UserData byte-identical
+  - production checkpoint: `docs/issue179/PRODUCTION_CHECKPOINT_2026-10-01.json`
+  - Stage B REVIEW subjects 373 and post-overlay regex residuals 12 retained; no forced corrections
   - scope: Character/Copyright identity・日本語display/search・ranking・2D scope品質
   - Artist監査は対象外
   - completed #180/#216 HOME authority is separate and must not be reopened by default
@@ -81,9 +83,9 @@
   - BODY: **247**
   - THEME: **108**
 - current Special authority: Issue #76 shallow kind/body/theme model
-- production LKG: `docs/project/LAST_KNOWN_GOOD.json` and `.md` (source main `cbfab29134ed41e15c25ba24e1426c8411d65207`)
+- production LKG: `docs/project/LAST_KNOWN_GOOD.json` and `.md` (source main `a317efdc831b45b2a088fb9d4cdeb7873472253e`)
 - runtime shape: 7 total files; single-file self-contained win-x64; root DLL 0; PDB 0; external catalog/UserData/ForgeBridge/manifest schema 3
-- current production EXE SHA256: `1CF2A2E4CA9924E9372F6CDD8FCFA8B45C47F96A48079BBAEE325BD8A0652313`; catalog SHA256 `72E81FF3123FF6872F4F7136C1EE19B9BC42BF58B5DC4CB96B49120893539A8C`
+- current production EXE SHA256: `E14C3DAD00034C5E19EBFB57245BB609889328E1DAEC3C0127751787134511F2`; catalog SHA256 `FF98CA4E952907B1A9021DA21CDB7DEE867A42DD1ABA1D47619BB901A7C462C5`
 - current UI mitigation authority: #177
   - Artist hidden
   - legacy RelatedCopyright remains excluded; #216 formal HOME / reviewed Browse fallback now powers Character-Copyright Browse/search
