@@ -90,7 +90,7 @@ public class Issue179QualityOverlayTests
         var root = FindRepoRoot();
         var projectionPath = Path.Combine(root, Issue179QualityOverlay.RelativePath);
         Assert.Equal(Issue179QualityOverlay.ExpectedSha256, AcceptedAssetImporter.Hash(projectionPath));
-        Assert.Equal(1180, AcceptedAssetImporter.Csv(projectionPath).Count);
+        Assert.Equal(Issue179QualityOverlay.ExpectedRows, AcceptedAssetImporter.Csv(projectionPath).Count);
     }
 
     private static string FindRepoRoot()
