@@ -53,7 +53,9 @@ public sealed class UserStateStore : IUserStateStore
     private SqliteConnection Open() { var c = new SqliteConnection(connectionString); c.Open(); return c; }
     public UserState? Load()
     {
-        using var c = Open(); using var cmd = c.CreateCommand(); cmd.CommandText = "SELECT version FROM user_state WHERE id=1";
+        using var c = Open(); using var cmd = c.CreateCommand(); cmd.CommandText = "PRAGMA user_version";
+        if (Convert.ToInt32(cmd.ExecuteScalar()) != SchemaVersion) throw new InvalidDataException("Unsupported UserData schema; load refused.");
+        cmd.CommandText = "SELECT version FROM user_state WHERE id=1";
         if (cmd.ExecuteScalar() is long version && version != SchemaVersion) throw new InvalidDataException("Unsupported UserData payload. No reset performed.");
         cmd.CommandText = "SELECT payload FROM user_state WHERE id=1 AND version=2";
         return cmd.ExecuteScalar() is string json ? JsonSerializer.Deserialize<UserState>(json) : null;

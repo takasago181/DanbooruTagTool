@@ -82,6 +82,12 @@ public sealed class Issue232PromptIntelligenceTests
         var json = "{\"Prompt\":{\"Items\":[{\"Id\":\"00000000-0000-0000-0000-000000000001\",\"Surface\":\"a\",\"Kind\":4},{\"Id\":\"00000000-0000-0000-0000-000000000002\",\"Surface\":\" b\",\"Kind\":4}]},\"Ui\":{}}";
         var state = JsonSerializer.Deserialize<UserState>(json)!; Assert.Equal("a, b", PromptParser.Serialize(state.Prompt.Items));
     }
+    [Fact] public void FutureSchemaWrittenAfterOpenRefusesLoadAndSaveWithoutWrites()
+    {
+        using var d = new TempDirectory(); var path = Path.Combine(d.Path, "user.db"); var store = new UserStateStore(path); var state = new UserState(Fixtures.Workspace().Snapshot(), new()); store.Save(state);
+        using (var c = new SqliteConnection("Data Source=" + path + ";Pooling=False")) { c.Open(); using var cmd = c.CreateCommand(); cmd.CommandText = "PRAGMA user_version=99"; cmd.ExecuteNonQuery(); }
+        var bytes = File.ReadAllBytes(path); Assert.Throws<InvalidDataException>(() => store.Load()); Assert.Throws<InvalidDataException>(() => store.Save(state)); Assert.Equal(bytes, File.ReadAllBytes(path));
+    }
     [Theory] [InlineData("http://example.com")] [InlineData("https://localhost")]
     [InlineData("http://127.0.0.1:7860/path")] [InlineData("http://u:p@localhost")]
     public async Task TokenCounterRejectsUnsafeUrlWithoutRequest(string url)

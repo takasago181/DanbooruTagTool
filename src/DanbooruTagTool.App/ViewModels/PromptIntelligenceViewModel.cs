@@ -28,7 +28,7 @@ public sealed class PromptIntelligenceViewModel(PromptWorkspace positive, Prompt
             var p = await counter.CountAsync(url, positiveText?.Invoke() ?? positive.English, false, steps); var n = await counter.CountAsync(url, negativeText?.Invoke() ?? negative.English, true, steps);
             if (version != revision || url != forgeUrl() || steps != Steps) { TokenStatus = "照会中にPrompt/URL/Stepsが変わりました。件数を採用せず再照会してください。"; return; }
             if (p.Available && n.Available && (p.Model != n.Model || p.ModelHash != n.ModelHash || p.Engine != n.Engine || p.Tokenizer != n.Tokenizer)) { TokenStatus = "照会中のモデル/tokenizer変更。両側の件数を採用しません。"; return; }
-            TokenStatus = Describe("Positive", p) + "\n" + Describe("Negative", n);
+            TokenStatus = $"照会時 {DateTime.Now:yyyy-MM-dd HH:mm:ss} / {url} / Steps {steps}\n" + Describe("Positive", p) + "\n" + Describe("Negative", n);
         }
         finally { Busy = false; }
     }
