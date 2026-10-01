@@ -47,6 +47,9 @@ jobs:
       - name: Build deterministic runtime correction projection
         run: python scripts/issue179/build_runtime_projection.py
 
+      - name: Audit post-overlay runtime residuals
+        run: python scripts/issue179/audit_post_overlay_runtime.py
+
       - name: Validate Stage B review ledgers
         run: python scripts/issue179/validate_stage_b_reviews.py
 
@@ -111,6 +114,12 @@ jobs:
         with:
           name: issue179-stage-b-completion
           path: artifacts/issue179-stage-b-completion/
+          if-no-files-found: error
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: issue179-post-overlay-audit
+          path: artifacts/issue179-post-overlay-audit/
           if-no-files-found: error
 
       - uses: actions/upload-artifact@v4
