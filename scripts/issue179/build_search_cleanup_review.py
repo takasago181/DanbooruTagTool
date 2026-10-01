@@ -14,7 +14,7 @@ OUT_CSV = OUT / "SEARCH_CLEANUP_CANDIDATES_V1.csv"
 # non-identity/fandom pattern. This script only proposes removals; it does not
 # modify Issue70 source data or production.
 EXACT_REMOVE = {
-    "ミクの日", "初音ミクイラスト", "ぼ喜多", "絵フブキ", "ドラゴンボールイラスト", "毎月七日はルーミアの日", "カリイラスト", "絵ニックス", "海未の日", "絵ンジュ", "るしあ大好きだよ", "絵クロマンサー", "ポルカおるか", "絵まる", "スイレンちゃんの日", "8月7日は八千慧の日", "エンイラ(アズールレーン)", "シャワーズの日", "イラストリアス", "絵リーラ", "ミズゴロウの日", "絵こころ", "チルタリスの日", "絵画コウ", "ヌオーの日", "絵ーちゃん", "オタチの日", "絵画らしぃ", "絵描キキ", "絵ッチグサ", "絵ーじぇんと", "ブルアカイラスト部", "ガルパンイラスト再投稿企画", "ガルパンクリスマスイラスト投稿企画", "ガルパンバレンタインイラスト投稿企画", "ガルパン最終章カウントダウンイラスト投稿企画", "FF14イラスト", "真夏の夜のクッキー迫真お絵描き", "協奏中応援イラスト", "フラワーナイトガールイラスト", "フォトナ美術部", "フォートナイトイラスト", "三国志大戦TCGカードイラストコンテスト",
+    "ミクの日", "初音ミクイラスト", "ぼ喜多", "絵フブキ", "ドラゴンボールイラスト", "毎月七日はルーミアの日", "カリイラスト", "絵ニックス", "海未の日", "絵ンジュ", "るしあ大好きだよ", "絵クロマンサー", "ポルカおるか", "絵まる", "スイレンちゃんの日", "8月7日は八千慧の日", "エンイラ(アズールレーン)", "シャワーズの日", "絵リーラ", "ミズゴロウの日", "絵こころ", "チルタリスの日", "絵画コウ", "ヌオーの日", "絵ーちゃん", "オタチの日", "絵画らしぃ", "絵描キキ", "絵ッチグサ", "絵ーじぇんと", "ブルアカイラスト部", "ガルパンイラスト再投稿企画", "ガルパンクリスマスイラスト投稿企画", "ガルパンバレンタインイラスト投稿企画", "ガルパン最終章カウントダウンイラスト投稿企画", "FF14イラスト", "真夏の夜のクッキー迫真お絵描き", "協奏中応援イラスト", "フラワーナイトガールイラスト", "フォトナ美術部", "フォートナイトイラスト", "三国志大戦TCGカードイラストコンテスト",
     "腐レイバーン", "ス腐ラトゥーン", "VOICEROIDドット絵部", "コッショリ",
     "異端なるセイレム", "アビラヴィ", "おかころ", "絵かゆ", "エロおにぎり",
     "エンイラ", "性癖を露見・共有するための道具", "ぼっち・ざ・けいおん!",
@@ -47,6 +47,11 @@ EXACT_REMOVE = {
     "ケムリクサファンアート", "星界ファンアート", "産子ギャルファンアート",
 }
 
+# Row-scoped removals avoid deleting a surface that is a valid identity for another row.
+ROW_EXACT_REMOVE = {
+    "I70-001111": {"イラストリアス"},
+}
+
 # These hit crude regexes but are identity/title terms. Explicitly protect them.
 PROTECTED = {
     "腐敗の女神マレニア", "腐敗の女神、マレニア",
@@ -76,9 +81,11 @@ def norm(value: str) -> str:
 def split_pipe(value: str) -> list[str]:
     return [x.strip() for x in (value or "").split("|") if x.strip()]
 
-def should_remove(term: str) -> bool:
+def should_remove(term: str, row_id: str) -> bool:
     if term in PROTECTED:
         return False
+    if term in ROW_EXACT_REMOVE.get(row_id, set()):
+        return True
     if term in EXACT_REMOVE:
         return True
     return any(p.search(term) for p in SAFE_PATTERNS)
@@ -89,7 +96,7 @@ def main() -> None:
     with SOURCE.open("r", encoding="utf-8-sig", newline="") as fh:
         for src in csv.DictReader(fh):
             terms = split_pipe(src.get("search_ja", ""))
-            noise_removed = [t for t in terms if should_remove(t)]
+            noise_removed = [t for t in terms if should_remove(t, src["row_id"])]
             after_noise = [t for t in terms if t not in noise_removed]
 
             # SearchEngine.Normalize collapses Unicode width, case and
