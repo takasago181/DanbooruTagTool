@@ -9,7 +9,7 @@ SOURCE = ROOT / "docs/issue70/data/runtime/issue70_catalog_overlay_2d_final.csv"
 OUT = ROOT / "artifacts/issue179-search-cleanup"
 OUT_CSV = OUT / "SEARCH_CLEANUP_CANDIDATES_V1.csv"
 
-# Confirmed by the retained B001/B002 semantic review or by an unambiguous
+# Confirmed by retained B001/B002 review, then second-reviewed on 2026-10-01, or by an unambiguous
 # non-identity/fandom pattern. This script only proposes removals; it does not
 # modify Issue70 source data or production.
 EXACT_REMOVE = {
@@ -97,7 +97,7 @@ def main() -> None:
                 "proposed_search_ja": " | ".join(kept),
                 "removed_terms": " | ".join(removed),
                 "reason": "CONFIRMED_NON_IDENTITY_OR_FANDOM_SEARCH_TERM",
-                "review_state": "PROPOSED_SECOND_REVIEW",
+                "review_state": "SECOND_REVIEW_ACCEPTED",
             })
 
     rows.sort(key=lambda r: (-int(r["post_count"]), r["canonical_tag"]))
