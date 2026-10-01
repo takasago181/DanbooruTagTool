@@ -1,6 +1,6 @@
 # NOW — いま何をやっているか
 
-最終整理: 2026-10-01 JST (#179 reviewed quality overlay deployed)
+最終整理: 2026-10-01 JST (#223 Browse Groups deployed)
 
 このファイルは、GitHubを開いたときに**現在の主作業・進捗・次の行動**を人間がすぐ把握するためのdashboardです。
 
@@ -11,6 +11,16 @@
 固定件数・固定HEADはsnapshotです。実作業前にはliveを再取得してください。
 
 ---
+
+## #223 Browse Groups — COMPLETE / production deployed
+
+PR #224 merged and clean-published from main `bbbd6cac7368edab9d6faf096070ec77452cc49b`. Production apply is complete.
+7 HOME / 64 display-only groups / 2,467 grouped Characters / 2,072 other-unclassified / 21 HOLD (included in unclassified).
+Character 35,278 / Copyright 7,616 and formal/fallback/unresolved 25,533 / 7,409 / 2,336 unchanged. #70 source, #179 overlay and HOME authority unchanged.
+Candidate 260 PASS / 2 SKIP; installed 259 PASS / 3 SKIP; Python 124 PASS; performance and CI PASS. UserData byte-identical; saved 13-tag Prompt restored.
+Runtime hashes and exact evidence: `docs/project/LAST_KNOWN_GOOD.json`, `docs/issue223/PRODUCTION_CHECKPOINT_2026-10-01.json`.
+Native screenshot appearance and a different-PC launch remain NOT_VERIFIED; actual WPF render and installed launch/accessibility passed.
+No default further classification: ambiguous HOLD and unclassified remain preserved; reopen only for a concrete regression or new approved scope.
 
 ## #179 reviewed display/search overlay — deployed
 
@@ -27,8 +37,8 @@ PR #219 production-closeout merge checkpoint:
 
 Current repository main is **live GitHub main**; do not treat the checkpoint SHA above as a permanently pinned HEAD.
 
-Current production runtime includes #179 reviewed quality corrections and was built from:
-`a317efdc831b45b2a088fb9d4cdeb7873472253e`
+Current production runtime includes #179 reviewed quality corrections and #223 Browse Groups and was built from:
+`bbbd6cac7368edab9d6faf096070ec77452cc49b`
 
 Production:
 - runtime: `C:\Codex\DanbooruTagTool-App`
@@ -40,13 +50,14 @@ Production:
 - precedence: **FORMAL_HOME -> REVIEWED_BROWSE_FALLBACK -> UNRESOLVED**
 - formal authority mutations: **0**
 - UserData before/after: byte-identical; saved **13-tag Prompt** retained
-- final candidate + installed catalog: **252 PASS / 3 explicit opt-in SKIP**
-- Python #216/#180 regression: **121 PASS**
+- final installed catalog: **259 PASS / 3 explicit opt-in SKIP**; candidate **260 PASS / 2 SKIP**
+- Python #223/#216/#180 regression: **124 PASS**
 - CI / performance gates: **PASS**
 
 Exact current runtime hashes and validation evidence are authoritative in:
 - `docs/project/LAST_KNOWN_GOOD.json`
-- `docs/issue179/PRODUCTION_CHECKPOINT_2026-10-01.json` (current release)
+- `docs/issue223/PRODUCTION_CHECKPOINT_2026-10-01.json` (current release)
+- `docs/issue179/PRODUCTION_CHECKPOINT_2026-10-01.json` (previous reviewed overlay release)
 - `docs/issue216/PRODUCTION_PROMOTION_2026-10-01.json` (previous HOME integration release)
 
 Known non-blocking limitation: automated Windows screenshot capture returns a white client area (also reproduced on the prior production runtime), so machine-captured final visual appearance is **NOT_VERIFIED**. Installed launch/title and saved Prompt accessibility passed.
@@ -196,10 +207,10 @@ mainへ反映済み:
 - self-contained `win-x64`
 - real `UserData` はuser-owned protected state
 - current repository main: use live `main` (dashboard does not pin a self-invalidating HEAD)
-- production binary source main: `cbfab29134ed41e15c25ba24e1426c8411d65207`
-- current production EXE SHA256: `1CF2A2E4CA9924E9372F6CDD8FCFA8B45C47F96A48079BBAEE325BD8A0652313`
-- catalog SHA256: `72E81FF3123FF6872F4F7136C1EE19B9BC42BF58B5DC4CB96B49120893539A8C`
-- runtime manifest SHA256: `83ACA3FDB3E9CFA00B1D38505EF269B9285DE213741A2072021EB2C4109E6CCF`
+- production binary source main: `bbbd6cac7368edab9d6faf096070ec77452cc49b`
+- current production EXE SHA256: `A65D3056E0BFDD177E1D37B1A4CD9C9FF2FD208725D1311005389E9E7027E21E`
+- catalog SHA256: `D91A68186661127F16E2AE102B4DD9F3A96EAE578B3C989A8B4F17169639FC6F`
+- runtime manifest SHA256: `805FDC0EFCDC044F776F1DB0D83699C248C797192808E35BAADC912A40E7DE05`
 - exact runtime authority: `docs/project/LAST_KNOWN_GOOD.json`
 
 

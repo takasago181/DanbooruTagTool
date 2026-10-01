@@ -1,0 +1,113 @@
+{
+  "measurementCondition": "Both catalog files were read into the OS file cache before timed open/load; managed GC was forced before each side.",
+  "measurementRunsPerSide": 3,
+  "executionOrder": "baseline/candidate, candidate/baseline, baseline/candidate",
+  "fullCatalogBuildMs": {
+    "baseline": null,
+    "candidate": null
+  },
+  "baseline": {
+    "DatabasePath": null,
+    "CatalogDbBytes": 148664320,
+    "CatalogEntryCount": 124895,
+    "CatalogOpenMs": 2687.0479,
+    "UnifiedBrowseIndexBuildMs": 170.1384,
+    "UnifiedBrowseIndexAllocatedBytes": 78308680,
+    "UnifiedBrowseIndexRetainedBytes": 22410560,
+    "CombinedRetainedManagedBytes": 203323992,
+    "QueryMedianMs": {
+      "SearchEnglish": 127.3838,
+      "SearchJapanese": 74.2144,
+      "SearchMixed": 116.5212,
+      "FilterSearchHits": 0.0124,
+      "BrowseNeutral": 2.1143,
+      "BrowseLargeRoute": 0.7889,
+      "BrowseBodyFacet": 1.2367,
+      "BrowseThemeFacet": 2.0361,
+      "BrowseSexualBodyTheme": 1.301,
+      "BrowseGeneralPurposeBodyTheme": 1.2222
+    }
+  },
+  "candidate": {
+    "DatabasePath": null,
+    "CatalogDbBytes": 149344256,
+    "CatalogEntryCount": 124895,
+    "CatalogOpenMs": 2559.9249,
+    "UnifiedBrowseIndexBuildMs": 152.3844,
+    "UnifiedBrowseIndexAllocatedBytes": 78570848,
+    "UnifiedBrowseIndexRetainedBytes": 22541232,
+    "CombinedRetainedManagedBytes": 203653992,
+    "QueryMedianMs": {
+      "SearchEnglish": 106.2875,
+      "SearchJapanese": 68.3685,
+      "SearchMixed": 112.5619,
+      "FilterSearchHits": 0.0128,
+      "BrowseNeutral": 1.741,
+      "BrowseLargeRoute": 0.7215,
+      "BrowseBodyFacet": 1.2232,
+      "BrowseThemeFacet": 1.7959,
+      "BrowseSexualBodyTheme": 1.0286,
+      "BrowseGeneralPurposeBodyTheme": 1.2255
+    }
+  },
+  "catalogDbBytesDelta": 679936,
+  "comparisons": {
+    "SearchBlocked": false,
+    "FilterSearchHitsBlocked": false,
+    "BrowseBlocked": false,
+    "ManagedMemoryBlocked": false,
+    "CombinedRetainedMemoryDeltaBytes": 330000,
+    "QueryDeltas": {
+      "SearchEnglish": {
+        "BaselineMedianMs": 127.3838,
+        "CandidateMedianMs": 106.2875,
+        "PercentIncrease": -16.561211080215852
+      },
+      "SearchJapanese": {
+        "BaselineMedianMs": 74.2144,
+        "CandidateMedianMs": 68.3685,
+        "PercentIncrease": -7.877042730251811
+      },
+      "SearchMixed": {
+        "BaselineMedianMs": 116.5212,
+        "CandidateMedianMs": 112.5619,
+        "PercentIncrease": -3.3979224381485937
+      },
+      "FilterSearchHits": {
+        "BaselineMedianMs": 0.0124,
+        "CandidateMedianMs": 0.0128,
+        "PercentIncrease": 3.2258064516129115
+      },
+      "BrowseNeutral": {
+        "BaselineMedianMs": 2.1143,
+        "CandidateMedianMs": 1.741,
+        "PercentIncrease": -17.655961784042
+      },
+      "BrowseLargeRoute": {
+        "BaselineMedianMs": 0.7889,
+        "CandidateMedianMs": 0.7215,
+        "PercentIncrease": -8.543541640258589
+      },
+      "BrowseBodyFacet": {
+        "BaselineMedianMs": 1.2367,
+        "CandidateMedianMs": 1.2232,
+        "PercentIncrease": -1.0916147812727297
+      },
+      "BrowseThemeFacet": {
+        "BaselineMedianMs": 2.0361,
+        "CandidateMedianMs": 1.7959,
+        "PercentIncrease": -11.797063012622159
+      },
+      "BrowseSexualBodyTheme": {
+        "BaselineMedianMs": 1.301,
+        "CandidateMedianMs": 1.0286,
+        "PercentIncrease": -20.93774019984627
+      },
+      "BrowseGeneralPurposeBodyTheme": {
+        "BaselineMedianMs": 1.2222,
+        "CandidateMedianMs": 1.2255,
+        "PercentIncrease": 0.27000490918017356
+      }
+    }
+  }
+}

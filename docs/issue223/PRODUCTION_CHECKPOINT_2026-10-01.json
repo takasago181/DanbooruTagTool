@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "captured_utc": "2026-10-01T11:36:57.485308+00:00",
+  "runtime_source_main": "bbbd6cac7368edab9d6faf096070ec77452cc49b",
+  "merged_pull_requests": [
+    224
+  ],
+  "production": {
+    "ok": true,
+    "production_root": "C:\\Codex\\DanbooruTagTool-App",
+    "exe_sha256": "A65D3056E0BFDD177E1D37B1A4CD9C9FF2FD208725D1311005389E9E7027E21E",
+    "catalog_sha256": "D91A68186661127F16E2AE102B4DD9F3A96EAE578B3C989A8B4F17169639FC6F",
+    "manifest_sha256": "805FDC0EFCDC044F776F1DB0D83699C248C797192808E35BAADC912A40E7DE05",
+    "userdata_byte_identical": true,
+    "managed_paths": [
+      "DanbooruTagTool.exe",
+      "runtime-manifest.json",
+      "Data/catalog.db",
+      "ForgeBridge/javascript/dtt_bridge.js",
+      "ForgeBridge/scripts/dtt_bridge.py"
+    ]
+  },
+  "browse_groups": {
+    "home_count": 7,
+    "group_count": 64,
+    "grouped_characters": 2467,
+    "selected_home_unclassified": 2072,
+    "hold_count": 21
+  },
+  "catalog_diff": {
+    "verdict": "PASS",
+    "total": 124895,
+    "counts": {
+      "General": 30629,
+      "Special": 3059,
+      "Character": 35278,
+      "FORMAL_HOME": 25533,
+      "REVIEWED_BROWSE_FALLBACK": 7409,
+      "UNRESOLVED": 2336,
+      "Copyright": 7616,
+      "Artist": 48313
+    },
+    "grouped_by_home": {
+      "fate_(series)": 598,
+      "pokemon": 1022,
+      "final_fantasy": 34,
+      "jojo_no_kimyou_na_bouken": 162,
+      "fire_emblem": 418,
+      "gundam": 102,
+      "project_moon": 131
+    },
+    "grouped": 2467,
+    "non_group_field_changes": 0,
+    "identity_order_changes": 0,
+    "home_authority_sha256": "f6df6fe6d5c0341c968a7efbe76bbbdbf588cf4f051bfda88667d583a2320fa5",
+    "baseline_catalog_sha256": "ff98ca4e952907b1a9021da21cdb7dee867a42dd1aba1d47619bb901a7c462c5",
+    "candidate_catalog_sha256": "d91a68186661127f16e2ae102b4dd9f3a96eae578b3c989a8b4f17169639fc6f"
+  },
+  "performance": {
+    "verdict": "PASS",
+    "report": "validation/production-performance.json"
+  },
+  "validation": {
+    "candidate_release": {
+      "passed": 260,
+      "failed": 0,
+      "skipped": 2,
+      "total": 262
+    },
+    "installed_release": {
+      "passed": 259,
+      "failed": 0,
+      "skipped": 3,
+      "total": 262
+    },
+    "python": {
+      "passed": 124,
+      "failed": 0
+    },
+    "isolated_smoke": "PASS",
+    "installed_smoke": "PASS",
+    "shape_manifest_userdata_health": "PASS",
+    "saved_prompt_restored_count": 13,
+    "userdata_byte_identical_after_read_only_startup": true,
+    "ci": "PR #224 all 9 checks PASS",
+    "native_visual": "NOT_VERIFIED: existing white capture / unavailable coordinate geometry",
+    "wpf_render": "PASS: actual MainWindow 1200/1500 widths; committed validation PNGs",
+    "different_pc": "NOT_VERIFIED"
+  },
+  "protected": {
+    "issue70_source": "UNCHANGED",
+    "issue179_overlay": "UNCHANGED",
+    "home_authority": "UNCHANGED",
+    "legacy_data_move_delete": false
+  },
+  "userdata_baseline": {
+    "files": [
+      {
+        "path": "README.txt",
+        "bytes": 108,
+        "sha256": "B6A25CC3334885F0249D7AF6B1D2954C4B778B79D9C322C13D4F24F262F6B28E"
+      },
+      {
+        "path": "user.db",
+        "bytes": 24576,
+        "sha256": "3664C3A84A97E45EB067A1EE6949864227139077107126631A606E8DD63AAF73"
+      }
+    ]
+  },
+  "previous_production": {
+    "source_main_commit": "a317efdc831b45b2a088fb9d4cdeb7873472253e",
+    "hashes": {
+      "exe_sha256": "E14C3DAD00034C5E19EBFB57245BB609889328E1DAEC3C0127751787134511F2",
+      "catalog_sha256": "FF98CA4E952907B1A9021DA21CDB7DEE867A42DD1ABA1D47619BB901A7C462C5",
+      "runtime_manifest_sha256": "CFDE7116F32EB0DCB91CF52619FA4CBA65B133D359F741780AD9273E09B60B0A"
+    }
+  }
+}
