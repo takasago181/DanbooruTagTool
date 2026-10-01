@@ -21,3 +21,8 @@ src/DanbooruTagTool.Data/UnifiedBrowseData/*.csv text eol=lf
 # Issue #179 reviewed runtime projection is byte-hashed during catalog builds.
 docs/issue179/runtime/*.csv text eol=lf
 docs/issue179/runtime/*.json text eol=lf
+
+# Issue #223 frozen assets are byte-hashed; snapshots preserve original bytes.
+docs/issue223/*.csv text eol=lf
+docs/issue223/MANIFEST_V1.json text eol=lf
+docs/issue223/snapshots/*.json -text
