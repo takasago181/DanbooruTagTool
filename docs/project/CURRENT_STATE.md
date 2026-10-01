@@ -1,6 +1,6 @@
 # CURRENT STATE
 
-最終更新: 2026-10-01 (post-#216 production promotion)
+最終更新: 2026-10-01 (#180/#216/#188 closeout; #179 standby)
 
 このファイルは **現在地だけ** を保持する人間向けsummary。
 過去のrouting/runtime/taxonomy/完了記録は `docs/project/CURRENT_STATE_HISTORY.md` に保存する。
@@ -36,38 +36,29 @@
   - production-size intent-first scenario regression coverage added
   - catalog/runtime/UserData remain unchanged from #199 production
 - **#179 — Character/Copyright quality audit**
-  - branch: `research/issue179-character-quality-audit`
-  - state: standby / draft research retained
-  - Character/Copyright identity・日本語display/search・ranking・2D scope品質監査
+  - state: **standby / next product-quality lane**
+  - retained research branch: `research/issue179-character-quality-audit`
+  - old Draft PR #181: **closed as stale merge path**
+  - Stage A 44,426-row census evidence is retained
+  - resume from a fresh branch off live `main`; revalidate/reuse Stage A evidence
+  - scope: Character/Copyright identity・日本語display/search・ranking・2D scope品質
   - Artist監査は対象外
-  - #132/#180とdata/branch/semantic decisionsを混ぜない
+  - completed #180/#216 HOME authority is separate and must not be reopened by default
 
-- **#180 — Character -> HOME Copyright reconstruction**
-  - branch: `research/issue180-single-home-pilot`
-  - state: active research
-  - high-precision authorityからsingle canonical HOME Copyright関係を再構築
-  - research-only。main merge / production applyは別Gate
-  - HEAD / progressはlive branch/Issueから再取得する
-
-- **#216 — Completed HOME coverage / reviewed Browse HOME runtime integration**
-  - branch: `codex/issue216-unresolved-coverage-7073`
-  - formal frozen cohort completed: 13,983 accounted; UNRESEARCHED=0
-  - reviewed Browse overlay completed; runtime fallback projection adds 7,409 product-catalog Characters
-  - user explicitly authorized main merge, clean publish, bounded production promotion, and workstation final validation on 2026-10-01
-  - formal #180/#216 HOME remains immutable and has priority; reviewed fallback is Browse/search only
-  - state: production-promoted through PR #217/#218 from main `cbfab29134ed41e15c25ba24e1426c8411d65207`
-  - installed regression 249 PASS / 3 opt-in SKIP; isolated performance and main CI PASS; UserData byte-identical
-  - final installed launch and saved Prompt accessibility PASS; visual screenshot confirmation remains unavailable
-  - immutable result: `docs/issue216/PRODUCTION_PROMOTION_2026-10-01.json`
+- **#180 / #216 — Character -> HOME Copyright**
+  - state: **complete / closed / production-promoted**
+  - formal HOME authority + reviewed Browse fallback integrated
+  - production fallback: 7,409 Characters
+  - unresolved in runtime: 2,336
+  - immutable production result: `docs/issue216/PRODUCTION_PROMOTION_2026-10-01.json`
+  - research branches/ledgers remain provenance only
 
 - **#188 — Project-wide execution efficiency**
-  - branch: Issue単位の小さいDEV branch/PRで実施
-  - state: active; next 10 actual #180 worker/coordinator runs must record telemetry, followed by a duration/orchestration summary and a disposition of the current state/progress/cache lint warning
-  - scope: cold/warm resume分離、compact routing、immutable-evidence-first progress、large-source transport、CI tiering、efficiency lint
-  - #132/#179/#180のsemantic authorityを奪わず、active researchを止めない
-
-- **#179 — Character/Copyright quality audit**: standby/draft evidence retained; no local worktree is registered; remote branch and draft PR #181 remain.
-- **#180 — Character -> HOME Copyright reconstruction**: active research; PR #182 and worker branches remain live; local research worktrees/evidence are retained.
+  - state: **complete / closed**
+  - cold/warm resume separation, compact routing, immutable-evidence-first progress, transport/CI efficiency and canonical promotion pipeline are in place
+  - stale current-authority references to active #180 / next-10-run waiting condition were removed during final cleanup
+  - historical progress/status files remain evidence/cache only and do not override immutable results
+  - reopen only for a concrete new execution-overhead defect
 - **#52 / #138 / #203 / #210 / #211 — maintenance**: complete and closed after #210 promotion and #211 hygiene finalization. PR #205 was superseded and closed without merge; PR #212 supplied the current pipeline.
 
 ## 2. Current product/runtime baseline
