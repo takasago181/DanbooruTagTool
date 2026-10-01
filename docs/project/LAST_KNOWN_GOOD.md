@@ -1,37 +1,36 @@
-# Last Known Good production baseline
+# Last Known Good deployed runtime snapshot
 
-Captured after Issue #210 promotion on 2026-09-27. This is a comparison/rollback snapshot, not a permanent semantic validator or fixed future row-count requirement. Machine-readable record: `LAST_KNOWN_GOOD.json`.
+Captured after user-authorized Issue #216 promotion on 2026-10-01. Machine-readable hashes and prior rollback baseline: `LAST_KNOWN_GOOD.json`. This is a deployed operational snapshot; visual appearance was not verified because Windows capture returned a white client area on both the prior runtime and new candidates.
 
 ## Source and runtime
 
-- Live main: `a90f5b652d4239709005d020417a236ea9d97ebb` (merged PR #212)
-- Production: `C:\Codex\DanbooruTagTool-App`
-- Release, self-contained `win-x64`, single-file, native libraries self-extract, trimming disabled, debug symbols/type disabled.
-- Manifest schema 3; app version `1.0.0+a90f5b652d4239709005d020417a236ea9d97ebb`.
-- Runtime files: 7 total, 5 managed payload files excluding UserData, 306,863,892 bytes; root DLL 0; PDB 0.
-- Layout: EXE + manifest + external `Data/`, `UserData/`, and `ForgeBridge/`.
+- Runtime source main: `cbfab29134ed41e15c25ba24e1426c8411d65207` (PR #217/#218).
+- Production: `C:\Codex\DanbooruTagTool-App`.
+- Clean Release, self-contained win-x64, single-file; native extraction; no trimming or debug symbols.
+- Manifest schema 3; 7 total files, 5 managed payload files, 324,577,163 bytes; DLL/PDB 0.
+- Later documentation commits do not change this release's recorded build source.
 
 | Artifact | SHA256 |
-|---|---|
-| EXE | `479EEA2755E2C5707E0F04910D9A9C2EEE30A31DC175EE78ED36685B124FB64A` |
-| Catalog | `5759156FF79D794DDC70DD5459AF9B80F8CB204C4527BE16FD368FF40BE9F141` |
-| Runtime manifest | `E41F04158E57AE2300371B0050CBCFF337BC908F67EE0CD67D9DB3210C8EFC21` |
+| --- | --- |
+| EXE | `1CF2A2E4CA9924E9372F6CDD8FCFA8B45C47F96A48079BBAEE325BD8A0652313` |
+| Catalog | `72E81FF3123FF6872F4F7136C1EE19B9BC42BF58B5DC4CB96B49120893539A8C` |
+| Manifest | `83ACA3FDB3E9CFA00B1D38505EF269B9285DE213741A2072021EB2C4109E6CCF` |
 
-## Catalog and validators
+## Catalog and protected state
 
-- 124,895 rows: Artist 48,313; Character 35,278; Copyright 7,616; General 30,629; Special 3,059.
-- SQLite integrity and quick checks: `ok`.
-- Structural validator `dtt.catalog-structural-health` v2.0.0; semantic/source contract `dtt.production-source-contract` v2.0.0.
-- Key owner baselines: #118 Sexual Intent v2; #132 31,003 ordinary identities; #199 346 General identities / 355 assignments; #201 intent-first scenario QA; #204 live filter refresh/fixed-row layout.
+124,895 entries: Character 35,278; Copyright 7,616; Artist 48,313; General 30,629; Special 3,059. Identities and non-HOME payloads changed 0. Formal HOME 25,533; additional reviewed Browse fallback 7,409; no usable HOME 2,336. Formal authority decisions changed 0; missing runtime roots 0.
 
-## Validation and UserData
+UserData was excluded from managed copy and remained byte-identical across promotion and final read-only workstation startup. The saved 13-tag Prompt restored. README.txt (108 bytes) and user.db (24,576 bytes) exact hashes remain in JSON. ForgeBridge hashes are unchanged. Protected source/artifact files were not moved or deleted.
 
-- Release: 242 passed / 4 explicit opt-in skips when protected roots and candidate were supplied. Default suite: 227 passed / 19 skipped; see `RELEASE_TEST_SKIP_INVENTORY.json`.
-- #199 performance gate passed; no search, Browse, or managed-memory blocker; retained managed memory delta 0 bytes.
-- Isolated WPF launch/catalog startup and disposable UserData health passed. Installed WPF launch/title and post-promotion shape/catalog/manifest checks passed.
-- ForgeBridge file hashes and Forge regression tests passed.
-- Real UserData was not copied or embedded. The same two files remained byte-identical across promotion: `README.txt` 108 bytes, `user.db` 24,576 bytes. Their exact SHA256 inventory is recorded in the JSON snapshot.
+## Validation and limitation
 
-## Canonical maintenance path
+- Python #216/#180: 121 PASS.
+- Standard Windows: 233 PASS / 19 opt-in SKIP / 252 total.
+- Final candidate and installed catalog independently: 249 PASS / 3 opt-in SKIP / 252 total.
+- Dedicated final #199 performance: PASS; retained managed delta 518,392 bytes; all blocker flags false.
+- Main CI run 36831518328: PASS.
+- Publisher source contract, SQLite integrity/quick checks, manifest, shape, disposable and real UserData health, installed WPF launch/title: PASS.
+- Installed saved Prompt verified through accessibility. Candidate formal/fallback Browse paths checked through accessibility and WPF tests.
+- Visual UI appearance: NOT VERIFIED. White screenshot capture also affected the pre-existing runtime; later coordinate input reported geometry unavailable. No rendering configuration was changed.
 
-Use `scripts/maintenance/publish_portable_runtime.ps1` -> `smoke_candidate_runtime.ps1` -> `check_runtime_shape.ps1` / `validate_runtime_manifest.ps1` -> `promote_portable_runtime.ps1`. See `docs/maintenance/PORTABLE_RUNTIME_PIPELINE.md`. Structural, production source-integrity, and UserData validators are separate authorities.
+Exact results: `docs/issue216/PRODUCTION_PROMOTION_2026-10-01.json`. Canonical deployment path: `scripts/maintenance/publish_portable_runtime.ps1` -> candidate smoke/shape -> `promote_portable_runtime.ps1`. Remaining verification is a human visual check; deployment and regression work is complete.

@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "captured_utc": "2026-10-01T07:49:20.845699+00:00",
+  "runtime_source_main": "cbfab29134ed41e15c25ba24e1426c8411d65207",
+  "merged_pull_requests": [
+    217,
+    218
+  ],
+  "production": {
+    "ok": true,
+    "production_root": "C:\\Codex\\DanbooruTagTool-App",
+    "exe_sha256": "1CF2A2E4CA9924E9372F6CDD8FCFA8B45C47F96A48079BBAEE325BD8A0652313",
+    "catalog_sha256": "72E81FF3123FF6872F4F7136C1EE19B9BC42BF58B5DC4CB96B49120893539A8C",
+    "manifest_sha256": "83ACA3FDB3E9CFA00B1D38505EF269B9285DE213741A2072021EB2C4109E6CCF",
+    "userdata_byte_identical": true,
+    "managed_paths": [
+      "DanbooruTagTool.exe",
+      "runtime-manifest.json",
+      "Data/catalog.db",
+      "ForgeBridge/javascript/dtt_bridge.js",
+      "ForgeBridge/scripts/dtt_bridge.py"
+    ]
+  },
+  "catalog_delta": {
+    "ok": true,
+    "total": 124895,
+    "identity_changes": 0,
+    "non_HOME_payload_changes": 0,
+    "home_source_counts": {
+      "FORMAL_HOME": 25533,
+      "REVIEWED_BROWSE_FALLBACK": 7409,
+      "UNRESOLVED": 2336
+    },
+    "catalog_sha256": "72e81ff3123ff6872f4f7136c1ee19b9bc42bf58b5dc4cb96b49120893539a8c"
+  },
+  "validation": {
+    "python_issue216_issue180_passed": 121,
+    "standard_windows": {
+      "passed": 233,
+      "skipped": 19,
+      "total": 252
+    },
+    "final_candidate": {
+      "passed": 249,
+      "skipped": 3,
+      "total": 252
+    },
+    "installed_catalog": {
+      "passed": 249,
+      "skipped": 3,
+      "total": 252
+    },
+    "performance": {
+      "SearchBlocked": false,
+      "FilterSearchHitsBlocked": false,
+      "BrowseBlocked": false,
+      "ManagedMemoryBlocked": false,
+      "CombinedRetainedMemoryDeltaBytes": 518392,
+      "QueryDeltas": {
+        "SearchEnglish": {
+          "BaselineMedianMs": 53.5563,
+          "CandidateMedianMs": 54.8934,
+          "PercentIncrease": 2.4966250469132474
+        },
+        "SearchJapanese": {
+          "BaselineMedianMs": 36.0412,
+          "CandidateMedianMs": 35.5612,
+          "PercentIncrease": -1.3318091517485653
+        },
+        "SearchMixed": {
+          "BaselineMedianMs": 56.7404,
+          "CandidateMedianMs": 57.3014,
+          "PercentIncrease": 0.9887135092456167
+        },
+        "FilterSearchHits": {
+          "BaselineMedianMs": 0.011,
+          "CandidateMedianMs": 0.0115,
+          "PercentIncrease": 4.545454545454549
+        },
+        "BrowseNeutral": {
+          "BaselineMedianMs": 0.8495,
+          "CandidateMedianMs": 0.8182,
+          "PercentIncrease": -3.684520306062389
+        },
+        "BrowseLargeRoute": {
+          "BaselineMedianMs": 0.5446,
+          "CandidateMedianMs": 0.535,
+          "PercentIncrease": -1.7627616599338858
+        },
+        "BrowseBodyFacet": {
+          "BaselineMedianMs": 0.7577,
+          "CandidateMedianMs": 0.7022,
+          "PercentIncrease": -7.3247987330077855
+        },
+        "BrowseThemeFacet": {
+          "BaselineMedianMs": 1.0191,
+          "CandidateMedianMs": 0.9783,
+          "PercentIncrease": -4.0035325287017915
+        },
+        "BrowseSexualBodyTheme": {
+          "BaselineMedianMs": 0.7637,
+          "CandidateMedianMs": 0.7012,
+          "PercentIncrease": -8.183841822705249
+        },
+        "BrowseGeneralPurposeBodyTheme": {
+          "BaselineMedianMs": 0.7118,
+          "CandidateMedianMs": 0.6816,
+          "PercentIncrease": -4.242764821579096
+        }
+      }
+    },
+    "main_ci": {
+      "run": 36831518328,
+      "conclusion": "success"
+    },
+    "formal_authority_mutations": 0,
+    "missing_home_roots": 0,
+    "userdata_byte_identical_after_final_ui": true,
+    "saved_prompt_tag_count": 13
+  },
+  "workstation_ui": {
+    "installed_launch": "PASS",
+    "accessibility_prompt_restore": "PASS",
+    "candidate_formal_home_chen": "PASS; Touhou, inverse HOME browse 318 members observed in earlier staging run",
+    "candidate_reviewed_home_yuzuki_yukari": "PASS; VOICEROID visible in accessibility tree",
+    "visual_capture": "NOT_VERIFIED",
+    "limitation": "Windows capture returns a white client area for both pre-existing production and clean candidates; later coordinate input reported geometry unavailable. No render policy was changed."
+  },
+  "evidence_local_ignored": ".tmp-issue216-work\\promotion-20261001",
+  "next_gate": "Human visual inspection only; no additional HOME/source research required."
+}
