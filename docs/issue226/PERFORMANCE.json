@@ -1,0 +1,13 @@
+{
+  "Images": 5000,
+  "Rows": 20000,
+  "ColdMs": 1462.4319,
+  "WarmMs": 230.6922,
+  "Changed10Ms": 202.5389,
+  "Missing10Ms": 191.2055,
+  "CommonQueryMs": 5.7635,
+  "FavoriteQueryMs": 2.5342,
+  "LastPageMs": 6.5471,
+  "Fts5Available": true,
+  "Runtime": ".NET 10.0.12"
+}
