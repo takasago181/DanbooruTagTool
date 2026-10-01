@@ -1,6 +1,6 @@
 {
   "schema_version": "project-current-routing-v1",
-  "generated_at": "2026-10-01T10:18:00+00:00",
+  "generated_at": "2026-10-01T11:36:57.485308+00:00",
   "purpose": "compact machine-readable routing snapshot; not a permanent branch-head authority",
   "live_main_snapshot": null,
   "must_refetch_live_heads_before_write": true,
@@ -12,24 +12,7 @@
     "docs/project/PERMANENT_RULES.md",
     "task-specific contract/spec"
   ],
-  "active_lanes": [
-    {
-      "issue": 223,
-      "kind": "dev",
-      "title": "Hierarchical Browse Groups for large Copyright IPs",
-      "branch": null,
-      "branch_head_snapshot": null,
-      "phase": "planned / Codex implementation next",
-      "isolation": [
-        "completed #180/#216 HOME authority",
-        "completed #179 display/search overlay",
-        "UserData"
-      ],
-      "production_mutation": false,
-      "head_policy": "fetch_live_main_before_branching",
-      "progress_source": "live Issue #223"
-    }
-  ],
+  "active_lanes": [],
   "completed_or_non_default": [
     "Performance / Runtime Load Audit",
     "portable/runtime hardening",
@@ -44,7 +27,8 @@
     "#180 Character -> HOME Copyright authority rebuild complete/closed; final frozen master SHA256 135463a5225b6501db923322284f8e309f217eb5359538088eb6de6d78b77071",
     "#216 full unresolved coverage + reviewed Browse HOME runtime integration complete/closed; production fallback 7,409 Characters",
     "#188 execution-efficiency foundation and stale-current-authority cleanup complete/closed; reopen only for a concrete new overhead defect",
-    "#179 reviewed display/search overlay deployed through PR #220/#221; 1,215 rows, display 221 / search 1,000; formal HOME and Issue70 source unchanged; residual REVIEW/HOLD retained"
+    "#179 reviewed display/search overlay deployed through PR #220/#221; 1,215 rows, display 221 / search 1,000; formal HOME and Issue70 source unchanged; residual REVIEW/HOLD retained",
+    "#223 display-only Browse Groups complete and production-deployed through PR #224; 7 HOME / 64 groups / 2,467 grouped / 2,072 unclassified / 21 HOLD; HOME authority and #179/#70 unchanged; UserData byte-identical"
   ],
   "protected_boundaries": [
     "UserData is user-owned",

@@ -1,6 +1,6 @@
 # CURRENT STATE
 
-最終更新: 2026-10-01 (#179 reviewed overlay deployed; REVIEW/HOLD retained)
+最終更新: 2026-10-01 (#223 Browse Groups deployed; HOLD/unclassified retained)
 
 このファイルは **現在地だけ** を保持する人間向けsummary。
 過去のrouting/runtime/taxonomy/完了記録は `docs/project/CURRENT_STATE_HISTORY.md` に保存する。
@@ -16,6 +16,17 @@
 ## 1. Current routing
 
 現在の主要な独立lane:
+
+- **#223 — Browse Groups: COMPLETE / production deployed**
+
+PR #224 merged and clean-published from main `bbbd6cac7368edab9d6faf096070ec77452cc49b`. Production apply is complete.
+7 HOME / 64 display-only groups / 2,467 grouped Characters / 2,072 other-unclassified / 21 HOLD (included in unclassified).
+Character 35,278 / Copyright 7,616 and formal/fallback/unresolved 25,533 / 7,409 / 2,336 unchanged. #70 source, #179 overlay and HOME authority unchanged.
+Candidate 260 PASS / 2 SKIP; installed 259 PASS / 3 SKIP; Python 124 PASS; performance and CI PASS. UserData byte-identical; saved 13-tag Prompt restored.
+Runtime hashes and exact evidence: `docs/project/LAST_KNOWN_GOOD.json`, `docs/issue223/PRODUCTION_CHECKPOINT_2026-10-01.json`.
+Native screenshot appearance and a different-PC launch remain NOT_VERIFIED; actual WPF render and installed launch/accessibility passed.
+No default further classification: ambiguous HOLD and unclassified remain preserved; reopen only for a concrete regression or new approved scope.
+
 
 - **#132 — Tag classification usability / discoverability**
   - state: **complete; production promotion passed 2026-09-27**
@@ -83,9 +94,9 @@
   - BODY: **247**
   - THEME: **108**
 - current Special authority: Issue #76 shallow kind/body/theme model
-- production LKG: `docs/project/LAST_KNOWN_GOOD.json` and `.md` (source main `a317efdc831b45b2a088fb9d4cdeb7873472253e`)
+- production LKG: `docs/project/LAST_KNOWN_GOOD.json` and `.md` (source main `bbbd6cac7368edab9d6faf096070ec77452cc49b`)
 - runtime shape: 7 total files; single-file self-contained win-x64; root DLL 0; PDB 0; external catalog/UserData/ForgeBridge/manifest schema 3
-- current production EXE SHA256: `E14C3DAD00034C5E19EBFB57245BB609889328E1DAEC3C0127751787134511F2`; catalog SHA256 `FF98CA4E952907B1A9021DA21CDB7DEE867A42DD1ABA1D47619BB901A7C462C5`
+- current production EXE SHA256: `A65D3056E0BFDD177E1D37B1A4CD9C9FF2FD208725D1311005389E9E7027E21E`; catalog SHA256 `D91A68186661127F16E2AE102B4DD9F3A96EAE578B3C989A8B4F17169639FC6F`
 - current UI mitigation authority: #177
   - Artist hidden
   - legacy RelatedCopyright remains excluded; #216 formal HOME / reviewed Browse fallback now powers Character-Copyright Browse/search

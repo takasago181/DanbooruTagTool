@@ -1,13 +1,12 @@
 {
   "schema_version": 1,
   "kind": "snapshot_not_validator",
-  "captured_utc": "2026-10-01T10:03:00.737274+00:00",
-  "source_main_commit": "a317efdc831b45b2a088fb9d4cdeb7873472253e",
+  "captured_utc": "2026-10-01T11:36:57.485308+00:00",
+  "source_main_commit": "bbbd6cac7368edab9d6faf096070ec77452cc49b",
   "merged_pull_requests": [
-    220,
-    221
+    224
   ],
-  "app_version": "1.0.0+a317efdc831b45b2a088fb9d4cdeb7873472253e",
+  "app_version": "1.0.0+bbbd6cac7368edab9d6faf096070ec77452cc49b",
   "production_path": "C:\\Codex\\DanbooruTagTool-App",
   "publish": {
     "configuration": "Release",
@@ -19,12 +18,12 @@
     "debug_symbols": false,
     "debug_type": "None",
     "manifest_schema_version": 3,
-    "build_utc": "2026-10-01T09:56:30.4915547Z"
+    "build_utc": "2026-10-01T11:28:25.9730534Z"
   },
   "hashes": {
-    "exe_sha256": "E14C3DAD00034C5E19EBFB57245BB609889328E1DAEC3C0127751787134511F2",
-    "catalog_sha256": "FF98CA4E952907B1A9021DA21CDB7DEE867A42DD1ABA1D47619BB901A7C462C5",
-    "runtime_manifest_sha256": "CFDE7116F32EB0DCB91CF52619FA4CBA65B133D359F741780AD9273E09B60B0A"
+    "exe_sha256": "A65D3056E0BFDD177E1D37B1A4CD9C9FF2FD208725D1311005389E9E7027E21E",
+    "catalog_sha256": "D91A68186661127F16E2AE102B4DD9F3A96EAE578B3C989A8B4F17169639FC6F",
+    "runtime_manifest_sha256": "805FDC0EFCDC044F776F1DB0D83699C248C797192808E35BAADC912A40E7DE05"
   },
   "validators": {
     "structural": {
@@ -41,7 +40,7 @@
   "runtime_shape": {
     "total_files": 7,
     "managed_payload_files_excluding_userdata": 5,
-    "total_bytes": 324466706,
+    "total_bytes": 325166843,
     "root_dll_count": 0,
     "pdb_count": 0,
     "top_level": [
@@ -69,6 +68,13 @@
       "FORMAL_HOME": 25533,
       "REVIEWED_BROWSE_FALLBACK": 7409,
       "UNRESOLVED": 2336
+    },
+    "browse_groups": {
+      "home_count": 7,
+      "group_count": 64,
+      "grouped_characters": 2467,
+      "selected_home_unclassified": 2072,
+      "hold_count": 21
     }
   },
   "forgebridge_sha256": {
@@ -82,28 +88,32 @@
     "issue_201": "Production-size intent-first scenario QA; no catalog semantic delta",
     "issue_204": "Unified filter live refresh and fixed refinement-row layout production baseline",
     "issue_216": "Formal HOME 25,533; reviewed Browse-only fallback 7,409; unresolved 2,336. Formal decisions immutable.",
-    "issue_179": "Reviewed quality projection: 1,215 rows / display 221 / search 1,000; HOME and identities unchanged; HOLD 17, Stage B REVIEW 373 retained."
+    "issue_179": "Reviewed quality projection: 1,215 rows / display 221 / search 1,000; HOME and identities unchanged; HOLD 17, Stage B REVIEW 373 retained.",
+    "issue_223": "7 HOME / 64 display-only groups / 2,467 grouped / 2,072 unclassified / 21 HOLD; HOME authority unchanged."
   },
   "validation": {
     "release_tests": {
-      "passed": 252,
+      "passed": 259,
+      "failed": 0,
       "skipped": 3,
-      "total": 255,
-      "configuration": "Release with protected source inputs; final candidate and installed catalog independently passed"
+      "total": 262
     },
-    "ordinary_release_tests": {
-      "passed": 236,
-      "skipped": 19,
-      "total": 255,
-      "skip_inventory": "docs/project/RELEASE_TEST_SKIP_INVENTORY.json"
+    "candidate_release_tests": {
+      "passed": 260,
+      "failed": 0,
+      "skipped": 2,
+      "total": 262
     },
-    "issue199_performance_gate": "PASS; retained delta -128,040 bytes; all blocker flags false; measured candidate catalog byte-identical to final release",
-    "isolated_smoke": "WPF window launch, catalog startup path and structural validation, disposable UserData creation/health, candidate shape passed",
-    "installed_smoke": "Installed WPF launch, saved 13-tag Prompt accessibility and full installed-catalog regression 252 PASS / 3 SKIP; shape/manifest/integrity/UserData health PASS; visual capture NOT_VERIFIED",
-    "forgebridge": "files present and manifest SHA256 verified; Forge integration regression tests passed in Release suite",
+    "python_tests": {
+      "passed": 124,
+      "failed": 0
+    },
+    "issue199_performance_gate": "PASS: candidate versus prior production; all blocker flags false",
+    "isolated_smoke": "PASS",
+    "installed_smoke": "PASS: launch/title, saved 13-tag Prompt, full installed-catalog regression, UserData hash identity",
     "visual_ui_verified": false,
-    "issue216_report": "docs/issue216/PRODUCTION_PROMOTION_2026-10-01.json",
-    "issue179_report": "docs/issue179/PRODUCTION_CHECKPOINT_2026-10-01.json"
+    "wpf_layout_render_verified": true,
+    "issue223_report": "docs/issue223/PRODUCTION_CHECKPOINT_2026-10-01.json"
   },
   "real_userdata_baseline": {
     "inventory": [
@@ -122,9 +132,9 @@
     "copied_or_embedded": false
   },
   "previous_production_baseline": {
-    "exe_sha256": "1CF2A2E4CA9924E9372F6CDD8FCFA8B45C47F96A48079BBAEE325BD8A0652313",
-    "catalog_sha256": "72E81FF3123FF6872F4F7136C1EE19B9BC42BF58B5DC4CB96B49120893539A8C",
-    "runtime_manifest_sha256": "83ACA3FDB3E9CFA00B1D38505EF269B9285DE213741A2072021EB2C4109E6CCF",
-    "source_main_commit": "cbfab29134ed41e15c25ba24e1426c8411d65207"
+    "source_main_commit": "a317efdc831b45b2a088fb9d4cdeb7873472253e",
+    "exe_sha256": "E14C3DAD00034C5E19EBFB57245BB609889328E1DAEC3C0127751787134511F2",
+    "catalog_sha256": "FF98CA4E952907B1A9021DA21CDB7DEE867A42DD1ABA1D47619BB901A7C462C5",
+    "runtime_manifest_sha256": "CFDE7116F32EB0DCB91CF52619FA4CBA65B133D359F741780AD9273E09B60B0A"
   }
 }
