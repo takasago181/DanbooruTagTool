@@ -307,7 +307,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         selectedEntry.Entry.BrowseClassification == BrowseClassificationStatus.Unresolved ? "General分類は未解決のため、カテゴリ閲覧の対象外です。" : "",
         selectedEntry.Entry.ProductFit == "KEEP" ? "" : selectedEntry.Entry.ProductFit == "KEEP_REFERENCE_ONLY" ? "参照用" : "要確認",
         selectedEntry.Entry.Canonical == null ? "canonical同一性は未確定ですが、Promptには元の英語tokenを追加できます。" : "" }.Where(s => s.Length > 0));
-    public string ResultSummary => $"{Results.Count:N0}件";
+    public string ResultSummary => groupOverview && !IsSearching ? "グループを選択" : $"{Results.Count:N0}件";
     public string ActiveUnifiedConditionSummary
     {
         get
@@ -419,6 +419,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         searchTarget = SearchTargetForScope(unifiedState.Scope);
         relatedSource = null;
         specialFilter = SpecialBrowseV2Filter.Empty;
+        browseGroupId = null;
+        groupOverview = false;
         unifiedHistory.Clear();
         promptCanonicalCounts = CaptureCanonicalCounts(workspace.Items);
         RefreshUnifiedFacetOptions();
@@ -632,6 +634,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         Notify(nameof(CanGoBack));
         ClearRelatedBrowseCommand.Refresh();
         RefreshResults();
+        NotifyUnifiedState();
     }
 
     public void ClearRelatedBrowse()
