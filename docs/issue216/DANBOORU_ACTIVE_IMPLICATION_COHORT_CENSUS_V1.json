@@ -2,14 +2,14 @@
   "census_as_of_utc": "2026-09-30T23:22:03Z",
   "snapshot_sha256": "c535be66210785124af3359bf95a1afaaf229d9c06ad7f5ff1831ad216fec58c",
   "snapshot_rows": 5920,
-  "open_before": 10075,
+  "open_before": 10062,
   "direct_active_character_copyright": 0,
   "direct_unique_root_candidates": 0,
   "direct_multiple_root_conflicts": 0,
-  "no_direct_implication": 10075,
+  "no_direct_implication": 10062,
   "new_home_confirmed": 0,
   "new_evidence_conflict": 0,
-  "open_after": 10075,
+  "open_after": 10062,
   "normalized_direct_member_relations": 0,
   "copyright_hierarchy_edges": 2785,
   "normalization_counts": {
@@ -23,5 +23,5 @@
   "existing_home_mutations": 0,
   "missing_roots": 0,
   "external_web_research_needed_after_semantic_pass": null,
-  "state_note": "Remaining UNRESEARCHED is 10075; how many need external Web Research is not yet determined because source-scope/roster and route-level review remains."
+  "state_note": "Remaining UNRESEARCHED is 10062; how many need external Web Research is not yet determined because source-scope/roster and route-level review remains."
 }

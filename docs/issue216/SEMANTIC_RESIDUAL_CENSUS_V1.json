@@ -1,8 +1,8 @@
 {
   "cohort_size": 13983,
-  "unresearched": 10075,
+  "unresearched": 10062,
   "category_counts": {
-    "A_DIRECT_IMPLICATION_MISSING_BUT_STRONG_IP_ROUTE": 8423,
+    "A_DIRECT_IMPLICATION_MISSING_BUT_STRONG_IP_ROUTE": 8410,
     "B_VARIANT_IDENTITY_MISSING": 627,
     "C_MULTIPLE_COPYRIGHT_IMPLICATION_CONFLICT": 0,
     "D_CREATOR_ARTIST_QUALIFIED_OC": 973,
@@ -11,7 +11,7 @@
     "G_ROOTLESS_IN_FROZEN_STRUCTURAL_GRAPH": 32,
     "H_OTHER_LONG_TAIL": 20
   },
-  "classified_rows": 10075,
+  "classified_rows": 10062,
   "creator_artist_qualified_candidate_count": 979,
   "real_person_mascot_nonwork_classified": 0,
   "platform_company_generic_family_classified": 0,
