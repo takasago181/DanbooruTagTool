@@ -103,3 +103,19 @@ jobs:
           name: issue179-runtime
           path: artifacts/issue179-runtime/
           if-no-files-found: error
+
+  dotnet-regression:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Run Issue179/216/70 regression boundary
+        run: >-
+          dotnet test src/DanbooruTagTool.Tests/DanbooruTagTool.Tests.csproj
+          -c Release
+          --filter "FullyQualifiedName~Issue179QualityOverlayTests|FullyQualifiedName~Issue216BrowseHomeTests|FullyQualifiedName~Issue70IntegrationTests"
+          --logger "console;verbosity=minimal"
