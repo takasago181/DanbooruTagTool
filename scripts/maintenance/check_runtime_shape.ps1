@@ -4,7 +4,7 @@ param(
   [Parameter(Mandatory=$true)][ValidateSet('Candidate','Installed')][string]$Mode,
   [string]$UserDataBaseline
 )
-$ErrorActionPreference='Stop'; $root=(Resolve-Path -LiteralPath $RuntimeRoot).Path
+$ErrorActionPreference='Stop'; $root=(Get-Item -LiteralPath $RuntimeRoot).FullName
 $manifest=Join-Path $root 'runtime-manifest.json'; $exe=Join-Path $root 'DanbooruTagTool.exe'; $catalog=Join-Path $root 'Data/catalog.db'; $user=Join-Path $root 'UserData'
 & (Join-Path $PSScriptRoot 'validate_runtime_manifest.ps1') -RuntimeRoot $root | Out-Null
 $files=@(Get-ChildItem -LiteralPath $root -File -Recurse -Force); $rootDlls=@(Get-ChildItem -LiteralPath $root -File -Filter '*.dll' -Force); $allDlls=@($files | Where-Object Extension -ieq '.dll'); $pdbs=@($files | Where-Object Extension -ieq '.pdb')
@@ -14,6 +14,7 @@ $unexpected=@(Get-ChildItem -LiteralPath $root -Force | Where-Object {$allowed -
 foreach($required in @($exe,$manifest,$catalog,$user,(Join-Path $root 'ForgeBridge'))){if(-not(Test-Path -LiteralPath $required)){throw "Required runtime path missing: $required"}}
 $dataFiles=@(Get-ChildItem -LiteralPath (Join-Path $root 'Data') -File -Recurse -Force)
 if($dataFiles.Count -ne 1 -or $dataFiles[0].FullName -ne [IO.Path]::GetFullPath($catalog)){throw 'Data must contain only the external catalog.db.'}
+$user=(Get-Item -LiteralPath $user).FullName
 if($Mode -eq 'Candidate'){
   $userFiles=@(Get-ChildItem -LiteralPath $user -File -Recurse -Force)
   $invalid=@($userFiles | Where-Object {
