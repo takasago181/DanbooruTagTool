@@ -120,7 +120,7 @@ The following owner-level residuals were re-derived by #201. No high-confidence 
 
 ---
 
-## 3. INFRA / RESIDUAL — #188 Execution efficiency / repository structure
+## 3. COMPLETE — #188 Execution efficiency / repository structure
 
 目的:
 - semantic精度を落とさず、AIの周辺事務処理・重複CI・巨大入力・重複routingを削る
@@ -136,14 +136,13 @@ mainへ反映済み:
 - canonical publish / promotion authority
 
 現在:
-- foundation workは完了済み
-- 旧残件だった「次の10回の#180 worker/coordinator telemetry」は、#180完了によりそのまま待つ条件としてはobsolete
-- repo内に明示的な10-run summaryは見つからない
+- **completed / closeout済み**
+- cold/warm resume、compact routing、immutable-evidence-first progress、CI重複削減、canonical publish/promotionは導入済み
+- staleだった #180 ACTIVE / #181 Draft / next-10-#180-runs のcurrent authority記述を最終整理で除去
+- historical progress/status filesはcache/evidenceとして保持し、current authorityにはしない
 
-次に#188を触る場合:
-1. completed #180を待つ前提を削除する
-2. 現存するduplicate authority / state-cache問題が本当に残っているかだけ再確認する
-3. 追加改善がなければclose、具体的な改善対象があれば新しい狭いscopeへ切る
+再開条件:
+- 新しい具体的なexecution-overhead defectが見つかった場合のみ、狭い新scopeで扱う
 
 
 ---
