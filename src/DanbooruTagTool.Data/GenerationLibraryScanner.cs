@@ -33,6 +33,7 @@ public sealed class GenerationLibraryScanner(GenerationLibraryStore store, param
                     }
                     var reader = readers.FirstOrDefault(r => r.CanRead(extension));
                     var result = reader?.Read(path) ?? new MetadataReadResult("metadata_missing");
+                    if (result.Retryable) throw new IOException(result.Error ?? "Retry metadata read on next scan");
                     var newSize = f.Length; var newTicks = f.LastWriteTimeUtc.Ticks; f.Refresh();
                     if (!f.Exists || f.Length != newSize || f.LastWriteTimeUtc.Ticks != newTicks) throw new IOException("File changed during metadata read; rescan to retry");
                     if (!id.HasValue)
@@ -51,7 +52,7 @@ public sealed class GenerationLibraryScanner(GenerationLibraryStore store, param
                 {
                     errors++;
                     // Keep prior metadata/annotations and retry next scan (mtime/size not advanced).
-                    if (id.HasValue) GenerationLibraryStore.Execute(c, "UPDATE image_asset SET metadata_status='unreadable',scan_token=$token WHERE id=$id", tx, ("$token", token), ("$id", id));
+                    if (id.HasValue) GenerationLibraryStore.Execute(c, "UPDATE image_asset SET metadata_status='unreadable',file_size=-1,mtime_utc_ticks=-1,scan_token=$token WHERE id=$id", tx, ("$token", token), ("$id", id));
                     else GenerationLibraryStore.Execute(c, "INSERT INTO image_asset(root_id,relative_path,normalized_path,extension,file_size,mtime_utc_ticks,availability,metadata_status,first_seen_utc,last_seen_utc,scan_token) VALUES($r,$p,$full,$ext,-1,-1,'available','unreadable',$t,$t,$token)", tx,
                         ("$r", root.Id), ("$p", relative), ("$full", Path.GetFullPath(path)), ("$ext", extension), ("$t", now), ("$token", token));
                 }

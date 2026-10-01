@@ -24,10 +24,11 @@ public sealed class PngGenerationMetadataReader : IGenerationMetadataReader
             }
             try { return new("OK", "PNG parameters", ForgePngGenerationMetadata.Read(path), width, height); }
             catch (GenerationMetadataException e)
-            { return new(e.Message.Contains("parameters）がありません", StringComparison.Ordinal) ? "metadata_missing" : "metadata_invalid", "PNG", Width: width, Height: height, Error: e.Message); }
+            { return new(e.Retryable ? "unreadable" : e.Message.Contains("parameters）がありません", StringComparison.Ordinal) ? "metadata_missing" : "metadata_invalid", "PNG", Width: width, Height: height, Error: e.Message, Retryable: e.Retryable); }
+            catch (InvalidDataException e) { return new("metadata_invalid", "PNG", Width: width, Height: height, Error: e.Message); }
         }
         catch (Exception e) when (e is IOException or UnauthorizedAccessException or InvalidDataException or OverflowException)
-        { return new("unreadable", "PNG", Error: e.Message); }
+        { return new("unreadable", "PNG", Error: e.Message, Retryable: e is IOException and not EndOfStreamException or UnauthorizedAccessException); }
     }
 }
 
@@ -52,7 +53,7 @@ public sealed class ExifGenerationMetadataReader : IGenerationMetadataReader
         catch (Exception e) when (e is InvalidDataException or GenerationMetadataException or ArgumentException or OverflowException)
         { return new("metadata_invalid", format, Error: e.Message); }
         catch (Exception e) when (e is IOException or UnauthorizedAccessException)
-        { return new("unreadable", format, Error: e.Message); }
+        { return new("unreadable", format, Error: e.Message, Retryable: e is not EndOfStreamException); }
     }
     private static byte[]? JpegExif(Stream s)
     {

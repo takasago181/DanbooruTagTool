@@ -33,7 +33,10 @@ public sealed record GenerationMetadataSnapshot(
     }
 }
 
-public sealed class GenerationMetadataException(string message) : Exception(message);
+public sealed class GenerationMetadataException(string message, bool retryable = false) : Exception(message)
+{
+    public bool Retryable { get; } = retryable;
+}
 
 public static class ForgePngGenerationMetadata
 {
@@ -58,7 +61,7 @@ public static class ForgePngGenerationMetadata
         catch (GenerationMetadataException) { throw; }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
         {
-            throw new GenerationMetadataException("PNGファイルを読み込めません: " + ex.Message);
+            throw new GenerationMetadataException("PNGファイルを読み込めません: " + ex.Message, retryable: true);
         }
 
         if (string.IsNullOrWhiteSpace(infotext))

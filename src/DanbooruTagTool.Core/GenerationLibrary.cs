@@ -17,7 +17,7 @@ public sealed record LibraryQuery(string Text = "", long? RootId = null, string 
     int Offset = 0, int Limit = 60);
 public sealed record LibraryPage(IReadOnlyList<LibraryImage> Images, long Total);
 public sealed record MetadataReadResult(string Status, string? Format = null,
-    GenerationMetadataSnapshot? Metadata = null, int? Width = null, int? Height = null, string? Error = null);
+    GenerationMetadataSnapshot? Metadata = null, int? Width = null, int? Height = null, string? Error = null, bool Retryable = false);
 public interface IGenerationMetadataReader { bool CanRead(string extension); MetadataReadResult Read(string path); }
 public sealed record LibraryScanResult(int Added, int Refreshed, int Unchanged, int Missing, int Errors, bool Complete);
 
