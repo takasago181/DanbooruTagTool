@@ -79,7 +79,10 @@ def main() -> None:
     if args.check:
         print(f"validated membership batch: {applied} new HOME decisions; dry run")
         return
-    with __import__("tempfile").TemporaryDirectory(prefix=".issue216-membership-check-", dir=ISSUE216) as folder:
+    # Keep disposable validation files outside docs/issue216. On some Windows
+    # worktrees, inherited ACLs allow temp-directory creation there but deny
+    # subsequent writes and cleanup.
+    with __import__("tempfile").TemporaryDirectory(prefix="issue216-membership-check-") as folder:
         proposed = Path(folder) / "decisions.csv"
         write_csv(proposed, decisions)
         validate(args.cohort, args.sources, args.members, proposed, expected_size=BASELINE_SIZE,

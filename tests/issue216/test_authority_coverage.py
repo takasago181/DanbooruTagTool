@@ -246,6 +246,45 @@ class AuthorityCoverageTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "missing baseline Copyright root"):
             coverage.validate(self.cohort_path, self.sources_path, self.members_path, self.decisions_path, 1, self.roots_path)
 
+    def test_one_multi_root_implication_snapshot_tracks_relation_ids_and_member_roots(self) -> None:
+        cohort, sources, members, decisions = self.fixture(["character_a"])
+        url = "https://danbooru.donmai.us/tag_implications.json?search[category]=3"
+        owner = "Danbooru"
+        scope = "One active multi-root implication snapshot"
+        source_id = coverage.deterministic_source_id(url, owner, scope)
+        sources.append({
+            "source_id": source_id, "copyright_canonical": "", "source_url": url,
+            "source_type": "DANBOORU_ACTIVE_COPYRIGHT_IMPLICATION", "authority_owner": owner,
+            "source_status": "ACCEPTED", "source_scope": scope, "exact_roster_available": "false",
+            "reviewed_at": "2026-10-01", "source_claim": "Active direct implications snapshot",
+            "provenance": "Snapshot hash and fetch timestamp", "reusable": "true", "notes": "multi-root",
+        })
+        members.extend([
+            {"source_id": source_id, "canonical_character": "character_a", "member_relation_id": "101",
+             "canonical_home_root": "series_a", "matched_surface": "character_a", "mapping_method": "EXACT_CANONICAL",
+             "mapping_evidence": "active implication 101", "reviewed_at": "2026-10-01", "reviewer": "reviewer",
+             "mapping_status": "EXACT_COVERED", "browse_home_tier": "", "browse_home_basis": ""},
+            {"source_id": source_id, "canonical_character": "character_a", "member_relation_id": "102",
+             "canonical_home_root": "series_b", "matched_surface": "character_a", "mapping_method": "EXACT_CANONICAL",
+             "mapping_evidence": "active implication 102", "reviewed_at": "2026-10-01", "reviewer": "reviewer",
+             "mapping_status": "EXACT_COVERED", "browse_home_tier": "", "browse_home_basis": ""},
+        ])
+        decisions[0].update(
+            research_state="EVIDENCE_CONFLICT", source_ids=source_id,
+            source_claim="Two active direct Copyright implications", provenance="snapshot",
+            reviewed_at="2026-10-01", reason_code="MULTIPLE_UNRANKED_ROOTS",
+            reason_detail="Independent direct Copyright relations", validated_home_candidates="series_a|series_b",
+        )
+        self.persist(cohort, sources, members, decisions)
+        self.write(self.roots_path, coverage.ROOT_FIELDS, [
+            {"copyright_canonical": "series_a", "provenance": "catalog"},
+            {"copyright_canonical": "series_b", "provenance": "catalog"},
+        ])
+        result = coverage.validate(self.cohort_path, self.sources_path, self.members_path,
+                                   self.decisions_path, 1, self.roots_path)
+        self.assertEqual(result["exact_member_mapping_count"], 1)
+        self.assertEqual(result["research_state_counts"]["EVIDENCE_CONFLICT"], 1)
+
 
 if __name__ == "__main__":
     unittest.main()

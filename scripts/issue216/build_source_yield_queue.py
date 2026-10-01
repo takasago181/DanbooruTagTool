@@ -162,7 +162,8 @@ def build(master_path: Path, graph_path: Path, post_counts_path: Path | None):
         root = source["copyright_canonical"]
         if root in roots and source["source_type"] in {
                 "OFFICIAL_CHARACTER_ROSTER", "OFFICIAL_CHARACTER_PROFILE", "OFFICIAL_GAME_ROSTER",
-                "OFFICIAL_SERIES_DIRECTORY", "OFFICIAL_PUBLISHER_ROSTER", "FIRST_PARTY_OTHER"}:
+                "OFFICIAL_SERIES_DIRECTORY", "OFFICIAL_PUBLISHER_ROSTER", "FIRST_PARTY_OTHER",
+                "DANBOORU_ACTIVE_COPYRIGHT_IMPLICATION"}:
             source_ids_by_root[root].add(source["source_id"])
         if root in roots and source["source_status"] == "ACCEPTED":
             if (source["exact_roster_available"].lower() == "true"
@@ -170,9 +171,12 @@ def build(master_path: Path, graph_path: Path, post_counts_path: Path | None):
                 roster_ids_by_root[root].add(source["source_id"])
     for member in member_rows:
         source = sources.get(member["source_id"])
-        if (source and source["source_status"] == "ACCEPTED" and source["copyright_canonical"] in roots
+        home = (member.get("canonical_home_root", "").strip() or source.get("copyright_canonical", "").strip()) if source else ""
+        if (source and source["source_status"] == "ACCEPTED" and home in roots
                 and member["mapping_status"] == "EXACT_COVERED"):
-            members_by_root[source["copyright_canonical"]].add(member["canonical_character"])
+            members_by_root[home].add(member["canonical_character"])
+            if source["source_type"] == "DANBOORU_ACTIVE_COPYRIGHT_IMPLICATION":
+                source_ids_by_root[home].add(source["source_id"])
 
     # A registered roster at a root does not imply that it covers every Character
     # hinted at that root. Count only exact, unique candidates from a retained source

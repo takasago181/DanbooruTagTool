@@ -15,8 +15,8 @@ from collections import defaultdict
 from pathlib import Path
 
 from authority_coverage import (
-    BASELINE_SIZE, DECISION_FIELDS, MEMBER_FIELDS, SOURCE_FIELDS,
-    deterministic_source_id, read_csv, validate,
+    BASELINE_SIZE, DECISION_FIELDS, MEMBER_FIELDS, MULTI_ROOT_SOURCE_TYPES, SOURCE_FIELDS,
+    deterministic_source_id, member_home_root, read_csv, validate,
 )
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -124,15 +124,16 @@ def build() -> tuple[list[dict[str, str]], list[dict[str, str]], list[dict[str, 
         if (source and tag in cohort_tags and tag in open_tags
                 and source["source_status"] == "ACCEPTED"
                 and member["mapping_status"] == "EXACT_COVERED"
-                and source["copyright_canonical"] in roots):
+                and member_home_root(source, member) in roots):
             accepted[tag].append((source, member))
     curated_candidates = 0
     for tag, pairs in accepted.items():
-        homes = {source["copyright_canonical"] for source, _ in pairs}
+        homes = {member_home_root(source, member) for source, member in pairs}
         for source, member in pairs:
-            home = source["copyright_canonical"]
+            home = member_home_root(source, member)
             candidates[tag].append({
                 "home": home, "kind": "ACCEPTED_MEMBERSHIP", "source_id": source["source_id"],
+                "member_relation_id": member.get("member_relation_id", "").strip(),
                 "url": source["source_url"], "owner": source["authority_owner"],
                 "scope": source["source_scope"], "claim": source["source_claim"],
                 "surface": member["matched_surface"], "mapping_evidence": member["mapping_evidence"],
@@ -223,7 +224,10 @@ def build() -> tuple[list[dict[str, str]], list[dict[str, str]], list[dict[str, 
         }
 
     merged_sources = {row["source_id"]: dict(row) for row in sources}
-    merged_members = {(row["source_id"], row["canonical_character"]): dict(row) for row in members}
+    merged_members = {
+        (row["source_id"], row["canonical_character"], row.get("member_relation_id", "").strip()): dict(row)
+        for row in members
+    }
     merged_decisions = {row["canonical_character"]: dict(row) for row in decisions}
     new_members = 0
     for tag, record in sorted(applied.items()):
@@ -243,12 +247,14 @@ def build() -> tuple[list[dict[str, str]], list[dict[str, str]], list[dict[str, 
                 }
             member_row = {
                 "source_id": sid, "canonical_character": tag, "matched_surface": candidate["surface"],
+                "member_relation_id": candidate.get("member_relation_id", ""),
+                "canonical_home_root": (candidate["home"] if merged_sources[sid]["source_type"] in MULTI_ROOT_SOURCE_TYPES else ""),
                 "mapping_method": "DOCUMENTED_IDENTITY_MAPPING" if candidate["kind"] == "INHERITANCE" else "EXACT_CANONICAL",
                 "mapping_evidence": candidate["mapping_evidence"], "reviewed_at": REVIEW_DATE,
                 "reviewer": REVIEWER, "mapping_status": "EXACT_COVERED",
                 "browse_home_tier": candidate["tier"], "browse_home_basis": candidate["basis"],
             }
-            key = (sid, tag)
+            key = (sid, tag, candidate.get("member_relation_id", ""))
             old_member = merged_members.get(key)
             if old_member and old_member != member_row:
                 # Never rewrite an earlier accepted source/member decision.
@@ -271,7 +277,7 @@ def build() -> tuple[list[dict[str, str]], list[dict[str, str]], list[dict[str, 
         })
 
     result_sources = sorted(merged_sources.values(), key=lambda row: row["source_id"])
-    result_members = sorted(merged_members.values(), key=lambda row: (row["source_id"], row["canonical_character"]))
+    result_members = sorted(merged_members.values(), key=lambda row: (row["source_id"], row["canonical_character"], row.get("member_relation_id", "")))
     result_decisions = [merged_decisions[row["canonical_character"]] for row in decisions]
     validate(COHORT, SOURCES, MEMBERS, DECISIONS, expected_size=BASELINE_SIZE, roots_path=ROOTS)
     counts = {

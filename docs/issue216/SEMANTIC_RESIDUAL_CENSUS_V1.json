@@ -1,0 +1,24 @@
+{
+  "cohort_size": 13983,
+  "unresearched": 10085,
+  "category_counts": {
+    "A_DIRECT_IMPLICATION_MISSING_BUT_STRONG_IP_ROUTE": 8433,
+    "B_VARIANT_IDENTITY_MISSING": 627,
+    "C_MULTIPLE_COPYRIGHT_IMPLICATION_CONFLICT": 0,
+    "D_CREATOR_ARTIST_QUALIFIED_OC": 973,
+    "E_REAL_PERSON_MASCOT_NON_WORK_CANDIDATE": 0,
+    "F_PLATFORM_COMPANY_GENERIC_FAMILY_CANDIDATE": 0,
+    "G_ROOTLESS_IN_FROZEN_STRUCTURAL_GRAPH": 32,
+    "H_OTHER_LONG_TAIL": 20
+  },
+  "classified_rows": 10085,
+  "creator_artist_qualified_candidate_count": 979,
+  "real_person_mascot_nonwork_classified": 0,
+  "platform_company_generic_family_classified": 0,
+  "nonwork_note": "No Character was closed based on a name/category signal. E/F classifications require accepted explicit semantic authority and are not established by the current input set; possible cases remain in A/G/H for route research.",
+  "rootless_note": "G means no exact root/member/variant route in the frozen #180 structural graph or implication snapshot. It does not claim that external/curated authority is unavailable.",
+  "routing_only": true,
+  "candidate_root_is_not_HOME_evidence": true,
+  "source_file": "DANBOORU_NORMALIZED_SEMANTIC_RELATIONS_V1.csv",
+  "structure_graph_sha256": "218cf30cb21695472e276cce327cd96a132665f3473c8925954059c3432c4bea"
+}

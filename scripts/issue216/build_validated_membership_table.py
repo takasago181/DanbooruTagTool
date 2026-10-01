@@ -14,14 +14,14 @@ from collections import defaultdict
 from pathlib import Path
 
 try:  # direct script execution
-    from authority_coverage import BASELINE_SIZE, read_csv, validate
+    from authority_coverage import BASELINE_SIZE, member_home_root, read_csv, validate
 except ModuleNotFoundError:  # package import from tests/tools
-    from scripts.issue216.authority_coverage import BASELINE_SIZE, read_csv, validate
+    from scripts.issue216.authority_coverage import BASELINE_SIZE, member_home_root, read_csv, validate
 
 ROOT = Path(__file__).resolve().parents[2]
 ISSUE216 = ROOT / "docs/issue216"
 TABLE_FIELDS = [
-    "canonical_character", "semantic_root", "membership_scope", "evidence_class",
+    "canonical_character", "semantic_root", "member_relation_id", "membership_scope", "evidence_class",
     "source_id", "identity_status", "competing_root_count", "validation_state",
     "provenance", "cohort_state", "next_action",
 ]
@@ -52,10 +52,11 @@ def build(cohort_path: Path, sources_path: Path, members_path: Path, decisions_p
     accepted: dict[str, list[tuple[dict[str, str], dict[str, str]]]] = defaultdict(list)
     for member in members:
         source = sources.get(member["source_id"])
+        home = member_home_root(source, member) if source else ""
         if (source and source["source_status"] == "ACCEPTED"
                 and member["mapping_status"] == "EXACT_COVERED"
                 and member["canonical_character"] in cohort_tags
-                and source["copyright_canonical"] in roots):
+                and home in roots):
             accepted[member["canonical_character"]].append((source, member))
 
     candidates: dict[str, list[tuple[dict[str, str], dict[str, str], str]]] = defaultdict(list)
@@ -92,7 +93,7 @@ def build(cohort_path: Path, sources_path: Path, members_path: Path, decisions_p
 
     rows: list[dict[str, str]] = []
     for tag, pairs in sorted(accepted.items()):
-        roots_for_tag = {source["copyright_canonical"] for source, _ in pairs}
+        roots_for_tag = {member_home_root(source, member) for source, member in pairs}
         root_count = len(roots_for_tag)
         selected_root = next(iter(roots_for_tag)) if root_count == 1 else ""
         priority_by_root: dict[str, set[int]] = defaultdict(set)
@@ -111,7 +112,7 @@ def build(cohort_path: Path, sources_path: Path, members_path: Path, decisions_p
             if tier_value not in BROWSE_HOME_TIERS:
                 priority_complete = False
                 continue
-            priority_by_root[source["copyright_canonical"]].add(tier_value)
+            priority_by_root[member_home_root(source, member)].add(tier_value)
         priority_resolved = False
         if root_count == 1 and next(iter(priority_by_root.get(selected_root, set())), 0) == 5:
             selected_root = ""
@@ -132,15 +133,16 @@ def build(cohort_path: Path, sources_path: Path, members_path: Path, decisions_p
         if decision["research_state"] == "HOME_CONFIRMED" and root_count > 1:
             if not priority_resolved or selected_root != decision["home_copyright"]:
                 raise ValueError(f"confirmed Browse HOME does not match the unique highest-priority root: {tag}")
-        for source, member in sorted(pairs, key=lambda pair: (pair[0]["copyright_canonical"], pair[0]["source_id"])):
+        for source, member in sorted(pairs, key=lambda pair: (member_home_root(pair[0], pair[1]), pair[0]["source_id"])):
+            home = member_home_root(source, member)
             if decision["research_state"] == "HOME_CONFIRMED":
                 if not selected_root:
                     raise ValueError(f"HOME_CONFIRMED is supported only by a secondary product membership: {tag}")
-                next_action = ("TERMINAL_ACCOUNTED" if source["copyright_canonical"] == selected_root
+                next_action = ("TERMINAL_ACCOUNTED" if home == selected_root
                                else "LOWER_PRIORITY_MEMBERSHIP")
             elif decision["research_state"] != "UNRESEARCHED":
                 next_action = "TERMINAL_BLOCKED"
-            elif source["copyright_canonical"] == selected_root:
+            elif home == selected_root:
                 next_action = "AUTO_ACCEPT_MEMBERSHIP"
             elif priority_resolved:
                 next_action = "LOWER_PRIORITY_MEMBERSHIP"
@@ -148,7 +150,8 @@ def build(cohort_path: Path, sources_path: Path, members_path: Path, decisions_p
                 next_action = "DEEP_RESEARCH"
             rows.append({
                 "canonical_character": tag,
-                "semantic_root": source["copyright_canonical"],
+                "semantic_root": home,
+                "member_relation_id": member.get("member_relation_id", ""),
                 "membership_scope": source["source_scope"],
                 "evidence_class": source["source_type"],
                 "source_id": source["source_id"],
@@ -176,7 +179,7 @@ def build(cohort_path: Path, sources_path: Path, members_path: Path, decisions_p
             validation_state = "REVIEW_REQUIRED_CANDIDATE" if needs_deep else "UNREVIEWED_EXACT_CANDIDATE"
             for source, candidate, review_status in sorted(relevant, key=lambda item: (item[0]["source_id"], item[1].get("matched_surface", ""))):
                 rows.append({
-                    "canonical_character": tag, "semantic_root": "", "membership_scope": source["source_scope"],
+                    "canonical_character": tag, "semantic_root": "", "member_relation_id": "", "membership_scope": source["source_scope"],
                     "evidence_class": source["source_type"], "source_id": source["source_id"],
                     "identity_status": candidate.get("candidate_status", "UNREVIEWED"),
                     "competing_root_count": "0", "validation_state": validation_state,
@@ -187,7 +190,7 @@ def build(cohort_path: Path, sources_path: Path, members_path: Path, decisions_p
         else:
             action, validation_state = "FAST_REVIEW", "NO_VALIDATED_MEMBERSHIP"
         rows.append({
-            "canonical_character": tag, "semantic_root": "", "membership_scope": "",
+            "canonical_character": tag, "semantic_root": "", "member_relation_id": "", "membership_scope": "",
             "evidence_class": "", "source_id": "", "identity_status": "NOT_VALIDATED",
             "competing_root_count": "0", "validation_state": validation_state,
             "provenance": "", "cohort_state": state, "next_action": action,

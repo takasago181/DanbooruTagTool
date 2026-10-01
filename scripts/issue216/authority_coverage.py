@@ -23,8 +23,9 @@ STATES = {
 SOURCE_TYPES = {
     "OFFICIAL_CHARACTER_ROSTER", "OFFICIAL_CHARACTER_PROFILE", "OFFICIAL_GAME_ROSTER",
     "OFFICIAL_SERIES_DIRECTORY", "OFFICIAL_PUBLISHER_ROSTER", "ACCEPTED_CURATED_ROSTER",
-    "FIRST_PARTY_OTHER", "APPROVED_REPO_EVIDENCE",
+    "FIRST_PARTY_OTHER", "APPROVED_REPO_EVIDENCE", "DANBOORU_ACTIVE_COPYRIGHT_IMPLICATION",
 }
+MULTI_ROOT_SOURCE_TYPES = {"DANBOORU_ACTIVE_COPYRIGHT_IMPLICATION"}
 SOURCE_STATUSES = {"ACCEPTED", "PARTIAL", "SOURCE_UNAVAILABLE", "SOURCE_INSUFFICIENT", "REJECTED"}
 MAPPING_METHODS = {
     "EXACT_CANONICAL", "VALIDATED_ALIAS", "REVIEWED_NAME_MAPPING", "DOCUMENTED_IDENTITY_MAPPING",
@@ -42,7 +43,8 @@ SOURCE_FIELDS = [
     "provenance", "reusable", "notes",
 ]
 MEMBER_FIELDS = [
-    "source_id", "canonical_character", "matched_surface", "mapping_method", "mapping_evidence",
+    "source_id", "canonical_character", "member_relation_id", "canonical_home_root",
+    "matched_surface", "mapping_method", "mapping_evidence",
     "reviewed_at", "reviewer", "mapping_status", "browse_home_tier", "browse_home_basis",
 ]
 DECISION_FIELDS = [
@@ -78,6 +80,11 @@ def require_fields(path: Path, rows: list[dict[str, str]], expected: list[str]) 
 
 def split_ids(value: str) -> list[str]:
     return sorted({item.strip() for item in value.split("|") if item.strip()})
+
+
+def member_home_root(source: dict[str, str], member: dict[str, str]) -> str:
+    """Resolve a member-specific root for multi-root authority sources."""
+    return member.get("canonical_home_root", "").strip() or source.get("copyright_canonical", "").strip()
 
 
 def deterministic_source_id(source_url: str, authority_owner: str, source_scope: str) -> str:
@@ -128,17 +135,23 @@ def validate(cohort_path: Path, sources_path: Path, members_path: Path, decision
         for field in ("source_url", "authority_owner", "source_scope", "reviewed_at", "source_claim", "provenance"):
             if not source[field]:
                 errors.append(f"missing {field} for source {source['source_id']}")
-        if source["source_status"] == "ACCEPTED" and not source["copyright_canonical"]:
-            errors.append(f"ACCEPTED HOME authority requires one canonical Copyright root: {source['source_id']}")
+        if source["source_status"] == "ACCEPTED":
+            if source["source_type"] in MULTI_ROOT_SOURCE_TYPES:
+                if source["copyright_canonical"]:
+                    errors.append(f"multi-root authority source must not claim one registry HOME root: {source['source_id']}")
+            elif not source["copyright_canonical"]:
+                errors.append(f"ACCEPTED HOME authority requires one canonical Copyright root: {source['source_id']}")
 
-    member_keys: set[tuple[str, str]] = set()
+    member_keys: set[tuple[str, str, str]] = set()
     exact_members: set[tuple[str, str]] = set()
+    members_by_key: dict[tuple[str, str], list[dict[str, str]]] = {}
     accepted_exact_by_character: dict[str, list[tuple[dict[str, str], dict[str, str]]]] = {}
     for member in members:
-        key = (member["source_id"], member["canonical_character"])
+        key = (member["source_id"], member["canonical_character"], member.get("member_relation_id", "").strip())
         if key in member_keys:
             errors.append(f"duplicate source/member mapping: {key}")
         member_keys.add(key)
+        members_by_key.setdefault((member["source_id"], member["canonical_character"]), []).append(member)
         if member["source_id"] not in source_by_id:
             errors.append(f"member references unknown source: {member['source_id']}")
         if member["mapping_method"] not in MAPPING_METHODS:
@@ -152,9 +165,17 @@ def validate(cohort_path: Path, sources_path: Path, members_path: Path, decision
         if tier and tier not in {"1", "2", "3", "4", "5"}:
             errors.append(f"invalid Browse HOME priority tier: {key} -> {tier}")
         if member["mapping_status"] == "EXACT_COVERED":
-            exact_members.add(key)
+            exact_members.add((member["source_id"], member["canonical_character"]))
             source = source_by_id.get(member["source_id"])
             if source and source["source_status"] == "ACCEPTED":
+                home = member_home_root(source, member)
+                if source["source_type"] in MULTI_ROOT_SOURCE_TYPES:
+                    if not home:
+                        errors.append(f"multi-root exact member requires its own canonical HOME root: {key}")
+                    elif known_roots is not None and home not in known_roots:
+                        errors.append(f"multi-root exact member references missing Copyright root: {key} -> {home}")
+                elif member.get("canonical_home_root", "").strip() and member["canonical_home_root"].strip() != source["copyright_canonical"]:
+                    errors.append(f"member-specific HOME root conflicts with single-root source: {key}")
                 accepted_exact_by_character.setdefault(member["canonical_character"], []).append((source, member))
         elif member["mapping_status"] not in {"AMBIGUOUS_REVIEW", "REJECTED"}:
             errors.append(f"invalid mapping_status for {key}: {member['mapping_status']}")
@@ -200,12 +221,16 @@ def validate(cohort_path: Path, sources_path: Path, members_path: Path, decision
                                   if source_id in source_by_id
                                   and source_by_id[source_id]["source_status"] == "ACCEPTED"
                                   and (source_id, decision["canonical_character"]) in exact_members]
-            validated_roots = {source_by_id[source_id]["copyright_canonical"] for source_id in exact_accepted_ids}
+            validated_roots = {
+                member_home_root(source_by_id[source_id], member)
+                for source_id in exact_accepted_ids
+                for member in members_by_key.get((source_id, decision["canonical_character"]), [])
+            }
             if not exact_accepted_ids:
                 errors.append(f"HOME_CONFIRMED requires an ACCEPTED exact-member authority source: {decision['cohort_id']}")
             if decision["home_copyright"] not in validated_roots:
                 errors.append(f"HOME lacks an exact accepted member mapping to its root: {decision['cohort_id']}")
-            all_roots = {source["copyright_canonical"] for source, _ in
+            all_roots = {member_home_root(source, member) for source, member in
                          accepted_exact_by_character.get(decision["canonical_character"], [])}
             tiers_by_root: dict[str, set[int]] = {}
             priority_complete = True
@@ -217,7 +242,7 @@ def validate(cohort_path: Path, sources_path: Path, members_path: Path, decision
                         priority_complete = False
                         break
                     continue
-                tiers_by_root.setdefault(source["copyright_canonical"], set()).add(int(tier))
+                tiers_by_root.setdefault(member_home_root(source, member), set()).add(int(tier))
             if len(all_roots) == 1 and tiers_by_root.get(decision["home_copyright"]) == {5}:
                 errors.append(f"secondary product membership alone cannot support Browse HOME: {decision['cohort_id']}")
             elif len(all_roots) > 1:
@@ -247,7 +272,11 @@ def validate(cohort_path: Path, sources_path: Path, members_path: Path, decision
                                   if source_id in source_by_id
                                   and source_by_id[source_id]["source_status"] == "ACCEPTED"
                                   and (source_id, decision["canonical_character"]) in exact_members]
-            validated_roots = {source_by_id[source_id]["copyright_canonical"] for source_id in exact_accepted_ids}
+            validated_roots = {
+                member_home_root(source_by_id[source_id], member)
+                for source_id in exact_accepted_ids
+                for member in members_by_key.get((source_id, decision["canonical_character"]), [])
+            }
             if len(validated_roots) < 2 or set(candidates) != validated_roots:
                 errors.append(f"EVIDENCE_CONFLICT requires exact member mappings from accepted sources proving its candidate roots: {decision['cohort_id']}")
         elif decision["validated_home_candidates"]:
