@@ -14,7 +14,7 @@ OUT_CSV = OUT / "SEARCH_CLEANUP_CANDIDATES_V1.csv"
 # non-identity/fandom pattern. This script only proposes removals; it does not
 # modify Issue70 source data or production.
 EXACT_REMOVE = {
-    "ミクの日", "初音ミクイラスト", "ぼ喜多", "絵フブキ",
+    "ミクの日", "初音ミクイラスト", "ぼ喜多", "絵フブキ", "ドラゴンボールイラスト",
     "腐レイバーン", "ス腐ラトゥーン", "VOICEROIDドット絵部", "コッショリ",
     "異端なるセイレム", "アビラヴィ", "おかころ", "絵かゆ", "エロおにぎり",
     "エンイラ", "性癖を露見・共有するための道具", "ぼっち・ざ・けいおん!",
