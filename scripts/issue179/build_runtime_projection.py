@@ -22,17 +22,27 @@ def main() -> None:
     for r in rows:
         if r["final_status"] != "ACCEPTED_AUDIT_OVERLAY":
             continue
-        target = by_row.setdefault(r["row_id"], {"row_id": r["row_id"], "display_ja": "", "search_ja": ""})
+        target = by_row.setdefault(r["row_id"], {
+            "row_id": r["row_id"],
+            "has_display": "0", "display_ja": "",
+            "has_search": "0", "search_ja": "",
+        })
         field = r["field"]
         if field not in {"display_ja", "search_ja"}:
             raise SystemExit("unexpected correction field: " + field)
-        if target[field]:
+        flag = "has_display" if field == "display_ja" else "has_search"
+        if target[flag] == "1":
             raise SystemExit("duplicate runtime field correction: " + r["row_id"] + " " + field)
+        target[flag] = "1"
         target[field] = r["proposed_value"]
 
     ordered = [by_row[k] for k in sorted(by_row, key=lambda v: int(v[4:]))]
     with OUT.open("w", encoding="utf-8-sig", newline="") as fh:
-        w = csv.DictWriter(fh, fieldnames=["row_id", "display_ja", "search_ja"], lineterminator="\n")
+        w = csv.DictWriter(
+            fh,
+            fieldnames=["row_id", "has_display", "display_ja", "has_search", "search_ja"],
+            lineterminator="\n",
+        )
         w.writeheader()
         w.writerows(ordered)
 
@@ -42,8 +52,11 @@ def main() -> None:
         "source_issue70_sha256": ISSUE70_SHA256,
         "accepted_field_changes": len(rows),
         "distinct_rows": len(ordered),
-        "display_rows": sum(bool(r["display_ja"]) for r in ordered),
-        "search_rows": sum(bool(r["search_ja"]) for r in ordered),
+        "display_rows": sum(r["has_display"] == "1" for r in ordered),
+        "search_rows": sum(r["has_search"] == "1" for r in ordered),
+        "empty_search_replacements": sum(
+            r["has_search"] == "1" and r["search_ja"] == "" for r in ordered
+        ),
         "projection_sha256": hashlib.sha256(raw).hexdigest(),
         "home_authority_modified": False,
         "source_data_mutated": False,
