@@ -16,7 +16,13 @@ $dataFiles=@(Get-ChildItem -LiteralPath (Join-Path $root 'Data') -File -Recurse 
 if($dataFiles.Count -ne 1 -or $dataFiles[0].FullName -ne [IO.Path]::GetFullPath($catalog)){throw 'Data must contain only the external catalog.db.'}
 if($Mode -eq 'Candidate'){
   $userFiles=@(Get-ChildItem -LiteralPath $user -File -Recurse -Force)
-  $invalid=@($userFiles | Where-Object {$relative=$_.FullName.Substring($user.Length).TrimStart('\\');$relative -notin @('README.txt','user.db')})
+  $invalid=@($userFiles | Where-Object {
+    $relative=$_.FullName.Substring($user.Length).TrimStart('\\')
+    $known=$relative -in @('README.txt','user.db','generation-library.db','generation-library.db-journal','generation-library.db-wal','generation-library.db-shm')
+    $migrationBackup=$relative -match '^generation-library\.db\.before-migration-[a-f0-9]{32}\.bak$'
+    $thumbnail=$relative -match '^Cache\\GenerationThumbnails\\[A-F0-9]{64}(\.png|\.[a-f0-9]{32}\.tmp)$'
+    -not ($known -or $migrationBackup -or $thumbnail)
+  })
   if($invalid.Count){throw 'Candidate UserData contains files outside the documented disposable shape.'}
 } elseif(-not $UserDataBaseline){throw 'Installed mode requires a complete UserData baseline.'}
 else {

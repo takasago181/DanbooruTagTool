@@ -13,3 +13,5 @@ IIB checks directory modification dates before descending and image dates before
 The published IIB benchmark is prior-art context, not a DTT guarantee or a same-machine comparison. DTT timings must be measured separately. No direct algorithm port or copied source is included; architectural patterns are independently implemented for the existing DTT layers.
 
 Dependency map: PromptWorkspace.Replace owns restore/Undo/Recovery; GenerationPresetsViewModel.BeginNewPresetFromSnapshot owns preset editing; GenerationRecipe.FromMetadata remains reference-only; ForgeViewModel owns SendOnly/SendAndGenerate; ForgePngGenerationMetadata owns PNG/infotext parsing; Library persistence is independent of UserStateCoordinator/user.db and catalog.db.
+
+Portable candidate shape now admits only the explicit new Library DB/journal names, uniquely named migration backups and hash-keyed PNG/temp thumbnail cache paths within UserData. Installed UserData protection still compares the complete baseline and is unchanged. Library state remains excluded from publish payload and runtime manifest hashes.

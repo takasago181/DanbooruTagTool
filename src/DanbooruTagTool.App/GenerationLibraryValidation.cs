@@ -45,9 +45,13 @@ public static class GenerationLibraryValidation
         vm.WorkspaceIndex = 2;
         var window = new MainWindow(vm) { Width = 1400, Height = 900, Left = -30000, Top = -30000, ShowInTaskbar = false };
         window.Show(); await Task.Delay(150); window.UpdateLayout();
-        var bitmap = new RenderTargetBitmap(1400, 900, 96, 96, PixelFormats.Pbgra32); bitmap.Render(window);
+        var bitmap = new RenderTargetBitmap((int)Math.Ceiling(window.ActualWidth), (int)Math.Ceiling(window.ActualHeight), 96, 96, PixelFormats.Pbgra32); bitmap.Render(window);
         var encoder = new PngBitmapEncoder(); encoder.Frames.Add(BitmapFrame.Create(bitmap));
         using (var output = File.Create(Path.Combine(root, "library-wpf.png"))) encoder.Save(output);
+        var view = (FrameworkElement)window.FindName("GenerationLibraryWorkspace");
+        var libraryBitmap = new RenderTargetBitmap((int)Math.Ceiling(view.ActualWidth), (int)Math.Ceiling(view.ActualHeight), 96, 96, PixelFormats.Pbgra32); libraryBitmap.Render(view);
+        var libraryEncoder = new PngBitmapEncoder(); libraryEncoder.Frames.Add(BitmapFrame.Create(libraryBitmap));
+        using (var output = File.Create(Path.Combine(root, "library-workspace-wpf.png"))) libraryEncoder.Save(output);
         window.Close();
         File.Delete(imagePath); var missing = scanner.Scan(store.Roots().Single()); Check(missing.Missing == 1 && store.Query(new(FavoriteOnly: true)).Images.Single().Annotation.Note.Contains("日本語"), "missing / user-owned preservation");
         store.Backup(Path.Combine(root, "library-backup.db"));
