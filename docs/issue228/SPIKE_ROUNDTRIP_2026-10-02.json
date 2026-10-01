@@ -1,0 +1,199 @@
+{
+  "Result": "PASS",
+  "Url": "http://127.0.0.1:7861",
+  "First": {
+    "SourcePath": "C:\\Codex\\DanbooruTagTool\\.staging-issue228-spike\\image-1.png",
+    "RawInfotext": "a blue ceramic teapot on a wooden table, DTT_RECIPE_SPIKE_POSITIVE\nNegative prompt: text, watermark, DTT_RECIPE_SPIKE_NEGATIVE\nSteps: 9, Sampler: Euler, Schedule type: Karras, CFG scale: 5.5, Seed: 123456789, Size: 512x640, Model: chenkinNoobXLCKXL_v05, Model hash: 2115039971, RNG: CPU, Version: neo-2.29.1",
+    "Positive": "a blue ceramic teapot on a wooden table, DTT_RECIPE_SPIKE_POSITIVE",
+    "Negative": "text, watermark, DTT_RECIPE_SPIKE_NEGATIVE",
+    "Parameters": [
+      {
+        "Name": "Steps",
+        "Value": "9"
+      },
+      {
+        "Name": "Sampler",
+        "Value": "Euler"
+      },
+      {
+        "Name": "Schedule type",
+        "Value": "Karras"
+      },
+      {
+        "Name": "CFG scale",
+        "Value": "5.5"
+      },
+      {
+        "Name": "Seed",
+        "Value": "123456789"
+      },
+      {
+        "Name": "Size",
+        "Value": "512x640"
+      },
+      {
+        "Name": "Model",
+        "Value": "chenkinNoobXLCKXL_v05"
+      },
+      {
+        "Name": "Model hash",
+        "Value": "2115039971"
+      },
+      {
+        "Name": "RNG",
+        "Value": "CPU"
+      },
+      {
+        "Name": "Version",
+        "Value": "neo-2.29.1"
+      }
+    ],
+    "Width": 512,
+    "Height": 640
+  },
+  "Results": [
+    {
+      "Success": true,
+      "Status": "Recipe\u3092API\u3067\u751F\u6210\u3057\u3001\u6307\u5B9Afield\u3092\u5B9F\u753B\u50CFmetadata\u3067\u7167\u5408\u3057\u307E\u3057\u305F\u3002",
+      "ImagePath": "C:\\Codex\\DanbooruTagTool\\.staging-issue228-live-roundtrip\\Images\\forge-2d84341e766e4ace93c4515658731874.png",
+      "Metadata": {
+        "SourcePath": "C:\\Codex\\DanbooruTagTool\\.staging-issue228-live-roundtrip\\Images\\forge-2d84341e766e4ace93c4515658731874.png",
+        "RawInfotext": "a blue ceramic teapot on a wooden table, DTT_RECIPE_SPIKE_POSITIVE\nNegative prompt: text, watermark, DTT_RECIPE_SPIKE_NEGATIVE\nSteps: 3, Sampler: Euler, Schedule type: Karras, CFG scale: 4.75, Seed: 123456790, Size: 256x320, Model: chenkinNoobXLCKXL_v05, Model hash: 2115039971, RNG: CPU, Version: neo-2.29.1",
+        "Positive": "a blue ceramic teapot on a wooden table, DTT_RECIPE_SPIKE_POSITIVE",
+        "Negative": "text, watermark, DTT_RECIPE_SPIKE_NEGATIVE",
+        "Parameters": [
+          {
+            "Name": "Steps",
+            "Value": "3"
+          },
+          {
+            "Name": "Sampler",
+            "Value": "Euler"
+          },
+          {
+            "Name": "Schedule type",
+            "Value": "Karras"
+          },
+          {
+            "Name": "CFG scale",
+            "Value": "4.75"
+          },
+          {
+            "Name": "Seed",
+            "Value": "123456790"
+          },
+          {
+            "Name": "Size",
+            "Value": "256x320"
+          },
+          {
+            "Name": "Model",
+            "Value": "chenkinNoobXLCKXL_v05"
+          },
+          {
+            "Name": "Model hash",
+            "Value": "2115039971"
+          },
+          {
+            "Name": "RNG",
+            "Value": "CPU"
+          },
+          {
+            "Name": "Version",
+            "Value": "neo-2.29.1"
+          }
+        ],
+        "Width": 256,
+        "Height": 320
+      }
+    },
+    {
+      "Success": true,
+      "Status": "Recipe\u3092API\u3067\u751F\u6210\u3057\u3001\u6307\u5B9Afield\u3092\u5B9F\u753B\u50CFmetadata\u3067\u7167\u5408\u3057\u307E\u3057\u305F\u3002",
+      "ImagePath": "C:\\Codex\\DanbooruTagTool\\.staging-issue228-live-roundtrip\\Images\\forge-e8d52bc893bf467f9717faf56022c573.png",
+      "Metadata": {
+        "SourcePath": "C:\\Codex\\DanbooruTagTool\\.staging-issue228-live-roundtrip\\Images\\forge-e8d52bc893bf467f9717faf56022c573.png",
+        "RawInfotext": "a blue ceramic teapot on a wooden table, DTT_RECIPE_SPIKE_POSITIVE\nNegative prompt: text, watermark, DTT_RECIPE_SPIKE_NEGATIVE\nSteps: 3, Sampler: Euler, Schedule type: Karras, CFG scale: 4.75, Seed: 123456791, Size: 256x320, Model: chenkinNoobXLCKXL_v05, Model hash: 2115039971, RNG: CPU, Version: neo-2.29.1",
+        "Positive": "a blue ceramic teapot on a wooden table, DTT_RECIPE_SPIKE_POSITIVE",
+        "Negative": "text, watermark, DTT_RECIPE_SPIKE_NEGATIVE",
+        "Parameters": [
+          {
+            "Name": "Steps",
+            "Value": "3"
+          },
+          {
+            "Name": "Sampler",
+            "Value": "Euler"
+          },
+          {
+            "Name": "Schedule type",
+            "Value": "Karras"
+          },
+          {
+            "Name": "CFG scale",
+            "Value": "4.75"
+          },
+          {
+            "Name": "Seed",
+            "Value": "123456791"
+          },
+          {
+            "Name": "Size",
+            "Value": "256x320"
+          },
+          {
+            "Name": "Model",
+            "Value": "chenkinNoobXLCKXL_v05"
+          },
+          {
+            "Name": "Model hash",
+            "Value": "2115039971"
+          },
+          {
+            "Name": "RNG",
+            "Value": "CPU"
+          },
+          {
+            "Name": "Version",
+            "Value": "neo-2.29.1"
+          }
+        ],
+        "Width": 256,
+        "Height": 320
+      }
+    }
+  ],
+  "Scan": {
+    "Added": 3,
+    "Refreshed": 0,
+    "Unchanged": 0,
+    "Missing": 0,
+    "Errors": 0,
+    "Complete": true
+  },
+  "Models": [
+    {
+      "Title": "waiIllustriousSDXL_v170.safetensors [f116b0c78f]",
+      "Name": "waiIllustriousSDXL_v170",
+      "Hash": "f116b0c78f"
+    },
+    {
+      "Title": "anima_baseV10.safetensors",
+      "Name": "anima_baseV10",
+      "Hash": null
+    },
+    {
+      "Title": "chenkinNoobXLCKXL_v05.safetensors [2115039971]",
+      "Name": "chenkinNoobXLCKXL_v05",
+      "Hash": "2115039971"
+    },
+    {
+      "Title": "ntrMIXIllustriousXL_xiii.safetensors",
+      "Name": "ntrMIXIllustriousXL_xiii",
+      "Hash": null
+    }
+  ],
+  "Requests": 3,
+  "BatchSize": 1,
+  "Iterations": 1
+}

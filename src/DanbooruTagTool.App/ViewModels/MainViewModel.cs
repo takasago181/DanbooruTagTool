@@ -41,7 +41,7 @@ public sealed class MainViewModel : Observable
         Prompt = new(runtime, Workspace, clipboard, Persist, canMutate, message => Status = message,
             chip => Dictionary?.InspectChip(chip), () => PresetsRequested?.Invoke());
         Dictionary = new(runtime, Workspace, general ?? new PendingGeneralBrowseProvider(), Persist, canMutate, specialBrowse);
-        Forge = new(forgeBridge ?? new ForgeBridgeClient(), Persist, canMutate, () => Prompt?.English ?? "", message => Status = message, () => ForgeSettingsRequested?.Invoke());
+        Forge = new(forgeBridge ?? new ForgeBridgeClient(), Persist, canMutate, () => Prompt?.English ?? "", message => Status = message, () => ForgeSettingsRequested?.Invoke(), paths is null ? null : Path.Combine(paths.Root, "UserData", "ForgeResults"));
         PresetEditor = new(runtime, Workspace, clipboard, Persist, canMutate, message => Status = message);
         GenerationImport = new(Workspace, clipboard, message => Status = message, snapshot =>
         {
@@ -53,6 +53,7 @@ public sealed class MainViewModel : Observable
             PresetEditor.BeginNewPresetFromSnapshot(snapshot);
             PresetsRequested?.Invoke();
         }, Forge, canMutate);
+        if (GenerationLibrary is not null) Forge.IndexRecipeResult = GenerationLibrary.IndexRecipeResultAsync;
         Prompt.Restore(UserState.Ui); Dictionary.Restore(UserState.Ui); Forge.Restore(UserState.Ui); PresetEditor.Restore(state);
         WireNotifications();
         Workspace.Changed += OnPromptChanged;

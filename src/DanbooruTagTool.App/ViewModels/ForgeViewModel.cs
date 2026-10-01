@@ -1,5 +1,6 @@
 using DanbooruTagTool.Core;
 using DanbooruTagTool.Data;
+using System.IO;
 
 namespace DanbooruTagTool.App.ViewModels;
 
@@ -11,6 +12,13 @@ public sealed class ForgeViewModel : Observable
     private readonly Func<bool> canMutate;
     private readonly Func<string> english;
     private readonly Action<string> setStatus;
+    private readonly IForgeGenerationApiClient api;
+    private readonly string? apiOutput;
+    private bool recipeBusy;
+    private string recipeStatus = "API生成は1画像。未指定条件はForge既定値。指定条件は実画像で照合し、不一致は失敗として出力を保持します。";
+    public string RecipeStatus { get => recipeStatus; private set => Set(ref recipeStatus, value); }
+    public Func<string, Task>? IndexRecipeResult { get; set; }
+    public AsyncRelayCommand GeneratePresetRecipe { get; }
     private string forgeUrl = ForgeBridgeProtocol.DefaultUrl, forgeExtensionPath = "";
     public string ForgeUrl { get => forgeUrl; set => Set(ref forgeUrl, value); }
     public string ForgeExtensionPath { get => forgeExtensionPath; set => Set(ref forgeExtensionPath, value); }
@@ -20,9 +28,11 @@ public sealed class ForgeViewModel : Observable
     public AsyncRelayCommand GenerateInForge { get; }
     public AsyncRelayCommand SendPresetToForge { get; }
 
-    public ForgeViewModel(IForgeBridgeClient bridge, Action persist, Func<bool> canMutate, Func<string> english, Action<string> setStatus, Action openSettings)
+    public ForgeViewModel(IForgeBridgeClient bridge, Action persist, Func<bool> canMutate, Func<string> english, Action<string> setStatus, Action openSettings, string? apiOutput = null, IForgeGenerationApiClient? api = null)
     {
         this.bridge = bridge; this.persist = persist; this.canMutate = canMutate; this.english = english; this.setStatus = setStatus;
+        this.api = api ?? new ForgeGenerationApiClient(); this.apiOutput = apiOutput;
+        GeneratePresetRecipe = new(p => GenerateRecipeAsync((GenerationPreset)p!), p => canMutate() && apiOutput is not null && !recipeBusy && p is GenerationPreset { Recipe.HasAny: true });
         OpenForgeSettings = new(_ => openSettings(), _ => canMutate()); SaveForgeSettings = new(_ => SaveSettings(), _ => canMutate());
         SendToForge = new(_ => SendAsync(null, CancellationToken.None), _ => canMutate());
         GenerateInForge = new(_ => GenerateAsync(null, CancellationToken.None), _ => canMutate());
@@ -47,6 +57,21 @@ public sealed class ForgeViewModel : Observable
         => canMutate() ? SendPayloadAsync(preset.Positive, preset.Negative, ForgeNegativeMode.Replace, ForgeBridgeAction.SendOnly, cancellationToken) : Task.CompletedTask;
     public Task GenerateImageAsync(GenerationPreset preset, CancellationToken cancellationToken = default)
         => canMutate() ? SendPayloadAsync(preset.Positive, preset.Negative, ForgeNegativeMode.Replace, ForgeBridgeAction.SendAndGenerate, cancellationToken) : Task.CompletedTask;
+    public async Task GenerateRecipeAsync(GenerationPreset preset, CancellationToken cancellationToken = default)
+    {
+        if (!canMutate() || apiOutput is null || recipeBusy) return;
+        recipeBusy = true; GeneratePresetRecipe.Refresh(); RecipeStatus = "Forge APIで1画像生成中。完了するまで再送信しないでください。";
+        try
+        {
+            var result = await api.GenerateAsync(ForgeUrl, new(preset.Positive, preset.Negative, preset.Recipe ?? new()), apiOutput, cancellationToken);
+            RecipeStatus = result.Status + (result.ImagePath is null ? "" : "\n出力: " + result.ImagePath);
+            // Failed round-trips remain real evidence too, never discarded or called successful.
+            if (result.ImagePath is not null && IndexRecipeResult is not null) await IndexRecipeResult(result.ImagePath);
+        }
+        catch (Exception e) when (e is IOException or UnauthorizedAccessException or InvalidDataException or Microsoft.Data.Sqlite.SqliteException)
+        { RecipeStatus += "\nLibrary登録を完了できません。出力は保持しています: " + e.Message; }
+        finally { setStatus(RecipeStatus); recipeBusy = false; GeneratePresetRecipe.Refresh(); }
+    }
     private async Task SendPayloadAsync(string positive, string? negative, ForgeNegativeMode negativeMode, ForgeBridgeAction action, CancellationToken cancellationToken)
     {
         var result = await bridge.SendAsync(
