@@ -1,6 +1,6 @@
 # NOW — いま何をやっているか
 
-最終整理: 2026-10-01 JST (post-#216 promotion)
+最終整理: 2026-10-01 JST (post-#180/#216 closeout + GitHub cleanup)
 
 このファイルは、GitHubを開いたときに**現在の主作業・進捗・次の行動**を人間がすぐ把握するためのdashboardです。
 
@@ -12,11 +12,38 @@
 
 ---
 
-## #216 — Production integration deployed; visual capture limitation remains
+## Character / Copyright Browse — COMPLETE / production deployed
 
-PR #217 and #218 merged. Clean runtime source: `cbfab29134ed41e15c25ba24e1426c8411d65207`, promoted to `C:\Codex\DanbooruTagTool-App` with the canonical pipeline. Formal HOME wins; reviewed fallback adds **7,409** product Characters. Identity/non-HOME payload changes: **0**. UserData is byte-identical, and the saved 13-tag Prompt restored.
+Issue #180 (formal HOME authority rebuild) and Issue #216 (remaining coverage + reviewed Browse fallback) are **completed and closed**.
 
-Final candidate and installed catalog regressions each passed **249 / 3 opt-in skips**; isolated performance and main CI passed. Installed launch/title/accessibility passed. Windows screenshot capture shows a white client area on both previous and new runtimes; visual appearance is **not verified**. See `docs/issue216/PRODUCTION_PROMOTION_2026-10-01.json` and updated LKG for exact hashes and evidence. The following historical lane records are not current runtime provenance.
+Current repository head after PR #219 documentation merge:
+`a2896f27604c66f6beede84c3ff0d83c7ec92bb9`
+
+Current production runtime was built from:
+`cbfab29134ed41e15c25ba24e1426c8411d65207`
+
+Production:
+- runtime: `C:\Codex\DanbooruTagTool-App`
+- Character: **35,278**
+- Copyright: **7,616**
+- FORMAL_HOME: **25,533**
+- REVIEWED_BROWSE_FALLBACK: **7,409**
+- UNRESOLVED: **2,336**
+- precedence: **FORMAL_HOME -> REVIEWED_BROWSE_FALLBACK -> UNRESOLVED**
+- formal authority mutations: **0**
+- UserData before/after: byte-identical; saved **13-tag Prompt** retained
+- final candidate + installed catalog: **249 PASS / 3 explicit opt-in SKIP**
+- Python #216/#180 regression: **121 PASS**
+- CI / performance gates: **PASS**
+
+Exact current runtime hashes and validation evidence are authoritative in:
+- `docs/project/LAST_KNOWN_GOOD.json`
+- `docs/issue216/PRODUCTION_PROMOTION_2026-10-01.json`
+
+Known non-blocking limitation: automated Windows screenshot capture returns a white client area (also reproduced on the prior production runtime), so machine-captured final visual appearance is **NOT_VERIFIED**. Installed launch/title and saved Prompt accessibility passed.
+
+Do **not** reopen HOME/source research by default. Reopen only for a concrete product regression or a separately approved new scope.
+
 
 ## 1. COMPLETE — #132 Tag classification usability / discoverability
 
@@ -64,66 +91,61 @@ The following owner-level residuals were re-derived by #201. No high-confidence 
 - #210 merged as PR #212 at live main `a90f5b652d4239709005d020417a236ea9d97ebb`; #205 was superseded and closed without merge.
 - Production was rebuilt from merged main with the canonical clean Release self-contained single-file publisher. UserData stayed byte-identical.
 - Current runtime LKG is recorded in `docs/project/LAST_KNOWN_GOOD.json` and `.md`; canonical command/validators/promotion are documented in `docs/maintenance/PORTABLE_RUNTIME_PIPELINE.md`.
-- Maintenance triage: #52, #138, #203, #210 complete/closed; #188 remains open for the next 10 actual #180 worker/coordinator telemetry runs, a duration/orchestration summary, and disposition of the current state-cache lint warning without deleting protected history.
+- Maintenance triage: #52, #138, #203, #210 complete/closed. #188 remains open only for residual efficiency/telemetry disposition; its former "next 10 #180 runs" wait condition is obsolete because #180 is now completed/closed.
 - Default Release skip inventory is machine-readable at `docs/project/RELEASE_TEST_SKIP_INVENTORY.json`; all 19 are classified.
 - Four clean, durable, duplicate/completed worktrees were removed through normal `git worktree remove`; active #179/#180, #132 evidence, dirty/local-only work and protected data were retained.
 
-## 2. ACTIVE PARALLEL RESEARCH — #180 Character -> HOME Copyright
+## 2. COMPLETE — #180 / #216 Character -> HOME Copyright
 
 目的:
-- Characterから**single canonical HOME Copyright**をhigh-precision authorityで再構築
-- unreliableな旧relation authorityを置き換えるためのresearch
+- Characterからsingle HOME Copyrightをhigh-precision authorityで再構築
+- unresolved全件をterminal化
+- product Browseではreviewed fallbackを安全に追加
 
-状態:
-- Issue: **#180**
-- branch: `research/issue180-single-home-pilot`
-- Draft PR: **#182**
-- research active
-- main merge / production applyは未承認
-
-直近の基盤改善:
-- Issue180 CIの `push + pull_request` 二重発火を解消
-- 直近24hで 91 runs / 46 unique SHAs だった重複を整理
-- PR #194で redundant PR trigger削除 + concurrency追加
+最終状態:
+- #180: **CLOSED / completed**
+- #216: **CLOSED / completed**
+- PR #219: **merged**
+- current main: `a2896f27604c66f6beede84c3ff0d83c7ec92bb9`
+- production: deployed
+- research branches / immutable ledgers: provenanceとして保持
 
 次:
-- live branch / PR #182 の最新checkpointからresearch継続
-- production applyは別Gate
+- 原則なし
+- concrete regressionが出た場合のみ、既存authorityを上書きせず別Issueで扱う
+
 
 ---
 
-## 3. INFRA ACTIVE — #188 Execution efficiency / repository structure
+## 3. INFRA / RESIDUAL — #188 Execution efficiency / repository structure
 
 目的:
 - semantic精度を落とさず、AIの周辺事務処理・重複CI・巨大入力・重複routingを削る
 
 Issue:
-- **#188**
+- **#188 OPEN**
 
 mainへ反映済み:
-- PR #189: execution architecture / compact routing / overhead lint
-- PR #190: #132 incremental CI と full audit を分離
-- PR #191: CURRENT_STATE current/history分離
-- PR #192: deterministic compact CSV transport
-- PR #193: execution telemetry
-- PR #194: #180 duplicate CI trigger解消
+- compact routing / cold-vs-warm guidance
+- incremental transport / validation
+- execution telemetry
+- CI deduplication
+- canonical publish / promotion authority
 
-現在の原則:
-- cold start と warm resume を分ける
-- immutable evidenceがauthority、statusはcache
-- 大規模sourceは必要rangeだけmodelへ渡す
-- structured outputは real serializer + parse-back
-- checkpoint CI / boundary QA / final full auditを分離
-- semantic判断そのものを雑にして速度を稼がない
+現在:
+- foundation workは完了済み
+- 旧残件だった「次の10回の#180 worker/coordinator telemetry」は、#180完了によりそのまま待つ条件としてはobsolete
+- repo内に明示的な10-run summaryは見つからない
 
-残り:
-- telemetryを実運用で観測して、真のbottleneckを特定
-- state/progress/cacheの二重authorityが残る箇所を順次整理
-- project-wide overhead lintを継続改善
+次に#188を触る場合:
+1. completed #180を待つ前提を削除する
+2. 現存するduplicate authority / state-cache問題が本当に残っているかだけ再確認する
+3. 追加改善がなければclose、具体的な改善対象があれば新しい狭いscopeへ切る
+
 
 ---
 
-## 4. STANDBY / DRAFT — #179 Character/Copyright quality audit
+## 4. STANDBY — #179 Character/Copyright quality audit
 
 目的:
 - Character/Copyright identity
@@ -132,17 +154,17 @@ mainへ反映済み:
 - 2D scope品質
 
 状態:
-- Issue: **#179**
-- branch: `research/issue179-character-quality-audit`
-- Draft PR: **#181**
-- branch / research evidenceは保持
-- 現在の主Automation対象ではない
+- Issue: **#179 OPEN**
+- research branch: `research/issue179-character-quality-audit` (evidence retained)
+- old Draft PR **#181 CLOSED** as a stale merge path
+- Stage A 44,426-row census evidence is retained
 - Artist auditは対象外
 
-次:
-- #179を再開する場合はlive Issue / PR #181 / branchを正本にする
-- #132 / #180とdata/branch/semantic decisionsを混ぜない
-- #201で残ったsemantic clusterはraw件数を修正ノルマにせず、owner-level evidenceが増えた場合だけ再検討する
+重要:
+- #179は#180/#216のHOME ownershipとは別テーマ
+- 再開時はold PRをmergeしない
+- current main `a2896f27604c66f6beede84c3ff0d83c7ec92bb9` からfresh branchを切り、Stage A evidenceをrevalidate/reuseする
+
 
 ---
 
@@ -162,9 +184,13 @@ mainへ反映済み:
 - user-facing: `C:\Codex\DanbooruTagTool-App`
 - self-contained `win-x64`
 - real `UserData` はuser-owned protected state
-- current source main: `a90f5b652d4239709005d020417a236ea9d97ebb`
-- current production EXE SHA256: `479EEA2755E2C5707E0F04910D9A9C2EEE30A31DC175EE78ED36685B124FB64A`
-- catalog SHA256: `5759156FF79D794DDC70DD5459AF9B80F8CB204C4527BE16FD368FF40BE9F141`; manifest schema 3; runtime files 7, root DLL 0, PDB 0
+- current repository main: `a2896f27604c66f6beede84c3ff0d83c7ec92bb9`
+- production binary source main: `cbfab29134ed41e15c25ba24e1426c8411d65207`
+- current production EXE SHA256: `1CF2A2E4CA9924E9372F6CDD8FCFA8B45C47F96A48079BBAEE325BD8A0652313`
+- catalog SHA256: `72E81FF3123FF6872F4F7136C1EE19B9BC42BF58B5DC4CB96B49120893539A8C`
+- runtime manifest SHA256: `83ACA3FDB3E9CFA00B1D38505EF269B9285DE213741A2072021EB2C4109E6CCF`
+- exact runtime authority: `docs/project/LAST_KNOWN_GOOD.json`
+
 
 ---
 
