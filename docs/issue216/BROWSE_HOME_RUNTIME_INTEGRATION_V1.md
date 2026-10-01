@@ -47,7 +47,7 @@ The script requires the exact final #180 master SHA256
 Projection and input fingerprints are in `BROWSE_HOME_RUNTIME_MANIFEST_V1.json`.
 The frozen master stays ignored/local; the compact projection is tracked.
 
-## Validation
+## Initial branch validation (historical)
 
 - Python #216/#180 regression: 121 passed.
 - Standard Windows/WPF solution regression: 213 passed, 16 protected-input tests skipped.
@@ -65,10 +65,19 @@ The frozen master stays ignored/local; the compact projection is tracked.
 An exploratory all-protected test run also exposed the older
 `ProductionGeneralBrowseAddSearchUndoCopyAndRestart` fixture's obsolete
 `general:` navigation expectation. It is outside this HOME integration; the
-current standard WPF composition/navigation tests pass. The source-isolation
-fixture was corrected to explicitly request its intended Ordinary profile.
+current standard WPF composition/navigation tests pass. The initial branch used an Ordinary-profile workaround. Integration with latest main
+restored the current Full source-isolation test and included the new projection input;
+the obsolete General navigation fixture was already corrected on main.
 
 All builds and UI checks used new ignored staging directories in this worktree.
 No main merge, production promotion, UserData copy, protected data movement, or
 formal authority mutation was performed. CI includes a Windows solution test job
 alongside existing Python authority checks.
+
+## User-authorized main integration and deployment — 2026-10-01
+
+PR #217/#218 merged; final runtime source main `cbfab29134ed41e15c25ba24e1426c8411d65207`. Latest main fixes were preserved. Repeated HOME strings now reuse canonical Copyright strings, keeping the dedicated HOME index within the managed-memory Gate without changing semantics.
+
+Clean canonical publisher and bounded promoter deployed to `C:\Codex\DanbooruTagTool-App`. Formal authority files remain immutable. Real UserData was not copied and remained byte-identical. The final candidate and installed-catalog suites each passed 249 tests / 3 explicit opt-in skips; dedicated performance and main CI passed. Full catalog identities and non-HOME metadata changed 0.
+
+Installed launch and saved 13-tag Prompt accessibility passed. Screenshot capture showed a white client area on both old and new runtimes; final visual appearance is not verified. Exact release hashes and limitation: `PRODUCTION_PROMOTION_2026-10-01.json`.

@@ -1,6 +1,6 @@
 # CURRENT STATE
 
-最終更新: 2026-09-28 (post-#211)
+最終更新: 2026-10-01 (post-#216 production promotion)
 
 このファイルは **現在地だけ** を保持する人間向けsummary。
 過去のrouting/runtime/taxonomy/完了記録は `docs/project/CURRENT_STATE_HISTORY.md` に保存する。
@@ -55,7 +55,10 @@
   - reviewed Browse overlay completed; runtime fallback projection adds 7,409 product-catalog Characters
   - user explicitly authorized main merge, clean publish, bounded production promotion, and workstation final validation on 2026-10-01
   - formal #180/#216 HOME remains immutable and has priority; reviewed fallback is Browse/search only
-  - promotion results and live HEAD are recorded on Issue #216; UserData is protected
+  - state: production-promoted through PR #217/#218 from main `cbfab29134ed41e15c25ba24e1426c8411d65207`
+  - installed regression 249 PASS / 3 opt-in SKIP; isolated performance and main CI PASS; UserData byte-identical
+  - final installed launch and saved Prompt accessibility PASS; visual screenshot confirmation remains unavailable
+  - immutable result: `docs/issue216/PRODUCTION_PROMOTION_2026-10-01.json`
 
 - **#188 — Project-wide execution efficiency**
   - branch: Issue単位の小さいDEV branch/PRで実施
@@ -83,12 +86,12 @@
   - BODY: **247**
   - THEME: **108**
 - current Special authority: Issue #76 shallow kind/body/theme model
-- production LKG: `docs/project/LAST_KNOWN_GOOD.json` and `.md` (source main `a90f5b652d4239709005d020417a236ea9d97ebb`)
+- production LKG: `docs/project/LAST_KNOWN_GOOD.json` and `.md` (source main `cbfab29134ed41e15c25ba24e1426c8411d65207`)
 - runtime shape: 7 total files; single-file self-contained win-x64; root DLL 0; PDB 0; external catalog/UserData/ForgeBridge/manifest schema 3
-- current production EXE SHA256: `479EEA2755E2C5707E0F04910D9A9C2EEE30A31DC175EE78ED36685B124FB64A`; catalog SHA256 `5759156FF79D794DDC70DD5459AF9B80F8CB204C4527BE16FD368FF40BE9F141`
+- current production EXE SHA256: `1CF2A2E4CA9924E9372F6CDD8FCFA8B45C47F96A48079BBAEE325BD8A0652313`; catalog SHA256 `72E81FF3123FF6872F4F7136C1EE19B9BC42BF58B5DC4CB96B49120893539A8C`
 - current UI mitigation authority: #177
   - Artist hidden
-  - unreliable old Character<->Copyright relation UI disabled
+  - legacy RelatedCopyright remains excluded; #216 formal HOME / reviewed Browse fallback now powers Character-Copyright Browse/search
 - Performance / Runtime Load Audit と portable/runtime hardening は完了済み。default next taskへ戻さない
 - #117/#118 completed baselineをold current-task textから再開しない
 - #65 Stage10はparallel learningでありv1 product Gateではない

@@ -1,6 +1,6 @@
 # NOW — いま何をやっているか
 
-最終整理: 2026-09-28 JST (post-#211)
+最終整理: 2026-10-01 JST (post-#216 promotion)
 
 このファイルは、GitHubを開いたときに**現在の主作業・進捗・次の行動**を人間がすぐ把握するためのdashboardです。
 
@@ -12,9 +12,11 @@
 
 ---
 
-## Current user-authorized #216 production integration
+## #216 — Production integration deployed; visual capture limitation remains
 
-The completed #216 formal coverage and independently reviewed Browse HOME fallback are being integrated into live main, followed by the canonical clean publisher and bounded runtime promotion. Formal HOME wins; reviewed fallback adds 7,409 runtime-eligible Characters. Actual runtime hashes, UserData preservation and final workstation checks will be recorded on Issue #216 and in the updated LKG after successful promotion.
+PR #217 and #218 merged. Clean runtime source: `cbfab29134ed41e15c25ba24e1426c8411d65207`, promoted to `C:\Codex\DanbooruTagTool-App` with the canonical pipeline. Formal HOME wins; reviewed fallback adds **7,409** product Characters. Identity/non-HOME payload changes: **0**. UserData is byte-identical, and the saved 13-tag Prompt restored.
+
+Final candidate and installed catalog regressions each passed **249 / 3 opt-in skips**; isolated performance and main CI passed. Installed launch/title/accessibility passed. Windows screenshot capture shows a white client area on both previous and new runtimes; visual appearance is **not verified**. See `docs/issue216/PRODUCTION_PROMOTION_2026-10-01.json` and updated LKG for exact hashes and evidence. The following historical lane records are not current runtime provenance.
 
 ## 1. COMPLETE — #132 Tag classification usability / discoverability
 

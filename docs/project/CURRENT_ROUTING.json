@@ -1,6 +1,6 @@
 {
   "schema_version": "project-current-routing-v1",
-  "generated_at": "2026-10-01T07:23:29.242365+00:00",
+  "generated_at": "2026-10-01T07:49:20.845699+00:00",
   "purpose": "compact machine-readable routing snapshot; not a permanent branch-head authority",
   "live_main_snapshot": null,
   "must_refetch_live_heads_before_write": true,
@@ -56,22 +56,6 @@
       "production_mutation": false,
       "head_policy": "fetch_live_before_work_or_write",
       "progress_source": "Issue #188 comments + merged PRs"
-    },
-    {
-      "issue": 216,
-      "kind": "reviewed_browse_runtime_integration",
-      "title": "Completed HOME coverage and reviewed Browse HOME fallback production integration",
-      "branch": "codex/issue216-unresolved-coverage-7073",
-      "branch_head_snapshot": null,
-      "phase": "user-authorized main merge / clean publish / bounded production promotion and final workstation validation",
-      "production_mutation": true,
-      "head_policy": "fetch_live_before_work_or_write",
-      "progress_source": "live Issue #216 and docs/issue216/BROWSE_HOME_RUNTIME_INTEGRATION_V1.md",
-      "constraints": [
-        "formal #180/#216 decisions immutable",
-        "formal HOME before reviewed fallback",
-        "UserData never replaced"
-      ]
     }
   ],
   "completed_or_non_default": [
@@ -84,7 +68,8 @@
     "#201 practical discoverability finish complete through PR #202; no production taxonomy/catalog delta; practical intent-first scenario regression gate added",
     "#204 live Unified filter refresh and visual stability follow-up complete; production baseline retained",
     "#210 catalog validation/publish/promotion pipeline complete through PR #212; production promoted from live main a90f5b652d4239709005d020417a236ea9d97ebb; UserData byte-identical",
-    "#211 post-#210 hygiene finalization merged via PR #214; maintenance Issues #52/#138/#203/#210 closed; #188 remains open for its exact 10-run telemetry and state-cache-warning disposition"
+    "#211 post-#210 hygiene finalization merged via PR #214; maintenance Issues #52/#138/#203/#210 closed; #188 remains open for its exact 10-run telemetry and state-cache-warning disposition",
+    "#216 formal coverage complete and reviewed Browse HOME production-promoted via PR #217/#218 from cbfab29134ed41e15c25ba24e1426c8411d65207; 7,409 fallback Characters; UserData byte-identical; visual capture verification remains limited"
   ],
   "protected_boundaries": [
     "UserData is user-owned",
