@@ -1,0 +1,27 @@
+{
+  "base_commit": "8789c41b8e1b4b96bc770a908f0dffd3dc865910",
+  "inspected": 1092,
+  "classification_counts": {
+    "ORIGINAL_INDEPENDENT": 556,
+    "DERIVATIVE_OR_WORK_SCOPED": 56,
+    "AMBIGUOUS": 480
+  },
+  "fan_derivative_assignments": 48,
+  "authored_work_assignments": 8,
+  "reviewed_browse_home": 7551,
+  "unresolved": 2551,
+  "Top2000_reduction": 9,
+  "Top2000_unresolved": 148,
+  "Top500_unresolved": 10,
+  "wiki_pages_reused": 59,
+  "bulk_request_count": 13,
+  "exact_own_pages": 736,
+  "nonempty_own_pages": 658,
+  "input_sha256": {
+    "REVIEWED_BROWSE_HOME_V1.csv": "46c2a970b63b731c3a8cbe4d4d80fb9762ec32c49812f25e95bb82f968b26475",
+    "BROWSE_ARTIST_REVIEW_WIKI_INPUTS_V1.json.gz": "3a8b63d9c3b7f730874d9dcff4e36c99a0aa5b594264950929d7f070d39f95a1",
+    "PROVISIONAL_BROWSE_HOME_INPUTS_V1.csv": "a7d647a4677d134beeac4412c8687f87b246ee99e53e55822275d89a0a6ff999",
+    "COPYRIGHT_ROOTS_V1.csv": "7a993f652479ffc30194f59716f8bc0c6dbcad3a50497d102b0f21fdac4c8770"
+  },
+  "formal_authority_eligible": false
+}
