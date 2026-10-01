@@ -37,6 +37,9 @@ jobs:
       - name: Build conservative display-cleanup candidates
         run: python scripts/issue179/build_display_cleanup_review.py
 
+      - name: Compile reviewed correction ledger
+        run: python scripts/issue179/build_correction_ledger.py
+
       - name: Validate Stage B review ledgers
         run: python scripts/issue179/validate_stage_b_reviews.py
 
@@ -84,4 +87,10 @@ jobs:
         with:
           name: issue179-display-cleanup
           path: artifacts/issue179-display-cleanup/
+          if-no-files-found: error
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: issue179-corrections
+          path: artifacts/issue179-corrections/
           if-no-files-found: error
