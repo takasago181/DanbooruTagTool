@@ -39,6 +39,8 @@ public sealed record CatalogEntry(string Id, string? Canonical, string English, 
     public string[] RelatedCopyright { get; init; } = [];
     public string? FormalHomeCopyright { get; init; }
     public string? ReviewedBrowseHome { get; init; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public CharacterBrowseGroup? BrowseGroup { get; init; }
     public string? EffectiveBrowseHome => FormalHomeCopyright ?? ReviewedBrowseHome;
     public string BrowseHomeSource => FormalHomeCopyright is not null ? "FORMAL_HOME" :
         ReviewedBrowseHome is not null ? "REVIEWED_BROWSE_FALLBACK" : "UNRESOLVED";
@@ -71,6 +73,9 @@ public sealed class Catalog(IReadOnlyList<CatalogEntry> entries) : IRuntimeCatal
     public IReadOnlyList<SearchHit> Search(string query) => index.Search(query);
     public IReadOnlyList<CatalogEntry> RelatedByCatalogMetadata(CatalogEntry entry) => index.RelatedByCatalogMetadata(entry);
     public IReadOnlyList<CatalogEntry> RelatedByBrowseHome(CatalogEntry entry) => index.RelatedByBrowseHome(entry);
+    public IReadOnlyList<CharacterBrowseGroupCount> BrowseGroups(string home) => index.BrowseGroups(home);
+    public IReadOnlyList<CatalogEntry> BrowseHomeCharacters(string home, string? group = null) => index.BrowseHomeCharacters(home, group);
+    public IReadOnlyList<SearchHit> SearchHomeCharacters(string home, string? group, string query) => index.SearchHomeCharacters(home, group, query);
     public IReadOnlyList<CatalogEntry> SearchCharactersByCopyright(string query) => index.SearchCharactersByCopyright(query);
 }
 

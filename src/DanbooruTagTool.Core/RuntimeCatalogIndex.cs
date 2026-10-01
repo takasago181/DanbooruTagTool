@@ -17,6 +17,9 @@ public interface IRuntimeCatalogQuery : ICatalog
     IReadOnlyList<SearchHit> Search(string query);
     IReadOnlyList<CatalogEntry> RelatedByCatalogMetadata(CatalogEntry entry);
     IReadOnlyList<CatalogEntry> RelatedByBrowseHome(CatalogEntry entry);
+    IReadOnlyList<CharacterBrowseGroupCount> BrowseGroups(string home);
+    IReadOnlyList<CatalogEntry> BrowseHomeCharacters(string home, string? group = null);
+    IReadOnlyList<SearchHit> SearchHomeCharacters(string home, string? group, string query);
     IReadOnlyList<CatalogEntry> SearchCharactersByCopyright(string query);
 }
 
@@ -37,6 +40,8 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
     private readonly IReadOnlyDictionary<string, IReadOnlyList<CatalogEntry>> copyrightEntries;
     private readonly IReadOnlyDictionary<string, IReadOnlyList<CatalogEntry>> charactersByCopyright;
     private readonly IReadOnlyDictionary<string, IReadOnlyList<CatalogEntry>> charactersByHome;
+    private readonly Dictionary<string, IReadOnlyList<CharacterBrowseGroupCount>> groupsByHome = new(StringComparer.Ordinal);
+    private readonly Dictionary<(string Home, string Group), IReadOnlyList<CatalogEntry>> charactersByGroup = new();
     private readonly IReadOnlyList<SearchDocument> searchDocuments;
     private readonly IReadOnlyList<BrowsePath> generalPaths;
     private readonly IReadOnlyList<BrowsePath> specialPaths;
@@ -52,15 +57,28 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
         var homeNames = entries.Where(e => e.EffectiveCategory == "Copyright" && e.Canonical is not null)
             .Select(e => e.Canonical!).Distinct(StringComparer.Ordinal)
             .ToDictionary(name => name, StringComparer.Ordinal);
+        var sharedGroups = new Dictionary<(string Home, string Id), CharacterBrowseGroup>();
         Entries = Freeze(entries.Select(entry =>
         {
+            var group = entry.BrowseGroup;
+            if (group is not null)
+            {
+                var key = (group.HomeCopyright, group.Id);
+                if (sharedGroups.TryGetValue(key, out var previous))
+                {
+                    if (previous != group) throw new ArgumentException("Conflicting Browse Group definition: " + group.Id);
+                    group = previous;
+                }
+                else sharedGroups.Add(key, group);
+            }
             if (entry.EffectiveCategory != "Character") return entry;
             var formal = entry.FormalHomeCopyright is { } formalName
                 ? homeNames.GetValueOrDefault(formalName) ?? formalName : null;
             var reviewed = entry.ReviewedBrowseHome is { } reviewedName
                 ? homeNames.GetValueOrDefault(reviewedName) ?? reviewedName : null;
             return ReferenceEquals(formal, entry.FormalHomeCopyright) && ReferenceEquals(reviewed, entry.ReviewedBrowseHome)
-                ? entry : entry with { FormalHomeCopyright = formal, ReviewedBrowseHome = reviewed };
+                && ReferenceEquals(group, entry.BrowseGroup)
+                ? entry : entry with { FormalHomeCopyright = formal, ReviewedBrowseHome = reviewed, BrowseGroup = group };
         }));
 
         var id = new Dictionary<string, CatalogEntry>(StringComparer.Ordinal);
@@ -137,7 +155,40 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
                 throw new ArgumentException("Unknown Browse HOME: " + home);
             Add(homeRows, home, entry);
         }
-        charactersByHome = FreezeLists(homeRows);
+        charactersByHome = FreezeLists(homeRows.ToDictionary(p => p.Key, p => p.Value.Where(e => e.CanBrowse)
+            .OrderByDescending(e => e.Usage).ThenBy(e => e.Canonical, StringComparer.Ordinal).ToList(), StringComparer.Ordinal));
+        var definitions = new Dictionary<(string Home, string Group), CharacterBrowseGroup>();
+        foreach (var entry in Entries.Where(e => e.BrowseGroup is not null))
+        {
+            var group = entry.BrowseGroup!;
+            if (entry.EffectiveCategory != "Character" || group.HomeCopyright != entry.EffectiveBrowseHome
+                || string.IsNullOrWhiteSpace(group.Id) || group.Id == CharacterBrowseGroups.OtherId
+                || string.IsNullOrWhiteSpace(group.Label) || group.SortOrder < 0)
+                throw new ArgumentException("Invalid Character Browse Group: " + entry.Canonical);
+            var key = (group.HomeCopyright, group.Id);
+            if (definitions.TryGetValue(key, out var previous) && previous != group)
+                throw new ArgumentException("Conflicting Browse Group definition: " + group.Id);
+            definitions[key] = group;
+        }
+        foreach (var home in definitions.Keys.Select(k => k.Home).Distinct())
+        {
+            var options = new List<CharacterBrowseGroupCount>();
+            foreach (var definition in definitions.Values.Where(g => g.HomeCopyright == home).OrderBy(g => g.SortOrder).ThenBy(g => g.Id, StringComparer.Ordinal))
+            {
+                var members = Freeze(homeRows[home].Where(e => e.CanBrowse && e.BrowseGroup?.Id == definition.Id)
+                    .OrderByDescending(e => e.Usage).ThenBy(e => e.Canonical, StringComparer.Ordinal));
+                charactersByGroup[(home, definition.Id)] = members;
+                if (members.Count > 0) options.Add(new(definition.Id, definition.Label, members.Count, definition.SortOrder));
+            }
+            var other = Freeze(homeRows[home].Where(e => e.CanBrowse && e.BrowseGroup is null)
+                .OrderByDescending(e => e.Usage).ThenBy(e => e.Canonical, StringComparer.Ordinal));
+            if (other.Count > 0)
+            {
+                charactersByGroup[(home, CharacterBrowseGroups.OtherId)] = other;
+                options.Add(new(CharacterBrowseGroups.OtherId, "その他・未分類", other.Count, int.MaxValue));
+            }
+            groupsByHome[home] = Freeze(options);
+        }
         searchDocuments = Freeze(documents);
         generalPaths = FreezePaths(false);
         specialPaths = FreezePaths(true);
@@ -148,6 +199,28 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
 
     public CatalogEntry? FindById(string id) => byId.GetValueOrDefault(id);
 
+    private void ValidateHome(string home)
+    {
+        if (!copyrightEntries.ContainsKey(home)) throw new ArgumentException("Unknown Browse HOME: " + home);
+    }
+    public IReadOnlyList<CharacterBrowseGroupCount> BrowseGroups(string home)
+    {
+        ValidateHome(home);
+        return groupsByHome.GetValueOrDefault(home) ?? [];
+    }
+    public IReadOnlyList<CatalogEntry> BrowseHomeCharacters(string home, string? group = null)
+    {
+        ValidateHome(home);
+        if (group is null) return charactersByHome.GetValueOrDefault(home) ?? [];
+        return charactersByGroup.TryGetValue((home, group), out var members) ? members
+            : throw new ArgumentException("Unknown Browse Group beneath HOME: " + home + "/" + group);
+    }
+    public IReadOnlyList<SearchHit> SearchHomeCharacters(string home, string? group, string query)
+    {
+        var ids = BrowseHomeCharacters(home, group).Select(e => e.Id).ToHashSet(StringComparer.Ordinal);
+        return SearchDocuments(query, searchDocuments.Where(d => ids.Contains(d.Entry.Id)));
+    }
+
     // Deliberately independent of legacy co-occurrence metadata.
     public IReadOnlyList<CatalogEntry> RelatedByBrowseHome(CatalogEntry entry)
         => entry.EffectiveCategory switch
@@ -155,8 +228,7 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
             "Character" => entry.EffectiveBrowseHome is { } home
                 ? copyrightEntries.GetValueOrDefault(home) ?? [] : [],
             "Copyright" => entry.Canonical is { } root
-                ? (charactersByHome.GetValueOrDefault(root) ?? []).Where(e => e.CanBrowse)
-                    .OrderByDescending(e => e.Usage).ToArray() : [],
+                ? charactersByHome.GetValueOrDefault(root) ?? [] : [],
             _ => []
         };
 
@@ -185,13 +257,15 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
             .SelectMany(hit => RelatedByBrowseHome(hit.Entry)).Where(e => e.CanSearch)
             .DistinctBy(e => e.Id).ToArray();
 
-    public IReadOnlyList<SearchHit> Search(string query)
+    public IReadOnlyList<SearchHit> Search(string query) => SearchDocuments(query, searchDocuments);
+
+    private static IReadOnlyList<SearchHit> SearchDocuments(string query, IEnumerable<SearchDocument> documents)
     {
         var normalizedQuery = SearchEngine.Normalize(query);
         if (normalizedQuery.Length == 0) return [];
 
         var hits = new List<SearchHit>();
-        foreach (var document in searchDocuments)
+        foreach (var document in documents)
         {
             var rank = Rank(document, normalizedQuery);
             if (rank < 100) hits.Add(new SearchHit(document.Entry, rank) { PrefixWords = document.Prefixes });

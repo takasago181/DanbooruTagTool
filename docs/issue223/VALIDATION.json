@@ -1,0 +1,64 @@
+{
+  "schema": "issue223-validation-v1",
+  "runtime_source_commit": "b4d60e943e923d3a79be9cab30bb2cdca8434e8c",
+  "baseline_main": "84a4ac467cc534d44f322d02989f23d12933974f",
+  "python_tests": {
+    "passed": 124,
+    "failed": 0
+  },
+  "windows_release_tests": {
+    "failed": 0,
+    "skipped": 2,
+    "skip_reason": "Issue118 opt-in authority generation and ordinary staging tests; neither is required by this unchanged full-catalog authority.",
+    "passed": 260
+  },
+  "issue223_focused_tests": {
+    "passed": 7,
+    "failed": 0
+  },
+  "full_catalog_comparison": "validation/catalog-diff.json",
+  "performance_gate": {
+    "verdict": "PASS",
+    "report": "validation/performance.json",
+    "catalog_growth_bytes": 679936,
+    "retained_memory_delta_bytes": 64272
+  },
+  "practical_scenarios": "validation/scenarios.json",
+  "ci": {
+    "url": "https://github.com/takasago181/DanbooruTagTool/actions/runs/36853123729",
+    "verdict": "PASS"
+  },
+  "portable": {
+    "runtime": "win-x64",
+    "catalog_sha256": "D91A68186661127F16E2AE102B4DD9F3A96EAE578B3C989A8B4F17169639FC6F",
+    "exe_sha256": "212A7A161E6854455030A03053D225C85888D0F7405BA823847C08068893655F",
+    "different_pc": "NOT_VERIFIED",
+    "publish": "PASS",
+    "self_contained": true,
+    "copy_to_other_location_launch": "PASS",
+    "disposable_userdata_health": "PASS"
+  },
+  "windows_ui": {
+    "native_capture_visual": "NOT_VERIFIED: Windows.Graphics.Capture returns white client area, existing baseline limitation; framework render PNGs were inspected.",
+    "accessible_real_process": "PASS",
+    "steps": [
+      "Fate Copyright search",
+      "HOME group overview and counts",
+      "FGO selection: 421 Characters",
+      "pikachu within FGO: 0, no other-HOME leakage",
+      "back to groups clears search",
+      "clear related display restores Copyright list: 7,616"
+    ],
+    "wpf_layout_render": "PASS: actual MainWindow at 1200x900 and 1500x900"
+  },
+  "protected_data": {
+    "production_apply": "NOT PERFORMED",
+    "main_merge": "NOT PERFORMED",
+    "legacy_data_paths": "NO MOVE/DELETE",
+    "issue179_overlay": "UNCHANGED",
+    "home_authority": "UNCHANGED",
+    "production_userdata": "UNTOUCHED",
+    "issue70_source": "UNCHANGED"
+  },
+  "stop": "Review PR and remaining native capture limitation before deciding main merge / production apply"
+}

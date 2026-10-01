@@ -158,6 +158,20 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     private string? browseSelection;
     private DictionarySearchTarget searchTarget = DictionarySearchTarget.All;
     private CatalogEntry? relatedSource;
+    private string? browseGroupId;
+    private bool groupOverview;
+    public sealed record GroupOption(string Id, string Label, bool Selected);
+    public IReadOnlyList<GroupOption> BrowseGroupOptions => relatedSource is { EffectiveCategory: "Copyright", Canonical: { } home }
+        ? catalog.BrowseGroups(home).Select(g => new GroupOption(g.Id, $"{g.Label}（{g.Count:N0}）", g.Id == browseGroupId)).ToArray() : [];
+    public bool ShowBrowseGroups => BrowseGroupOptions.Count > 0;
+    public string? SelectedBrowseGroupId => browseGroupId;
+    public string BrowseGroupHint => groupOverview && string.IsNullOrWhiteSpace(Query)
+        ? "グループを選ぶか、この作品内でキャラクターを検索してください。" : "";
+    public string HomeCharacterCountLabel => relatedSource is { EffectiveCategory: "Copyright", Canonical: { } home }
+        ? $"すべてのキャラクター（{catalog.RelatedByBrowseHome(relatedSource).Count:N0}）" : "";
+    public RelayCommand SelectBrowseGroupCommand { get; private set; } = null!;
+    public RelayCommand ShowAllHomeCharactersCommand { get; private set; } = null!;
+    public RelayCommand BackToBrowseGroupsCommand { get; private set; } = null!;
     private int sortIndex, detailsTabIndex;
     private double dictionaryCardWidth = 480;
     private double browseScroll;
@@ -231,7 +245,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     public bool ShowRelationBanner => relatedSource is not null;
     public string RelationBannerText => relatedSource switch
     {
-        { EffectiveCategory: "Copyright" } => $"作品「{relatedSource.Label}」のキャラクター",
+        { EffectiveCategory: "Copyright" } => $"作品「{relatedSource.Label}」" + (browseGroupId is { } group
+            ? " → " + catalog.BrowseGroups(relatedSource.Canonical!).First(g => g.Id == group).Label : "のキャラクター"),
         { EffectiveCategory: "Character" } => $"キャラクター「{relatedSource.Label}」の作品",
         _ => ""
     };
@@ -292,7 +307,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         selectedEntry.Entry.BrowseClassification == BrowseClassificationStatus.Unresolved ? "General分類は未解決のため、カテゴリ閲覧の対象外です。" : "",
         selectedEntry.Entry.ProductFit == "KEEP" ? "" : selectedEntry.Entry.ProductFit == "KEEP_REFERENCE_ONLY" ? "参照用" : "要確認",
         selectedEntry.Entry.Canonical == null ? "canonical同一性は未確定ですが、Promptには元の英語tokenを追加できます。" : "" }.Where(s => s.Length > 0));
-    public string ResultSummary => $"{Results.Count:N0}件";
+    public string ResultSummary => groupOverview && !IsSearching ? "グループを選択" : $"{Results.Count:N0}件";
     public string ActiveUnifiedConditionSummary
     {
         get
@@ -359,7 +374,10 @@ public sealed class DictionaryWorkspaceViewModel : Observable
             .ToArray();
         InspectEntry = new(p => { if (p is EntryViewModel row) { SelectedEntry = row; DetailsTabIndex = 0; } }, p => canMutate() && p is EntryViewModel);
         Navigate = new(p => { if (p is NavigationNode n && !IsNavigationHeading(n.Key)) NavigateTo(n.Key); }, p => canMutate() && p is NavigationNode n && !IsNavigationHeading(n.Key));
-        Back = new(_ => { if (relatedSource is not null) ClearRelatedBrowse(); else UndoUnifiedBrowse(); }, _ => canMutate() && CanGoBack);
+        Back = new(_ => { if (ShowBrowseGroups && !groupOverview) BackToBrowseGroups(); else if (relatedSource is not null) ClearRelatedBrowse(); else UndoUnifiedBrowse(); }, _ => canMutate() && CanGoBack);
+        SelectBrowseGroupCommand = new(p => { if (p is string id) SelectBrowseGroup(id); }, p => canMutate() && p is string);
+        ShowAllHomeCharactersCommand = new(_ => SelectBrowseGroup(null), _ => canMutate() && ShowBrowseGroups);
+        BackToBrowseGroupsCommand = new(_ => BackToBrowseGroups(), _ => canMutate() && ShowBrowseGroups);
         ClearQuery = new(_ => { Query = ""; RefreshResults(); persist(); }, _ => canMutate());
         SetSearchTargetCommand = new(p =>
         {
@@ -401,6 +419,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         searchTarget = SearchTargetForScope(unifiedState.Scope);
         relatedSource = null;
         specialFilter = SpecialBrowseV2Filter.Empty;
+        browseGroupId = null;
+        groupOverview = false;
         unifiedHistory.Clear();
         promptCanonicalCounts = CaptureCanonicalCounts(workspace.Items);
         RefreshUnifiedFacetOptions();
@@ -415,15 +435,21 @@ public sealed class DictionaryWorkspaceViewModel : Observable
 
         if (relatedSource is not null)
         {
-            var relatedEntries = catalog.RelatedByBrowseHome(relatedSource);
+            var relatedEntries = relatedSource is { EffectiveCategory: "Copyright", Canonical: { } home }
+                ? catalog.BrowseHomeCharacters(home, browseGroupId) : catalog.RelatedByBrowseHome(relatedSource);
             if (!string.IsNullOrWhiteSpace(Query))
             {
-                var relatedIds = relatedEntries.Select(entry => entry.Id).ToHashSet(StringComparer.Ordinal);
-                entries = catalog.Search(Query).Select(hit => hit.Entry).Where(entry => relatedIds.Contains(entry.Id));
+                if (relatedSource.EffectiveCategory == "Copyright")
+                    entries = catalog.SearchHomeCharacters(relatedSource.Canonical!, browseGroupId, Query).Select(hit => hit.Entry);
+                else
+                {
+                    var relatedIds = relatedEntries.Select(entry => entry.Id).ToHashSet(StringComparer.Ordinal);
+                    entries = catalog.Search(Query).Select(hit => hit.Entry).Where(entry => relatedIds.Contains(entry.Id));
+                }
             }
             else
             {
-                entries = relatedEntries;
+                entries = groupOverview ? [] : relatedEntries;
                 entries = SortEntries(entries);
             }
         }
@@ -463,6 +489,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         }
 
         Results = Rows(entries);
+        NotifyBrowseGroups();
         Notify(nameof(ResultSummary));
         SetSelectedEntry(Results.FirstOrDefault(entry => entry.Entry.Id == (Query.Length == 0 ? browseSelection ?? selected : selected)), persist: false);
         Notify(nameof(Pending));
@@ -595,6 +622,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     {
         if (!canMutate() || catalog.RelatedByBrowseHome(entry).Count == 0) return;
         relatedSource = entry;
+        browseGroupId = null;
+        groupOverview = entry.EffectiveCategory == "Copyright" && catalog.BrowseGroups(entry.Canonical!).Count > 0;
         var targetScope = entry.EffectiveCategory == "Copyright" ? UnifiedBrowseScope.Character : UnifiedBrowseScope.Copyright;
         unifiedState = CloneState(unifiedState.WithScope(targetScope));
         browse = BrowseKeyForState(unifiedState);
@@ -605,6 +634,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         Notify(nameof(CanGoBack));
         ClearRelatedBrowseCommand.Refresh();
         RefreshResults();
+        NotifyUnifiedState();
     }
 
     public void ClearRelatedBrowse()
@@ -612,6 +642,8 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         if (!canMutate() || relatedSource is null) return;
         var sourceScope = relatedSource.EffectiveCategory == "Copyright" ? UnifiedBrowseScope.Copyright : UnifiedBrowseScope.Character;
         relatedSource = null;
+        browseGroupId = null;
+        groupOverview = false;
         unifiedState = CloneState(unifiedState.WithScope(sourceScope));
         browse = BrowseKeyForState(unifiedState);
         SetSearchTargetValue(SearchTargetForScope(sourceScope), refresh: false);
@@ -630,9 +662,49 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     {
         if (relatedSource is null) return;
         relatedSource = null;
+        browseGroupId = null;
+        groupOverview = false;
+        NotifyBrowseGroups();
         Notify(nameof(ShowRelationBanner));
         Notify(nameof(RelationBannerText));
         ClearRelatedBrowseCommand?.Refresh();
+    }
+
+    public void SelectBrowseGroup(string? id)
+    {
+        if (!canMutate() || relatedSource is not { EffectiveCategory: "Copyright", Canonical: { } home } || !ShowBrowseGroups) return;
+        _ = catalog.BrowseHomeCharacters(home, id); // reject unknown/cross-HOME groups
+        browseGroupId = id;
+        groupOverview = false;
+        Query = "";
+        browseSelection = null;
+        restoreScroll = 0;
+        RefreshResults();
+        Notify(nameof(RestoreScroll));
+    }
+
+    public void BackToBrowseGroups()
+    {
+        if (!canMutate() || !ShowBrowseGroups) return;
+        browseGroupId = null;
+        groupOverview = true;
+        Query = "";
+        browseSelection = null;
+        restoreScroll = 0;
+        RefreshResults();
+        Notify(nameof(RestoreScroll));
+    }
+
+    private void NotifyBrowseGroups()
+    {
+        Notify(nameof(BrowseGroupOptions));
+        Notify(nameof(ShowBrowseGroups));
+        Notify(nameof(SelectedBrowseGroupId));
+        Notify(nameof(BrowseGroupHint));
+        Notify(nameof(HomeCharacterCountLabel));
+        Notify(nameof(RelationBannerText));
+        ShowAllHomeCharactersCommand?.Refresh();
+        BackToBrowseGroupsCommand?.Refresh();
     }
 
     private void SetSearchTargetValue(DictionarySearchTarget target, bool refresh)

@@ -1,0 +1,29 @@
+{
+  "verdict": "PASS",
+  "total": 124895,
+  "counts": {
+    "General": 30629,
+    "Special": 3059,
+    "Character": 35278,
+    "FORMAL_HOME": 25533,
+    "REVIEWED_BROWSE_FALLBACK": 7409,
+    "UNRESOLVED": 2336,
+    "Copyright": 7616,
+    "Artist": 48313
+  },
+  "grouped_by_home": {
+    "fate_(series)": 598,
+    "pokemon": 1022,
+    "final_fantasy": 34,
+    "jojo_no_kimyou_na_bouken": 162,
+    "fire_emblem": 418,
+    "gundam": 102,
+    "project_moon": 131
+  },
+  "grouped": 2467,
+  "non_group_field_changes": 0,
+  "identity_order_changes": 0,
+  "home_authority_sha256": "f6df6fe6d5c0341c968a7efbe76bbbdbf588cf4f051bfda88667d583a2320fa5",
+  "baseline_catalog_sha256": "ff98ca4e952907b1a9021da21cdb7dee867a42dd1aba1d47619bb901a7c462c5",
+  "candidate_catalog_sha256": "d91a68186661127f16e2ae102b4dd9f3a96eae578b3c989a8b4f17169639fc6f"
+}

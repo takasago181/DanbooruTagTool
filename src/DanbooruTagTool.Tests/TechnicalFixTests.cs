@@ -108,6 +108,8 @@ public class TechnicalFixTests(ITestOutputHelper output)
             Issue70CatalogOverlayImporter.RelativePath,
             Issue179QualityOverlay.RelativePath,
             Issue216BrowseHomeImporter.RelativePath,
+            Issue223BrowseGroupImporter.GroupsPath,
+            Issue223BrowseGroupImporter.MembersPath,
             "docs/issue56/rollout/issue56_ui_genre_taxonomy_v1.json",
             AcceptedGeneralTaxonomyImporter.TaxonomyRelativePath, AcceptedGeneralTaxonomyImporter.SidecarRelativePath,
             AcceptedGeneralTaxonomyImporter.ManifestRelativePath
