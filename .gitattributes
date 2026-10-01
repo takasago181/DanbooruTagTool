@@ -10,3 +10,7 @@ docs/issue64/production_candidate/manifest.json text eol=lf
 docs/issue70/data/runtime/*.csv text eol=lf
 docs/issue70/data/runtime/*.json text eol=lf
 docs/issue70/data/queue_state.json text eol=lf
+
+# Issue #216 runtime projection is byte-hashed during catalog builds.
+docs/issue216/BROWSE_HOME_RUNTIME_V1.csv text eol=lf
+docs/issue216/BROWSE_HOME_RUNTIME_MANIFEST_V1.json text eol=lf
