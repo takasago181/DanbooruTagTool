@@ -110,12 +110,12 @@ public class TechnicalFixTests(ITestOutputHelper output)
             AcceptedGeneralTaxonomyImporter.ManifestRelativePath
         });
         foreach (var file in files) { var dest = Path.Combine(isolated.Path, file); Directory.CreateDirectory(Path.GetDirectoryName(dest)!); File.Copy(Path.Combine(authority!,file),dest); }
-        var before = AcceptedAssetImporter.Read(source!, isolated.Path);
+        var before = AcceptedAssetImporter.Read(source!, isolated.Path, CatalogBuildProfile.Ordinary);
         Assert.Equal(28226,before.Entries.Count(e=>!e.IsSpecial && e.BrowseClassification==BrowseClassificationStatus.Proposed));
         Assert.Equal(2403,before.Entries.Count(e=>!e.IsSpecial && e.BrowseClassification==BrowseClassificationStatus.Unresolved));
         Assert.All(before.Entries.Where(e=>!e.IsSpecial && e.BrowseClassification==BrowseClassificationStatus.Unresolved), e=>Assert.Empty(e.Paths));
         File.WriteAllText(Path.Combine(isolated.Path,"docs/issue56/rollout/reviewed/stray.csv"), "invalid unexpected input");
-        var after = AcceptedAssetImporter.Read(source!, isolated.Path);
+        var after = AcceptedAssetImporter.Read(source!, isolated.Path, CatalogBuildProfile.Ordinary);
         Assert.Equal(33688, after.Entries.Length); Assert.Equal(AcceptedAssetImporter.ProductionSpecialCount, after.Entries.Count(e => e.IsSpecial));
         Assert.Equal(JsonSerializer.Serialize(before), JsonSerializer.Serialize(after));
         Assert.DoesNotContain(after.SourceHashes.Keys, k => k.Contains("stray"));

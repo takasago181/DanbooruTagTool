@@ -9,6 +9,14 @@ permissions:
   contents: read
 
 jobs:
+  browse-runtime:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - run: dotnet test src/DanbooruTagTool.sln -c Release --nologo
   validate:
     runs-on: ubuntu-24.04
     steps:
