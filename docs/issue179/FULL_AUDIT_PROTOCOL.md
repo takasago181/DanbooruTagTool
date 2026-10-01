@@ -1,8 +1,17 @@
+> **2026-10-01 continuation amendment**
+>
+> This audit is resumed from current-main base `b415eb574730d83fbe3bda8c185b92b1f73a30a8` after #180/#216 completed and production Browse HOME integration shipped.
+> The four Stage A source inputs are byte-identical to the retained #179 research branch, and the core search rank/order contract in `RuntimeCatalogIndex.Search` is unchanged. Therefore the 44,426-row Stage A census and retained B001/B002 review evidence may be reused after deterministic revalidation.
+>
+> #180/#216 HOME ownership is now completed authority and is **out of scope for mutation here**. #179 may use formal/reviewed HOME only as product context; it must not reopen or rewrite ownership research. The legacy `RelatedCopyright` relation remains historical/supporting evidence only.
+
 # Issue #179 — Full Character/Copyright Quality Audit Protocol
 
 Status: RESEARCH / AUDIT-ONLY / NO PRODUCTION APPLY
 
-Baseline main: `bea08712eb691ca867e218d211023d7206b6b7dc`
+Historical design baseline: `bea08712eb691ca867e218d211023d7206b6b7dc`
+
+Current continuation base: `b415eb574730d83fbe3bda8c185b92b1f73a30a8`
 
 ## 1. Population
 
