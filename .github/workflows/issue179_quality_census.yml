@@ -46,6 +46,11 @@ jobs:
       - name: Validate Stage B review ledgers
         run: python scripts/issue179/validate_stage_b_reviews.py
 
+      - name: Verify tracked runtime projection is current
+        run: |
+          cmp artifacts/issue179-runtime/ISSUE179_RUNTIME_PROJECTION_V1.csv docs/issue179/runtime/ISSUE179_RUNTIME_PROJECTION_V1.csv
+          cmp artifacts/issue179-runtime/manifest.json docs/issue179/runtime/manifest.json
+
       - name: Validate artifact contract
         run: |
           python - <<'PY'
