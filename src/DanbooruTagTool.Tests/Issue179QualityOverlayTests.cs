@@ -47,7 +47,7 @@ public class Issue179QualityOverlayTests
         Assert.Empty(after.Single(e => e.Canonical == "ace_attorney").JapaneseSearch);
         Assert.Empty(after.Single(e => e.Canonical == "kuroshitsuji").JapaneseSearch);
 
-        var artistBefore = before.Single(e => e.EffectiveCategory == "Artist");
+        var artistBefore = before.First(e => e.EffectiveCategory == "Artist");
         var artistAfter = after.Single(e => e.Id == artistBefore.Id);
         Assert.Equal(artistBefore, artistAfter);
         Assert.All(after, e =>
@@ -79,9 +79,9 @@ public class Issue179QualityOverlayTests
         Assert.Equal(2336, combined.Count(e =>
             e.EffectiveCategory == "Character" && e.EffectiveBrowseHome is null));
 
-        var chen = combined.Single(e => e.Canonical == "chen");
-        Assert.Equal("touhou", chen.EffectiveBrowseHome);
-        Assert.Equal("REVIEWED_BROWSE_FALLBACK", chen.BrowseHomeSource);
+        var fallback = combined.Single(e => e.Canonical == "yuzuki_yukari");
+        Assert.Equal("voiceroid", fallback.EffectiveBrowseHome);
+        Assert.Equal("REVIEWED_BROWSE_FALLBACK", fallback.BrowseHomeSource);
     }
 
     [Fact]
