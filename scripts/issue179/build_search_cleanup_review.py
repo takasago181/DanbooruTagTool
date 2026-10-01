@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import re
+import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -68,6 +69,10 @@ FIELDS = [
     "reason", "review_state",
 ]
 
+def norm(value: str) -> str:
+    value = unicodedata.normalize("NFKC", value or "").lower().replace("_", " ")
+    return " ".join(value.split())
+
 def split_pipe(value: str) -> list[str]:
     return [x.strip() for x in (value or "").split("|") if x.strip()]
 
@@ -84,10 +89,32 @@ def main() -> None:
     with SOURCE.open("r", encoding="utf-8-sig", newline="") as fh:
         for src in csv.DictReader(fh):
             terms = split_pipe(src.get("search_ja", ""))
-            removed = [t for t in terms if should_remove(t)]
+            noise_removed = [t for t in terms if should_remove(t)]
+            after_noise = [t for t in terms if t not in noise_removed]
+
+            # SearchEngine.Normalize collapses Unicode width, case and
+            # underscore/space differences. Keep the first normalized surface
+            # and remove later formatting-only duplicates; retrieval semantics
+            # are unchanged.
+            seen: set[str] = set()
+            kept: list[str] = []
+            duplicate_removed: list[str] = []
+            for term in after_noise:
+                key = norm(term)
+                if key in seen:
+                    duplicate_removed.append(term)
+                    continue
+                seen.add(key)
+                kept.append(term)
+
+            removed = noise_removed + duplicate_removed
             if not removed:
                 continue
-            kept = [t for t in terms if t not in removed]
+            reasons: list[str] = []
+            if noise_removed:
+                reasons.append("CONFIRMED_NON_IDENTITY_OR_FANDOM_SEARCH_TERM")
+            if duplicate_removed:
+                reasons.append("NORMALIZED_DUPLICATE_SEARCH_TERM")
             rows.append({
                 "row_id": src["row_id"],
                 "canonical_tag": src["canonical_tag"],
@@ -96,7 +123,7 @@ def main() -> None:
                 "old_search_ja": " | ".join(terms),
                 "proposed_search_ja": " | ".join(kept),
                 "removed_terms": " | ".join(removed),
-                "reason": "CONFIRMED_NON_IDENTITY_OR_FANDOM_SEARCH_TERM",
+                "reason": "+".join(reasons),
                 "review_state": "SECOND_REVIEW_ACCEPTED",
             })
 
