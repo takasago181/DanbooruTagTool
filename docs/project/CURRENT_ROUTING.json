@@ -1,6 +1,6 @@
 {
   "schema_version": "project-current-routing-v1",
-  "generated_at": "2026-10-01T11:36:57.485308+00:00",
+  "generated_at": "2026-10-01T15:34:31.927968+00:00",
   "purpose": "compact machine-readable routing snapshot; not a permanent branch-head authority",
   "live_main_snapshot": null,
   "must_refetch_live_heads_before_write": true,
@@ -28,7 +28,8 @@
     "#216 full unresolved coverage + reviewed Browse HOME runtime integration complete/closed; production fallback 7,409 Characters",
     "#188 execution-efficiency foundation and stale-current-authority cleanup complete/closed; reopen only for a concrete new overhead defect",
     "#179 reviewed display/search overlay deployed through PR #220/#221; 1,215 rows, display 221 / search 1,000; formal HOME and Issue70 source unchanged; residual REVIEW/HOLD retained",
-    "#223 display-only Browse Groups complete and production-deployed through PR #224; 7 HOME / 64 groups / 2,467 grouped / 2,072 unclassified / 21 HOLD; HOME authority and #179/#70 unchanged; UserData byte-identical"
+    "#223 display-only Browse Groups complete and production-deployed through PR #224; 7 HOME / 64 groups / 2,467 grouped / 2,072 unclassified / 21 HOLD; HOME authority and #179/#70 unchanged; UserData byte-identical",
+    "#226 generation image library complete via PR #238; production APPLIED from source main 49963dc129a1725c8a74d7f29aeb960884b67569; schema1 separate DB; real Forge one-image/UI/search/missing/UserData closeout PASS; #228 not started"
   ],
   "protected_boundaries": [
     "UserData is user-owned",

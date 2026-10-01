@@ -1,0 +1,51 @@
+{
+  "full": {
+    "pass": 276,
+    "skip": 3,
+    "fail": 0,
+    "total": 279
+  },
+  "focused": {
+    "pass": 35,
+    "skip": 0,
+    "fail": 0,
+    "scope": "Issue226 + PNG/preset/Forge regression"
+  },
+  "performance": {
+    "pass": 1,
+    "fail": 0,
+    "isolated": true,
+    "thresholds_changed": false
+  },
+  "portable": {
+    "result": "PASS",
+    "actual_exe_validation": {
+      "Result": "PASS",
+      "Fts5Available": true,
+      "NetworkCalls": 0,
+      "Framework": ".NET 10.0.12",
+      "Schema": 1,
+      "Warm": {
+        "Added": 0,
+        "Refreshed": 0,
+        "Unchanged": 1,
+        "Missing": 0,
+        "Errors": 0,
+        "Complete": true
+      },
+      "Missing": {
+        "Added": 0,
+        "Refreshed": 0,
+        "Unchanged": 0,
+        "Missing": 1,
+        "Errors": 0,
+        "Complete": true
+      },
+      "ForgeMockRequests": 2,
+      "WpfRender": "library-wpf.png",
+      "Scope": "isolated fixture / actual runtime; no production data writes; Forge rendering not invoked"
+    },
+    "normal_windows_launch": "PASS",
+    "separate_folder": "PASS; fresh UserData, no production UserData used"
+  }
+}

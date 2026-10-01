@@ -1,0 +1,224 @@
+{
+  "schema_version": "issue226-production-checkpoint-v1",
+  "captured_utc": "2026-10-01T15:34:31.927968+00:00",
+  "result": "PASS",
+  "status": "COMPLETE / production APPLIED",
+  "source_main": "49963dc129a1725c8a74d7f29aeb960884b67569",
+  "merged_pr": 238,
+  "pr_238_ancestor": true,
+  "runtime": "C:\\Codex\\DanbooruTagTool-App",
+  "clean_publish": {
+    "source": "clean detached main worktree; canonical publish_portable_runtime.ps1",
+    "configuration": "Release",
+    "rid": "win-x64",
+    "self_contained": true,
+    "single_file": true,
+    "network_required_for_normal_startup": false
+  },
+  "hashes": {
+    "exe": "A805FBBD80B735F354AB0CC2FBFE7F4B24A93436243888A6C6A1A4EAE8431FBE",
+    "catalog": "D91A68186661127F16E2AE102B4DD9F3A96EAE578B3C989A8B4F17169639FC6F",
+    "runtime_manifest": "776F9733B3DC1181117910400DB337716BD97ACDDFF2A9B9406D6CC4E6C640E9",
+    "user_db": "4D1DF299F4E91BC29D7C8612DFF6F86C6E14F02CDDA36AF0D9A1AC704466B5A1",
+    "generation_library": "5728C62A87FCE8D20D6EA7461FDF4AAC288694B941817DD33D48DC3BF8DA2B98"
+  },
+  "generation_library_schema": 1,
+  "tests": {
+    "full": {
+      "pass": 276,
+      "skip": 3,
+      "fail": 0,
+      "total": 279
+    },
+    "focused": {
+      "pass": 35,
+      "skip": 0,
+      "fail": 0,
+      "scope": "Issue226 + PNG/preset/Forge regression"
+    },
+    "performance": {
+      "pass": 1,
+      "fail": 0,
+      "isolated": true,
+      "thresholds_changed": false
+    },
+    "portable": {
+      "result": "PASS",
+      "actual_exe_validation": {
+        "Result": "PASS",
+        "Fts5Available": true,
+        "NetworkCalls": 0,
+        "Framework": ".NET 10.0.12",
+        "Schema": 1,
+        "Warm": {
+          "Added": 0,
+          "Refreshed": 0,
+          "Unchanged": 1,
+          "Missing": 0,
+          "Errors": 0,
+          "Complete": true
+        },
+        "Missing": {
+          "Added": 0,
+          "Refreshed": 0,
+          "Unchanged": 0,
+          "Missing": 1,
+          "Errors": 0,
+          "Complete": true
+        },
+        "ForgeMockRequests": 2,
+        "WpfRender": "library-wpf.png",
+        "Scope": "isolated fixture / actual runtime; no production data writes; Forge rendering not invoked"
+      },
+      "normal_windows_launch": "PASS",
+      "separate_folder": "PASS; fresh UserData, no production UserData used"
+    }
+  },
+  "performance": {
+    "library_fixture": {
+      "Images": 5000,
+      "Rows": 20000,
+      "ColdMs": 1462.4319,
+      "WarmMs": 230.6922,
+      "Changed10Ms": 202.5389,
+      "Missing10Ms": 191.2055,
+      "CommonQueryMs": 5.7635,
+      "FavoriteQueryMs": 2.5342,
+      "LastPageMs": 6.5471,
+      "Fts5Available": true,
+      "Runtime": ".NET 10.0.12"
+    },
+    "existing_catalog_gate": {
+      "result": "PASS",
+      "measurement": "three paired runs; isolated from heavy tests",
+      "evidence": "validation/production-performance.json"
+    }
+  },
+  "installed_smoke": {
+    "startup": "PASS",
+    "browse_prompt_preset_forge_library_ui": "PASS",
+    "native_visual": "PASS",
+    "real_images": {
+      "roots": 2,
+      "images": 5,
+      "metadata_ok": 4,
+      "metadata_missing": 1,
+      "errors": 0,
+      "original_images_modified": false,
+      "registration": "existing public LibraryStore/Scanner API; installed UI rescan and display verified",
+      "thumbnail": "PASS; five bounded cached thumbnails",
+      "metadata_fields": "Positive/Negative/Model/hash/Seed/Steps/Sampler/Scheduler/CFG/Size/RNG/Version; LoRA empty correctly retained"
+    },
+    "annotations": {
+      "favorite": true,
+      "rating": 4,
+      "note": "Japanese text retained; private text kept local",
+      "restart": "PASS"
+    },
+    "prompt_restore": "PASS; existing PromptWorkspace; Undo restored original 13-tag surface; Recovery equal to backup",
+    "preset": "PASS; existing editor prefilled Positive/Negative and all Recipe fields; cancelled without adding a preset",
+    "recipe_has_automatic_settings": false,
+    "forge_send": "PASS; existing loopback Bridge SendOnly",
+    "forge_generate": {
+      "result": "PASS",
+      "endpoint": "http://127.0.0.1:7860/",
+      "successful_images": 1,
+      "batch_size": 1,
+      "batch_count": 1,
+      "script": "None",
+      "dynamic_prompts": false,
+      "combinatorial": false,
+      "forge_ui_elapsed_seconds": 18.9,
+      "output": "configured normal Forge output/txt2img-images/2026-10-02/00000-1466020031.png",
+      "actual": {
+        "image_id": 5,
+        "model": "waiIllustriousSDXL_v170",
+        "model_hash": "f116b0c78f",
+        "seed": 1466020031,
+        "steps": 24,
+        "sampler": "Euler a",
+        "scheduler": "Automatic",
+        "cfg": 4.5,
+        "width": 1024,
+        "height": 1024,
+        "parser_version": 1
+      },
+      "source_recipe_steps": 25,
+      "source_recipe_cfg": 5,
+      "recipe_auto_applied": false,
+      "additional_parameters": [
+        "RNG: CPU",
+        "Version: neo-2.29.1"
+      ],
+      "initial_attempt": "No output: Forge had no available model because the smoke startup lacked the existing shared model path. Restarted existing Forge with shared --ckpt-dirs and restored its persisted checkpoint. No install/download or DTT code change; retry produced exactly one image."
+    },
+    "metadata_diff": "PASS; changed Positive/Seed and same other known fields; RNG/Version unknown parameter rows preserved",
+    "ui_search": {
+      "prompt": "hatsune miku -> 3 PNGs; metadata-missing image excluded",
+      "model": "waiIllustriousSDXL_v170 -> 3 PNGs",
+      "seed": "2347422866 -> one matching PNG",
+      "sampler": "Euler a -> 3 PNGs",
+      "favorite": "one annotated PNG; all verified through installed UI"
+    },
+    "missing_file": {
+      "result": "PASS",
+      "test": "safe copy moved outside root with app closed; installed UI scan -> missing; favorite/rating/note retained; restored copy hash unchanged; installed UI scan -> available; annotation retained",
+      "missing": 1,
+      "restored_missing": 0
+    }
+  },
+  "protection": {
+    "catalog": "byte-identical to apply-before backup; manifest hash matches",
+    "user_db": {
+      "apply_byte_identical": true,
+      "final_integrity": "ok",
+      "final_prompt_and_recovery_equal_to_backup": true,
+      "prompt_count": 13,
+      "presets_equal_to_backup": true,
+      "preset_count": 2,
+      "only_ui_changed_keys": [
+        "Workspace",
+        "PromptWidth"
+      ],
+      "final_hash_changed_by_explicit_ui_operations": true,
+      "reset_or_recreate": false
+    },
+    "userdata": {
+      "full_before_backup_retained": true,
+      "missing_original_files": 0,
+      "README_unchanged": true,
+      "library_added_intentionally": true,
+      "thumbnail_cache_reconstructible": true,
+      "final_library_integrity": "ok",
+      "final_library_foreign_keys": "ok",
+      "counts": {
+        "library_root": 2,
+        "image_asset": 5,
+        "generation_metadata": 4,
+        "generation_parameter": 40,
+        "image_annotation": 1
+      },
+      "private_backups_manifests_databases_images_not_committed": true
+    },
+    "first_apply_attempt": "Strict UserData inventory gate detected first-start empty Library DB creation and rolled managed payload back. New empty schema1 DB retained and backed up; subsequent canonical promotion passed byte-identical inventory. Protection thresholds not relaxed.",
+    "legacy_data": "No movement, deletion or cleanup",
+    "issue179": "unchanged",
+    "issue180_216": "unchanged",
+    "browse_groups_223": "unchanged"
+  },
+  "runtime_shape": {
+    "files": 13,
+    "bytes": 325777907,
+    "root_dll_count": 0,
+    "pdb_count": 0
+  },
+  "known_limitations": [
+    "Manual scan; no automatic rename merge or prune UI.",
+    "WebP preview depends on installed WIC codec; actual WebP image UI smoke not verified.",
+    "Different-PC launch and physical network disconnect not verified; isolated no-service/proxy-unavailable candidate passed.",
+    "Full Recipe application, A/B Lab, LoRA Library and Region Composer remain separate scope.",
+    "This real-image smoke contains PNG only; JPEG/WebP parsing remains covered by focused fixtures.",
+    "Real smoke has no LoRA token; empty LoRA list and explicit-token parser fixtures passed."
+  ],
+  "stop_point": "#226 production promotion complete; #228 implementation not started."
+}
