@@ -1,3 +1,4 @@
+using System.IO;
 using DanbooruTagTool.Core;
 using DanbooruTagTool.Data;
 using Xunit;
