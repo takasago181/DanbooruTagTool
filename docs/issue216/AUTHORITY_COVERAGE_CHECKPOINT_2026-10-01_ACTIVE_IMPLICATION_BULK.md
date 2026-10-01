@@ -3,18 +3,31 @@
 ## Current cohort state
 
 - Frozen cohort / accounted: **13983 / 13983**.
-- Terminalized: **3898 (27.8767%)**.
-- HOME_CONFIRMED: 3808.
+- Terminalized: **3908 (27.9482%)**.
+- HOME_CONFIRMED: 3818.
 - SOURCE_RESEARCHED_NO_SAFE_EVIDENCE: 68.
 - POLICY_BLOCKED: 2.
 - IDENTITY_BLOCKED: 12.
 - EVIDENCE_CONFLICT: 8.
-- UNRESEARCHED: **10085**.
-- Top500 open: **137**; Top2000 open: **1004**.
-- Source registry: 1101; exact member rows: 3931; reused terminalized member rows: 3480 (ratio 0.882129).
+- UNRESEARCHED: **10075**.
+- Top500 open: **136**; Top2000 open: **1002**.
+- Source registry: 1102; exact member rows: 3941; reused terminalized member rows: 3490 (ratio 0.882427).
 - Missing Copyright roots: 0; existing #180 HOME changes: **0**.
 
 This checkpoint preserves the decisions and source work accumulated before the semantic-bulk change, including the 21 exact HOME decisions since `4d9aece`. No unresolved route is terminalized from absence in a partial source.
+
+## Targeted high-value roster integration
+
+- Integrated one official `DRAGON BALL THE ONE` poll-eligible roster scope after the cohort-wide semantic pass. Its embedded module lists 212 exact named poll-eligible characters; source scope is complete only for eligibility, and omission is not franchise-wide negative evidence.
+- Exact catalog/unique Issue #70 alias join produced 15 frozen-cohort identities; 5 were already terminal, and 10 open identities were accepted as exact Dragon Ball membership using the existing #180 `dragon_ball` root normalization PASS. No popularity/rank field was used.
+- Batch result: 10 HOME decisions from 1 new reviewed source scope / 1 new URL (**10 terminalized per reviewed source and per new URL**). The remaining 38 root-routed open rows are outside this source's exact positive scope; no absence inference was applied.
+- New source: `https://db1.dragon-ball-official.com/en/`; roster module SHA-256 `8df0bf89a2aa75b14e535b71a0ecf13845cbc9609e52b072d5e5f9096ee76667`; source page SHA-256 `4eadeb0ce55e81dd7d66438f766adf35b3b216c115e49ea46d5b88af312feed2`.
+
+## Route accounting
+
+- Added deterministic per-character route accounting for all **10075** currently open Characters: **59709** route rows, bound to the exact #180 structure graph SHA-256 `218cf30cb21695472e276cce327cd96a132665f3473c8925954059c3432c4bea` and active implication snapshot hash above.
+- Route states: POSITIVE 6, NEGATIVE_COMPLETE 10126, AMBIGUOUS 13, CONFLICT 0, NOT_APPLICABLE 19543, UNCHECKED 30111. A COMPLETE roster absence closes only that exact source route. Partial/unknown absence and retained-member omissions remain UNCHECKED. Candidate roots are never written as HOME evidence.
+- Deterministic route-ledger rebuild: PASS. The ledger does not terminalize decisions.
 
 ## Danbooru active implication snapshot
 
@@ -50,15 +63,15 @@ The creator/artist-category suffix signal appears on 979 rows; that signal alone
 - Queue rebuilt from current decisions: 2042 routing roots; 34 scouted roots / 81 source scopes.
 - Yield states: {"ESTIMATED": 216, "KNOWN_POSITIVE": 0, "KNOWN_ZERO": 1, "UNKNOWN": 1825}. UNKNOWN remains distinct from KNOWN_ZERO.
 - Post-count snapshot SHA-256: `893fbf07c7d0250e1c30d43b9e01aca69d56e2e6f3d742dcc233e889dfec5aec`; current for this decision set: True.
-- Since `4d9aece`: 21 exact HOME decisions across 4 positive reviewed source scopes, plus one implication snapshot review with zero decisions: **4.2 terminalized / all reviewed scopes**. This is a small transition batch, not a yield target.
+- This continuation added 10 exact HOME decisions across 1 new roster review: **10 terminalized / new source scope** and **10 / new URL**. The earlier +21 decisions across four positive scopes remain historical and are not included in this new-source yield.
 - No roots are declared complete from partial roster coverage.
 
 ## Validation
 
-- Authority coverage schema/root/cardinality validation: **PASS_INCOMPLETE** (10085 remain).
+- Authority coverage schema/root/cardinality validation: **PASS_INCOMPLETE** (10075 remain).
 - Deterministic implication join, semantic membership projection, and offline cohort bulk checks: **PASS**.
-- Issue #216 tests: **57/57 PASS** (including five active implication snapshot gate tests); Issue #180 v3 regression tests: **24/24 PASS**; combined: **81/81 PASS**.
+- Issue #216 tests: **60/60 PASS** (including five active implication snapshot tests and three route-accounting tests); Issue #180 v3 regression tests: **24/24 PASS**; combined: **84/84 PASS**.
 - Python compile and `git diff --check`: **PASS**.
 - Full Issue #180 Character data regression: not run because the ignored preflight inputs are absent from this worktree. CI: not run.
 
-No main merge or production apply. Continue with high-value residual authority scopes; keep the implication and hierarchy tables as reusable evidence, and route unresolved source research by actual evidence scope after the semantic bulk pass.
+No main merge or production apply. Continue with high-value residual authority scopes; keep the implication and hierarchy tables as reusable evidence, and route unresolved source research by actual evidence scope after the semantic bulk pass. Current gates: Top500 open 136, Top2000 open 1002, missing roots 0, existing #180 HOME changed 0.
