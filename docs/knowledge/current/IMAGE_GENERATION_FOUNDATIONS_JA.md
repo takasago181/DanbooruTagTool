@@ -344,3 +344,40 @@ training / dataset
 - `../research/BATCH_AZ_GENERATION_FOUNDATIONS_PIPELINE_20261002.md`
 - `../research/BATCH_BA_SAMPLING_GUIDANCE_FOUNDATIONS_20261002.md`
 - `../research/BATCH_BB_EDITING_CONTROL_MEMORY_FOUNDATIONS_20261002.md`
+
+
+---
+
+# 17. Metadata / Hash / safetensors
+
+生成画像だけでなく設定も保存する。
+
+特に:
+- PNG Info / workflow
+- model hash
+- exact LoRA
+- seed/settings
+
+を残す。
+
+`.safetensors` は安全なtensor保存形式で、model family名ではない。
+同じ拡張子にcheckpoint/LoRA/VAE等があり得る。
+
+# 18. Clip Skip
+
+CLIP text encoderのどのlayer出力をPrompt embeddingに使うか変える設定。
+
+CFGやPrompt weightとは別。
+CLIP構成が違うmodelへ古いClip Skip recipeをそのまま移さない。
+
+# 19. Textual Inversion
+
+少数画像から新しいtoken embeddingを学習するpersonalization。
+
+- embedding = text encoder側のlearned token
+- LoRA = model layer側へ追加するlow-rank update
+
+別物として扱う。
+
+詳細:
+`../research/BATCH_BC_OUTPUT_METADATA_AUXILIARY_FOUNDATIONS_20261002.md`
