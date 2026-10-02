@@ -1030,3 +1030,24 @@ Preserve original PNG metadata/workflow for every important diagnostic image.
 Research:
 `../research/BATCH_AQ_REGIONAL_LEARNING_AND_REPRODUCIBILITY_20261002.md`.
 
+---
+
+## 36. Staged conditioning — 2026-10-02
+
+Use scheduling only after a constant Prompt baseline is understood.
+
+Study:
+- constant minimal
+- constant full
+- minimal -> full
+- LoRA all steps
+- LoRA late/early only
+
+For relation-heavy scenes:
+fix semantics first; use scheduling only to separate structural pressure from later style/quality pressure.
+
+Record every switch fraction and scheduled resource.
+
+Research:
+`../research/BATCH_AR_STAGED_CONDITIONING_AND_LEARNING_20261002.md`.
+
