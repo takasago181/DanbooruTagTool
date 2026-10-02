@@ -1563,3 +1563,16 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: nominally same training seed/config can differ without deterministic backend controls.
 - Value: repeat-run caution and full training-identity logging.
 
+**S-TOOL-016 — ComfyUI native advanced hooks**
+- URL: https://github.com/Comfy-Org/ComfyUI/blob/master/comfy_extras/nodes_hooks.py
+- Class: `OFFICIAL_RUNTIME / EXPERIMENTAL`
+- Scope: Create Hook LoRA, mask-bound conditioning, timestep ranges and hook keyframe scheduling.
+- Value: native primitives for spatial/time adapter-conditioning experiments.
+- Limitation: exact Anima behavior requires local validation.
+
+**S-COMM-080 — 2026-09-28 Anima/Illustrious multi-character thread**
+- URL: https://www.reddit.com/r/comfyui/comments/1ws23ur/multiple_characters_in_one_single_generated_image/
+- Class: `COMMUNITY / CURRENT_PRACTICE`
+- Scope: attribute swapping in Anima/Illustrious; regional prompting and LoRA-hook localization discussion.
+- Value: very recent practical confirmation of native-character vs LoRA-character distinction.
+
