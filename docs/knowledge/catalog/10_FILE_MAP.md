@@ -288,3 +288,7 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AW_ADULT_DIAGNOSTIC_ESCALATION_AND_MODEL_GAPS_20261002.md` — 成人向け生成の症状別diagnosis、4-seed Prompt-only打ち切りheuristic、NoobAI safety-biased baseline、Anima relation evidence gap、Negative OFF/ON、LoRA/Regional escalation設計。
 - `../current/ADULT_IMAGE_GENERATION_DECISION_TREE.md` — 日本語の実運用Decision Tree。出ない/人数違い/人物混線/role-body-site swap/pose/visibility/LoRA/Hires/anatomyをfailure-specificにrouting。
+
+
+- `../research/BATCH_AX_LOCAL_ADULT_IMAGE_GENERATION_TRENDS_20261002.md` — 2026年秋のローカル成人向け生成動向。Illustrious/WAI/Noob/Ponyの成熟資産、Anima急伸、local LLM/VLM、Regional/reference/Edit、multi-character LoRA、UI、写実別laneを時点付きで整理。
+- `../current/LOCAL_ADULT_IMAGE_GENERATION_TREND_MAP_20261002.md` — 日本語の現状地図。「成熟・急伸・実験中・別系統」に分け、#44で次に追う研究優先を提示。
