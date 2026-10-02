@@ -603,3 +603,41 @@ Use author baseline first, secondary recipe second.
 Research:
 `../research/BATCH_AH_ILL_NOOB_MULTI_SUBJECT_AND_SOURCE_CONFLICT_20261002.md`.
 
+---
+
+## 27. Character and style reproduction — 2026-10-02
+
+### Character LoRA
+Do not ask only “does it look like the character?”
+
+Score:
+- identity fidelity
+- unseen pose
+- unseen background
+- outfit mutability
+- camera mutability
+- expression mutability
+- ability to accept a different style
+
+### Style LoRA
+Score:
+- line/style fidelity
+- coloring/shading/texture fidelity
+- subject/content preservation
+- composition freedom
+- identity preservation
+- prompt responsiveness
+
+### Character + Style LoRA
+Test each adapter alone before combining.
+Combined success is not implied by independent success.
+
+For Anima:
+- train against Base as the official default;
+- freeze the LLM adapter;
+- preserve native artist-tag response as an explicit evaluation metric;
+- do not judge layer-training variants only on training-domain reconstruction.
+
+Research:
+`../research/BATCH_AI_CHARACTER_STYLE_REPRODUCTION_LORA_20261002.md`.
+
