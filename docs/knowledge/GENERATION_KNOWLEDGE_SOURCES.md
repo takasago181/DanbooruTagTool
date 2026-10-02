@@ -943,3 +943,31 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: interaction, subject-linked attribute swaps, unusual-concept control.
 - Value: role/body-site ownership must be evaluated separately from subject presence.
 
+**S-COMM-058 — Illustrious multi-character Reddit workflow cluster**
+- URLs:
+  - https://www.reddit.com/r/StableDiffusion/comments/1rg7cpj/how_to_make_multiple_character_on_same_image_but/
+  - https://www.reddit.com/r/StableDiffusion/comments/1io5yxx
+  - https://www.reddit.com/r/StableDiffusion/comments/1sla0rq/struggling_to_make_more_than_2_characters/
+- Class: `COMMUNITY / MULTI_SOURCE_PRACTICE`
+- Scope: character mixing, regional/inpaint escalation, 2→3+ subject stress.
+- Limitation: heterogeneous checkpoints/workflows.
+
+**S-COMM-059 — Masked OpenPose + LoRA + img2img multi-character workflow**
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1irsq4o
+- Class: `COMMUNITY / ASSISTED_WORKFLOW`
+- Scope: per-character masks and prompts with pose + LoRA + img2img.
+- Value: concrete divide-and-conquer assisted pipeline.
+
+**S-COMM-060 — Illustrious adult-VN consistency discussion**
+- URL: https://www.reddit.com/r/comfyui/comments/1v62676/illustrious_keeping_characters_consistent_for/
+- Class: `COMMUNITY / FAILURE_DIAGNOSIS`
+- Scope: pose consistency vs identity/style consistency.
+- Value: geometry and identity fidelity are independent control axes.
+
+**S-COMM-061 — NoobAI adult community review with source conflicts**
+- URL: https://lewdly.ai/blog/noobai-xl-checkpoint-review-anime-nsfw
+- Class: `COMMUNITY / SECONDARY_REVIEW`
+- Scope: EPS/V-Pred, multi-subject, anatomy, settings.
+- Value: large private-use experience and group-scene stress signal.
+- Limitation: V-Pred configuration conflicts with current exact author guidance; exact recipe/percentages are not project authority.
+
