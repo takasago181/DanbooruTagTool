@@ -1,3 +1,6 @@
+> **SUPERSEDED AUDIT SNAPSHOT**  
+> 2026-09-09時点の組織監査。PROMPT統合前後・旧Stage10前提を含むため、現在状態の判定には使わない。最新の整理監査は `KNOWLEDGE_HYGIENE_AUDIT_20261002.md` を参照。
+
 # KNOWLEDGE Organization Self-Audit — 2026-09-09
 
 Owner: Issue #44 `KNOWLEDGE:#44`
