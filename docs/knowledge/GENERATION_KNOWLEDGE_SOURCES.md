@@ -1270,3 +1270,27 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: magnitude/direction weight-decomposed low-rank adaptation.
 - Limitation: not direct proof of superiority for anime diffusion customization.
 
+**S-RESEARCH-021 — DisenBooth**
+- URL: https://arxiv.org/abs/2305.03374
+- Class: `RESEARCH`
+- Scope: identity vs identity-irrelevant context disentanglement in subject-driven T2I.
+- Value: theoretical backing for background/pose/style entanglement diagnosis.
+
+**S-RESEARCH-022 — Infusion**
+- URL: https://arxiv.org/abs/2404.14007
+- Class: `RESEARCH`
+- Scope: concept-agnostic and concept-specific overfitting.
+- Value: separates base-model damage from target-concept modality collapse.
+
+**S-RESEARCH-023 — Custom Diffusion**
+- URL: https://arxiv.org/abs/2212.04488
+- Class: `RESEARCH`
+- Scope: efficient single/multi-concept customization and model combination.
+- Value: multi-concept customization baseline.
+
+**S-RESEARCH-024 — Break-A-Scene**
+- URL: https://arxiv.org/abs/2305.16311
+- Class: `RESEARCH`
+- Scope: concept masks, cross-attention separation, union sampling.
+- Value: anti-entanglement strategy for multi-concept source images.
+
