@@ -516,3 +516,30 @@ None.
 
 この監査はknowledge branchのみ。
 production `data/**` / runtime defaultsは変更していない。
+
+
+---
+
+## 18. P0 remediation — 2026-10-02
+
+監査後にmigration-safe cleanupを実施。
+
+完了:
+- Source Registryの30 collision ID / 33 duplicate occurrencesを修復
+- 修復後Source ID duplicate = 0
+- `SOURCE_ID_MIGRATION_20261002.md` を追加
+- Issue #44 restore orderから固定日付handoffを削除
+- `KNOWLEDGE_CATALOG.md` / `current/README.md` / `catalog/README.md` のlive restore orderから固定日付handoffを削除
+- `LEGACY_MAP.md` で旧Product Goal / handoffをhistoricalへ再分類
+- `CURRENT_PRODUCT_GOAL_20260909.md` / `KNOWLEDGE_HANDOFF_CURRENT_20260909.md` / `GENERATION_KNOWLEDGE_INDEX.md` にhistorical/superseded bannerを追加
+- `SELF_AUDIT_20260909.md` / `PRACTICAL_GENERATION_READINESS_AUDIT_20260913.md` / `RESEARCH_BACKLOG_20260913.md` にsuperseded bannerを追加
+- `ASSET_INVENTORY.md` をpartial/historical inventoryとして明示
+- Source ID uniqueness / research full-filename identity ruleをGovernanceへ追加
+
+未実施:
+- current説明文書の大規模重複削減
+- current説明文書の全面日本語-first改稿
+- repeated Source URLのcanonicalization
+- research本文の統合/削除
+
+これらはP1/P2。P0修復ではprovenanceを壊すrename/deleteを行っていない。
