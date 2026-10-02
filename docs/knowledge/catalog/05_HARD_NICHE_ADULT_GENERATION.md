@@ -535,3 +535,24 @@ Model-specific caution:
 
 Research:
 `../research/BATCH_AW_ADULT_DIAGNOSTIC_ESCALATION_AND_MODEL_GAPS_20261002.md`
+
+
+---
+
+## 2026秋 — local adult generation ecosystem
+
+Current Japanese overview:
+`../current/LOCAL_ADULT_IMAGE_GENERATION_TREND_MAP_20261002.md`
+
+Key trend:
+
+- Illustrious/WAI/Pony/NoobAI remain important because mature LoRA/runtime assets have large switching value.
+- Anima is now a major parallel ecosystem, not merely a preview experiment.
+- adult multi-subject work is driving Regional/reference/edit/local-repair workflows.
+- local LLM/VLM prompt structuring is emerging around Anima/Forge Neo/ComfyUI.
+- photoreal adult models are a separate evidence lane.
+
+Do not turn popularity into generation authority.
+
+Research:
+`../research/BATCH_AX_LOCAL_ADULT_IMAGE_GENERATION_TRENDS_20261002.md`
