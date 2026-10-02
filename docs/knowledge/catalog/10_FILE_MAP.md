@@ -264,3 +264,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AN_FAILURE_DRIVEN_CREATION_RECIPES_20261002.md` — practical symptom-to-fix recipes for LoRA identity/style interference, pose lock, background entanglement, multi-character mixing, regional prompting, ControlNet preprocessing, img2img, Hires/upscale drift and reference-edit rigidity.
 
+- `../research/BATCH_AO_MODEL_PROFILES_AND_COMPARISON_GRIDS_20261002.md` — practical model/profile presets, Anima sampler behavior, Noob aspect-ratio baselines, debug-vs-robustness seeds and character/style LoRA comparison matrices.
+
