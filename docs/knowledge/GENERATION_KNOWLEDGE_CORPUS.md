@@ -1539,3 +1539,18 @@ Reproducible study artifacts should preserve original generation metadata/workfl
 Research:
 `research/BATCH_AQ_REGIONAL_LEARNING_AND_REPRODUCIBILITY_20261002.md`.
 
+## 16.9 Staged conditioning
+
+Prompt/LoRA state can vary across sampling and must be part of evidence identity.
+
+Staged conditioning is an advanced intervention:
+- baseline constant Prompt first;
+- one scheduled change;
+- fixed seeds/settings;
+- explicit switch point.
+
+For hard scenes it can separate early structural pressure from late rendering pressure, but it cannot substitute for semantic correctness.
+
+Research:
+`research/BATCH_AR_STAGED_CONDITIONING_AND_LEARNING_20261002.md`.
+
