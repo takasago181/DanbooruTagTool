@@ -328,3 +328,21 @@ These are current upstream facts promoted into the Claim Registry. They do not c
 - Forge Couple can be disabled during Hires Fix via compatibility mode, so base pass and Hires pass may not share the same regional conditioning.
 - Forge Neo currently documents Anima Region ControlNet plus LLLite ControlNet support for SDXL/Anima. Treat this as assisted control, not Prompt-only evidence.
 
+---
+
+## 15. Community evidence layer — 2026-10-02
+
+Community evidence is now tracked separately from author guidance.
+
+High-value working hypotheses:
+- For Anima multi-character prompts, write each subject as a closed sentence with identity + appearance + action when flat tag lists start leaking attributes.
+- Do not treat `left side:` or a colon as a semantic binding operator by itself.
+- Use tags for canonical/common attributes and add short prose only where geometry, ownership, relation, or screen position is not cleanly expressible by tags.
+- Multi-character accessory leakage can remain even when hair/eye/skin identity looks correct.
+- Treat multi-character LoRA competition as a separate failure axis from checkpoint-native character binding.
+- For Anima finishing, avoid assuming SDXL Hires recipes transfer unchanged; compare low-denoise img2img/tiled refinement against the base pass.
+- LoRA training data should vary crop/view/pose/background/clothing enough to prevent accidental welding of context into identity.
+
+These are CANDIDATE/community practices, not family-wide defaults. See:
+`../research/BATCH_O_COMMUNITY_PRACTICE_HARVEST_20261002.md`.
+
