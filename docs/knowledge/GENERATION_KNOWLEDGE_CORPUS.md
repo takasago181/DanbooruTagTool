@@ -1205,3 +1205,36 @@ Priority remains:
 
 Community evidence narrows these questions but does not close them.
 
+---
+
+## 15. Sensitive-domain research routing
+
+Some technical domains can trigger rejection in secondary summary/checkpoint writes even when the underlying research files and Claims are valid.
+
+The durable storage rule is therefore:
+
+`research batch -> Claim Registry -> source registry -> catalog -> File Map`
+
+Cross-cutting Corpus / Quick Reference / Issue comments are secondary convenience views.
+
+For the current relation-intensive mature-domain research:
+- durable Claim IDs: `K-ADULT-001..006`
+- detailed batch: `research/BATCH_Y_ADULT_GENERATION_STRUCTURAL_MASTERY_20261002.md`
+- catalog: `catalog/05_HARD_NICHE_ADULT_GENERATION.md`
+
+The cross-cutting layer keeps only structural dimensions:
+- subject/count
+- identity/role binding
+- target-site binding
+- geometry/topology
+- visibility
+- state/count
+- context leakage
+- negative collision
+- assisted/postprocess dependence
+
+See:
+`current/SENSITIVE_KNOWLEDGE_ROUTING.md`.
+
+A rejected secondary summary write does not invalidate or erase already committed research.
+
