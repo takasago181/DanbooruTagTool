@@ -423,3 +423,27 @@ Do not call a postprocessed per-character inpaint success “plain two-character
 Research detail:
 `../research/BATCH_R_ADVANCED_COMMUNITY_FAILURE_DIAGNOSTICS_20261002.md`.
 
+---
+
+## 19. Tag generation-effect diagnostics — 2026-10-02
+
+When evaluating a tag/prompt surface, record more than “worked / didn't work”:
+
+1. **canonical meaning** — what the tag means in Danbooru;
+2. **activation strength** — how much the image changes;
+3. **semantic fidelity** — whether that change matches the intended meaning;
+4. **spillover** — pose/clothing/background/identity changes outside the target;
+5. **context sensitivity** — what happens when scene/style/visibility instructions compete;
+6. **model/profile** — exact checkpoint/derivative/runtime.
+
+Practical lessons from community-controlled tests:
+- a large visual change can still be the wrong semantic effect;
+- extreme framing often benefits from canonical framing tags;
+- visibility-conflicting descriptions can defeat a correct framing tag;
+- Anima/WAI-Anima should not inherit Illustrious underscores/BREAK/weight habits blindly;
+- for multi-character binding, subject-specific sentences are a strong candidate when positional tag grouping becomes fragile;
+- quality/meta tags can alter face/rendering priors, not only perceived detail.
+
+Research:
+`../research/BATCH_S_TAG_STYLE_COMPOSITION_COMMUNITY_20261002.md`.
+
