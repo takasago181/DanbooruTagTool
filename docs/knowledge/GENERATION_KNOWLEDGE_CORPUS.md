@@ -1462,3 +1462,16 @@ A final retouched image cannot be used as evidence that the base pass had the sa
 Research:
 `research/BATCH_AM_PRACTICAL_CREATION_WORKFLOW_20261002.md`.
 
+## 16.5 Failure-driven production diagnosis
+
+Practical creation is now organized as rollback-based debugging.
+
+Principle:
+`observe failure -> remove last conditioning source -> reproduce -> isolate -> fix one axis`.
+
+Regional/control/img2img/upscale are separate interventions.
+Use them for the predicate they control rather than stacking them as generic quality enhancers.
+
+Research:
+`research/BATCH_AN_FAILURE_DRIVEN_CREATION_RECIPES_20261002.md`.
+
