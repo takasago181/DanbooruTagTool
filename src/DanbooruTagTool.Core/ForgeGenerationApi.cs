@@ -116,7 +116,18 @@ public sealed class ForgeGenerationApiClient : IForgeGenerationApiClient
         Field("Seed", r.Seed, a.Seed); Field("Steps", r.Steps, a.Steps); Field("CFG", r.Cfg, a.Cfg); Field("Width", r.Width, a.Width); Field("Height", r.Height, a.Height);
         if (r.Sampler is not null && r.Sampler != a.Sampler) errors.Add("Sampler");
         if (r.Scheduler is not null && r.Scheduler != a.Scheduler) errors.Add("Scheduler");
-        if (model is not null && (a.Model != model.Name || model.Hash is not null && actual.Value("Model hash") != model.Hash)) errors.Add("Model/hash");
+        if (model is not null)
+        {
+            var hashMatches = !string.IsNullOrEmpty(model.Hash) && actual.Value("Model hash") == model.Hash;
+            // Neo may prefix API model_name with the containing folder, while PNG
+            // infotext uses the checkpoint basename. Accept only that exact title
+            // basename, authenticated by the API-declared hash; never strip an
+            // arbitrary prefix from received metadata or accept a hashless alias.
+            var checkpoint = model.Title.Split(" [")[0].Replace('\\', '/').Split('/')[^1];
+            var titleBasename = Path.GetFileNameWithoutExtension(checkpoint);
+            var nameMatches = a.Model == model.Name || hashMatches && a.Model == titleBasename;
+            if (!nameMatches || model.Hash is not null && !hashMatches) errors.Add("Model/hash");
+        }
         return errors;
     }
 }
