@@ -1,3 +1,6 @@
+> **SUPERSEDED BACKLOG SNAPSHOT**  
+> 2026-09-13〜17時点の計画表。2026-10-02のBATCH_O〜BC等を反映していないため、現在の未解決事項は `CLAIM_REGISTRY.csv` のHOLD/CANDIDATE、`HOLD_CONFLICT_REGISTER.md`、最新Issue #44 checkpointを参照する。
+
 # KNOWLEDGE Research Backlog — 2026-09-13
 
 Owner: Issue #44 `KNOWLEDGE:#44`
