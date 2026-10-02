@@ -1252,43 +1252,43 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: diffusion-feature instance/style similarity.
 - Value: complementary instance and style evaluation.
 
-**S-RESEARCH-019 — LyCORIS evaluation paper**
+**S-RESEARCH-029 — LyCORIS evaluation paper**
 - URL: https://arxiv.org/abs/2309.14859
 - Class: `RESEARCH / ICLR-2024`
 - Scope: LoRA/LoHa/LoKr/native fine-tuning and systematic T2I customization evaluation.
 - Value: fidelity, controllability, diversity, base-preservation and quality framework; dim/alpha/factor interactions.
 
-**S-TOOL-011 — LyCORIS current repository**
+**S-TOOL-018 — LyCORIS current repository**
 - URL: https://github.com/KohakuBlueleaf/LyCORIS
 - Class: `OFFICIAL_RUNTIME`
 - Scope: current adapter algorithms and implementation freshness.
 - Freshness: 4.0.0 changelog dated 2026-09-01.
 
-**S-RESEARCH-020 — DoRA**
+**S-RESEARCH-030 — DoRA**
 - URL: https://arxiv.org/abs/2402.09353
 - Class: `RESEARCH`
 - Scope: magnitude/direction weight-decomposed low-rank adaptation.
 - Limitation: not direct proof of superiority for anime diffusion customization.
 
-**S-RESEARCH-021 — DisenBooth**
+**S-RESEARCH-031 — DisenBooth**
 - URL: https://arxiv.org/abs/2305.03374
 - Class: `RESEARCH`
 - Scope: identity vs identity-irrelevant context disentanglement in subject-driven T2I.
 - Value: theoretical backing for background/pose/style entanglement diagnosis.
 
-**S-RESEARCH-022 — Infusion**
+**S-RESEARCH-032 — Infusion**
 - URL: https://arxiv.org/abs/2404.14007
 - Class: `RESEARCH`
 - Scope: concept-agnostic and concept-specific overfitting.
 - Value: separates base-model damage from target-concept modality collapse.
 
-**S-RESEARCH-023 — Custom Diffusion**
+**S-RESEARCH-033 — Custom Diffusion**
 - URL: https://arxiv.org/abs/2212.04488
 - Class: `RESEARCH`
 - Scope: efficient single/multi-concept customization and model combination.
 - Value: multi-concept customization baseline.
 
-**S-RESEARCH-024 — Break-A-Scene**
+**S-RESEARCH-034 — Break-A-Scene**
 - URL: https://arxiv.org/abs/2305.16311
 - Class: `RESEARCH`
 - Scope: concept masks, cross-attention separation, union sampling.
@@ -1339,42 +1339,42 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: Forge Neo baseline and author Hires example.
 - Limitation: Hires recipe is model-specific.
 
-**S-COMM-068 — Anima fixed-seed 0/1/3 LoRA stack**
+**S-COMM-085 — Anima fixed-seed 0/1/3 LoRA stack**
 - URL: https://note.com/fresh_macaw9581/n/n7a3a7f6ed1e7
 - Class: `CONTROLLED_PRACTICAL / COMMUNITY`
 - Scope: incremental adapter stacking.
 - Value: additional LoRAs can improve detail while adding unwanted content/control loss.
 
-**S-COMM-069 — Anima three-character LoRA production report**
+**S-COMM-086 — Anima three-character LoRA production report**
 - URL: https://note.com/moribro/n/na743c1e66884
 - Class: `PRACTICAL / COMMUNITY`
 - Scope: character-LoRA training captions and modular style/character/scene generation.
 - Value: failure-driven production workflow.
 - Limitation: exact dim/LR/weight recommendations are one project recipe.
 
-**S-COMM-070 — Anima edit/inpaint workflow**
+**S-COMM-087 — Anima edit/inpaint workflow**
 - URL: https://www.reddit.com/r/StableDiffusion/comments/1totumo/anima_can_edit_images_and_this_is_possible_in_two/
 - Class: `COMMUNITY / ASSISTED_WORKFLOW`
 - Scope: reference-latent/edit-LoRA vs masked/control editing.
 
-**S-COMM-071 — Anima reference-canvas edit workflow**
+**S-COMM-088 — Anima reference-canvas edit workflow**
 - URL: https://www.reddit.com/r/StableDiffusion/comments/1v729sl/remake_you_character_in_the_new_style_anima/
 - Class: `COMMUNITY / ASSISTED_WORKFLOW`
 - Scope: masked reference-guided regeneration/pose expansion.
 
-**S-TOOL-012 — Regional Prompter current Anima support**
+**S-TOOL-019 — Regional Prompter current Anima support**
 - URL: https://github.com/hako-mikan/sd-webui-regional-prompter/blob/main/README.md
 - Class: `OFFICIAL_RUNTIME`
 - Scope: Forge Neo Anima Latent/Attention regional prompting.
 - Boundary: Region LoRA unsupported for Anima.
 
-**S-TOOL-013 — Forge Couple**
+**S-TOOL-021 — Forge Couple**
 - URL: https://github.com/Haoming02/sd-forge-couple/blob/main/README.md
 - Class: `OFFICIAL_RUNTIME`
 - Scope: region-targeted conditioning in Forge/Forge Neo including Anima.
 - Value: total-subject-count and checkpoint-composition-understanding guidance.
 
-**S-TOOL-014 — ComfyUI preprocessors**
+**S-TOOL-023 — ComfyUI preprocessors**
 - URL: https://blog.comfy.org/p/preprocessor-and-frame-interpolation
 - Class: `OFFICIAL_RUNTIME`
 - Scope: pose/depth/lineart/normals preprocessing.
@@ -1408,44 +1408,44 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Class: `AUTHOR_GUIDE`
 - Scope: near-1MP portrait/square/landscape resolution set.
 
-**S-PRACTICAL-004 — ComfyUI upscaling handbook**
+**S-PRACTICAL-008 — ComfyUI upscaling handbook**
 - URL: https://blog.comfy.org/p/upscaling-in-comfyui
 - Class: `OFFICIAL_RUNTIME_GUIDE`
 - Scope: upscale vs enhancement, conservative vs creative processing, production pipeline.
 - Value: style-preservation and artifact-repair routing.
 
-**S-TOOL-012 — Forge Hires UI implementation**
+**S-TOOL-020 — Forge Hires UI implementation**
 - URL: https://github.com/lllyasviel/stable-diffusion-webui-forge/blob/main/modules/ui.py
 - Class: `OFFICIAL_RUNTIME`
 - Scope: Hires checkpoint/VAE/TE/sampler/scheduler/prompt/negative/CFG options.
 - Value: proves Hires is a configurable second generation pass.
 
-**S-COMM-072 — Anima second-pass sampler observation**
+**S-COMM-089 — Anima second-pass sampler observation**
 - URL: https://www.reddit.com/r/StableDiffusion/comments/1tmrh0l/the_not_so_anime_anima/
 - Class: `COMMUNITY / PRACTICAL`
 - Scope: sampler difference between raw generation and img2img/upscale.
 
-**S-COMM-073 — Anima Forge Neo Hires discussion**
+**S-COMM-090 — Anima Forge Neo Hires discussion**
 - URL: https://www.reddit.com/r/StableDiffusion/comments/1t87xbc/anima_settings_in_forge_neo/
 - Class: `COMMUNITY / FAILURE_DISCUSSION`
 - Scope: Hires instability and low-denoise img2img alternatives.
 
-**S-COMM-074 — Anima 2026-09 upscale discussion**
+**S-COMM-091 — Anima 2026-09 upscale discussion**
 - URL: https://www.reddit.com/r/StableDiffusion/comments/1wqb41q/anima_upscaling/
 - Class: `COMMUNITY / CURRENT_PRACTICE`
 - Scope: SeedVR/pixel/tiled/Forge Neo upscale ecosystem.
 
-**S-COMM-075 — Anima detailer instability report**
+**S-COMM-092 — Anima detailer instability report**
 - URL: https://www.reddit.com/r/StableDiffusion/comments/1tj1fw2/detailing_in_anima_is_really_confusing_any_guides/
 - Class: `COMMUNITY / FAILURE_REPORT`
 - Scope: local crop size and sampler/scheduler sensitivity.
 
-**S-PRACTICAL-005 — Anima sampler/weight guide**
+**S-PRACTICAL-009 — Anima sampler/weight guide**
 - URL: https://huggingface.co/circlestone-labs/Anima
 - Class: `AUTHOR_GUIDE`
 - Scope: sampler rendering tendencies, weight behavior, quality/prompt profile differences.
 
-**S-PRACTICAL-006 — WAI v17 prompt-length warning**
+**S-PRACTICAL-010 — WAI v17 prompt-length warning**
 - URL: https://huggingface.co/LyliaEngine/waiIllustriousSDXL_v170/blob/main/README.md
 - Class: `AUTHOR_GUIDE`
 - Scope: compact quality/Negative guidance plus recommended generation settings.
@@ -1504,20 +1504,20 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Class: `COMMUNITY / TRAINING_PRACTICE`
 - Scope: solo/joint subsets, coexistence examples, interaction images, balancing.
 
-**S-TOOL-013 — Regional Prompter current Anima support**
+**S-TOOL-022 — Regional Prompter current Anima support**
 - URL: https://github.com/hako-mikan/sd-webui-regional-prompter
 - Class: `OFFICIAL_RUNTIME`
 - Freshness: 2026-09-04 update.
 - Scope: Forge Neo Anima Latent/Attention regional conditioning.
 - Critical limitation: Region LoRA is not supported for Anima.
 
-**S-TOOL-014 — ComfyUI Anima Regional Conditioning**
+**S-TOOL-024 — ComfyUI Anima Regional Conditioning**
 - URL: https://github.com/Sen-sou/Comfyui-Anima-Regional-Conditioning
 - Class: `OFFICIAL_RUNTIME / EXPERIMENTAL`
 - Scope: masked cross/self-attention routing for Anima.
 - Value: region strength/schedule/base-ratio mechanics and documented coherence tradeoffs.
 
-**S-COMM-076 — Anima directional-prompt ambiguity**
+**S-COMM-093 — Anima directional-prompt ambiguity**
 - URL: https://huggingface.co/circlestone-labs/Anima/discussions/99
 - Class: `COMMUNITY / FAILURE_REPORT`
 - Scope: left/right frame-vs-subject ambiguity and hand-direction instability.
@@ -1531,13 +1531,13 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: prompt/workflow metadata embedded in saved PNG files.
 - Value: reproducible experiment artifact and workflow recovery.
 
-**S-TOOL-015 — ComfyUI Prompt Control**
+**S-TOOL-025 — ComfyUI Prompt Control**
 - URL: https://github.com/asagi4/comfyui-prompt-control
 - Class: `OFFICIAL_RUNTIME`
 - Scope: prompt/LoRA scheduling, regional conditioning, advanced text encoding.
 - Value: explicit timestep-dependent conditioning experiments.
 
-**S-COMM-077 — Anima staged-quality conditioning example**
+**S-COMM-094 — Anima staged-quality conditioning example**
 - URL: https://huggingface.co/circlestone-labs/Anima/discussions/146
 - Class: `COMMUNITY / PRACTICAL`
 - Scope: early structural conditioning with later quality-modifier injection.
@@ -1549,7 +1549,7 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: distillation LoRA with stable loss but poor visual quality.
 - Value: numerical convergence is insufficient; intermediate image tests matter.
 
-**S-COMM-078 — Anima training-duration discussion**
+**S-COMM-095 — Anima training-duration discussion**
 - URLs:
   - https://huggingface.co/circlestone-labs/Anima/discussions/106
   - https://huggingface.co/circlestone-labs/Anima/discussions/129
@@ -1557,20 +1557,20 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: widely varying style/character steps/epochs.
 - Value: rejects universal absolute-step recipes.
 
-**S-COMM-079 — Anima training determinism discussion**
+**S-COMM-096 — Anima training determinism discussion**
 - URL: https://huggingface.co/circlestone-labs/Anima/discussions/144
 - Class: `COMMUNITY / REPRODUCIBILITY`
 - Scope: nominally same training seed/config can differ without deterministic backend controls.
 - Value: repeat-run caution and full training-identity logging.
 
-**S-TOOL-016 — ComfyUI native advanced hooks**
+**S-TOOL-026 — ComfyUI native advanced hooks**
 - URL: https://github.com/Comfy-Org/ComfyUI/blob/master/comfy_extras/nodes_hooks.py
 - Class: `OFFICIAL_RUNTIME / EXPERIMENTAL`
 - Scope: Create Hook LoRA, mask-bound conditioning, timestep ranges and hook keyframe scheduling.
 - Value: native primitives for spatial/time adapter-conditioning experiments.
 - Limitation: exact Anima behavior requires local validation.
 
-**S-COMM-080 — 2026-09-28 Anima/Illustrious multi-character thread**
+**S-COMM-097 — 2026-09-28 Anima/Illustrious multi-character thread**
 - URL: https://www.reddit.com/r/comfyui/comments/1ws23ur/multiple_characters_in_one_single_generated_image/
 - Class: `COMMUNITY / CURRENT_PRACTICE`
 - Scope: attribute swapping in Anima/Illustrious; regional prompting and LoRA-hook localization discussion.
@@ -1582,14 +1582,14 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: latent-level per-region sampling, masks, overlap_factor, restore_latent.
 - Value: tool authority for RegionalSampler mechanics.
 
-**S-COMM-081 — Anima crossover RegionalSampler guide**
+**S-COMM-098 — Anima crossover RegionalSampler guide**
 - URL: https://huggingface.co/datasets/rouge-kasshoku/anima-crossover-couples-regional-sampler-guide
 - Class: `COMMUNITY / DETAILED_PRACTICAL_GUIDE`
 - Scope: native proxy references, RegionalSampler, LoRA isolation, masks and two-pass metadata synchronization.
 - Value: months-of-testing practical workflow with strong mechanistic reasoning.
 - Limitation: numeric parameter values are author-specific recipes.
 
-**S-COMM-082 — Anima 3D-source character LoRA troubleshooting**
+**S-COMM-099 — Anima 3D-source character LoRA troubleshooting**
 - URL: https://huggingface.co/circlestone-labs/Anima/discussions/187
 - Class: `COMMUNITY / TRAINING_DIAGNOSIS`
 - Scope: source-style entanglement, layer exclusions, explicit nuisance tags, dataset domain conversion.
