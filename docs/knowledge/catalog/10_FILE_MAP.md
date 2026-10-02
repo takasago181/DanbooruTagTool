@@ -218,3 +218,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_W_LORA_CAPTION_STACKING_COMMUNITY_20261002.md` — controlled Anima character/style LoRA community experiments on caption density, trigger absorption, synthetic self-training, 0/1/3 adapter stacking and fixed-seed weight sweeps.
 
+- `../research/BATCH_X_PARAMETER_HIGHRES_DATASET_COMMUNITY_20261002.md` — large community evidence: 162-image Anima parameter sweep, 279-image Highres Boost strength×resolution test, and iterative 49→61 image character-LoRA dataset repair.
+
