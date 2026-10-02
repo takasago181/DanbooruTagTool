@@ -1500,3 +1500,17 @@ For stylized/anime reproduction:
 Research:
 `research/BATCH_AN_FINISHING_UPSCALE_DETAILER_20261002.md`.
 
+## 16.6 Practical prompt tuning
+
+Separate:
+- repeated semantic failure
+from
+- seed-level variation.
+
+Use fixed diagnostic seeds for A/B work and broad seed search only after the configuration is accepted.
+
+Sampler, prompt weight, resolution and Negative length are model-specific behavior variables, not universal quality sliders.
+
+Research:
+`research/BATCH_AO_PROMPT_TUNING_SAMPLER_WEIGHT_20261002.md`.
+
