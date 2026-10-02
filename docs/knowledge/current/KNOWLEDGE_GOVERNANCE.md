@@ -1,30 +1,32 @@
-# KNOWLEDGE Governance — Claim-Level Current Rules
+# KNOWLEDGE ガバナンス — Claim単位の現在ルール
 
 Owner: Issue #44 `KNOWLEDGE:#44`
 
-## 1. Current verdict source of truth
+## 1. 現在判定の正本
 
-`CLAIM_REGISTRY.csv` is the KNOWLEDGE lane's claim-level current verdict source of truth.
+`CLAIM_REGISTRY.csv` を、知識班のClaim単位の現在判定正本とする。
 
-The registry answers:
-- what the claim currently says;
-- what kind of evidence supports it;
-- whether it is accepted/candidate/hold/conflict/rejected/historical;
-- exactly where it applies;
-- whether revalidation is required;
-- where the evidence lives;
-- which downstream domain may consume it.
+Registryで確認する:
+- Claimの現在内容
+- 出典の種類
+- ACCEPTED / CANDIDATE / HOLD / CONFLICT / REJECTED / HISTORICAL
+- 適用範囲
+- 必要な再検証
+- 根拠の場所
+- downstream用途
 
-Readable category files explain the claims. Research files preserve proof/history. Neither silently overrides the Registry.
+Catalogは読みやすい説明、researchは根拠・履歴。
+どちらもRegistryを勝手に上書きしない。
 
-The separate PROMPT team was retired on 2026-09-12. Prompt/generation-effectiveness claims remain KNOWLEDGE claims rather than becoming a second authority system.
+旧PROMPT班は2026-09-12にKNOWLEDGE #44へ統合済み。
+`PROMPT`という文字列が残っていても、独立したteam authorityを意味しない。
 
-## 2. Claim ID rule
+## 2. Claim ID
 
-Stable form:
+形式:
 `K-<DOMAIN>-<NNN>`
 
-Current domains include:
+例:
 - `GOV`
 - `MODEL-WAI`
 - `MODEL-ILL`
@@ -36,7 +38,6 @@ Current domains include:
 - `BIND`
 - `HARD`
 - `NEG`
-- `QUALITY`
 - `TOOL`
 - `LORA`
 - `EVAL`
@@ -45,11 +46,12 @@ Current domains include:
 - `HIST`
 - `REJECT`
 
-`PROMPT` in a Claim ID is a **knowledge domain name**, not an active team identifier.
+IDは再利用しない。
 
-IDs are never recycled. A changed claim is updated in place when meaning remains the same; a materially different claim receives a new ID and uses `supersedes/contradicted_by`.
+同じ意味のClaimを更新する場合は同IDを更新。
+意味が別物になった場合は新IDを作り、`supersedes/contradicted_by`で関係を残す。
 
-## 3. Required registry columns
+## 3. Registryの固定列
 
 1. `ID`
 2. `Claim`
@@ -62,47 +64,38 @@ IDs are never recycled. A changed claim is updated in place when meaning remains
 9. `supersedes/contradicted_by`
 10. `downstream_relevance`
 
-These columns are fixed so the CSV can later be converted to JSON/YAML without changing semantics.
+列構造を変える時は、既存CSV/将来JSON変換への影響を確認する。
 
-Legacy `downstream_relevance=PROMPT` values may remain for provenance. After 2026-09-12 they mean the Prompt/generation-guidance consumption domain inside KNOWLEDGE, not a separate team. New routing goes through Issue #44.
+## 4. 出典種類（SOURCE_CLASS）
 
-## 4. SOURCE_CLASS — what kind of evidence is this?
+- `OFFICIAL_MODEL` — モデル公式の事実
+- `AUTHOR_GUIDE` — 作者推奨の使い方・設定
+- `OFFICIAL_RUNTIME` — runtime/extension公式挙動
+- `SEMANTIC_AUTHORITY` — canonical / Alias / implication等の意味 authority
+- `PROJECT_FACT` — project内で採用したルール・確認済み状態
+- `CONTROLLED_PRACTICAL` — 条件を揃えた実践比較
+- `RESEARCH` — 論文・一般研究
+- `COMMUNITY` — communityの実践報告
+- `LEGACY` — 旧前提・履歴
 
-Allowed current values:
+`SOURCE_CLASS`は「採用済みか」を表さない。
 
-- `OFFICIAL_MODEL` — official model facts such as architecture/training/caption capability
-- `AUTHOR_GUIDE` — author-recommended inference/prompt usage or examples
-- `OFFICIAL_RUNTIME` — official runtime/extension behavior
-- `SEMANTIC_AUTHORITY` — canonical semantic/alias/implication authority
-- `PROJECT_FACT` — a project-owned rule, baseline, verified state, or adopted methodology
-- `CONTROLLED_PRACTICAL` — controlled practical comparison
-- `RESEARCH` — primary/general research evidence
-- `COMMUNITY` — community/practical observation, useful for discovery but lower authority
-- `LEGACY` — preserved historical framing or superseded assumption
+公式情報でも、そこから一歩進んだ解釈はCANDIDATE/HOLDになり得る。
 
-`SOURCE_CLASS` does **not** say whether the project adopts the conclusion.
+## 5. 現在状態（STATUS）
 
-## 5. STATUS — how should the claim be treated now?
+- `ACCEPTED` — 現在の知識班判定として採用
+- `CANDIDATE` — 有力だがcurrent ruleとしては未確定
+- `HOLD` — 未解決。どちらかへ勝手に寄せない
+- `CONFLICT` — scope/versionを分けても信頼できる根拠が食い違う
+- `REJECTED` — 現在ルールとして明示的に不採用
+- `HISTORICAL` — 履歴として保存し、現在の案内には使わない
 
-- `ACCEPTED` — current KNOWLEDGE verdict; may still be exact-scope only
-- `CANDIDATE` — plausible/useful but not yet strong enough for current-rule treatment
-- `HOLD` — unresolved; do not choose a side
-- `CONFLICT` — credible evidence currently disagrees after scope/version separation
-- `REJECTED` — explicitly not accepted as a current rule/default
-- `HISTORICAL` — preserved for context; not current guidance
+ACCEPTEDでもscopeを外して一般化してはいけない。
 
-Official evidence can still be `CANDIDATE` if the *interpretation* goes beyond what the source establishes.
+## 6. 適用範囲（SCOPE）
 
-Example:
-- “WAI v17 author recommends Steps 15–30” -> `AUTHOR_GUIDE / ACCEPTED`
-- “Steps 25 is optimal for hard targets” -> would require a separate `PROJECT_FACT` or `CONTROLLED_PRACTICAL` claim and remains `CANDIDATE/HOLD` until demonstrated
-- “25 steps is the current isolation baseline” -> `PROJECT_FACT / ACCEPTED`, but it is not an optimum claim
-
-## 6. SCOPE — where can the claim be applied?
-
-Use one or more semicolon-separated scope tokens.
-
-Core forms:
+代表:
 - `GLOBAL_PRINCIPLE`
 - `FAMILY:<name>`
 - `MODEL_VERSION:<name>`
@@ -111,89 +104,112 @@ Core forms:
 - `EVALUATOR:<name>`
 - `PROJECT_ONLY`
 
-Never drop scope when copying a claim to a downstream handoff.
+handoffや要約でもscopeを落とさない。
 
-## 7. VALIDATION_STATE — what validation is still needed?
+## 7. 検証状態（VALIDATION_STATE）
 
-- `NOT_REQUIRED` — no local validation required for the stated narrow fact/principle
-- `LOCAL_RECHECK` — verify local installation/config/hash when environment changes
-- `CONTROLLED_TEST_REQUIRED` — generation-effect claim needs controlled test
-- `STAGE10_REQUIRED` — historically Stage10-scoped unresolved evidence; after PROMPT merge this still means image-dependent controlled validation is needed, not that broad Stage10 is automatically authorized
-- `SOURCE_RECHECK_REQUIRED` — source/version can change and should be rechecked before promotion-critical use
+- `NOT_REQUIRED` — その狭い主張には追加ローカル検証不要
+- `LOCAL_RECHECK` — local環境変更時に再確認
+- `CONTROLLED_TEST_REQUIRED` — 生成効果Claimなので条件統制した試験が必要
+- `STAGE10_REQUIRED` — 旧ラベルを含む画像依存検証。広範囲Stage10を自動承認する意味ではない
+- `SOURCE_RECHECK_REQUIRED` — source/versionが変わり得るので重要利用前に再確認
 
-A claim can be `ACCEPTED` and still have `SOURCE_RECHECK_REQUIRED` because freshness is separate from current interpretation.
+STATUSと鮮度は別。
 
-## 8. Semantic vs generation separation
+## 8. 混ぜてはいけない層
 
-Never collapse:
 1. canonical tag identity
-2. Alias identity
-3. implication/hierarchy
-4. related/co-occurrence/semantic-near
-5. UI Japanese/search wording
-6. model trigger surface
-7. generation support/effectiveness
-8. Prompt-only capability
-9. LoRA/control/postprocess-assisted capability
-10. evaluator/human judgement
-11. product/runtime adoption
+2. Alias
+3. implication / hierarchy
+4. related / co-occurrence
+5. UI日本語・検索語
+6. model trigger
+7. generation support
+8. Prompt-only能力
+9. LoRA / Control / Edit後の能力
+10. evaluator / human judgement
+11. product/runtime採用
 
-“Tag is semantically correct” and “this checkpoint responds well to this surface” require separate claims.
+「意味が正しい」と「このモデルがよく反応する」は別Claim。
 
-## 9. Promotion rules
+## 9. Claimを昇格する条件
 
-To move `CANDIDATE/HOLD/CONFLICT` -> `ACCEPTED`:
-- preserve exact scope;
-- record evidence identity;
-- meet the row's validation requirement;
-- resolve contradictions rather than deleting them;
-- update `last_checked`;
-- update the category explanation only after Registry verdict changes.
+CANDIDATE / HOLD / CONFLICTからACCEPTEDへ動かす時:
+- exact scopeを維持
+- 根拠identityを記録
+- VALIDATION_STATEの要件を満たす
+- 対立根拠を消さず整理
+- `last_checked`更新
+- Registry変更後に必要な説明正本だけ更新
 
-General reusable generation rules require E3-level evidence under the existing evidence framework. Local practical rules may be accepted only under pinned local context.
+画像依存の検証はClaimに必要な範囲へ絞る。
+未解決を見つけたからといって、全件大規模試験へしない。
 
-Image-dependent validation should be as narrow as the concrete claim/question. Do not convert every HOLD into a broad sweep requirement.
+## 10. productionとの境界
 
-## 10. Authority boundary
+KNOWLEDGEでACCEPTEDになっても自動では:
+- production `data/**` を変更しない
+- DEV実装を変えない
+- runtime/UI behaviorを変えない
+- AUDIT判定を変えない
+- Stage10の大規模試験を承認しない
+- v1必須要件へしない
 
-A KNOWLEDGE `ACCEPTED` claim means “the KNOWLEDGE lane currently accepts this statement within its scope.”
+product採用はmainのproduct/DEV routingが決める。
 
-It does **not** automatically:
-- edit production `data/**`;
-- change DEV implementation;
-- change runtime/UI Prompt behavior;
-- alter AUDIT verdicts;
-- authorize broad Stage10 production A/B/scoring;
-- make future/advanced knowledge a v1 requirement.
+## 11. 旧ラベル
 
-Downstream fields are routing metadata, not production commands.
-Product adoption remains controlled by main product/DEV routing.
+旧research文書を整理目的だけで一括書換えしない。
 
-## 11. Old labels / old team names
+- 旧STATUS
+- 旧PROMPT班名
+- 旧Stage10
+等は履歴として残し、現在解釈はRegistry / Legacy Mapから行う。
 
-Do not bulk-rewrite old research documents. Interpret legacy evidence labels through `LABEL_MIGRATION_MAP.md`; current verdict always comes from the Registry.
+## 12. Source IDの一意性
 
-Likewise, old `PROMPT:#5` / `PROMPT班` references remain historical provenance. They must not be interpreted as an active team after 2026-09-12; current work routes through KNOWLEDGE #44.
+`GENERATION_KNOWLEDGE_SOURCES.md` のSource IDは**全entryで一意**。
 
+追加前:
+1. 予定IDが既存にないか確認
+2. 同一sourceを既存IDで参照できるなら再登録しない
+3. 別entryへ同じIDを使わない
+4. migrationでは先行entryを維持し、後発entryを新IDへ移す
+5. 参照済みIDを変更する時は全参照を更新
 
-## Source ID / research identity uniqueness
-
-### Source ID
-`GENERATION_KNOWLEDGE_SOURCES.md` のSource IDは**全entryで一意**でなければならない。
-
-新しいSourceを追加する前に:
-1. 予定IDが既存Source Registryに存在しないことを確認する。
-2. 同じURLを再利用する場合も、既存entryを参照できるなら新IDを増やさない。
-3. 別entryへ同じIDを再利用しない。
-4. ID migrationが必要な場合は、先行entryのIDを維持し、後発entryを新IDへ移す。
-5. Claim Registryやcurrent/catalogから参照済みのIDは、参照更新なしに変更しない。
-
-2026-10-02の修復記録:
+2026-10-02修復:
 `SOURCE_ID_MIGRATION_20261002.md`
 
-### Research identity
-研究文書の正式identityは**full filename**とする。
-`BATCH_AN` のようなprefixだけを一意IDとして扱わない。
+## 13. research文書のidentity
 
-今後の新規batchは既存prefixとの衝突を避ける。
-既存の衝突文書はprovenance保護のためrenameせず、full filenameで参照する。
+researchの正式identityは**full filename**。
+
+`BATCH_AN`のようなprefixだけを一意IDとして使わない。
+
+既存のprefix衝突はprovenance保護のためrenameしない。
+新規batchは既存prefixとの衝突を避ける。
+
+## 14. current文書の重複禁止
+
+現在結論は**最も適切な正本1か所**へ置く。
+
+例:
+- 基礎理論 -> `IMAGE_GENERATION_FOUNDATIONS_JA.md`
+- モデル固有設定 -> `PRACTICAL_GENERATION_NOOB_ANIMA.md`
+- 失敗診断 -> `ADULT_IMAGE_GENERATION_DECISION_TREE.md`
+- 学習順 -> `ADULT_IMAGE_GENERATION_TEACHING_CURRICULUM.md`
+- 教師の進め方 -> `ADULT_IMAGE_GENERATION_TEACHER_REFERENCE.md`
+- workflow型 -> `LOCAL_ADULT_WORKFLOW_PLAYBOOK_20261002.md`
+
+他文書では詳細を再掲せず、正本へリンクする。
+
+## 15. 日本語-first
+
+人間向け説明:
+- 日本語を主
+- 英語は技術原語・UI名・model名の補助
+- 初出は日本語で役割説明
+- 英単語の列挙だけで説明を済ませない
+
+Claim / Source Registryの内部英語を無理に翻訳する規則ではない。
+ユーザー向けに出す時は日本語へ咀嚼する。
