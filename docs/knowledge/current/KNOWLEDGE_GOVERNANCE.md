@@ -172,10 +172,11 @@ product採用はmainのproduct/DEV routingが決める。
 
 追加前:
 1. 予定IDが既存にないか確認
-2. 同一sourceを既存IDで参照できるなら再登録しない
-3. 別entryへ同じIDを使わない
-4. migrationでは先行entryを維持し、後発entryを新IDへ移す
-5. 参照済みIDを変更する時は全参照を更新
+2. 同じURL・同じ事実・同じscopeなら既存IDを再利用し、再登録しない
+3. 同じURLから**別の事実・別scope**を切り出す必要がある場合は別entryを許す。ただし見出しとScopeで違いを明示する
+4. 別entryへ同じIDを使わない
+5. migrationでは先行entryを維持し、後発entryを新IDへ移す
+6. 参照済みIDを変更する時は全参照を更新
 
 2026-10-02修復:
 `SOURCE_ID_MIGRATION_20261002.md`
