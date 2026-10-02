@@ -437,3 +437,26 @@ Exact current author guidance wins as the first baseline.
 Research:
 `../research/BATCH_AH_ILL_NOOB_MULTI_SUBJECT_AND_SOURCE_CONFLICT_20261002.md`.
 
+---
+
+## Practical learning curriculum — 2026-10-02
+
+Adult-generation study should progress from:
+- one adult subject
+- two distinct adults
+- simple contact/interaction
+- relation-heavy scene
+- multi-subject/multi-LoRA
+- assisted control
+- finishing
+
+Use structure-only reference descriptions and stable subject IDs to study binding.
+
+Keep failures as evidence.
+Do not advance based on one lucky seed.
+
+Prompt-only, global-LoRA, regional/control and locally edited success remain separate skill/evidence levels.
+
+Research:
+`../research/BATCH_AP_ADULT_PRACTICAL_LEARNING_METHOD_20261002.md`.
+
