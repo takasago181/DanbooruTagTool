@@ -985,3 +985,27 @@ For Anima, sampler choice changes rendering character and weights often need str
 Research:
 `../research/BATCH_AO_PROMPT_TUNING_SAMPLER_WEIGHT_20261002.md`.
 
+---
+
+## 34. Adult practical learning loop — 2026-10-02
+
+For clearly adult/consensual scenes, study in this order:
+
+1. analyze reference structure
+2. isolate count/camera/position/relation from appearance/style
+3. generate with a minimal prompt
+4. use a small fixed seed set
+5. score each predicate separately
+6. change one variable
+7. add character/style LoRAs one at a time
+8. escalate to pose/depth/regional only when needed
+9. use inpaint/detailer only after global semantics are correct
+10. retain both successes and failures
+
+Do not learn by memorizing giant finished prompts.
+
+Use a failure journal and XY/grid tests for weight/CFG/steps/denoise/sampler.
+
+Research:
+`../research/BATCH_AP_ADULT_PRACTICAL_LEARNING_METHOD_20261002.md`.
+
