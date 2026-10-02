@@ -232,3 +232,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AD_POSE_DEPTH_REGION_INPAINT_ESCALATION_20261002.md` — control escalation framework for pose, depth, lineart, region/mask and inpaint; separates geometry, semantic binding, preprocessing and edit failure.
 
+- `../research/BATCH_AE_COUNT_CAMERA_VISIBILITY_LIMITS_20261002.md` — exact-count limitations, count-specific evaluation, camera/viewpoint as a distinct control axis and visibility/crop diagnostics for relation-heavy scenes.
+
