@@ -1456,3 +1456,51 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Class: `AUTHOR_GUIDE`
 - Scope: ~1MP aspect-ratio options and baseline settings.
 
+---
+
+## 2026-10-02 adult practical learning sources
+
+**S-ADULT-LEARN-001 — Anima relation-focused adult caption workflow**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/141
+- Class: `COMMUNITY / PRACTICAL`
+- Scope: VLM/LLM structure-only captioning for adult relation-heavy scenes.
+- Value: stable subject IDs and isolation of relation/camera/contact from character/style/background.
+- Limitation: user's exact explicit system prompt is not retained as project authority.
+
+**S-ADULT-LEARN-002 — Regional LoRA conditioning workflow**
+- URL: https://www.reddit.com/r/comfyui/comments/1dpwju8/
+- Class: `COMMUNITY / ASSISTED_WORKFLOW`
+- Scope: spatially restricting character LoRA influence to reduce cross-subject bleed.
+
+**S-ADULT-LEARN-003 — Multi-character regional workflow experiment**
+- URL: https://www.reddit.com/r/comfyui/comments/1arhe7s
+- Class: `COMMUNITY / PRACTICAL`
+- Scope: pose-first, inpaint, regional masks, multi-LoRA, Hires.
+- Value: divide geometry and identity during construction.
+
+**S-ADULT-LEARN-004 — Interaction-heavy multi-character difficulty**
+- URL: https://www.reddit.com/r/comfyui/comments/1dzh275
+- Class: `COMMUNITY / FAILURE_REPORT`
+- Scope: interacting multiple LoRA characters, pose/merge/hand failures.
+- Value: recurring beginner failure pattern.
+
+**S-LEARN-001 — ComfyUI parameter-grid practice**
+- URLs:
+  - https://www.reddit.com/r/StableDiffusion/comments/1dhdyt7
+  - https://www.reddit.com/r/StableDiffusion/comments/1e9eqj6
+- Class: `COMMUNITY / PRACTICAL_METHOD`
+- Scope: XY/grid comparison under fixed surrounding settings.
+- Value: visual response-curve learning.
+
+**S-ADULT-LEARN-005 — Anima LoRA training-caption discussions**
+- URLs:
+  - https://huggingface.co/circlestone-labs/Anima/discussions/105
+  - https://huggingface.co/circlestone-labs/Anima/discussions/205
+- Class: `COMMUNITY / TRAINING_PRACTICE`
+- Scope: tags, NL, mixed captions, tag dropout, official-style ordering.
+
+**S-ADULT-LEARN-006 — Anima multi-character LoRA training practice**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/202
+- Class: `COMMUNITY / TRAINING_PRACTICE`
+- Scope: solo/joint subsets, coexistence examples, interaction images, balancing.
+
