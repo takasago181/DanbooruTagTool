@@ -1647,3 +1647,85 @@ These sources are intentionally lower authority than exact author/runtime docume
   - https://github.com/Comfy-Org/ComfyUI/blob/master/comfy_extras/nodes_hooks.py
 - Class: `OFFICIAL_RUNTIME`
 - Key mechanism: conditioning can carry hooks, masks and timestep ranges; relevant nodes are experimental.
+
+
+---
+
+## 2026-10-02 BATCH_AX local adult generation trend sources
+
+**S-AX-001 — Anima current official model card**
+- URL: https://huggingface.co/circlestone-labs/Anima/blob/main/README.md
+- Class: `AUTHOR_GUIDE / OFFICIAL_MODEL`
+- Current facts: 2B; Base/Aesthetic/Turbo; Turbo CFG1/8–12 steps; Base for LoRA training; tags+NL+hybrid; ComfyUI native; safety tags.
+- Trend use: anchors what is official before community trend interpretation.
+
+**S-AX-002 — Civitai Anima ecosystem snapshot**
+- URL: https://www.civitai.tech/ecosystems/anima
+- Class: `PLATFORM_SNAPSHOT`
+- Checked: 2026-10-02
+- Snapshot: 32K+ Anima LoRAs; 283M+ images generated; comparison table lists Illustrious 199K+, Pony 101K+, NoobAI 8K+ LoRAs.
+- Limitation: platform classification, duplicates and multi-base assets affect counts; not quality scores.
+
+**S-AX-003 — WAI v17 current adult Illustrious lane**
+- URLs:
+  - https://civarchive.com/models/827184/wai-illustrious-sdxl?modelVersionId=2883731
+  - https://note.com/novapen_create/n/n7ef484c8f4d4
+  - https://lilting.ch/articles/wai-illustrious-v17-review
+- Class: `PLATFORM_SNAPSHOT / COMMUNITY_PRACTICAL`
+- Use: confirms WAI/Illustrious remains actively used and maintained alongside Anima.
+
+**S-AX-004 — Local adult LLM/VLM prompt workflow**
+- URLs:
+  - https://note.com/hirorohi03/n/nbbe8b87a02ec
+  - https://huggingface.co/circlestone-labs/Anima/discussions/141
+  - https://github.com/opparco/anima-prompter-forge
+  - https://github.com/DamienCz/comfyui-tipo
+- Class: `COMMUNITY / TOOL`
+- Trend: local text/vision models are being used as prompt structuring/pre-sampling layers.
+- Boundary: output is not semantic ground truth.
+
+**S-AX-005 — Anima regional/reference/edit ecosystem**
+- URLs:
+  - https://github.com/hako-mikan/sd-webui-regional-prompter
+  - https://github.com/Sen-sou/Comfyui-Anima-Regional-Conditioning
+  - https://github.com/Wenaka2004/comfyui-anima-ipadapter
+  - https://github.com/LuciferTC9527/ComfyUI-Anima_IP-Adapter
+  - https://github.com/wochenlong/ComfyUI-Anima-Edit-LoRA
+  - https://note.com/hirorohi03/n/na72233a8d6a4
+- Class: `TOOL_ECOSYSTEM / COMMUNITY_PRACTICAL`
+- Trend: prompt-only generation is increasingly complemented by spatial/reference/edit controls.
+- Boundary: several paths are experimental/young.
+
+**S-AX-006 — Multi-character LoRA development**
+- URLs:
+  - https://huggingface.co/circlestone-labs/Anima/discussions/202
+  - https://huggingface.co/circlestone-labs/Anima/discussions/220
+  - https://huggingface.co/circlestone-labs/Anima/discussions/222
+- Class: `COMMUNITY`
+- Trend: coexistence/interaction is increasingly treated as a training dataset objective.
+- Boundary: exact joint-image counts are anecdotal recipes.
+
+**S-AX-007 — Packaged Anima workflows across Japanese/Chinese communities**
+- URLs:
+  - https://note.com/crody/n/n937474cf1c23
+  - https://note.com/maynoha/n/neb08ce64c72c
+  - https://www.bilibili.com/video/BV11Eb26mEo9/
+  - https://www.bilibili.com/video/BV1538m6KE9h/
+  - https://www.bilibili.com/video/BV1t9Eq6iEwy/
+- Class: `COMMUNITY_ECOSYSTEM`
+- Trend: Anima has moved into beginner/all-in-one workflow packaging, not only expert testing.
+
+**S-AX-008 — Photoreal local adult separate lane**
+- URLs:
+  - https://www.civitai.tech/ecosystems/chroma
+  - https://www.civitai.tech/ecosystems/flux2
+  - https://www.reddit.com/r/StableDiffusion/comments/1ttxmvd/best_local_realistic_image_model_that_is/
+  - https://www.reddit.com/r/comfyui/comments/1sr0rh7/whats_the_best_photorealistic_model_for_local_use/
+- Class: `PLATFORM_SNAPSHOT / COMMUNITY`
+- Use: keep photoreal trends separate from anime model rules.
+
+**S-AX-009 — Community local-adult stack summary**
+- URL: https://github.com/awesome-ai-hentai/awesome-ai-hentai
+- Class: `COMMUNITY_CURATED`
+- Use: current community map across Forge/reForge, ComfyUI, Illustrious/Noob/WAI and realism lanes.
+- Limitation: one curator's synthesis, not authority.
