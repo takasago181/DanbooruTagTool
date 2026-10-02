@@ -421,3 +421,19 @@ Escalate to regional/mask control when pairwise Prompt cleanup cannot stabilize 
 Research:
 `../research/BATCH_AG_ANIMA_RELATION_STRESS_COMMUNITY_20261002.md`.
 
+---
+
+## Illustrious/Noob multi-subject practice — 2026-10-02
+
+Community signals:
+- one global prompt can mix subject traits;
+- 3+ subjects are a distinct stress class;
+- regional/mask/inpaint workflows are common escalation paths;
+- pose fidelity and identity fidelity can fail independently.
+
+Noob secondary sources may contain outdated/conflicting V-Pred settings.
+Exact current author guidance wins as the first baseline.
+
+Research:
+`../research/BATCH_AH_ILL_NOOB_MULTI_SUBJECT_AND_SOURCE_CONFLICT_20261002.md`.
+
