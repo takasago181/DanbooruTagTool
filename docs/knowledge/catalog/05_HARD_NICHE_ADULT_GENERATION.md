@@ -343,3 +343,25 @@ Current Anima/Forge research notes:
 Research:
 `../research/BATCH_AB_NEGATIVE_PRIOR_AND_TRAINING_TOOLCHAIN_20261002.md`.
 
+---
+
+## Pose/depth/region/inpaint escalation — 2026-10-02
+
+Use the failed predicate to choose assistance:
+
+- skeletal posture -> pose
+- front/back/overlap -> depth
+- contour/layout -> lineart/edge
+- identity/resource locality -> region/mask
+- local residual defect -> inpaint
+
+Pose control is not semantic relation control.
+A perfect skeleton can still have wrong identity, ownership, contact or target-site binding.
+
+Always keep:
+`Prompt-only -> control-assisted -> locally edited`
+as separate evidence states.
+
+Research:
+`../research/BATCH_AD_POSE_DEPTH_REGION_INPAINT_ESCALATION_20261002.md`.
+
