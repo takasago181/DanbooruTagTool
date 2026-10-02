@@ -1524,3 +1524,18 @@ Community-derived structural captioning and regional/multi-LoRA methods are reta
 Research:
 `research/BATCH_AP_ADULT_PRACTICAL_LEARNING_METHOD_20261002.md`.
 
+## 16.8 Regional-learning boundary
+
+Regional text, regional attention and regional LoRA are separate capabilities.
+
+For current Forge Neo Anima:
+- Regional Prompter supports regional text via Latent/Attention modes;
+- its Region LoRA path is unsupported.
+
+Strong region isolation can improve identity separation while harming cross-region interaction/coherence.
+
+Reproducible study artifacts should preserve original generation metadata/workflow when available.
+
+Research:
+`research/BATCH_AQ_REGIONAL_LEARNING_AND_REPRODUCIBILITY_20261002.md`.
+
