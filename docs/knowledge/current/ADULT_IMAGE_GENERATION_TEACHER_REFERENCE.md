@@ -460,3 +460,18 @@ Teach four coupled controls:
 Goal:
 **minimum necessary local rewrite**, not maximum regional freedom.
 
+---
+
+## 22. Dataset-first diagnosis
+
+When a LoRA is “too sticky”, inspect dataset correlation before trainer settings.
+
+Ask:
+- What unwanted factor is constant?
+- Was it captioned?
+- Did the tagger miss it?
+- Are there counterexamples?
+- Can it be changed in validation?
+
+Do not prescribe more training to fix a dataset entanglement problem.
+
