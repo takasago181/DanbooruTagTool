@@ -460,3 +460,20 @@ Prompt-only, global-LoRA, regional/control and locally edited success remain sep
 Research:
 `../research/BATCH_AP_ADULT_PRACTICAL_LEARNING_METHOD_20261002.md`.
 
+---
+
+## Regional interaction tradeoff — 2026-10-02
+
+Regional control has two competing goals:
+- separate identities/attributes
+- preserve physical interaction/global coherence
+
+For current Anima regional tools, stronger isolation can reduce cross-region awareness.
+
+Do not treat Regional as a monotonic “more separation is better” control.
+
+Current Forge Neo Regional Prompter supports Anima regional text conditioning but not Region LoRA.
+
+Research:
+`../research/BATCH_AQ_REGIONAL_LEARNING_AND_REPRODUCIBILITY_20261002.md`.
+
