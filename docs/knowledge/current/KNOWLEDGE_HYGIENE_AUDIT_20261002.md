@@ -548,3 +548,47 @@ production `data/**` / runtime defaultsは変更していない。
 - research本文の統合/削除
 
 これらはP1/P2。P0修復ではprovenanceを壊すrename/deleteを行っていない。
+
+
+---
+
+## 19. P1 remediation — 2026-10-02
+
+P1のcurrent層整理を実施。
+
+完了:
+- current管理READMEに文書ごとの役割表を追加
+- `CURRENT_QUICK_REFERENCE.md` を詳細解説から索引へ縮小
+- `PRACTICAL_GENERATION_NOOB_ANIMA.md` をモデル固有情報へ限定
+- `ADULT_IMAGE_GENERATION_TEACHER_REFERENCE.md` を先生役の進め方・参照先へ限定
+- `ADULT_IMAGE_GENERATION_TEACHING_CURRICULUM.md` を学習順・演習・合格条件へ限定
+- `ADULT_IMAGE_GENERATION_DECISION_TREE.md` を失敗診断へ限定
+- `LOCAL_ADULT_WORKFLOW_PLAYBOOK_20261002.md` をworkflow型集へ限定
+- `LOCAL_ADULT_IMAGE_GENERATION_TREND_MAP_20261002.md` をecosystem動向だけへ限定
+- `IMAGE_GENERATION_FOUNDATIONS_JA.md` を日本語-firstで再構成
+- `READING_ROUTES.md` を現行正本だけへ更新し、旧backlog/handoffを現役導線から除外
+- `catalog/README.md` を日本語-first化
+- `KNOWLEDGE_GOVERNANCE.md` を日本語-first化し、current文書の役割分離ルールを追加
+- `KNOWLEDGE_CATALOG.md` の復元順番号抜けを修正し、current READMEを導線へ追加
+
+再監査:
+- Claim Registry: 323件 / duplicate ID 0 / malformed row 0
+- Source Registry: 256件 / duplicate Source ID 0
+- 主要current guide間の完全重複段落: 0
+- 旧固定日付資料: live reading routeから除外
+- HOLD/ACCEPTEDのstatusはP1整理で変更していない
+
+重複削減の代表:
+- Quick Reference: 約15.1k字 -> 約2.2k字
+- Noob/Anima practical guide: 約38.4k字 -> 約4.2k字
+- Teacher Reference: 約11.6k字 -> 約2.9k字
+- Teaching Curriculum: 約11.2k字 -> 約2.6k字
+
+詳細情報は削除ではなく、Claim Registry / focused research / model freshness /専門正本へ寄せた。
+
+### 残るP2
+
+- Source Registry内の同一URL再登録のcanonical化
+- research原本の将来追加時に既出結論を再説明しない運用の徹底
+- root/corpus/catalogの古い英語説明を、必要に応じて日本語-firstへ段階的に整理
+- 既存Batch prefix衝突はprovenance保護のためrenameせず、full filename参照を継続
