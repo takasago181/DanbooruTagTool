@@ -216,3 +216,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_V_MULTILINGUAL_COMMUNITY_ECOSYSTEM_20261002.md` — Chinese/Korean public-user ecosystem map covering Anima-specific trainers, auto-tagging, ControlNet, low-resource workflows, visual Danbooru browsers, LoRA metadata management and cross-derivative reuse warnings.
 
+- `../research/BATCH_W_LORA_CAPTION_STACKING_COMMUNITY_20261002.md` — controlled Anima character/style LoRA community experiments on caption density, trigger absorption, synthetic self-training, 0/1/3 adapter stacking and fixed-seed weight sweeps.
+
