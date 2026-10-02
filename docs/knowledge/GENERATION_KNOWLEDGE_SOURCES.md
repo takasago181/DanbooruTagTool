@@ -590,3 +590,74 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Value: hidden runtime/evidence-identity diagnostic example.
 - Limitation: unresolved cause.
 
+**S-COMM-032 — Chinese Anima Standalone Trainer tutorial**
+- URL: https://www.bilibili.com/video/BV1EyQHBWEnF/
+- Language: Chinese
+- Class: `ECOSYSTEM / COMMUNITY`
+- Scope: Anima-specific LoRA trainer.
+- Value: current dedicated-training-stack adoption.
+- Limitation: speed headline is environment-specific.
+
+**S-COMM-033 — Chinese Anima auto-tag/cloud LoRA workflow**
+- URL: https://www.bilibili.com/video/BV1YNLE62E4o/
+- Language: Chinese
+- Class: `ECOSYSTEM / COMMUNITY`
+- Scope: auto-tagging + cloud Anima LoRA training.
+- Limitation: tutorial workflow, not controlled quality evidence.
+
+**S-COMM-034 — Chinese Anima ControlNet practice**
+- URL: https://www.bilibili.com/video/BV1pGGv6NEFx/
+- Language: Chinese
+- Class: `PRACTICAL / COMMUNITY`
+- Scope: Anima LLLite pose/depth/inpaint.
+- Value: assisted-control ecosystem evidence.
+
+**S-COMM-035 — Chinese current open-source Anima trainer**
+- URL: https://www.bilibili.com/video/BV14ehG64EAq/
+- Language: Chinese
+- Class: `ECOSYSTEM / COMMUNITY`
+- Scope: current open-source LoRA training wrapper.
+- Value: trainer evolution/freshness lead.
+
+**S-COMM-036 — Korean Anima LoRA application guide**
+- URL: https://onebrotravel.tistory.com/entry/ComfyUI-%EC%B4%88%EA%B0%84%EB%8B%A8-%EC%9E%85%EB%AC%B8%EA%B0%80%EC%9D%B4%EB%93%9C-%E2%80%94-Anima%EC%97%90-LoRA-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0
+- Language: Korean
+- Class: `PRACTICAL_CORROBORATION`
+- Scope: Anima-base-model filtering for LoRA resources.
+- Value: multilingual compatibility-practice corroboration.
+
+**S-COMM-037 — Korean visual Danbooru Prompt Gallery**
+- URL: https://kwoon.tistory.com/122
+- Language: Korean
+- Class: `UX_ECOSYSTEM / COMMUNITY`
+- Scope: thumbnail-first Danbooru prompt discovery in ComfyUI.
+- Value: independent visual-discovery UX convergence.
+
+**S-COMM-038 — Korean simplified Anima front-end / LoRA metadata**
+- URL: https://gall.dcinside.com/mgallery/board/view/?id=wrtnai&no=1044018
+- Language: Korean
+- Class: `UX_ECOSYSTEM / COMMUNITY`
+- Scope: simplified prompt UI, style presets, Civitai LoRA trigger/base metadata retrieval.
+- Value: resource-discovery and metadata-management signal.
+
+**S-COMM-039 — Korean Anima LoRA pipeline project**
+- URL: https://gall.dcinside.com/mgallery/board/view/?id=thesingularity&no=1129120
+- Language: Korean
+- Class: `TECHNICAL_LEAD / COMMUNITY`
+- Scope: Anima-specific LoRA training/optimization/timestep concepts.
+- Limitation: source-code confirmation required for mechanism claims.
+
+**S-COMM-040 — Korean low-resource Anima staged workflow**
+- URL: https://gall.dcinside.com/mgallery/board/view/?id=thesingularity&no=1184244
+- Language: Korean
+- Class: `RECIPE / COMMUNITY`
+- Scope: low-res Turbo -> upscale -> low-denoise refinement.
+- Limitation: hardware-specific speed/values.
+
+**S-COMM-041 — Korean Anima artist-mixing custom node**
+- URL: https://gall.dcinside.com/mgallery/board/view/?id=wrtnai&no=1037870
+- Language: Korean
+- Class: `TOOL_LEAD / COMMUNITY`
+- Scope: cross-attention artist mixing / compatibility constraints.
+- Limitation: no controlled benchmark.
+
