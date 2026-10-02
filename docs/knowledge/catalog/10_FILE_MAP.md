@@ -202,3 +202,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_O_COMMUNITY_PRACTICE_HARVEST_20261002.md` — public individual-user/community harvest across Reddit, note, Zenn, Bilibili, Hugging Face discussions and runtime docs; controlled tests are separated from anecdotes and promoted only as scoped CANDIDATE Claims.
 
+- `../research/BATCH_P_COMMUNITY_TAG_NEGATIVE_RUNTIME_20261002.md` — controlled public-user studies on Anima tag-vs-language behavior, uniform/fisheye tags, Negative Prompt side effects, derivative sensitivity, dataset-noise hypotheses, plus current Regional Prompter Anima support.
+
