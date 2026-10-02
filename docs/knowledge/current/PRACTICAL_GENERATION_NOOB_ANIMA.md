@@ -783,3 +783,30 @@ Do not copy the same hyperparameters across architectures merely to make the com
 Research:
 `../research/BATCH_AO_ILL_NOOB_CHARACTER_STYLE_TRAINING_20261002.md`.
 
+---
+
+## 28. Character/style evaluation stack — 2026-10-02
+
+### Character LoRA
+Use separate metrics for:
+- anime identity (CCIP/reference review)
+- pose/composition
+- prompt editability
+- background/style independence
+
+### Style LoRA
+Use separate metrics for:
+- style similarity (CSD/DiffSim-like)
+- content/identity preservation
+- OOD subject generalization
+- composition freedom
+
+### Adapter training
+Do not tune only by rank or file size.
+Rank/dim, alpha, LR and duration interact.
+
+LoRA/LoCon/LoHa/LoKr are experimental choices, not quality tiers.
+
+Research:
+`../research/BATCH_AJ_CHARACTER_STYLE_EVALUATION_AND_LYCORIS_20261002.md`.
+
