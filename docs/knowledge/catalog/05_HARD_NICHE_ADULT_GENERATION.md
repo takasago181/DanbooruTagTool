@@ -509,3 +509,29 @@ before choosing an intervention.
 Canonical curriculum:
 `../current/ADULT_IMAGE_GENERATION_TEACHING_CURRICULUM.md`.
 
+
+
+---
+
+## Teacher-ready diagnostic escalation
+
+成人向け生成の実用診断は、完成Promptの収集ではなく次の順で行う。
+
+`reproducibility -> failure label -> minimal prompt -> 4-seed test -> one-variable A/B -> assisted control`
+
+Current Japanese operational artifact:
+`../current/ADULT_IMAGE_GENERATION_DECISION_TREE.md`
+
+Key project heuristic:
+- concept-alone success
+- two concise prompt representations tested
+- same primary structural failure in at least 3/4 fixed seeds
+
+なら、Promptの言い換えを続けるよりfailure-specific controlへ進む。
+
+Model-specific caution:
+- NoobAI EPS official example is safety-biased (`safe` positive / `nsfw` Negative), so adult capability tests must record/alter that state explicitly.
+- Anima supports tags/NL/safety tags but official material does not establish hard adult relation reliability.
+
+Research:
+`../research/BATCH_AW_ADULT_DIAGNOSTIC_ESCALATION_AND_MODEL_GAPS_20261002.md`
