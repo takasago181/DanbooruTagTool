@@ -1,3 +1,6 @@
+> **PARTIAL / HISTORICAL INVENTORY SNAPSHOT**  
+> 初期のtopic inventoryとして保持するが、2026-10-02追加分を完全には網羅しない。完全なファイル一覧は `../catalog/10_FILE_MAP.md`、現在のverdictは `CLAIM_REGISTRY.csv`、最新整理状態は `KNOWLEDGE_HYGIENE_AUDIT_20261002.md` を参照。
+
 # KNOWLEDGE Asset Inventory
 
 Purpose: first-stage inventory of current KNOWLEDGE assets. This maps **knowledge topics -> files**, not current verdicts. For current verdicts use `CLAIM_REGISTRY.csv`.
