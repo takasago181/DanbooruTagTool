@@ -174,3 +174,26 @@ Product adoption remains controlled by main product/DEV routing.
 Do not bulk-rewrite old research documents. Interpret legacy evidence labels through `LABEL_MIGRATION_MAP.md`; current verdict always comes from the Registry.
 
 Likewise, old `PROMPT:#5` / `PROMPT班` references remain historical provenance. They must not be interpreted as an active team after 2026-09-12; current work routes through KNOWLEDGE #44.
+
+
+## Source ID / research identity uniqueness
+
+### Source ID
+`GENERATION_KNOWLEDGE_SOURCES.md` のSource IDは**全entryで一意**でなければならない。
+
+新しいSourceを追加する前に:
+1. 予定IDが既存Source Registryに存在しないことを確認する。
+2. 同じURLを再利用する場合も、既存entryを参照できるなら新IDを増やさない。
+3. 別entryへ同じIDを再利用しない。
+4. ID migrationが必要な場合は、先行entryのIDを維持し、後発entryを新IDへ移す。
+5. Claim Registryやcurrent/catalogから参照済みのIDは、参照更新なしに変更しない。
+
+2026-10-02の修復記録:
+`SOURCE_ID_MIGRATION_20261002.md`
+
+### Research identity
+研究文書の正式identityは**full filename**とする。
+`BATCH_AN` のようなprefixだけを一意IDとして扱わない。
+
+今後の新規batchは既存prefixとの衝突を避ける。
+既存の衝突文書はprovenance保護のためrenameせず、full filenameで参照する。
