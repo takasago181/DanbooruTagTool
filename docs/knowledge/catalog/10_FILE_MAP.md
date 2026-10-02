@@ -208,3 +208,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_R_ADVANCED_COMMUNITY_FAILURE_DIAGNOSTICS_20261002.md` — advanced public-user diagnostics for multi-character LoRA contamination vs binding, Anima regional conditioning practice, timestep-training leads, upscale/detailer reports and latest LoRA-caption discussions.
 
+- `../research/BATCH_S_TAG_STYLE_COMPOSITION_COMMUNITY_20261002.md` — same-seed public experiments on 108 style surfaces, Anima step convergence, framing tags vs prose, Illustrious→Anima Prompt-dialect transfer, 48-image multi-character binding and quality/meta visual priors.
+
