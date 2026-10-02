@@ -925,3 +925,21 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: pose-controlled human insertion with scene-consistent occlusion/depth.
 - Value: separates skeleton pose from depth/layer/occlusion correctness.
 
+**S-COMM-055 — Anima pairwise character-interference thread**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/93
+- Class: `COMMUNITY / FAILURE_DIAGNOSIS`
+- Scope: two-character pairings, descriptions, series/concept leakage.
+- Value: A/B work alone but pair can fail; one scoped weighting mitigation.
+
+**S-COMM-056 — Anima 3–4 subject binding stress**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/120
+- Class: `COMMUNITY / FAILURE_REPORT`
+- Scope: 3–4 identities with position/outfit/object constraints.
+- Value: practical stress-class evidence and regional-prompt escalation signal.
+
+**S-COMM-057 — Anima interaction-heavy adult feedback**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/13
+- Class: `COMMUNITY / FAILURE_REPORT`
+- Scope: interaction, subject-linked attribute swaps, unusual-concept control.
+- Value: role/body-site ownership must be evaluated separately from subject presence.
+
