@@ -810,3 +810,41 @@ LoRA/LoCon/LoHa/LoKr are experimental choices, not quality tiers.
 Research:
 `../research/BATCH_AJ_CHARACTER_STYLE_EVALUATION_AND_LYCORIS_20261002.md`.
 
+---
+
+## 29. Character/style dataset design — 2026-10-02
+
+Do not optimize datasets by image count alone.
+
+### Character
+Separate:
+- identity-intrinsic
+- switchable
+- incidental context
+
+Ensure switchable factors actually vary:
+- outfit
+- pose
+- camera
+- background
+- expression
+- style
+
+### Style
+Hold style coherent while varying:
+- subject
+- composition
+- location
+- object category
+
+### Validation
+Use unseen conditions and concept-agnostic prompts to detect:
+- context welding
+- trigger leakage
+- base-model damage
+
+For multi-character source material, subject masks/isolation are a valid research lane.
+
+Research:
+`../research/BATCH_AK_PERSONALIZATION_DISENTANGLEMENT_DATASET_20261002.md`.
+
