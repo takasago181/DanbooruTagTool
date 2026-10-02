@@ -1440,3 +1440,19 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Class: `COMMUNITY / FAILURE_REPORT`
 - Scope: local crop size and sampler/scheduler sensitivity.
 
+**S-PRACTICAL-005 — Anima sampler/weight guide**
+- URL: https://huggingface.co/circlestone-labs/Anima
+- Class: `AUTHOR_GUIDE`
+- Scope: sampler rendering tendencies, weight behavior, quality/prompt profile differences.
+
+**S-PRACTICAL-006 — WAI v17 prompt-length warning**
+- URL: https://huggingface.co/LyliaEngine/waiIllustriousSDXL_v170/blob/main/README.md
+- Class: `AUTHOR_GUIDE`
+- Scope: compact quality/Negative guidance plus recommended generation settings.
+- Value: explicit warning against overloading quality/aesthetic/Negative terms.
+
+**S-PRACTICAL-007 — NoobAI EPS tested resolution family**
+- URL: https://huggingface.co/Laxhar/noobai-XL-1.1/blob/main/README.md
+- Class: `AUTHOR_GUIDE`
+- Scope: ~1MP aspect-ratio options and baseline settings.
+
