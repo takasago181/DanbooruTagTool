@@ -1,0 +1,57 @@
+{
+  "run_date": "2026-10-02",
+  "lane": "tag-behavior",
+  "status": "BACKFILLED_AFTER_ISSUE_COMMENT_REJECTION",
+  "models_versions": [
+    "Anima base/current",
+    "Anima-2.9B",
+    "NoobAI-XL-1.1"
+  ],
+  "new_or_updated_count": 5,
+  "hold_count": 5,
+  "evidence_urls": [
+    "https://huggingface.co/circlestone-labs/Anima/blob/main/README.md",
+    "https://huggingface.co/EastsideNinja88/Anima-2.9B",
+    "https://huggingface.co/Laxhar/noobai-XL-1.1/blob/main/README.md"
+  ],
+  "findings": [
+    {
+      "scope": "Anima multi-character",
+      "summary": "Pair character identity with basic appearance to reduce identity/attribute confusion; treat count success separately from binding success.",
+      "confidence": "HIGH"
+    },
+    {
+      "scope": "Anima serialization",
+      "summary": "Danbooru canonical identity and model-specific serialization/trigger surface are separate layers.",
+      "confidence": "HIGH"
+    },
+    {
+      "scope": "Anima weighting",
+      "summary": "Model-specific emphasis sensitivity exists, but exact thresholds remain unpromoted.",
+      "confidence": "MEDIUM"
+    },
+    {
+      "scope": "NoobAI caption structure",
+      "summary": "Documented count/character/series/artist/special/general/other order supports model-scoped role grouping, not per-tag efficacy claims.",
+      "confidence": "HIGH"
+    },
+    {
+      "scope": "Cross-model behavior",
+      "summary": "Do not generalize tag effectiveness from one model family/version to another.",
+      "confidence": "HIGH"
+    }
+  ],
+  "holds": [
+    "Exact Anima weight thresholds",
+    "NoobAI hard count reliability",
+    "Actor-target binding reliability",
+    "Camera/visibility tag efficacy",
+    "Alias response behavior"
+  ],
+  "tool_impact": [
+    "Keep canonical tag identity separate from model serialization.",
+    "Expose per-character binding groups in future diagnostics.",
+    "Retain model/version scope on generation-effect claims."
+  ],
+  "production_modified": false
+}
