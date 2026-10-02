@@ -1294,3 +1294,27 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: concept masks, cross-attention separation, union sampling.
 - Value: anti-entanglement strategy for multi-concept source images.
 
+**S-RESEARCH-025 — IP-Adapter**
+- URL: https://arxiv.org/abs/2308.06721
+- Class: `RESEARCH`
+- Scope: tuning-free image-prompt adapter with decoupled cross-attention.
+- Value: reference-conditioning baseline against trained LoRAs.
+
+**S-RESEARCH-026 — InstantStyle**
+- URL: https://arxiv.org/abs/2404.02733
+- Class: `RESEARCH`
+- Scope: tuning-free reference-style conditioning with content/style decoupling.
+- Value: style leakage/content-preservation baseline.
+
+**S-RESEARCH-027 — StyleAligned**
+- URL: https://arxiv.org/abs/2312.02133
+- Class: `RESEARCH`
+- Scope: tuning-free shared-attention style consistency across image sets.
+- Value: sequence-level style consistency baseline.
+
+**S-RESEARCH-028 — StoryDiffusion**
+- URL: https://arxiv.org/abs/2405.01434
+- Class: `RESEARCH`
+- Scope: subject/detail consistency across long image/video sequences.
+- Value: cross-image character-consistency baseline.
+
