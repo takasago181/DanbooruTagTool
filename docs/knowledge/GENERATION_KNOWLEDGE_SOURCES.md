@@ -788,3 +788,39 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Value: spatial adapter routing as a multi-LoRA contamination mitigation hypothesis.
 - Limitation: do not assume Anima support from current public implementation.
 
+**S-COMM-049 — Anima single multi-character LoRA dataset design**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/220
+- Class: `COMMUNITY / TRAINING_PRACTICE`
+- Scope: joint-image dataset design, feature bleed, subset balancing.
+- Value: explicit distinction between genuine interaction examples and stitched composites.
+- Limitation: exact sample/repeat recommendations are single-practitioner recipes.
+
+**S-COMM-050 — Anima multi-LoRA coexistence training lead**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/222
+- Class: `COMMUNITY / RESEARCH_LEAD`
+- Scope: adding joint examples to separate character-LoRA datasets.
+- Value: direct-coexistence training hypothesis.
+- Limitation: claimed minimum sample count unverified.
+
+**S-COMM-051 — Anima background-entanglement training discussion**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/162
+- Class: `COMMUNITY / FAILURE_DIAGNOSIS`
+- Scope: persistent background prior / captioning / optimizer discussion.
+- Value: concrete context-entanglement troubleshooting.
+- Limitation: multiple training variables changed.
+
+**S-COMM-052 — Anima character-LoRA generalization failure**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/119
+- Class: `COMMUNITY / FAILURE_REPORT`
+- Scope: 46-image multi-angle dataset with poor non-frontal identity generalization.
+- Value: angle/image-count diversity alone does not guarantee generalization.
+- Limitation: unresolved cause / preview model.
+
+**S-COMM-053 — Anima training-caption format discussion**
+- URLs:
+  - https://huggingface.co/circlestone-labs/Anima/discussions/105
+  - https://huggingface.co/circlestone-labs/Anima/discussions/205
+- Class: `COMMUNITY / TRAINING_PRACTICE`
+- Scope: Danbooru vs mixed NL captions / official ordering.
+- Limitation: practitioner advice, not author-prescribed universal training format.
+
