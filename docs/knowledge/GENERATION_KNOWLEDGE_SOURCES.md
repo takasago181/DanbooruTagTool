@@ -1589,3 +1589,9 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Value: months-of-testing practical workflow with strong mechanistic reasoning.
 - Limitation: numeric parameter values are author-specific recipes.
 
+**S-COMM-082 — Anima 3D-source character LoRA troubleshooting**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/187
+- Class: `COMMUNITY / TRAINING_DIAGNOSIS`
+- Scope: source-style entanglement, layer exclusions, explicit nuisance tags, dataset domain conversion.
+- Value: strong example that dataset correction can matter more than parameter tuning.
+
