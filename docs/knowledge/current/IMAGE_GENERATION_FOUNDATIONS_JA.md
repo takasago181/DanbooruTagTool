@@ -275,3 +275,145 @@ LoRAとは仕組みが違う。
 - `../research/BATCH_BA_SAMPLING_GUIDANCE_FOUNDATIONS_20261002.md`
 - `../research/BATCH_BB_EDITING_CONTROL_MEMORY_FOUNDATIONS_20261002.md`
 - `../research/BATCH_BC_OUTPUT_METADATA_AUXILIARY_FOUNDATIONS_20261002.md`
+
+
+## 17. 予測方式 — EPS / V-Pred / Flow
+
+画像生成モデルは、各ステップで必ず同じ種類の値を予測しているわけではない。
+
+### EPS / epsilon prediction
+ノイズ成分を予測する方式。
+
+### V-Pred / v_prediction
+signalとnoiseを別の組合せで表した `v` を予測する方式。
+
+ここでの `v` を、Flow Matchingのvector fieldと同じ意味だと覚えない。
+
+### Flow Matching
+noiseからdataへ移る連続的な流れのvector fieldを学習する別の枠組み。
+
+実践で重要なのは:
+
+- checkpointが何方式で学習されたか
+- runtimeがその出力をどう解釈するか
+- Schedulerがそのfamilyと互換か
+
+を揃えること。
+
+**NoobAI EPSとNoobAI V-Predを、単に「Sampler設定が少し違う同じcheckpoint」と扱わない。**
+
+明らかに生成が崩れる時は、Promptより先にprediction type / scheduler mismatchを疑う価値がある。
+
+根拠:
+- `../research/BATCH_BD_PREDICTION_AND_ATTENTION_FOUNDATIONS_20261002.md`
+- `K-FOUND-010..011`
+
+## 18. Attention
+
+Attentionは「どの情報をどれだけ参照するか」を計算する仕組み。
+
+### 自己注意（self-attention）
+同じ表現集合の中で情報を参照する。
+
+画像latent/patch側なら、離れた場所を含む全体関係を扱う助けになる。
+
+### 交差注意（cross-attention）
+異なる情報源を結び付ける。
+
+古典的なtext-conditioned Latent Diffusionでは、画像側の表現とText Encoderから来たPrompt条件を結び付ける重要な経路。
+
+ただし:
+
+**Promptに単語を書いた = 正しい人物へ必ず結び付く**
+
+ではない。
+
+実際に:
+- subject omission
+- attribute swap
+- role/binding failure
+が起こり得る。
+
+そのため複数人物では、Promptの長さだけでなく:
+- identity分離
+- Regional
+- Reference
+- geometry
+も別軸として扱う。
+
+### Joint Attention
+
+SD3系MMDiTのような新しいarchitectureでは、古典的なU-Net cross-attentionと構造が違い、text/image tokenをjoint attentionで扱うものもある。
+
+よって古い:
+- attention hack
+- Regional実装
+- LoRA target module
+
+を新architectureへ無検証で転用しない。
+
+根拠:
+- `../research/BATCH_BD_PREDICTION_AND_ATTENTION_FOUNDATIONS_20261002.md`
+- `K-FOUND-012..014`
+
+## 19. 色管理と画像出力
+
+「生成時と色が違って見える」時、モデルだけを疑わない。
+
+PNGには:
+- sRGB
+- ICC profile
+- gamma
+- chromaticity
+
+等の色空間情報を持てる。
+
+つまり見た目は:
+
+`生成pixel -> 保存時metadata -> 編集/変換 -> viewerのcolor management -> display`
+
+の結果。
+
+### 実践ルール
+
+比較・再現用には:
+- ローカルのlossless masterを残す
+- Prompt/seed/model等の生成metadataを残す
+- color profileの有無も確認する
+- 編集版、SNS投稿版をmasterへ上書きしない
+
+生成metadataと色metadataは別物。
+
+根拠:
+- `../research/BATCH_BF_COLOR_OUTPUT_FOUNDATIONS_20261002.md`
+- `K-FOUND-015..017`
+
+## 20. LoRAを自分で学習する前に
+
+LoRA作成では、少なくとも次を「再現条件」として記録する。
+
+- base model
+- prediction type / architecture
+- dataset
+- caption
+- crop / bucket
+- repeat
+- batch size
+- gradient accumulation
+- optimizer
+- learning rate
+- 学習率Scheduler
+- optimizer step
+- epoch
+- rank / alpha
+- target modules
+- Text Encoder学習の有無
+- precision
+- validation Prompt / seed set
+
+**epoch数だけ、rankだけ、learning rateだけで学習量や品質を判断しない。**
+
+詳細:
+- `../catalog/04_TOOLS_POSTPROCESS_AND_LORA.md`
+- `../research/BATCH_BE_LORA_TRAINING_PARAMETER_FOUNDATIONS_20261002.md`
+- `K-LORA-012..016`
