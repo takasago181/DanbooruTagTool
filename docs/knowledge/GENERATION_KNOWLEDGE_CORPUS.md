@@ -1447,3 +1447,18 @@ according to reuse horizon, training budget, identity/style target and multi-sub
 Research:
 `research/BATCH_AL_REFERENCE_ADAPTER_VS_LORA_20261002.md`.
 
+## 16.4 Practical creation loop
+
+The production loop is:
+
+`fast exploration -> structure lock -> identity/style -> controlled LoRA stacking -> final settings -> high-resolution finishing -> local repair`
+
+Research and production workflows remain separate:
+- research favors deterministic, one-variable evidence
+- production may use regional/control/Hires/detailer/inpaint
+
+A final retouched image cannot be used as evidence that the base pass had the same capability.
+
+Research:
+`research/BATCH_AM_PRACTICAL_CREATION_WORKFLOW_20261002.md`.
+
