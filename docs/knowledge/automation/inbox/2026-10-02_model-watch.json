@@ -1,0 +1,55 @@
+{
+  "run_date": "2026-10-02",
+  "lane": "model-watch",
+  "status": "BACKFILLED_AFTER_ISSUE_COMMENT_REJECTION",
+  "models_versions": [
+    "Forge Neo current",
+    "WAI-Illustrious-SDXL v17",
+    "NoobAI-XL-1.1",
+    "Illustrious-XL v1.0",
+    "Illustrious-XL v1.1",
+    "Illustrious-XL v2.0-STABLE"
+  ],
+  "new_or_updated_count": 4,
+  "hold_count": 2,
+  "evidence_urls": [
+    "https://github.com/Speeskees/sd-webui-forge-neo",
+    "https://yodayo.com/ja/models/5ecbf952-6a89-4b42-bd52-54802ee55eba?modelversion=06f580dc-dc94-4279-a254-f779c8021a58",
+    "https://huggingface.co/Laxhar/noobai-XL-1.1/blob/main/README.md",
+    "https://huggingface.co/OnomaAIResearch/Illustrious-XL-v1.0",
+    "https://huggingface.co/OnomaAIResearch/Illustrious-XL-v1.1",
+    "https://huggingface.co/OnomaAIResearch/Illustrious-XL-v2.0"
+  ],
+  "findings": [
+    {
+      "scope": "Forge Neo",
+      "summary": "Runtime interventions such as RescaleCFG and MaHiRo must remain separate from base-model capability evidence.",
+      "confidence": "HIGH"
+    },
+    {
+      "scope": "WAI-Illustrious-SDXL v17",
+      "summary": "Recommended runtime profile remains model/version-scoped; do not flatten into generic Illustrious defaults.",
+      "confidence": "MEDIUM_HIGH"
+    },
+    {
+      "scope": "NoobAI-XL-1.1",
+      "summary": "Author-recommended Euler a / CFG 5-6 / 25-30 step profile remains current.",
+      "confidence": "HIGH"
+    },
+    {
+      "scope": "Illustrious family",
+      "summary": "v1.0, v1.1, and v2.0-STABLE are distinct model identities with materially different positioning; store as separate profiles.",
+      "confidence": "HIGH"
+    }
+  ],
+  "holds": [
+    "Local checkpoint hash pinning for WAI v17 was not verified in this backfill.",
+    "Cross-version effectiveness comparisons remain unpromoted without controlled evidence."
+  ],
+  "tool_impact": [
+    "Keep runtime intervention metadata separate from model capability.",
+    "Require explicit model/version identity in guidance and examples.",
+    "Do not inherit settings across Illustrious-family releases without evidence."
+  ],
+  "production_modified": false
+}
