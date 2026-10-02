@@ -550,3 +550,43 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: broad aesthetic prompt pressure on semi-real Illustrious derivative.
 - Limitation: heavily confounded by style LoRA and large prompt stack.
 
+**S-COMM-027 — Anima long-prompt / hybrid HF discussion**
+- URLs:
+  - https://huggingface.co/circlestone-labs/Anima/discussions/140
+  - https://huggingface.co/circlestone-labs/Anima/discussions/141
+- Language: English
+- Class: `COMMUNITY / MULTI_SOURCE`
+- Scope: NL length/workload, hands/anatomy, background/framing pressure.
+- Value: independent users converge on concise hybrid practice.
+- Limitation: no controlled token-length benchmark.
+
+**S-COMM-028 — Anima prompt-weighting HF discussion**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/135
+- Language: English/Chinese
+- Class: `COMMUNITY / MECHANISM_DISCUSSION`
+- Scope: weighting strength and runtime/text-encoder interpretation.
+- Value: corroborates high-weight practical behavior and exposes mechanism uncertainty.
+- Limitation: conflicting explanations; author guidance wins.
+
+**S-COMM-029 — Anima multi-character LoRA-training lead**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/222
+- Language: English
+- Class: `RESEARCH_LEAD / COMMUNITY`
+- Scope: training single-character LoRAs with a few multi-character samples.
+- Limitation: specific “two images” sufficiency claim is unverified.
+
+**S-COMM-030 — Anima regional-control user feedback**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/193
+- Language: English
+- Class: `COMMUNITY / TOOL_FEEDBACK`
+- Scope: LLLite Regional ControlNet.
+- Limitation: effectiveness report lacks benchmark details.
+
+**S-COMM-031 — Illustrious local-vs-web reproducibility failure**
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1rpqc8z/why_are_my_illustrious_images_so_bad/
+- Language: English
+- Class: `FAILURE_REPORT / COMMUNITY`
+- Scope: nominally same visible settings, different output.
+- Value: hidden runtime/evidence-identity diagnostic example.
+- Limitation: unresolved cause.
+
