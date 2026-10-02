@@ -1,0 +1,45 @@
+{
+  "Schema": "dtt.catalog-authority-v1",
+  "Snapshot": "accepted-2026-10-03",
+  "Assets": [
+    {
+      "Path": "general.jsonl.gz",
+      "Sha256": "e299a42412913e687529754d07f7b79da65e1c4a32574631cd752c9985ec8de9",
+      "Count": 30629,
+      "Category": "General"
+    },
+    {
+      "Path": "special.jsonl.gz",
+      "Sha256": "c97ea22ba62a5a8783026d868ff09fc7ec36d637e19e7588ddb2ab1e98a4be96",
+      "Count": 3059,
+      "Category": "Special"
+    },
+    {
+      "Path": "character.jsonl.gz",
+      "Sha256": "46d847122203b84fef69a03c3ddf7fd54484a30fba6b67fc641c28d537403a20",
+      "Count": 35278,
+      "Category": "Character"
+    },
+    {
+      "Path": "copyright.jsonl.gz",
+      "Sha256": "adf252a41af8a0ad11a2d5d8443876d63c3b52df8a9ab8a37f4a0c0fc011d056",
+      "Count": 7616,
+      "Category": "Copyright"
+    },
+    {
+      "Path": "artist.jsonl.gz",
+      "Sha256": "513a5ddeceed62250801e9bb639608a2f513b69af680f47a4d40ba2d575cee84",
+      "Count": 48313,
+      "Category": "Artist"
+    }
+  ],
+  "CategoryCounts": {
+    "General": 30629,
+    "Special": 3059,
+    "Character": 35278,
+    "Copyright": 7616,
+    "Artist": 48313
+  },
+  "IdentitySha256": "4f567ae84e92754d1a952d7f80de3a76e32d461d0b3f2cb4affcd2455461dc7e",
+  "SpecialIdentitySha256": "9b073efef8c4f7fab6e5dacf50d10a8c51e17370ae6dfba86b8e8bd74a41a643"
+}

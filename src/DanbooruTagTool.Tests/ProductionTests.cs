@@ -65,7 +65,7 @@ public class ProductionTests(ITestOutputHelper output)
                 : report.RootElement.GetProperty("production_contract").GetProperty("source_hashes");
             if(!File.Exists(reportPath)) Assert.Equal(AcceptedAssetImporter.Hash(path),report.RootElement.GetProperty("catalog_sha256").GetString(),StringComparer.OrdinalIgnoreCase);
             foreach(var p in sources.EnumerateObject())
-            { var root=AcceptedAssetImporter.ProtectedInputs.Contains(p.Name)?sourceRoot:authorityRoot; Assert.Equal(p.Value.GetString(),AcceptedAssetImporter.Hash(Path.Combine(root,p.Name))); }
+            { var root=sources.TryGetProperty("manifest.json", out _) ? Path.GetDirectoryName(Environment.GetEnvironmentVariable("DTT_AUTHORITY_MANIFEST") ?? FoundationCatalogTests.ManifestPath)! : AcceptedAssetImporter.ProtectedInputs.Contains(p.Name)?sourceRoot:authorityRoot; Assert.Equal(p.Value.GetString(),AcceptedAssetImporter.Hash(Path.Combine(root,p.Name))); }
         }
     }
     [ProductionFact] public void ProductionPromptParserEightyItemBenchmark()

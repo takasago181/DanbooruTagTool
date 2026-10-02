@@ -152,8 +152,6 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     private readonly Func<bool> canMutate;
     private UnifiedBrowseState unifiedState = UnifiedBrowseState.Neutral;
     private readonly Stack<UnifiedBrowseState> unifiedHistory = new();
-    private SpecialBrowseV2Filter specialFilter = SpecialBrowseV2Filter.Empty;
-    private readonly Stack<SpecialBrowseV2Filter> specialFilterHistory = new();
     private string query = "", browse = "tags";
     private string? browseSelection;
     private DictionarySearchTarget searchTarget = DictionarySearchTarget.All;
@@ -187,9 +185,6 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     private readonly Dictionary<string, string> localLabels = new(StringComparer.Ordinal);
     private EntryViewModel? selectedEntry;
 
-    public ObservableCollection<SpecialBrowseFacetOptionViewModel> SpecialKindOptions { get; } = [];
-    public ObservableCollection<SpecialBrowseFacetOptionViewModel> SpecialBodyOptions { get; } = [];
-    public ObservableCollection<SpecialBrowseFacetOptionViewModel> SpecialThemeOptions { get; } = [];
     public ObservableCollection<BrowseFacetOptionViewModel> LocalOptions { get; } = [];
     public ObservableCollection<BrowseFacetOptionViewModel> BodyOptions { get; } = [];
     public ObservableCollection<BrowseFacetOptionViewModel> ThemeOptions { get; } = [];
@@ -271,20 +266,6 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     public bool IsSearching => !string.IsNullOrWhiteSpace(Query);
     public bool CanBrowseSort => !IsSearching;
     public bool CanGoBack => relatedSource is not null || unifiedHistory.Count > 0;
-    public bool HasSpecialFacets => specialBrowse != null && !specialFilter.IsEmpty;
-    public bool ShowSpecialFacetBar => HasSpecialFacets && !browse.StartsWith("general", StringComparison.Ordinal);
-    public bool ShowSpecialKindOptions => ShowSpecialFacetBar && specialFilter.KindId is null;
-    public string SpecialFacetSummary
-    {
-        get
-        {
-            var labels = new List<string>();
-            if (specialFilter.KindId is { } kind) labels.Add(SpecialBrowseV2Taxonomy.Label(SpecialBrowseV2Axis.Kind, kind));
-            labels.AddRange(specialFilter.BodySiteIds.Select(id => SpecialBrowseV2Taxonomy.Label(SpecialBrowseV2Axis.BodySite, id)));
-            labels.AddRange(specialFilter.ThemeIds.Select(id => SpecialBrowseV2Taxonomy.Label(SpecialBrowseV2Axis.Theme, id)));
-            return labels.Count == 0 ? "◆ Special" : string.Join(" × ", labels);
-        }
-    }
     public string BrowseLabel
     {
         get
@@ -329,9 +310,6 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     public RelayCommand Navigate { get; }
     public RelayCommand Back { get; }
     public RelayCommand ClearQuery { get; }
-    public RelayCommand ToggleSpecialFacet { get; }
-    public RelayCommand UndoSpecialFacet { get; }
-    public RelayCommand ClearSpecialFacets { get; }
     public RelayCommand ToggleBrowseFacet { get; }
     public RelayCommand ToggleDeepOnlyCommand { get; }
     public RelayCommand SetContentIntentCommand { get; }
@@ -348,12 +326,6 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         unifiedBrowse = new UnifiedBrowseIndex(catalog, specialBrowse);
         foreach (var local in catalog.BrowsePaths(false).Select(UnifiedBrowseTaxonomy.GeneralLocal).Where(item => item is not null))
             localLabels.TryAdd(local!.Id, local.Label);
-        if (specialBrowse != null)
-        {
-            foreach (var item in SpecialBrowseV2Taxonomy.Kinds) SpecialKindOptions.Add(new(SpecialBrowseV2Axis.Kind, item.Id, item.Label));
-            foreach (var item in SpecialBrowseV2Taxonomy.BodySites) SpecialBodyOptions.Add(new(SpecialBrowseV2Axis.BodySite, item.Id, item.Label));
-            foreach (var item in SpecialBrowseV2Taxonomy.Themes) SpecialThemeOptions.Add(new(SpecialBrowseV2Axis.Theme, item.Id, item.Label));
-        }
         foreach (var item in SpecialBrowseV2Taxonomy.BodySites)
             BodyOptions.Add(new(BrowseFacetKind.BodySite, item.Id, item.Label));
         foreach (var item in SpecialBrowseV2Taxonomy.Themes)
@@ -386,9 +358,6 @@ public sealed class DictionaryWorkspaceViewModel : Observable
             else if (p is string text && Enum.TryParse<DictionarySearchTarget>(text, true, out var parsed)) SetSearchTarget(parsed);
         }, _ => canMutate());
         ClearRelatedBrowseCommand = new(_ => ClearRelatedBrowse(), _ => canMutate() && relatedSource is not null);
-        ToggleSpecialFacet = new(ToggleFacet, p => canMutate() && specialBrowse != null && p is SpecialBrowseFacetOptionViewModel);
-        UndoSpecialFacet = new(_ => UndoFacet(), _ => canMutate() && specialBrowse != null && !specialFilter.IsEmpty);
-        ClearSpecialFacets = new(_ => ClearFacets(), _ => canMutate() && specialBrowse != null && !specialFilter.IsEmpty);
         ToggleBrowseFacet = new(p =>
         {
             if (p is not BrowseFacetOptionViewModel option) return;
@@ -419,7 +388,6 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         browse = BrowseKeyForState(unifiedState);
         searchTarget = SearchTargetForScope(unifiedState.Scope);
         relatedSource = null;
-        specialFilter = SpecialBrowseV2Filter.Empty;
         browseGroupId = null;
         groupOverview = false;
         unifiedHistory.Clear();
@@ -1078,39 +1046,6 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     private string? RelationSummaryFor(CatalogEntry entry)
         => entry.EffectiveCategory == "Character" && catalog.RelatedByBrowseHome(entry).FirstOrDefault() is { } home
             ? "作品: " + home.Label : null;
-    private void ToggleFacet(object? parameter)
-    {
-        if (specialBrowse == null || parameter is not SpecialBrowseFacetOptionViewModel option) return;
-        var next = option.Axis switch
-        {
-            SpecialBrowseV2Axis.Kind => specialFilter.WithKind(specialFilter.KindId == option.Id ? null : option.Id),
-            SpecialBrowseV2Axis.BodySite => specialFilter.ToggleBodySite(option.Id),
-            SpecialBrowseV2Axis.Theme => specialFilter.ToggleTheme(option.Id), _ => specialFilter
-        };
-        ApplySpecialFilter(next, true); RefreshResults(); persist();
-    }
-    private void UndoFacet()
-    {
-        if (specialBrowse == null || specialFilter.IsEmpty) return;
-        if (specialFilterHistory.TryPop(out var previous)) specialFilter = previous;
-        else if (specialFilter.ThemeIds.Count > 0) specialFilter = specialFilter.ToggleTheme(specialFilter.ThemeIds.Last());
-        else if (specialFilter.BodySiteIds.Count > 0) specialFilter = specialFilter.ToggleBodySite(specialFilter.BodySiteIds.Last());
-        else specialFilter = specialFilter.WithKind(null);
-        if (specialFilter.IsEmpty) { browse = "special"; Notify(nameof(BrowseKey)); }
-        RefreshResults(); persist();
-    }
-    private void ClearFacets()
-    {
-        if (specialBrowse == null) return;
-        specialFilterHistory.Clear(); specialFilter = SpecialBrowseV2Filter.Empty; browse = "special"; Notify(nameof(BrowseKey)); RefreshResults(); persist();
-    }
-    private void RefreshSpecialFacetOptions()
-    {
-        if (specialBrowse == null) return;
-        foreach (var option in SpecialKindOptions) { option.Selected = specialFilter.KindId == option.Id; option.Count = specialBrowse.CountWithKind(specialFilter, option.Id); }
-        foreach (var option in SpecialBodyOptions) { option.Selected = specialFilter.BodySiteIds.Contains(option.Id); option.Count = specialBrowse.CountWithBodySite(specialFilter, option.Id); }
-        foreach (var option in SpecialThemeOptions) { option.Selected = specialFilter.ThemeIds.Contains(option.Id); option.Count = specialBrowse.CountWithTheme(specialFilter, option.Id); }
-    }
     private string? UnifiedBreadcrumb(CatalogEntry entry)
     {
         var identity = unifiedBrowse.Get(entry);
@@ -1152,13 +1087,4 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     private static bool IsNavigationHeading(string key)
         => key.StartsWith("group:", StringComparison.Ordinal)
         || key is "identity-group" or "special-v2:kinds" or "special-v2:body" or "special-v2:themes";
-    private static bool SameSpecialFilter(SpecialBrowseV2Filter left, SpecialBrowseV2Filter right) => left.KindId == right.KindId && left.BodySiteIds.SetEquals(right.BodySiteIds) && left.ThemeIds.SetEquals(right.ThemeIds);
-    private void ApplySpecialFilter(SpecialBrowseV2Filter next, bool remember) { if (SameSpecialFilter(next, specialFilter)) return; if (remember) specialFilterHistory.Push(specialFilter); specialFilter = next; }
-    private static SpecialBrowseV2Filter SpecialFilterFromBrowse(string key)
-    {
-        if (key.StartsWith("special-v2:kind:", StringComparison.Ordinal)) return SpecialBrowseV2Filter.Empty.WithKind(key[16..]);
-        if (key.StartsWith("special-v2:body:", StringComparison.Ordinal)) return SpecialBrowseV2Filter.Empty.ToggleBodySite(key[16..]);
-        if (key.StartsWith("special-v2:theme:", StringComparison.Ordinal)) return SpecialBrowseV2Filter.Empty.ToggleTheme(key[17..]);
-        return SpecialBrowseV2Filter.Empty;
-    }
 }

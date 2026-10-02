@@ -1,6 +1,6 @@
 {
   "schema_version": "project-current-routing-v1",
-  "generated_at": "2026-10-03T00:00:00+09:00",
+  "generated_at": "2026-10-02T23:27:40.226654+00:00",
   "purpose": "compact machine-readable routing snapshot; not a permanent branch-head authority",
   "live_main_snapshot": null,
   "must_refetch_live_heads_before_write": true,
@@ -60,7 +60,7 @@
   "network_policy": "External/network-backed features are allowed when useful; preserve local-state safety and keep secrets out of the repository. Offline is a preference, not a universal hard requirement.",
   "packaging_policy": "Self-contained/single-file/no-PDB/second-PC/folder-copy/machine-independent-path checks are optional unless a specific task needs them.",
   "production_lkg_source": "b3f48c359a8473c8bbf02347487cba5d8dacf96c",
-  "foundation_gate": "AUDIT_COMPLETE_REVIEW_STOP",
+  "foundation_gate": "BATCH_A_IMPLEMENTED_REVIEW_STOP",
   "foundation_audit": {
     "issue": 248,
     "state": "closed",
@@ -71,6 +71,20 @@
       "#254 performance/storage project",
       "#255 history compaction"
     ],
-    "next": "human review/approval before any Foundation implementation"
+    "next": "P0 + Batch A implemented on foundation/batch-a after explicit user authorization; await PR review. Do not start Batch B/new features."
+  },
+  "foundation_implementation": {
+    "issue": 247,
+    "scope": [
+      "P0",
+      "Batch A",
+      "authorized worktree recurrence audit/remediation"
+    ],
+    "branch": "foundation/batch-a",
+    "implementation_commit": "77899c9a",
+    "report": "docs/foundation/BATCH_A_CHECKPOINT_2026-10-03.md",
+    "production_applied": false,
+    "batch_b_started": false,
+    "stop": "PR review; no self-merge, no Batch B/new feature"
   }
 }

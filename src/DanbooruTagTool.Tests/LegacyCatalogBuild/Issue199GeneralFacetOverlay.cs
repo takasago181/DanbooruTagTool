@@ -1,3 +1,4 @@
+using System.IO;
 using System.Security.Cryptography;
 using DanbooruTagTool.Core;
 using Microsoft.VisualBasic.FileIO;

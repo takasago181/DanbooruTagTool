@@ -179,13 +179,9 @@ public sealed class MainViewModel : Observable
     public int SortIndex { get => Dictionary.SortIndex; set => Dictionary.SortIndex = value; }
     public int DetailsTabIndex { get => Dictionary.DetailsTabIndex; set => Dictionary.DetailsTabIndex = value; }
     public bool IsSearching => Dictionary.IsSearching; public bool CanBrowseSort => Dictionary.CanBrowseSort; public bool CanGoBack => Dictionary.CanGoBack;
-    public bool HasSpecialFacets => Dictionary.HasSpecialFacets; public bool ShowSpecialFacetBar => Dictionary.ShowSpecialFacetBar; public bool ShowSpecialKindOptions => Dictionary.ShowSpecialKindOptions;
-    public string SpecialFacetSummary => Dictionary.SpecialFacetSummary; public string BrowseLabel => Dictionary.BrowseLabel; public string Pending => Dictionary.Pending; public string Detail => Dictionary.Detail; public string ResultSummary => Dictionary.ResultSummary;
+    public string BrowseLabel => Dictionary.BrowseLabel; public string Pending => Dictionary.Pending; public string Detail => Dictionary.Detail; public string ResultSummary => Dictionary.ResultSummary;
     public IReadOnlyList<NavigationNode> Navigation => Dictionary.Navigation;
-    public ObservableCollection<SpecialBrowseFacetOptionViewModel> SpecialKindOptions => Dictionary.SpecialKindOptions;
-    public ObservableCollection<SpecialBrowseFacetOptionViewModel> SpecialBodyOptions => Dictionary.SpecialBodyOptions;
-    public ObservableCollection<SpecialBrowseFacetOptionViewModel> SpecialThemeOptions => Dictionary.SpecialThemeOptions;
-    public RelayCommand InspectEntry => Dictionary.InspectEntry; public RelayCommand Navigate => Dictionary.Navigate; public RelayCommand Back => Dictionary.Back; public RelayCommand ClearQuery => Dictionary.ClearQuery; public RelayCommand ToggleSpecialFacet => Dictionary.ToggleSpecialFacet; public RelayCommand UndoSpecialFacet => Dictionary.UndoSpecialFacet; public RelayCommand ClearSpecialFacets => Dictionary.ClearSpecialFacets;
+    public RelayCommand InspectEntry => Dictionary.InspectEntry; public RelayCommand Navigate => Dictionary.Navigate; public RelayCommand Back => Dictionary.Back; public RelayCommand ClearQuery => Dictionary.ClearQuery;
     public ObservableCollection<ChipViewModel> Chips => Prompt.Chips; public IReadOnlyList<PromptCategoryGroup> CategoryGroups => Prompt.CategoryGroups; public string English => Prompt.English; public IReadOnlyList<PromptOutputProfileOption> OutputProfiles => Prompt.OutputProfiles;
     public PromptOutputProfile OutputProfile { get => Prompt.OutputProfile; set => Prompt.OutputProfile = value; }
     public int WorkspaceIndex { get => Prompt.WorkspaceIndex; set => Prompt.WorkspaceIndex = value; }

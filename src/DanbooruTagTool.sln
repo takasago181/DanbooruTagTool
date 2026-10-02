@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DanbooruTagTool.Data", "Dan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DanbooruTagTool.Tests", "DanbooruTagTool.Tests\DanbooruTagTool.Tests.csproj", "{605F1EC7-0AE9-4B36-BA9F-9766EE4EF025}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DanbooruTagTool.Maintenance", "DanbooruTagTool.Maintenance\DanbooruTagTool.Maintenance.csproj", "{FC479EC6-E148-4328-BD3F-C31A5418ED7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,18 @@ Global
 		{605F1EC7-0AE9-4B36-BA9F-9766EE4EF025}.Release|x64.Build.0 = Release|Any CPU
 		{605F1EC7-0AE9-4B36-BA9F-9766EE4EF025}.Release|x86.ActiveCfg = Release|Any CPU
 		{605F1EC7-0AE9-4B36-BA9F-9766EE4EF025}.Release|x86.Build.0 = Release|Any CPU
+		{FC479EC6-E148-4328-BD3F-C31A5418ED7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC479EC6-E148-4328-BD3F-C31A5418ED7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC479EC6-E148-4328-BD3F-C31A5418ED7F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FC479EC6-E148-4328-BD3F-C31A5418ED7F}.Debug|x64.Build.0 = Debug|Any CPU
+		{FC479EC6-E148-4328-BD3F-C31A5418ED7F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FC479EC6-E148-4328-BD3F-C31A5418ED7F}.Debug|x86.Build.0 = Debug|Any CPU
+		{FC479EC6-E148-4328-BD3F-C31A5418ED7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC479EC6-E148-4328-BD3F-C31A5418ED7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC479EC6-E148-4328-BD3F-C31A5418ED7F}.Release|x64.ActiveCfg = Release|Any CPU
+		{FC479EC6-E148-4328-BD3F-C31A5418ED7F}.Release|x64.Build.0 = Release|Any CPU
+		{FC479EC6-E148-4328-BD3F-C31A5418ED7F}.Release|x86.ActiveCfg = Release|Any CPU
+		{FC479EC6-E148-4328-BD3F-C31A5418ED7F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

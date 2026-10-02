@@ -20,9 +20,9 @@ Keep the UserData, provenance, runtime-start, regression, and rollback protectio
 ## Authorities
 
 1. `catalog_structural_health.py`: generic full-catalog SQLite/schema/identity/payload checks; observed counts are reported, not hardcoded.
-2. `validate_production_contract.ps1`: accepted source integrity and production coverage contract against protected `SourceRoot` / `AuthorityRoot`.
+2. `validate_production_contract.ps1`: accepted semantic snapshot integrity and production coverage contract (`AuthorityManifest`; `SourceRoot` retained as compatibility input).
 3. `userdata_health.py`: independent read-only UserData SQLite/hash health.
-4. `publish_portable_runtime.ps1`: the only catalog rebuild and clean Release win-x64 publisher.
+4. `publish_portable_runtime.ps1`: clean Release win-x64 publisher; delegates catalog compilation to `DanbooruTagTool.Maintenance`.
 5. `validate_runtime_manifest.ps1`: schema-v3 provenance, hashes, and publish-flag validation.
 6. `check_runtime_shape.ps1`: candidate or installed file-layout guard; installed mode requires a complete UserData hash baseline.
 7. `promote_portable_runtime.ps1`: explicit managed-file list with bounded rollback and before/after UserData identity check.
@@ -31,19 +31,18 @@ Keep the UserData, provenance, runtime-start, regression, and rollback protectio
 
 ## Candidate
 
-Start from freshly fetched live main in a clean checkout. Use protected source and accepted-authority roots; select a new, empty output directory outside the checkout:
+Start from freshly fetched live main in a clean checkout. Use the current semantic authority manifest (no protected source corpus is required); select a new, empty output directory outside the checkout:
 
 ```powershell
 $source = (git rev-parse HEAD).Trim()
 & scripts/maintenance/publish_portable_runtime.ps1 `
   -SourceRevision $source `
   -OutputRoot "$env:TEMP\DTT-candidate-$source" `
-  -SourceRoot 'C:\Codex\DanbooruTagTool' `
   -AuthorityRoot (Get-Location).Path `
   -RepositoryRoot (Get-Location).Path
 ```
 
-The publisher enforces clean exact-HEAD provenance, Release/self-contained `win-x64`, single-file, native self-extraction, trimming off, no PDB, full accepted catalog rebuild, structural validation, and production source-integrity tests. Candidate UserData is disposable; never point it at installed `UserData`.
+The publisher enforces clean exact-HEAD provenance, Release/self-contained `win-x64`, single-file, native self-extraction, trimming off, no PDB, manifest-driven accepted semantic catalog compilation, structural validation, and production source-integrity tests. Candidate UserData is disposable; never point it at installed `UserData`.
 
 Before promotion, run `smoke_candidate_runtime.ps1`, `check_runtime_shape.ps1 -Mode Candidate`, manifest validation, the applicable Release suite with the candidate catalog, and production-size scenario/performance gates.
 

@@ -85,7 +85,7 @@ public sealed class Issue118SpecialCanonicalCorrectionTests(ITestOutputHelper ou
             }
         }
 
-        var issue76Path = Path.Combine(authorityRoot, "src/DanbooruTagTool.Data/Issue76Data/issue76_v1_unresolved_audit_v0_5.csv");
+        var issue76Path = Path.Combine(authorityRoot, "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Issue76Data/issue76_v1_unresolved_audit_v0_5.csv");
         Assert.Equal(Issue76AuditSha256, AcceptedAssetImporter.Hash(issue76Path));
         output.WriteLine("25 affected Special IDs audited; 18 NO_SAFE_CANONICAL, 0 NEEDS_MANUAL_DECISION, 4 EXACT_CANONICAL, 3 ORIGINAL_IS_CANONICAL.");
         output.WriteLine("Protected linkage hash, Issue #64 hashes, production membership, and product-fit baseline preserved.");
