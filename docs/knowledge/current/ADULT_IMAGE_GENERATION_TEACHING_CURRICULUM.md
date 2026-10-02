@@ -479,3 +479,54 @@ Create one validation prompt that attempts to change it.
 ### Pass condition
 Learner can predict which factor is most likely to become welded into the LoRA and can propose a dataset/caption correction before touching optimizer settings.
 
+
+
+---
+
+## 20. Module P — Prompt ceiling / Control escalation
+
+### 目的
+「何回Promptを書き換えるか」を感覚で決めず、
+Prompt-onlyからControlへ進む判断を練習する。
+
+### Exercise
+同じrelation-heavy sceneで:
+
+1. concept-alone
+2. minimal model-native representation
+3. concise alternate representation
+4. fixed 4-seed set
+
+を生成する。
+
+各seedを:
+- count
+- identity
+- role
+- relation
+- visibility
+- geometry
+- anatomy
+
+で採点する。
+
+### Escalation condition
+同じprimary structural failureが4 seed中3以上で残る場合、
+failure classに合うControlを1つだけ追加する。
+
+### Pass condition
+Learner can explain:
+- why Prompt-only tuning was stopped;
+- why that Control was selected;
+- what the assisted success proves;
+- why it does not retroactively prove plain-checkpoint reliability.
+
+### Adult Negative sub-exercise
+同じseed/settingsでNegative conditionだけを変更する。
+NoobAI EPSの公式safe-positive/nsfw-negative例を成人向け中立baselineと混同しない。
+
+Operational guide:
+`ADULT_IMAGE_GENERATION_DECISION_TREE.md`
+
+Research:
+`../research/BATCH_AW_ADULT_DIAGNOSTIC_ESCALATION_AND_MODEL_GAPS_20261002.md`
