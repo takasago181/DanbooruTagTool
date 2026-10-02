@@ -126,3 +126,31 @@ When an external write is rejected:
 5. never claim the rejected payload was saved.
 
 This document is a routing/governance rule, not a content restriction on legitimate technical analysis.
+
+## Hard-domain retention guarantee
+
+Routing is not sanitization.
+
+For clearly adult, consensual/adult-fantasy research, the detailed knowledge layer remains allowed to retain the exact technical distinctions needed for generation and evaluation, including:
+
+- body-site state and ownership
+- insertion/contact relation classes
+- exact actor / target / implement count
+- restraint connectivity / topology
+- machine or device functional relation
+- nonhuman-appendage source / ownership / target relation
+- material / fluid source-destination-state relations
+- unusual-anatomy and anatomy-changing cases
+- composite scenes containing multiple simultaneous hard relations
+- model-specific trigger/Negative/LoRA/control failure behavior
+- canonical tag / Alias / model-trigger distinctions
+
+What may be abstracted in cross-cutting summaries is only the *presentation layer*. The underlying research semantics must not be deleted, merged into vague labels, or rewritten so broadly that the original generation/evaluation distinction is lost.
+
+If a detailed write succeeds but a summary write is rejected, the detailed write remains authoritative.
+
+If a detailed write is rejected, preserve the maximum non-lossy structural representation that still distinguishes:
+`actor -> target -> body_site -> relation -> implement -> count -> state -> geometry -> visibility -> assistance_lane`.
+
+Do not replace hard-domain research with generic “adult content” labels.
+
