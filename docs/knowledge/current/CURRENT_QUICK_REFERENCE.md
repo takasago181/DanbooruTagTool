@@ -286,7 +286,7 @@ Never promote one model's Negative recipe to a universal default.
 
 ## Current source freshness
 
-Primary model/runtime sources rechecked on 2026-09-13.
+Primary WAI17 / NoobAI / Anima / Forge Neo / Forge Couple sources were rechecked again on 2026-10-02; other ledger entries retain their own checked dates.
 
 Important current facts:
 - Anima Base v1.0 / Aesthetic v1.1 / Turbo v1.1 exact file hashes are pinned in `VERSION_FRESHNESS_LEDGER.csv`
@@ -370,3 +370,37 @@ Treat those as historical Prompt/generation-guidance provenance, **not an active
 
 Restore:
 `main CURRENT_STATE -> Issue #65/STAGE_10_LEARNING when learning -> Issue #44 -> this file -> PRACTICAL_GENERATION_NOOB_ANIMA -> Claim Registry -> Version Ledger -> relevant Catalog -> evidence as needed`.
+
+---
+
+## 2026-10-02 community evidence expansion
+
+The public-user layer is now a first-class **CANDIDATE/research** source, not an authority shortcut.
+
+Current practical synthesis:
+- tag meaning != model activation strength != semantic fidelity;
+- tags often remain strong for known atomic concepts;
+- short prose can improve relation/ownership/geometry that tags encode poorly;
+- long prose can increase detail while increasing structural workload;
+- multi-character failures split into contamination, binding, count, layout and relation axes;
+- Negative terms can change unrelated content;
+- LoRA captioning decides what the trigger absorbs vs what stays switchable;
+- LoRA stacking/weight changes can alter identity/clothes/background/composition;
+- parameter/Highres helper recipes are exact-profile/resolution scoped.
+
+Public controlled experiments are preserved as `CANDIDATE`; weak recipes remain source-map only.
+
+For details:
+- `../research/BATCH_O_COMMUNITY_PRACTICE_HARVEST_20261002.md`
+- `../research/BATCH_P_COMMUNITY_TAG_NEGATIVE_RUNTIME_20261002.md`
+- `../research/BATCH_Q_ILL_NOOB_LORA_COMMUNITY_MAP_20261002.md`
+- `../research/BATCH_R_ADVANCED_COMMUNITY_FAILURE_DIAGNOSTICS_20261002.md`
+- `../research/BATCH_S_TAG_STYLE_COMPOSITION_COMMUNITY_20261002.md`
+- `../research/BATCH_T_LEXICAL_TAG_COVERAGE_COMMUNITY_20261002.md`
+- `../research/BATCH_U_GLOBAL_COMMUNITY_SIGNAL_MAP_20261002.md`
+- `../research/BATCH_V_MULTILINGUAL_COMMUNITY_ECOSYSTEM_20261002.md`
+- `../research/BATCH_W_LORA_CAPTION_STACKING_COMMUNITY_20261002.md`
+- `../research/BATCH_X_PARAMETER_HIGHRES_DATASET_COMMUNITY_20261002.md`
+
+The 2026-10-01 textbook snapshot predates this expansion; Claim Registry remains current authority.
+
