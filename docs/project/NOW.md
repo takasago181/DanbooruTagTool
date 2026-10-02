@@ -1,60 +1,50 @@
 # NOW — いま何をやっているか
 
-最終整理: 2026-10-03 JST (#245 production closeout complete; Foundation gate open)
+最終整理: 2026-10-03 JST — #248 Foundation Audit COMPLETE / REVIEW STOP
 
-## Current focus
+## 現在地
 
-### #248 Foundation Audit — READY / ACTIVE NEXT
+#245 production closeoutは完了済み。新LKG・実Forge→Library照合・UserData保護までPASS。
 
-The production closeout gate is satisfied.
+#248 Foundation Auditも完了し、Issueをcloseしました。
 
-Verified baseline:
-- repository main at gate-open: `c75a4795bd082987e8e8348f0432200b20094ff5`
-- production runtime source: `b3f48c359a8473c8bbf02347487cba5d8dacf96c`
-- new LKG: `docs/project/LAST_KNOWN_GOOD.json`
-- #245: CLOSED
-- #225: final production checkpoint recorded
-- Release tests: 364 PASS / 4 SKIP / 0 FAIL
-- focused: 112 PASS / 1 SKIP / 0 FAIL
-- real Create -> Forge -> PNG -> Library 10-field + declared model-hash round-trip: PASS
-- resumed 5 Prompt items, Recovery, empty Negative, 2 Presets preserved
-- existing Library/LoRA/catalog/protected authority preserved
+最終レポート:
+`docs/issue248/FOUNDATION_AUDIT_2026-10-03.md`
 
-Known limitation:
-- native pixel capture still returns a white client area, so final visual appearance is not pixel-verified; actual UI operations/status, WPF render/tree and generation workflow passed.
+## 結論
 
-#248 now audits the promoted baseline and decides the **smallest Foundation work actually worth doing**. It must stop after the audit/recommendation; #249–#255 are not an automatic checklist.
+#249〜#255を全部やる必要はありません。
 
-## Operating policy being simplified
+推奨は次の最小構成です。
 
-Draft PR #259 updates the project for capable Codex + private single-user workstation use:
-- project fixes WHAT / WHY / HARD BOUNDARIES / ACCEPTANCE; Codex chooses HOW;
-- completed Issue-era worker procedure is removed from global startup rules;
-- distribution-only gates are demoted;
-- trivial personal-repo changes do not require PR ceremony;
-- external OSS/data reuse is encouraged when useful; formal license/provenance review is not a routine blocker for private local experiments;
-- UserData, rollback/recovery, destructive-cleanup, canonical/stable-ID and secret-safety protections remain.
+1. **P0小修正**
+   - mainへ直接pushする古いIssue70 workflow 2本をdisable/archive。
 
-Product priority is explicit: general use remains supported, but **adult / sexual / fetish / hard-niche 2D generation support is a first-class priority**. Foundation/OSS reuse must not genericize away deep Special discovery or difficult relation/body-site/count/visibility/device/topology workflows.
+2. **Foundation Batch A**
+   - #249 + #253の必要部分だけ統合。
+   - Issue履歴依存のcatalog buildをsemantic authority / maintenance compilerへ置換。
+   - WPFからcatalog build責務を外す。
+   - 現行124,895行と成人向けhard/niche Special・SexualIntent・Unified Browse・HOME/group等をparity保護。
+   - current UIから未参照の旧Special-only facet stateだけ削除。
 
-## Production baseline
+3. **Foundation Batch B**
+   - #250 + #251 + #252の有用部分を統合。
+   - Batch A後にcold evidence / one-off scripts / obsolete workflows / merged-superseded branchesをactive treeから退避。
+   - provenance/recoveryは保持。
 
-User-facing runtime:
-`C:\Codex\DanbooruTagTool-App`
+## 今やらない
 
-Current LKG source:
-`b3f48c359a8473c8bbf02347487cba5d8dacf96c`
+- #253の全面的なCore/App再設計
+- #254 performance/storage最適化
+- #255 Git history compaction
+- Artist除外
+- CreateViewModel/MainViewModelの抽象化
+- CatalogEntry分割
 
-Current runtime hashes and exact UserData/Library evidence:
-- `docs/project/LAST_KNOWN_GOOD.json`
-- `docs/issue245/PRODUCTION_CHECKPOINT_2026-10-03.json`
+いずれも現在は実害または測定根拠が不足。
 
-Do not reopen completed #132/#180/#216/#223/#245 work unless a concrete regression or #248 dependency requires it.
+## STOP
 
-## Next
+Foundation実装はまだ開始しない。
 
-1. merge/apply the rule simplification after review of #259;
-2. run #248 against the promoted baseline;
-3. publish dispositions KEEP / WRAP / REWRITE / DELETE / ARCHIVE;
-4. recommend only the Foundation work that materially helps;
-5. STOP before implementation.
+次はユーザーが#248結果を確認してから、選定した最小構成を実装へ進める。
