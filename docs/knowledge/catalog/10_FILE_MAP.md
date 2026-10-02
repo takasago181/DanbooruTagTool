@@ -252,3 +252,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AN_CHARACTER_IDENTITY_CORE_EVALUATION_20261002.md` — character identity-core decomposition, presentation-shortcut tests, CCIP+feature-level evaluation, mutable-factor counterexamples and viewpoint-generalization failure analysis.
 
+- `../research/BATCH_AO_ILL_NOOB_CHARACTER_STYLE_TRAINING_20261002.md` — Illustrious/NoobAI/Anima base-family effects on character/style LoRA: source-style entanglement, curated-data drift, palette leakage and same-dataset cross-base evaluation design.
+
