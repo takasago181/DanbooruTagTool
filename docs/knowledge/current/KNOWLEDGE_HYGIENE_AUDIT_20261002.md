@@ -536,6 +536,11 @@ production `data/**` / runtime defaultsは変更していない。
 - `ASSET_INVENTORY.md` をpartial/historical inventoryとして明示
 - Source ID uniqueness / research full-filename identity ruleをGovernanceへ追加
 
+追加整合:
+- WAI17の `VERSION_FRESHNESS_LEDGER.csv` applicabilityを `COMPARISON_HISTORICAL_LOCAL_EVIDENCE` へ修正
+- `PRACTICAL_GENERATION_NOOB_ANIMA.md` のAnima hybrid表現を、tag-only vs concise hybridがHOLDであることを明示する表現へ修正
+- Issue #44 restore orderへ `current/README.md` をlive management entryとして追加
+
 未実施:
 - current説明文書の大規模重複削減
 - current説明文書の全面日本語-first改稿
