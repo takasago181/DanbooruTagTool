@@ -12,13 +12,19 @@
 
 ---
 
+## #245 UI/UX consolidation — Phase A started / baseline gate BLOCKED
+
+ユーザーが#245を開始。#241/#244を確認し、現行mainの189 XAML control・操作意味・state owner・pane保存・shortcut・dialogを棚卸し。23 WPF client viewport render/treeを記録（native pixel acceptanceではない）。製品source、新機能、production、既存UserData/authorityは変更していない。
+
+Full protected-source baselineは338 PASS / 4 SKIP / 2 FAIL。#223 WPF一覧高さassertionがfocused repeatでも失敗し、根因切り分けが必要。Gateを弱めず、製品UI実装/mergeは未開始。証拠と次工程: `docs/issue245/PHASE_A_CURRENT_PRODUCT_AUDIT.md`。Phase B/Cを経て既存機能を整理する専用lane。#230/#231とproduction applyは禁止のまま。
+
 ## #226 Generation image library — COMPLETE / production APPLIED
 
 PR #238 is merged; clean published source main `49963dc129a1725c8a74d7f29aeb960884b67569` is installed at `C:\Codex\DanbooruTagTool-App`. Generation Library uses separate schema1 SQLite DB and reconstructible thumbnail cache. Full Release 276 PASS / 3 opt-in SKIP / 0 FAIL; focused 35 PASS; isolated unchanged-threshold performance Gate PASS. Native installed real PNG scan/metadata/thumbnail/search, annotation restart, Prompt restore + Undo/Recovery, preset editor, real Forge send/one successful generate, diff and missing-file annotation protection passed.
 
 Catalog/#179/#180/#216/#223 unchanged; whole prior runtime/UserData backup retained. Promotion excluded UserData; after explicit UI smoke original Prompt/Recovery and both Presets equal backup, only Workspace/PromptWidth changed. Exact hashes/evidence: `docs/project/LAST_KNOWN_GOOD.json`, `docs/issue226/PRODUCTION_CHECKPOINT_2026-10-02.json`.
 
-Manual scan/rename limitations remain; actual WebP/JPEG preview, different PC and physical network disconnect unverified. **STOP POINT reached — UI/UX consolidation待ち。新機能実装停止。** #228/#229/#232 are COMPLETE / merged via PR #240/#242/#243. Main feature snapshot `761e71215f0eb4ccc108761aad0a2c8846a5e8d8`; full protected-source 340 PASS / 4 SKIP / 0 FAIL, CI / clean publish / disposable Windows gates PASS. Production stays #226; no runtime or extension promotion. See `docs/issue225/STOP_POINT_2026-10-02.md` for completed commits/tests, current UI map, UX debt, consolidation proposals and remaining verification. No #230/#231 or another large workspace before user confirmation.
+Manual scan/rename limitations remain; actual WebP/JPEG preview, different PC and physical network disconnect unverified. **STOP POINT reached — 新機能実装停止。UI/UXはユーザー指示で#245 Phase Aへ。** #228/#229/#232 are COMPLETE / merged via PR #240/#242/#243. Main feature snapshot `761e71215f0eb4ccc108761aad0a2c8846a5e8d8`; full protected-source 340 PASS / 4 SKIP / 0 FAIL, CI / clean publish / disposable Windows gates PASS. Production stays #226; no runtime or extension promotion. See `docs/issue225/STOP_POINT_2026-10-02.md` for completed commits/tests, current UI map, UX debt, consolidation proposals and remaining verification. No #230/#231 or another large workspace before user confirmation.
 
 ## #223 Browse Groups — completed release history (still included)
 

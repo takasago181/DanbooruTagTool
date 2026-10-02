@@ -12,7 +12,17 @@
     "docs/project/PERMANENT_RULES.md",
     "task-specific contract/spec"
   ],
-  "active_lanes": [],
+  "active_lanes": [
+    {
+      "issue": 245,
+      "lane": "UI/UX workflow consolidation",
+      "phase": "Phase A audit recorded; baseline WPF gate BLOCKED",
+      "authority": "live Issue #245; #241 research; #244 STOP POINT",
+      "evidence": "docs/issue245/PHASE_A_CURRENT_PRODUCT_AUDIT.md",
+      "next": "baseline geometry investigation, Phase B task audit, Phase C alternatives before UI implementation",
+      "boundaries": "no new features; no production apply; #230/#231 remain stopped"
+    }
+  ],
   "completed_or_non_default": [
     "Performance / Runtime Load Audit",
     "portable/runtime hardening",
@@ -33,7 +43,7 @@
     "#228 API-first GenerationRecipe merged through PR #240; actual PNG/Library round-trip PASS; not production-applied",
     "#229 Local LoRA complete via PR #242; offline SHA-keyed personal inventory/recipes; not production-applied",
     "#232 Negative/Prompt intelligence complete via PR #243; versioned backed-up UserData2; full protected regression 340 PASS/4 SKIP; not production-applied",
-    "#225 STOP POINT reached after #228/#229/#232 merged checkpoints; UI/UX consolidation waiting for user; no #230/#231/new large workspaces; docs/issue225/STOP_POINT_2026-10-02.md"
+    "#225 STOP POINT reached after #228/#229/#232 merged checkpoints; new features stopped; user started #245 UI/UX Phase A; no #230/#231/new large workspaces; docs/issue225/STOP_POINT_2026-10-02.md"
   ],
   "protected_boundaries": [
     "UserData is user-owned",
