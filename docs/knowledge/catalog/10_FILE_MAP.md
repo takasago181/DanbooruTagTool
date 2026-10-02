@@ -224,3 +224,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_Z_COMPOSITIONAL_EVAL_AND_CONTROL_20261002.md` — compositional T2I evaluation research plus ComfyUI LoRA masking/scheduling and FreeFuse routing; strengthens hard-scene predicate scoring and assisted-control experiments.
 
+- `../research/BATCH_AA_MULTI_SUBJECT_LORA_DATASET_DESIGN_20261002.md` — multi-character Anima LoRA dataset design: genuine joint examples vs stitched composites, subset balance, background/context entanglement and generalization failures.
+
