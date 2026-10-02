@@ -971,3 +971,74 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Value: large private-use experience and group-scene stress signal.
 - Limitation: V-Pred configuration conflicts with current exact author guidance; exact recipe/percentages are not project authority.
 
+---
+
+## 2026-10-02 character / style reproduction sources
+
+**S-RESEARCH-015 — B-LoRA style/content separation**
+- URL: https://arxiv.org/abs/2403.14572
+- Class: `RESEARCH`
+- Scope: SDXL style/content disentanglement using selective LoRA blocks.
+- Value: adaptation location affects style isolation and overfitting.
+- Limitation: SDXL block prescription must not be copied directly to Anima.
+
+**S-RESEARCH-016 — Mix-of-Show**
+- URL: https://arxiv.org/abs/2305.18292
+- Class: `RESEARCH`
+- Scope: multi-concept LoRA fusion / identity conflict / regional sampling.
+- Value: subject/style and multi-concept composition is a distinct fusion problem.
+
+**S-RESEARCH-017 — Dynamic subject/style LoRA fusion**
+- URL: https://arxiv.org/abs/2602.15539
+- Class: `RESEARCH`
+- Scope: training-free dynamic fusion of subject and style LoRAs.
+- Value: static adapter weighting can be insufficient.
+
+**S-RESEARCH-018 — AnimeAdapter**
+- URL: https://arxiv.org/abs/2605.20237
+- Class: `RESEARCH`
+- Scope: zero-shot anime character appearance conditioning with pose-aware disentanglement.
+- Value: non-LoRA character-reproduction baseline.
+
+**S-OFFICIAL-ANIMA-LORA-001 — Anima finetuning guidance**
+- URL: https://huggingface.co/circlestone-labs/Anima
+- Class: `AUTHOR_GUIDE`
+- Scope: Base-only training recommendation, frozen LLM adapter, low LR, rank-32 starting point.
+- Value: exact family training baseline.
+
+**S-COMM-062 — Anima LoRA native-style suppression**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/60
+- Class: `COMMUNITY / FAILURE_CLUSTER`
+- Scope: LoRA suppressing native artist/style-tag behavior.
+- Limitation: mechanism not fully resolved.
+
+**S-COMM-063 — Anima current LoRA prompt-response degradation**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/240
+- Class: `COMMUNITY / CURRENT_FAILURE_REPORT`
+- Scope: reduced tag-driven editability after training.
+- Limitation: no controlled trainer matrix.
+
+**S-COMM-064 — Anima character/style layer-ablation study**
+- URL: https://note.com/studiomasakaki/n/nf39775327336
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: Self-Attention / Cross-Attention / MLP training ablation.
+- Value: training-set reconstruction hides generalization differences.
+
+**S-COMM-065 — Anima style-LoRA captioning discussion**
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1wq972q/training_a_style_lora_for_anima_a_few_tagging/
+- Class: `COMMUNITY / CURRENT_DISCUSSION`
+- Scope: style captioning, false tags, content leakage.
+- Limitation: conflicting practitioner preferences on dropout/tag density.
+
+**S-COMM-066 — Anima style-LoRA weight sweep**
+- URL: https://note.com/stray_dog0012/n/n6ebc324c1211
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: same-seed 0.4–1.2 adapter strength.
+- Value: style fidelity vs composition lock/spillover.
+
+**S-COMM-067 — Anima style-LoRA timestep experiment**
+- URL: https://note.com/kuon_noise/n/n82be977f167d
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: style-specific timestep/noise distribution.
+- Value: character and style recipes may differ.
+
