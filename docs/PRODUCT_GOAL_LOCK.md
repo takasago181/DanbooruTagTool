@@ -11,6 +11,18 @@
 
 プロダクトの中核操作は **理解 -> 発見 -> 選択 -> 出力** とする。
 
+## 優先ユースケース — 成人向け・hard/niche 2D生成
+
+DTTは一般的な画像生成にも使えるが、個人利用で最も重視する実用途は、**二次元の成人向け・性的・フェチ・hard/niche表現を、正しい語彙/タグで理解・発見し、実際の生成へつなげること**である。
+
+とくに重視するのは:
+- 名前を知らない性的/フェチ表現を日本語から発見できること;
+- body-site / relation / actor-target / count / visibility / device / restraint / fluid / topology等の複雑な構造を検索・閲覧で分解できること;
+- ordinary/general表現より見つけにくい成人向けDanbooru語彙をSpecialから深く辿れること;
+- Prompt/Negative/LoRA/生成条件/Library/Knowledgeが、難しい成人向け生成の試行錯誤に役立つこと。
+
+これは「一般用途を排除する」という意味ではない。**優先順位の話**であり、Foundation・UI整理・検索改善・OSS流用の結果として成人向け/フェチ/hard-niche用途が薄まるのは回帰とみなす。
+
 この目的は、2026-09-12 の原点再確認によって旧「Special -> 共起補助 -> Prompt」を主目的とする定義から更新した。
 今後の再定義は、実利用または検証でこの前提が崩れた場合に限る。
 
@@ -19,7 +31,7 @@
 - 画像生成の初心者
 - 英語が強くない
 - Danbooruタグ名を事前に知らない
-- とくにニッチな表現について「何というタグか」「どういう意味か」を知りたい
+- とくに成人向け・性的・フェチ・hard/niche表現について「何というタグか」「どういう意味か」を知りたい
 - 既存Promptに何が書かれているかを日本語で理解したい
 - 見つけたタグを自分で追加・削除して試したい
 
@@ -30,7 +42,7 @@
 
 ### 主役 1: Special Core Dictionary
 
-Special Core Dictionary は、検索語そのものを知らないニッチ・複雑な概念を発見するための深い辞書とする。
+Special Core Dictionary は、検索語そのものを知らないニッチ・複雑な概念、とくに成人向け・性的・フェチ・hard/niche表現を発見するための深い辞書とする。
 
 - Japanese-first display
 - Japanese / English / canonical / approved Alias 検索
@@ -122,6 +134,8 @@ Specialと同じ深さの意味ontologyは要求しない。Generalは Prompt �
 - 統計指標を初心者に理解させることを前提にしない
 - autocompleteの豪華さを最優先にしない
 - Special Core Dictionaryを単なるbadge付き候補に格下げしない
+- 成人向け・性的・フェチ・hard/niche表現を「一般化」の名目で浅くしない
+- 一般用途で十分なUXを理由に、成人向けの深い発見性・構造検索・生成学習を後回しにし続けない
 - General 30,629件をSpecialと同じ深さで過剰監修しない
 - 高度な自動化のために「自分で意味を理解して選べる」という原点を壊さない
 

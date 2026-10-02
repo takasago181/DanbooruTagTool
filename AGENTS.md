@@ -1,353 +1,170 @@
-# AGENTS.md — DanbooruTagTool Codex routing
+# AGENTS.md — DanbooruTagTool Codex operating policy
 
-## 1. 役割
+## 1. Role
 
-Codexは独立班ではなくDEV（開発班）の実装担当。
-仕様・現在地・Gateをチャット記憶から推測しない。
+Codex is the DEV implementation agent for DanbooruTagTool.
 
-常設班はDEVとKNOWLEDGE。旧PROMPT班は廃止され、Prompt/generation-effectiveness知識はKNOWLEDGE #44へ統合された。
+The project defines:
+- the goal;
+- protected boundaries;
+- accepted behavior that must not regress;
+- completion/acceptance conditions.
 
-## 1.5. Execution architecture
+Codex is expected to choose the best implementation, investigation method, work decomposition, helper tooling, and execution order inside those boundaries.
 
-Project-wide execution efficiency authority:
+Do not treat old Issue-era procedure, old handoff text, or historical implementation shape as mandatory architecture.
 
-- `docs/project/EXECUTION_ARCHITECTURE.md`
-- `docs/project/CURRENT_ROUTING.json`
+## 2. Restore the current task with the minimum useful read set
 
-New Codex session / lane selection remains a **cold start** and follows the full gate below.
+Before writing, identify the live task from GitHub rather than chat memory.
 
-Recurring same-lane automation or deterministic append-only resume may use the compact **warm resume** path defined by Issue #188 when contract/routing fingerprints match. Do not generalize warm-resume shortcuts to production promotion, protected-data mutation, cleanup, or uncertain routing.
+Default cold start:
+1. fetch live `main`;
+2. read `docs/project/CURRENT_ROUTING.json`;
+3. read the selected live Issue and its latest relevant checkpoint/result;
+4. read `docs/project/PERMANENT_RULES.md`;
+5. read only the task-specific contract/spec needed to make the change safely.
 
-## 2. 作業開始ゲート
+Use `NOW.md`, `CURRENT_STATE.md`, `PRODUCT_GOAL_LOCK.md`, historical docs, or old Issue material only when they materially help resolve scope, behavior, or a contradiction.
 
-新規セッション・lane選択・task branch作成前の **cold start** では必ず:
+Do not reread large unchanged documents merely because they exist.
 
-1. `git status --short --branch`
-2. `git fetch origin --prune`
-3. GitHub live `origin/main` のHEADを確認
-4. `origin/main:docs/project/CURRENT_ROUTING.json`
-5. `origin/main:docs/project/NOW.md`
-6. `origin/main:docs/project/CURRENT_STATE.md`
-7. routingが示す対象DEV laneのlive GitHub Issue本文と最新コメントを取得
-8. `origin/main:docs/project/PERMANENT_RULES.md`
-9. Issue title / state / body / latest checkpoint / completion condition / blockerを確認
-10. product behavior / UX / scope判断が関係する場合は `docs/PRODUCT_GOAL_LOCK.md` と当該Issueが参照する現行仕様を読む
-11. branch-local管理文書との差分はその後に確認する
+Warm resume:
+- verify the same lane/contract is still active;
+- inspect changed state and immutable progress;
+- continue from the next useful unit of work.
 
-同一lane・同一contractのrecurring Automation / append-only warm resumeでは、このfull gateを毎run再実行しない。Section 1.5 / `EXECUTION_ARCHITECTURE.md` のcompact warm-resume pathを使う。
+If a dashboard is stale but the higher-authority live Issue/main state is clear, resolve the staleness and continue. Stop only when an unresolved conflict could materially change the requested mutation, protected data, accepted semantics, or production result.
 
-現在地の優先順位:
+## 3. Execution autonomy
 
-`live main -> CURRENT_ROUTING.json -> NOW.md -> CURRENT_STATE.md -> target live Issue -> latest checkpoint -> PERMANENT_RULES -> task branch/local worktree`
+Default rule:
 
-古いbranch、旧handoff、過去Stage資料で現在地を巻き戻さない。
-矛盾時はfail-closedで停止する。
+> WHAT / WHY / HARD BOUNDARIES / ACCEPTANCE are fixed. HOW is Codex's responsibility.
 
-CURRENT_STATEが複数のactive DEV laneを示す場合、**ユーザーが依頼したlaneだけを選ぶ**。別laneを勝手に混ぜない。
+Codex may, when useful:
+- change the internal work order;
+- combine or skip low-value planned steps;
+- create temporary analysis/verification helpers;
+- use a safer or simpler design than an Issue's suggested implementation;
+- replace accumulated code rather than polish it first;
+- retain an existing implementation when rewrite value is not demonstrated;
+- use existing OSS/code/data patterns when they are better than a local reimplementation;
+- broaden investigation narrowly when evidence reveals a dependency the task description missed.
 
-### Runtime preflight override — 2026-09-20
+Do not ask the user to choose between internal implementation details that can be decided from evidence.
 
-Before local runtime/deploy/performance work, also verify:
-- live main SHA;
-- `docs/project/CURRENT_DEV_TASK.md`;
-- current runtime root `C:\Codex\DanbooruTagTool-App`;
-- `runtime-manifest.json` when inspecting a built runtime;
-- real UserData location/hash before any promotion that could touch user state.
+A numbered checklist in an Issue is guidance unless explicitly marked as a hard acceptance requirement or safety gate.
 
-Do not assume `artifacts/current/` is the current launch target.
-Do not treat local UserData as disposable publish content.
+## 4. Task risk tiers
 
-## 3. 現在の製品目的
+### READ_ONLY
+Inspect, compare, measure, review.
 
-製品目的の正本は `docs/PRODUCT_GOAL_LOCK.md`。
+Use only the evidence needed for the question.
 
-v1の中心は:
+### NORMAL MUTATION
+Source/docs/tests/tooling changes that do not touch protected user data or production runtime.
 
-`理解 -> 発見 -> 選択 -> 出力`
+Use a task branch from current main, make the best bounded change, run relevant tests, and leave reviewable evidence.
 
-対象ユーザーは画像生成初心者で、英語/Danbooruタグ知識が十分でなくても使えることを重視する。
+### PROTECTED / DESTRUCTIVE / PRODUCTION
+Examples:
+- UserData migration;
+- runtime promotion;
+- broad cleanup/delete;
+- accepted authority replacement;
+- production catalog changes.
 
-v1で必須:
-- 既存Promptのタグを日本語-first + canonical Englishで理解できる
-- 日本語/英語/混在で検索できる
-- exact/strong intentをincidental fuzzy/substring noiseより優先できる
-- Special Core Dictionaryをジャンル/サブジャンルから深く発見できる
-- production Japanese overlay 30,629件のGeneralタグを浅い実用ジャンルから発見できる
-- Special/Generalをユーザー自身が追加・削除・並べ替えできる
-- 最終Promptはcanonical Englishでコピーできる
+Use full provenance, backup/rollback, explicit before/after verification, and fail closed on unresolved authority ambiguity.
 
-v1でデフォルトにしない:
-- automatic support insertion
-- automatic minimum-sufficient Prompt construction
-- automatic conflict removal / Negative生成
-- automatic model-family rewrite
-- Prompt文字列だけからのautomatic failure diagnosis
-- model verification/status UI
-- A/B experiment manager
-- local generation success/failure DB
-- evaluator success probability UI
-- Raw Lift / recommendation-score dashboard
-- full Generation Profile / knowledge dashboard
-- runtime tagger stack
-- full 11M-post / ~3GB statistics indexの必須化
-- Forge/ComfyUI direct generation integrationの必須化
+Efficiency/autonomy never weakens these safeguards.
 
-## 4. Current active DEV routing
+## 5. Hard safety boundaries
 
-### Live authority — 2026-09-23
+These are not optional:
 
-Routing-sync base before the 2026-09-23 management update:
+- real `UserData` is user-owned; do not delete, reset, mirror-overwrite, or treat it as publish output;
+- do not run `git clean -fdx` or `git clean -fdX` in the project workspace;
+- do not broadly delete ignored/protected/source/runtime data without verified recovery;
+- research/evidence does not silently become production authority;
+- do not change stable canonical identity or stable Special IDs as a side effect of cleanup;
+- do not directly push unreviewed product implementation to `main`;
+- production promotion must be traceable to a known source commit and preserve rollback/recovery; independent human review is not mandatory for routine personal-use promotion when verification is sufficient;
+- this project is currently private/local personal use. External code/data reuse does not require a full license/provenance audit for every experiment. Keep the source/repository URL when practical, and do not knowingly use obviously stolen/leaked/private material. Perform a real license/provenance review before any public distribution, hosted/shared service, commercial use, or other use that makes those terms material.
 
-`95b53e6d114432358a2a1cea4e8554fcfae65bfd`
+## 6. Product invariants
 
-This is a snapshot base, **not a permanent current-main pointer**. Always fetch live `origin/main` before selecting a lane.
+The product goal is defined by `docs/PRODUCT_GOAL_LOCK.md`.
 
-Current user-facing runtime remains:
+Unless the selected Issue intentionally changes them:
+- Japanese, English, and mixed discovery remain supported;
+- canonical identity is not rewritten for UI convenience;
+- Prompt raw/user intent is not silently rewritten;
+- hidden automatic insertion/rewrite is not introduced as a cleanup side effect;
+- this is a single-user workstation tool. Network/external-provider use is allowed when it improves the feature; preserve local state safety and do not commit secrets. Offline capability is a preference, not a universal hard requirement.
 
-`C:\\Codex\\DanbooruTagTool-App`
+Do not use old v1 wording to block an explicitly approved post-v1 feature.
 
-Runtime/performance/portable hardening is already completed. **Do not route by default to Performance / Runtime Load Audit.**
+## 7. Architecture and refactoring
 
-Current major independent research lanes are:
+Prefer evidence over style.
 
-- **#179** — Character/Copyright identity, Japanese display/search, ranking, and 2D-scope quality audit. Artist audit excluded.
-- **#180** — Character -> single canonical HOME Copyright authority reconstruction. Research-only until separately accepted.
-- **#132** — full 31,003-identity tag discoverability/classification usability audit.
+- Large files are not automatically wrong.
+- Old code is not automatically wrong.
+- New abstractions are not automatically better.
+- If a bounded rewrite is simpler than preserving historical coupling, use parity/fixtures and replace it.
+- If an existing owner is healthy, keep it.
+- Avoid duplicate mutable state and temporary compatibility layers that will immediately be removed.
+- Historical Issue names may remain in provenance/tests while production ownership moves to semantic/domain concepts.
 
-When the user selects one lane, work only that lane. Never combine #179/#180/#132 branches, datasets, or semantic decisions.
+For replacement work, a useful default is:
+1. capture protected behavior;
+2. implement the new bounded owner beside the old path when practical;
+3. compare behavior;
+4. switch the consumer;
+5. remove/archive the obsolete path.
 
-### #132 execution routing
+This is a default technique, not a mandatory ceremony for trivial changes.
 
-#132 is no longer at bounded-prototype / pre-handoff status.
+## 8. Existing software and reuse
 
-Current execution:
-- branch: `research/taxonomy-usability-audit`
-- 3 normal ChatGPT Automation workers + 1 coordinator
-- 300 identities per worker run **ceiling, not quota**
-- compact normal preflight via `docs/issue132/parallel/WORKER_EXECUTION_CARD_V1.md`; reread full frozen docs only on drift/contradiction
-- 25-row immutable checkpoints for new work
-- strict per-row finalization before moving on; ambiguity/proper noun/specialist/sexual-boundary uncertainty requires `RESEARCHED`, unresolved meaning uses `SEMANTIC_UNRESOLVED`
-- cumulative lane-local 100-row QA: all high-risk rows + deterministic ordinary CHECKED spot-checks
-- no redundant full-25 second reread, no status write/CI wait after every checkpoint, and no anticipated-time `EXECUTION_LIMIT` self-stop
-- frozen Pass-A semantic contract remains unchanged
-- no production mutation / main merge from the research lane
+Before building substantial commodity functionality, check whether a maintained existing implementation materially reduces risk or work.
 
-Read `research/taxonomy-usability-audit:docs/issue132/parallel/CURRENT_AUTOMATION_OPERATION.md` for live operational cadence and `research/taxonomy-usability-audit:docs/issue132/parallel/WORKER_EXECUTION_CARD_V1.md` for the compact worker rules. These are branch-local execution authority; do not infer that a duplicate main copy exists. Old `READY FOR CODEX LUNA PASS A`, 100-row, or 200-row target wording is historical/frozen context, not current execution routing.
+Possible outcomes:
+- reuse/port code;
+- wrap a library;
+- copy an interaction/design pattern and implement against DTT state;
+- keep the DTT implementation because parity/maintenance is better;
+- defer adoption.
 
-### Runtime baseline
+Do not reject reuse merely because the current DTT implementation already exists.
+Do not adopt a dependency merely because it has more features.
 
-- PR #131 UI refinement completed.
-- PR #133 portable/runtime hardening completed.
-- PR #135 performance/runtime optimization completed.
-- self-contained `win-x64` runtime remains the workstation launch target.
-- `runtime-manifest.json` remains runtime provenance/hash contract.
-- `artifacts/current/` is fallback/reference only.
-- Artist remains hidden and old unreliable Character<->Copyright relation UI remains disabled by #177.
-
-Do not use stale #64/#66/#117/performance text as active routing merely because it remains in historical documents.
-
-## 5. Stage10 relationship
-
-Stage10 is not a v1 product Gate.
-It is defined by Issue #65 / `docs/stages/STAGE_10_LEARNING.md` as a practical image-generation learning stage.
-Current user priority pauses Stage10 until the practical v1 app baseline is complete.
-
-Primary learning model:
-- NoobAI XL 1.1 EPS + Forge Neo
-
-Secondary:
-- Anima = relation-heavy / multi-character / tag+natural-language comparison/fallback
-- WAI Illustrious v17 = historical/comparison
-- NoobAI V-Pred = separate advanced profile
-
-CodexはStage10学習を理由に、本体v1へ自動Prompt最適化・direct generation・evaluator UI等を勝手に実装しない。
-
-## 6. Special / Generalの役割
-
-### Special
-- current production Special populationは **3,059** stable identities（ID 1..3,088中29 gaps）
-- current browse authorityはIssue #76のshallow kind/body/theme model
-- historical 2,788 base / #56 deep taxonomyはprovenanceとして保持し、current production population/browse authorityと混同しない
-- canonical identityとbrowse taxonomyは分離し、#132 researchは既存authorityを直接書き換えない
-
-### General
-- production Japanese overlay 30,629 canonical entriesが対象
-- 日本語表示/検索overlayとtaxonomyを混ぜない
-- #64でcanonical-tag keyedの別taxonomy sidecarを作る
-- Specialより浅いPrompt用途中心の分類にする
-- 全100k+ Danbooru universeへ勝手に拡張しない
-
-## 7. protected data safety
-
-GitHubは管理状態とcommit済みcode/docsの正本であり、local workspace全体のbackupではない。
-
-`.gitignore`配下の例:
-- `data/source/`
-- `data/derived/`
-- `data/runtime/`
-- `data/runtime_index/`
-- `data/runtime_source/`
-- `data/special2788/*.csv`, `*.xlsx`
-- `_handoff/`, backups, large serialized/index data
-
-GitHubに見えないことを削除・不要と解釈しない。
-
-絶対禁止:
-- `git clean -fdx`
-- `git clean -fdX`
-- ignored protected dataの広範囲cleanup
-- 復元可能性を確認しない上書き/削除
-
-WPF migrationを理由にexisting `data/` を先に移動・整理しない。
-
-## 8. branch / handoff
-
-- 本体実装は原則latest mainからtask feature branch
-- #64 rollout branchと#66 app branchを混ぜない
-- 直接mainへ未review実装をcommitしない
-- stable checkpointはcommit
-- push可能ならremoteへpush
-- branch / commit SHA / changed files / tests / unresolvedを返す
-- main mergeやGate PASSをCodexが独断で宣言しない
-- GitHubからreview可能ならユーザーへZIP uploadを要求しない
-- local-only/binary/push失敗時のみ `docs/CHATGPT_CODEX_HANDOFF.md` fallback
-
-## 9. 読む仕様を必要最小限にする
-
-### cold startで読む
-1. `docs/project/CURRENT_ROUTING.json`
-2. `docs/project/NOW.md`
-3. `docs/project/CURRENT_STATE.md`
-4. target live DEV Issue
-5. `docs/project/PERMANENT_RULES.md`
-6. product behavior / UX / scope判断が関係する場合だけ `docs/PRODUCT_GOAL_LOCK.md`
-7. target Issueが指定する仕様
-
-### warm resumeで読む
-1. compact routing / contract fingerprint
-2. task-local immutable progress listing
-3. next bounded input
-4. changed evidenceだけ
-
-`CURRENT_STATE_HISTORY.md` や変更されていない大型spec群を通常のwarm resume read setへ入れない。
-
-Issue #64作業時:
-- `docs/project/CURRENT_DEV_TASK.md`
-- live Issue #64 latest checkpoint
-- `docs/issue64/full_rollout/PROGRESS.md`
-- 必要なrollout files
-
-Issue #66作業時:
-1. live Issue #66
-2. `docs/product/V1_UI_FIRST_IMPLEMENTATION_BASELINE.md`
-3. `docs/product/V1_WPF_ARCHITECTURE_BASELINE.md`
-4. `docs/FEATURE_PRIORITY.md`
-5. `docs/FLOWCHARTS.md`
-6. Issue #64はdependency/boundary確認に必要な範囲だけ
-7. existing `tools/legacy/python/danbooru_tag_tool/` / Python tests は **legacy/reference・behavior/regression evidenceとして必要な箇所だけ**読む
-
-Issue #66では旧Python `ui.py` をnew UI implementation baseと解釈しない。
-
-Stage10 learningを扱う時:
-1. Issue #65
-2. `docs/stages/STAGE_10_LEARNING.md`
-3. Issue #44 / `knowledge/generation-corpus` のcurrent knowledge
-4. 必要なexact model/tool source
-5. old Stage10 docs only as historical/testing reference
-
-KNOWLEDGE / generation-effectivenessを参照する必要がある時:
-- Issue #44
-- `knowledge/generation-corpus` のcurrent/catalog/research
-- historical Issue #5 はprovenance確認が必要な時だけ
-
-以下は該当Issueが必要とする時だけ読む:
-- `docs/CORE_TAG_SET_SCHEMA.md`
-- `docs/STATISTICS_POLICY.md`
-- `docs/SEMANTIC_BRIDGE_SCHEMA.md`
-- `docs/AUXILIARY_TAG_ROLE_POLICY.md`
-- Generation Profile / Stage8 / Stage9 / legacy Stage10 A/B資料
-- co-occurrence / full-index architecture資料
-
-## 10. 実装原則
-
-- canonical identityを日本語UX都合で変更しない
-- 日本語は理解/検索/表示補助でありsemantic authorityではない
-- Japanese + English + mixed searchを維持
-- exact/strong intentをincidental fuzzy/substringより優先
-- user explicit choiceを優先し、v1で隠れたautomatic insertionを作らない
-- existing Promptの順序・raw surfaceを明示編集なしに壊さない
-- dictionary追加はaccepted UI baselineどおりPrompt末尾 + canonical English
-- 日本語表示を意味が欠けるellipsisで省略しない
-- 既存機能/データが目的を満たすならbehavior/dataは再利用するが、Python runtime dependencyは移植しない
-- overengineeringしない
-- runtime LLM dependencyを導入しない
-- normal startupでtaxonomy/audit/catalog source rebuildを走らせない
-- WPF standard distributionはself-contained portable win-x64を目標にする
-- machine-specific absolute path / registry必須設計を避ける
-- focused test + applicable regression + user-visible UI変更時の実Windows確認を行う
-- portable acceptanceでは別location/PCへのfolder copy起動を確認する
-
-## 11. 報告
-
-最低限:
-- branch / commit SHA / push状況
-- changed files
-- 実施テストと結果
-- protected/canonical dataへの影響
-- legacy/data pathを移動・削除していないこと（#66 first WPF build中）
-- portable publish / Windows validation状況（該当時）
-- 未解決事項
-- stop point / next Gate
-
-詳細運用は `docs/project/PERMANENT_RULES.md` を正本とする。
-
-
-## 12. Issue #180 parallel Codex Worktrees
-
-### Fixed-Worktree fast-path override
-
-For only these five pre-created Issue #180 research branches, this section overrides the generic startup-reading requirements in sections 2 and 9:
-
-- `research/issue180-forward-0`
-- `research/issue180-forward-1`
-- `research/issue180-forward-2`
-- `research/issue180-forward-3`
-- `research/issue180-qa-integrator`
-
-Codex-managed Worktrees normally start detached. `HEAD (no branch)` is expected and must not be treated as ROLE_BRANCH_MISMATCH.
-
-For the five-chat managed-Worktree launch, all chats start from `research/issue180-single-home-pilot` and run:
-
-```
-python scripts/issue180/claim_codex_role_v2.py
-```
-
-The helper atomically allocates Forward 0..3 then QA through dedicated remote claim refs. Do not ask the user to type a slot number or create/switch branches manually.
-
-Do not require normal `git fetch origin --prune` from a managed Worktree. Prefer `git ls-remote` for freshness. If a commit object is required locally, use `git fetch --no-write-fetch-head` only as needed; GitHub HTTP/API read-only access is an allowed fallback.
-
-After role claim, Forward startup is intentionally minimal:
-1. read this AGENTS section;
-2. read live Issue #180 latest comment;
-3. read the current canonical lane dispatch for the claimed slot;
-4. read `AUTHORITY_BATCH_SCHEMA_V2.md` and `RESEARCH_STOP_PROTOCOL_V2.md`.
-
-Forward does not reread CURRENT_STATE, PERMANENT_RULES, PRODUCT_GOAL_LOCK, unrelated product docs, or the full v3 design during routine research. It does not run full v3 and does not merge/rebase canonical. Escalate to wider docs only for a real harness/policy blocker.
-
-QA may read v3/current migration/Research Unit files as needed for integration, but unrelated product/runtime docs remain out of scope.
-
-Issue #180 active parallel authority is:
-- `docs/issue180/parallel/PARALLEL_EXECUTION_V2.md`
-- `docs/issue180/parallel/PARALLEL_EXECUTION_V2.json`
-- `docs/issue180/parallel/AUTHORITY_BATCH_SCHEMA_V2.md`
-- `docs/issue180/parallel/RESEARCH_STOP_PROTOCOL_V2.md`
-- `docs/issue180/parallel/SOURCE_REVIEW_LEDGER_V2.csv`
-- `docs/issue180/parallel/dispatch/fwd-N.csv` from live canonical
-
-v1 assignment/epoch scheduling is historical and must not be used for new work.
-
-Issue #180 is **authority-campaign driven**, not row/lane-count driven. Keep reusable family/roster/base authority together and shard by stable campaign_key. Positive checked evidence is not invalidated by unrelated canonical advancement; QA replays it against current canonical. Campaign-level negative outcomes are fingerprinted research accounting and suppress only that exact campaign on future queues. Canonical terminal conclusions remain exact Research Unit fingerprint-bound.
-
-Forward 0..3 are append-only proposal mailboxes under `proposals-v2/fwd-N/`. They fetch canonical only to read the latest tracked lane dispatch; routine merge/rebase and full-v3 rebuild are forbidden. QA / Integrator is the only canonical writer and owns full-v3 rebuild, tracked dispatch refresh, Source Review Ledger, deterministic closure, integration, routine repair and fast-forward promotion to the research canonical branch.
-
-The parallel layer does not change `Character -> HOME_COPYRIGHT (0..1)`, missing-over-wrong, v3 resolver semantics, migration provenance, or #179 identity authority. No force push, main merge or production apply.
+For the current private/local-only project, license/provenance review is normally lightweight:
+- keep enough source information to find the upstream again;
+- do not block experimentation on paperwork alone;
+- escalate to a real review only when the asset has an obvious restriction/conflict or the project is about to be distributed, published, shared as a service, or commercialized.
+
+## 9. Branches, commits, and reporting
+
+For normal product changes:
+- keep changes scoped and recoverable;
+- use a branch/PR for substantial code changes, production/runtime work, semantic authority changes, UserData-affecting work, or risky refactors;
+- trivial docs, comments, metadata, or obviously reversible maintenance may be committed directly when that is the simplest safe route;
+- do not create PR ceremony solely because an old rule expected it.
+
+Report concisely:
+- what changed;
+- branch/commit/PR;
+- relevant tests/measurements;
+- protected-data/production impact;
+- unresolved risks or the next decision point.
+
+Do not turn routine work into a long compliance report when the evidence is straightforward.
+
+## 10. Historical routing
+
+Completed Issue-specific execution machinery belongs in Issue/history documents, not in this global operating policy.
+
+Do not restore old #132/#180/etc. worker procedures from historical text unless that Issue is explicitly reopened and its live contract requires them.

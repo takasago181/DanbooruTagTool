@@ -1,172 +1,89 @@
 # CHAT START PROTOCOL
 
-目的: 新しいChatGPT/Codexチャットが、古いhandoffや旧Stage方針に引っ張られず、GitHub正本から同じ現在地・製品目的・担当境界を復元する。
+Purpose: recover the live task quickly without making every Codex/ChatGPT session reread the whole project history.
 
-## 1. 読取順
+## 1. Cold start
 
-### DEV / KNOWLEDGE / TEMP / AUDIT / GitHub管理 — cold start
+For a new session or changed lane:
 
-1. `docs/project/CURRENT_ROUTING.json`
-2. `docs/project/NOW.md`
-3. `docs/project/CURRENT_STATE.md`
-4. routingが示す自班/担当/監査対象のlive Issue
-5. `docs/project/PERMANENT_RULES.md`
-6. product behavior / UX / scope判断が関係する場合は `docs/PRODUCT_GOAL_LOCK.md`
-7. 必要な `docs/project/DECISIONS.md` / current Issue-specific spec / main実装状態
-8. 必要なlatest checkpoint / result comment
+1. fetch live `main`;
+2. read `docs/project/CURRENT_ROUTING.json`;
+3. read the selected live Issue and latest relevant checkpoint/result;
+4. read `docs/project/PERMANENT_RULES.md`;
+5. read only the task-specific contract/spec needed for the work.
 
-### Codex DEV
+Read `NOW.md`, `CURRENT_STATE.md`, `PRODUCT_GOAL_LOCK.md`, Decisions, history, or old Issue material only when needed to resolve current scope/behavior.
 
-`AGENTS.md` のstartup gateを優先し、live current DEV Issueを直接取得する。
+Do not require a fixed ceremonial output such as TEAM_ID/ROLE/HEAD tables unless it helps the actual task.
 
-Issue番号・branch・Stageは過去chatや記憶から推測しない。
-矛盾・取得失敗時はfail-closed。
+## 2. Warm resume
 
-## 1.5. cold start と warm resume
+When the lane and contract are unchanged:
 
-この文書の「読取順」は主に **cold start** 用。
+1. verify the live target still exists and is not superseded;
+2. inspect changed files/checkpoints/results since the last stable point;
+3. continue from the next useful work unit.
 
-### cold start
+Do not reread unchanged global policy/spec documents by default.
 
-次の場合は従来どおりfull authority recoveryを行う:
-- 新しいchat/session;
-- 担当lane変更;
-- contract/branch authority不明;
-- routing conflict;
-- previous stateを信頼できない。
+## 3. Contradictions
 
-### warm resume
+Not every stale line is a blocker.
 
-同じlane / 同じfrozen contract / recurring Automation / immutable checkpoint継続では、まず:
+Resolve harmless stale dashboards/pointers from the higher-authority live state and continue.
 
-1. `docs/project/CURRENT_ROUTING.json` またはtask-local compact routing fingerprint;
-2. live target branch / Issue state;
-3. immutable progress listing;
-4. changed task-local state
+Stop for clarification or fail closed only when an unresolved contradiction could materially alter:
+- the requested mutation;
+- protected/UserData handling;
+- accepted semantic authority;
+- production source/runtime;
+- the intended feature contract.
 
-だけで再開可否を確認する。
+Record/fix stale management text when it is part of the current task; do not make routine progress wait on unrelated documentation cleanup.
 
-hash/fingerprintが一致する限り、`CURRENT_STATE.md`、`PERMANENT_RULES.md`、大型spec一式を毎run全文再読することを標準にしない。
+## 4. Checkpoints
 
-不一致・矛盾・contract driftがあればcold startへフォールバックする。
+Leave a GitHub checkpoint when:
+- a durable implementation/audit result is reached;
+- a blocker or important decision would otherwise be lost;
+- work is handed off;
+- recovery cost would be high without it.
 
-詳細: `docs/project/EXECUTION_ARCHITECTURE.md`
+Keep it concise:
+- result;
+- evidence/commit;
+- remaining blocker or next decision.
 
-## 2. 現在の製品方向
+Do not checkpoint every minor substep.
 
-v1 product core:
+## 5. Chat/lane handoff
 
-`理解 -> 発見 -> 選択 -> 出力`
+The user should not need to write a long manual handoff.
 
-- existing Promptを日本語-firstで理解
-- Japanese / English検索
-- Specialを深いgenre/subgenreから発見
-- General 30,629を浅い実用genreから発見
-- userが手動選択
-- canonical-English Promptをcopy
+Before a major handoff, ensure the live Issue/branch contains enough evidence to resume. A new session should reconstruct state from GitHub, not from copied chat history.
 
-Issue #65 / Stage10 / generation-effectivenessはv1の必須laneではない。
-旧PROMPT班は廃止済み。Prompt / generation-effectiveness / controlled Prompt-A/B knowledgeはKNOWLEDGE #44の責務として扱い、production採用権限はDEVに残す。
+## 6. Roles
 
-## 3. チャット移行を提案する条件
+DEV/Codex:
+- implements/reviews the selected product task within the live contract.
 
-- 会話長大化で現在地混同リスクが高い
-- 過去メッセージ再探索/訂正が増えた
-- Stage/Pilot/Audit等の大区切り
-- 大方針/担当/正式contract変更
-- ユーザーが移行を希望
+KNOWLEDGE:
+- maintains research/generation knowledge; it does not silently change production authority.
 
-移行前にGitHub正本を更新する。
-長大なmanual handoffをユーザーへ作らせることを標準にしない。
+AUDIT:
+- on-demand independent review when a task requires it.
 
-## 4. 途中checkpoint
+TEMP:
+- bounded environment/setup work.
 
-次の場合は担当Issueへ短いcheckpointを残す:
-- 意味のある実装/調査/監査/環境確認が成功
-- 後続前提になる事実が確定
-- 長時間中断/話題切替/handoff
-- 失うと再開コストが高い状態
+Detailed role history belongs in historical docs, not this startup protocol.
 
-最低限:
-1. 最後に成功したこと / 結果
-2. 未完了 / blocker
-3. 次作業
-4. branch / commit / file / evidence
+## 7. Protected safety
 
-checkpointはtask contractを黙って変更しない。
-scope/禁止/完了条件を変える場合はlive Issue本文と必要なmanagement docsを更新する。
+Startup simplification never weakens:
+- UserData protection;
+- destructive cleanup prohibitions;
+- production provenance/rollback;
+- accepted semantic authority boundaries.
 
-## 5. チャット移行前
-
-- current Issueへ必要checkpointを反映
-- global routing/stateが変わった場合のみ `CURRENT_ROUTING.json` と短い `CURRENT_STATE.md` を更新
-- product direction変更なら `PRODUCT_GOAL_LOCK.md` / #42等product-scope Issue / `DECISIONS.md` / `AGENTS.md` / `FEATURE_PRIORITY.md` / `FLOWCHARTS.md` / 影響lane Issueを照合
-- shared docs更新直前にlatest mainを再取得
-- GitHub更新後に新chatへ移行
-
-## 6. 新チャット認識確認
-
-必要な担当では次をlive確認して表示する:
-
-```text
-TEAM_ID: <stable workstream id>
-TEAM: <team/role>
-ROLE: <current role>
-ISSUE: <#number / N/A>
-BRANCH: <verified branch / main / N/A>
-HEAD: <verified commit SHA>
-CHECKPOINT: <latest relevant checkpoint / N/A>
-CONTRACT: <live Issue / contract file>
-PHASE: <current phase/gate>
-SOURCE_OF_TRUTH: live main -> CURRENT_STATE -> live Issue/latest checkpoint -> PERMANENT_RULES -> PRODUCT_GOAL_LOCK -> relevant specs
-```
-
-矛盾があれば `IDENTITY_CONFLICT` として作業を止める。
-
-## 7. 役割境界
-
-### DEV
-- 唯一の仕様/routing司令塔
-- Codexへ実装指示
-- 成果回収/受入れ
-- AUDIT PASSを代行しない
-
-### KNOWLEDGE
-- 外部知識・generation knowledge corpus
-- production仕様を勝手に変更しない
-- v1へadvanced機能を強制しない
-
-### AUDIT
-- on-demand independent Gate role
-- target/deltaをGitHubから復元してPASS/HOLD/FAIL
-- 完了後は常設しない
-
-### TEMP
-- `CURRENT_STATE.md` に明示された期間限定scopeのみ
-
-### Codex
-- DEVの実装担当
-- current Issue scopeのみ
-- self-merge / self-PASSしない
-
-### GitHub管理・調整
-- 班ではない
-- Issue/management docs/routingの整合のみ
-
-## 8. protected / stale safety
-
-- chat historyは正本ではない
-- stale branch-local management docsで現在地を決めない
-- GitHubに見えないignored runtime/source dataを削除扱いしない
-- `git clean -fdx` / `git clean -fdX` 禁止
-- completed/superseded workをold handoffから再開しない
-- CURRENT_DEV_TASKの固定SHAはsnapshotとして扱い、作業開始時にtarget branchのlive HEADを再確認する
-- #179/#180/#132の並行laneは、明示handoffなしにbranch/data/authorityを混ぜない
-
-最後に必要なら:
-
-`GitHub正本運用：認識済み`
-
-`CURRENT_STATE_HISTORY.md` は履歴・証跡用であり、通常startup/read setには含めない。
-
-を明示する。
+See `PERMANENT_RULES.md`.

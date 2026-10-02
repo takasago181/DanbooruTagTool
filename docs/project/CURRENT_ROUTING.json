@@ -1,18 +1,27 @@
 {
   "schema_version": "project-current-routing-v1",
-  "generated_at": "2026-10-02T22:16:46.661027+00:00",
+  "generated_at": "2026-10-03T00:00:00+09:00",
   "purpose": "compact machine-readable routing snapshot; not a permanent branch-head authority",
   "live_main_snapshot": null,
   "must_refetch_live_heads_before_write": true,
   "source_of_truth_order": [
     "live main",
     "docs/project/CURRENT_ROUTING.json",
-    "docs/project/NOW.md",
-    "target live Issue and latest immutable checkpoint/result",
+    "target live Issue and latest relevant immutable checkpoint/result",
     "docs/project/PERMANENT_RULES.md",
     "task-specific contract/spec"
   ],
-  "active_lanes": [],
+  "active_lanes": [
+    {
+      "issue": 248,
+      "lane": "Foundation Audit",
+      "phase": "Gate open; audit/measurement only",
+      "authority": "live Issue #248",
+      "evidence": "new production LKG docs/project/LAST_KNOWN_GOOD.json; #245 production checkpoint",
+      "next": "audit promoted baseline; publish KEEP/WRAP/REWRITE/DELETE/ARCHIVE and smallest recommended Foundation implementation set; STOP",
+      "boundaries": "no production/UserData mutation; no automatic #249-#255 implementation"
+    }
+  ],
   "completed_or_non_default": [
     "Performance / Runtime Load Audit",
     "portable/runtime hardening",
@@ -29,12 +38,12 @@
     "#188 execution-efficiency foundation and stale-current-authority cleanup complete/closed; reopen only for a concrete new overhead defect",
     "#179 reviewed display/search overlay deployed through PR #220/#221; 1,215 rows, display 221 / search 1,000; formal HOME and Issue70 source unchanged; residual REVIEW/HOLD retained",
     "#223 display-only Browse Groups complete and production-deployed through PR #224; 7 HOME / 64 groups / 2,467 grouped / 2,072 unclassified / 21 HOLD; HOME authority and #179/#70 unchanged; UserData byte-identical",
-    "#226 Library remains included; prior release checkpoint archived; current combined release docs/issue245/PRODUCTION_CHECKPOINT_2026-10-03.json",
-    "#228 API-first GenerationRecipe merged through PR #240; actual PNG/Library round-trip PASS; production-applied together with #245; docs/issue245/PRODUCTION_CHECKPOINT_2026-10-03.json",
-    "#229 Local LoRA complete via PR #242; offline SHA-keyed personal inventory/recipes; production-applied together with #245; docs/issue245/PRODUCTION_CHECKPOINT_2026-10-03.json",
-    "#232 Negative/Prompt intelligence complete via PR #243; versioned backed-up UserData2; full protected regression 340 PASS/4 SKIP; production-applied together with #245; docs/issue245/PRODUCTION_CHECKPOINT_2026-10-03.json",
-    "#225 STOP POINT retained; #245 consolidation and authorized production promotion complete; await human instruction; no #230/#231/new feature",
-    "#245 B-lite complete and production-promoted; resumed5 UserData protected; new LKG; docs/issue245/PRODUCTION_CHECKPOINT_2026-10-03.json"
+    "#226 generation image library complete via PR #238; production APPLIED from source main 49963dc129a1725c8a74d7f29aeb960884b67569; schema1 separate DB; real Forge one-image/UI/search/missing/UserData closeout PASS; production unchanged",
+    "#228 API-first GenerationRecipe merged through PR #240; actual PNG/Library round-trip PASS; not production-applied",
+    "#229 Local LoRA complete via PR #242; offline SHA-keyed personal inventory/recipes; not production-applied",
+    "#232 Negative/Prompt intelligence complete via PR #243; versioned backed-up UserData2; full protected regression 340 PASS/4 SKIP; not production-applied",
+    "#225 STOP POINT reached after #228/#229/#232 merged checkpoints; new features stopped; user started #245 UI/UX Phase A; no #230/#231/new large workspaces; docs/issue225/STOP_POINT_2026-10-02.md",
+    "#245 B-lite complete/closed and production-promoted; new LKG recorded; real Forge/Library round-trip PASS"
   ],
   "protected_boundaries": [
     "UserData is user-owned",
@@ -43,13 +52,23 @@
     "semantic contracts remain issue-local authority",
     "status/progress caches must not override immutable evidence"
   ],
-  "warm_resume_policy": "verify routing/contract fingerprints and task-local state; do not reread unchanged full authority documents",
-  "cold_start_policy": "recover full authority chain before selecting/starting work",
+  "warm_resume_policy": "Verify same lane/contract and changed state/immutable progress; do not reread unchanged global authority documents.",
+  "cold_start_policy": "Read the minimum authority chain needed to select the live task: live main, compact routing, selected live Issue/checkpoint, permanent safety rules, then task-specific specs only as needed.",
   "current_state_file": "docs/project/CURRENT_STATE.md",
   "history_file": "docs/project/CURRENT_STATE_HISTORY.md",
   "current_dev_task_role": "compatibility pointer only; do not duplicate routing state",
   "progress_authority": "immutable checkpoint/result first; status/progress summaries are derived cache",
   "routing_stability_policy": "do not embed fast-changing lane progress or required current branch HEAD; fetch those live",
   "human_dashboard_file": "docs/project/NOW.md",
-  "repository_entry_file": "README.md"
+  "repository_entry_file": "README.md",
+  "codex_execution_default": "Project fixes WHAT/WHY/HARD BOUNDARIES/ACCEPTANCE; Codex chooses HOW, internal architecture, investigation method, work order, helper tooling and refactor granularity.",
+  "conflict_policy": "Resolve harmless stale dashboards/pointers from higher-authority live state and continue. Stop only when unresolved conflict materially affects mutation, protected data, accepted semantics, production, or task contract.",
+  "checklist_policy": "Issue checklists are guidance unless explicitly marked as hard acceptance/safety gates; low-value or obsolete planned steps may be skipped with evidence.",
+  "reuse_policy": "For substantial commodity capability, Codex may prefer maintained OSS/data/patterns over local reinvention. Current project is private/local personal use: preserve upstream source when practical, but do not make formal license/provenance review a routine blocker. Re-audit before distribution/publication/shared-service/commercial use or when an obvious restriction appears.",
+  "deployment_scope": "private single-user workstation; distribution-quality portability is not a default acceptance gate",
+  "change_review_policy": "Use branch/PR for substantial, semantic, UserData, production, or risky work. Trivial reversible docs/metadata/maintenance may use the simplest safe route.",
+  "network_policy": "External/network-backed features are allowed when useful; preserve local-state safety and keep secrets out of the repository. Offline is a preference, not a universal hard requirement.",
+  "packaging_policy": "Self-contained/single-file/no-PDB/second-PC/folder-copy/machine-independent-path checks are optional unless a specific task needs them.",
+  "production_lkg_source": "b3f48c359a8473c8bbf02347487cba5d8dacf96c",
+  "foundation_gate": "OPEN"
 }

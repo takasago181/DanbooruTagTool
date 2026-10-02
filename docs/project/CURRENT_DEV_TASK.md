@@ -1,45 +1,49 @@
 # CURRENT DEV TASK — COMPATIBILITY ROUTING POINTER
 
-最終更新: 2026-09-28
+This file exists only for older workflows that still look for `CURRENT_DEV_TASK.md`.
 
-このファイルは旧workflowとの互換用ポインタです。
-**current routingの内容をここへ複製しない。**
+Do not duplicate current lane history or fixed HEADs here.
 
 ## Current authority
 
 1. live GitHub `main`
 2. `docs/project/CURRENT_ROUTING.json`
-3. `docs/project/CURRENT_STATE.md`
-4. selected live Issue + latest checkpoint
-5. `docs/project/PERMANENT_RULES.md`
-6. task-specific contract/spec
+3. selected live Issue + latest relevant checkpoint/result
+4. `docs/project/PERMANENT_RULES.md`
+5. task-specific contract/spec
 
-## Active lanes
+Human dashboard:
+- `docs/project/NOW.md`
 
-- #179: `research/issue179-character-quality-audit` (standby / draft research retained)
-- #180: `research/issue180-single-home-pilot`
-- #188: project-wide execution-efficiency infrastructure
-
-Issue/branch HEAD/progressはこのファイルの固定値ではなく、live GitHubから取得する。
-
-## Resume rule
-
-- cold start: `CHAT_START_PROTOCOL.md` のfull authority recovery
-- warm resume: `EXECUTION_ARCHITECTURE.md` のcompact fingerprint + task-local immutable progress
-- production / protected-data / delete: warm-resume shortcutを一般化しない
-
-## Maintenance baseline pointer
-
-- Post-#210 finalization is tracked in `CURRENT_ROUTING.json` / `NOW.md` / `CURRENT_STATE.md`; this compatibility file remains a pointer and does not duplicate lane history.
-- Current production Last Known Good snapshot: `docs/project/LAST_KNOWN_GOOD.json` and `.md`.
-- Canonical runtime pipeline: `docs/maintenance/PORTABLE_RUNTIME_PIPELINE.md`.
-- Skipped Release-test classification: `docs/project/RELEASE_TEST_SKIP_INVENTORY.json`.
-
-## Historical task details
-
-旧Performance/runtime/#117/#132/#199/#201等の詳細をcurrent taskとしてここへ再掲載しない。
-必要なら:
+Historical state:
 - `docs/project/CURRENT_STATE_HISTORY.md`
-- live Issue / PR / Git history
 
-を参照する。
+## Resume policy
+
+Cold start:
+- use `CHAT_START_PROTOCOL.md`;
+- recover only the minimum live authority needed for the selected task;
+- expand to dashboards/history/specs only when materially useful.
+
+Warm resume:
+- verify the same lane/contract;
+- inspect changed state and immutable progress;
+- continue without rereading unchanged global docs.
+
+Protected/destructive/production work still uses provenance and recovery checks appropriate to actual personal-workstation risk. Distribution/other-PC packaging gates are not implied.
+
+## Codex autonomy
+
+The project fixes the requested outcome, protected boundaries, and acceptance conditions.
+
+Codex chooses implementation method, internal work order, helper tooling, and refactor granularity unless the selected Issue explicitly makes a procedure a hard requirement.
+
+Do not infer current work from fixed examples in this compatibility file.
+
+## Production pointers
+
+- production LKG: `docs/project/LAST_KNOWN_GOOD.json`
+- runtime pipeline: `docs/maintenance/PORTABLE_RUNTIME_PIPELINE.md`
+- Release skip inventory: `docs/project/RELEASE_TEST_SKIP_INVENTORY.json`
+
+Always resolve the actual current runtime/source from live LKG/checkpoints rather than a fixed SHA copied here.
