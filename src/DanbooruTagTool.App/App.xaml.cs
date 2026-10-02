@@ -51,7 +51,7 @@ public partial class App : Application
         catch (Exception ex)
         {
             if (e.Args.Length > 0) File.WriteAllText(Path.Combine(AppContext.BaseDirectory, "catalog-build-error.txt"), ex.ToString());
-            else MessageBox.Show(ex.Message, "DanbooruTagTool 襍ｷ蜍輔お繝ｩ繝ｼ", MessageBoxButton.OK, MessageBoxImage.Error);
+            else MessageBox.Show(ex.Message, "DanbooruTagTool 起動エラー", MessageBoxButton.OK, MessageBoxImage.Error);
             Shutdown(1);
         }
     }
