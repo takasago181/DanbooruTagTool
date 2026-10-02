@@ -848,3 +848,21 @@ For multi-character source material, subject masks/isolation are a valid researc
 Research:
 `../research/BATCH_AK_PERSONALIZATION_DISENTANGLEMENT_DATASET_20261002.md`.
 
+---
+
+## 30. LoRA vs reference conditioning — 2026-10-02
+
+Do not start every reproduction task with LoRA.
+
+- model already knows it -> native tag/prompt first
+- one/few reference images, quick use -> reference adapter
+- recurring reusable character -> character LoRA
+- reusable transferable style -> style LoRA
+- image-set style consistency -> shared-attention/reference style method
+- multi-character ownership/layout -> regional/reference/control hybrid
+
+Benchmark setup cost as well as final fidelity.
+
+Research:
+`../research/BATCH_AL_REFERENCE_ADAPTER_VS_LORA_20261002.md`.
+
