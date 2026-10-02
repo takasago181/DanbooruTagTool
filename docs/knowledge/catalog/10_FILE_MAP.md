@@ -306,3 +306,9 @@ Do not create a parallel genre numbering scheme.
 - `../research/BATCH_BC_OUTPUT_METADATA_AUXILIARY_FOUNDATIONS_20261002.md` — 基礎D。PNG/infotext、model hash、safetensors、Clip Skip、Textual Inversion/embeddingを整理。
 
 - `../current/KNOWLEDGE_HYGIENE_AUDIT_20261002.md` — 2026-10-02の知識棚卸し。Source ID衝突、旧current routing、古いaudit/backlog、research識別子衝突、current文書重複、日本語-first未移行を監査し、修復優先順位を定義。
+
+- `../current/SOURCE_ID_MIGRATION_20261002.md` — 2026-10-02 Source Registry ID衝突修復。先行IDを維持し、後発33 entryを新しい一意IDへ移行した記録。
+
+
+### Research identity rule — 2026-10-02
+既存researchには BATCH_N / AJ / AK / AL / AM / AN / AO のprefix衝突がある。provenance保護のため既存fileはrenameしない。**正式参照はfull filename**とし、bare prefixだけで参照しない。新規batchは既存prefixとの衝突を避ける。
