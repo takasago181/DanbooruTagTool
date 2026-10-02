@@ -302,3 +302,29 @@ For practical Noob/Anima work:
 4. `CLAIM_REGISTRY.csv`
 5. `VERSION_FRESHNESS_LEDGER.csv`
 6. exact upstream source only as needed
+
+---
+
+## 14. 2026-10-02 source refresh — newly pinned operational notes
+
+These are current upstream facts promoted into the Claim Registry. They do not close the image-test HOLDs for binding/count/Negative/LoRA interaction.
+
+### Anima
+- Prompt weighting is supported, but the author explicitly says it needs stronger weights than typical SDXL; the model-card example uses `(chibi:2)`. Treat old SDXL weight habits as a starting hypothesis, not a transferable rule.
+- Training used random tag dropout. Do not assume that restating every visible property is necessary; extra tags can still create unnecessary semantic workload.
+- Pure natural-language Prompting should be descriptive; the author recommends roughly two sentences or more. Tags and natural language may be mixed.
+- For multiple characters, write each identity plus basic appearance. A bare list of names is specifically called out as confusing.
+- Base is intentionally neutral/plain without artist or quality guidance. Aesthetic and Turbo have stronger built-in visual priors. Turbo uses CFG 1 / 8–12 steps and sacrifices diversity for stability/default style.
+- For Anima LoRA training, use Base; do not train the LLM adapter. Rank-32 LoRA author guidance suggests `2e-5` as a starting learning rate, not a universal optimum.
+
+### NoobAI V-Pred
+- Current author guidance remains CFG 4–5 / 28–35 steps / Euler.
+- The card describes native-tag plus natural-language captioning, but this does not make V-Pred Prompt behavior interchangeable with Anima or EPS.
+
+### Forge Couple / Forge Neo
+- Forge Couple supports Anima and still recommends keeping total subject count in every region.
+- It cannot compensate for a checkpoint that does not understand the requested composition.
+- Dynamic-Prompts-like preprocessing can break separators/common Prompt handling; record extension state in reproducibility evidence.
+- Forge Couple can be disabled during Hires Fix via compatibility mode, so base pass and Hires pass may not share the same regional conditioning.
+- Forge Neo currently documents Anima Region ControlNet plus LLLite ControlNet support for SDXL/Anima. Treat this as assisted control, not Prompt-only evidence.
+
