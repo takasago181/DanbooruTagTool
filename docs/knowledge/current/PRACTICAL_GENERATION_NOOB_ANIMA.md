@@ -1156,3 +1156,41 @@ Fix representation/diversity first when possible.
 Research:
 `../research/BATCH_AV_DATASET_STYLE_BIAS_AND_PREPROCESSING_20261002.md`.
 
+
+
+---
+
+## Adult teaching: Prompt-only escalation gate
+
+成人向けrelation-heavy生成では、失敗時にタグを無限追加しない。
+
+#44の標準教材では:
+
+1. conceptを単体で確認
+2. model-nativeな最小表現
+3. conciseな別表現を1系統
+4. 固定4 seedで同じfailure labelを採点
+
+同じprimary structural failureが4 seed中3以上で再発する場合、
+Prompt-onlyの再作文から、失敗種類に対応したControlへ上げる。
+
+- identity/binding -> Regional/reference/localized adapter
+- pose/contact geometry -> pose/depth/line
+- visibility/overlap -> camera/depth
+- local anatomy -> inpaint/detailer
+
+これはPrompt-only不可能判定ではなく、実用上の学習打ち切り線。
+
+### Adult Negative A/B
+
+NoobAI XL 1.1 EPS公式例は `safe` positive / `nsfw` Negative を含むため、
+成人向け能力検証ではそのまま中立baselineとしない。
+
+同じseed/settingsでNegative conditionだけを変え、
+target presence / relation / count / visibility / anatomy / composition driftを別採点する。
+
+Operational decision tree:
+`ADULT_IMAGE_GENERATION_DECISION_TREE.md`
+
+Research:
+`../research/BATCH_AW_ADULT_DIAGNOSTIC_ESCALATION_AND_MODEL_GAPS_20261002.md`
