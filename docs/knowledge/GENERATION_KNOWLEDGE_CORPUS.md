@@ -1672,3 +1672,29 @@ Japanese current map:
 
 Research:
 `research/BATCH_AX_LOCAL_ADULT_IMAGE_GENERATION_TRENDS_20261002.md`.
+
+
+## 16.17 Real-world workflow archetypes
+
+A review of 27 current public workflow/case-study examples converges on six practical architectures:
+
+1. native-first;
+2. global LoRA stack;
+3. Regional separation;
+4. reference identity + geometry control;
+5. accepted-base edit/inpaint;
+6. data-first LoRA engineering.
+
+The strongest current lesson is **control decomposition**:
+assign identity, geometry, locality, repair and finishing to explicit mechanisms instead of forcing one prompt or one adapter to solve every axis.
+
+Controlled Anima reference studies also show that:
+- reference identity is feature-dependent rather than all-or-nothing;
+- unspecified traits in other subjects can inherit reference features;
+- geometry references can carry unwanted hairstyle/accessory/clothing information.
+
+Japanese operational playbook:
+`current/LOCAL_ADULT_WORKFLOW_PLAYBOOK_20261002.md`
+
+Research:
+`research/BATCH_AY_REAL_WORLD_ADULT_WORKFLOW_ARCHETYPES_20261002.md`.
