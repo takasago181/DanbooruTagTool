@@ -1,170 +1,131 @@
-# 成人向け画像生成 — 実用診断 Decision Tree
+# 成人向け画像生成 — 実用診断フロー（Decision Tree）
 
 Owner: Issue #44 `KNOWLEDGE:#44`  
 対象: 成人であることが明確な、合意的・成人ファンタジーの画像生成  
-目的: 「タグを足す」ではなく、失敗原因を切り分けて最小の修正へ進む  
-Evidence authority: `CLAIM_REGISTRY.csv` と各 research batch
+役割: **失敗の種類を切り分け、次の最小操作を決める**  
+判定の正本: `CLAIM_REGISTRY.csv`
 
----
+## 最初にやること
 
-## まず結論
+生成が崩れた時、最初にタグを増やさない。
 
-生成が崩れたら、最初にやることは **Prompt追加ではない**。
+`再現条件確認 -> 主失敗を1つ選ぶ -> 最小Prompt -> 固定4 seed -> 1変数A/B -> 必要なら補助機能`
 
-次の順で見る。
+同じ構造失敗が4 seed中3以上で続き、簡潔な表現を2系統試しても直らない場合は、学習効率上の目安として次の補助手段を比較する。
 
-`再現条件確認 -> 失敗分類 -> 最小Prompt -> 4 seed確認 -> 1変数A/B -> 必要ならControlへ`
+これは「Promptだけでは絶対不可能」という証明ではない。
 
-Prompt-onlyを延々と続ける目安は設けない。
-#44の標準教材では、同じ構造失敗が**4 seed中3以上**で続き、簡潔な表現を2系統試しても直らない場合、次のcontrol mechanismへ上げる。
+## 0. 再現条件
 
-これは「Promptでは絶対不可能」という判定ではなく、**学習効率上の打ち切り線**。
-
----
-
-## 0. 再現条件が揃っているか
-
-最低限確認する。
-
-- model/checkpoint/profile
+最低限:
+- モデル / checkpoint / profile
 - seed
-- resolution / aspect ratio
-- sampler / scheduler
-- steps / CFG
-- positive / negative
+- 解像度 / 縦横比
+- Sampler / Scheduler
+- Steps / CFG
+- Positive / Negative
 - LoRA名とweight
-- Regional / ControlNet / reference
+- Regional / ControlNet / Reference
 - Hires / img2img / inpaint
 - runtime/version
 
-PNG metadata / ComfyUI workflowがあるなら最優先。
+元PNGやComfyUI workflowがあれば優先。
 
----
+## 1. 主失敗を決める
 
-## 1. 何が壊れているか
-
-最初に主症状を1個決める。
-
-| 症状 | 主ラベル | 最初に見るもの |
+| 症状 | 分類 | 最初に見るもの |
 |---|---|---|
-| そもそも概念が出ない | CONCEPT_MISSING | trigger / model exposure |
-| 人数が違う | COUNT_WRONG | count / framing / aspect |
-| AとBの特徴が混ざる | ATTRIBUTE_LEAK | A-only / B-only / LoRA |
-| 役割が逆 | ROLE_SWAP | subject binding |
-| body-siteの所有者が逆 | BODY_SITE_OWNER_WRONG | binding / region |
-| 接触・関係が成立しない | RELATION_MISSING | relation representation / pose |
-| poseが違う | GEOMETRY_WRONG | pose/depth/reference |
-| 前後関係が違う | WRONG_DEPTH_ORDER | depth / camera |
-| 画面外・隠れる | TARGET_OCCLUDED | crop / camera / overlap |
-| 手足など局所だけ崩れる | LOCAL_ANATOMY | inpaint/detailer |
-| LoRAを入れた時だけ崩れる | LORA_INTERFERENCE | incremental stack |
-| Regionalで境界が出る | REGIONAL_BOUNDARY | isolation strength |
-| Hires後だけ崩れる | HIRES_DRIFT | second-pass settings |
+| 概念自体が出ない | 概念未生成 | tag / trigger / model exposure |
+| 人数が違う | 人数失敗 | count / framing / aspect |
+| AとBの特徴が混ざる | 属性混線 | A単体 / B単体 / LoRA |
+| 役割が逆 | 役割交換 | subject binding |
+| 身体部位の持ち主が逆 | 所有者失敗 | binding / Regional |
+| 接触・関係が成立しない | relation失敗 | relation表現 / pose |
+| poseが違う | geometry失敗 | pose / depth / Reference |
+| 前後関係が違う | 奥行き失敗 | depth / camera |
+| 画面外・隠れる | 可視性失敗 | crop / camera / overlap |
+| 手足など局所だけ崩れる | 局所解剖 | inpaint / detailer |
+| LoRA追加時だけ崩れる | LoRA干渉 | 1本ずつ追加 |
+| Regionalで境界が出る | 分離過剰 | 分離強度 |
+| Hires後だけ崩れる | 第二工程崩れ | Hires設定 |
 
----
-
-## 2. 「出ない」
+## 2. 概念が出ない
 
 ### 単体でも出ない
+確認:
 - canonical tag
-- old/historical spelling
+- 旧表記 / historical spelling
 - model-specific trigger
 - training cutoff
-を確認。
 
-NoobAIではcurrent Danbooru tagが存在していても、学習時点に露出していたとは限らない。
+current Danbooruにタグがあることと、モデルが学習していることは別。
 
 ### 単体では出る
-概念知識はある可能性が高い。
+複数人物時だけ消えるなら、語彙不足より:
+- binding
+- 情報量
+- 場所の分離
+を疑う。
 
-複数人物時だけ消えるなら、
-vocabularyより **binding / workload / locality** を疑う。
+## 3. 人数が違う
 
----
-
-## 3. 「人数が違う」
-
-まずstyle/backgroundを外して、
-
-- count
-- subject identities
+style/backgroundを一度外し:
+- 人数
+- subject identity
 - framing
-
 だけにする。
 
-4 seed中3以上で同じcount failureなら、
-Prompt語の言い換えを続けるより、
+同じ人数失敗が4 seed中3以上なら:
+- 縦横比
+- pose / Reference
+- Regional / layout control
+を比較する。
 
-- aspect ratio
-- pose/reference
-- regional/layout control
-
-へ進む。
-
----
-
-## 4. 「人物の特徴が混ざる」
+## 4. 人物特徴が混ざる
 
 順番:
-
-1. A-only
-2. B-only
+1. Aだけ
+2. Bだけ
 3. A+B、LoRAなし
 4. LoRA Aだけ
 5. LoRA Bだけ
 6. A+B LoRA
-7. weight matrix
-8. Regional/reference/localized adapter
+7. weight比較
+8. Regional / Reference / localized adapter
 
 **どの段階から混ざったか**が診断結果。
 
-A-only/B-onlyが既に壊れているなら、Regionalの前にidentity側を直す。
+## 5. 役割・身体部位の持ち主が逆
 
----
+まずA/Bのidentityを安定させる。
 
-## 5. 「role / body-site が逆」
-
-まず subject A / subject B を安定させる。
-
-次に、
-
-- role
+次に残す:
+- 役割
 - target
 - relation
-- visibility
+- 可視性
 
-以外を減らす。
+Animaではタグのみと短い自然文併用を比較してよいが、普遍的な優劣はHOLD。
 
-tag-onlyと短い自然言語/Hybridを比較する。
+同じ交換が4 seed中3以上ならRegional/Referenceを比較する。
 
-同じswapが4 seed中3以上なら、
-Promptだけの再作文よりRegional/referenceへ。
+## 6. pose・接触形状が違う
 
-ただしRegionalを強くし過ぎると、相互作用が切れて「別々の絵」のようになることがある。
-
----
-
-## 6. 「pose / 接触形状が違う」
-
-これはPromptの語彙問題ではなく、geometry問題の可能性が高い。
+語彙よりgeometry問題を疑う。
 
 優先:
-
 - pose
 - depth
-- line/edge
-- reference
+- line / edge
+- Reference
 
-identity tagやquality tagを増やさない。
+identity tagやquality tagを増やすだけで解こうとしない。
 
----
+## 7. 見えない
 
-## 7. 「見えない」
-
-概念未生成と決めつけない。
+「生成されていない」と即断しない。
 
 確認:
-
 - camera distance
 - crop
 - viewpoint
@@ -172,202 +133,117 @@ identity tagやquality tagを増やさない。
 - occlusion
 - depth order
 
-「存在しているが画面に見えていない」を別failureとして扱う。
+**存在しているが見えていない**を別失敗として扱う。
 
----
-
-## 8. 「Negativeを入れたら出なくなった」
+## 8. Negativeを入れたら弱くなった
 
 Negativeは中立な掃除ではない。
 
-### A/B
-A: 目標概念を抑制し得るNegativeなし  
-B: 比較したいNegativeあり
+A/B:
+- A: 目標を抑制し得るNegativeなし
+- B: 比較したいNegativeあり
 
-それ以外は同じ。
+他条件は固定。
 
-採点:
-
-- target presence
+見る:
+- 目標概念
 - relation
 - count
 - visibility
 - anatomy
 - composition
-- censor/watermark/text
+- censor / watermark / text
 
-NoobAI XL 1.1 EPSの公式推奨例は `safe` positive / `nsfw` negative を含む。
-成人向け能力試験では、この安全寄りbaselineをそのまま「中立」と扱わない。
+成人向け能力検証では安全寄りNegativeを自動的に中立baselineとみなさない。
 
----
-
-## 9. 「LoRAを入れると壊れる」
-
-順番:
+## 9. LoRAを入れると壊れる
 
 `base -> A -> B -> A+B`
 
-その後だけ、
-
-- weight matrix
-- late scheduling
-- mask/localization
+それでも必要なら:
+- weight比較
+- 時間方向の適用
+- mask / localization
 - Regional
-- dataset audit
+- dataset監査
 
-へ進む。
+同じ背景・pose・styleを強制するならdataset entanglementも疑う。
 
-LoRAが同じ背景・役割・poseを強制するなら、
-推論設定ではなくdataset entanglementの可能性がある。
+## 10. Regionalで分離したがinteractionが壊れる
 
----
+2軸で採点する。
 
-## 10. 「Regionalで人物は分かれたがinteractionが変」
+**分離**
+- identity leak
+- attribute swap
 
-成功を2軸で見る。
-
-### separation
-- identity leakが減ったか
-- attribute swapが減ったか
-
-### coherence
-- 接触が自然か
-- overlapが壊れていないか
-- region境界が出ていないか
-
-最も強いRegional設定を選ばない。
-**必要な分離を満たす最弱設定**を選ぶ。
-
----
-
-## 11. 「anatomyだけ崩れた」
-
-次が通っているなら、
-
-- count
-- identity
-- role
+**一体感**
+- 接触
+- overlap
+- 境界
 - relation
-- visibility
-- global pose
 
-Prompt全体を作り直さない。
+目標は最強設定ではなく、**必要な分離を満たす最弱設定**。
 
-inpaint/detailerで局所修正。
+## 11. 局所anatomyだけ崩れた
 
----
+人数・identity・役割・relation・可視性・大きいposeが通っているなら、全体を再生成しない。
 
-## 12. 「Hiresで壊れた」
+inpaint / detailerで局所修正。
 
-baseを捨てない。
+## 12. Hires後だけ崩れた
 
-Hiresはsecond generation passとして別診断。
+base PNGを残す。
+
+Hiresは第二生成工程として別診断。
 
 見る:
-
 - denoise
-- Hires sampler/scheduler
-- steps/CFG
-- Hires prompt/negative
-- LoRA/control再適用
+- Hires側Sampler / Scheduler
+- Steps / CFG
+- Hires Prompt / Negative
+- LoRA / Control再適用
 - checkpoint
 
-base成功とHires成功は別evidence。
+base成功とHires成功は別の証拠。
 
----
+## 13. Promptだけから補助機能へ切り替える目安
 
-## 13. Prompt-onlyからControlへ上げる標準gate
+Promptを続ける:
+- seedごとに失敗種類が変わる
+- 意味自体は通っている
+- 最小Prompt未実施
+- model-native表現未実施
 
-### Promptを続ける
-- failureがseedごとに変わる
-- semantic自体は通っている
-- まだminimal promptを試していない
-- model-native表現を試していない
-
-### Controlへ上げる
-- conceptは単体で通る
-- failure classが明確
-- minimal prompt済み
+補助機能を比較する:
+- 単体概念は出る
+- 主失敗が明確
+- 最小Prompt済み
 - 表現2系統済み
-- 4 seed中3以上で同じstructural failure
+- 4 seed中3以上で同じ構造失敗
 
-### どのControlか
-- identity/binding -> Regional/reference/localized adapter
+対応:
+- identity / binding -> Regional / Reference
 - pose -> pose control
-- front/back/overlap -> depth
-- contour/layout -> line/edge
-- 局所anatomy -> inpaint/detailer
+- 前後・重なり -> depth
+- 輪郭・layout -> line / edge
+- 局所anatomy -> inpaint / detailer
 
----
+## 14. 最短の返答型
 
-## 14. NoobAI EPS — 現在の先生用注意
+失敗画像を診断する時は:
 
-公式baseline:
-- Euler a
-- CFG 5–6
-- 25–30 steps
-- around 1MP
+1. 主失敗は何か
+2. 既に成功している部分は何か
+3. 次に変える1変数
+4. 同じseed setで比較
+5. 同じ構造失敗が続けば次のControl
+6. Promptだけの能力と補助後の能力を分ける
 
-ただしadult relationについて、
-公式model cardは成功率benchmarkを出していない。
+モデル固有注意は:
+`PRACTICAL_GENERATION_NOOB_ANIMA.md`
 
-未実証:
-- exact count ceiling
-- role/body-site binding
-- hard interaction reliability
-- adult Negative OFF/ON
-- Character LoRA × interaction
-
-ここは「答えを知っているふり」をせず、controlled testを教える。
-
----
-
-## 15. Anima — 現在の先生用注意
-
-公式:
-- tags + natural language + mixed
-- multiple charactersでは名前だけよりbasic appearanceも推奨
-- safety tagsもprompt surfaceに含む
-
-community:
-- individual identityは出るがpairでattribute swap
-- interactionで不安定
-- regionalでseparation改善の報告
-- overlap anatomy/coherence悪化の報告
-
-したがって、
-Animaは「複数人物に強い/弱い」の一言で教えない。
-
-`identity -> coexistence -> interaction -> regional`
-の順で実測する。
-
----
-
-## 16. 先生役の最短返答型
-
-ユーザーが失敗画像を持ってきたら、
-
-1. 「主失敗は○○」
-2. 「ここは既に成功している」
-3. 「次はこの1変数だけ変える」
-4. 「同じ4 seedで比較する」
-5. 「3/4続くなら次のControlへ」
-6. 「成功してもplain-model能力とassisted能力は別」
-
-の順で教える。
-
-完成Promptを最初に投げない。
-
----
-
-## 根拠
-
-Detailed research:
-`../research/BATCH_AW_ADULT_DIAGNOSTIC_ESCALATION_AND_MODEL_GAPS_20261002.md`
-
-Related:
-- `ADULT_IMAGE_GENERATION_TEACHING_CURRICULUM.md`
-- `ADULT_IMAGE_GENERATION_TEACHER_REFERENCE.md`
-- `PRACTICAL_GENERATION_NOOB_ANIMA.md`
+根拠:
+- `../research/BATCH_AW_ADULT_DIAGNOSTIC_ESCALATION_AND_MODEL_GAPS_20261002.md`
 - `../research/BATCH_AQ_REGIONAL_LEARNING_AND_REPRODUCIBILITY_20261002.md`
 - `../research/BATCH_AV_DATASET_STYLE_BIAS_AND_PREPROCESSING_20261002.md`
