@@ -1232,3 +1232,45 @@ Current map:
 
 Research:
 `../research/BATCH_AX_LOCAL_ADULT_IMAGE_GENERATION_TRENDS_20261002.md`
+
+
+---
+
+## 43. Control decomposition from real workflows — 2026-10-02
+
+27 current public workflow/case studies reinforce a practical rule:
+
+**one control, one primary job.**
+
+- tag/NL -> semantics
+- native identity / Character LoRA -> identity
+- Regional -> locality/separation
+- IP-Adapter/reference -> visual identity/style prior
+- pose/line/depth -> geometry
+- Edit/inpaint -> local reconstruction
+- Hires/detailer -> finishing
+
+### Reference + geometry warning
+
+Control/reference sources can contain unwanted information.
+
+If a lineart source carries hair/accessory/clothing shape but you only need pose:
+mask/remove the irrelevant source area before simply increasing competing reference strength.
+
+### Multi-subject reference warning
+
+If the second character becomes reference-like:
+first check whether its unspecified attributes are being filled from the reference prior.
+Explicitly describe the second subject before assuming total adapter takeover.
+
+### Evaluation ladder
+
+`solo -> coexistence -> simple interaction -> relation-heavy`
+
+Each level is a separate capability test.
+
+Full Japanese playbook:
+`LOCAL_ADULT_WORKFLOW_PLAYBOOK_20261002.md`
+
+Research:
+`../research/BATCH_AY_REAL_WORLD_ADULT_WORKFLOW_ARCHETYPES_20261002.md`
