@@ -1206,3 +1206,27 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: 46-image multi-angle character dataset with poor non-frontal identity retention.
 - Value: nominal viewpoint coverage does not guarantee pose-invariant identity.
 
+**S-COMM-081 — Illustrious character plus source-style entanglement**
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1rsqv6y/lora_training_illustrious/
+- Class: `COMMUNITY / TRAINING_PRACTICE`
+- Scope: character and source style captured together.
+- Limitation: practitioner observation, no controlled ablation.
+
+**S-COMM-082 — Illustrious curated-dataset face/style drift**
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1r318hl/helpquestion_sdxl_lora_training_on_illustriousxl/
+- Class: `COMMUNITY / FAILURE_REPORT`
+- Scope: 25-image curated character dataset with remaining face/style drift.
+- Value: curation/caption pruning alone is not sufficient.
+
+**S-COMM-083 — NoobAI V-Pred style-LoRA global tint**
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1vbsj8k/what_am_i_doing_wrong_in_my_lora_training/
+- Class: `COMMUNITY / FAILURE_REPORT`
+- Scope: 21-image style LoRA with unwanted brown tint.
+- Value: palette/context leakage failure example.
+
+**S-COMM-084 — Anima vs Illustrious source-style capture**
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1tdobjq/anima_loras_cant_learn_the_characters_style_no/
+- Class: `COMMUNITY / CROSS_MODEL_REPORT`
+- Scope: same/source-similar data, identity/outfit vs style capture.
+- Limitation: training recipe not a formal controlled benchmark.
+
