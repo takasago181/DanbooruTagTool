@@ -641,3 +641,36 @@ For Anima:
 Research:
 `../research/BATCH_AI_CHARACTER_STYLE_REPRODUCTION_LORA_20261002.md`.
 
+---
+
+## 28. LoRA capacity and character/style evaluation — 2026-10-02
+
+Do not optimize LoRA by rank alone.
+
+Record:
+- rank
+- alpha
+- LR
+- target modules
+- dropout
+- captions
+- steps/timestep distribution
+- trainer path
+
+Character evaluation:
+- identity: human + anime-domain CCIP where applicable
+- editability: unseen pose/background/outfit/camera/style
+
+Style evaluation:
+- style similarity
+- content preservation
+- identity preservation
+- composition freedom
+
+CLIP alone is not sufficient as a style metric.
+
+Before training a character LoRA, consider a reference-adapter baseline where compatible.
+
+Research:
+`../research/BATCH_AJ_LORA_CAPACITY_REFERENCE_AND_EVALUATION_20261002.md`.
+
