@@ -101,6 +101,19 @@ public class Issue228ForgeApiTests
         Assert.Equal(accepted, errors.Count == 0);
         if (!accepted) Assert.Equal(new[] { "Model/hash" }, errors);
     }
+    [Theory]
+    [InlineData("folder", true)]
+    [InlineData("duplicate_basename", false)]
+    [InlineData("folder_hashless", false)]
+    public async Task PngBasenameRecipeResolvesOnlyOneHashDeclaredCheckpoint(string mode, bool accepted)
+    {
+        using var d = new LibraryFixture(); var server = new FakeApi(d) { Mode = mode };
+        var result = await new ForgeGenerationApiClient(new(server)).GenerateAsync("http://localhost:7860",
+            new("1girl, <lora:detail:0.75>", "lowres", Recipe), d.Images);
+        Assert.Equal(accepted, result.Success);
+        Assert.Equal(accepted ? 1 : 0, server.Posts);
+        if (accepted) Assert.Equal("sample", result.Metadata!.Value("Model"));
+    }
     internal sealed class FakeApi(LibraryFixture d, Action<string, string>? writeImage = null) : HttpMessageHandler
     {
         public string Info = Issue226LibraryFoundationTests.Info; public string Mode = ""; public int Posts, Calls, Options; public string? Payload;
@@ -112,7 +125,10 @@ public class Issue228ForgeApiTests
                 var fields = "prompt negative_prompt seed steps sampler_name scheduler cfg_scale width height batch_size n_iter override_settings override_settings_restore_afterwards send_images save_images".Split(' ').Where(f => Mode != "schema" || f != "scheduler").ToDictionary(f => f, _ => new { type = "string" });
                 body = new { paths = new Dictionary<string, object> { ["/sdapi/v1/txt2img"] = new { post = new { requestBody = new { content = new Dictionary<string, object> { ["application/json"] = new { schema = new Dictionary<string, string> { ["$ref"] = "#/components/schemas/Request" } } } } } } }, components = new { schemas = new { Request = new { properties = fields } } } };
             }
-            else if (path == "/sdapi/v1/sd-models") body = new[] { new { title = "sample [abc]", model_name = "sample", hash = "abc" } };
+            else if (path == "/sdapi/v1/sd-models") body = Mode == "duplicate_basename"
+                ? new[] { new { title = "one/sample.safetensors [abc]", model_name = "one_sample", hash = (string?)"abc" }, new { title = "two/sample.safetensors [def]", model_name = "two_sample", hash = (string?)"def" } }
+                : Mode.StartsWith("folder") ? new[] { new { title = "folder/sample.safetensors [abc]", model_name = "folder_sample", hash = Mode == "folder_hashless" ? null : "abc" } }
+                : new[] { new { title = "sample [abc]", model_name = "sample", hash = (string?)"abc" } };
             else if (path == "/sdapi/v1/samplers") body = new[] { new { name = "Euler a" } };
             else if (path == "/sdapi/v1/schedulers") body = new[] { new { label = "Karras" } };
             else if (path == "/sdapi/v1/options") body = new { sd_model_checkpoint = ++Options == 2 && Mode == "restore" ? "wrong" : "original" };

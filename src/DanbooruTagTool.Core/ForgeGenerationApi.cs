@@ -58,6 +58,9 @@ public sealed class ForgeGenerationApiClient : IForgeGenerationApiClient
             samplers.RootElement.EnumerateArray().Select(m => m.GetProperty("name").GetString()!).ToArray(),
             schedulers.RootElement.EnumerateArray().Select(m => m.GetProperty("label").GetString()!).ToArray());
     }
+    private static string TitleBasename(ForgeApiModel model)
+        => Path.GetFileNameWithoutExtension(model.Title.Split(" [")[0].Replace('\\', '/').Split('/')[^1]);
+
     private static ForgeApiModel? Validate(ForgeApiRequest request, ForgeApiCapabilities caps)
     {
         var r = request.Recipe;
@@ -66,7 +69,7 @@ public sealed class ForgeGenerationApiClient : IForgeGenerationApiClient
         if (r.Sampler is not null && !caps.Samplers.Contains(r.Sampler, StringComparer.Ordinal)) throw new ArgumentException("未対応Sampler: " + r.Sampler);
         if (r.Scheduler is not null && !caps.Schedulers.Contains(r.Scheduler, StringComparer.Ordinal)) throw new ArgumentException("未対応Scheduler: " + r.Scheduler);
         if (r.Model is null) return null;
-        var matches = caps.Models.Where(m => m.Title == r.Model || m.Name == r.Model || m.Title.Split(" [")[0] == r.Model).ToArray();
+        var matches = caps.Models.Where(m => m.Title == r.Model || m.Name == r.Model || m.Title.Split(" [")[0] == r.Model || !string.IsNullOrEmpty(m.Hash) && TitleBasename(m) == r.Model).ToArray();
         if (matches.Length != 1) throw new ArgumentException("未対応または曖昧なModel: " + r.Model);
         return matches[0];
     }
@@ -123,8 +126,7 @@ public sealed class ForgeGenerationApiClient : IForgeGenerationApiClient
             // infotext uses the checkpoint basename. Accept only that exact title
             // basename, authenticated by the API-declared hash; never strip an
             // arbitrary prefix from received metadata or accept a hashless alias.
-            var checkpoint = model.Title.Split(" [")[0].Replace('\\', '/').Split('/')[^1];
-            var titleBasename = Path.GetFileNameWithoutExtension(checkpoint);
+            var titleBasename = TitleBasename(model);
             var nameMatches = a.Model == model.Name || hashMatches && a.Model == titleBasename;
             if (!nameMatches || model.Hash is not null && !hashMatches) errors.Add("Model/hash");
         }
