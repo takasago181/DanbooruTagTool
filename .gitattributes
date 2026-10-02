@@ -26,3 +26,15 @@ docs/issue179/runtime/*.json text eol=lf
 docs/issue223/*.csv text eol=lf
 docs/issue223/MANIFEST_V1.json text eol=lf
 docs/issue223/snapshots/*.json -text
+
+# Preserve the archived parity oracle evidence bytes.
+src/DanbooruTagTool.Tests/LegacyCatalogBuild/UnifiedBrowseData/*.csv text eol=lf
+authority/catalog/**/*.gz -text
+authority/catalog/**/*.json text eol=lf
+
+# Source/tool text must not depend on a workstation's autocrlf setting.
+*.cs text eol=lf
+*.ps1 text eol=lf
+*.py text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf

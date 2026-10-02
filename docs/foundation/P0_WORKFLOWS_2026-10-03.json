@@ -1,0 +1,20 @@
+{
+  "baseline_main": "0d76ee2d6df2af6831f88dbfc56436b7bc7daf66",
+  "workflows": [
+    {
+      "id": 358731394,
+      "path": ".github/workflows/issue70_build_compact_shards.yml",
+      "live_state": "disabled_manually"
+    },
+    {
+      "id": 358750430,
+      "path": ".github/workflows/issue70_publish_local_batch.yml",
+      "live_state": "disabled_manually"
+    }
+  ],
+  "live_state_verified_utc": "2026-10-02T23:23:27.038407+00:00",
+  "archive": "docs/foundation/archived-workflows/*.yml.disabled",
+  "other_direct_main_pushes_found": 0,
+  "other_workflows": "Feature/audit branch pushes retained; no blanket cleanup.",
+  "recovery": "Archived YAML retained byte-for-byte; restoring/enabling requires an explicit new need. No main self-merge."
+}

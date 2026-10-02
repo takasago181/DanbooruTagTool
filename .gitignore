@@ -76,3 +76,20 @@ data/generation/audit/
 /translation_quarantine/
 /_local/
 /DanbooruTagTool.lnk
+
+# Historical local validation/recovery outputs (retained on disk, never cleaned).
+/.worktree-*/
+/.staging-*
+/.backup-*
+/.tmp-*
+/.local/
+/.perf-*.csv
+/.forge-start-*.log
+/.production-ui-smoke-*.png
+/stability*.png
+/uia-*.log*
+**/bin/
+**/obj/
+**/TestResults/
+
+/uia161-*.log*
