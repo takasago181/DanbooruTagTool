@@ -912,3 +912,28 @@ Regional separation cannot create semantic understanding the checkpoint lacks.
 Research:
 `../research/BATCH_AN_FAILURE_DRIVEN_CREATION_RECIPES_20261002.md`.
 
+---
+
+## 33. Model profiles and comparison grids — 2026-10-02
+
+Use grids, not showcase pairs.
+
+- columns: model/profile/weight/setting
+- rows: fixed seeds
+
+Use one fixed seed for diagnosis, then a small fixed seed set for robustness.
+
+Anima:
+- Turbo -> fast iteration
+- Aesthetic -> stable final candidate
+- Base -> flexibility/LoRA research
+
+Noob EPS:
+choose portrait/square/landscape resolution from composition before tuning other settings.
+
+Character + style LoRA:
+use a small 2D weight matrix and score identity/style/control separately.
+
+Research:
+`../research/BATCH_AO_MODEL_PROFILES_AND_COMPARISON_GRIDS_20261002.md`.
+
