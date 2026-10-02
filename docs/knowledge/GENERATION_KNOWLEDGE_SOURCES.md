@@ -1891,3 +1891,34 @@ These sources are intentionally lower authority than exact author/runtime docume
   - https://huggingface.co/docs/diffusers/main/quantization/overview
 - Class: `OFFICIAL_RUNTIME`
 - Use: fp16/bf16, attention backend, VAE tiling/slicing, offload, quantization and tradeoffs.
+
+
+---
+
+## 2026-10-02 BATCH_BC output/metadata/auxiliary sources
+
+**S-BC-001 — AUTOMATIC1111 PNG Info / infotext**
+- URLs:
+  - https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features
+  - https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/master/modules/shared_options.py
+- Class: `OFFICIAL_RUNTIME`
+- Use: generation parameters embedded in image metadata and reusable infotext.
+
+**S-BC-002 — Safetensors**
+- URLs:
+  - https://huggingface.co/docs/safetensors/index
+  - https://huggingface.co/docs/safetensors/en/metadata_parsing
+- Class: `OFFICIAL_FORMAT`
+- Use: tensor storage safety/metadata; format is not architecture.
+
+**S-BC-003 — Clip Skip**
+- URL: https://huggingface.co/docs/diffusers/api/pipelines/stable_diffusion/stable_diffusion_3
+- Class: `OFFICIAL_RUNTIME`
+- Use: CLIP hidden-layer selection for prompt embedding.
+
+**S-BC-004 — Textual Inversion**
+- URLs:
+  - https://huggingface.co/docs/diffusers/v0.17.0/en/training/text_inversion
+  - https://huggingface.co/docs/diffusers/api/pipelines/stable_diffusion/text2img
+- Class: `OFFICIAL_RUNTIME`
+- Use: learned token embedding personalization.
