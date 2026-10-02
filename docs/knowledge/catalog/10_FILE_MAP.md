@@ -242,3 +242,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AI_CHARACTER_STYLE_REPRODUCTION_LORA_20261002.md` — 2D character/style reproduction framework: identity vs editability, style vs content preservation, Anima layer/artist-tag interference, style-LoRA weight/timestep tests, subject+style LoRA fusion and AnimeAdapter reference baseline.
 
+- `../research/BATCH_AJ_LORA_CAPACITY_REFERENCE_AND_EVALUATION_20261002.md` — LoRA rank/alpha capacity rules, CCIP anime identity evaluation, style-similarity metrics, human-aligned personalization evaluation, IP-Adapter/AnimeAdapter reference baselines and Character/Style Lab evaluator design.
+
