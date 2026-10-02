@@ -1246,7 +1246,7 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: artistic style descriptors and style similarity.
 - Value: style-specific metric and OOD style-generalization analysis.
 
-**S-EVAL-VISUAL-001 — DiffSim**
+**S-EVAL-VISUAL-001 — DiffSim / visual・style評価用途**
 - URL: https://arxiv.org/abs/2412.14580
 - Class: `RESEARCH`
 - Scope: diffusion-feature instance/style similarity.
@@ -1408,7 +1408,7 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Class: `AUTHOR_GUIDE`
 - Scope: near-1MP portrait/square/landscape resolution set.
 
-**S-PRACTICAL-008 — ComfyUI upscaling handbook**
+**S-PRACTICAL-008 — ComfyUI upscaling handbook / production routing**
 - URL: https://blog.comfy.org/p/upscaling-in-comfyui
 - Class: `OFFICIAL_RUNTIME_GUIDE`
 - Scope: upscale vs enhancement, conservative vs creative processing, production pipeline.
@@ -1624,7 +1624,7 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Key observations: individual identity may work while pair binding swaps attributes; interaction can worsen; regional/area conditioning is a common workaround but may damage overlap/coherence.
 - Limitation: anecdotal/community evidence; no pooled success rate.
 
-**S-AW-004 — T2I-CompBench**
+**S-AW-004 — T2I-CompBench / relation-heavy評価への適用**
 - URL: https://arxiv.org/abs/2307.06350
 - Class: `RESEARCH`
 - Key fact: compositional evaluation separates attribute binding, object relationships, spatial/non-spatial relations and complex compositions.
@@ -1636,7 +1636,7 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Key fact: object co-occurrence, position, count and color are evaluated as distinct compositional properties; spatial relation and attribute binding remain difficult.
 - Audit consequence: count/binding/position need separate predicates.
 
-**S-AW-006 — Regional Prompter current Anima support**
+**S-AW-006 — Regional Prompter / Anima対応matrix 2026-09-04**
 - URL: https://github.com/hako-mikan/sd-webui-regional-prompter/blob/main/README.md
 - Class: `OFFICIAL_RUNTIME`
 - Current 2026-09-04 matrix: Anima Latent yes / Attention yes / Region LoRA no.
