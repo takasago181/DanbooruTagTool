@@ -477,3 +477,19 @@ Current Forge Neo Regional Prompter supports Anima regional text conditioning bu
 Research:
 `../research/BATCH_AQ_REGIONAL_LEARNING_AND_REPRODUCIBILITY_20261002.md`.
 
+---
+
+## Staged conditioning for hard scenes — 2026-10-02
+
+A valid advanced experiment is:
+- establish relation/geometry with minimal early conditioning;
+- introduce style/quality/adapter pressure later;
+- compare against constant conditioning.
+
+Do not use scheduling to mask incorrect count, role, body-site or geometry.
+
+Scheduled success remains a separate assisted runtime configuration.
+
+Research:
+`../research/BATCH_AR_STAGED_CONDITIONING_AND_LEARNING_20261002.md`.
+
