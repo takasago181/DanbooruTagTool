@@ -937,3 +937,24 @@ use a small 2D weight matrix and score identity/style/control separately.
 Research:
 `../research/BATCH_AO_MODEL_PROFILES_AND_COMPARISON_GRIDS_20261002.md`.
 
+---
+
+## 32. Finishing and upscale — 2026-10-02
+
+Finishing is not one operation.
+
+- conservative upscale -> preserve identity/style
+- creative enhancement -> add/re-imagine detail
+- Hires/img2img -> second generation pass
+- detailer/inpaint -> local regeneration
+
+Fix anatomy/structure before final upscale.
+
+For Forge Hires, record second-pass:
+checkpoint / VAE-TE / sampler / scheduler / prompt / negative / CFG / steps / denoise.
+
+For Anima, test second-pass sampler/denoise separately from the first-pass choice.
+
+Research:
+`../research/BATCH_AN_FINISHING_UPSCALE_DETAILER_20261002.md`.
+
