@@ -177,3 +177,57 @@ WAI17 / NoobAI / Animaを同一扱いしない。
 
 - `research/HARD_FETISH_SOURCES_20260909.md`
 - `research/BATCH_N_SCENE_INTENT_DISCOVERY_WORKFLOW_20260917.md`
+
+---
+
+## Adult-generation mastery layer — 2026-10-02
+
+The adult knowledge lane now has a practical learning architecture, not only a hard-tag audit.
+
+Core flow:
+
+`adult validity -> subjects -> relation/role -> target/body-site -> geometry/topology -> state/count/material -> visibility -> presentation -> model serialization -> evaluation`
+
+### Adult validity
+Generation optimization is limited to clearly adult, consensual/adult-fantasy scope. Ambiguous age/consent is invalid before Prompt tuning.
+
+### Model intent boundary
+Content-rating/safety defaults are model-specific:
+- NoobAI author defaults are SFW-oriented;
+- WAI exposes explicit rating surfaces;
+- Anima has its own safety-tag conventions.
+
+Do not use a SFW content-filter Negative unchanged for an adult-target capability test and then call the target unsupported.
+
+### Adult failure axes
+Keep separate:
+- count
+- identity
+- role
+- body-site ownership
+- contact/relation
+- geometry/topology
+- visibility
+- state/timing/material
+- anatomy collateral
+- censor/style context leakage
+- Negative collision
+- LoRA contamination
+- assisted/postprocess rescue
+
+### Relation-focused learning
+For difficult multi-subject scenes:
+- stable subject IDs/names are a useful experimental aid;
+- keep relation descriptions focused on who is where and how they relate;
+- unrelated style/background/clothing prose can be serialized separately;
+- helper LLM/VLM captions remain editable suggestions, not semantic authority.
+
+### Censor/context prior
+If censor/watermark-like artifacts persist:
+- test whether an artist/concept surface imports them;
+- do not assume stronger Negative is the only solution;
+- treat as possible learned context/style prior.
+
+Full research:
+`../research/BATCH_Y_ADULT_GENERATION_STRUCTURAL_MASTERY_20261002.md`.
+
