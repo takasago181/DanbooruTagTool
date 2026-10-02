@@ -760,3 +760,26 @@ Use CCIP as an anime identity screening signal where applicable, but pair it wit
 Research:
 `../research/BATCH_AN_CHARACTER_IDENTITY_CORE_EVALUATION_20261002.md`.
 
+---
+
+## 33. Base family changes LoRA behavior — 2026-10-02
+
+Do not assume the same dataset produces the same kind of LoRA on:
+- Illustrious/WAI
+- NoobAI
+- Anima
+
+Compare independently trained adapters.
+
+Watch for:
+- identity vs style balance
+- source-style entanglement
+- palette/tint leakage
+- editability
+- default outfit binding
+
+Do not copy the same hyperparameters across architectures merely to make the comparison “fair”; use each family's valid baseline and keep the dataset/evaluation target fixed.
+
+Research:
+`../research/BATCH_AO_ILL_NOOB_CHARACTER_STYLE_TRAINING_20261002.md`.
+
