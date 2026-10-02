@@ -1569,3 +1569,21 @@ Training evidence must include the full trainer/dataset/optimization/adapter ide
 Research:
 `research/BATCH_AS_LORA_TRAINING_EVALUATION_METHOD_20261002.md`.
 
+## 16.11 Teaching curriculum
+
+The corpus now has a canonical adult-generation teaching path.
+
+Core teaching rule:
+`diagnose -> smallest intervention -> fixed comparison -> explain evidence level`.
+
+Success is explicitly split into:
+- possibility
+- reliability
+- salvageability.
+
+Canonical artifact:
+`current/ADULT_IMAGE_GENERATION_TEACHING_CURRICULUM.md`.
+
+Research:
+`research/BATCH_AT_TEACHING_CURRICULUM_AND_NATIVE_HOOKS_20261002.md`.
+
