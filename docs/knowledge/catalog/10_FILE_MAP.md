@@ -230,3 +230,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AC_NOOBAI_EXACT_IDENTITY_DATASET_CONTROL_20261002.md` — NoobAI EPS/V-Pred exact checkpoint hashes, author dataset exposure window, current-vs-training tag freshness boundary and NoobXL ControlNet assisted-control path.
 
+- `../research/BATCH_AD_POSE_DEPTH_REGION_INPAINT_ESCALATION_20261002.md` — control escalation framework for pose, depth, lineart, region/mask and inpaint; separates geometry, semantic binding, preprocessing and edit failure.
+
