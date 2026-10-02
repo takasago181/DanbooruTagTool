@@ -302,3 +302,5 @@ Do not create a parallel genre numbering scheme.
 - `../research/BATCH_BA_SAMPLING_GUIDANCE_FOUNDATIONS_20261002.md` — 基礎B。Sampler/solverとScheduler/noise scheduleの用語境界、Steps、sigma/timestep、CFG、Negative、weightを整理。
 - `../research/BATCH_BB_EDITING_CONTROL_MEMORY_FOUNDATIONS_20261002.md` — 基礎C。img2img、denoise、inpaint mask、ControlNet/preprocessor、LoRA、VRAM、precision、quantization、offload、batchを整理。
 - `../current/IMAGE_GENERATION_FOUNDATIONS_JA.md` — 日本語の基礎教科書。モデル別レシピより前に読むcurrent foundation guide。
+
+- `../research/BATCH_BC_OUTPUT_METADATA_AUXILIARY_FOUNDATIONS_20261002.md` — 基礎D。PNG/infotext、model hash、safetensors、Clip Skip、Textual Inversion/embeddingを整理。
