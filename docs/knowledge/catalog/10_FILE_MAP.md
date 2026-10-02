@@ -262,3 +262,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AM_PRACTICAL_CREATION_WORKFLOW_20261002.md` — end-to-end practical creation workflow: fast exploration, modular prompt construction, incremental LoRA testing, structural gate, Hires/upscale, assisted editing, local repair and reproducibility metadata.
 
+- `../research/BATCH_AN_FAILURE_DRIVEN_CREATION_RECIPES_20261002.md` — practical symptom-to-fix recipes for LoRA identity/style interference, pose lock, background entanglement, multi-character mixing, regional prompting, ControlNet preprocessing, img2img, Hires/upscale drift and reference-edit rigidity.
+
