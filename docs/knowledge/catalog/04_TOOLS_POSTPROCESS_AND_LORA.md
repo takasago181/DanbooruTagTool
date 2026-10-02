@@ -215,3 +215,24 @@ Exact local runtime commit is still required for promotion-critical runtime clai
 - `../research/BATCH_M_JAPANESE_PRACTICAL_SOURCE_AUDIT_NOOB_ANIMA_20260913.md`
 - `../research/HARD_FETISH_SOURCES_20260909.md`
 - `../research/BATCH_A_FALSE_ASSUMPTION_PREVENTION_20260909.md`
+
+
+---
+
+## Foundation mechanics — 2026-10-02
+
+Tool usage is now anchored to the current Japanese foundation guide:
+`../current/IMAGE_GENERATION_FOUNDATIONS_JA.md`.
+
+Key distinctions before advanced troubleshooting:
+
+- img2img = source latent + added noise + denoising, not a simple image filter;
+- inpaint = mask-scoped regeneration; mask scope and denoise jointly determine invasiveness;
+- ControlNet preprocessor output and Control model are separate failure points;
+- Control has strength and start/end timing axes;
+- LoRA is a low-rank adapter, not a second checkpoint pasted on top;
+- VRAM optimization spans precision, attention, VAE tiling/slicing, offload and quantization;
+- memory-saving changes may alter speed/reproducibility and must be logged when evidence-critical.
+
+Research:
+- `../research/BATCH_BB_EDITING_CONTROL_MEMORY_FOUNDATIONS_20261002.md`
