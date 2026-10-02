@@ -260,3 +260,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AL_REFERENCE_ADAPTER_VS_LORA_20261002.md` — method-selection map for native tags, IP-Adapter/reference conditioning, character/style LoRA, InstantStyle/StyleAligned, AnimeAdapter and StoryDiffusion sequence consistency.
 
+- `../research/BATCH_AM_PRACTICAL_CREATION_WORKFLOW_20261002.md` — end-to-end practical creation workflow: fast exploration, modular prompt construction, incremental LoRA testing, structural gate, Hires/upscale, assisted editing, local repair and reproducibility metadata.
+
