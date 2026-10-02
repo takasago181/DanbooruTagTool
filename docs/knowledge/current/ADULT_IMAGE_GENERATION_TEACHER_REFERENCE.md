@@ -1,518 +1,201 @@
-# Adult Image Generation — Teacher Reference
+# 成人向け画像生成 — 教師用リファレンス
 
 Owner: Issue #44 `KNOWLEDGE:#44`  
-Role: operational reference for teaching/debugging clearly adult, consensual/adult-fantasy image generation.
+対象: 成人であることが明確な、合意的・成人ファンタジーの画像生成  
+役割: **先生役が何を聞き、どの正本へ案内し、どう判定するか**を定める。
 
-This file is not the evidence authority. It is the fast teaching view over the Claim Registry and focused research batches.
+この文書にモデル設定値や詳細な診断表を重複掲載しない。
 
----
+## 1. 先生役の基本姿勢
 
-## 1. First question: what is actually failing?
+最初から「最強Prompt」を渡さない。
 
-Never begin with “add more tags”.
+順番:
+1. 目標を構造化する
+2. 再現条件を確認する
+3. 失敗を1種類に絞る
+4. 1変数だけ変える
+5. 結果が何を示したか説明する
+6. 未確定部分を残す
 
-Classify the failure first.
+成功判定も分ける。
 
-| Failure | Typical symptom | First diagnostic | First intervention |
-|---|---|---|---|
-| concept/trigger | target idea absent | isolate the concept | canonical/model trigger test |
-| identity | wrong character / face | A-only / B-only | simplify identity, native vs LoRA |
-| count | wrong number of subjects/items | explicit count check | simplify scene; count stress test |
-| binding | traits/roles swapped | subject ownership audit | stable IDs, regional text/reference |
-| geometry | pose/contact shape wrong | pose/depth review | pose/depth/line control |
-| visibility | target off-frame/hidden | camera/occlusion audit | camera/framing/depth |
-| local anatomy | hand/limb malformed | relation already correct? | inpaint/detailer |
-| style | wrong rendering language | style-only baseline | native style / style LoRA/reference |
-| LoRA interference | added adapter breaks prior success | remove adapters one by one | weight/schedule/mask |
-| Hires drift | good base, bad final | compare first vs second pass | inspect Hires sampler/denoise/etc. |
+- **可能性**: 1枚は成功した
+- **安定性**: 複数seedで繰り返し成功する
+- **救済可能性**: Control/Edit等を使えば完成できる
 
----
+修復済みの完成画像だけを見て「Promptだけで安定」とは言わない。
 
-## 2. The minimum diagnostic package
+## 2. 最初に集める情報
 
-Ask the learner for:
+可能なら元PNG / workflow。
 
-- exact checkpoint/profile
-- original PNG with metadata if possible
-- positive prompt
-- negative prompt
+最低限:
+- checkpoint/profile
+- Prompt / Negative
 - seed
-- resolution/aspect ratio
-- sampler/scheduler
-- steps/CFG
-- every LoRA + weight
-- ControlNet/reference/regional state
-- Hires/img2img/inpaint state
+- 解像度
+- Sampler / Scheduler
+- Steps / CFG
+- VAE
+- LoRA + weight
+- Regional / Control / Reference
+- img2img / inpaint / Hires
+- runtime/version
 
-If metadata is unavailable, reconstruct only what can be verified and mark the rest unknown.
+分からない項目は推測せず「不明」とする。
 
----
+## 3. 参照先
 
-## 3. Model starting cards
+| 相談内容 | 参照する正本 |
+|---|---|
+| 用語が分からない | `IMAGE_GENERATION_FOUNDATIONS_JA.md` |
+| NoobAI / Animaの設定 | `PRACTICAL_GENERATION_NOOB_ANIMA.md` |
+| 何が壊れているか | `ADULT_IMAGE_GENERATION_DECISION_TREE.md` |
+| どう学ぶか | `ADULT_IMAGE_GENERATION_TEACHING_CURRICULUM.md` |
+| Regional / Reference / Editの組み方 | `LOCAL_ADULT_WORKFLOW_PLAYBOOK_20261002.md` |
+| Claimが確定か | `CLAIM_REGISTRY.csv` |
+| 未解決か | `HOLD_CONFLICT_REGISTER.md` |
 
-These are starting baselines, not universal maxima.
+## 4. 先生役が最初に分類する失敗
 
-### Anima Base / Aesthetic
-- normal generation: about 30–50 steps
-- CFG 4–5
-- `er_sde` as neutral sharp-line reference
-- Euler a / DPM++ 2M SDE GPU are alternative rendering behaviors
-- weights often need stronger values than conventional SDXL
-- tags and natural language can be mixed
-- multi-character prompts benefit from identity + basic appearance rather than names only
+少なくとも次を混ぜない。
 
-### Anima Turbo
-- CFG 1
-- 8–12 steps
-- fast exploration
-- lower diversity / stronger default behavior
+- 概念が出ない
+- 人数が違う
+- identityが違う
+- A/Bの属性が混ざる
+- 役割が逆
+- 身体部位の持ち主が逆
+- relationが成立しない
+- pose/geometryが違う
+- 画面外・隠れ
+- 局所anatomy
+- LoRA干渉
+- Regional境界
+- Hires/second-pass崩れ
 
-### NoobAI XL 1.1 EPS
-- Euler a
-- CFG 5–6
-- 25–30 steps
-- around 1MP
-- native tag order matters as a baseline
-- training-era tag exposure must be distinguished from current Danbooru canonical identity
+詳しい分岐はDecision Treeに一本化する。
 
-### WAI Illustrious v17
-- Forge Neo author baseline
-- Euler a
-- 15–30 steps
-- CFG 5–7
-- avoid giant quality stacks / long generic Negative stacks
-- Hires example is model-scoped, not universal
+## 5. 1変数A/Bの教え方
 
----
+悪い比較:
+- Prompt
+- CFG
+- Sampler
+- LoRA weight
+を同時に変更。
 
-## 4. Teaching prompt architecture
+良い比較:
+- seed固定
+- 他条件固定
+- 1項目だけ変更
+- 可能なら複数の固定seedへ拡張
 
-Keep four logical modules:
+結果は「良くなった/悪くなった」だけでなく、
+**どの軸が変わったか**を記録する。
 
-### CHARACTER
-Who is present and identity-defining features.
+例:
+- identity改善
+- relation悪化
+- visibility改善
+- style固定化
 
-### RELATION / SCENE
-Count, role, position, contact/relation, camera, visibility.
+## 6. Promptを続けるか、別手段へ上げるか
 
-### STYLE
-Artist/style/rendering/quality.
+Promptだけを延々書き直さない。
 
-### ENVIRONMENT
-Background, props, lighting.
+標準教材では:
+- 単体概念は出る
+- 最小Promptを試した
+- 表現を2系統試した
+- 4 seed中3以上で同じ構造失敗
 
-During diagnosis change only one module when possible.
+なら、失敗種類に合う最小の補助手段を比較する。
 
----
+これは「Promptでは絶対不可能」の証明ではなく、学習効率上の切替点。
 
-## 5. When to change seed vs Prompt
+## 7. 道具の担当を混ぜない
 
-### Change seed first when
-- requested concepts consistently appear;
-- identities are correct;
-- relation is basically correct;
-- only aesthetic layout/expression/background arrangement varies.
+- タグ/自然文: 意味
+- Character LoRA/native identity: キャラ
+- Regional: 場所ごとの分離
+- Reference: 見た目の参照
+- pose/depth/line: geometry
+- Edit/inpaint: 局所修正
+- Hires/detailer: 仕上げ
 
-### Change representation/control when
-- the same semantic failure repeats across several diagnostic seeds;
-- count is repeatedly wrong;
-- role/ownership repeatedly swaps;
-- relation repeatedly disappears;
-- target is consistently off-frame.
+副作用は別途採点する。
 
----
+## 8. LoRAを教える時
 
-## 6. Character LoRA teaching
+最初から複数LoRAを積まない。
 
-Test in this order:
+順番:
+1. base
+2. LoRA単体
+3. weight比較
+4. unseen pose/outfit/background
+5. 他style
+6. 複数人物
+7. interaction
 
-1. base/native character if available
-2. character LoRA only
-3. unseen pose
-4. unseen outfit
-5. unseen background
-6. alternate style
-7. final scene
-8. multi-character use if required
+「1人の顔が似る」と「自由なsceneで使える」は別能力。
 
-If only step 1–2 work, the LoRA has fidelity but weak editability.
+学習側を疑う症状:
+- 常に同じ背景
+- 常に同じpose
+- 特定partnerへ固定
+- 服を変えられない
+- styleまで強制
+- interaction時だけ破綻
 
-Do not fix poor editability by only increasing LoRA weight.
+この場合は推論設定だけでなくdatasetを監査する。
 
----
+## 9. 複数人物を教える時
 
-## 7. Style LoRA teaching
+能力段階:
+`1人 -> 2人共存 -> 単純interaction -> relation-heavy`
 
-Test:
-
-1. style LoRA alone
-2. same-seed weight sweep
-3. unseen character
-4. non-character content
-5. unusual composition
-6. character LoRA + style LoRA
-
-Score:
-- style fidelity
-- identity/content preservation
-- composition freedom
-- prompt adherence
-- leakage.
-
-High style similarity with content lock is not full success.
-
----
-
-## 8. Two-subject / relation diagnosis
-
-Always check independently:
-
+各段階で:
 - count
-- identity A
-- identity B
-- role ownership
-- body-part ownership
-- contact/relation
-- camera visibility
-- occlusion
-- local anatomy
+- identity A/B
+- role
+- body-site ownership
+- relation
+- visibility
+- geometry
+- anatomy
+を必要分だけ採点。
 
-A scene containing both subjects can still fail binding completely.
+2人が画面にいるだけでは成功ではない。
 
----
+## 10. 証拠の扱い
 
-## 9. Directional-language warning
+- 1 image: local case
+- fixed-seed A/B: 原因切り分け
+- 複数seed反復: 安定性の手掛かり
+- model/versionを跨ぐ: 別Claim
+- Control/LoRA/Edit使用: assisted lane
+- final retouch: base capabilityとは分離
 
-Do not use left/right alone as proof of:
-- actor/receiver
-- body-part owner
-- topology.
+## 11. 教師役が断定しないもの
 
-Anima community evidence shows frame-relative and subject-relative direction can invert across seeds.
+HOLD中のものを「定説」として教えない。
 
-When exact geometry matters:
-- stable subject IDs
-- pose/reference
-- regional conditioning
-are stronger tools.
+特に:
+- Anima tag-only vs 短い自然文併用
+- NoobAI hard relation/countの限界
+- 複数Character LoRAのinteraction安定性
+- 万能なNegative
+- 万能なHires数値
+- 1つのSamplerが常に最良
 
----
+## 12. 先生役の最終目標
 
-## 10. Regional/control decision
+学習者が、
+「何を変えたら直った」ではなく
 
-### Need semantic separation
-Use regional text/attention.
+**なぜその変更を試し、何が改善し、何がまだ未確定か**
 
-### Need LoRA/reference isolation
-Use adapter localization where the runtime actually supports it.
-
-### Need skeletal geometry
-Use pose.
-
-### Need front/back/overlap
-Use depth.
-
-### Need contour/layout
-Use edge/line.
-
-### Need only one local correction
-Use inpaint/detailer.
-
-Current Forge Neo Anima Regional Prompter:
-- regional text: yes
-- Region LoRA: no
-
-Current ComfyUI:
-- native experimental LoRA hooks
-- mask-bound conditioning
-- timestep ranges
-- hook scheduling
-provide a separate local/scheduled adapter research path.
-
----
-
-## 11. Regional interaction warning
-
-More isolation is not always better.
-
-Strong isolation can:
-- reduce identity bleed;
-- create hard region boundaries;
-- reduce inter-region awareness;
-- damage natural interaction.
-
-Teach the weakest regional strength that solves the actual contamination.
-
----
-
-## 12. Staged conditioning
-
-Advanced tool.
-
-Use only after the constant Prompt is understood.
-
-Useful test:
-- minimal constant
-- full constant
-- minimal -> full later
-- LoRA all steps
-- LoRA late only
-
-Potential use:
-let early denoising establish scene structure while later conditioning adds style/detail.
-
-Do not use scheduling to hide wrong count/role/geometry.
-
----
-
-## 13. Negative Prompt diagnosis
-
-Do not default to giant generic negatives.
-
-Ask:
-- is the unwanted feature actually from the positive concept/artist prior?
-- does the Negative overlap the desired unusual anatomy/count?
-- is the failure local and better repaired by inpaint?
-
-Keep separate:
-- ordinary Negative
-- positive-prior entanglement
-- NegPiP-like assisted suppression
-- local postprocess.
-
----
-
-## 14. Hires / finishing diagnosis
-
-Before Hires:
-- global semantics correct?
-- count correct?
-- identities correct?
-- relation correct?
-- anatomy acceptable enough?
-
-Forge Hires is a configurable second generation pass, not a pure resize.
-
-When Hires breaks a good source inspect:
-- Hires checkpoint
-- Hires sampler/scheduler
-- denoise
-- Hires prompt/negative
-- CFG/steps
-- adapter/control state.
-
----
-
-## 15. Local repair rule
-
-Use local repair if:
-- global scene is accepted;
-- defect is spatially limited.
-
-Examples of defect classes:
-- hand/finger
-- face/identity detail
-- small body region
-- localized clothing/object detail.
-
-Do not use a detailer to “fix”:
-- wrong actor
-- wrong target
-- wrong count
-- wrong global pose.
-
----
-
-## 16. LoRA training teaching
-
-Do not teach “train N steps”.
-
-Teach:
-- dataset effective diversity
-- caption policy
-- mutable vs intrinsic features
-- rank/alpha/LR/duration interaction
-- intermediate checkpoint saving
-- fixed visual evaluation suite
-- OOD/generalization testing.
-
-Choose checkpoint from generation behavior, not loss alone.
-
----
-
-## 17. Failure journal labels
-
-Recommended top-level labels:
-
-- CONCEPT_MISSING
-- COUNT_WRONG
-- IDENTITY_WRONG
-- ATTRIBUTE_LEAK
-- ROLE_SWAP
-- BODY_SITE_OWNER_WRONG
-- RELATION_MISSING
-- GEOMETRY_WRONG
-- WRONG_DEPTH_ORDER
-- TARGET_OCCLUDED
-- CAMERA_WRONG
-- LOCAL_ANATOMY
-- STYLE_DRIFT
-- LORA_INTERFERENCE
-- REGIONAL_BOUNDARY
-- HIRES_DRIFT
-- EDIT_FAILURE
-
-A learner should be able to apply one primary label before changing settings.
-
----
-
-## 18. One-session teaching template
-
-### Question
-One narrowly defined skill.
-
-### Baseline
-Exact reproducible configuration.
-
-### Diagnostic seed set
-Small fixed set.
-
-### Evaluation predicates
-Defined before generation.
-
-### Single intervention
-Only one main change.
-
-### Result
-Pass/fail per predicate.
-
-### Conclusion
-- possibility?
-- reliability?
-- salvageability?
-
-### Next lesson
-One unresolved variable.
-
----
-
-## 19. Teacher response examples by failure class
-
-### “Characters are mixing”
-1. test each identity alone
-2. test pair without LoRAs if model knows them
-3. add LoRAs one at a time
-4. simplify shared style/context
-5. regional text
-6. localized adapter/reference/inpaint
-
-### “The relation is wrong”
-1. strip style/background
-2. keep count + IDs + relation + camera
-3. multi-seed check
-4. add pose/depth if geometry is limiting
-5. restore style/identity modules afterward
-
-### “It only works in one seed”
-Treat as possibility, not reliability.
-
-### “Hires ruins it”
-Keep the accepted base image; diagnose the second pass independently.
-
-### “Training loss looks good but LoRA is bad”
-Compare saved intermediate checkpoints with the fixed evaluation suite.
-
----
-
-## 20. Teacher readiness checklist
-
-Before giving confident guidance, verify:
-
-- exact model family/version known?
-- tool/runtime supports the claimed feature?
-- plain vs assisted capability distinguished?
-- model-specific author baseline known?
-- community advice labeled as community?
-- one-variable test possible?
-- result can be reproduced?
-- any known HOLD/conflict relevant?
-
-If not, teach the test rather than pretending the answer is settled.
-
----
-
-## 21. Proxy / replacement teaching pattern
-
-When the target character is not known natively or two LoRAs contaminate each other:
-
-1. create a base pair whose geometry and interaction already work;
-2. prefer a proxy with a similar silhouette/pose/large traits;
-3. replace only the proxy region;
-4. keep metadata synchronized;
-5. audit relation again after replacement.
-
-Teach four coupled controls:
-- mask size
-- base preservation
-- local adapter/prompt pressure
-- region overlap
-
-Goal:
-**minimum necessary local rewrite**, not maximum regional freedom.
-
----
-
-## 22. Dataset-first diagnosis
-
-When a LoRA is “too sticky”, inspect dataset correlation before trainer settings.
-
-Ask:
-- What unwanted factor is constant?
-- Was it captioned?
-- Did the tagger miss it?
-- Are there counterexamples?
-- Can it be changed in validation?
-
-Do not prescribe more training to fix a dataset entanglement problem.
-
-
-
----
-
-## 23. 日本語診断正本とPrompt打ち切り基準
-
-実際の授業・デバッグでは、まず次を使う:
-
-`ADULT_IMAGE_GENERATION_DECISION_TREE.md`
-
-標準gate:
-
-- concept単体成功
-- minimal Prompt済み
-- conciseな別表現1系統済み
-- 固定4 seed中3以上で同じprimary structural failure
-
-ここまで揃ったら、同じ意味のPromptを書き直し続けず、
-failure classに対応するRegional / reference / pose / depth / inpaintへ進む。
-
-この3/4はproject teaching heuristicであり、
-Prompt-only不可能の科学的証明ではない。
-
-### NoobAI EPS adult注意
-
-公式推奨例は `safe` positive / `nsfw` Negative。
-成人向けtestではsafety/rating conditioningをEvidence Identityへ含める。
-
-### Anima adult注意
-
-公式はtags/NL/mixed promptとsafety tagsを説明しているが、
-hard relation bindingのreliability benchmarkではない。
-
-recent communityでは、
-single identity成功 -> pair attribute swap、
-Regional separation -> overlap/coherence悪化
-の両方が報告されている。
-
-したがって先生役は、
-`identity -> coexistence -> interaction -> regional`
-の順で試験する。
+を説明できる状態にする。
