@@ -1332,3 +1332,24 @@ External style explorers are discovery aids, not semantic/model authority.
 Detail:
 `research/BATCH_AL_NATIVE_STYLE_VS_STYLE_LORA_20261002.md`.
 
+---
+
+## 16.4 Identity / default outfit / variant factoring — 2026-10-02
+
+Character LoRA objectives are explicitly separated:
+
+1. identity-only
+2. identity + default outfit
+3. identity + switchable variants
+
+Evaluation separates:
+- identity
+- default outfit recall
+- outfit/hair/accessory mutability
+- OOD generalization.
+
+Do not assume a character tag or LoRA trigger automatically represents the official outfit.
+
+Detail:
+`research/BATCH_AM_CHARACTER_IDENTITY_OUTFIT_FACTORING_20261002.md`.
+
