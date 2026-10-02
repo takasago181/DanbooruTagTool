@@ -889,3 +889,21 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: image + mask local editing.
 - Value: supports keeping local reconstruction separate from base generation.
 
+**S-RESEARCH-009 — T2ICountBench**
+- URL: https://arxiv.org/abs/2503.06884
+- Class: `RESEARCH`
+- Scope: numerical adherence / count-specific T2I evaluation.
+- Value: exact count degrades with count and is not reliably repaired by simple prompt refinement.
+
+**S-RESEARCH-010 — PreciseCam**
+- URL: https://arxiv.org/abs/2501.12910
+- Class: `RESEARCH`
+- Scope: explicit intrinsic/extrinsic camera control.
+- Value: demonstrates camera geometry as a control axis distinct from semantic text.
+
+**S-RESEARCH-011 — Viewpoint Tokens**
+- URL: https://arxiv.org/abs/2604.19954
+- Class: `RESEARCH`
+- Scope: learned parametric camera/viewpoint tokens.
+- Value: corroborates limits of natural-language-only precise camera control.
+
