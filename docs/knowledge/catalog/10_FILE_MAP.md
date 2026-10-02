@@ -278,3 +278,6 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AS_LORA_TRAINING_EVALUATION_METHOD_20261002.md` — practical LoRA study method: intermediate-checkpoint visual evaluation, fixed OOD prompt suites, effective training exposure, full training identity and determinism caution.
 
+- `../current/ADULT_IMAGE_GENERATION_TEACHING_CURRICULUM.md` — canonical teaching sequence from runtime literacy through adult relation binding, LoRA interference, Regional/control, repair, finishing and training evaluation.
+- `../research/BATCH_AT_TEACHING_CURRICULUM_AND_NATIVE_HOOKS_20261002.md` — teaching-method synthesis plus current ComfyUI native LoRA hook/mask/timestep primitives and recent multi-character practice.
+
