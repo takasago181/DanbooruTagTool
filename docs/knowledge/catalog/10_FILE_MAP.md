@@ -234,3 +234,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AE_COUNT_CAMERA_VISIBILITY_LIMITS_20261002.md` — exact-count limitations, count-specific evaluation, camera/viewpoint as a distinct control axis and visibility/crop diagnostics for relation-heavy scenes.
 
+- `../research/BATCH_AF_ANATOMY_OCCLUSION_LOCAL_REPAIR_20261002.md` — separates relation correctness from local anatomy, adds hand-repair research, occlusion/depth failure classes and postprocess-assisted anatomy evaluation.
+
