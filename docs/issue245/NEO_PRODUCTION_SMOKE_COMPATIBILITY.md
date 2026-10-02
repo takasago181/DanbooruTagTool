@@ -15,3 +15,5 @@ A separate first request returned HTTP500 before rendering because the updated F
 - Used as behavior/protocol reference only; clean DTT adapter correction. No copied/ported AGPL source.
 
 Scope: close the real production acceptance gap for #228/#245. No new workspace, schema migration, authority/catalog change, parser engine or service.
+
+PNG-derived Recipe resolution also accepts this exact title basename only for one hash-declared capability entry. Duplicate basenames and hashless aliases are rejected before any generation POST. Three integration cases verify one bounded real-PNG readback and both refusals.
