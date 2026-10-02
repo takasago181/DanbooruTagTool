@@ -153,3 +153,18 @@ v1 core:
 9. #44へcheckpoint
 
 research原本を整理目的だけで削除しない。同じcurrent status文章を複数ファイルへコピーしない。
+
+
+## 日本語説明ルール
+
+知識班の人間向け説明は**日本語を主、英語は補助**とする。
+
+- 本文は日本語で書く。
+- 専門用語は原則として `日本語の意味（英語原語）` の順にする。
+- 英語見出し・英語略語・英語専門語を連続させて説明を済ませない。
+- 初出では、その用語が「何をするものか」を日本語で説明する。
+- Model名、LoRA名、Sampler名、タグ、Prompt、コード識別子は原文を保持してよい。
+- Claim / Source が英語でも、ユーザー向け要約は日本語へ咀嚼する。
+- canonical English Promptを日本語化する規則ではない。説明言語とモデル入力を分離する。
+
+詳細な恒久ルールは `docs/project/PERMANENT_RULES.md` の `User-facing language invariant` を参照する。
