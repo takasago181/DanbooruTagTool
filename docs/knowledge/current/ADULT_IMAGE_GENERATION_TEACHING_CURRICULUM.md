@@ -1,532 +1,232 @@
-# Adult Image Generation Teaching Curriculum
+# 成人向け画像生成 — 学習カリキュラム
 
 Owner: Issue #44 `KNOWLEDGE:#44`  
-Scope: clearly adult, consensual/adult-fantasy image generation  
-Primary practical families: Anima / NoobAI XL / Illustrious-WAI  
-Purpose: make the knowledge corpus teachable, testable and usable during real generation.
+対象: 成人であることが明確な、合意的・成人ファンタジーの二次元ローカル生成  
+役割: **学ぶ順番・演習・合格条件だけを定める**。
 
----
+モデル固有設定は `PRACTICAL_GENERATION_NOOB_ANIMA.md`、失敗診断はDecision Treeを見る。
 
-## 0. Teaching doctrine
+## レベル0 — 再現できる
 
-Do not teach by handing over one giant “best prompt”.
-
-Teach:
-1. what the current target is;
-2. what the model/tool is expected to control;
-3. what failed;
-4. what single change is being tested;
-5. what the result proves;
-6. what remains uncertain.
-
-Every exercise distinguishes:
-
-- **Possibility** — one successful sample exists.
-- **Reliability** — repeated success under fixed evaluation.
-- **Salvageability** — failed generation can be repaired through assisted tools.
-
-A polished rescued image is not evidence of plain-model reliability.
-
----
-
-## 1. Module A — Runtime literacy
-
-### Learner must understand
-- exact checkpoint/profile
+学ぶ:
+- checkpoint/profile
 - seed
-- resolution/aspect ratio
-- sampler/scheduler
-- steps
+- 解像度
+- Sampler / Scheduler
+- Steps / CFG
+- Prompt / Negative
+- metadata保存
+
+演習:
+同じ条件をmetadataから再生成し、1項目だけ変える。
+
+合格:
+「何を固定し、何を変えたか」を説明できる。
+
+## レベル1 — 基礎原理を説明できる
+
+学ぶ:
+- 潜在表現（latent）
+- VAE
+- Tokenizer / Text Encoder
+- seedと初期noise
+- Sampler / Scheduler
 - CFG
-- positive/negative conditioning
-- LoRA loading and weights
-- Hires/img2img/inpaint
-- metadata/workflow preservation
+- Negative
 
-### Exercise
-Generate one simple adult single-subject image with:
-- one fixed seed
-- one alternate seed
-- one sampler change
+教材:
+`IMAGE_GENERATION_FOUNDATIONS_JA.md`
 
-### Pass condition
-Learner can explain which variables changed and can reproduce the baseline from metadata.
+合格:
+`Prompt -> 条件付け -> ノイズ除去 -> VAE -> 画像`
+を自分の言葉で説明できる。
 
----
+## レベル2 — 単純な1人sceneを作る
 
-## 2. Module B — Prompt decomposition
+学ぶ:
+- 最小Prompt
+- camera/framing
+- seed差
+- style/backgroundを後から足す
 
-Teach four modules:
+演習:
+同じ成人キャラを、構図だけ変えて複数seedで生成。
 
-### CHARACTER
-Identity and stable appearance.
+合格:
+「概念失敗」と「単なる構図差」を分けられる。
 
-### RELATION / SCENE
-Count, role, position, contact/relation, camera, visibility.
+## レベル3 — identityを扱う
 
-### STYLE
-Artist/style/rendering/quality.
+学ぶ:
+- model native character
+- Character LoRA
+- Reference
+- identity featureの採点
 
-### ENVIRONMENT
-Background, props, lighting.
+演習:
+同じキャラで:
+- 別pose
+- 別背景
+- 別衣装
+- 別style
+を試す。
 
-### Exercise
-Start from a reference and write a **structure-only** representation without character/style/background detail.
+合格:
+似ているだけでなく、**identity以外を変更できる**。
 
-Then add:
-1. identity;
-2. style;
-3. environment
-one at a time.
+## レベル4 — styleを扱う
 
-### Pass condition
-Learner can identify which added module first causes a failure.
+学ぶ:
+- native artist/style
+- Style LoRA
+- Reference style
+- content leakage
 
----
+演習:
+同じstyleを、訓練例と違うsubject/構図へ適用。
 
-## 3. Module C — Seed literacy
+合格:
+styleを保ちながら内容を変更できる。
 
-### Exercise
-Run the same minimal prompt over a fixed small seed set.
+## レベル5 — 2人を分離する
 
-Label each output:
-- semantic pass/fail
-- composition variation
-- local anatomy issue
-- visibility issue
+順番:
+1. 2人、interactionなし
+2. 相対位置
+3. 単純な接触
+4. 重なり・遮蔽あり
 
-### Pass condition
-Learner can distinguish:
-- repeated semantic failure -> change representation/control
-from
-- seed-level aesthetic variation -> search seeds.
-
----
-
-## 4. Module D — Single-character reproduction
-
-### Skills
-- native model identity
-- character LoRA
-- reference adapter
-- character editability
-
-### Evaluation
-- identity
-- unseen pose
-- unseen outfit
-- unseen background
-- alternate style
-- camera changes
-
-### Pass condition
-Character remains identifiable while at least several non-identity factors remain editable.
-
----
-
-## 5. Module E — Style reproduction
-
-### Skills
-- native artist/style surface
-- style LoRA
-- reference-style conditioning
-- style/content leakage diagnosis
-
-### Evaluation
-- style fidelity
-- content preservation
-- character identity preservation
-- composition freedom
-- OOD subject generalization
-
-### Pass condition
-Style transfers to content unlike the training/reference examples without simply reproducing their subjects/layouts.
-
----
-
-## 6. Module F — Two-subject binding
-
-Begin without LoRAs when possible.
-
-### Skills
-- exact count
-- identity separation
-- relative position
-- role ownership
-- body-part ownership
-- visibility/occlusion
-
-### Exercise ladder
-F1 — two distinct adults, no interaction  
-F2 — simple relative pose  
-F3 — simple contact/relation  
-F4 — stronger overlap/occlusion
-
-### Pass condition
-Learner can label whether failure is:
+採点:
 - count
-- identity
+- identity A
+- identity B
+- attribute ownership
+- visibility
+
+合格:
+「2人がいる」と「2人が正しく分かれている」を区別できる。
+
+## レベル6 — relationを扱う
+
+学ぶ:
+- actor / target
 - role
-- geometry
-- visibility
-- anatomy.
-
----
-
-## 7. Module G — Adult relation grammar
-
-Treat complex adult scenes as atomic predicates.
-
-### Entity
-- subject_count
-- subject_identity
-
-### Binding
-- role_owner
-- attribute_owner
-- target_site_owner
-
-### Relation
-- contact/relation
-- source_destination
-- connectivity/topology
-
-### State
-- exact count
-- simultaneous state
+- body-site ownership
+- contact
+- source/destination
+- front/back
 - visibility
 
-### Integrity
-- local anatomy
-- context/style leak
-- censor/watermark prior
+演習:
+意味構造だけの最小sceneから開始し、不要なstyle/backgroundを後付け。
 
-### Pass condition
-Learner can score a generated image predicate-by-predicate instead of only “looks right / wrong”.
+合格:
+「relation失敗」「geometry失敗」「visibility失敗」を分離できる。
 
----
+## レベル7 — LoRA干渉を診断する
 
-## 8. Module H — LoRA interference
+演習:
+`base -> A -> B -> A+B`
 
-### Exercise
-Use:
-- base
-- LoRA A
-- LoRA B
-- A+B global
-
-Same seeds/settings.
-
-Score:
+見る:
 - identity
+- outfit
 - style
-- composition
-- prompt adherence
-- cross-character contamination.
+- pose
+- relation
+- background
 
-### Pass condition
-Learner can identify adapter interference before trying Regional.
+合格:
+どのLoRA追加時点から崩れたか説明できる。
 
----
+## レベル8 — Controlを役割別に使う
 
-## 9. Module I — Regional/control escalation
+学ぶ:
+- Regional = 分離
+- Reference = 見た目
+- pose = 骨格
+- depth = 前後
+- line/edge = 輪郭
+- inpaint = 局所修正
 
-Teach mechanisms separately.
+演習:
+同じ失敗に対し、目的に合わないControlを足さず、最小の1手だけ使う。
 
-### Regional text / attention
-Separates textual conditioning by area.
+合格:
+「この道具を使う理由」を説明できる。
 
-### Adapter localization
-Localizes LoRA/reference influence where supported.
+## レベル9 — 部分修正と仕上げ
 
-### Pose/depth/line
-Constrains geometry.
-
-### Inpaint
-Locally reconstructs an accepted global composition.
-
-### Important Anima rule
-Current Forge Neo Regional Prompter:
-- regional Latent/Attention supported;
-- Region LoRA unsupported.
-
-ComfyUI has separate experimental hook/mask/timestep primitives.
-
-### Pass condition
-Learner can state which capability the chosen tool actually supplies.
-
----
-
-## 10. Module J — Separation versus interaction
-
-Regional control creates a tradeoff:
-
-- stronger separation can reduce identity bleed;
-- too much isolation can make subjects look disconnected or produce hard boundaries.
-
-### Exercise
-Compare:
-- no regional
-- soft regional
-- stronger regional
-
-Score:
-- identity separation
-- relation/contact
-- region boundary artifacts
-- whole-image coherence.
-
-### Pass condition
-Learner chooses the weakest regional intervention that solves the actual contamination.
-
----
-
-## 11. Module K — Staged conditioning
-
-Advanced only.
-
-### Exercise
-Compare:
-- constant minimal prompt
-- constant full prompt
-- minimal -> full schedule
-- LoRA all steps
-- LoRA late only
-
-### Purpose
-Test whether early structure and late rendering pressure can be separated.
-
-### Pass condition
-Learner does not use scheduling to hide a fundamentally wrong count/role/geometry.
-
----
-
-## 12. Module L — Local repair
-
-Only after global semantics pass.
-
-### Tools
-- masked inpaint
+学ぶ:
+- img2img
+- inpaint mask
 - detailer
-- pose/depth-assisted local reconstruction
+- Hires
+- pixel upscaleと再生成型upscaleの違い
 
-### Exercise
-Take:
-- one relation-correct image with a local anatomy failure
-- one anatomy-clean image with a relation failure
+演習:
+base成功画像を保存してから、局所修正・高解像度化を別工程で実施。
 
-Use local repair only on the first.
+合格:
+仕上げで崩れた時に、base Promptの失敗へ戻さない。
 
-### Pass condition
-Learner understands that anatomy repair cannot fix semantic binding.
+## レベル10 — LoRA学習
 
----
+学ぶ:
+- dataset coverage
+- caption
+- nuisance要素
+- rank / alpha
+- learning rate
+- step/epoch
+- intermediate checkpoint評価
 
-## 13. Module M — High-resolution finishing
-
-### Order
-1. structural acceptance
-2. local repair
-3. Hires/img2img/enhancement
-4. conservative final upscale
-5. final audit
-
-### Evaluate final vs source
-- identity drift
-- style drift
-- anatomy drift
-- relation drift
-- new hallucinated details.
-
-### Pass condition
-Learner can tell whether the finishing stage improved resolution or silently changed the image.
-
----
-
-## 14. Module N — LoRA training
-
-### Character LoRA
-Train for:
+評価:
 - identity fidelity
 - editability
-- context independence.
-
-### Style LoRA
-Train for:
-- style fidelity
-- content diversity
-- OOD transfer.
-
-### Multi-character target
-Represent:
-- solo identity
-- coexistence
+- unseen pose/outfit/background
+- style leakage
+- multi-character coexistence
 - interaction
-as separate dataset states.
 
-### Evaluation
-Save intermediate checkpoints.
-Use a fixed prompt/seed suite.
-Do not select from loss alone.
+合格:
+学習lossだけでなく、画像結果からdataset/学習設定を診断できる。
 
-### Pass condition
-Learner can choose an intermediate checkpoint based on visual/generalization evidence and explain why later training may be worse.
+## レベル11 — 実践sceneの統合
 
----
+工程:
+`意味構造 -> identity -> geometry -> 必要なら分離 -> relation再確認 -> 局所修正 -> 仕上げ -> 最終監査`
 
-## 15. Module O — Research-grade practice
+ここで初めて複数の手段を組み合わせる。
 
-Every serious experiment records:
-- exact checkpoint/hash
-- runtime/version
-- prompt modules
-- seed set
-- sampler/scheduler
-- CFG/steps
-- resolution
-- LoRAs/weights
-- control masks/preprocessors
-- schedules
-- Hires/img2img/inpaint state.
+合格:
+各手段が何を担当しているか説明できる。
 
-Keep:
-- successes
-- failures
-- original PNG/workflow metadata.
+## レベル12 — 自力診断
 
-### Pass condition
-A later session can reproduce the experiment without relying on memory.
+未知の失敗に対して:
+1. 再現条件を固定
+2. 主症状を1つ決める
+3. 最小Promptへ戻す
+4. 1変数A/B
+5. 複数seedで確認
+6. 必要なら最小Controlへ上げる
+7. 結果を記録
 
----
+合格:
+先生からレシピをもらわず、自分で次の実験を設計できる。
 
-## 16. Teacher diagnostic response pattern
+## 学習中の証拠区分
 
-When the learner says “it doesn’t work”, answer in this order:
+- 1枚成功 = 可能性
+- 複数seed = 安定性
+- 補助ツールで救済 = 救済可能性
+- model/versionが変わる = 別条件
 
-1. **What is failing?**  
-   Count / identity / role / geometry / visibility / anatomy / style / finishing.
+## 推奨の読む順番
 
-2. **What already works?**  
-   Do not change successful axes unnecessarily.
-
-3. **What is the lowest intervention?**  
-   Seed -> Prompt cleanup -> weight -> LoRA -> Regional -> pose/depth -> inpaint.
-
-4. **What should remain fixed?**  
-   Model, seed set, resolution and unrelated settings.
-
-5. **What result would confirm the hypothesis?**  
-   Define before generating.
-
-6. **What does success prove?**  
-   Possibility / reliability / salvageability.
-
----
-
-## 17. Graduation standard
-
-A learner is no longer a beginner when they can:
-
-- reproduce an exact baseline;
-- classify a failure correctly;
-- avoid giant uncontrolled Prompt changes;
-- run same-seed A/B tests;
-- keep identity/style/scene modules separate;
-- understand LoRA interference;
-- know when Regional helps and when it harms interaction;
-- use inpaint only for local residual defects;
-- preserve metadata;
-- explain whether a final success was native, assisted or repaired.
-
-Advanced competence requires:
-- multi-character LoRA diagnosis;
-- relation/body-site/visibility scoring;
-- staged conditioning;
-- LoRA checkpoint evaluation;
-- reproducible dataset/training experiments.
-
----
-
-## 18. Canonical reading order
-
-1. `PRACTICAL_GENERATION_NOOB_ANIMA.md`
-2. `../catalog/05_HARD_NICHE_ADULT_GENERATION.md`
-3. `../research/BATCH_AP_ADULT_PRACTICAL_LEARNING_METHOD_20261002.md`
-4. `../research/BATCH_AQ_REGIONAL_LEARNING_AND_REPRODUCIBILITY_20261002.md`
-5. `../research/BATCH_AR_STAGED_CONDITIONING_AND_LEARNING_20261002.md`
-6. `../research/BATCH_AS_LORA_TRAINING_EVALUATION_METHOD_20261002.md`
-7. `../research/BATCH_AT_TEACHING_CURRICULUM_AND_NATIVE_HOOKS_20261002.md`
-
-This file is the teaching map; Claims and focused research files remain the evidence authority.
-
----
-
-## 19. Dataset bias exercise
-
-Take one character/style dataset and create a coverage table for:
-- rendering style
-- background
-- outfit
-- camera
-- pose
-- partner/role
-- props.
-
-Identify the most constant mutable factor.
-
-Create one validation prompt that attempts to change it.
-
-### Pass condition
-Learner can predict which factor is most likely to become welded into the LoRA and can propose a dataset/caption correction before touching optimizer settings.
-
-
-
----
-
-## 20. Module P — Prompt ceiling / Control escalation
-
-### 目的
-「何回Promptを書き換えるか」を感覚で決めず、
-Prompt-onlyからControlへ進む判断を練習する。
-
-### Exercise
-同じrelation-heavy sceneで:
-
-1. concept-alone
-2. minimal model-native representation
-3. concise alternate representation
-4. fixed 4-seed set
-
-を生成する。
-
-各seedを:
-- count
-- identity
-- role
-- relation
-- visibility
-- geometry
-- anatomy
-
-で採点する。
-
-### Escalation condition
-同じprimary structural failureが4 seed中3以上で残る場合、
-failure classに合うControlを1つだけ追加する。
-
-### Pass condition
-Learner can explain:
-- why Prompt-only tuning was stopped;
-- why that Control was selected;
-- what the assisted success proves;
-- why it does not retroactively prove plain-checkpoint reliability.
-
-### Adult Negative sub-exercise
-同じseed/settingsでNegative conditionだけを変更する。
-NoobAI EPSの公式safe-positive/nsfw-negative例を成人向け中立baselineと混同しない。
-
-Operational guide:
-`ADULT_IMAGE_GENERATION_DECISION_TREE.md`
-
-Research:
-`../research/BATCH_AW_ADULT_DIAGNOSTIC_ESCALATION_AND_MODEL_GAPS_20261002.md`
+1. `IMAGE_GENERATION_FOUNDATIONS_JA.md`
+2. `PRACTICAL_GENERATION_NOOB_ANIMA.md`
+3. `ADULT_IMAGE_GENERATION_DECISION_TREE.md`
+4. このカリキュラム
+5. 必要に応じて `LOCAL_ADULT_WORKFLOW_PLAYBOOK_20261002.md`
