@@ -1318,3 +1318,47 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: subject/detail consistency across long image/video sequences.
 - Value: cross-image character-consistency baseline.
 
+---
+
+## 2026-10-02 practical creation workflow sources
+
+**S-PRACTICAL-001 — Anima production baseline**
+- URL: https://huggingface.co/circlestone-labs/Anima
+- Class: `AUTHOR_GUIDE`
+- Scope: Base/Aesthetic/Turbo generation settings, samplers, prompt format and fast iteration.
+- Value: exact family baseline for exploration vs final-profile validation.
+
+**S-PRACTICAL-002 — NoobAI XL 1.1 EPS baseline**
+- URL: https://huggingface.co/Laxhar/noobai-XL-1.1/blob/main/README.md
+- Class: `AUTHOR_GUIDE`
+- Scope: CFG/steps/sampler/resolution/caption order.
+
+**S-PRACTICAL-003 — WAI v17 generation + Hires baseline**
+- URL: https://huggingface.co/LyliaEngine/waiIllustriousSDXL_v170/blob/main/README.md
+- Class: `AUTHOR_GUIDE`
+- Scope: Forge Neo baseline and author Hires example.
+- Limitation: Hires recipe is model-specific.
+
+**S-COMM-068 — Anima fixed-seed 0/1/3 LoRA stack**
+- URL: https://note.com/fresh_macaw9581/n/n7a3a7f6ed1e7
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: incremental adapter stacking.
+- Value: additional LoRAs can improve detail while adding unwanted content/control loss.
+
+**S-COMM-069 — Anima three-character LoRA production report**
+- URL: https://note.com/moribro/n/na743c1e66884
+- Class: `PRACTICAL / COMMUNITY`
+- Scope: character-LoRA training captions and modular style/character/scene generation.
+- Value: failure-driven production workflow.
+- Limitation: exact dim/LR/weight recommendations are one project recipe.
+
+**S-COMM-070 — Anima edit/inpaint workflow**
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1totumo/anima_can_edit_images_and_this_is_possible_in_two/
+- Class: `COMMUNITY / ASSISTED_WORKFLOW`
+- Scope: reference-latent/edit-LoRA vs masked/control editing.
+
+**S-COMM-071 — Anima reference-canvas edit workflow**
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1v729sl/remake_you_character_in_the_new_style_anima/
+- Class: `COMMUNITY / ASSISTED_WORKFLOW`
+- Scope: masked reference-guided regeneration/pose expansion.
+
