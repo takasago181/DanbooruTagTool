@@ -312,3 +312,8 @@ Do not create a parallel genre numbering scheme.
 
 ### Research identity rule — 2026-10-02
 既存researchには BATCH_N / AJ / AK / AL / AM / AN / AO のprefix衝突がある。provenance保護のため既存fileはrenameしない。**正式参照はfull filename**とし、bare prefixだけで参照しない。新規batchは既存prefixとの衝突を避ける。
+
+
+- `../research/BATCH_BD_PREDICTION_AND_ATTENTION_FOUNDATIONS_20261002.md` — epsilon / v-prediction / Flow Matching、self/cross/joint attention、bindingとarchitecture移植境界を整理。
+- `../research/BATCH_BE_LORA_TRAINING_PARAMETER_FOUNDATIONS_20261002.md` — learning rate、optimizer、LR scheduler、step/epoch/repeat、batch/gradient accumulation、rank/alpha、Text Encoder、intermediate checkpointを整理。
+- `../research/BATCH_BF_COLOR_OUTPUT_FOUNDATIONS_20261002.md` — sRGB、ICC、gamma、PNG色metadata、lossless masterと生成metadataの分離を整理。
