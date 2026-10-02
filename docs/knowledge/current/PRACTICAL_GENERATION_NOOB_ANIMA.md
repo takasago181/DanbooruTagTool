@@ -893,3 +893,22 @@ Do not upscale or detail a structurally wrong image.
 Research:
 `../research/BATCH_AM_PRACTICAL_CREATION_WORKFLOW_20261002.md`.
 
+---
+
+## 32. Failure-driven creation recipes — 2026-10-02
+
+When a result breaks, remove the last major conditioning change before adding another fix.
+
+Examples:
+- style LoRA breaks identity -> test character/style separately
+- character LoRA ignores pose -> lower/remove style/context, test LoRA editability
+- two characters mix -> A/B isolated tests, then regional
+- ControlNet fails -> inspect preprocessor output
+- Hires changes face -> compare base vs pixel upscale vs generative finishing
+- reference edit is too rigid -> switch to mask/inpaint/pose-control lane
+
+Regional separation cannot create semantic understanding the checkpoint lacks.
+
+Research:
+`../research/BATCH_AN_FAILURE_DRIVEN_CREATION_RECIPES_20261002.md`.
+
