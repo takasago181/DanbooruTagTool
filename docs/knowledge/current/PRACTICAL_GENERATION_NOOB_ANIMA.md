@@ -395,3 +395,31 @@ Working practices from public-user evidence:
 Details:
 `../research/BATCH_Q_ILL_NOOB_LORA_COMMUNITY_MAP_20261002.md`.
 
+---
+
+## 18. Multi-LoRA failure decomposition — 2026-10-02
+
+When two characters/LoRAs blend, split the diagnosis:
+
+1. **global contamination**
+   - one LoRA weight dominates;
+   - a weighted/redundant hair or color instruction spills across the image;
+   - repeated synonymous action/style pressure consumes prompt capacity.
+
+2. **binding failure**
+   - both identities are present but clothes/accessories are assigned to the wrong actor;
+   - fixing global color leakage does not necessarily fix ownership.
+
+Practical test order:
+- equal LoRA strengths;
+- remove duplicate/weighted character attributes;
+- remove contradictory framing;
+- preserve genuinely necessary style tokens;
+- compare same seeds;
+- only then escalate to regional/inpaint reconstruction.
+
+Do not call a postprocessed per-character inpaint success “plain two-character binding success”.
+
+Research detail:
+`../research/BATCH_R_ADVANCED_COMMUNITY_FAILURE_DIAGNOSTICS_20261002.md`.
+
