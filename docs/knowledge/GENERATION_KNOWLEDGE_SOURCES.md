@@ -907,3 +907,21 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: learned parametric camera/viewpoint tokens.
 - Value: corroborates limits of natural-language-only precise camera control.
 
+**S-RESEARCH-012 — HandCraft**
+- URL: https://arxiv.org/abs/2411.04332
+- Class: `RESEARCH`
+- Scope: local malformed-hand detection/restoration using mask + depth.
+- Value: local anatomy repair without redoing the whole composition.
+
+**S-RESEARCH-013 — HanDiffuser**
+- URL: https://arxiv.org/abs/2403.01693
+- Class: `RESEARCH`
+- Scope: hand shape/joint/orientation/articulation conditioning.
+- Value: richer hand-defect taxonomy than generic “bad hands”.
+
+**S-RESEARCH-014 — Person-In-Situ**
+- URL: https://arxiv.org/abs/2505.04052
+- Class: `RESEARCH`
+- Scope: pose-controlled human insertion with scene-consistent occlusion/depth.
+- Value: separates skeleton pose from depth/layer/occlusion correctness.
+
