@@ -284,3 +284,7 @@ Do not create a parallel genre numbering scheme.
 - `../research/BATCH_AU_REGIONAL_SAMPLER_PROXY_METHOD_20261002.md` — Impact-Pack RegionalSampler mechanics plus recent Anima native-proxy/reference method, regional replacement tradeoffs and metadata synchronization.
 - `../research/BATCH_AV_DATASET_STYLE_BIAS_AND_PREPROCESSING_20261002.md` — nuisance-style/context entanglement in LoRA datasets, auto-tagger audit, dataset-first correction and OOD validation.
 
+
+
+- `../research/BATCH_AW_ADULT_DIAGNOSTIC_ESCALATION_AND_MODEL_GAPS_20261002.md` — 成人向け生成の症状別diagnosis、4-seed Prompt-only打ち切りheuristic、NoobAI safety-biased baseline、Anima relation evidence gap、Negative OFF/ON、LoRA/Regional escalation設計。
+- `../current/ADULT_IMAGE_GENERATION_DECISION_TREE.md` — 日本語の実運用Decision Tree。出ない/人数違い/人物混線/role-body-site swap/pose/visibility/LoRA/Hires/anatomyをfailure-specificにrouting。
