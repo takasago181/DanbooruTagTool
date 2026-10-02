@@ -696,3 +696,22 @@ Use coverage of intended mutable axes.
 Research:
 `../research/BATCH_AK_CHARACTER_STYLE_DATASET_CURATION_20261002.md`.
 
+---
+
+## 30. Native style before Style LoRA — 2026-10-02
+
+Before training a Style LoRA:
+
+1. test the native artist/style surface;
+2. use a neutral fixed prompt;
+3. test multiple seeds;
+4. test different subjects/content;
+5. test with the intended character LoRA.
+
+Train/apply Style LoRA only when native style is absent, unstable, insufficiently faithful, or you need a reusable custom style.
+
+Do not judge raw artist strength while simultaneously changing quality/year/series modifiers.
+
+Research:
+`../research/BATCH_AL_NATIVE_STYLE_VS_STYLE_LORA_20261002.md`.
+
