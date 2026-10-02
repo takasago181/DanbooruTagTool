@@ -1024,3 +1024,184 @@ For any decision with material impact:
 6. if evidence is still insufficient, keep REVIEW/HOLD rather than filling gaps from memory.
 
 The purpose of this corpus is not to make the system certain about everything. It is to make uncertainty explicit, recoverable, and consistently applied.
+
+---
+
+# 14. 2026-10-02 public-user evidence synthesis
+
+The public-community layer is now large enough to support durable **diagnostic structure**, but not broad universal defaults.
+
+Current management authority remains:
+- Claim verdict/status: `current/CLAIM_REGISTRY.csv`
+- sources: `GENERATION_KNOWLEDGE_SOURCES.md`
+- unresolved questions: `current/HOLD_CONFLICT_REGISTER.md`
+- practical operations: `current/PRACTICAL_GENERATION_NOOB_ANIMA.md`
+
+## 14.1 Community evidence is typed, not flattened
+
+Public-user material is separated into:
+- controlled same-seed / one-variable experiments;
+- multi-seed/sample-count studies;
+- repeated independent failure reports;
+- recipes/workflows;
+- ecosystem/tool-adoption signals;
+- unresolved anecdotes.
+
+Popularity, votes, views, language, or creator reputation do not automatically upgrade evidence.
+
+## 14.2 Generation effect needs more axes than semantic identity
+
+For a Prompt/tag surface, retain separately when evidence exists:
+
+1. **canonical meaning**
+2. **activation strength** — how much adding/changing it moves the output
+3. **semantic fidelity** — whether that movement matches the intended meaning
+4. **spillover scope** — unrelated identity/pose/clothing/background changes
+5. **context sensitivity** — interaction with other Prompt content
+6. **profile/version/runtime scope**
+
+Community tests now show all of these can diverge.
+
+Examples:
+- narrow garment/component terms can evoke broader learned outfit priors;
+- color-like words can activate same-named objects;
+- a style phrase can alter an image strongly while failing to reproduce the named style faithfully;
+- a framing tag can be correct but lose to competing feet/ground/visibility wording.
+
+Therefore:
+**large image change != semantic success**.
+
+## 14.3 Tag vs natural language is task-dependent
+
+The strongest current community evidence does not support a universal winner.
+
+Working synthesis:
+- known atomic visual concepts: compact learned tags are often efficient;
+- ownership/relation/geometry not cleanly encoded by a tag: concise sentence support can help;
+- pure long natural language can add detail while increasing structural workload;
+- ambiguous ordinary words can literalize into unintended visible objects;
+- tag skeleton + short targeted prose is a high-value test condition, not a universal grammar.
+
+Anima author guidance and community evidence are directionally compatible here, but exact success rates remain profile/task specific.
+
+## 14.4 Multi-character failure is decomposed
+
+Do not use one generic label such as “character blending”.
+
+Separate at least:
+- **global contamination** — one LoRA/weighted attribute affects the whole image;
+- **identity/attribute binding swap** — both subjects exist but clothes/accessories/features attach to the wrong subject;
+- **count failure**;
+- **spatial-layout failure**;
+- **panel/split-scene failure**;
+- **interaction/actor-target relation failure**.
+
+A fix to one axis can leave another unchanged.
+
+Community controlled tests provide meaningful evidence that:
+- subject-specific sentence grouping can improve binding in some Anima/WAI-Anima setups;
+- names/positional labels alone can be fragile;
+- local accessories often leak more readily than core hair/eye/skin identity;
+- multi-character LoRAs add a separate interference channel.
+
+## 14.5 Negative remains an intervention
+
+Public same-seed tests reinforce the existing accepted principle:
+- a targeted Negative may suppress the named concept;
+- a Negative term can still alter unrelated content when the named target is not visibly present;
+- broad quality negatives can change composition/rendering;
+- “it is absent, therefore the Negative is harmless” is unsafe.
+
+Exact official-family ON/OFF effects remain HOLD.
+
+## 14.6 LoRA training is an allocation problem
+
+Current community evidence supports framing caption/data design as:
+
+- What should the trigger absorb?
+- What should remain independently controllable?
+- Which attributes vary in the dataset?
+- Which attributes are captioned?
+- Which contexts are accidentally constant?
+- Is the dataset synthetic and therefore inheriting base-model correlations?
+
+Durable working lessons:
+- dataset diversity matters for preventing context/style/clothing welding;
+- full tagger output is not automatically better than reduced captions;
+- minimal captions are not automatically better either;
+- adapter stacking can add detail while adding unrequested priors;
+- adapter weight can move face/clothing/background/composition, not just “style strength”;
+- iterative error-driven dataset replacement can be more valuable than blind image-count growth.
+
+## 14.7 Parameter tuning is a response curve, not a magic number
+
+Large public Anima sweeps now exist for:
+- CFG;
+- steps;
+- shift;
+- sampler;
+- LoRA strength;
+- direct high-resolution generation.
+
+The durable interpretation is methodological:
+- hold scene/seed/settings fixed;
+- change one variable;
+- preserve profile/resolution/runtime identity;
+- expect diminishing returns;
+- distinguish structural convergence from detail changes;
+- do not transfer a preferred value across profiles/derivatives.
+
+Author baselines remain the starting point.
+
+## 14.8 High-resolution generation and finishing stay separate
+
+Evidence lanes:
+- direct high-resolution base generation;
+- high-resolution helper LoRA;
+- Hires/upscale;
+- low-denoise img2img;
+- tiled refinement;
+- detailer/inpaint.
+
+A helper LoRA can be useful only at a failing high-resolution regime while doing little at normal resolution.
+Excessive helper weight can itself introduce blur/color/body failures.
+
+Final-image quality must never retroactively certify base-generation fidelity.
+
+## 14.9 Community UX convergence matters for product research
+
+Independent public tools repeatedly implement:
+- visual/thumbnail tag browsers;
+- Prompt builders instead of free-text-only prompting;
+- saved style/preset galleries;
+- LoRA thumbnails/triggers/base-model metadata;
+- simplified ComfyUI front ends.
+
+This is ecosystem evidence that discoverability/resource context is a real user need.
+It is **not** proof that one particular DanbooruTagTool taxonomy or layout is optimal.
+
+## 14.10 Multilingual ecosystem state
+
+Current public source coverage includes:
+- Japanese controlled experiments;
+- English Reddit/Hugging Face failure reports/discussions;
+- Chinese Bilibili training/control workflows;
+- Korean ComfyUI/LoRA/tag-browser/tool practice.
+
+Language does not alter evidence rank.
+
+## 14.11 Current high-value unresolved experiments
+
+Priority remains:
+- NoobAI EPS exact canonical/Alias/historical/e621 trigger response;
+- Noob EPS actor-target/body-site/count ceiling;
+- official Anima profile tag-only vs concise-hybrid reliability;
+- official-family Negative OFF/ON tests;
+- exact Anima weight response by concept/profile;
+- project-specific LoRA × target/support interference;
+- Anima timestep-distribution training variables;
+- cross-family LoRA portability under controlled same-dataset retraining;
+- regional-control escalation benefit relative to a minimized plain Prompt.
+
+Community evidence narrows these questions but does not close them.
+
