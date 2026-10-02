@@ -342,3 +342,70 @@ Text Encoderも学習する場合、Prompt conditioning側まで変わる。
 
 Current Claims:
 - `K-LORA-012..016`
+
+
+## LoRA学習 — loss / timestep / dataset前処理
+
+詳細:
+`../research/BATCH_BG_LORA_LOSS_TIMESTEP_DATASET_PREPROCESSING_20261002.md`
+
+### Min-SNR
+
+Min-SNRは**学習時のloss weighting**。
+生成時のSampler/Scheduler設定ではない。
+
+timestepごとの学習寄与をSNRに応じて調整する。
+設定値だけで品質を判定せず、固定validation画像で比較する。
+
+### Timestep bias
+
+training時に特定noise regimeを重く見る設定。
+
+これもinference側のtimestep scheduleとは別。
+
+保存:
+- sampling/bias strategy
+- weighting parameter
+- prediction type
+- training steps
+
+### Bucket / resize / crop
+
+画像をどのresolution/aspect bucketへ入れるかはtraining identity。
+
+bucketを使っても、元datasetに存在しない:
+- 全身
+- 横長scene
+- interaction
+- viewpoint
+を自動で補えるわけではない。
+
+### Caption / tag dropout
+
+caption全体や一部tagをtraining時に落とすregularization。
+
+無条件にgeneralizationが上がる設定ではない。
+
+Character / relation-heavy LoRAでは:
+- identity token
+- outfit
+- role
+- partner
+- scene context
+
+のうち、**何をLoRAへ吸収し、何をPromptで切替可能にしたいか**を先に決める。
+
+### Caption shuffle / keep tokens
+
+tag順序をshuffleする時も、trigger/identity tokenを固定したい場合がある。
+
+そのため:
+- shuffle
+- keep tokens
+- dropout
+- repeat
+
+までdataset metadataとして保存する。
+
+Current Claims:
+- `K-LORA-017..020`
