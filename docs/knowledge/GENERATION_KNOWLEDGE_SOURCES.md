@@ -1101,3 +1101,39 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: facial-detail drift under rank32/alpha16/LR setup.
 - Limitation: no controlled sweep; numeric advice is not authoritative.
 
+**S-OFFICIAL-ANIMA-CAPTION-001 — Anima multi-caption training variants**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/9
+- Class: `AUTHOR_STATEMENT`
+- Scope: full tags, dropout, mixed tag/NL, short/long caption variants.
+- Value: disproves the idea that one single caption surface is required for Anima LoRA alignment.
+
+**S-TOOL-012 — waifuc character dataset pipeline**
+- URL: https://github.com/deepghs/waifuc
+- Class: `OFFICIAL_TOOL`
+- Scope: anime image collection, dedupe, person split, CCIP filtering, tagging.
+- Value: auditable end-to-end anime character dataset curation.
+
+**S-COMM-069 — full-body framing retraining case**
+- URL: https://note.com/imbolc_02/n/na8d6a1213783
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: adding full-body data/margins to correct full-body generation.
+- Limitation: one training setup.
+
+**S-COMM-070 — 36-image structured Anima character dataset**
+- URL: https://note.com/seal309midorin/n/nab2b785e4d13
+- Class: `PRACTICAL / COMMUNITY`
+- Scope: front/profile/back/face/full-body structured source set.
+- Value: concrete dataset-coverage example.
+
+**S-COMM-071 — character-dataset coverage discussion**
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1q4h3mp/character_lora_training_dataset_howto/
+- Class: `COMMUNITY / DATASET_PRACTICE`
+- Scope: face/medium/full-body variation, outfits, lighting/background variation.
+- Limitation: anecdotal advice, no controlled result.
+
+**S-COMM-072 — Anima 46-image coverage counterexample**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/119
+- Class: `COMMUNITY / FAILURE_REPORT`
+- Scope: multi-angle dataset with poor non-frontal generalization.
+- Value: nominal coverage does not guarantee learned editability.
+
