@@ -365,3 +365,24 @@ as separate evidence states.
 Research:
 `../research/BATCH_AD_POSE_DEPTH_REGION_INPAINT_ESCALATION_20261002.md`.
 
+---
+
+## Count/camera/visibility limits — 2026-10-02
+
+Hard-scene evaluation must keep separate:
+- concept presence
+- exact count
+- ownership
+- relation
+- camera/viewpoint
+- visibility/occlusion
+
+Research shows exact counting remains difficult and simple prompt refinement is not a reliable cure.
+
+Precise camera control is also a distinct problem; text camera phrases are often coarse.
+
+Do not classify a hidden/off-frame relation as semantic concept failure.
+
+Research:
+`../research/BATCH_AE_COUNT_CAMERA_VISIBILITY_LIMITS_20261002.md`.
+
