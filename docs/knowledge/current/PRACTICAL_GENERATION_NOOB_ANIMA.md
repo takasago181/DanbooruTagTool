@@ -1098,3 +1098,15 @@ Canonical curriculum:
 Research:
 `../research/BATCH_AT_TEACHING_CURRICULUM_AND_NATIVE_HOOKS_20261002.md`.
 
+---
+
+## 39. Teacher diagnostic reference — 2026-10-02
+
+Fast operational guide:
+`ADULT_IMAGE_GENERATION_TEACHER_REFERENCE.md`.
+
+Use it to map:
+`failure -> first diagnostic -> least invasive intervention -> evidence level`.
+
+The curriculum teaches sequence; the teacher reference is the live troubleshooting sheet.
+
