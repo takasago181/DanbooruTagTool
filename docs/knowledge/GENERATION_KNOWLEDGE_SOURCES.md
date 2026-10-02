@@ -1193,3 +1193,16 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: separate clothes LoRA vs prompting/reference edit vs multi-concept LoRA.
 - Value: separate outfit adapters can affect identity.
 
+**S-COMM-079 — Anima custom-character prompt drift**
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1v7h6b2/anima_struggling_to_maintain_consistency_with/
+- Class: `COMMUNITY / CURRENT_FAILURE_REPORT`
+- Scope: prompt-only custom character hairstyle/face consistency.
+- Value: current workflow signal for when LoRA becomes useful.
+- Limitation: one user/merge workflow.
+
+**S-COMM-080 — Anima viewpoint-generalization failure**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/119
+- Class: `COMMUNITY / FAILURE_REPORT`
+- Scope: 46-image multi-angle character dataset with poor non-frontal identity retention.
+- Value: nominal viewpoint coverage does not guarantee pose-invariant identity.
+
