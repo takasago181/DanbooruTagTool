@@ -266,3 +266,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AO_MODEL_PROFILES_AND_COMPARISON_GRIDS_20261002.md` — practical model/profile presets, Anima sampler behavior, Noob aspect-ratio baselines, debug-vs-robustness seeds and character/style LoRA comparison matrices.
 
+- `../research/BATCH_AN_FINISHING_UPSCALE_DETAILER_20261002.md` — practical finishing layer: conservative vs creative upscale, Forge Hires second-pass identity, Anima img2img/upscale sensitivity, detailer crop/sampler variables and final reproduction audit.
+
