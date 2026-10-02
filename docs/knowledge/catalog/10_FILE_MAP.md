@@ -304,3 +304,5 @@ Do not create a parallel genre numbering scheme.
 - `../current/IMAGE_GENERATION_FOUNDATIONS_JA.md` — 日本語の基礎教科書。モデル別レシピより前に読むcurrent foundation guide。
 
 - `../research/BATCH_BC_OUTPUT_METADATA_AUXILIARY_FOUNDATIONS_20261002.md` — 基礎D。PNG/infotext、model hash、safetensors、Clip Skip、Textual Inversion/embeddingを整理。
+
+- `../current/KNOWLEDGE_HYGIENE_AUDIT_20261002.md` — 2026-10-02の知識棚卸し。Source ID衝突、旧current routing、古いaudit/backlog、research識別子衝突、current文書重複、日本語-first未移行を監査し、修復優先順位を定義。
