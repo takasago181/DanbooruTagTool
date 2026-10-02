@@ -40,11 +40,12 @@ scene-planning synthesis:
 
 ## 最短復元順
 
+固定日付handoffは復元authorityに含めない。旧 `KNOWLEDGE_HANDOFF_CURRENT_20260909.md` は履歴参照のみ。
+
 1. `docs/project/CURRENT_STATE.md`
 2. `docs/project/PERMANENT_RULES.md`
 3. Issue #44 最新body/comments
 4. `docs/PRODUCT_GOAL_LOCK.md`
-5. `docs/knowledge/KNOWLEDGE_HANDOFF_CURRENT_20260909.md`
 6. `docs/knowledge/current/CURRENT_QUICK_REFERENCE.md`
 7. `docs/knowledge/current/CLAIM_REGISTRY.csv`
 8. **`docs/knowledge/KNOWLEDGE_CATALOG.md`（このファイル）**
