@@ -493,3 +493,19 @@ Scheduled success remains a separate assisted runtime configuration.
 Research:
 `../research/BATCH_AR_STAGED_CONDITIONING_AND_LEARNING_20261002.md`.
 
+---
+
+## Teaching readiness model — 2026-10-02
+
+Adult-generation instruction now uses three result levels:
+- possibility
+- reliability
+- salvageability
+
+A teacher should diagnose:
+count / identity / role / body-site ownership / geometry / visibility / local anatomy / style/identity preservation
+before choosing an intervention.
+
+Canonical curriculum:
+`../current/ADULT_IMAGE_GENERATION_TEACHING_CURRICULUM.md`.
+
