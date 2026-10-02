@@ -404,3 +404,20 @@ For details:
 
 The 2026-10-01 textbook snapshot predates this expansion; Claim Registry remains current authority.
 
+---
+
+## Sensitive-domain routing
+
+For technically sensitive research areas, the source of truth is:
+`Claim Registry -> catalog -> research batch -> source registry`.
+
+Do not rely on Issue comments or cross-cutting summaries as the only copy.
+
+Current routed batch:
+- Claims: `K-ADULT-001..006`
+- research: `../research/BATCH_Y_ADULT_GENERATION_STRUCTURAL_MASTERY_20261002.md`
+- catalog: `../catalog/05_HARD_NICHE_ADULT_GENERATION.md`
+
+Governance:
+`SENSITIVE_KNOWLEDGE_ROUTING.md`.
+
