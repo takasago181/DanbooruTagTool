@@ -254,3 +254,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AO_ILL_NOOB_CHARACTER_STYLE_TRAINING_20261002.md` — Illustrious/NoobAI/Anima base-family effects on character/style LoRA: source-style entanglement, curated-data drift, palette leakage and same-dataset cross-base evaluation design.
 
+- `../research/BATCH_AJ_CHARACTER_STYLE_EVALUATION_AND_LYCORIS_20261002.md` — anime identity/style evaluation stack (CCIP, CSD, DiffSim), OOD style tests, LyCORIS fidelity/controllability/diversity/base-preservation framework, rank/alpha interaction and LoRA/LoCon/LoHa/LoKr comparison.
+
