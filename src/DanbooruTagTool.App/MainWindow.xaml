@@ -18,7 +18,7 @@
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BrowseHomeVisibility"/>
         <HierarchicalDataTemplate DataType="{x:Type vm:NavigationNode}" ItemsSource="{Binding Children}">
-            <TextBlock Text="{Binding Label}" Margin="3,4" MaxWidth="270" FontSize="13.5" FontWeight="Medium"/>
+            <TextBlock Text="{Binding Label}" Margin="3,4" MaxWidth="{DynamicResource NavigationLabelWidth}" FontSize="13.5" FontWeight="Medium"/>
         </HierarchicalDataTemplate>
         <SolidColorBrush x:Key="AppBackground" Color="#F4F7FA"/>
         <SolidColorBrush x:Key="SurfaceBrush" Color="#FFFFFF"/>
@@ -74,6 +74,7 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="ButtonChrome" Property="Opacity" Value="0.88"/></Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="ButtonChrome" Property="BorderBrush" Value="#1478E8"/><Setter TargetName="ButtonChrome" Property="BorderThickness" Value="2"/></Trigger>
                             <Trigger Property="IsPressed" Value="True"><Setter TargetName="ButtonChrome" Property="Opacity" Value="0.72"/></Trigger>
                             <Trigger Property="IsEnabled" Value="False"><Setter TargetName="ButtonChrome" Property="Opacity" Value="0.42"/></Trigger>
                         </ControlTemplate.Triggers>
@@ -493,40 +494,61 @@
         </DataTemplate>
     </Window.Resources>
 
-    <DockPanel Margin="16">
-        <Border DockPanel.Dock="Top" Style="{StaticResource HeaderCard}" Padding="16,8">
-            <Grid>
-                <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
-                <StackPanel VerticalAlignment="Center">
-                    <TextBlock Text="DanbooruTagTool v1" Style="{StaticResource PageTitle}" FontSize="20"/>
-                    <TextBlock Text="タグを探して、選んで、Promptへ追加します。" Style="{StaticResource PanelSubtitle}" Margin="0,2,0,0"/>
-                </StackPanel>
-                <WrapPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">
-                    <TextBlock Text="共通操作" Style="{StaticResource HintText}" VerticalAlignment="Center" Margin="0,0,14,0"/>
-                    <Button Content="クリップボードから読込" Command="{Binding Import}" Style="{StaticResource CompactPrimaryButton}"/>
-                    <Button Content="新規Prompt" Command="{Binding New}" Style="{StaticResource CompactSecondaryButton}"/>
-                    <Button Content="直前のPromptを復元" Command="{Binding Recover}" Style="{StaticResource CompactButton}"/>
-                    <Button Content="生成プリセット" Command="{Binding OpenPresets}" Style="{StaticResource CompactSecondaryButton}"/>
-                    <Button Content="生成PNGを読込" Click="ImportGenerationPngClick" Style="{StaticResource CompactSecondaryButton}" ToolTip="Forgeで生成したPNGからPrompt・Seed・生成条件を読み込みます。ドラッグ&amp;ドロップにも対応します。"/>
-                    <Button Content="Forgeへ送る" Command="{Binding SendToForge}" Style="{StaticResource CompactSecondaryButton}" ToolTip="現在のvisible English PromptをForgeへ送ります。Negativeは変更しません。"/>
-                    <Button Content="▶ Forgeで生成" Command="{Binding GenerateInForge}" Style="{StaticResource CompactPrimaryButton}" ToolTip="現在のvisible English PromptをForgeへ送り、Forgeの現在のtxt2img設定で生成します。Negativeは変更しません。"/>
-                    <Button Content="Forge設定" Command="{Binding OpenForgeSettings}" Style="{StaticResource CompactButton}"/>
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" IsEnabled="{Binding CanEditPrompt}" Margin="2,0,8,0">
-                        <TextBlock Text="出力形式:" Style="{StaticResource HintText}" VerticalAlignment="Center" Margin="0,0,5,0"/>
-                        <ComboBox ItemsSource="{Binding OutputProfiles}" DisplayMemberPath="Label" SelectedValuePath="Value" SelectedValue="{Binding OutputProfile, Mode=TwoWay}" MinWidth="112" Height="30" Padding="7,3" AutomationProperties.Name="出力形式" ToolTip="コピーとEnglish Promptプレビューの形式"/>
-                    </StackPanel>
-                    <Button Content="英語Promptをコピー" Command="{Binding Copy}" Style="{StaticResource CompactSecondaryButton}"/>
-                </WrapPanel>
-            </Grid>
+    <DockPanel Margin="12">
+        <Border x:Name="GlobalHeader" DockPanel.Dock="Top" Style="{StaticResource HeaderCard}" Padding="12,6">
+            <DockPanel>
+                <Button DockPanel.Dock="Right" Content="設定" Command="{Binding OpenForgeSettings}" Style="{StaticResource CompactButton}"/>
+                <TextBlock Text="DanbooruTagTool" FontSize="18" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0,0,16,0"/>
+                <TextBlock Text="{Binding Forge.ConnectionStatus}" VerticalAlignment="Center" ToolTip="requested ModelとForgeで実際にloadedなModelは別です。未照会の実状態は未確認。"/>
+            </DockPanel>
         </Border>
-        <TextBlock DockPanel.Dock="Bottom" Text="{Binding Status}" Style="{StaticResource StatusText}"/>
+        <ScrollViewer DockPanel.Dock="Bottom" MaxHeight="70" VerticalScrollBarVisibility="Auto"><TextBlock Text="{Binding Status}" Style="{StaticResource StatusText}"/></ScrollViewer>
 
-        <TabControl x:Name="Workspaces" SelectedIndex="{Binding WorkspaceIndex}" SelectionChanged="WorkspaceChanged" Margin="0,8,0,0">
-            <TabItem Header="辞書・検索" IsEnabled="{Binding CanEditPrompt}" Style="{StaticResource WorkspaceTabItem}">
+        <TabControl x:Name="Workspaces" SelectedIndex="{Binding ShellWorkspaceIndex}" SelectionChanged="WorkspaceChanged" Margin="0,8,0,0">
+            <TabItem Header="作成" Style="{StaticResource WorkspaceTabItem}">
+              <DockPanel>
+                <Border DockPanel.Dock="Bottom" Style="{StaticResource WorkSurfaceCard}" Padding="4" Margin="0,4,0,0">
+                 <Grid><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="100"/><ColumnDefinition Width="68"/></Grid.ColumnDefinitions>
+                  <ScrollViewer MaxHeight="60" VerticalScrollBarVisibility="Auto"><StackPanel><TextBlock Text="{Binding Create.SourceSummary}" FontWeight="SemiBold"/><TextBlock Text="{Binding Create.ConditionsSummary}" FontSize="12"/><TextBlock Text="{Binding Create.Validation}" FontSize="12"/></StackPanel></ScrollViewer>
+                  <Button x:Name="PrimaryGenerate" Grid.Column="1" Content="生成" Command="{Binding Create.Generate}" Style="{StaticResource PrimaryButton}" Margin="8,0,0,0" ToolTipService.ShowOnDisabled="True" ToolTip="現在のPositive / Negative / 表示された生成条件で1画像生成し、実画像metadataと照合します。条件不足や不一致時は失敗し、互換生成へfallbackしません。"/>
+                  <Button Content="その他 ▾" Click="CreateMoreClick" Style="{StaticResource CompactButton}" Grid.Column="2" Margin="4,0,0,0" VerticalAlignment="Center">
+                   <Button.ContextMenu><ContextMenu>
+                    <MenuItem Header="PNGを読込" Click="ImportGenerationPngClick"/>
+                    <MenuItem Header="Positive: クリップボードから読込（置換）" Command="{Binding Prompt.Import}"/>
+                    <MenuItem Header="Positive: 新規" Command="{Binding Prompt.New}"/>
+                    <MenuItem Header="Positive: 回復" Command="{Binding Prompt.Recover}"/>
+                    <Separator/>
+                    <MenuItem Header="Negative: クリップボードから読込（置換）" Command="{Binding Negative.Import}"/>
+                    <MenuItem Header="Negative: 新規" Command="{Binding Negative.New}"/>
+                    <MenuItem Header="Negative: 回復" Command="{Binding Negative.Recover}"/>
+                    <Separator/>
+                    <MenuItem Header="Forgeへ送るだけ（現在Positive・Negative変更なし）" Command="{Binding Forge.SendToForge}" ToolTip="DTTの生成条件は適用しません。生成しません。"/>
+                    <MenuItem Header="Forgeの現在設定で生成（現在Positive・Negative変更なし）" Command="{Binding Forge.GenerateInForge}" ToolTip="DTTの生成条件は適用しません。Forgeの現在条件を使います。"/>
+                    <MenuItem Header="Positive + Negativeを送るだけ（両側置換）" Command="{Binding Forge.SendWorkspacePair}" ToolTip="空Negativeも置換。DTTの生成条件は適用しません。生成しません。"/>
+                    <Separator/>
+                    <MenuItem Header="出力形式: 生成向け（Positive）" Click="GeneratorOutputClick"/>
+                    <MenuItem Header="出力形式: 原形優先（Positive）" Click="CanonicalOutputClick"/>
+                    <MenuItem Header="レイアウトを初期値へ" Click="ResetLayoutClick"/>
+                   </ContextMenu></Button.ContextMenu>
+                  </Button>
+                 </Grid>
+                </Border>
+                <Expander DockPanel.Dock="Bottom" Header="Prompt診断 / token・chunk（警告のみ）" Margin="0,6">
+                 <StackPanel MaxHeight="200"><WrapPanel><TextBlock Text="Counter Steps" VerticalAlignment="Center"/><TextBox Text="{Binding Intelligence.Steps}" Width="70"/><Button Content="Forge token照会" Click="TokenCountClick" ToolTip="生成しません。読み込み済みモデルのcounterを明示照会します。"/></WrapPanel><ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="150"><StackPanel><TextBlock Text="{Binding Intelligence.TokenStatus}" TextWrapping="Wrap"/><ItemsControl ItemsSource="{Binding Intelligence.Boundaries}"><ItemsControl.ItemTemplate><DataTemplate><TextBlock><Run Text="{Binding Side}"/><Run Text=" node "/><Run Text="{Binding Node}"/><Run Text=" : "/><Run Text="{Binding Kind}"/></TextBlock></DataTemplate></ItemsControl.ItemTemplate></ItemsControl><ItemsControl ItemsSource="{Binding Intelligence.Warnings}"><ItemsControl.ItemTemplate><DataTemplate><TextBlock Text="{Binding Message}" TextWrapping="Wrap"/></DataTemplate></ItemsControl.ItemTemplate></ItemsControl></StackPanel></ScrollViewer></StackPanel>
+                </Expander>
+                <TabControl x:Name="PromptSides" SelectedIndex="{Binding CreatePageIndex}">
+                 <TabItem Header="Positive"><views:PromptEditorView x:Name="PromptEditor" DataContext="{Binding Prompt}"/></TabItem>
+                 <TabItem Header="Negative"><views:PromptEditorView x:Name="NegativeEditor" DataContext="{Binding Negative}"/></TabItem>
+                 <TabItem Header="生成条件 / Preset"><views:GenerationConditionsView DataContext="{Binding}"/></TabItem>
+                 <TabItem Header="LoRAを追加"><views:LoraQuickUseView DataContext="{Binding LoraLibrary}"/></TabItem>
+                </TabControl>
+              </DockPanel>
+            </TabItem>
+            <TabItem Header="タグ探索" IsEnabled="{Binding CanEditPrompt}" Style="{StaticResource WorkspaceTabItem}">
                 <DockPanel>
-                <Grid Margin="0,8,0,0">
-                    <Grid.ColumnDefinitions><ColumnDefinition x:Name="NavColumn" Width="300" MinWidth="240"/><ColumnDefinition Width="8"/><ColumnDefinition Width="3*" MinWidth="320"/><ColumnDefinition Width="8"/><ColumnDefinition x:Name="PromptColumn" Width="400" MinWidth="360"/></Grid.ColumnDefinitions>
-                    <Border Grid.Column="0" Style="{StaticResource PanelCard}" Padding="12">
+                <Grid x:Name="DiscoveryLayout" Margin="0,4,0,0">
+                    <Grid.ColumnDefinitions><ColumnDefinition x:Name="NavColumn" Width="300" MinWidth="240"/><ColumnDefinition Width="8"/><ColumnDefinition Width="3*" MinWidth="300"/><ColumnDefinition Width="8"/><ColumnDefinition x:Name="PromptColumn" Width="400" MinWidth="360"/></Grid.ColumnDefinitions>
+                    <Border x:Name="DiscoveryNavigation" Grid.Column="0" Style="{StaticResource PanelCard}" Padding="12">
                         <DockPanel>
                             <StackPanel DockPanel.Dock="Top"><TextBlock Text="タグを探す" Style="{StaticResource PanelTitle}" FontSize="16"/><TextBlock Text="用途・部位・テーマからまとめて探します。" Style="{StaticResource PanelSubtitle}" Margin="0,0,0,6"/></StackPanel>
                             <TreeView x:Name="NavigationTree" ItemsSource="{Binding Navigation}" ItemContainerStyle="{StaticResource NavigationItem}" SelectedItemChanged="NavigationChanged" Background="Transparent" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Padding="2,0,8,0">
@@ -542,13 +564,13 @@
                     <GridSplitter Grid.Column="1" DragCompleted="SplitterChanged"/>
                     <views:DictionaryWorkspaceView x:Name="DictionaryWorkspace" DataContext="{Binding Dictionary}" Grid.Column="2"/>
                     <GridSplitter Grid.Column="3" DragCompleted="SplitterChanged"/>
-                    <Border Grid.Column="4" Style="{StaticResource PanelCard}" Padding="10">
+                    <Border x:Name="DiscoveryPrompt" Grid.Column="4" Style="{StaticResource PanelCard}" Padding="10">
                         <Border Style="{StaticResource PromptSectionSurface}" Padding="10">
                             <Grid>
                                 <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
-                                <Border Grid.Row="0" Style="{StaticResource SectionHeader}" Padding="8,7" Margin="0,0,0,5"><StackPanel><DockPanel><TextBlock Text="現在のPrompt" Style="{StaticResource PanelTitle}" FontSize="16" Margin="0"/><TextBlock Text="{Binding Count}" Style="{StaticResource HintText}" VerticalAlignment="Center" Margin="8,0,0,0"/><CheckBox DockPanel.Dock="Right" Content="EN表示" IsChecked="{Binding EnglishChips}" Margin="8,0,0,0" VerticalAlignment="Center"/></DockPanel><TextBlock Text="{Binding Unresolved}" Style="{StaticResource HintText}" Foreground="#8A6A37"/></StackPanel></Border>
+                                <Border Grid.Row="0" Style="{StaticResource SectionHeader}" Padding="8,7" Margin="0,0,0,5"><StackPanel><WrapPanel><TextBlock Text="現在のPrompt" Style="{StaticResource PanelTitle}" FontSize="16" Margin="0"/><TextBlock Text="{Binding Count}" Style="{StaticResource HintText}" VerticalAlignment="Center" Margin="8,0,0,0"/><CheckBox DockPanel.Dock="Right" Content="EN表示" IsChecked="{Binding EnglishChips}" Margin="8,0,0,0" VerticalAlignment="Center"/></WrapPanel><TextBlock Text="{Binding Unresolved}" Style="{StaticResource HintText}" Foreground="#8A6A37"/></StackPanel></Border>
                                 <Border Grid.Row="1" Style="{StaticResource WorkSurfaceCard}" Padding="8" Margin="0,4,0,10"><ScrollViewer x:Name="CurrentScroll" Padding="2,3" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"><StackPanel><ItemsControl ItemsSource="{Binding Chips}"><ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel><ItemsControl.ItemTemplate><DataTemplate><Grid Margin="3"><Button Style="{StaticResource PromptPreviewChip}" Command="{Binding DataContext.Inspect, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" MaxWidth="{Binding ActualWidth, ElementName=CurrentScroll}" Padding="10,8,30,8" MinHeight="38" Margin="0"><TextBlock Text="{Binding Label}" FontWeight="Medium" TextWrapping="Wrap"/></Button><Button Content="×" Style="{StaticResource ItemDeleteButton}" Command="{Binding DataContext.DeleteOne, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" ToolTip="このPrompt項目を削除" HorizontalAlignment="Right" VerticalAlignment="Top" Panel.ZIndex="1"/></Grid></DataTemplate></ItemsControl.ItemTemplate></ItemsControl><TextBlock Text="まだPromptがありません。辞書から追加するか、Promptを読み込んでください。" Margin="6,10,6,6"><TextBlock.Style><Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource HintText}"><Style.Triggers><DataTrigger Binding="{Binding HasPrompt}" Value="True"><Setter Property="Visibility" Value="Collapsed"/></DataTrigger></Style.Triggers></Style></TextBlock.Style></TextBlock></StackPanel></ScrollViewer></Border>
-                                <StackPanel Grid.Row="2"><Button Content="Prompt編集を開く" Command="{Binding OpenEditor}" Style="{StaticResource PromptPanePrimaryButton}"/><Button Content="英語Promptをコピー" Command="{Binding Copy}" Style="{StaticResource PromptPaneSecondaryButton}" Margin="0,6,0,0"/></StackPanel>
+                                <StackPanel Grid.Row="2"><Button Content="作成を開く" Command="{Binding OpenEditor}" Style="{StaticResource PromptPanePrimaryButton}"/><Button Content="英語Promptをコピー" Command="{Binding Copy}" Style="{StaticResource PromptPaneSecondaryButton}" Margin="0,6,0,0"/></StackPanel>
                             </Grid>
                         </Border>
                     </Border>
@@ -556,22 +578,11 @@
                 </DockPanel>
             </TabItem>
 
-            <TabItem Header="Prompt編集" Style="{StaticResource WorkspaceTabItem}">
-               <DockPanel>
-                <Expander DockPanel.Dock="Bottom" Header="Prompt診断 / token・chunk（警告のみ）" Margin="0,6">
-                 <StackPanel MaxHeight="200"><WrapPanel><TextBlock Text="Counter Steps" VerticalAlignment="Center"/><TextBox Text="{Binding Intelligence.Steps}" Width="70"/><Button Content="Forge token照会" Click="TokenCountClick" ToolTip="生成しません。読み込み済みモデルのcounterを明示照会します。"/></WrapPanel><ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="150"><StackPanel><TextBlock Text="{Binding Intelligence.TokenStatus}" TextWrapping="Wrap"/><ItemsControl ItemsSource="{Binding Intelligence.Boundaries}"><ItemsControl.ItemTemplate><DataTemplate><TextBlock><Run Text="{Binding Side}"/><Run Text=" node "/><Run Text="{Binding Node}"/><Run Text=" : "/><Run Text="{Binding Kind}"/></TextBlock></DataTemplate></ItemsControl.ItemTemplate></ItemsControl><ItemsControl ItemsSource="{Binding Intelligence.Warnings}"><ItemsControl.ItemTemplate><DataTemplate><TextBlock Text="{Binding Message}" TextWrapping="Wrap"/></DataTemplate></ItemsControl.ItemTemplate></ItemsControl></StackPanel></ScrollViewer></StackPanel>
-                </Expander>
-                <TabControl x:Name="PromptSides" SelectedIndex="{Binding Intelligence.ActiveSide}">
-                 <TabItem Header="Positive"><views:PromptEditorView x:Name="PromptEditor" DataContext="{Binding Prompt}"/></TabItem>
-                 <TabItem Header="Negative"><DockPanel><WrapPanel DockPanel.Dock="Top"><Button Content="Positive + NegativeをForgeへ" Command="{Binding Forge.SendWorkspacePair}" ToolTip="両Workspaceを送信しForgeのNegativeを置換します。空欄も置換します。生成はしません。"/><WrapPanel DataContext="{Binding Negative}"><Button Content="Negativeを読込" Command="{Binding Import}"/><Button Content="Negativeを新規" Command="{Binding New}"/><Button Content="Negativeを回復" Command="{Binding Recover}"/></WrapPanel></WrapPanel><views:PromptEditorView x:Name="NegativeEditor" DataContext="{Binding Negative}"/></DockPanel></TabItem>
-                </TabControl>
-               </DockPanel>
-            </TabItem>
-            <TabItem Header="生成画像" Style="{StaticResource WorkspaceTabItem}">
-                <views:GenerationLibraryView x:Name="GenerationLibraryWorkspace" DataContext="{Binding GenerationLibrary}"/>
-            </TabItem>
-            <TabItem Header="LoRA Library" Style="{StaticResource WorkspaceTabItem}">
-                <views:LoraLibraryView x:Name="LoraLibraryWorkspace" DataContext="{Binding LoraLibrary}"/>
+            <TabItem Header="ライブラリ" Style="{StaticResource WorkspaceTabItem}">
+             <TabControl x:Name="LibrarySurfaces" SelectedIndex="{Binding LibrarySubtypeIndex}">
+              <TabItem Header="生成画像"><views:GenerationLibraryView x:Name="GenerationLibraryWorkspace" DataContext="{Binding GenerationLibrary}"/></TabItem>
+              <TabItem Header="LoRA"><views:LoraLibraryView x:Name="LoraLibraryWorkspace" DataContext="{Binding LoraLibrary}"/></TabItem>
+             </TabControl>
             </TabItem>
         </TabControl>
     </DockPanel>

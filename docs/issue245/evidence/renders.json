@@ -1,0 +1,222 @@
+{
+  "SourceBaseline": "a96dcd10d77e85d629e0169669ea26028f88c835",
+  "Mode": "Detached WPF client viewport / RenderTargetBitmap / 96 DPI; synthetic owned assets; read-only real catalog",
+  "Limitations": "No native pixel or pointer acceptance. Ancestor Window command bindings may be unavailable during detached capture; source inventory is authoritative for command semantics. Scroll descendants outside their viewport are not header overflow.",
+  "Screen": {
+    "PrimaryScreenWidth": 682.6666666666666,
+    "PrimaryScreenHeight": 512,
+    "VirtualScreenWidth": 682.6666666666666,
+    "VirtualScreenHeight": 512
+  },
+  "NetworkCalls": 0,
+  "GenerationRequests": 0,
+  "Renders": [
+    {
+      "Name": "dictionary-900x600",
+      "Width": 900,
+      "Height": 600,
+      "NativeWidth": 900,
+      "NativeHeight": 560,
+      "WindowState": "Normal",
+      "Controls": 143
+    },
+    {
+      "Name": "positive-900x600",
+      "Width": 900,
+      "Height": 600,
+      "NativeWidth": 900,
+      "NativeHeight": 560,
+      "WindowState": "Normal",
+      "Controls": 109
+    },
+    {
+      "Name": "negative-900x600",
+      "Width": 900,
+      "Height": 600,
+      "NativeWidth": 900,
+      "NativeHeight": 560,
+      "WindowState": "Normal",
+      "Controls": 99
+    },
+    {
+      "Name": "images-900x600",
+      "Width": 900,
+      "Height": 600,
+      "NativeWidth": 900,
+      "NativeHeight": 560,
+      "WindowState": "Normal",
+      "Controls": 169
+    },
+    {
+      "Name": "lora-900x600",
+      "Width": 900,
+      "Height": 600,
+      "NativeWidth": 900,
+      "NativeHeight": 560,
+      "WindowState": "Normal",
+      "Controls": 152
+    },
+    {
+      "Name": "dictionary-1280x720",
+      "Width": 1280,
+      "Height": 720,
+      "NativeWidth": 900,
+      "NativeHeight": 560,
+      "WindowState": "Normal",
+      "Controls": 164
+    },
+    {
+      "Name": "positive-1280x720",
+      "Width": 1280,
+      "Height": 720,
+      "NativeWidth": 900,
+      "NativeHeight": 560,
+      "WindowState": "Normal",
+      "Controls": 97
+    },
+    {
+      "Name": "negative-1280x720",
+      "Width": 1280,
+      "Height": 720,
+      "NativeWidth": 900,
+      "NativeHeight": 560,
+      "WindowState": "Normal",
+      "Controls": 101
+    },
+    {
+      "Name": "images-1280x720",
+      "Width": 1280,
+      "Height": 720,
+      "NativeWidth": 900,
+      "NativeHeight": 560,
+      "WindowState": "Normal",
+      "Controls": 169
+    },
+    {
+      "Name": "lora-1280x720",
+      "Width": 1280,
+      "Height": 720,
+      "NativeWidth": 900,
+      "NativeHeight": 560,
+      "WindowState": "Normal",
+      "Controls": 152
+    },
+    {
+      "Name": "dictionary-1600x900",
+      "Width": 1600,
+      "Height": 900,
+      "NativeWidth": 900,
+      "NativeHeight": 560,
+      "WindowState": "Normal",
+      "Controls": 155
+    },
+    {
+      "Name": "positive-1600x900",
+      "Width": 1600,
+      "Height": 900,
+      "NativeWidth": 900,
+      "NativeHeight": 560,
+      "WindowState": "Normal",
+      "Controls": 97
+    },
+    {
+      "Name": "negative-1600x900",
+      "Width": 1600,
+      "Height": 900,
+      "NativeWidth": 900,
+      "NativeHeight": 560,
+      "WindowState": "Normal",
+      "Controls": 101
+    },
+    {
+      "Name": "images-1600x900",
+      "Width": 1600,
+      "Height": 900,
+      "NativeWidth": 900,
+      "NativeHeight": 560,
+      "WindowState": "Normal",
+      "Controls": 157
+    },
+    {
+      "Name": "lora-1600x900",
+      "Width": 1600,
+      "Height": 900,
+      "NativeWidth": 900,
+      "NativeHeight": 560,
+      "WindowState": "Normal",
+      "Controls": 152
+    },
+    {
+      "Name": "dictionary-2560x1440",
+      "Width": 2560,
+      "Height": 1440,
+      "NativeWidth": 900,
+      "NativeHeight": 560,
+      "WindowState": "Normal",
+      "Controls": 155
+    },
+    {
+      "Name": "positive-2560x1440",
+      "Width": 2560,
+      "Height": 1440,
+      "NativeWidth": 900,
+      "NativeHeight": 560,
+      "WindowState": "Normal",
+      "Controls": 97
+    },
+    {
+      "Name": "negative-2560x1440",
+      "Width": 2560,
+      "Height": 1440,
+      "NativeWidth": 900,
+      "NativeHeight": 560,
+      "WindowState": "Normal",
+      "Controls": 101
+    },
+    {
+      "Name": "images-2560x1440",
+      "Width": 2560,
+      "Height": 1440,
+      "NativeWidth": 900,
+      "NativeHeight": 560,
+      "WindowState": "Normal",
+      "Controls": 145
+    },
+    {
+      "Name": "lora-2560x1440",
+      "Width": 2560,
+      "Height": 1440,
+      "NativeWidth": 900,
+      "NativeHeight": 560,
+      "WindowState": "Normal",
+      "Controls": 140
+    },
+    {
+      "Name": "GenerationPresetDialog",
+      "Width": 860,
+      "Height": 760,
+      "NativeWidth": 720,
+      "NativeHeight": 560,
+      "WindowState": "Normal",
+      "Controls": 46
+    },
+    {
+      "Name": "ForgeSettingsDialog",
+      "Width": 700,
+      "Height": 310,
+      "NativeWidth": 700,
+      "NativeHeight": 310,
+      "WindowState": "Normal",
+      "Controls": 18
+    },
+    {
+      "Name": "GenerationImportDialog",
+      "Width": 920,
+      "Height": 780,
+      "NativeWidth": 760,
+      "NativeHeight": 600,
+      "WindowState": "Normal",
+      "Controls": 44
+    }
+  ]
+}

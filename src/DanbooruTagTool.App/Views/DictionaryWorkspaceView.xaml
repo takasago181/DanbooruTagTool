@@ -130,7 +130,7 @@
             <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
             <Grid Grid.Row="0" Margin="0,0,0,5">
                 <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center"><TextBlock Text="タグ辞書" Style="{DynamicResource PanelTitle}" FontSize="16"/><TextBlock Text="日本語・English・混在検索" Style="{DynamicResource HintText}" VerticalAlignment="Center" Margin="12,0,0,0"/></StackPanel>
+                <TextBlock Text="タグ辞書" Style="{DynamicResource PanelTitle}" FontSize="16" VerticalAlignment="Center" ToolTip="日本語・English・混在検索"/>
                 <Border Grid.Column="1" Style="{DynamicResource ToolbarCard}" Padding="6,2" Margin="8,0,0,0" VerticalAlignment="Center">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center"><TextBlock Text="Prompt履歴" Style="{DynamicResource HintText}" VerticalAlignment="Center" Margin="0,0,6,0"/><Button Content="元に戻す" ToolTip="Promptを元に戻す" Command="{Binding DataContext.Prompt.Undo, RelativeSource={RelativeSource AncestorType=Window}}" Style="{DynamicResource CompactButton}" Margin="0,0,4,0"/><Button Content="やり直す" ToolTip="Promptをやり直す" Command="{Binding DataContext.Prompt.Redo, RelativeSource={RelativeSource AncestorType=Window}}" Style="{DynamicResource CompactButton}" Margin="0"/></StackPanel>
                 </Border>
@@ -145,7 +145,7 @@
                     <TextBlock Text="関連度順" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding IsSearching, Converter={StaticResource BoolVisibilityLocal}}"/>
                 </Grid>
                 </Grid>
-            <StackPanel Grid.Row="2" Margin="0,0,0,4">
+            <ScrollViewer Grid.Row="2" MaxHeight="150" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"><StackPanel Margin="0,0,0,4">
                 <Border Background="#F8FBFD" BorderBrush="{DynamicResource BorderBrushSoft}" BorderThickness="1" CornerRadius="8" Padding="6,4">
                     <DockPanel>
                         <TextBlock DockPanel.Dock="Left" Text="検索対象" Style="{DynamicResource HintText}" VerticalAlignment="Center" Margin="0,0,8,0"/>
@@ -168,7 +168,7 @@
                             <Button Content="{Binding HomeCharacterCountLabel}" Command="{Binding ShowAllHomeCharactersCommand}" Style="{DynamicResource CompactButton}" MinHeight="26" Margin="0,0,5,4"/>
                             <Button Content="グループ一覧に戻る" Command="{Binding BackToBrowseGroupsCommand}" Style="{DynamicResource CompactButton}" MinHeight="26" Margin="0,0,0,4"/>
                         </WrapPanel>
-                        <ScrollViewer MaxHeight="170" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                        <ScrollViewer Visibility="{Binding ShowBrowseGroupCandidates, Converter={StaticResource BoolVisibilityLocal}}" MaxHeight="110" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                             <ItemsControl ItemsSource="{Binding BrowseGroupOptions}">
                                 <ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel>
                                 <ItemsControl.ItemTemplate><DataTemplate>
@@ -182,7 +182,7 @@
                     </StackPanel>
                     </StackPanel>
                 </Border>
-            </StackPanel>
+            </StackPanel></ScrollViewer>
             <Border Grid.Row="3" Background="#F8FBFD" BorderBrush="{DynamicResource BorderBrushSoft}" BorderThickness="1" CornerRadius="8" Padding="6,4" Margin="0,0,0,4" Visibility="{Binding ShowUnifiedRefinement, Converter={StaticResource BoolVisibilityLocal}}">
                 <Grid>
                     <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>

@@ -164,6 +164,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     public IReadOnlyList<GroupOption> BrowseGroupOptions => relatedSource is { EffectiveCategory: "Copyright", Canonical: { } home }
         ? catalog.BrowseGroups(home).Select(g => new GroupOption(g.Id, $"{g.Label}（{g.Count:N0}）", g.Id == browseGroupId)).ToArray() : [];
     public bool ShowBrowseGroups => BrowseGroupOptions.Count > 0;
+    public bool ShowBrowseGroupCandidates => ShowBrowseGroups && groupOverview;
     public string? SelectedBrowseGroupId => browseGroupId;
     public string BrowseGroupHint => groupOverview && string.IsNullOrWhiteSpace(Query)
         ? "グループを選ぶか、この作品内でキャラクターを検索してください。" : "";
@@ -698,7 +699,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     private void NotifyBrowseGroups()
     {
         Notify(nameof(BrowseGroupOptions));
-        Notify(nameof(ShowBrowseGroups));
+        Notify(nameof(ShowBrowseGroups)); Notify(nameof(ShowBrowseGroupCandidates));
         Notify(nameof(SelectedBrowseGroupId));
         Notify(nameof(BrowseGroupHint));
         Notify(nameof(HomeCharacterCountLabel));

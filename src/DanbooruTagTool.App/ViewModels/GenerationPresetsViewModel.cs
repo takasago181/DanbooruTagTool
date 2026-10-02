@@ -151,78 +151,9 @@ public sealed class GenerationPresetsViewModel : Observable
         setStatus(recipe?.HasAny == true ? "生成レシピを保存しました" : "プリセットを保存しました");
     }
 
-    private bool TryBuildRecipe(out GenerationRecipe? recipe, out string error)
-    {
-        recipe = null;
-        error = "";
-        validationError = "";
-
-        if (!TryLong(PresetSeed, "Seed", out var seed) ||
-            !TryInt(PresetSteps, "Steps", 1, 150, out var steps) ||
-            !TryDecimal(PresetCfg, "CFG", 1m, 30m, out var cfg) ||
-            !TryInt(PresetWidth, "Width", 64, 2048, out var width) ||
-            !TryInt(PresetHeight, "Height", 64, 2048, out var height))
-        {
-            error = validationError;
-            return false;
-        }
-
-        var value = new GenerationRecipe(
-            Clean(PresetModel),
-            seed,
-            steps,
-            Clean(PresetSampler),
-            Clean(PresetScheduler),
-            cfg,
-            width,
-            height);
-
-        recipe = value.HasAny ? value : null;
-        return true;
-    }
-
-    private string validationError = "";
-
-    private bool TryLong(string text, string label, out long? value)
-    {
-        value = null;
-        if (string.IsNullOrWhiteSpace(text)) return true;
-        if (long.TryParse(text.Trim(), NumberStyles.Integer, CultureInfo.InvariantCulture, out var parsed))
-        {
-            value = parsed;
-            return true;
-        }
-        validationError = $"{label}は整数で入力してください";
-        return false;
-    }
-
-    private bool TryInt(string text, string label, int min, int max, out int? value)
-    {
-        value = null;
-        if (string.IsNullOrWhiteSpace(text)) return true;
-        if (int.TryParse(text.Trim(), NumberStyles.Integer, CultureInfo.InvariantCulture, out var parsed) && parsed >= min && parsed <= max)
-        {
-            value = parsed;
-            return true;
-        }
-        validationError = $"{label}は{min}〜{max}の整数で入力してください";
-        return false;
-    }
-
-    private bool TryDecimal(string text, string label, decimal min, decimal max, out decimal? value)
-    {
-        value = null;
-        if (string.IsNullOrWhiteSpace(text)) return true;
-        if (decimal.TryParse(text.Trim(), NumberStyles.Number, CultureInfo.InvariantCulture, out var parsed) && parsed >= min && parsed <= max)
-        {
-            value = parsed;
-            return true;
-        }
-        validationError = $"{label}は{min.ToString(CultureInfo.InvariantCulture)}〜{max.ToString(CultureInfo.InvariantCulture)}の数値で入力してください";
-        return false;
-    }
-
-    private static string? Clean(string value) => string.IsNullOrWhiteSpace(value) ? null : value.Trim();
+    private bool TryBuildRecipe(out GenerationRecipe? recipe, out string error) =>
+        GenerationRecipeInput.TryBuild(PresetModel, PresetSeed, PresetSteps, PresetSampler, PresetScheduler,
+            PresetCfg, PresetWidth, PresetHeight, out recipe, out error);
 
     private void LoadRecipe(GenerationRecipe? recipe)
     {

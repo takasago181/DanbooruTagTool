@@ -23,6 +23,26 @@ public sealed class MainViewModel : Observable
     public GenerationLibraryViewModel? GenerationLibrary { get; }
     public LoraLibraryViewModel? LoraLibrary { get; }
     public ForgeViewModel Forge { get; }
+    public CreateViewModel Create { get; }
+    private bool presetManagementOpen;
+    public bool PresetManagementOpen { get => presetManagementOpen; set { Set(ref presetManagementOpen, value); Notify(nameof(CreateEditingAvailable)); Create.Refresh(); } }
+    public bool CreateEditingAvailable => CanEditPrompt && !PresetManagementOpen && !Forge.RecipeBusy;
+    // Keep persisted legacy indices: dictionary=0, Create=1, images=2, LoRA=3.
+    // No schema/index migration; only the shell presentation changes.
+    public int ShellWorkspaceIndex
+    {
+        get => WorkspaceIndex == 0 ? 1 : WorkspaceIndex == 1 ? 0 : 2;
+        set => WorkspaceIndex = value == 0 ? 1 : value == 1 ? 0 : (LibrarySubtypeIndex == 1 ? 3 : 2);
+    }
+    private int librarySubtypeIndex;
+    public int LibrarySubtypeIndex
+    {
+        get => WorkspaceIndex == 3 ? 1 : WorkspaceIndex == 2 ? 0 : librarySubtypeIndex;
+        set { librarySubtypeIndex = value == 1 ? 1 : 0; if (ShellWorkspaceIndex == 2) WorkspaceIndex = librarySubtypeIndex + 2; Notify(nameof(LibrarySubtypeIndex)); }
+    }
+    private int createPageIndex;
+    public int CreatePageIndex { get => createPageIndex; set { if (Set(ref createPageIndex, value) && value < 2) Intelligence.ActiveSide = value; } }
+
     public UserStateCoordinator UserState { get; }
     private string status = "";
     public string Status { get => status; set => Set(ref status, value); }
@@ -34,7 +54,7 @@ public sealed class MainViewModel : Observable
     public event Action<Guid>? ScrollToChip { add => Prompt.ScrollToChip += value; remove => Prompt.ScrollToChip -= value; }
 
     public MainViewModel(ICatalog catalog, IUserStateStore store, IClipboardService clipboard,
-        IGeneralBrowseProvider? general = null, IForgeBridgeClient? forgeBridge = null, SpecialBrowseV2Index? specialBrowse = null, PortablePaths? paths = null)
+        IGeneralBrowseProvider? general = null, IForgeBridgeClient? forgeBridge = null, SpecialBrowseV2Index? specialBrowse = null, PortablePaths? paths = null, IForgeGenerationApiClient? generationApi = null)
     {
         var runtime = RuntimeCatalogIndex.Create(catalog);
         Workspace = new(new PromptParser(runtime));
@@ -43,15 +63,17 @@ public sealed class MainViewModel : Observable
         var state = UserState.Load();
         if (state != null) Workspace.Restore(state.Prompt);
         if (state?.Negative is { } negative) NegativeWorkspace.Restore(negative);
-        var canMutate = () => !(Prompt?.DirectEditing ?? false) && !(Negative?.DirectEditing ?? false);
+        var canMutate = () => !(Prompt?.DirectEditing ?? false) && !(Negative?.DirectEditing ?? false) && !(Forge?.RecipeBusy ?? false);
         Prompt = new(runtime, Workspace, clipboard, Persist, canMutate, message => Status = message,
-            chip => Dictionary?.InspectChip(chip), () => PresetsRequested?.Invoke());
+            chip => Dictionary?.InspectChip(chip), () => PresetsRequested?.Invoke()) { SideLabel = "Positive" };
         Negative = new(runtime, NegativeWorkspace, clipboard, Persist, canMutate, message => Status = message,
-            chip => Dictionary?.InspectChip(chip), () => PresetsRequested?.Invoke()) { SideLabel = "Negative Prompt" };
+            chip => Dictionary?.InspectChip(chip), () => PresetsRequested?.Invoke()) { SideLabel = "Negative" };
         Dictionary = new(runtime, Workspace, general ?? new PendingGeneralBrowseProvider(), Persist, canMutate, specialBrowse);
-        Forge = new(forgeBridge ?? new ForgeBridgeClient(), Persist, canMutate, () => Prompt?.English ?? "", message => Status = message, () => ForgeSettingsRequested?.Invoke(), paths is null ? null : Path.Combine(paths.Root, "UserData", "ForgeResults"));
+        Forge = new(forgeBridge ?? new ForgeBridgeClient(), Persist, canMutate, () => Prompt?.English ?? "", message => Status = message, () => ForgeSettingsRequested?.Invoke(), paths is null ? null : Path.Combine(paths.Root, "UserData", "ForgeResults"), generationApi);
         Forge.CurrentNegative = () => Negative.English;
+        Create = new(this);
         Intelligence = new(Workspace, NegativeWorkspace, () => Forge.ForgeUrl, positiveText: () => Prompt.English, negativeText: () => Negative.English);
+        Intelligence.PropertyChanged += (_, e) => { if (e.PropertyName == nameof(Intelligence.ActiveSide) && CreatePageIndex < 2) CreatePageIndex = Intelligence.ActiveSide; };
         PresetEditor = new(runtime, Workspace, clipboard, Persist, canMutate, message => Status = message);
         PresetEditor.NegativeWorkspace = NegativeWorkspace;
         GenerationImport = new(Workspace, clipboard, message => Status = message, snapshot =>
@@ -67,7 +89,12 @@ public sealed class MainViewModel : Observable
             PresetsRequested?.Invoke();
         }, Forge, canMutate);
         if (GenerationLibrary is not null) Forge.IndexRecipeResult = GenerationLibrary.IndexRecipeResultAsync;
-        if (GenerationLibrary is not null) GenerationLibrary.NegativeWorkspace = NegativeWorkspace;
+        if (GenerationLibrary is not null)
+        {
+            GenerationLibrary.NegativeWorkspace = NegativeWorkspace;
+            GenerationLibrary.UseInCreate = (snapshot, filename) => Create.Load(new(Guid.NewGuid(), filename, "", snapshot.Positive, snapshot.Negative, GenerationRecipe.FromMetadata(snapshot)), "画像「" + filename + "」");
+        }
+        GenerationImport.UseInCreate = snapshot => Create.Load(new(Guid.NewGuid(), "PNG", "", snapshot.Positive, snapshot.Negative, GenerationRecipe.FromMetadata(snapshot)), "読み込んだPNG");
         if (paths is not null) LoraLibrary = new(paths, Workspace, new PromptParser(runtime), clipboard, canMutate, preset =>
         {
             PresetEditor.BeginNewPreset();
@@ -77,6 +104,7 @@ public sealed class MainViewModel : Observable
         });
         if (LoraLibrary is not null) LoraLibrary.NegativeWorkspace = NegativeWorkspace;
         Prompt.Restore(UserState.Ui); Dictionary.Restore(UserState.Ui); Forge.Restore(UserState.Ui); PresetEditor.Restore(state);
+
         WireNotifications();
         Workspace.Changed += OnPromptChanged;
         NegativeWorkspace.Changed += () => { Negative.RefreshFromWorkspace(); Intelligence.Refresh(); Persist(); };
@@ -88,9 +116,15 @@ public sealed class MainViewModel : Observable
 
     private void WireNotifications()
     {
-        Prompt.PropertyChanged += (_, e) => { Notify(e.PropertyName); if (e.PropertyName == nameof(Prompt.OutputProfile)) Intelligence.Refresh(); if (e.PropertyName == nameof(Prompt.DirectEditing)) { Negative.RefreshEditAvailability(); GenerationLibrary?.RefreshCommands(); } };
+        Prompt.PropertyChanged += (_, e) => { Notify(e.PropertyName);
+            if (e.PropertyName == nameof(Prompt.WorkspaceIndex)) { if (WorkspaceIndex >= 2) librarySubtypeIndex = WorkspaceIndex - 2; Notify(nameof(ShellWorkspaceIndex)); Notify(nameof(LibrarySubtypeIndex)); } if (e.PropertyName == nameof(Prompt.OutputProfile)) Intelligence.Refresh(); if (e.PropertyName == nameof(Prompt.DirectEditing)) { Negative.RefreshEditAvailability(); GenerationLibrary?.RefreshCommands(); } };
         Dictionary.PropertyChanged += (_, e) => Notify(e.PropertyName);
-        Forge.PropertyChanged += (_, e) => Notify(e.PropertyName);
+        Forge.PropertyChanged += (_, e) =>
+        {
+            Notify(e.PropertyName); Notify(nameof(CreateEditingAvailable));
+            if (e.PropertyName == nameof(Forge.RecipeBusy))
+            { Prompt.RefreshEditAvailability(); Negative.RefreshEditAvailability(); LoraLibrary?.RefreshEditAvailability(); GenerationLibrary?.RefreshCommands(); Notify(nameof(CanEditPrompt)); }
+        };
         PresetEditor.PropertyChanged += (_, e) => Notify(e.PropertyName);
     }
     private void OnPromptChanged() { Prompt.RefreshFromWorkspace(); Dictionary.RefreshPromptState(); GenerationLibrary?.RefreshCommands(); Intelligence.Refresh(); Persist(); }
@@ -124,10 +158,11 @@ public sealed class MainViewModel : Observable
     public void FindNext(bool previous) => Prompt.FindNext(previous);
     public void UpdateChipLanguage() => Prompt.UpdateChipLanguage();
     public void SaveUi(UiState value) { UserState.SaveUi(value); Persist(); }
-    public void Persist()
+    public void Persist() => TryPersist();
+    public bool TryPersist()
     {
-        try { UserState.Persist(Workspace, Dictionary, Prompt, PresetEditor, Forge, NegativeWorkspace); Notify(nameof(Ui)); }
-        catch (Exception e) when (e is IOException or Microsoft.Data.Sqlite.SqliteException) { Status = "自動保存できません: " + e.Message; }
+        try { UserState.Persist(Workspace, Dictionary, Prompt, PresetEditor, Forge, NegativeWorkspace); Notify(nameof(Ui)); return true; }
+        catch (Exception e) when (e is IOException or UnauthorizedAccessException or Microsoft.Data.Sqlite.SqliteException) { Status = "自動保存できません: " + e.Message; return false; }
     }
 
     // Phase 3 will move MainWindow bindings to Dictionary/Prompt/PresetEditor/Forge.

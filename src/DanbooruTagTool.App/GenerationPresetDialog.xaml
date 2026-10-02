@@ -58,10 +58,10 @@
                                         </TextBlock.Style>
                                     </TextBlock>
                                     <WrapPanel>
-                                        <Button Content="Negative置換" Command="{Binding DataContext.PresetEditor.ApplyPresetNegative, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="8,4" MinHeight="28"/><Button Content="Positive追加" Command="{Binding DataContext.ApplyPreset, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="8,4" MinHeight="28"/>
+                                        <Button Content="作成で使う" Click="LoadInCreateClick" CommandParameter="{Binding}" Padding="8,4" MinHeight="28" ToolTip="Positive / Negative / 生成条件を現在値へ置換し、管理を閉じます。"/><Button Content="Negative置換" Command="{Binding DataContext.PresetEditor.ApplyPresetNegative, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="8,4" MinHeight="28"/><Button Content="Positive追加" Command="{Binding DataContext.ApplyPreset, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="8,4" MinHeight="28"/>
                                         <Button Content="Negativeコピー" Command="{Binding DataContext.CopyPresetNegative, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="8,4" MinHeight="28" Margin="0"/>
                                         <Button Content="Forgeへ送る" Command="{Binding DataContext.SendPresetToForge, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="8,4" MinHeight="28" ToolTip="現在のvisible English Promptと、このプリセットのNegativeをForgeへ送ります。"/>
-                                        <Button Content="Recipe API生成" Command="{Binding DataContext.Forge.GeneratePresetRecipe, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="8,4" MinHeight="28" ToolTip="このPresetのPositive/Negativeと生成条件で1画像生成。Forge --apiが必要。指定条件を実画像metadataと照合します。"/>
+                                        <Button Content="この条件で生成" Command="{Binding DataContext.Forge.GeneratePresetRecipe, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding}" Padding="8,4" MinHeight="28" ToolTip="このPresetのPositive/Negativeと生成条件で1画像生成。Forge --apiが必要。指定条件を実画像metadataと照合します。"/>
 
                                     </WrapPanel>
                                 </StackPanel>
@@ -84,11 +84,11 @@
                     <DockPanel><TextBlock Text="Negative" FontWeight="SemiBold" Margin="0,0,0,3"/><Button DockPanel.Dock="Right" Content="現在のNegativeから取得" Command="{Binding PresetEditor.CapturePresetNegative}"/></DockPanel>
                     <TextBox Text="{Binding PresetNegative, UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" TextWrapping="Wrap" MinHeight="150" VerticalScrollBarVisibility="Auto" Margin="0,0,0,10"/>
 
-                    <Expander Header="生成条件（参照用・任意）" IsExpanded="False" Margin="0,0,0,12" Foreground="{StaticResource InkBrush}" FontWeight="SemiBold">
+                    <Expander Header="生成条件（任意）" IsExpanded="False" Margin="0,0,0,12" Foreground="{StaticResource InkBrush}" FontWeight="SemiBold">
                         <Border Background="{StaticResource WorkSurfaceBrush}" BorderBrush="{StaticResource BorderBrushSoft}" BorderThickness="1" CornerRadius="7" Padding="10" Margin="0,6,0,0">
                             <StackPanel>
                                 <TextBlock Text="保存されたPresetのRecipe API生成で使用します。Forgeへ送るボタンは現在のPromptとNegativeだけを送ります。" Foreground="{StaticResource MutedInkBrush}" FontSize="12" Margin="0,0,0,8"/>
-                                <TextBlock Text="Model（参照・手動切替）" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                                <TextBlock Text="Model（要求値）" FontWeight="SemiBold" Margin="0,0,0,3"/>
                                 <TextBox Text="{Binding PresetModel, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,8" ToolTip="PNGから取り込んだCheckpoint名などを保存する参照欄です。Forgeへの適用・生成ではModelを切り替えません。"/>
                                 <Grid>
                                     <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="10"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>

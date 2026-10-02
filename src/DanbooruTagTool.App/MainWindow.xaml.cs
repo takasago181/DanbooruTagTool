@@ -58,9 +58,10 @@ public partial class MainWindow : Window
         vm.ScrollToChip += PromptEditor.BringChipIntoView;
         DictionaryWorkspace.BrowseScrollChanged += QueueUiSave;
         PromptEditor.EditRatioChanged += SaveGeometry;
-        SizeChanged += (_, _) => QueueUiSave(); LocationChanged += (_, _) => QueueUiSave();
+        NegativeEditor.EditRatioChanged += SaveGeometry;
+        SizeChanged += (_, _) => { UpdateResponsiveLayout(); QueueUiSave(); }; LocationChanged += (_, _) => QueueUiSave();
         Closing += (_, e) => { if (vm.GenerationLibrary?.FlushAnnotation() == false) { e.Cancel = true; return; } vm.GenerationLibrary?.CancelPendingScan(); SaveGeometry(); feedbackTimer.Stop(); uiTimer.Stop(); if (presetDialog != null) presetDialog.Close(); if (forgeSettingsDialog != null) forgeSettingsDialog.Close(); if (generationImportDialog != null) generationImportDialog.Close(); };
-        Loaded += (_, _) => { vm.UpdateChipLanguage(); SyncNavigationSelection(); };
+        Loaded += (_, _) => { vm.UpdateChipLanguage(); UpdateResponsiveLayout(); SyncNavigationSelection(); };
     }
     private static bool IsLegacyNavWidth(double width) => Math.Abs(width - 210) < 0.5 || Math.Abs(width - 230) < 0.5;
     private static bool IsLegacyPromptWidth(double width) => Math.Abs(width - 230) < 0.5 || Math.Abs(width - 260) < 0.5 || Math.Abs(width - 280) < 0.5 || Math.Abs(width - 300) < 0.5 || Math.Abs(width - 340) < 0.5;
@@ -68,10 +69,11 @@ public partial class MainWindow : Window
     private void SaveGeometry()
     {
         var rect = WindowState == WindowState.Normal ? new Rect(Left, Top, ActualWidth, ActualHeight) : RestoreBounds;
-        var ratio = PromptEditor.EditRatio;
+        var activeEditor = vm.Intelligence.ActiveSide == 1 ? NegativeEditor : PromptEditor;
+        var ratio = activeEditor.IsVisible && activeEditor.EditRatio > .251 ? activeEditor.EditRatio : vm.Ui.EditRatio;
         vm.SaveUi(vm.Ui with { Width = rect.Width, Height = rect.Height, Left = rect.Left, Top = rect.Top,
-            NavWidth = vm.WorkspaceIndex == 0 ? NavColumn.ActualWidth : vm.Ui.NavWidth,
-            PromptWidth = vm.WorkspaceIndex == 0 ? PromptColumn.ActualWidth : vm.Ui.PromptWidth,
+            NavWidth = vm.WorkspaceIndex == 0 && ActualWidth >= 1400 ? NavColumn.ActualWidth : vm.Ui.NavWidth,
+            PromptWidth = vm.WorkspaceIndex == 0 && ActualWidth >= 1400 ? PromptColumn.ActualWidth : vm.Ui.PromptWidth,
             EditRatio = ratio });
     }
     private void NavigationChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
@@ -154,7 +156,7 @@ public partial class MainWindow : Window
     {
         if (vm.DirectEditing) return;
         bool ctrl = Keyboard.Modifiers.HasFlag(ModifierKeys.Control);
-        if (vm.WorkspaceIndex == 1 && vm.Intelligence.ActiveSide == 1)
+        if (vm.WorkspaceIndex == 1 && vm.CreatePageIndex == 1)
         {
             if (ctrl && e.Key == Key.F) NegativeEditor.FocusFind();
             else if (Keyboard.FocusedElement is TextBox) return;
@@ -165,8 +167,8 @@ public partial class MainWindow : Window
             else if (e.Key == Key.Escape) vm.Negative.ClearSelection(); else return;
             e.Handled = true; return;
         }
-        if (ctrl && e.Key == Key.F) { if (vm.WorkspaceIndex == 2) GenerationLibraryWorkspace.FocusSearch(); else if (vm.WorkspaceIndex == 1) PromptEditor.FocusFind(); else DictionaryWorkspace.FocusSearch(); e.Handled = true; return; }
-        if (Keyboard.FocusedElement is TextBox) return;
+        if (ctrl && e.Key == Key.F) { if (vm.WorkspaceIndex == 2) GenerationLibraryWorkspace.FocusSearch(); else if (vm.WorkspaceIndex == 3) LoraLibraryWorkspace.FocusSearch(); else if (vm.WorkspaceIndex == 1 && vm.CreatePageIndex == 0) PromptEditor.FocusFind(); else if (vm.WorkspaceIndex == 0) DictionaryWorkspace.FocusSearch(); else return; e.Handled = true; return; }
+        if (Keyboard.FocusedElement is TextBox || vm.WorkspaceIndex > 1 || vm.WorkspaceIndex == 1 && vm.CreatePageIndex > 1) return;
         if (ctrl && e.Key == Key.Z) vm.Undo.Execute(null);
         else if (ctrl && e.Key == Key.Y) vm.Redo.Execute(null);
         else if (vm.WorkspaceIndex == 1 && ctrl && e.Key == Key.A) vm.SelectAll();
@@ -174,6 +176,28 @@ public partial class MainWindow : Window
         else if (vm.WorkspaceIndex == 1 && e.Key == Key.Delete) vm.Delete.Execute(null);
         else return;
         e.Handled = true;
+    }
+    private void CreateMoreClick(object sender, RoutedEventArgs e)
+    {
+        if (sender is Button { ContextMenu: { } menu } button) { menu.DataContext = vm; menu.PlacementTarget = button; menu.IsOpen = true; }
+    }
+    private void GeneratorOutputClick(object sender, RoutedEventArgs e) => vm.OutputProfile = DanbooruTagTool.Core.PromptOutputProfile.GenerationFriendly;
+    private void CanonicalOutputClick(object sender, RoutedEventArgs e) => vm.OutputProfile = DanbooruTagTool.Core.PromptOutputProfile.Canonical;
+    private void ResetLayoutClick(object sender, RoutedEventArgs e)
+    {
+        vm.SaveUi(vm.Ui with { NavWidth = 300, PromptWidth = 400, EditRatio = .75 });
+        PromptEditor.ApplyEditRatio(.75); NegativeEditor.ApplyEditRatio(.75); UpdateResponsiveLayout();
+        vm.Status = "ペイン幅と編集比率を初期値へ戻しました。Prompt・Preset・Libraryは変更していません。";
+    }
+    private void UpdateResponsiveLayout()
+    {
+        if (NavColumn is null || PromptColumn is null) return;
+        // Keep a useful centre result surface on smaller windows; preserve saved wide widths.
+        NavColumn.MinWidth = 170; PromptColumn.MinWidth = 210;
+        if (ActualWidth < 1400)
+        { NavColumn.Width = new(ActualWidth < 1050 ? 170 : 240); PromptColumn.Width = new(ActualWidth < 1050 ? 230 : 300); }
+        else { NavColumn.Width = new(Math.Clamp(vm.Ui.NavWidth, 240, ActualWidth * .3)); PromptColumn.Width = new(Math.Clamp(vm.Ui.PromptWidth, 300, ActualWidth * .35)); }
+        Resources["NavigationLabelWidth"] = Math.Clamp(NavColumn.Width.Value - 80, 60, 270);
     }
     private void ImportGenerationPngClick(object sender, RoutedEventArgs e)
     {
@@ -223,7 +247,10 @@ public partial class MainWindow : Window
         if (presetDialog is { IsVisible: true }) { presetDialog.Activate(); return; }
         presetDialog = new GenerationPresetDialog(vm) { Owner = this };
         presetDialog.Closed += (_, _) => presetDialog = null;
-        presetDialog.Show();
+        vm.PresetManagementOpen = true;
+        try { presetDialog.ShowDialog(); }
+        finally { vm.PresetManagementOpen = false; }
+
     }
     private void OpenForgeSettingsDialog()
     {

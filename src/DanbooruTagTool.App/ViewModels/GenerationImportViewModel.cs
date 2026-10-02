@@ -23,6 +23,8 @@ public sealed class GenerationImportViewModel : Observable
     public PromptWorkspace? NegativeWorkspace { get; set; }
     public Func<bool> CanMutate { get; set; } = () => true;
     public RelayCommand RestoreNegative { get; }
+    public Action<GenerationMetadataSnapshot>? UseInCreate { get; set; }
+    public RelayCommand LoadInCreate { get; }
 
     public GenerationMetadataSnapshot? Snapshot
     {
@@ -70,6 +72,7 @@ public sealed class GenerationImportViewModel : Observable
         this.setStatus = setStatus;
         this.createPreset = createPreset;
 
+        LoadInCreate = new(_ => { if (Snapshot is { } snap) UseInCreate?.Invoke(snap); }, _ => CanMutate() && Snapshot is not null && UseInCreate is not null);
         RestorePositive = new(_ => Restore(), _ => CanMutate() && HasSnapshot && !string.IsNullOrWhiteSpace(Positive));
         RestoreNegative = new(_ => { if (CanMutate() && Snapshot is not null) { NegativeWorkspace?.Replace(Snapshot.Negative); setStatus("PNG Negativeを置換しました。NegativeのUndo/回復で戻せます。"); } }, _ => CanMutate() && HasSnapshot && NegativeWorkspace is not null);
         CopyNegative = new(_ => Copy(Negative, "Negative Promptをコピーしました"), _ => HasNegative);
@@ -131,7 +134,7 @@ public sealed class GenerationImportViewModel : Observable
 
     private void RefreshCommands()
     {
-        RestorePositive.Refresh();
+        LoadInCreate.Refresh(); RestorePositive.Refresh();
         RestoreNegative.Refresh();
         CopyNegative.Refresh();
         CopyInfo.Refresh();

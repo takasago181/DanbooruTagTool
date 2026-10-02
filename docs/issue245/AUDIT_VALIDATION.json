@@ -1,0 +1,144 @@
+{
+  "baseline": "a96dcd10d77e85d629e0169669ea26028f88c835",
+  "audit_helper": "PASS",
+  "inventory_controls": 189,
+  "render_count": 23,
+  "required_viewports": [
+    [
+      1280,
+      720
+    ],
+    [
+      1600,
+      900
+    ],
+    [
+      2560,
+      1440
+    ]
+  ],
+  "additional_viewport": [
+    900,
+    600
+  ],
+  "native_acceptance": "BLOCKED / window size mismatch",
+  "baseline_full_release": {
+    "total": "344",
+    "executed": "340",
+    "passed": "338",
+    "failed": "2",
+    "error": "0",
+    "timeout": "0",
+    "aborted": "0",
+    "inconclusive": "0",
+    "passedButRunAborted": "0",
+    "notRunnable": "0",
+    "notExecuted": "0",
+    "disconnected": "0",
+    "warning": "0",
+    "completed": "0",
+    "inProgress": "0",
+    "pending": "0"
+  },
+  "failures": [
+    {
+      "name": "DanbooruTagTool.Tests.Issue223WpfTests.RealWpfGroupButtonsBindWrapFilterAndReturn(width: 1200)",
+      "error": "   at DanbooruTagTool.Tests.Issue223WpfTests.RealWpfGroupButtonsBindWrapFilterAndReturn(Int32 width) in C:\\Codex\\DanbooruTagTool\\.worktree-issue245\\src\\DanbooruTagTool.Tests\\Issue223WpfTests.cs:line 83\r\n   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)\r\n   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)\r\n   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)"
+    },
+    {
+      "name": "DanbooruTagTool.Tests.Issue223WpfTests.RealWpfGroupButtonsBindWrapFilterAndReturn(width: 1500)",
+      "error": "   at DanbooruTagTool.Tests.Issue223WpfTests.RealWpfGroupButtonsBindWrapFilterAndReturn(Int32 width) in C:\\Codex\\DanbooruTagTool\\.worktree-issue245\\src\\DanbooruTagTool.Tests\\Issue223WpfTests.cs:line 83\r\n   at InvokeStub_Issue223WpfTests.RealWpfGroupButtonsBindWrapFilterAndReturn(Object, Span`1)\r\n   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)"
+    }
+  ],
+  "focused_repeat": "2 FAIL / same line66",
+  "merge_gate": "NOT PASS",
+  "production_apply": false,
+  "generation_requests": 0,
+  "protected_existing_files": [
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\generation-library.db",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\README.txt",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\user.db",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\Cache\\GenerationThumbnails\\0369292A5AB808B513B16397D0A08101B1D2B20D6B2DBFA0BB4D09C195FAC2BA.png",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\Cache\\GenerationThumbnails\\308C971522374876C6FB39B619CA8CAFDD48E86A4C92F70192BE96D12581D126.png",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\Cache\\GenerationThumbnails\\809DA341E42CE37F5B97021FF406BD3BC26390A6714AD6981399B9E8817EC4C0.png",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\Cache\\GenerationThumbnails\\893AFBE2C0B4D0A8B9842B41E646855DE781360B2A2D1EF033E7DE58CF4D833B.png",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\Cache\\GenerationThumbnails\\9672E49ABDBB228F768D169D6F278A42513CEF46C4105D93B126A6CD0A65D445.png",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\Data\\catalog.db",
+      "unchanged": true
+    }
+  ],
+  "files": {
+    "dictionary-1280x720.json": "23fb53350b41635689ee895ce36c36e9364547084ff6ec340bd447eb1573f85b",
+    "dictionary-1280x720.png": "770e6d1831f9b1d2f6cf20367fd3880cd43fd2d588759231120fdaa7e930115a",
+    "dictionary-1600x900.json": "7eb1c06d79fa0b70ad9a18d77fedf70add0a3ad224f81537acb4c9f6baf2d8ef",
+    "dictionary-1600x900.png": "4908231658471e6b72e121041dfe1f43808851b63dea8f8e9f57bab23f776cb6",
+    "dictionary-2560x1440.json": "d0bb4bb02148faba143f239b74fe0fe670fa7909b67832fa548e37002e847cb0",
+    "dictionary-2560x1440.png": "9853978010637b040345909c6ca6b751d522e8ec32801ede33dde361da304081",
+    "dictionary-900x600.json": "ec0e85083c2b06b7f643427f6a0887fb09af6a60a478bdae9755a497bf71714e",
+    "dictionary-900x600.png": "7c91495d4286dc1af71b5d77491b480045b3d0174d4bd822a67c3ab239a54a16",
+    "ForgeSettingsDialog.json": "c87016e86ee5f89bb5f86c8c12107f8717b506c4bb1d15a9c42e4946d80b5fa0",
+    "ForgeSettingsDialog.png": "47cf5b67f5cdfd1e9c0b7c448e2c04182e8a04eb3eb731b4ed65d2fee1cc721b",
+    "GenerationImportDialog.json": "8c0239f0adb153e3afbd9f717e7a991dace3100b519d11b47adefe96486b4261",
+    "GenerationImportDialog.png": "9ce47523d8f382f7174e500b511d2dccc93219483efab5b6e9893529cdcb4e3d",
+    "GenerationPresetDialog.json": "bf711d835e706dd82219f21eea44959188c50a597a05006567d74eaf7a6c406f",
+    "GenerationPresetDialog.png": "695c7f0da1527d765724317bf1eeeef15d2e304098b3d8b6d9b9060e8eb76849",
+    "images-1280x720.json": "e47d86c1564d76bb460b544b5381c01932498e85a560181c0140c2f756700ea0",
+    "images-1280x720.png": "f268a9cd7cb59a89f5d06ffd85d0899fafb65589f58d82c6c22576a582be2fa4",
+    "images-1600x900.json": "895a02511f22bfe0e9f6e46a2e6dd313e2f411c5adf0042211e74f2f899c98e7",
+    "images-1600x900.png": "1cec7f845d940ec6f4f69219b41a023ccf0d3ef34256b78a604a068de331077e",
+    "images-2560x1440.json": "b43b4ba3d306f51baa0a9073ab50d58d3220419f9dd2e7a557be6d74eaf265ce",
+    "images-2560x1440.png": "fc2f6d4edd30d8e9376a7373cdbd27b062d02b4b519eb2709d13ca57a0ebda28",
+    "images-900x600.json": "d1ead45c5f21eeb5513d4e092887609bc0ba49a6b0bac3fdec1c9bcafbc341d8",
+    "images-900x600.png": "b7de90aa539268def3bdcaf4bb11f13cb05727a0cd218d47d70d547976e50f89",
+    "lora-1280x720.json": "ef39cf45d9ddd57bc8b670a8e4f69e7f6052617222808da475352437defcc9f5",
+    "lora-1280x720.png": "4db9f335773e8b3e62e9ccabadbc1dd58ab204e96908549f5ca1b459b41cbec7",
+    "lora-1600x900.json": "21abf7b40fccc6809bd044a36898812f8e84976883b94a042950a98ec063265b",
+    "lora-1600x900.png": "4d51d9764b60d36e1242bc81aea08a3abaa3bc9cf40377afe380ba5b4fe01fe9",
+    "lora-2560x1440.json": "c95ed580ccccca161fc71ba42d4835d20cbbc7d55ce2f7fa642b793a45540d3b",
+    "lora-2560x1440.png": "1ea055cab92942f0403ee1b2f1db0cc152443fe2f2b269052eb8eeac8e58c733",
+    "lora-900x600.json": "b52734cfe24356eb8ea896d5ede8471e44562faf29284828b32828a4242c516c",
+    "lora-900x600.png": "055fcf7426e9d1cf2b39f69dc243d1c53d1e0613992d9d63ece54728b85532da",
+    "negative-1280x720.json": "6329fc65c4ad7e9512ab710caf2cc028da133608014e44e586c969faecd6f394",
+    "negative-1280x720.png": "6c6da2e1f4ee79bcf411c22d5fb80ba41a6197452c8be8346b98ae072e8fe9e5",
+    "negative-1600x900.json": "dbc9189ca2e8d5af11b8eb04ec36bed080619413862546e2411a7cc17ef305a9",
+    "negative-1600x900.png": "3f5bb01cbb137344825dd4c30965e61132110d9f26ea1aa903388ff4cad2dac5",
+    "negative-2560x1440.json": "d2b002eea30a841fcc8e7a3b3d69b6a76178bec664db7aead09c3ebe4c0fd641",
+    "negative-2560x1440.png": "6c2471abf73e1322cdbd67999cc031a685632e96ff77dc7a7fbb9fc1bb0d4b33",
+    "negative-900x600.json": "4502caa9340d1af9f67deb6c1da21d0e8a5a0837e9e2b6e13bf122c4b5cec085",
+    "negative-900x600.png": "abe454be92489d016e4a84a4f32c8885d096dc9bc8ae0bb9727027bb71c13eae",
+    "positive-1280x720.json": "4483ce86786e213259f591c8d80c52778c87032481143a1d19afbeef729e4fab",
+    "positive-1280x720.png": "47b087476442a524b858179847402f082b9af89a8b05c8c46edb7d94688f8853",
+    "positive-1600x900.json": "c04195902767ecf021f9b41528b9e35994cf9fca85dababaa9e3120261cca786",
+    "positive-1600x900.png": "be6fb7e7e032f440eab280a5be8bab75bcdf29828ecc33de0854f8b614730b87",
+    "positive-2560x1440.json": "ea1fdf97655a74772447f0395d22f00386f87992f2615958fa3239eb2abf2156",
+    "positive-2560x1440.png": "d336c3ff20c4bb2ebf9354bb5b3d3c48a1e407cb794b597454d63e9593a67ec3",
+    "positive-900x600.json": "c43e7a44c15ead80662025501fa430549aabbc308c5949cafc21bf151dd7dda0",
+    "positive-900x600.png": "7115ce73766c9517809233957d6f1e6b4b294f2749cafacfc261d1262541c2aa",
+    "renders.json": "b8006053e9a051d9f1fa30e2f5f06c16bc930a48d016e2d31315a0bacba00430"
+  }
+}

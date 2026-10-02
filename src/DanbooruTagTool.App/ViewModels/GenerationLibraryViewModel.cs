@@ -79,7 +79,7 @@ public sealed class GenerationLibraryViewModel : Observable
             changingAnnotation = true;
             Favorite = value?.Image.Annotation.Favorite ?? false; Rating = value?.Image.Annotation.Rating; Note = value?.Image.Annotation.Note ?? "";
             changingAnnotation = false;
-            Notify(nameof(Positive)); Notify(nameof(Negative)); Notify(nameof(RawInfotext)); Notify(nameof(SelectedPath)); Notify(nameof(HasSelection)); Notify(nameof(CanAnnotate)); Notify(nameof(Preview));
+            Notify(nameof(Positive)); Notify(nameof(Negative)); Notify(nameof(RawInfotext)); Notify(nameof(SelectedPath)); Notify(nameof(HasSelection)); Notify(nameof(CanAnnotate)); Notify(nameof(Preview)); Notify(nameof(CompareRightSource));
             RefreshCommands();
         }
     }
@@ -99,6 +99,12 @@ public sealed class GenerationLibraryViewModel : Observable
     public AsyncRelayCommand Next { get; }
     public RelayCommand AllRoots { get; }
     public RelayCommand RestorePrompt { get; }
+    public Action<GenerationMetadataSnapshot, string>? UseInCreate { get; set; }
+    public RelayCommand LoadInCreate { get; }
+    private string compareLeftFilename = "";
+    public bool HasCompareLeft => compareLeft is not null;
+    public string CompareLeftSource => "左: " + (compareLeftFilename.Length == 0 ? "未選択" : compareLeftFilename);
+    public string CompareRightSource => "右: " + (Selected?.Filename ?? "未選択");
     public PromptWorkspace? NegativeWorkspace { get; set; }
     public RelayCommand RestoreNegative { get; }
     public RelayCommand CreatePreset { get; }
@@ -119,6 +125,7 @@ public sealed class GenerationLibraryViewModel : Observable
         Previous = new(_ => LoadPageAsync(delta: -60), _ => !Busy && offset > 0);
         Next = new(_ => LoadPageAsync(delta: 60), _ => !Busy && offset + Images.Count < total);
         AllRoots = new(_ => SelectedRoot = null, _ => !Busy);
+        LoadInCreate = new(_ => { if (metadata is not null) UseInCreate?.Invoke(metadata, Selected?.Filename ?? "画像"); }, _ => !Busy && canMutate() && metadata is not null && UseInCreate is not null);
         RestorePrompt = new(_ => { if (metadata is not null && canMutate()) { workspace.Replace(metadata.Positive); Status = "Positive Promptを復元しました。Undo / 回復で戻せます。"; } }, _ => !Busy && canMutate() && metadata is not null);
         RestoreNegative = new(_ => { if (metadata is not null && canMutate()) { NegativeWorkspace?.Replace(metadata.Negative); Status = "Negativeを置換しました。NegativeのUndo/回復で戻せます。"; } }, _ => !Busy && canMutate() && metadata is not null && NegativeWorkspace is not null);
         CreatePreset = new(_ => { if (metadata is not null && canMutate()) createPreset(metadata); }, _ => !Busy && canMutate() && metadata is not null);
@@ -131,7 +138,7 @@ public sealed class GenerationLibraryViewModel : Observable
             await forge.GenerateRecipeAsync(preset);
         }, _ => !Busy && canMutate() && metadata is not null);
         forge.PropertyChanged += (_, e) => { if (e.PropertyName == nameof(forge.RecipeStatus)) Notify(nameof(RecipeStatus)); };
-        SetCompareLeft = new(_ => { compareLeft = metadata; Differences.Clear(); Status = "比較する左画像を保持しました。右画像を選択して比較してください。"; Compare?.Refresh(); }, _ => metadata is not null);
+        SetCompareLeft = new(_ => { compareLeft = metadata; compareLeftFilename = Selected?.Filename ?? "画像"; Notify(nameof(CompareLeftSource)); Notify(nameof(HasCompareLeft)); Differences.Clear(); Status = "比較する左画像を保持しました。右画像を選択して比較してください。"; Compare?.Refresh(); }, _ => metadata is not null);
         Compare = new(_ => { if (compareLeft is null || metadata is null) return; Differences.Clear(); foreach (var row in GenerationMetadataDiff.Compare(compareLeft, metadata)) Differences.Add(row); }, _ => compareLeft is not null && metadata is not null);
         CancelScan = new(_ => cancellation?.Cancel(), _ => Busy);
     }
@@ -186,7 +193,7 @@ public sealed class GenerationLibraryViewModel : Observable
             var page = await Task.Run(() => store!.Query(query)); offset = target; total = page.Total;
             Selected = null; Images.Clear(); foreach (var image in page.Images) Images.Add(new(image)); Notify(nameof(PageSummary));
             // Only one bounded page is queued. Two cache workers; no full-size grid decode.
-            await Task.WhenAll(Images.Select(async card => { card.Thumbnail = await thumbnails.GetAsync(card.Image); if (Selected == card) Notify(nameof(Preview)); }));
+            await Task.WhenAll(Images.Select(async card => { card.Thumbnail = await thumbnails.GetAsync(card.Image); if (Selected == card) Notify(nameof(Preview)); Notify(nameof(CompareRightSource)); }));
         }
         catch (Exception e) when (StorageError(e) || e is FormatException or OverflowException) { Status = "表示できません: " + e.Message; }
         finally { Busy = false; }
@@ -232,7 +239,7 @@ public sealed class GenerationLibraryViewModel : Observable
     private static bool StorageError(Exception e) => e is IOException or UnauthorizedAccessException or SqliteException or InvalidDataException;
     public void RefreshCommands()
     {
-        Refresh?.Refresh(); Scan?.Refresh(); Previous?.Refresh(); Next?.Refresh(); AllRoots?.Refresh(); RestorePrompt?.Refresh(); RestoreNegative?.Refresh(); CreatePreset?.Refresh();
+        Refresh?.Refresh(); Scan?.Refresh(); Previous?.Refresh(); Next?.Refresh(); AllRoots?.Refresh(); LoadInCreate?.Refresh(); RestorePrompt?.Refresh(); RestoreNegative?.Refresh(); CreatePreset?.Refresh();
         Send?.Refresh(); Generate?.Refresh(); GenerateRecipe?.Refresh(); SetCompareLeft?.Refresh(); Compare?.Refresh(); CancelScan?.Refresh();
     }
 }
