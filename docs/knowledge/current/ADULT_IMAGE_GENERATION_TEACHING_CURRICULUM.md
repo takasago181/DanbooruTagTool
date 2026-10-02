@@ -157,6 +157,8 @@ relation失敗、geometry失敗、visibility失敗を分けられる。
 
 ## レベル10 — LoRA学習
 
+LoRA学習パラメータの詳細は `../catalog/04_TOOLS_POSTPROCESS_AND_LORA.md` と `../research/BATCH_BE_LORA_TRAINING_PARAMETER_FOUNDATIONS_20261002.md` を参照。
+
 学ぶ:
 - datasetの範囲
 - caption
