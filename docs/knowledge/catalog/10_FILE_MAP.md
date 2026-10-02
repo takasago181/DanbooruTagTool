@@ -214,3 +214,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_U_GLOBAL_COMMUNITY_SIGNAL_MAP_20261002.md` — English/Hugging Face/Reddit community map covering long-NL workload, weighting discussions, LoRA-added multi-character failure, regional-control leads, hidden runtime differences and dataset-automation practice.
 
+- `../research/BATCH_V_MULTILINGUAL_COMMUNITY_ECOSYSTEM_20261002.md` — Chinese/Korean public-user ecosystem map covering Anima-specific trainers, auto-tagging, ControlNet, low-resource workflows, visual Danbooru browsers, LoRA metadata management and cross-derivative reuse warnings.
+
