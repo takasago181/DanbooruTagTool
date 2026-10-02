@@ -236,3 +236,109 @@ Key distinctions before advanced troubleshooting:
 
 Research:
 - `../research/BATCH_BB_EDITING_CONTROL_MEMORY_FOUNDATIONS_20261002.md`
+
+
+---
+
+## LoRA学習パラメータ基礎 — 2026-10-02
+
+詳細研究:
+`../research/BATCH_BE_LORA_TRAINING_PARAMETER_FOUNDATIONS_20261002.md`
+
+### 学習率とstepはセットで見る
+
+学習率（learning rate）は1回のupdate量。
+stepはoptimizer updateの回数。
+
+- 学習率が高過ぎる / stepが多過ぎる -> overfit候補
+- 学習率が低過ぎる / stepが少な過ぎる -> underfit候補
+
+ただしdataset、optimizer、scheduler、batchによって変わる。
+
+**万能な学習率・万能なstep数を固定しない。**
+
+### Epochだけで学習量を比べない
+
+同じ10 epochでも:
+- 画像枚数
+- repeat
+- subset weight
+- batch
+- gradient accumulation
+
+が違えば学習条件は違う。
+
+最低限:
+- total optimizer steps
+- dataset構成
+- repeat
+- batch
+- gradient accumulation
+
+を残す。
+
+### Optimizerと学習率Scheduler
+
+Optimizer:
+gradientをどうparameter updateへ変換するか。
+
+学習率Scheduler:
+training中にlearning rateをどう変化させるか。
+
+これは**画像生成時のSampler/Schedulerとは別物**。
+
+保存:
+- optimizer名
+- optimizer args
+- learning rate
+- LR scheduler
+- warmup等
+
+### Rank / Alpha
+
+rankを増やすとtrainable capacityは増える。
+
+しかし:
+- rankが高い = 高品質
+- alphaが高い = 再現度が高い
+
+とは限らない。
+
+dataset / learning rate / step / target modulesと一緒に評価する。
+
+### Target Modules
+
+LoRAをどのlayer/moduleへ入れるかもtraining identity。
+
+U-Net/SDXL向けのtarget moduleを、MMDiT等の別architectureへそのまま移植しない。
+
+### Text Encoder学習
+
+Text Encoderも学習する場合、Prompt conditioning側まで変わる。
+
+- identity/triggerへ有効な場合がある
+- VRAM増加
+- overfit/semantic driftの可能性
+
+があるため、denoiser-only LoRAとは別条件として記録する。
+
+### Intermediate Checkpoint
+
+最終epochだけで決めない。
+
+同じvalidation suiteで途中checkpointを比較する。
+
+見る:
+- identity
+- editability
+- outfit freedom
+- pose freedom
+- background freedom
+- style leakage
+- multi-character
+- interaction
+
+**training loss最小 = 実用画像が最良**とは扱わない。
+
+Current Claims:
+- `K-LORA-012..016`
