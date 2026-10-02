@@ -958,3 +958,30 @@ For Anima, test second-pass sampler/denoise separately from the first-pass choic
 Research:
 `../research/BATCH_AN_FINISHING_UPSCALE_DETAILER_20261002.md`.
 
+---
+
+## 33. Daily tuning order — 2026-10-02
+
+When an image is close but wrong:
+
+1. test several seeds
+2. simplify conflicts
+3. verify exact trigger/tag
+4. fix relation/camera
+5. weight sweep
+6. LoRA strength
+7. sampler
+8. CFG
+9. steps
+10. control/regional
+11. finishing
+
+If a failure repeats across seeds, change representation.
+If semantics are already correct, explore seeds before overloading the Prompt.
+
+For WAI, avoid huge quality/Negative stacks.
+For Anima, sampler choice changes rendering character and weights often need stronger values than SDXL.
+
+Research:
+`../research/BATCH_AO_PROMPT_TUNING_SAMPLER_WEIGHT_20261002.md`.
+
