@@ -1649,3 +1649,26 @@ Japanese operational artifact:
 
 Research:
 `research/BATCH_AW_ADULT_DIAGNOSTIC_ESCALATION_AND_MODEL_GAPS_20261002.md`.
+
+
+## 16.16 2026秋 local adult ecosystem trend map
+
+Current adult/anime local generation is a two-lane ecosystem:
+
+- mature SDXL/Illustrious/Pony/NoobAI asset stacks;
+- rapidly growing Anima prompt/control/reference ecosystem.
+
+The main practical shift is not one checkpoint replacing another.
+It is a move from one-pass Prompt-only generation toward:
+
+`intent -> structured prompt -> base generation -> diagnostic -> regional/reference/edit -> local repair -> finishing`.
+
+Current Anima growth signals include a large Civitai LoRA ecosystem, local LLM/VLM prompt structuring, Regional Conditioning, Anima-specific IP-Adapter experiments and Edit/ReferenceLatent paths.
+
+These are date-scoped trend claims, not production authority and not universal capability rankings.
+
+Japanese current map:
+`current/LOCAL_ADULT_IMAGE_GENERATION_TREND_MAP_20261002.md`
+
+Research:
+`research/BATCH_AX_LOCAL_ADULT_IMAGE_GENERATION_TRENDS_20261002.md`.
