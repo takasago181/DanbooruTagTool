@@ -195,3 +195,7 @@ No new production behavior is authorized by this package.
 `research/source -> Claim Registry when warranted -> category explanation -> HOLD/version -> file map -> downstream handoff when requested -> #44 checkpoint`.
 
 Do not create a parallel genre numbering scheme.
+
+## 2026-10-02 additions
+
+- `../research/BATCH_N_CURRENT_MODEL_PROMPT_RUNTIME_REFRESH_20261002.md` — 2026-10-02 current upstream refresh for Anima / NoobAI / WAI17 / Forge Neo / Forge Couple; source facts promoted to Claim Registry while image-dependent gaps remain HOLD.
