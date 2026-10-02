@@ -1,3 +1,6 @@
+> **HISTORICAL COVERAGE INDEX / NOT CURRENT PRODUCT AUTHORITY**  
+> このIndexには旧Special-first時代の目的・backlog表現が残る。現在のproduct goalはmain `docs/PRODUCT_GOAL_LOCK.md`、現在のClaim verdictは `current/CLAIM_REGISTRY.csv` を正本とする。
+
 # Generation Knowledge Index
 
 Owner: Issue #44 `[KNOWLEDGE][ONGOING] Persistent generation knowledge corpus for dictionary audit and Stage10`
