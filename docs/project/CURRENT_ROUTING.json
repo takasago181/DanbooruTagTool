@@ -11,17 +11,7 @@
     "docs/project/PERMANENT_RULES.md",
     "task-specific contract/spec"
   ],
-  "active_lanes": [
-    {
-      "issue": 248,
-      "lane": "Foundation Audit",
-      "phase": "Gate open; audit/measurement only",
-      "authority": "live Issue #248",
-      "evidence": "new production LKG docs/project/LAST_KNOWN_GOOD.json; #245 production checkpoint",
-      "next": "audit promoted baseline; publish KEEP/WRAP/REWRITE/DELETE/ARCHIVE and smallest recommended Foundation implementation set; STOP",
-      "boundaries": "no production/UserData mutation; no automatic #249-#255 implementation"
-    }
-  ],
+  "active_lanes": [],
   "completed_or_non_default": [
     "Performance / Runtime Load Audit",
     "portable/runtime hardening",
@@ -70,5 +60,17 @@
   "network_policy": "External/network-backed features are allowed when useful; preserve local-state safety and keep secrets out of the repository. Offline is a preference, not a universal hard requirement.",
   "packaging_policy": "Self-contained/single-file/no-PDB/second-PC/folder-copy/machine-independent-path checks are optional unless a specific task needs them.",
   "production_lkg_source": "b3f48c359a8473c8bbf02347487cba5d8dacf96c",
-  "foundation_gate": "OPEN"
+  "foundation_gate": "AUDIT_COMPLETE_REVIEW_STOP",
+  "foundation_audit": {
+    "issue": 248,
+    "state": "closed",
+    "report": "docs/issue248/FOUNDATION_AUDIT_2026-10-03.md",
+    "recommendation": "P0 Issue70 write-to-main workflow disable; Batch A semantic authority/catalog compiler cutover; Batch B active-tree hygiene/archive",
+    "skipped": [
+      "broad #253 rewrite",
+      "#254 performance/storage project",
+      "#255 history compaction"
+    ],
+    "next": "human review/approval before any Foundation implementation"
+  }
 }
