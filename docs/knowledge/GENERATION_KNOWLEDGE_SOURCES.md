@@ -1042,3 +1042,62 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: style-specific timestep/noise distribution.
 - Value: character and style recipes may differ.
 
+**S-OFFICIAL-LORA-001 — sd-scripts LoRA rank/alpha documentation**
+- URLs:
+  - https://github.com/kohya-ss/sd-scripts/blob/main/docs/train_network.md
+  - https://github.com/kohya-ss/sd-scripts/blob/main/docs/train_network_README-ja.md
+- Class: `OFFICIAL_RUNTIME`
+- Scope: rank/dim, alpha, dropout, Conv LoRA, DyLoRA.
+- Value: rank is capacity and must be interpreted with alpha/task.
+
+**S-RESEARCH-019 — DreamBench++**
+- URL: https://arxiv.org/abs/2406.16855
+- Class: `RESEARCH`
+- Scope: human-aligned personalized image evaluation.
+- Value: multimodal-model scoring aligned against human judgement.
+
+**S-RESEARCH-020 — CSD style descriptors**
+- URL: https://arxiv.org/abs/2404.01292
+- Class: `RESEARCH`
+- Scope: dedicated style similarity representation.
+- Limitation: public repo currently warns of a model-weight/reported-number discrepancy.
+
+**S-RESEARCH-021 — DiffSim**
+- URL: https://arxiv.org/abs/2412.14580
+- Class: `RESEARCH`
+- Scope: diffusion-feature visual/style/instance similarity.
+- Value: highlights limitations of CLIP/DINO for fine appearance.
+
+**S-RESEARCH-022 — StyleID**
+- URL: https://arxiv.org/abs/2604.21689
+- Class: `RESEARCH`
+- Scope: stylization-agnostic human-aligned identity evaluation.
+- Value: photo-face identity encoders can be brittle under stylization.
+
+**S-TOOL-011 — CCIP**
+- URL: https://huggingface.co/deepghs/ccip
+- Class: `TOOL_MODEL`
+- Scope: anime character visual identity similarity for single-character images.
+- Value: domain-specific automated character identity signal.
+
+**S-RESEARCH-023 — IP-Adapter**
+- URL: https://github.com/tencent-ailab/IP-Adapter
+- Class: `RESEARCH_TOOL`
+- Scope: tuning-free image-prompt conditioning.
+- Value: reference-conditioning baseline against trained character LoRA.
+
+**S-RESEARCH-024 — InstantStyle / InstantStyle-Plus**
+- URLs:
+  - https://arxiv.org/abs/2404.02733
+  - https://arxiv.org/abs/2407.00788
+  - https://github.com/instantX-research/InstantStyle
+- Class: `RESEARCH`
+- Scope: content/style disentanglement in reference-guided stylization.
+- Value: style fidelity must be balanced with semantic/spatial preservation.
+
+**S-COMM-068 — Anima current character-LoRA hyperparameter discussion**
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1wpjl3p/advice_on_anima_character_lora_training_parameters/
+- Class: `COMMUNITY / CURRENT_TRAINING_FAILURE`
+- Scope: facial-detail drift under rank32/alpha16/LR setup.
+- Limitation: no controlled sweep; numeric advice is not authoritative.
+
