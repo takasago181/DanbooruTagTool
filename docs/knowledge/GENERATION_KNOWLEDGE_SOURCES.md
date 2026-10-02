@@ -1504,3 +1504,30 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Class: `COMMUNITY / TRAINING_PRACTICE`
 - Scope: solo/joint subsets, coexistence examples, interaction images, balancing.
 
+**S-TOOL-013 — Regional Prompter current Anima support**
+- URL: https://github.com/hako-mikan/sd-webui-regional-prompter
+- Class: `OFFICIAL_RUNTIME`
+- Freshness: 2026-09-04 update.
+- Scope: Forge Neo Anima Latent/Attention regional conditioning.
+- Critical limitation: Region LoRA is not supported for Anima.
+
+**S-TOOL-014 — ComfyUI Anima Regional Conditioning**
+- URL: https://github.com/Sen-sou/Comfyui-Anima-Regional-Conditioning
+- Class: `OFFICIAL_RUNTIME / EXPERIMENTAL`
+- Scope: masked cross/self-attention routing for Anima.
+- Value: region strength/schedule/base-ratio mechanics and documented coherence tradeoffs.
+
+**S-COMM-076 — Anima directional-prompt ambiguity**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/99
+- Class: `COMMUNITY / FAILURE_REPORT`
+- Scope: left/right frame-vs-subject ambiguity and hand-direction instability.
+- Value: directional language is not a reliable ownership guarantee.
+
+**S-EVID-001 — ComfyUI SaveImage metadata**
+- URLs:
+  - https://github.com/Comfy-Org/ComfyUI/blob/master/comfy_api/latest/_ui.py
+  - https://github.com/comfyanonymous/ComfyUI_examples
+- Class: `OFFICIAL_RUNTIME`
+- Scope: prompt/workflow metadata embedded in saved PNG files.
+- Value: reproducible experiment artifact and workflow recovery.
+
