@@ -226,3 +226,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AA_MULTI_SUBJECT_LORA_DATASET_DESIGN_20261002.md` — multi-character Anima LoRA dataset design: genuine joint examples vs stitched composites, subset balance, background/context entanglement and generalization failures.
 
+- `../research/BATCH_AB_NEGATIVE_PRIOR_AND_TRAINING_TOOLCHAIN_20261002.md` — ordinary Negative vs positive-prior entanglement, NegPiP assisted suppression, archived Forge Neo Anima path, TrainTrain Anima support and toolchain freshness rules.
+
