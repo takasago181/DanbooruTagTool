@@ -1362,3 +1362,33 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Class: `COMMUNITY / ASSISTED_WORKFLOW`
 - Scope: masked reference-guided regeneration/pose expansion.
 
+**S-TOOL-012 — Regional Prompter current Anima support**
+- URL: https://github.com/hako-mikan/sd-webui-regional-prompter/blob/main/README.md
+- Class: `OFFICIAL_RUNTIME`
+- Scope: Forge Neo Anima Latent/Attention regional prompting.
+- Boundary: Region LoRA unsupported for Anima.
+
+**S-TOOL-013 — Forge Couple**
+- URL: https://github.com/Haoming02/sd-forge-couple/blob/main/README.md
+- Class: `OFFICIAL_RUNTIME`
+- Scope: region-targeted conditioning in Forge/Forge Neo including Anima.
+- Value: total-subject-count and checkpoint-composition-understanding guidance.
+
+**S-TOOL-014 — ComfyUI preprocessors**
+- URL: https://blog.comfy.org/p/preprocessor-and-frame-interpolation
+- Class: `OFFICIAL_RUNTIME`
+- Scope: pose/depth/lineart/normals preprocessing.
+- Value: preprocessor output as a separate debug artifact.
+
+**S-TOOL-015 — ComfyUI upscaling handbook**
+- URL: https://blog.comfy.org/p/upscaling-in-comfyui
+- Class: `OFFICIAL_RUNTIME`
+- Scope: modern pixel/generative/upscale workflow selection.
+- Value: symptom/use-case based finishing selection.
+
+**S-TOOL-016 — ComfyUI img2img denoise semantics**
+- URL: https://docs.comfy.org/tutorials/api-nodes/stability-ai/stable-image-ultra
+- Class: `OFFICIAL_RUNTIME`
+- Scope: image-to-image preservation versus reinterpretation.
+- Value: denoise as a workflow-intent axis rather than a fixed magic value.
+
