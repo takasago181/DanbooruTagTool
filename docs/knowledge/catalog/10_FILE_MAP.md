@@ -238,3 +238,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AG_ANIMA_RELATION_STRESS_COMMUNITY_20261002.md` — Anima community evidence on pairwise identity interference, strong-prior leakage, 3+ subject stress and interaction-heavy role/body-site assignment failures.
 
+- `../research/BATCH_AH_ILL_NOOB_MULTI_SUBJECT_AND_SOURCE_CONFLICT_20261002.md` — Illustrious/NoobAI multi-subject community practice, masked OpenPose+LoRA+img2img workflow, and secondary-source conflict handling against exact current author guidance.
+
