@@ -246,3 +246,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AK_CHARACTER_STYLE_DATASET_CURATION_20261002.md` — anime character/style dataset curation: Anima multi-caption training variants, waifuc/CCIP filtering, crop/framing distribution, source-domain contamination, identity-vs-mutable attributes and OOD validation splits.
 
+- `../research/BATCH_AL_NATIVE_STYLE_VS_STYLE_LORA_20261002.md` — native artist/style knowledge vs Style LoRA: Anima/Illustrious/Noob visual explorers, standardized raw-style benchmarking, context-sensitive artist response and a LoRA decision tree.
+
