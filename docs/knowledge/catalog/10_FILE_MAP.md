@@ -222,3 +222,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_Y_ADULT_GENERATION_STRUCTURAL_MASTERY_20261002.md` — adult-only structural generation mastery: validity gate, relation graph, model-specific rating baselines, censorship/context leakage, relation-focused caption aids, failure taxonomy, learning ladder and controlled-test backlog.
 
+- `../research/BATCH_Z_COMPOSITIONAL_EVAL_AND_CONTROL_20261002.md` — compositional T2I evaluation research plus ComfyUI LoRA masking/scheduling and FreeFuse routing; strengthens hard-scene predicate scoring and assisted-control experiments.
+
