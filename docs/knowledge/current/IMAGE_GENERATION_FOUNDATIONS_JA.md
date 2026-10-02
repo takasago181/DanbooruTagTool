@@ -5,28 +5,43 @@ Status: `CURRENT_FOUNDATION_GUIDE / CLAIM_REGISTRY_WINS`
 
 この文書は、NoobAI / Anima / Illustrious等の具体的レシピより前に理解する共通知識。
 
+## この教科書の表記ルール
+
+**説明は日本語を主にする。**
+英語は、実際のUI名・モデル名・技術用語を照合できるように括弧で補助する。
+
+例:
+- 潜在表現（latent）
+- 条件付け（conditioning）
+- ノイズ除去（denoising）
+- 文章エンコーダー（Text Encoder）
+- サンプラー（Sampler）
+- スケジューラ（Scheduler）
+
+英語の名称を並べるだけで説明を終えない。
+
 ---
 
 # 1. まず1本の図
 
-`Prompt`
-→ `Tokenizer`
-→ `Text Encoder`
-→ `Conditioning`
+`プロンプト（Prompt）`
+→ `文字をトークンへ分ける（Tokenizer）`
+→ `文章を数値表現へ変える（Text Encoder）`
+→ `生成条件（Conditioning）`
 
 同時に:
 
-`Seed`
-→ `Random Noise / Latent`
+`シード（Seed）`
+→ `初期ノイズ / 潜在表現（Random Noise / Latent）`
 
 そして:
 
-`Conditioning + Noisy Latent`
-→ `UNet / DiT が各stepで予測`
-→ `Sampler/Schedulerが次のlatentを計算`
+`生成条件 + ノイズを含む潜在表現`
+→ `UNet / DiT が各ステップで修正方向を予測`
+→ `サンプラー / スケジューラが次の状態を計算`
 → `繰り返す`
-→ `Clean Latent`
-→ `VAE Decode`
+→ `完成した潜在表現`
+→ `VAEで画像へ復号`
 → `画像`
 
 この図を基準にすると設定の意味が整理しやすい。
@@ -37,26 +52,26 @@ Status: `CURRENT_FOUNDATION_GUIDE / CLAIM_REGISTRY_WINS`
 
 | 用語 | 一言 |
 |---|---|
-| Prompt | 作りたい内容の条件 |
-| Tokenizer | 文字列をmodelのtokenへ分ける |
-| Text Encoder | tokenを生成modelが使うvectorへ変える |
-| Conditioning | denoisingを誘導する条件情報 |
-| Seed | 擬似乱数generatorの初期値 |
-| Noise | 生成開始点などで使うrandom tensor |
-| Latent | pixel画像を圧縮した内部表現 |
-| UNet / DiT | 各stepで更新方向を予測する中心model |
-| Sampler | predictionから次状態へ進む数値的方法というUI上の呼び方 |
-| Scheduler | noise/timestepの進み方。libraryによってSampler込みでこう呼ぶ場合もある |
-| Steps | denoising更新の回数 |
-| CFG | Prompt conditioning方向へ寄せるguidance強度 |
-| Negative | 避けたい方向のconditioning。後処理filterではない |
-| VAE | pixel ↔ latent変換 |
-| LoRA | base modelへ追加する小型学習adapter |
-| ControlNet | pose/depth/edge等で構造を追加誘導 |
-| img2img | 元画像latentへnoiseを足して再生成 |
-| inpaint | mask範囲だけを中心に再生成 |
-| Hires | base後の高解像度/再生成工程。単純拡大とは限らない |
-| VRAM | GPU上でmodel/計算途中を保持するmemory |
+| プロンプト（Prompt） | 作りたい内容をモデルへ伝える条件 |
+| トークナイザー（Tokenizer） | 文字列をモデルが扱う単位へ分ける |
+| 文章エンコーダー（Text Encoder） | トークンを生成モデルが使える数値表現へ変える |
+| 条件付け（Conditioning） | ノイズ除去の方向を誘導する条件情報 |
+| シード（Seed） | 擬似乱数生成器の初期値 |
+| ノイズ（Noise） | 生成開始点などで使うランダムな数値配列 |
+| 潜在表現（Latent） | 画像を圧縮して扱う内部表現 |
+| UNet / DiT | 各ステップで修正方向を予測する中心モデル |
+| サンプラー（Sampler） | モデルの予測から次の状態へ進む計算方法 |
+| スケジューラ（Scheduler） | ノイズ量や時間刻みをどう進めるか決める仕組み。ライブラリによってはサンプラー相当も含む |
+| ステップ数（Steps） | ノイズ除去・更新を何回繰り返すか |
+| CFG | プロンプト条件へどれだけ強く寄せるかを調整する値 |
+| ネガティブプロンプト（Negative） | 避けたい方向を生成条件として与える。生成後の消しゴムではない |
+| VAE | 画像と潜在表現を相互変換する |
+| LoRA | 基本モデルへ追加して特徴を学習させる小型アダプター |
+| ControlNet | ポーズ・奥行き・輪郭などの構造情報を追加して誘導する |
+| 画像から画像生成（img2img） | 元画像の潜在表現へノイズを加えて描き直す |
+| 部分修正（inpaint） | マスクした範囲を中心に再生成する |
+| 高解像度化（Hires） | 基本生成後の高解像度化・再生成工程。単純な拡大とは限らない |
+| VRAM | GPU上でモデルや計算途中のデータを保持するメモリ |
 
 ---
 
