@@ -564,3 +564,24 @@ Count and viewpoint are separate capabilities.
 Research:
 `../research/BATCH_AE_COUNT_CAMERA_VISIBILITY_LIMITS_20261002.md`.
 
+---
+
+## 25. Anatomy vs relation — 2026-10-02
+
+Separate:
+- relation correct?
+- local anatomy correct?
+- depth/occlusion correct?
+
+If relation is right and only a hand/local region is broken:
+use local repair.
+
+If anatomy is clean but ownership/relation is wrong:
+do not waste time on detailers/inpaint first.
+
+If the target exists but is hidden:
+classify visibility/occlusion failure.
+
+Research:
+`../research/BATCH_AF_ANATOMY_OCCLUSION_LOCAL_REPAIR_20261002.md`.
+
