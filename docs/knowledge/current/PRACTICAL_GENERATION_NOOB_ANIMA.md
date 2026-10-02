@@ -866,3 +866,30 @@ Benchmark setup cost as well as final fidelity.
 Research:
 `../research/BATCH_AL_REFERENCE_ADAPTER_VS_LORA_20261002.md`.
 
+---
+
+## 31. End-to-end creation workflow — 2026-10-02
+
+Use this order:
+
+1. choose model/profile
+2. fast prompt/scene exploration
+3. lock structure
+4. verify character identity
+5. add/verify style
+6. add LoRAs one at a time
+7. tune parameters with fixed seed
+8. pass structural gate
+9. Hires/upscale
+10. local inpaint/detailer
+11. final audit
+
+For Anima, Turbo is a useful fast-iteration lane; revalidate on the actual final profile.
+
+Keep style / character / scene modules conceptually separate.
+
+Do not upscale or detail a structurally wrong image.
+
+Research:
+`../research/BATCH_AM_PRACTICAL_CREATION_WORKFLOW_20261002.md`.
+
