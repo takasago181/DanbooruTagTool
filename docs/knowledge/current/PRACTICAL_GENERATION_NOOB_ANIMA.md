@@ -715,3 +715,23 @@ Do not judge raw artist strength while simultaneously changing quality/year/seri
 Research:
 `../research/BATCH_AL_NATIVE_STYLE_VS_STYLE_LORA_20261002.md`.
 
+---
+
+## 31. Character identity vs outfit variants — 2026-10-02
+
+Decide the adapter target before training:
+
+- identity-only
+- identity + default outfit
+- identity + multiple switchable outfits
+
+Do not score all three with one criterion.
+
+If clothes should change later, treat them as independently conditioned/mutable during dataset design.
+If default clothes should be trigger-implicit, bind them deliberately and test whether alternate clothes remain possible.
+
+Separate outfit LoRAs can change identity; test them as multi-adapter interference.
+
+Research:
+`../research/BATCH_AM_CHARACTER_IDENTITY_OUTFIT_FACTORING_20261002.md`.
+
