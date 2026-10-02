@@ -1729,3 +1729,78 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Class: `COMMUNITY_CURATED`
 - Use: current community map across Forge/reForge, ComfyUI, Illustrious/Noob/WAI and realism lanes.
 - Limitation: one curator's synthesis, not authority.
+
+
+---
+
+## 2026-10-02 BATCH_AY real-world workflow case sources
+
+**S-AY-001 — Multi-character community cases**
+- URLs:
+  - https://www.reddit.com/r/comfyui/comments/1ws23ur/multiple_characters_in_one_single_generated_image/
+  - https://www.reddit.com/r/comfyui/comments/1v41coi/how_to_create_multiple_characters_in_comfyui_sdxl/
+  - https://www.reddit.com/r/comfyui/comments/1jtt9mz
+  - https://www.reddit.com/r/comfyui/comments/1pat0j1/how_to_get_multiple_characters_to_work_in_comfyui/
+  - https://www.reddit.com/r/StableDiffusion/comments/1tcf5y6/multiple_characters_using_loras_with_anima_model/
+  - https://www.reddit.com/r/comfyui/comments/1wkh6if/how_to_generate_6_characters_in_a_single_image/
+- Class: `COMMUNITY_PRACTICAL`
+- Recurrent signals: global LoRA mixing, attribute bleed, interaction stress, regional/inpaint/control fallbacks.
+
+**S-AY-002 — Anima prompt and multi-character discussions**
+- URLs:
+  - https://huggingface.co/circlestone-labs/Anima/discussions/93
+  - https://huggingface.co/circlestone-labs/Anima/discussions/140
+  - https://huggingface.co/circlestone-labs/Anima/discussions/202
+- Class: `COMMUNITY / CONTROLLED_PRACTICAL`
+- Use: tags-vs-NL/hybrid behavior and coexistence-vs-interaction stress.
+
+**S-AY-003 — Regional tool stack**
+- URLs:
+  - https://github.com/Haoming02/sd-forge-couple
+  - https://github.com/Sen-sou/Comfyui-Anima-Regional-Conditioning
+  - https://github.com/dr1610/ComfyUI-Regional-Mask-Prompt
+  - https://github.com/m0rtus59/ComfyUI-MoonNodes
+  - https://www.reddit.com/r/StableDiffusion/comments/1u3q7mn/regional_controlnet_for_anima/
+  - https://note.com/hirorohi03/n/nf5f99d66eb71
+- Class: `OFFICIAL_RUNTIME / TOOL_DOC / COMMUNITY_PRACTICAL`
+- Use: separation/locality mechanisms and boundary/coherence tradeoffs.
+
+**S-AY-004 — Controlled Anima reference studies**
+- URLs:
+  - https://note.com/ai_on_desk/n/na2d11eeb39e3
+  - https://note.com/ai_on_desk/n/n6939918eef7f
+  - https://note.com/ai_on_desk/n/n95177c63c942
+- Class: `CONTROLLED_PRACTICAL`
+- Controls include fixed seeds, strength sweeps, scene variants and 8-/12-/40-image comparisons.
+- Use: feature-tier identity retention, reference blank-fill/leakage and reference-vs-geometry control conflict.
+
+**S-AY-005 — Anima IP-Adapter/Edit tooling**
+- URLs:
+  - https://github.com/Wenaka2004/comfyui-anima-ipadapter
+  - https://github.com/LuciferTC9527/ComfyUI-Anima_IP-Adapter
+  - https://www.reddit.com/r/StableDiffusion/comments/1twlu8c/anima_edit_with_turbo_lora_and_proper_masking/
+  - https://www.reddit.com/r/StableDiffusion/comments/1uv4vpp/extend_image_image_edit_anima_edit/
+  - https://note.com/hirorohi03/n/na72233a8d6a4
+- Class: `TOOL_ECOSYSTEM / COMMUNITY_PRACTICAL`
+- Use: accepted-base editing and reference scheduling/localization.
+
+**S-AY-006 — LoRA data/training pipeline**
+- URLs:
+  - https://www.reddit.com/r/StableDiffusion/comments/1t0yirq/built_a_3step_allinone_lora_builder_for_anima/
+  - https://huggingface.co/circlestone-labs/Anima/discussions/220
+  - https://huggingface.co/circlestone-labs/Anima/discussions/222
+  - https://huggingface.co/circlestone-labs/Anima/discussions/106
+  - https://huggingface.co/circlestone-labs/Anima/discussions/240
+- Class: `COMMUNITY`
+- Use: extraction/tagging automation, joint examples, overfit/editability diagnostics.
+- Boundary: exact image counts/step recipes remain anecdotal.
+
+**S-AY-007 — Anima finishing cases**
+- URLs:
+  - https://www.reddit.com/r/StableDiffusion/comments/1rye0p1/simple_anima_segs_tiled_upscale_workflow_works/
+  - https://huggingface.co/circlestone-labs/Anima/discussions/42
+  - https://huggingface.co/circlestone-labs/Anima/discussions/53
+  - https://huggingface.co/circlestone-labs/Anima/discussions/204
+  - https://www.reddit.com/r/comfyui/comments/1sq0a1q/upscale_after_detailer/
+- Class: `COMMUNITY_PRACTICAL`
+- Use: second-pass artifacts, tiled fallback and finishing separation.
