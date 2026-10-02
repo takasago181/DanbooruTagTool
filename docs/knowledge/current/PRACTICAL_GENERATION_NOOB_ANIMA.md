@@ -1133,3 +1133,26 @@ Do not copy one user's exact numeric recipe as universal.
 Research:
 `../research/BATCH_AU_REGIONAL_SAMPLER_PROXY_METHOD_20261002.md`.
 
+---
+
+## 41. Dataset-first LoRA diagnosis — 2026-10-02
+
+If a trained LoRA always forces one:
+- style
+- background
+- outfit
+- camera
+- role
+
+inspect the dataset before changing rank/LR/steps.
+
+Audit whether the factor:
+- is nearly constant;
+- is missing from captions;
+- was omitted by the auto-tagger.
+
+Fix representation/diversity first when possible.
+
+Research:
+`../research/BATCH_AV_DATASET_STYLE_BIAS_AND_PREPROCESSING_20261002.md`.
+
