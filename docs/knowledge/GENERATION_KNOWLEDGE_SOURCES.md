@@ -855,3 +855,17 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Value: positive-prior/context-entanglement hypothesis.
 - Limitation: no controlled universal frequency estimate.
 
+**S-NOOB-EXACT-001 — NoobAI XL 1.1 exact file / dataset card**
+- URLs:
+  - https://huggingface.co/Laxhar/noobai-XL-1.1/blob/main/README.md
+  - https://huggingface.co/Laxhar/noobai-XL-1.1/blob/main/NoobAI-XL-v1.1.safetensors
+- Class: `AUTHOR_GUIDE / OFFICIAL_MODEL`
+- Scope: EPS 1.1 settings, dataset window, ControlNet, checkpoint SHA.
+- EPS SHA256: `6681e8e4b134c81f16533acedb0d406d7e5e366e1624b4105178c64d00b05d51`.
+
+**S-NOOB-EXACT-002 — NoobAI XL V-Pred 1.0 exact file**
+- URL: https://huggingface.co/Laxhar/noobai-XL-Vpred-1.0/blame/main/NoobAI-XL-Vpred-v1.0.safetensors
+- Class: `OFFICIAL_MODEL`
+- Scope: V-Pred exact checkpoint identity.
+- SHA256: `ea349eeae87ca8d25ba902c93810f7ca83e5c82f920edf12f273af004ae02819`.
+
