@@ -1168,3 +1168,28 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: standardized character benchmark with quality tags removed.
 - Value: isolates raw artist influence.
 
+**S-COMM-075 — Anima default-outfit prompting request**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/206
+- Class: `COMMUNITY / CURRENT_FEEDBACK`
+- Scope: character identity vs official/default outfit recall.
+- Value: motivates separate identity/outfit evaluation.
+- Limitation: user feedback, not controlled benchmark.
+
+**S-COMM-076 — Character LoRA clothing captioning discussion**
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1gkqi9f
+- Class: `COMMUNITY / TRAINING_PRACTICE`
+- Scope: caption mutable clothing vs absorb default clothing into trigger.
+- Limitation: heuristic, architecture-dependent.
+
+**S-COMM-077 — Multi-outfit trigger-token discussion**
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1vgrr7b
+- Class: `COMMUNITY / CURRENT_TRAINING_PRACTICE`
+- Scope: one character LoRA with outfit-specific triggers.
+- Limitation: numeric image/balance advice is unverified.
+
+**S-COMM-078 — Character + clothing LoRA interference**
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1qkrofm/train_clothes_and_cosplay_outfit_loras/
+- Class: `COMMUNITY / WORKFLOW_DISCUSSION`
+- Scope: separate clothes LoRA vs prompting/reference edit vs multi-concept LoRA.
+- Value: separate outfit adapters can affect identity.
+
