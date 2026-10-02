@@ -1600,3 +1600,16 @@ It translates the corpus into:
 - teaching exercises;
 - confidence/evidence checks.
 
+## 16.13 Proxy-based regional replacement
+
+A recent detailed Anima workflow supports a useful production principle:
+
+`native structurally-correct reference -> minimal regional identity/style replacement`.
+
+This reduces the amount of geometry the LoRA/regional stage must rebuild.
+
+Exact numeric settings remain community recipe-level.
+
+Research:
+`research/BATCH_AU_REGIONAL_SAMPLER_PROXY_METHOD_20261002.md`.
+
