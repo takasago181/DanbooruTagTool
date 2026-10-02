@@ -296,3 +296,9 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AY_REAL_WORLD_ADULT_WORKFLOW_ARCHETYPES_20261002.md` — 27件の公開workflow/case studyを native-first / LoRA / Regional / reference+geometry / Edit / data-first training / finishing に分解。成人向けへ転用できる共通構造を抽出。
 - `../current/LOCAL_ADULT_WORKFLOW_PLAYBOOK_20261002.md` — 日本語の実用playbook。identity・geometry・locality・repair・finishingを別担当にし、失敗から次のtoolへrouting。
+
+
+- `../research/BATCH_AZ_GENERATION_FOUNDATIONS_PIPELINE_20261002.md` — 画像生成基礎A。Prompt→tokenizer/text encoder→conditioning、seed/noise、latent、VAE、UNet/DiT、checkpoint component、resolutionをゼロから整理。
+- `../research/BATCH_BA_SAMPLING_GUIDANCE_FOUNDATIONS_20261002.md` — 基礎B。Sampler/solverとScheduler/noise scheduleの用語境界、Steps、sigma/timestep、CFG、Negative、weightを整理。
+- `../research/BATCH_BB_EDITING_CONTROL_MEMORY_FOUNDATIONS_20261002.md` — 基礎C。img2img、denoise、inpaint mask、ControlNet/preprocessor、LoRA、VRAM、precision、quantization、offload、batchを整理。
+- `../current/IMAGE_GENERATION_FOUNDATIONS_JA.md` — 日本語の基礎教科書。モデル別レシピより前に読むcurrent foundation guide。
