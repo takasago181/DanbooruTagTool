@@ -1267,3 +1267,26 @@ LoRA application can suppress native artist/style knowledge and reduce prompt-dr
 Current detail:
 `research/BATCH_AI_CHARACTER_STYLE_REPRODUCTION_LORA_20261002.md`.
 
+---
+
+## 16.1 Character/style evaluation stack — 2026-10-02
+
+Character reproduction:
+`identity fidelity + editability`.
+
+Style reproduction:
+`style fidelity + content preservation`.
+
+Recommended automated signals:
+- anime identity: CCIP candidate
+- style: dedicated style descriptors / diffusion-feature similarity
+- semantic/prompt: predicate or multimodal evaluator
+
+Human judgement remains the final authority when strong stylization or unusual conditions make embeddings unreliable.
+
+LoRA hyperparameters are part of evidence identity:
+rank is capacity, alpha changes scaling, and neither should be interpreted without LR/modules/data.
+
+Detail:
+`research/BATCH_AJ_LORA_CAPACITY_REFERENCE_AND_EVALUATION_20261002.md`.
+
