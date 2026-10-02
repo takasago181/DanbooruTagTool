@@ -228,3 +228,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AB_NEGATIVE_PRIOR_AND_TRAINING_TOOLCHAIN_20261002.md` — ordinary Negative vs positive-prior entanglement, NegPiP assisted suppression, archived Forge Neo Anima path, TrainTrain Anima support and toolchain freshness rules.
 
+- `../research/BATCH_AC_NOOBAI_EXACT_IDENTITY_DATASET_CONTROL_20261002.md` — NoobAI EPS/V-Pred exact checkpoint hashes, author dataset exposure window, current-vs-training tag freshness boundary and NoobXL ControlNet assisted-control path.
+
