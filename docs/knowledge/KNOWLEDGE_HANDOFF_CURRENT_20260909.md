@@ -1,3 +1,6 @@
+> **SUPERSEDED / HISTORICAL HANDOFF SNAPSHOT**  
+> 固定日付handoffであり、現在の復元authorityではない。復元はmain `docs/project/CURRENT_STATE.md`、`docs/project/PERMANENT_RULES.md`、live Issue #44、main `docs/PRODUCT_GOAL_LOCK.md`、`docs/knowledge/current/README.md` を優先する。
+
 # KNOWLEDGE Current Handoff
 
 Owner: Issue #44 `KNOWLEDGE:#44`
