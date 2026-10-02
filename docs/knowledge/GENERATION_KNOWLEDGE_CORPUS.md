@@ -1698,3 +1698,42 @@ Japanese operational playbook:
 
 Research:
 `research/BATCH_AY_REAL_WORLD_ADULT_WORKFLOW_ARCHETYPES_20261002.md`.
+
+
+## 16.18 Image-generation foundations layer
+
+The corpus now has an explicit beginner-to-advanced foundation layer instead of assuming Stable Diffusion terminology is already known.
+
+Core pipeline:
+
+`prompt -> tokenizer/text encoder -> conditioning`
++
+`seed -> random latent/noise`
+->
+`UNet/DiT iterative denoising under sampler/schedule`
+->
+`clean latent -> VAE decode -> pixels`.
+
+The new layer separates:
+- latent vs pixels;
+- VAE encode/decode;
+- seed vs composition;
+- model components vs single-file checkpoint;
+- UNet vs DiT;
+- sampler/solver vs noise/timestep schedule;
+- steps vs quality;
+- CFG vs semantic understanding;
+- Negative conditioning vs deletion filter;
+- img2img strength;
+- inpaint mask mechanics;
+- Control preprocessing/model/strength/start/end;
+- LoRA basic adapter mechanics;
+- VRAM/precision/quantization/offload.
+
+Japanese foundation guide:
+`current/IMAGE_GENERATION_FOUNDATIONS_JA.md`
+
+Research:
+- `research/BATCH_AZ_GENERATION_FOUNDATIONS_PIPELINE_20261002.md`
+- `research/BATCH_BA_SAMPLING_GUIDANCE_FOUNDATIONS_20261002.md`
+- `research/BATCH_BB_EDITING_CONTROL_MEMORY_FOUNDATIONS_20261002.md`
