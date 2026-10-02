@@ -220,3 +220,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_X_PARAMETER_HIGHRES_DATASET_COMMUNITY_20261002.md` — large community evidence: 162-image Anima parameter sweep, 279-image Highres Boost strength×resolution test, and iterative 49→61 image character-LoRA dataset repair.
 
+- `../research/BATCH_Y_ADULT_GENERATION_STRUCTURAL_MASTERY_20261002.md` — adult-only structural generation mastery: validity gate, relation graph, model-specific rating baselines, censorship/context leakage, relation-focused caption aids, failure taxonomy, learning ladder and controlled-test backlog.
+
