@@ -735,3 +735,28 @@ Separate outfit LoRAs can change identity; test them as multi-adapter interferen
 Research:
 `../research/BATCH_AM_CHARACTER_IDENTITY_OUTFIT_FACTORING_20261002.md`.
 
+---
+
+## 32. Character identity-core tests — 2026-10-02
+
+A character is not “correct” only because the hair color and default outfit match.
+
+Define:
+- identity_core
+- default presentation
+- mutable variants
+
+Then deliberately change:
+- outfit
+- background
+- style
+- camera
+- viewpoint
+
+and verify identity survives.
+
+Use CCIP as an anime identity screening signal where applicable, but pair it with feature-level review.
+
+Research:
+`../research/BATCH_AN_CHARACTER_IDENTITY_CORE_EVALUATION_20261002.md`.
+
