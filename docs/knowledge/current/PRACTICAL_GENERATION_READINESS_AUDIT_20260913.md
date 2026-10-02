@@ -1,3 +1,6 @@
+> **SUPERSEDED READINESS SNAPSHOT**  
+> 2026-09-13時点の不足評価。2026-10-02の基礎・LoRA・Regional・Reference・仕上げ・成人向け実践研究を反映していない。現在の実践入口は `PRACTICAL_GENERATION_NOOB_ANIMA.md`、`IMAGE_GENERATION_FOUNDATIONS_JA.md`、成人向けcurrent教材群を参照。
+
 # Practical Generation Knowledge Readiness Audit — 2026-09-13
 
 Owner: Issue #44 `KNOWLEDGE:#44`
