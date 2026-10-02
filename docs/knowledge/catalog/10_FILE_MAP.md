@@ -256,3 +256,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AJ_CHARACTER_STYLE_EVALUATION_AND_LYCORIS_20261002.md` — anime identity/style evaluation stack (CCIP, CSD, DiffSim), OOD style tests, LyCORIS fidelity/controllability/diversity/base-preservation framework, rank/alpha interaction and LoRA/LoCon/LoHa/LoKr comparison.
 
+- `../research/BATCH_AK_PERSONALIZATION_DISENTANGLEMENT_DATASET_20261002.md` — character/style dataset design from DisenBooth/Infusion/Custom Diffusion/Break-A-Scene: identity-context disentanglement, two types of overfit, concept-agnostic leakage tests, effective diversity and masked multi-concept training.
+
