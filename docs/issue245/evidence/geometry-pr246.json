@@ -1,0 +1,1731 @@
+{
+  "Revision": "b856279fd0b7aef3893ba62bd13aa49a9024b366",
+  "AuthorityRoot": "C:\\Codex\\DanbooruTagTool\\.worktree-issue245",
+  "Session": 1,
+  "Screen": {
+    "PrimaryScreenWidth": 1706.6666666666667,
+    "PrimaryScreenHeight": 960,
+    "VirtualScreenWidth": 1706.6666666666667,
+    "VirtualScreenHeight": 960,
+    "WorkArea": {
+      "X": 0,
+      "Y": 0,
+      "Width": 1706.6666666666667,
+      "Height": 912
+    }
+  },
+  "Cases": [
+    {
+      "Mode": "native",
+      "RequestedWidth": 1200,
+      "RequestedHeight": 900,
+      "WidthProperty": 1200,
+      "HeightProperty": 900,
+      "NativeActualWidth": 1200,
+      "NativeActualHeight": 900,
+      "State": "Normal",
+      "DpiX": 144,
+      "DpiY": 144,
+      "DpiScale": 1.5,
+      "DictionaryListHeight": 221.33333333333334,
+      "OriginalHeightAssertion": true,
+      "ResultCount": 45,
+      "Parents": [
+        {
+          "Type": "ListBox",
+          "Name": "DictionaryList",
+          "Width": 408,
+          "Height": 221.33333333333334,
+          "DesiredWidth": 408,
+          "DesiredHeight": 221.33333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "",
+          "Width": 408,
+          "Height": 221.33333333333334,
+          "DesiredWidth": 408,
+          "DesiredHeight": 221.33333333333334,
+          "Rows": []
+        },
+        {
+          "Type": "Border",
+          "Name": "DictionaryResultSurface",
+          "Width": 414.6666666666667,
+          "Height": 228,
+          "DesiredWidth": 414.6666666666667,
+          "DesiredHeight": 228,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "",
+          "Width": 414.6666666666667,
+          "Height": 646,
+          "DesiredWidth": 414.6666666666667,
+          "DesiredHeight": 646,
+          "Rows": [
+            44,
+            38.66666666666666,
+            335.33333333333337,
+            0,
+            228
+          ]
+        },
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 433.3333333333333,
+          "Height": 664.6666666666666,
+          "DesiredWidth": 433.3333333333333,
+          "DesiredHeight": 664.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "ContentPresenter",
+          "Name": "",
+          "Width": 433.3333333333333,
+          "Height": 664.6666666666666,
+          "DesiredWidth": 433.3333333333333,
+          "DesiredHeight": 664.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 433.3333333333333,
+          "Height": 664.6666666666666,
+          "DesiredWidth": 433.3333333333333,
+          "DesiredHeight": 664.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "DictionaryWorkspaceView",
+          "Name": "DictionaryWorkspace",
+          "Width": 433.3333333333333,
+          "Height": 664.6666666666666,
+          "DesiredWidth": 433.3333333333333,
+          "DesiredHeight": 664.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "",
+          "Width": 1149.3333333333333,
+          "Height": 664.6666666666666,
+          "DesiredWidth": 1149.3333333333333,
+          "DesiredHeight": 672.6666666666666,
+          "Rows": []
+        },
+        {
+          "Type": "DockPanel",
+          "Name": "",
+          "Width": 1149.3333333333333,
+          "Height": 672.6666666666666,
+          "DesiredWidth": 1149.3333333333333,
+          "DesiredHeight": 672.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "ContentPresenter",
+          "Name": "PART_SelectedContentHost",
+          "Width": 1149.3333333333333,
+          "Height": 672.6666666666666,
+          "DesiredWidth": 1153.3333333333333,
+          "DesiredHeight": 676.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "Border",
+          "Name": "ContentPanel",
+          "Width": 1153.3333333333333,
+          "Height": 676.6666666666666,
+          "DesiredWidth": 1153.3333333333333,
+          "DesiredHeight": 676.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "templateRoot",
+          "Width": 1153.3333333333333,
+          "Height": 725.3333333333334,
+          "DesiredWidth": 1153.3333333333333,
+          "DesiredHeight": 725.3333333333334,
+          "Rows": [
+            48.666666666666664,
+            676.6666666666666
+          ]
+        },
+        {
+          "Type": "TabControl",
+          "Name": "Workspaces",
+          "Width": 1153.3333333333333,
+          "Height": 725.3333333333334,
+          "DesiredWidth": 1153.3333333333333,
+          "DesiredHeight": 733.3333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "DockPanel",
+          "Name": "",
+          "Width": 1153.3333333333333,
+          "Height": 830.6666666666666,
+          "DesiredWidth": 1185.3333333333333,
+          "DesiredHeight": 862.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "ContentPresenter",
+          "Name": "",
+          "Width": 1185.3333333333333,
+          "Height": 862.6666666666666,
+          "DesiredWidth": 1185.3333333333333,
+          "DesiredHeight": 862.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "AdornerDecorator",
+          "Name": "",
+          "Width": 1185.3333333333333,
+          "Height": 862.6666666666666,
+          "DesiredWidth": 1185.3333333333333,
+          "DesiredHeight": 862.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 1185.3333333333333,
+          "Height": 862.6666666666666,
+          "DesiredWidth": 1185.3333333333333,
+          "DesiredHeight": 862.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "MainWindow",
+          "Name": "",
+          "Width": 1200,
+          "Height": 900,
+          "DesiredWidth": 1200,
+          "DesiredHeight": 900,
+          "Rows": null
+        }
+      ],
+      "HeaderAndTabs": [
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 1153.3333333333333,
+          "Height": 67.33333333333333,
+          "Y": 0
+        },
+        {
+          "Type": "TabControl",
+          "Name": "Workspaces",
+          "Width": 1153.3333333333333,
+          "Height": 725.3333333333334,
+          "Y": 75.33333333333333
+        }
+      ]
+    },
+    {
+      "Mode": "explicit-content",
+      "RequestedWidth": 1200,
+      "RequestedHeight": 900,
+      "WidthProperty": 1200,
+      "HeightProperty": 900,
+      "NativeActualWidth": 1200,
+      "NativeActualHeight": 900,
+      "State": "Normal",
+      "DpiX": 144,
+      "DpiY": 144,
+      "DpiScale": 1.5,
+      "DictionaryListHeight": 252,
+      "OriginalHeightAssertion": true,
+      "ResultCount": 45,
+      "Parents": [
+        {
+          "Type": "ListBox",
+          "Name": "DictionaryList",
+          "Width": 438.6666666666667,
+          "Height": 252,
+          "DesiredWidth": 438.6666666666667,
+          "DesiredHeight": 252,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "",
+          "Width": 438.6666666666667,
+          "Height": 252,
+          "DesiredWidth": 438.6666666666667,
+          "DesiredHeight": 252,
+          "Rows": []
+        },
+        {
+          "Type": "Border",
+          "Name": "DictionaryResultSurface",
+          "Width": 445.3333333333333,
+          "Height": 258.6666666666667,
+          "DesiredWidth": 445.3333333333333,
+          "DesiredHeight": 258.6666666666667,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "",
+          "Width": 445.3333333333333,
+          "Height": 676.6666666666666,
+          "DesiredWidth": 445.3333333333333,
+          "DesiredHeight": 676.6666666666666,
+          "Rows": [
+            44,
+            38.66666666666666,
+            335.33333333333337,
+            0,
+            258.66666666666674
+          ]
+        },
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 464,
+          "Height": 695.3333333333334,
+          "DesiredWidth": 464,
+          "DesiredHeight": 695.3333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "ContentPresenter",
+          "Name": "",
+          "Width": 464,
+          "Height": 695.3333333333334,
+          "DesiredWidth": 464,
+          "DesiredHeight": 695.3333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 464,
+          "Height": 695.3333333333334,
+          "DesiredWidth": 464,
+          "DesiredHeight": 695.3333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "DictionaryWorkspaceView",
+          "Name": "DictionaryWorkspace",
+          "Width": 464,
+          "Height": 695.3333333333334,
+          "DesiredWidth": 464,
+          "DesiredHeight": 695.3333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "",
+          "Width": 1180,
+          "Height": 695.3333333333334,
+          "DesiredWidth": 1180,
+          "DesiredHeight": 703.3333333333334,
+          "Rows": []
+        },
+        {
+          "Type": "DockPanel",
+          "Name": "",
+          "Width": 1180,
+          "Height": 703.3333333333334,
+          "DesiredWidth": 1180,
+          "DesiredHeight": 703.3333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "ContentPresenter",
+          "Name": "PART_SelectedContentHost",
+          "Width": 1180,
+          "Height": 703.3333333333334,
+          "DesiredWidth": 1184,
+          "DesiredHeight": 707.3333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "Border",
+          "Name": "ContentPanel",
+          "Width": 1184,
+          "Height": 707.3333333333334,
+          "DesiredWidth": 1184,
+          "DesiredHeight": 707.3333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "templateRoot",
+          "Width": 1184,
+          "Height": 756,
+          "DesiredWidth": 1184,
+          "DesiredHeight": 756,
+          "Rows": [
+            48.666666666666664,
+            707.3333333333334
+          ]
+        },
+        {
+          "Type": "TabControl",
+          "Name": "Workspaces",
+          "Width": 1184,
+          "Height": 756,
+          "DesiredWidth": 1184,
+          "DesiredHeight": 764,
+          "Rows": null
+        },
+        {
+          "Type": "DockPanel",
+          "Name": "",
+          "Width": 1184,
+          "Height": 861.3333333333334,
+          "DesiredWidth": 1185.3333333333333,
+          "DesiredHeight": 862.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "ContentPresenter",
+          "Name": "",
+          "Width": 1185.3333333333333,
+          "Height": 862.6666666666666,
+          "DesiredWidth": 1185.3333333333333,
+          "DesiredHeight": 862.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "AdornerDecorator",
+          "Name": "",
+          "Width": 1185.3333333333333,
+          "Height": 862.6666666666666,
+          "DesiredWidth": 1185.3333333333333,
+          "DesiredHeight": 862.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 1185.3333333333333,
+          "Height": 862.6666666666666,
+          "DesiredWidth": 1185.3333333333333,
+          "DesiredHeight": 862.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "MainWindow",
+          "Name": "",
+          "Width": 1200,
+          "Height": 900,
+          "DesiredWidth": 1200,
+          "DesiredHeight": 900,
+          "Rows": null
+        }
+      ],
+      "HeaderAndTabs": [
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 1184,
+          "Height": 67.33333333333333,
+          "Y": 0
+        },
+        {
+          "Type": "TabControl",
+          "Name": "Workspaces",
+          "Width": 1184,
+          "Height": 756,
+          "Y": 75.33333333333333
+        }
+      ]
+    },
+    {
+      "Mode": "native",
+      "RequestedWidth": 1500,
+      "RequestedHeight": 900,
+      "WidthProperty": 1500,
+      "HeightProperty": 900,
+      "NativeActualWidth": 1500,
+      "NativeActualHeight": 900,
+      "State": "Normal",
+      "DpiX": 144,
+      "DpiY": 144,
+      "DpiScale": 1.5,
+      "DictionaryListHeight": 235.33333333333334,
+      "OriginalHeightAssertion": true,
+      "ResultCount": 45,
+      "Parents": [
+        {
+          "Type": "ListBox",
+          "Name": "DictionaryList",
+          "Width": 708,
+          "Height": 235.33333333333334,
+          "DesiredWidth": 708,
+          "DesiredHeight": 235.33333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "",
+          "Width": 708,
+          "Height": 235.33333333333334,
+          "DesiredWidth": 708,
+          "DesiredHeight": 235.33333333333334,
+          "Rows": []
+        },
+        {
+          "Type": "Border",
+          "Name": "DictionaryResultSurface",
+          "Width": 714.6666666666666,
+          "Height": 242,
+          "DesiredWidth": 714.6666666666666,
+          "DesiredHeight": 242,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "",
+          "Width": 714.6666666666666,
+          "Height": 646,
+          "DesiredWidth": 714.6666666666666,
+          "DesiredHeight": 646,
+          "Rows": [
+            44,
+            38.66666666666666,
+            321.33333333333337,
+            0,
+            242
+          ]
+        },
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 733.3333333333334,
+          "Height": 664.6666666666666,
+          "DesiredWidth": 733.3333333333334,
+          "DesiredHeight": 664.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "ContentPresenter",
+          "Name": "",
+          "Width": 733.3333333333334,
+          "Height": 664.6666666666666,
+          "DesiredWidth": 733.3333333333334,
+          "DesiredHeight": 664.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 733.3333333333334,
+          "Height": 664.6666666666666,
+          "DesiredWidth": 733.3333333333334,
+          "DesiredHeight": 664.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "DictionaryWorkspaceView",
+          "Name": "DictionaryWorkspace",
+          "Width": 733.3333333333334,
+          "Height": 664.6666666666666,
+          "DesiredWidth": 733.3333333333334,
+          "DesiredHeight": 664.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "",
+          "Width": 1449.3333333333333,
+          "Height": 664.6666666666666,
+          "DesiredWidth": 1449.3333333333333,
+          "DesiredHeight": 672.6666666666666,
+          "Rows": []
+        },
+        {
+          "Type": "DockPanel",
+          "Name": "",
+          "Width": 1449.3333333333333,
+          "Height": 672.6666666666666,
+          "DesiredWidth": 1449.3333333333333,
+          "DesiredHeight": 672.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "ContentPresenter",
+          "Name": "PART_SelectedContentHost",
+          "Width": 1449.3333333333333,
+          "Height": 672.6666666666666,
+          "DesiredWidth": 1453.3333333333333,
+          "DesiredHeight": 676.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "Border",
+          "Name": "ContentPanel",
+          "Width": 1453.3333333333333,
+          "Height": 676.6666666666666,
+          "DesiredWidth": 1453.3333333333333,
+          "DesiredHeight": 676.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "templateRoot",
+          "Width": 1453.3333333333333,
+          "Height": 725.3333333333334,
+          "DesiredWidth": 1453.3333333333333,
+          "DesiredHeight": 725.3333333333334,
+          "Rows": [
+            48.666666666666664,
+            676.6666666666666
+          ]
+        },
+        {
+          "Type": "TabControl",
+          "Name": "Workspaces",
+          "Width": 1453.3333333333333,
+          "Height": 725.3333333333334,
+          "DesiredWidth": 1453.3333333333333,
+          "DesiredHeight": 733.3333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "DockPanel",
+          "Name": "",
+          "Width": 1453.3333333333333,
+          "Height": 830.6666666666666,
+          "DesiredWidth": 1485.3333333333333,
+          "DesiredHeight": 862.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "ContentPresenter",
+          "Name": "",
+          "Width": 1485.3333333333333,
+          "Height": 862.6666666666666,
+          "DesiredWidth": 1485.3333333333333,
+          "DesiredHeight": 862.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "AdornerDecorator",
+          "Name": "",
+          "Width": 1485.3333333333333,
+          "Height": 862.6666666666666,
+          "DesiredWidth": 1485.3333333333333,
+          "DesiredHeight": 862.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 1485.3333333333333,
+          "Height": 862.6666666666666,
+          "DesiredWidth": 1485.3333333333333,
+          "DesiredHeight": 862.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "MainWindow",
+          "Name": "",
+          "Width": 1500,
+          "Height": 900,
+          "DesiredWidth": 1500,
+          "DesiredHeight": 900,
+          "Rows": null
+        }
+      ],
+      "HeaderAndTabs": [
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 1453.3333333333333,
+          "Height": 67.33333333333333,
+          "Y": 0
+        },
+        {
+          "Type": "TabControl",
+          "Name": "Workspaces",
+          "Width": 1453.3333333333333,
+          "Height": 725.3333333333334,
+          "Y": 75.33333333333333
+        }
+      ]
+    },
+    {
+      "Mode": "explicit-content",
+      "RequestedWidth": 1500,
+      "RequestedHeight": 900,
+      "WidthProperty": 1500,
+      "HeightProperty": 900,
+      "NativeActualWidth": 1500,
+      "NativeActualHeight": 900,
+      "State": "Normal",
+      "DpiX": 144,
+      "DpiY": 144,
+      "DpiScale": 1.5,
+      "DictionaryListHeight": 266,
+      "OriginalHeightAssertion": true,
+      "ResultCount": 45,
+      "Parents": [
+        {
+          "Type": "ListBox",
+          "Name": "DictionaryList",
+          "Width": 738.6666666666666,
+          "Height": 266,
+          "DesiredWidth": 738.6666666666666,
+          "DesiredHeight": 266,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "",
+          "Width": 738.6666666666666,
+          "Height": 266,
+          "DesiredWidth": 738.6666666666666,
+          "DesiredHeight": 266,
+          "Rows": []
+        },
+        {
+          "Type": "Border",
+          "Name": "DictionaryResultSurface",
+          "Width": 745.3333333333334,
+          "Height": 272.6666666666667,
+          "DesiredWidth": 745.3333333333334,
+          "DesiredHeight": 272.6666666666667,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "",
+          "Width": 745.3333333333334,
+          "Height": 676.6666666666666,
+          "DesiredWidth": 745.3333333333334,
+          "DesiredHeight": 676.6666666666666,
+          "Rows": [
+            44,
+            38.66666666666666,
+            321.33333333333337,
+            0,
+            272.66666666666674
+          ]
+        },
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 764,
+          "Height": 695.3333333333334,
+          "DesiredWidth": 764,
+          "DesiredHeight": 695.3333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "ContentPresenter",
+          "Name": "",
+          "Width": 764,
+          "Height": 695.3333333333334,
+          "DesiredWidth": 764,
+          "DesiredHeight": 695.3333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 764,
+          "Height": 695.3333333333334,
+          "DesiredWidth": 764,
+          "DesiredHeight": 695.3333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "DictionaryWorkspaceView",
+          "Name": "DictionaryWorkspace",
+          "Width": 764,
+          "Height": 695.3333333333334,
+          "DesiredWidth": 764,
+          "DesiredHeight": 695.3333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "",
+          "Width": 1480,
+          "Height": 695.3333333333334,
+          "DesiredWidth": 1480,
+          "DesiredHeight": 703.3333333333334,
+          "Rows": []
+        },
+        {
+          "Type": "DockPanel",
+          "Name": "",
+          "Width": 1480,
+          "Height": 703.3333333333334,
+          "DesiredWidth": 1480,
+          "DesiredHeight": 703.3333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "ContentPresenter",
+          "Name": "PART_SelectedContentHost",
+          "Width": 1480,
+          "Height": 703.3333333333334,
+          "DesiredWidth": 1484,
+          "DesiredHeight": 707.3333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "Border",
+          "Name": "ContentPanel",
+          "Width": 1484,
+          "Height": 707.3333333333334,
+          "DesiredWidth": 1484,
+          "DesiredHeight": 707.3333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "templateRoot",
+          "Width": 1484,
+          "Height": 756,
+          "DesiredWidth": 1484,
+          "DesiredHeight": 756,
+          "Rows": [
+            48.666666666666664,
+            707.3333333333334
+          ]
+        },
+        {
+          "Type": "TabControl",
+          "Name": "Workspaces",
+          "Width": 1484,
+          "Height": 756,
+          "DesiredWidth": 1484,
+          "DesiredHeight": 764,
+          "Rows": null
+        },
+        {
+          "Type": "DockPanel",
+          "Name": "",
+          "Width": 1484,
+          "Height": 861.3333333333334,
+          "DesiredWidth": 1485.3333333333333,
+          "DesiredHeight": 862.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "ContentPresenter",
+          "Name": "",
+          "Width": 1485.3333333333333,
+          "Height": 862.6666666666666,
+          "DesiredWidth": 1485.3333333333333,
+          "DesiredHeight": 862.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "AdornerDecorator",
+          "Name": "",
+          "Width": 1485.3333333333333,
+          "Height": 862.6666666666666,
+          "DesiredWidth": 1485.3333333333333,
+          "DesiredHeight": 862.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 1485.3333333333333,
+          "Height": 862.6666666666666,
+          "DesiredWidth": 1485.3333333333333,
+          "DesiredHeight": 862.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "MainWindow",
+          "Name": "",
+          "Width": 1500,
+          "Height": 900,
+          "DesiredWidth": 1500,
+          "DesiredHeight": 900,
+          "Rows": null
+        }
+      ],
+      "HeaderAndTabs": [
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 1484,
+          "Height": 67.33333333333333,
+          "Y": 0
+        },
+        {
+          "Type": "TabControl",
+          "Name": "Workspaces",
+          "Width": 1484,
+          "Height": 756,
+          "Y": 75.33333333333333
+        }
+      ]
+    },
+    {
+      "Mode": "native",
+      "RequestedWidth": 900,
+      "RequestedHeight": 560,
+      "WidthProperty": 900,
+      "HeightProperty": 560,
+      "NativeActualWidth": 900,
+      "NativeActualHeight": 560,
+      "State": "Normal",
+      "DpiX": 144,
+      "DpiY": 144,
+      "DpiScale": 1.5,
+      "DictionaryListHeight": 0,
+      "OriginalHeightAssertion": false,
+      "ResultCount": 45,
+      "Parents": [
+        {
+          "Type": "ListBox",
+          "Name": "DictionaryList",
+          "Width": 294.6666666666667,
+          "Height": 0,
+          "DesiredWidth": 294.6666666666667,
+          "DesiredHeight": 0,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "",
+          "Width": 294.6666666666667,
+          "Height": 0,
+          "DesiredWidth": 294.6666666666667,
+          "DesiredHeight": 0,
+          "Rows": []
+        },
+        {
+          "Type": "Border",
+          "Name": "DictionaryResultSurface",
+          "Width": 301.3333333333333,
+          "Height": 6.666666666666667,
+          "DesiredWidth": 301.3333333333333,
+          "DesiredHeight": 0,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "",
+          "Width": 301.3333333333333,
+          "Height": 474,
+          "DesiredWidth": 301.3333333333333,
+          "DesiredHeight": 306,
+          "Rows": [
+            44,
+            38.66666666666666,
+            391.33333333333337,
+            0,
+            0
+          ]
+        },
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 320,
+          "Height": 324.6666666666667,
+          "DesiredWidth": 320,
+          "DesiredHeight": 324.6666666666667,
+          "Rows": null
+        },
+        {
+          "Type": "ContentPresenter",
+          "Name": "",
+          "Width": 320,
+          "Height": 324.6666666666667,
+          "DesiredWidth": 320,
+          "DesiredHeight": 324.6666666666667,
+          "Rows": null
+        },
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 320,
+          "Height": 324.6666666666667,
+          "DesiredWidth": 320,
+          "DesiredHeight": 324.6666666666667,
+          "Rows": null
+        },
+        {
+          "Type": "DictionaryWorkspaceView",
+          "Name": "DictionaryWorkspace",
+          "Width": 320,
+          "Height": 324.6666666666667,
+          "DesiredWidth": 320,
+          "DesiredHeight": 324.6666666666667,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "",
+          "Width": 1036,
+          "Height": 324.6666666666667,
+          "DesiredWidth": 849.3333333333334,
+          "DesiredHeight": 332.6666666666667,
+          "Rows": []
+        },
+        {
+          "Type": "DockPanel",
+          "Name": "",
+          "Width": 849.3333333333334,
+          "Height": 332.6666666666667,
+          "DesiredWidth": 849.3333333333334,
+          "DesiredHeight": 332.6666666666667,
+          "Rows": null
+        },
+        {
+          "Type": "ContentPresenter",
+          "Name": "PART_SelectedContentHost",
+          "Width": 849.3333333333334,
+          "Height": 332.6666666666667,
+          "DesiredWidth": 853.3333333333334,
+          "DesiredHeight": 336.6666666666667,
+          "Rows": null
+        },
+        {
+          "Type": "Border",
+          "Name": "ContentPanel",
+          "Width": 853.3333333333334,
+          "Height": 336.6666666666667,
+          "DesiredWidth": 853.3333333333334,
+          "DesiredHeight": 336.6666666666667,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "templateRoot",
+          "Width": 853.3333333333334,
+          "Height": 385.3333333333333,
+          "DesiredWidth": 853.3333333333334,
+          "DesiredHeight": 385.3333333333333,
+          "Rows": [
+            48.666666666666664,
+            336.6666666666667
+          ]
+        },
+        {
+          "Type": "TabControl",
+          "Name": "Workspaces",
+          "Width": 853.3333333333334,
+          "Height": 385.3333333333333,
+          "DesiredWidth": 853.3333333333334,
+          "DesiredHeight": 393.3333333333333,
+          "Rows": null
+        },
+        {
+          "Type": "DockPanel",
+          "Name": "",
+          "Width": 853.3333333333334,
+          "Height": 490.6666666666667,
+          "DesiredWidth": 885.3333333333334,
+          "DesiredHeight": 522.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "ContentPresenter",
+          "Name": "",
+          "Width": 885.3333333333334,
+          "Height": 522.6666666666666,
+          "DesiredWidth": 885.3333333333334,
+          "DesiredHeight": 522.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "AdornerDecorator",
+          "Name": "",
+          "Width": 885.3333333333334,
+          "Height": 522.6666666666666,
+          "DesiredWidth": 885.3333333333334,
+          "DesiredHeight": 522.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 885.3333333333334,
+          "Height": 522.6666666666666,
+          "DesiredWidth": 885.3333333333334,
+          "DesiredHeight": 522.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "MainWindow",
+          "Name": "",
+          "Width": 900,
+          "Height": 560,
+          "DesiredWidth": 900,
+          "DesiredHeight": 560,
+          "Rows": null
+        }
+      ],
+      "HeaderAndTabs": [
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 853.3333333333334,
+          "Height": 67.33333333333333,
+          "Y": 0
+        },
+        {
+          "Type": "TabControl",
+          "Name": "Workspaces",
+          "Width": 853.3333333333334,
+          "Height": 385.3333333333333,
+          "Y": 75.33333333333333
+        }
+      ]
+    },
+    {
+      "Mode": "explicit-content",
+      "RequestedWidth": 900,
+      "RequestedHeight": 560,
+      "WidthProperty": 900,
+      "HeightProperty": 560,
+      "NativeActualWidth": 900,
+      "NativeActualHeight": 560,
+      "State": "Normal",
+      "DpiX": 144,
+      "DpiY": 144,
+      "DpiScale": 1.5,
+      "DictionaryListHeight": 0,
+      "OriginalHeightAssertion": false,
+      "ResultCount": 45,
+      "Parents": [
+        {
+          "Type": "ListBox",
+          "Name": "DictionaryList",
+          "Width": 294.6666666666667,
+          "Height": 0,
+          "DesiredWidth": 294.6666666666667,
+          "DesiredHeight": 0,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "",
+          "Width": 294.6666666666667,
+          "Height": 0,
+          "DesiredWidth": 294.6666666666667,
+          "DesiredHeight": 0,
+          "Rows": []
+        },
+        {
+          "Type": "Border",
+          "Name": "DictionaryResultSurface",
+          "Width": 301.3333333333333,
+          "Height": 6.666666666666667,
+          "DesiredWidth": 301.3333333333333,
+          "DesiredHeight": 0,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "",
+          "Width": 301.3333333333333,
+          "Height": 474,
+          "DesiredWidth": 301.3333333333333,
+          "DesiredHeight": 336.6666666666667,
+          "Rows": [
+            44,
+            38.66666666666666,
+            391.33333333333337,
+            0,
+            0
+          ]
+        },
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 320,
+          "Height": 355.3333333333333,
+          "DesiredWidth": 320,
+          "DesiredHeight": 355.3333333333333,
+          "Rows": null
+        },
+        {
+          "Type": "ContentPresenter",
+          "Name": "",
+          "Width": 320,
+          "Height": 355.3333333333333,
+          "DesiredWidth": 320,
+          "DesiredHeight": 355.3333333333333,
+          "Rows": null
+        },
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 320,
+          "Height": 355.3333333333333,
+          "DesiredWidth": 320,
+          "DesiredHeight": 355.3333333333333,
+          "Rows": null
+        },
+        {
+          "Type": "DictionaryWorkspaceView",
+          "Name": "DictionaryWorkspace",
+          "Width": 320,
+          "Height": 355.3333333333333,
+          "DesiredWidth": 320,
+          "DesiredHeight": 355.3333333333333,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "",
+          "Width": 1036,
+          "Height": 355.3333333333333,
+          "DesiredWidth": 880,
+          "DesiredHeight": 363.3333333333333,
+          "Rows": []
+        },
+        {
+          "Type": "DockPanel",
+          "Name": "",
+          "Width": 880,
+          "Height": 363.3333333333333,
+          "DesiredWidth": 880,
+          "DesiredHeight": 363.3333333333333,
+          "Rows": null
+        },
+        {
+          "Type": "ContentPresenter",
+          "Name": "PART_SelectedContentHost",
+          "Width": 880,
+          "Height": 363.3333333333333,
+          "DesiredWidth": 884,
+          "DesiredHeight": 367.3333333333333,
+          "Rows": null
+        },
+        {
+          "Type": "Border",
+          "Name": "ContentPanel",
+          "Width": 884,
+          "Height": 367.3333333333333,
+          "DesiredWidth": 884,
+          "DesiredHeight": 367.3333333333333,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "templateRoot",
+          "Width": 884,
+          "Height": 416,
+          "DesiredWidth": 884,
+          "DesiredHeight": 416,
+          "Rows": [
+            48.666666666666664,
+            367.3333333333333
+          ]
+        },
+        {
+          "Type": "TabControl",
+          "Name": "Workspaces",
+          "Width": 884,
+          "Height": 416,
+          "DesiredWidth": 884,
+          "DesiredHeight": 424,
+          "Rows": null
+        },
+        {
+          "Type": "DockPanel",
+          "Name": "",
+          "Width": 884,
+          "Height": 521.3333333333334,
+          "DesiredWidth": 885.3333333333334,
+          "DesiredHeight": 522.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "ContentPresenter",
+          "Name": "",
+          "Width": 885.3333333333334,
+          "Height": 522.6666666666666,
+          "DesiredWidth": 885.3333333333334,
+          "DesiredHeight": 522.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "AdornerDecorator",
+          "Name": "",
+          "Width": 885.3333333333334,
+          "Height": 522.6666666666666,
+          "DesiredWidth": 885.3333333333334,
+          "DesiredHeight": 522.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 885.3333333333334,
+          "Height": 522.6666666666666,
+          "DesiredWidth": 885.3333333333334,
+          "DesiredHeight": 522.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "MainWindow",
+          "Name": "",
+          "Width": 900,
+          "Height": 560,
+          "DesiredWidth": 900,
+          "DesiredHeight": 560,
+          "Rows": null
+        }
+      ],
+      "HeaderAndTabs": [
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 884,
+          "Height": 67.33333333333333,
+          "Y": 0
+        },
+        {
+          "Type": "TabControl",
+          "Name": "Workspaces",
+          "Width": 884,
+          "Height": 416,
+          "Y": 75.33333333333333
+        }
+      ]
+    },
+    {
+      "Mode": "native",
+      "RequestedWidth": 1280,
+      "RequestedHeight": 720,
+      "WidthProperty": 1280,
+      "HeightProperty": 720,
+      "NativeActualWidth": 1280,
+      "NativeActualHeight": 720,
+      "State": "Normal",
+      "DpiX": 144,
+      "DpiY": 144,
+      "DpiScale": 1.5,
+      "DictionaryListHeight": 41.333333333333336,
+      "OriginalHeightAssertion": false,
+      "ResultCount": 45,
+      "Parents": [
+        {
+          "Type": "ListBox",
+          "Name": "DictionaryList",
+          "Width": 488,
+          "Height": 41.333333333333336,
+          "DesiredWidth": 488,
+          "DesiredHeight": 41.333333333333336,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "",
+          "Width": 488,
+          "Height": 41.333333333333336,
+          "DesiredWidth": 488,
+          "DesiredHeight": 41.333333333333336,
+          "Rows": []
+        },
+        {
+          "Type": "Border",
+          "Name": "DictionaryResultSurface",
+          "Width": 494.6666666666667,
+          "Height": 48,
+          "DesiredWidth": 494.6666666666667,
+          "DesiredHeight": 48,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "",
+          "Width": 494.6666666666667,
+          "Height": 466,
+          "DesiredWidth": 494.6666666666667,
+          "DesiredHeight": 466,
+          "Rows": [
+            44,
+            38.66666666666666,
+            335.33333333333337,
+            0,
+            48
+          ]
+        },
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 513.3333333333334,
+          "Height": 484.6666666666667,
+          "DesiredWidth": 513.3333333333334,
+          "DesiredHeight": 484.6666666666667,
+          "Rows": null
+        },
+        {
+          "Type": "ContentPresenter",
+          "Name": "",
+          "Width": 513.3333333333334,
+          "Height": 484.6666666666667,
+          "DesiredWidth": 513.3333333333334,
+          "DesiredHeight": 484.6666666666667,
+          "Rows": null
+        },
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 513.3333333333334,
+          "Height": 484.6666666666667,
+          "DesiredWidth": 513.3333333333334,
+          "DesiredHeight": 484.6666666666667,
+          "Rows": null
+        },
+        {
+          "Type": "DictionaryWorkspaceView",
+          "Name": "DictionaryWorkspace",
+          "Width": 513.3333333333334,
+          "Height": 484.6666666666667,
+          "DesiredWidth": 513.3333333333334,
+          "DesiredHeight": 484.6666666666667,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "",
+          "Width": 1229.3333333333333,
+          "Height": 484.6666666666667,
+          "DesiredWidth": 1229.3333333333333,
+          "DesiredHeight": 492.6666666666667,
+          "Rows": []
+        },
+        {
+          "Type": "DockPanel",
+          "Name": "",
+          "Width": 1229.3333333333333,
+          "Height": 492.6666666666667,
+          "DesiredWidth": 1229.3333333333333,
+          "DesiredHeight": 492.6666666666667,
+          "Rows": null
+        },
+        {
+          "Type": "ContentPresenter",
+          "Name": "PART_SelectedContentHost",
+          "Width": 1229.3333333333333,
+          "Height": 492.6666666666667,
+          "DesiredWidth": 1233.3333333333333,
+          "DesiredHeight": 496.6666666666667,
+          "Rows": null
+        },
+        {
+          "Type": "Border",
+          "Name": "ContentPanel",
+          "Width": 1233.3333333333333,
+          "Height": 496.6666666666667,
+          "DesiredWidth": 1233.3333333333333,
+          "DesiredHeight": 496.6666666666667,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "templateRoot",
+          "Width": 1233.3333333333333,
+          "Height": 545.3333333333334,
+          "DesiredWidth": 1233.3333333333333,
+          "DesiredHeight": 545.3333333333334,
+          "Rows": [
+            48.666666666666664,
+            496.6666666666667
+          ]
+        },
+        {
+          "Type": "TabControl",
+          "Name": "Workspaces",
+          "Width": 1233.3333333333333,
+          "Height": 545.3333333333334,
+          "DesiredWidth": 1233.3333333333333,
+          "DesiredHeight": 553.3333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "DockPanel",
+          "Name": "",
+          "Width": 1233.3333333333333,
+          "Height": 650.6666666666666,
+          "DesiredWidth": 1265.3333333333333,
+          "DesiredHeight": 682.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "ContentPresenter",
+          "Name": "",
+          "Width": 1265.3333333333333,
+          "Height": 682.6666666666666,
+          "DesiredWidth": 1265.3333333333333,
+          "DesiredHeight": 682.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "AdornerDecorator",
+          "Name": "",
+          "Width": 1265.3333333333333,
+          "Height": 682.6666666666666,
+          "DesiredWidth": 1265.3333333333333,
+          "DesiredHeight": 682.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 1265.3333333333333,
+          "Height": 682.6666666666666,
+          "DesiredWidth": 1265.3333333333333,
+          "DesiredHeight": 682.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "MainWindow",
+          "Name": "",
+          "Width": 1280,
+          "Height": 720,
+          "DesiredWidth": 1280,
+          "DesiredHeight": 720,
+          "Rows": null
+        }
+      ],
+      "HeaderAndTabs": [
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 1233.3333333333333,
+          "Height": 67.33333333333333,
+          "Y": 0
+        },
+        {
+          "Type": "TabControl",
+          "Name": "Workspaces",
+          "Width": 1233.3333333333333,
+          "Height": 545.3333333333334,
+          "Y": 75.33333333333333
+        }
+      ]
+    },
+    {
+      "Mode": "explicit-content",
+      "RequestedWidth": 1280,
+      "RequestedHeight": 720,
+      "WidthProperty": 1280,
+      "HeightProperty": 720,
+      "NativeActualWidth": 1280,
+      "NativeActualHeight": 720,
+      "State": "Normal",
+      "DpiX": 144,
+      "DpiY": 144,
+      "DpiScale": 1.5,
+      "DictionaryListHeight": 72,
+      "OriginalHeightAssertion": false,
+      "ResultCount": 45,
+      "Parents": [
+        {
+          "Type": "ListBox",
+          "Name": "DictionaryList",
+          "Width": 518.6666666666666,
+          "Height": 72,
+          "DesiredWidth": 518.6666666666666,
+          "DesiredHeight": 72,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "",
+          "Width": 518.6666666666666,
+          "Height": 72,
+          "DesiredWidth": 518.6666666666666,
+          "DesiredHeight": 72,
+          "Rows": []
+        },
+        {
+          "Type": "Border",
+          "Name": "DictionaryResultSurface",
+          "Width": 525.3333333333334,
+          "Height": 78.66666666666667,
+          "DesiredWidth": 525.3333333333334,
+          "DesiredHeight": 78.66666666666667,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "",
+          "Width": 525.3333333333334,
+          "Height": 496.6666666666667,
+          "DesiredWidth": 525.3333333333334,
+          "DesiredHeight": 496.6666666666667,
+          "Rows": [
+            44,
+            38.66666666666666,
+            335.33333333333337,
+            0,
+            78.66666666666669
+          ]
+        },
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 544,
+          "Height": 515.3333333333334,
+          "DesiredWidth": 544,
+          "DesiredHeight": 515.3333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "ContentPresenter",
+          "Name": "",
+          "Width": 544,
+          "Height": 515.3333333333334,
+          "DesiredWidth": 544,
+          "DesiredHeight": 515.3333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 544,
+          "Height": 515.3333333333334,
+          "DesiredWidth": 544,
+          "DesiredHeight": 515.3333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "DictionaryWorkspaceView",
+          "Name": "DictionaryWorkspace",
+          "Width": 544,
+          "Height": 515.3333333333334,
+          "DesiredWidth": 544,
+          "DesiredHeight": 515.3333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "",
+          "Width": 1260,
+          "Height": 515.3333333333334,
+          "DesiredWidth": 1260,
+          "DesiredHeight": 523.3333333333334,
+          "Rows": []
+        },
+        {
+          "Type": "DockPanel",
+          "Name": "",
+          "Width": 1260,
+          "Height": 523.3333333333334,
+          "DesiredWidth": 1260,
+          "DesiredHeight": 523.3333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "ContentPresenter",
+          "Name": "PART_SelectedContentHost",
+          "Width": 1260,
+          "Height": 523.3333333333334,
+          "DesiredWidth": 1264,
+          "DesiredHeight": 527.3333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "Border",
+          "Name": "ContentPanel",
+          "Width": 1264,
+          "Height": 527.3333333333334,
+          "DesiredWidth": 1264,
+          "DesiredHeight": 527.3333333333334,
+          "Rows": null
+        },
+        {
+          "Type": "Grid",
+          "Name": "templateRoot",
+          "Width": 1264,
+          "Height": 576,
+          "DesiredWidth": 1264,
+          "DesiredHeight": 576,
+          "Rows": [
+            48.666666666666664,
+            527.3333333333334
+          ]
+        },
+        {
+          "Type": "TabControl",
+          "Name": "Workspaces",
+          "Width": 1264,
+          "Height": 576,
+          "DesiredWidth": 1264,
+          "DesiredHeight": 584,
+          "Rows": null
+        },
+        {
+          "Type": "DockPanel",
+          "Name": "",
+          "Width": 1264,
+          "Height": 681.3333333333334,
+          "DesiredWidth": 1265.3333333333333,
+          "DesiredHeight": 682.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "ContentPresenter",
+          "Name": "",
+          "Width": 1265.3333333333333,
+          "Height": 682.6666666666666,
+          "DesiredWidth": 1265.3333333333333,
+          "DesiredHeight": 682.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "AdornerDecorator",
+          "Name": "",
+          "Width": 1265.3333333333333,
+          "Height": 682.6666666666666,
+          "DesiredWidth": 1265.3333333333333,
+          "DesiredHeight": 682.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 1265.3333333333333,
+          "Height": 682.6666666666666,
+          "DesiredWidth": 1265.3333333333333,
+          "DesiredHeight": 682.6666666666666,
+          "Rows": null
+        },
+        {
+          "Type": "MainWindow",
+          "Name": "",
+          "Width": 1280,
+          "Height": 720,
+          "DesiredWidth": 1280,
+          "DesiredHeight": 720,
+          "Rows": null
+        }
+      ],
+      "HeaderAndTabs": [
+        {
+          "Type": "Border",
+          "Name": "",
+          "Width": 1264,
+          "Height": 67.33333333333333,
+          "Y": 0
+        },
+        {
+          "Type": "TabControl",
+          "Name": "Workspaces",
+          "Width": 1264,
+          "Height": 576,
+          "Y": 75.33333333333333
+        }
+      ]
+    }
+  ]
+}

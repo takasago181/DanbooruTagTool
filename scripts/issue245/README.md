@@ -27,3 +27,25 @@ UI defects. No render mode override is used.
 The tiny PNG fixture reuses the existing private runtime-validation fixture writer
 by reflection; if that writer changes, fail and update this audit helper explicitly.
 This is not a new metadata codec or runtime dependency.
+
+## Independent native #223 geometry probe
+
+Run native probes and WPF tests sequentially in the same session. This probe keeps
+the Window ancestor, does not use UiAudit or product Application startup, and has
+memory-only UserData/clipboard. It neither changes OS geometry nor patches tests.
+The second explicit-content snapshot is a supplementary layout experiment, not a
+claim that native chrome resized. The first native snapshot is the primary evidence.
+
+```powershell
+dotnet run --project scripts/issue245/GeometryProbe.csproj -c Release --disable-build-servers -- <authority-root> <new-output.json> <revision>
+```
+
+To reference the detached clean-main checkout without adding files there:
+
+```powershell
+dotnet run --project scripts/issue245/GeometryProbe.csproj -c Release --disable-build-servers -p:AuditProductRoot=C:/Codex/DanbooruTagTool/.worktree-issue245-clean-main -- C:\Codex\DanbooruTagTool\.worktree-issue245-clean-main <new-output.json> a96dcd10d77e85d629e0169669ea26028f88c835
+```
+
+The source revision argument labels the product assembly baseline, not the helper
+commit. Existing output is refused. Requested native cases: 1200x900, 1500x900,
+900x560, 1280x720 DIP; all use Normal state and reviewed Three Houses group.

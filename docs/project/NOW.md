@@ -12,11 +12,11 @@
 
 ---
 
-## #245 UI/UX consolidation — Phase A started / baseline gate BLOCKED
+## #245 UI/UX consolidation — Phase B/C recorded / implementation STOP
 
 ユーザーが#245を開始。#241/#244を確認し、現行mainの189 XAML control・操作意味・state owner・pane保存・shortcut・dialogを棚卸し。23 WPF client viewport render/treeを記録（native pixel acceptanceではない）。製品source、新機能、production、既存UserData/authorityは変更していない。
 
-Full protected-source baselineは338 PASS / 4 SKIP / 2 FAIL。#223 WPF一覧高さassertionがfocused repeatでも失敗し、根因切り分けが必要。Gateを弱めず、製品UI実装/mergeは未開始。証拠と次工程: `docs/issue245/PHASE_A_CURRENT_PRODUCT_AUDIT.md`。Phase B/Cを経て既存機能を整理する専用lane。#230/#231とproduction applyは禁止のまま。
+初回2 FAILは、小さいnative displayで既存group-layoutが結果list高さを使い切る問題。clean main/PRの同一session比較は元#223各2 PASS、900×560 native probeは両者list0、1280×720は41.33 DIP。元testは要求900高が実現する暗黙前提を持つ。helper起因の証拠なし。現在PR full340 PASS / 4既存SKIP / 0 FAIL、test/製品UI変更なし。Phase B 8task walkthrough、Phase C A（4workspace維持＋作成整理）/B（3workspace＋asset Library）比較とA推奨を記録。ユーザー指示で**実装前STOP / IA選定待ち**。Draft PR246はaudit成果、未merge。証拠: `docs/issue245/BASELINE_FAILURE_DIAGNOSIS.md`、`PHASE_B_TASK_AUDIT.md`、`PHASE_C_IA_PROPOSALS.md`。#245全体は未完了、#230/#231とproduction applyは禁止のまま。
 
 ## #226 Generation image library — COMPLETE / production APPLIED
 

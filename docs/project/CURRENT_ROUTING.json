@@ -1,6 +1,6 @@
 {
   "schema_version": "project-current-routing-v1",
-  "generated_at": "2026-10-01T17:32:29.7984349Z",
+  "generated_at": "2026-10-02T02:03:13.5104509Z",
   "purpose": "compact machine-readable routing snapshot; not a permanent branch-head authority",
   "live_main_snapshot": null,
   "must_refetch_live_heads_before_write": true,
@@ -16,10 +16,10 @@
     {
       "issue": 245,
       "lane": "UI/UX workflow consolidation",
-      "phase": "Phase A audit recorded; baseline WPF gate BLOCKED",
+      "phase": "Phase B task audit / Phase C alternatives recorded; implementation STOP",
       "authority": "live Issue #245; #241 research; #244 STOP POINT",
-      "evidence": "docs/issue245/PHASE_A_CURRENT_PRODUCT_AUDIT.md",
-      "next": "baseline geometry investigation, Phase B task audit, Phase C alternatives before UI implementation",
+      "evidence": "docs/issue245/PHASE_C_IA_PROPOSALS.md",
+      "next": "user IA selection before product UI implementation; existing small-window defect recorded",
       "boundaries": "no new features; no production apply; #230/#231 remain stopped"
     }
   ],

@@ -17,11 +17,11 @@
 
 現在の主要な独立lane:
 
-### #245 UI/UX consolidation — Phase A / baseline gate BLOCKED
+### #245 UI/UX consolidation — Phase B/C complete / implementation STOP
 
 ユーザー指示で開始。#241 research ledgerと#244 STOP POINTを読み、live main `a96dcd10d77e85d629e0169669ea26028f88c835`のworkspace/actions/state/layout/shortcut/dialogを棚卸しした。189 XAML controls、23 WPF client viewport renders（900×600、1280×720、1600×900、2560×1440＋3 dialogs）を記録。製品source変更・新機能・production applyなし。
 
-Full protected-source baseline 338 PASS / 4 SKIP / 2 FAIL: #223 native WPF一覧高さassertion、focused repeatでも2 FAIL。native window寸法が900×560へ縮む環境観測はあるが根因未確定。閾値/skip/authorityを変更しない。Phase A記録と再開条件: `docs/issue245/PHASE_A_CURRENT_PRODUCT_AUDIT.md`。次はbaseline geometry切り分け＋Phase B task audit、Phase C複数案比較。#245全体は未完了。#230/#231/new-feature STOPとproduction未適用は継続。
+初回338 PASS / 4 SKIP / 2 FAILを切り分けた。同一sessionのclean main/PRで元#223 testは各2 PASS。native probe両者一致、900×560はlist0、1280×720は41.33 DIP。表示環境縮小で既存group-layout defectとtestの要求寸法前提が露呈した。helper起因の証拠なし。test/threshold/製品UIは変更せず、現在PR fullは340 PASS / 4 SKIP / 0 FAIL。8 taskのexpert walkthrough、IA案A（4workspace維持＋作成整理）/B（3workspace＋asset Library）とA推奨まで記録。実装前に停止するユーザー指示を適用。`docs/issue245/BASELINE_FAILURE_DIAGNOSIS.md` / `PHASE_B_TASK_AUDIT.md` / `PHASE_C_IA_PROPOSALS.md`。次はユーザーによるIA選定。Draft PR246はauditのみ、#245全体/実装merge gateは未完了。#230/#231/new-feature STOPとproduction未適用は継続。
 
 
 

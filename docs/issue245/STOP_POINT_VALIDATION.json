@@ -1,0 +1,118 @@
+{
+  "baseline": "a96dcd10d77e85d629e0169669ea26028f88c835",
+  "compared_pr_head": "b856279fd0b7aef3893ba62bd13aa49a9024b366",
+  "product_src_tree": "dc121b5d6d9a9a48988d7f617bdb38499b11106e",
+  "geometry_cases_identical": true,
+  "session": 1,
+  "screen": {
+    "PrimaryScreenWidth": 1706.6666666666667,
+    "PrimaryScreenHeight": 960,
+    "VirtualScreenWidth": 1706.6666666666667,
+    "VirtualScreenHeight": 960,
+    "WorkArea": {
+      "X": 0,
+      "Y": 0,
+      "Width": 1706.6666666666667,
+      "Height": 912
+    }
+  },
+  "tests": {
+    "clean_main_focused": {
+      "trx": "takas_TAKASAGO_2026-10-02_10_49_07_net10.0.trx",
+      "sha256": "1B7C59F892FF35103605BB81A0B80B7D8DCD3105BC3DB413C017BE836B8DEA73",
+      "passed": 2,
+      "failed": 0,
+      "total": 2,
+      "skipped": 0
+    },
+    "pr_focused": {
+      "trx": "takas_TAKASAGO_2026-10-02_10_50_30_net10.0.trx",
+      "sha256": "FBAB5B800352BA19028A20EC5681C17C6A359825AE5DD7FBF462DBB23DDBA6FA",
+      "passed": 2,
+      "failed": 0,
+      "total": 2,
+      "skipped": 0
+    },
+    "clean_main_full": {
+      "trx": "takas_TAKASAGO_2026-10-02_11_01_03_net10.0.trx",
+      "sha256": "BFE7847762435942561D08A4844E0000414DA1C969E18C479CE7868969B1D764",
+      "passed": 340,
+      "failed": 0,
+      "total": 344,
+      "skipped": 4
+    },
+    "pr_full": {
+      "trx": "takas_TAKASAGO_2026-10-02_10_54_43_net10.0.trx",
+      "sha256": "F69611E7651E3A91C61C02F155030BDFF99D222403456BD8592082BEF9095C29",
+      "passed": 340,
+      "failed": 0,
+      "total": 344,
+      "skipped": 4
+    }
+  },
+  "protection": [
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\generation-library.db",
+      "sha256": "5728C62A87FCE8D20D6EA7461FDF4AAC288694B941817DD33D48DC3BF8DA2B98",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\README.txt",
+      "sha256": "B6A25CC3334885F0249D7AF6B1D2954C4B778B79D9C322C13D4F24F262F6B28E",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\user.db",
+      "sha256": "4D1DF299F4E91BC29D7C8612DFF6F86C6E14F02CDDA36AF0D9A1AC704466B5A1",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\Cache\\GenerationThumbnails\\0369292A5AB808B513B16397D0A08101B1D2B20D6B2DBFA0BB4D09C195FAC2BA.png",
+      "sha256": "8C685D4C56818CFF2B1C6B3EE1458D143256F100565F0F456A4EA558C56E4DB7",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\Cache\\GenerationThumbnails\\308C971522374876C6FB39B619CA8CAFDD48E86A4C92F70192BE96D12581D126.png",
+      "sha256": "86696144F8D7EFA2EE030B8A603A7BCD7D3739A914A90C3FCC0B6C14F1EBB816",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\Cache\\GenerationThumbnails\\809DA341E42CE37F5B97021FF406BD3BC26390A6714AD6981399B9E8817EC4C0.png",
+      "sha256": "CE344B15172DFBC9669C3F4D52EA609B7B70EC32EF98172AA67CEA146CB81F39",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\Cache\\GenerationThumbnails\\893AFBE2C0B4D0A8B9842B41E646855DE781360B2A2D1EF033E7DE58CF4D833B.png",
+      "sha256": "64171A736938E4CCB83F5FC788FFB9E090843D8BD3D690F0ADE579E23C8CCE3A",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\Cache\\GenerationThumbnails\\9672E49ABDBB228F768D169D6F278A42513CEF46C4105D93B126A6CD0A65D445.png",
+      "sha256": "394E5EE0777F17E61C7287F9BB27C8A966447D3F79A9185C4AA54F6164DCC7A0",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\Data\\catalog.db",
+      "sha256": "D91A68186661127F16E2AE102B4DD9F3A96EAE578B3C989A8B4F17169639FC6F",
+      "unchanged": true
+    }
+  ],
+  "evidence": [
+    {
+      "file": "geometry-clean-main.json",
+      "sha256": "BAFCEC46197ED1172F6DDAEC32033D77FB14924E9E2C5CF83F7972B6DEF11244"
+    },
+    {
+      "file": "geometry-pr246.json",
+      "sha256": "028181953D0DF394D90E34F5609C57D269B3187408ADF25CC5DB14A398E03289"
+    }
+  ],
+  "task_audit": "8 expert walkthroughs; logical route counts, not native user timing",
+  "phase_c": "2 alternatives; A recommended; not adopted",
+  "stop": "user IA selection before implementation",
+  "product_ui_changes": 0,
+  "test_changes": 0,
+  "production_apply": 0,
+  "live_generations": 0,
+  "publish": "not performed; audit-only phase"
+}

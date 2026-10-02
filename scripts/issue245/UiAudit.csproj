@@ -6,5 +6,5 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-  <ItemGroup><ProjectReference Include="../../src/DanbooruTagTool.App/DanbooruTagTool.App.csproj" /></ItemGroup>
+  <ItemGroup><Compile Remove="GeometryProbe.cs"/><ProjectReference Include="../../src/DanbooruTagTool.App/DanbooruTagTool.App.csproj" /></ItemGroup>
 </Project>

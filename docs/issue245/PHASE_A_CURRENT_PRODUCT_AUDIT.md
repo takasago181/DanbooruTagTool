@@ -3,7 +3,9 @@
 2026-10-02 JST。監査baselineはlive main `a96dcd10d77e85d629e0169669ea26028f88c835`。
 ユーザーが#245開始を指示したため、#244の「UI整理待ち」からこの専用laneへ移った。新機能停止とproduction未適用の境界は継続する。
 
-**状態: Phase Aのsource棚卸し・指定viewport renderは記録済み。実native画面寸法の検証とbaseline full regressionはBLOCKED。#245全体は未完了。UI変更・Phase C案の採用・promotionはしていない。**
+**最新状態: Phase Aの棚卸し・renderに加え、native geometry原因を切り分けた。現在環境の元#223 focusedはmain/PRとも2 PASS、PR fullは340 PASS / 4 SKIP / 0 FAIL。既存小画面UX defectは未修正。Phase B 8 taskとPhase C 2案/推奨まで記録し、ユーザー指示どおり実装前STOP。#245全体は未完了。**
+
+続報: [baseline diagnosis](BASELINE_FAILURE_DIAGNOSIS.md)、[Phase B](PHASE_B_TASK_AUDIT.md)、[Phase C](PHASE_C_IA_PROPOSALS.md)。下記の初回BLOCKED記録は当時の証拠として保持する。`AUDIT_VALIDATION.json`は初回runの記録、現在の検証は`STOP_POINT_VALIDATION.json`。
 
 ## Authority / 方法
 
@@ -171,7 +173,7 @@ MainWindow closing時に補助3windowを閉じる。Library annotation flush失�
 - 再開条件: geometry原因を切り分け、既存native WPF assertionの意図を保ったままbaseline full regressionをgreenにする。正常な表示環境での再確認、または製品側の実際のsmall-window defectを特定したfocused修正が候補。security/system settingsは変更しない。
 - Phase Aでは新portable runtimeのpublish/promotionはしていない。前回feature gatesを今回のgreen証拠として流用しない。#245 merge gateは未到達。
 
-## Next
+## 初回checkpoint時のNext（現在はPhase C実装前STOP）
 
 Phase Bでは#245の8タスクについて、同じ初期stateでworkspace switch/modal/primary clicksを記録する。下記を特に区別する:
 
