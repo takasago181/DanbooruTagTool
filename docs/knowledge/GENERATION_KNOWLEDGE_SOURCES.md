@@ -1595,3 +1595,55 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: source-style entanglement, layer exclusions, explicit nuisance tags, dataset domain conversion.
 - Value: strong example that dataset correction can matter more than parameter tuning.
 
+
+
+---
+
+## 2026-10-02 BATCH_AW adult diagnostic escalation refresh
+
+**S-AW-001 — NoobAI XL 1.1 EPS current model card**
+- URL: https://huggingface.co/Laxhar/noobai-XL-1.1/blob/main/README.md
+- Class: `AUTHOR_GUIDE / FACT_EXACT_MODEL`
+- Key facts: Euler a / CFG 5-6 / 25-30 steps / near-1MP resolutions; official example positive prefix includes `safe`; official example Negative includes `nsfw`.
+- Audit consequence: the author example is not a neutral adult-capability baseline. Adult tests must record the safety/rating conditioning state.
+
+**S-AW-002 — Anima current model card**
+- URL: https://huggingface.co/circlestone-labs/Anima
+- Class: `AUTHOR_GUIDE / FACT_EXACT_MODEL`
+- Key facts: tags + natural language + mixed prompts; safety tag surface includes safe/sensitive/nsfw/explicit; author recommends adding basic appearance when prompting multiple characters.
+- Limitation: no official hard-relation/adult binding success-rate benchmark.
+
+**S-AW-003 — Anima multi-character current community**
+- URLs:
+  - https://www.reddit.com/r/comfyui/comments/1ws23ur/multiple_characters_in_one_single_generated_image/
+  - https://www.reddit.com/r/StableDiffusion/comments/1wr9r66/anima_two_characters_work_fine_individually_but/
+  - https://www.reddit.com/r/StableDiffusion/comments/1tcf5y6/multiple_characters_using_loras_with_anima_model/
+  - https://huggingface.co/circlestone-labs/Anima/discussions/202
+  - https://huggingface.co/circlestone-labs/Anima/discussions/93
+- Class: `COMMUNITY`
+- Key observations: individual identity may work while pair binding swaps attributes; interaction can worsen; regional/area conditioning is a common workaround but may damage overlap/coherence.
+- Limitation: anecdotal/community evidence; no pooled success rate.
+
+**S-AW-004 — T2I-CompBench**
+- URL: https://arxiv.org/abs/2307.06350
+- Class: `RESEARCH`
+- Key fact: compositional evaluation separates attribute binding, object relationships, spatial/non-spatial relations and complex compositions.
+- Audit consequence: relation-heavy adult scenes should not use holistic image quality as the only score.
+
+**S-AW-005 — GenEval**
+- URL: https://arxiv.org/abs/2310.11513
+- Class: `RESEARCH`
+- Key fact: object co-occurrence, position, count and color are evaluated as distinct compositional properties; spatial relation and attribute binding remain difficult.
+- Audit consequence: count/binding/position need separate predicates.
+
+**S-AW-006 — Regional Prompter current Anima support**
+- URL: https://github.com/hako-mikan/sd-webui-regional-prompter/blob/main/README.md
+- Class: `OFFICIAL_RUNTIME`
+- Current 2026-09-04 matrix: Anima Latent yes / Attention yes / Region LoRA no.
+
+**S-AW-007 — ComfyUI native hooks**
+- URLs:
+  - https://github.com/Comfy-Org/ComfyUI/blob/master/comfy/hooks.py
+  - https://github.com/Comfy-Org/ComfyUI/blob/master/comfy_extras/nodes_hooks.py
+- Class: `OFFICIAL_RUNTIME`
+- Key mechanism: conditioning can carry hooks, masks and timestep ranges; relevant nodes are experimental.
