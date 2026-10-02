@@ -556,3 +556,30 @@ Do not turn popularity into generation authority.
 
 Research:
 `../research/BATCH_AX_LOCAL_ADULT_IMAGE_GENERATION_TRENDS_20261002.md`
+
+
+---
+
+## Real-world workflow archetypes — 27 cases
+
+Current public workflows converge on:
+
+- native-first generation
+- global Character/Style LoRA
+- Regional semantic separation
+- reference identity + pose/line/depth geometry
+- accepted-base Edit/inpaint
+- dataset/training repair
+- model-specific finishing
+
+For adult relation-heavy scenes, the preferred architecture is therefore:
+
+`semantic skeleton -> identity -> geometry -> locality if needed -> relation audit -> local repair -> finishing -> final audit`
+
+Do not assign every failure to Prompt text.
+
+Operational:
+`../current/LOCAL_ADULT_WORKFLOW_PLAYBOOK_20261002.md`
+
+Research:
+`../research/BATCH_AY_REAL_WORLD_ADULT_WORKFLOW_ARCHETYPES_20261002.md`
