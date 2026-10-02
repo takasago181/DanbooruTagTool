@@ -512,3 +512,41 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Value: same-seed one-variable comparison.
 - Limitation: small condition count; broad causal interpretation not accepted.
 
+**S-COMM-022 — Anima Base color-name sweep**
+- URL: https://note.com/mith_mmk/n/ndcd5709f47ff
+- Language: Japanese
+- Class: `PRACTICAL / COMMUNITY`
+- Scope: basic/CSS color lexical behavior.
+- Value: direct lexical-collision examples and attached result files.
+- Limitation: rough automated checking with acknowledged false positives.
+
+**S-COMM-023 — Anima preview2 body-tag sweep**
+- URL: https://note.com/mith_mmk/n/n8f06ec51fba5
+- Language: Japanese
+- Class: `DISCOVERY / COMMUNITY`
+- Scope: broad body-tag coverage.
+- Value: modern retest-candidate discovery.
+- Limitation: stale preview2 + machine-analysis errors.
+
+**S-COMM-024 — real-world swimwear vocabulary test**
+- URL: https://note.com/stray_dog0012/n/n9ece9bc66aef
+- Language: Japanese
+- Class: `PRACTICAL / COMMUNITY`
+- Scope: externally selected garment terminology under fixed scene/camera.
+- Value: real-world vocabulary vs learned visual vocabulary research lead.
+- Limitation: detailed per-item results need full re-extraction.
+
+**S-COMM-025 — Anima LoRA auto-tag vs manual-adjustment lead**
+- URL: https://note.com/azrakuc/n/n3d6d5eaa850e
+- Language: Japanese
+- Class: `RESEARCH_LEAD / COMMUNITY`
+- Scope: LoRA caption/tag curation.
+- Limitation: current public retrieval is incomplete/paid.
+
+**S-COMM-026 — Illustrious aesthetic-tag 100-image run**
+- URL: https://note.com/alayaproject/n/ned0a95fb3c86
+- Language: Japanese
+- Class: `PRACTICAL / COMMUNITY`
+- Scope: broad aesthetic prompt pressure on semi-real Illustrious derivative.
+- Limitation: heavily confounded by style LoRA and large prompt stack.
+
