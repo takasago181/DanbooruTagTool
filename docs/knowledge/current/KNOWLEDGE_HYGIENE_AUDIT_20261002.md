@@ -592,3 +592,30 @@ P1のcurrent層整理を実施。
 - research原本の将来追加時に既出結論を再説明しない運用の徹底
 - root/corpus/catalogの古い英語説明を、必要に応じて日本語-firstへ段階的に整理
 - 既存Batch prefix衝突はprovenance保護のためrenameせず、full filename参照を継続
+
+
+---
+
+## 20. P2 safe cleanup — 2026-10-02
+
+安全に実施できるP2のみ追加。
+
+実施:
+- Source Registryの同一URL再利用を監査
+- 同一URLでも「別の事実・別scope」を切り出しているentryは統合しない方針を確認
+- 完全に同じ「見出し + URL」で紛らわしかった4組は、ID/URL/本文を維持したまま見出しだけ役割別に明確化
+- Governanceへ「同じURL・同じ事実・同じscopeなら再登録しない」「同じURLでも別事実・別scopeなら別entry可。ただし見出し/Scopeを明示」を追加
+
+最終再監査:
+- Claim Registry: 323件 / duplicate Claim ID 0 / malformed row 0
+- Source Registry: 246 entry / duplicate Source ID 0
+- 同一Source title + URLの完全重複group: 0
+- 主要current guideの完全重複段落: 0
+
+意図的に残したもの:
+- 同じ公式model cardを複数のscopeで参照するentry
+- research原本のテーマ重複
+- 既存Batch prefix衝突
+- historical snapshot
+
+これらはprovenanceまたはscope分離のため、削除・統合しない。
