@@ -1531,3 +1531,15 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: prompt/workflow metadata embedded in saved PNG files.
 - Value: reproducible experiment artifact and workflow recovery.
 
+**S-TOOL-015 — ComfyUI Prompt Control**
+- URL: https://github.com/asagi4/comfyui-prompt-control
+- Class: `OFFICIAL_RUNTIME`
+- Scope: prompt/LoRA scheduling, regional conditioning, advanced text encoding.
+- Value: explicit timestep-dependent conditioning experiments.
+
+**S-COMM-077 — Anima staged-quality conditioning example**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/146
+- Class: `COMMUNITY / PRACTICAL`
+- Scope: early structural conditioning with later quality-modifier injection.
+- Limitation: asset-specific setup; exact switch fraction is not universal.
+
