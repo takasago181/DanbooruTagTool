@@ -421,3 +421,38 @@ Current routed batch:
 Governance:
 `SENSITIVE_KNOWLEDGE_ROUTING.md`.
 
+
+
+---
+
+## Image-generation foundations — 2026-10-02
+
+Before model-specific recipes, use:
+`IMAGE_GENERATION_FOUNDATIONS_JA.md`.
+
+Minimum conceptual pipeline:
+
+`Prompt -> tokenizer/text encoder -> conditioning`
++
+`seed -> random latent/noise`
+->
+`UNet/DiT + sampler/schedule + steps`
+->
+`VAE decode -> image`.
+
+Do not teach these shortcuts as literal truth:
+- seed = composition number
+- steps = quality
+- CFG = understanding
+- Negative = eraser
+- VAE = color filter
+- LoRA weight = similarity amount
+- ControlNet = pose only
+- Hires = neutral resize
+
+Each is a pipeline variable with model/runtime-specific effects.
+
+Research:
+- `../research/BATCH_AZ_GENERATION_FOUNDATIONS_PIPELINE_20261002.md`
+- `../research/BATCH_BA_SAMPLING_GUIDANCE_FOUNDATIONS_20261002.md`
+- `../research/BATCH_BB_EDITING_CONTROL_MEMORY_FOUNDATIONS_20261002.md`
