@@ -1137,3 +1137,34 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: multi-angle dataset with poor non-frontal generalization.
 - Value: nominal coverage does not guarantee learned editability.
 
+**S-TOOL-013 — Anima Style Explorer**
+- URLs:
+  - https://github.com/ThetaCursed/Anima-Style-Explorer
+  - https://huggingface.co/circlestone-labs/Anima/discussions/227
+- Class: `COMMUNITY_TOOL`
+- Scope: 40k+ standardized visual artist/style previews.
+- Value: native-style discovery and benchmark design.
+- Limitation: preview/work-count/uniqueness metadata is not exact model-authority evidence.
+
+**S-TOOL-014 — Illustrious / NoobAI Style Explorer**
+- URLs:
+  - https://github.com/ThetaCursed/Illustrious-NoobAI-Style-Explorer
+  - https://github.com/Faildes/Illustrious-NoobAI-Style-Explorer-plus
+- Class: `COMMUNITY_TOOL`
+- Scope: visual Danbooru artist-style browsing for Illustrious/NoobAI.
+- Value: native style discovery.
+- Limitation: claims of universal compatibility require exact-checkpoint verification.
+
+**S-COMM-073 — Anima artist-context sensitivity experiment**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/112
+- Class: `COMMUNITY / TECHNICAL_EXPERIMENT`
+- Scope: prompt position/context/multiple artists and artist representation stability.
+- Value: evidence that native artist response is context-sensitive.
+- Limitation: proposed internal mechanism is not author-confirmed.
+
+**S-COMM-074 — Anima raw-style benchmark methodology**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/49
+- Class: `COMMUNITY_TOOL_METHODOLOGY`
+- Scope: standardized character benchmark with quality tags removed.
+- Value: isolates raw artist influence.
+
