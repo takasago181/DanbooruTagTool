@@ -1587,3 +1587,16 @@ Canonical artifact:
 Research:
 `research/BATCH_AT_TEACHING_CURRICULUM_AND_NATIVE_HOOKS_20261002.md`.
 
+## 16.12 Teacher diagnostic reference
+
+A compact live-diagnosis artifact now sits beside the full curriculum:
+
+`current/ADULT_IMAGE_GENERATION_TEACHER_REFERENCE.md`
+
+It translates the corpus into:
+- failure classification;
+- model starting cards;
+- intervention routing;
+- teaching exercises;
+- confidence/evidence checks.
+
