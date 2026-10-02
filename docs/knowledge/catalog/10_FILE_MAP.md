@@ -248,3 +248,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AL_NATIVE_STYLE_VS_STYLE_LORA_20261002.md` — native artist/style knowledge vs Style LoRA: Anima/Illustrious/Noob visual explorers, standardized raw-style benchmarking, context-sensitive artist response and a LoRA decision tree.
 
+- `../research/BATCH_AM_CHARACTER_IDENTITY_OUTFIT_FACTORING_20261002.md` — character identity vs default outfit vs switchable variant factoring; clothing caption allocation, multi-outfit triggers, outfit-LoRA identity interference and evaluation schema.
+
