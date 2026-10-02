@@ -1,0 +1,31 @@
+<UserControl x:Class="DanbooruTagTool.App.Views.GenerationConditionsView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+ <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+  <StackPanel Margin="12" IsEnabled="{Binding CreateEditingAvailable}">
+   <WrapPanel Margin="0,0,0,10"><TextBlock Text="Preset" VerticalAlignment="Center" Margin="0,0,6,0"/>
+    <ComboBox ItemsSource="{Binding Presets}" SelectedItem="{Binding Create.SelectedPreset}" DisplayMemberPath="Name" Width="200" Height="32" AutomationProperties.Name="保存済みPresetを選択"/>
+    <Button Content="作成で使う" Command="{Binding Create.LoadPreset}" ToolTip="選択PresetのPositive / Negative / 生成条件で現在値を置換します。"/>
+    <Button Content="Preset管理" Command="{Binding OpenPresets}"/>
+   </WrapPanel>
+   <TextBlock Text="現在の生成条件" FontSize="18" FontWeight="SemiBold"/>
+   <TextBlock Text="{Binding Create.SourceSummary}" Margin="0,4"/>
+   <TextBlock Text="一時的な現在値です。終了時には破棄されます。保持する場合はPresetへ保存してください。" FontSize="12" Margin="0,0,0,8"/>
+   <WrapPanel DataContext="{Binding Create}">
+    <StackPanel Width="240" Margin="0,0,12,8"><TextBlock Text="Model（要求値・実loaded modelとは別）"/><TextBox Text="{Binding Model, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.Name="現在Model"/></StackPanel>
+    <StackPanel Width="170" Margin="0,0,12,8"><TextBlock Text="Seed（固定、0以上）"/><TextBox Text="{Binding Seed, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.Name="現在Seed"/></StackPanel>
+    <StackPanel Width="100" Margin="0,0,12,8"><TextBlock Text="Steps"/><TextBox Text="{Binding Steps, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.Name="現在Steps"/></StackPanel>
+    <StackPanel Width="170" Margin="0,0,12,8"><TextBlock Text="Sampler"/><TextBox Text="{Binding Sampler, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.Name="現在Sampler"/></StackPanel>
+    <StackPanel Width="170" Margin="0,0,12,8"><TextBlock Text="Scheduler"/><TextBox Text="{Binding Scheduler, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.Name="現在Scheduler"/></StackPanel>
+    <StackPanel Width="100" Margin="0,0,12,8"><TextBlock Text="CFG"/><TextBox Text="{Binding Cfg, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.Name="現在CFG"/></StackPanel>
+    <StackPanel Width="110" Margin="0,0,12,8"><TextBlock Text="Width"/><TextBox Text="{Binding Width, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.Name="現在Width"/></StackPanel>
+    <StackPanel Width="110" Margin="0,0,12,8"><TextBlock Text="Height"/><TextBox Text="{Binding Height, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.Name="現在Height"/></StackPanel>
+   </WrapPanel>
+   <WrapPanel><Button Content="Forgeの対応を確認（生成しない）" Command="{Binding Forge.CheckCapabilities}"/><TextBlock Text="{Binding Forge.CapabilityStatus}" MaxWidth="580" VerticalAlignment="Center"/></WrapPanel>
+   <TextBlock Text="生成に使う現在Positive" FontWeight="SemiBold" Margin="0,10,0,4"/>
+   <TextBox Text="{Binding Create.Positive, Mode=OneWay}" IsReadOnly="True" TextWrapping="Wrap" MaxHeight="90" VerticalScrollBarVisibility="Auto"/>
+   <TextBlock Text="生成に使う現在Negative" FontWeight="SemiBold" Margin="0,8,0,4"/>
+   <TextBox Text="{Binding Create.Negative, Mode=OneWay}" IsReadOnly="True" TextWrapping="Wrap" MaxHeight="90" VerticalScrollBarVisibility="Auto"/>
+   <WrapPanel Margin="0,12"><TextBox Width="220" Text="{Binding Create.SaveName, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.Name="現在値を保存するPreset名"/><Button Content="現在値を新しいPresetへ保存" Command="{Binding Create.Save}" Margin="8,0,0,0" ToolTip="既存Presetを上書きしません。"/></WrapPanel>
+   <TextBlock Text="{Binding Forge.RecipeStatus}"/>
+  </StackPanel>
+ </ScrollViewer>
+</UserControl>

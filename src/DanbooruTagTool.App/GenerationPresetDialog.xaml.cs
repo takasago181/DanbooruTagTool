@@ -11,6 +11,11 @@ public partial class GenerationPresetDialog : Window
         DataContext = vm;
     }
 
+    private void LoadInCreateClick(object sender, RoutedEventArgs e)
+    {
+        if (DataContext is MainViewModel vm && sender is System.Windows.Controls.Button { CommandParameter: DanbooruTagTool.Data.GenerationPreset p })
+        { Close(); vm.PresetManagementOpen = false; vm.Create.Load(p, "Preset「" + p.Name + "」"); }
+    }
     private void DeletePresetClick(object sender, RoutedEventArgs e)
     {
         if (DataContext is not MainViewModel vm || vm.SelectedPreset == null) return;

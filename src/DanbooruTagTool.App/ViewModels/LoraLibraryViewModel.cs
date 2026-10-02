@@ -1,3 +1,4 @@
+using System.Windows.Media.Imaging;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.IO;
@@ -24,16 +25,19 @@ public sealed class LoraLibraryViewModel(PortablePaths paths, PromptWorkspace wo
     public ObservableCollection<LoraAsset> Assets { get; } = [];
     public ObservableCollection<string> Roots { get; } = [];
     public ObservableCollection<LoraTriggerEditor> Triggers { get; } = [];
-    public string Search { get; set; } = "";
+    private string search = "";
+    public string Search { get => search; set => Set(ref search, value); }
     public PromptWorkspace? NegativeWorkspace { get; set; }
-    public bool FavoriteOnly { get; set; }
+    private bool favoriteOnly;
+    public bool FavoriteOnly { get => favoriteOnly; set => Set(ref favoriteOnly, value); }
     public bool Busy { get => busy; private set { Set(ref busy, value); Notify(nameof(CanEdit)); } }
     public bool CanEdit => !Busy && canMutate();
     public string Status { get => status; private set => Set(ref status, value); }
     public string Category { get; set; } = "Other";
     public bool Favorite { get; set; }
     public string Note { get; set; } = "";
-    public string Weight { get; set; } = "1";
+    private string weight = "1";
+    public string Weight { get => weight; set => Set(ref weight, value); }
     public string Links { get; set; } = "";
     public string BaseModel { get; set; } = "";
     public bool OverrideBaseModel { get; set; }
@@ -41,6 +45,19 @@ public sealed class LoraLibraryViewModel(PortablePaths paths, PromptWorkspace wo
     public string PreviewOverride { get; set; } = "";
     public string PositiveAdditions { get; set; } = "";
     public string NegativeAdditions { get; set; } = "";
+    private BitmapSource? preview;
+    public BitmapSource? Preview => preview;
+    private void LoadPreview(string? path)
+    {
+        preview = null;
+        try
+        {
+            if (path is not null && File.Exists(path) && new FileInfo(path).Length <= 20 * 1024 * 1024)
+            { using var file = File.OpenRead(path); var image = new BitmapImage(); image.BeginInit(); image.CacheOption = BitmapCacheOption.OnLoad; image.DecodePixelWidth = 400; image.StreamSource = file; image.EndInit(); image.Freeze(); preview = image; }
+        }
+        catch (Exception e) when (e is IOException or UnauthorizedAccessException or NotSupportedException or ArgumentException or InvalidOperationException) { preview = null; }
+        Notify(nameof(Preview));
+    }
     public LoraAsset? Selected
     {
         get => selected;
@@ -48,7 +65,7 @@ public sealed class LoraLibraryViewModel(PortablePaths paths, PromptWorkspace wo
         {
             if (ReferenceEquals(selected, value)) return;
             if (selected is not null) CaptureDraft(selected);
-            Set(ref selected, value); if (value is null) return;
+            Set(ref selected, value); LoadPreview(value?.Preview); if (value is null) return;
             var u = drafts.GetValueOrDefault(value.Sha256) ?? value.User; Category = u.Category; Favorite = u.Favorite; Note = u.Note; Weight = u.PreferredWeight.ToString(CultureInfo.InvariantCulture);
             if (draftWeights.TryGetValue(value.Sha256, out var draftWeight)) Weight = draftWeight;
             Links = string.Join('\n', u.Links ?? []); BaseModel = u.BaseModel ?? value.Facts.BaseModel; OverrideBaseModel = u.BaseModel is not null; OverrideTriggers = u.Triggers is not null;

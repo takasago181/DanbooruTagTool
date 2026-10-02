@@ -24,7 +24,7 @@ internal static class Program
     [STAThread]
     public static int Main(string[] args)
     {
-        if (args.Length != 2) throw new ArgumentException("UiAudit <new-empty-output> <read-only-catalog>");
+        if (args.Length is < 2 or > 3) throw new ArgumentException("UiAudit <new-empty-output> <read-only-catalog> [source-revision]");
         output = Path.GetFullPath(args[0]);
         if (!Path.GetFileName(output).StartsWith(".staging-issue245-audit-", StringComparison.Ordinal)
             || Path.GetFullPath(args[1]).StartsWith(output + Path.DirectorySeparatorChar, StringComparison.OrdinalIgnoreCase)
@@ -37,14 +37,14 @@ internal static class Program
         var exitCode = 0;
         Dispatcher.CurrentDispatcher.BeginInvoke(async () =>
         {
-            try { await Audit(args[1]); }
+            try { await Audit(args[1], args.ElementAtOrDefault(2) ?? "working tree"); }
             catch (Exception e) { File.WriteAllText(Path.Combine(output, "error.txt"), e.ToString()); exitCode = 1; }
             finally { app.Shutdown(exitCode); Dispatcher.CurrentDispatcher.BeginInvokeShutdown(DispatcherPriority.Background); }
         });
         Dispatcher.Run();
         return exitCode;
     }
-    private static async Task Audit(string catalogPath)
+    private static async Task Audit(string catalogPath, string revision)
     {
         var catalog = CatalogDatabase.Open(catalogPath); // Existing production catalog opened read-only.
         var paths = new PortablePaths(output);
@@ -65,14 +65,15 @@ internal static class Program
         { var header = new byte[8]; BinaryPrimitives.WriteUInt64LittleEndian(header, (ulong)metadata.Length); file.Write(header); file.Write(metadata); }
         await vm.LoraLibrary!.AddRootAsync(models); await vm.LoraLibrary.ScanAsync(); vm.LoraLibrary.Selected = vm.LoraLibrary.Assets.Single();
         vm.LoraLibrary.Note = "Audit fixture / 日本語メモ";
-        foreach (var size in new[] { (900, 600), (1280, 720), (1600, 900), (2560, 1440) })
+        vm.Create.Load(new(Guid.NewGuid(), "audit", "", vm.Prompt.English, vm.Negative.English, new("sample", 42, 20, "Euler a", "Karras", 5, 512, 768)), "監査fixture");
+        foreach (var size in new[] { (900, 560), (1280, 720), (1600, 900), (2560, 1440) })
         {
             var w = new MainWindow(vm) { Width = size.Item1, Height = size.Item2, WindowState = WindowState.Normal,
                 Left = -30000, Top = -30000, ShowInTaskbar = false };
             w.Show(); w.Left = 0; w.Top = 0; w.Width = size.Item1; w.Height = size.Item2; await Task.Delay(200);
-            foreach (var page in new[] { (0, 0, "dictionary"), (1, 0, "positive"), (1, 1, "negative"), (2, 0, "images"), (3, 0, "lora") })
+            foreach (var page in new[] { (0, 0, "dictionary"), (1, 0, "positive"), (1, 1, "negative"), (1, 2, "conditions"), (1, 3, "quick-lora"), (2, 0, "images"), (3, 0, "lora") })
             {
-                vm.WorkspaceIndex = page.Item1; vm.Intelligence.ActiveSide = page.Item2;
+                vm.WorkspaceIndex = page.Item1; vm.CreatePageIndex = page.Item2;
                 await Task.Delay(100); w.UpdateLayout();
                 Capture(w, $"{page.Item3}-{size.Item1}x{size.Item2}", size.Item1, size.Item2);
             }
@@ -86,7 +87,7 @@ internal static class Program
         vm.GenerationImport.Load(ForgePngGenerationMetadata.Read(image));
         var import = new GenerationImportDialog(vm) { Owner = owner, ShowInTaskbar = false };
         import.Show(); await Task.Delay(150); Capture(import, "GenerationImportDialog", 920, 780); import.Close(); owner.Close();
-        File.WriteAllText(Path.Combine(output, "renders.json"), JsonSerializer.Serialize(new { SourceBaseline = "a96dcd10d77e85d629e0169669ea26028f88c835", Mode = "Detached WPF client viewport / RenderTargetBitmap / 96 DPI; synthetic owned assets; read-only real catalog", Limitations = "No native pixel or pointer acceptance. Ancestor Window command bindings may be unavailable during detached capture; source inventory is authoritative for command semantics. Scroll descendants outside their viewport are not header overflow.", Screen = new { SystemParameters.PrimaryScreenWidth, SystemParameters.PrimaryScreenHeight, SystemParameters.VirtualScreenWidth, SystemParameters.VirtualScreenHeight }, NetworkCalls = 0, GenerationRequests = 0, Renders = renders }, new JsonSerializerOptions { WriteIndented = true }));
+        File.WriteAllText(Path.Combine(output, "renders.json"), JsonSerializer.Serialize(new { SourceBaseline = "a96dcd10d77e85d629e0169669ea26028f88c835", ProductSourceRevision = revision, EvidenceStage = "after B-lite consolidation", Mode = "Detached WPF client viewport / RenderTargetBitmap / 96 DPI; synthetic owned assets; read-only real catalog", Limitations = "No native pixel or pointer acceptance. Ancestor Window command bindings may be unavailable during detached capture; source inventory is authoritative for command semantics. Scroll descendants outside their viewport are not header overflow.", Screen = new { SystemParameters.PrimaryScreenWidth, SystemParameters.PrimaryScreenHeight, SystemParameters.VirtualScreenWidth, SystemParameters.VirtualScreenHeight }, NetworkCalls = 0, GenerationRequests = 0, Renders = renders }, new JsonSerializerOptions { WriteIndented = true }));
     }
     private static void Capture(Window window, string name, int width, int height)
     {

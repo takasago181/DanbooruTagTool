@@ -145,7 +145,7 @@
                     <TextBlock Text="関連度順" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding IsSearching, Converter={StaticResource BoolVisibilityLocal}}"/>
                 </Grid>
                 </Grid>
-            <StackPanel Grid.Row="2" Margin="0,0,0,4">
+            <ScrollViewer Grid.Row="2" MaxHeight="150" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"><StackPanel Margin="0,0,0,4">
                 <Border Background="#F8FBFD" BorderBrush="{DynamicResource BorderBrushSoft}" BorderThickness="1" CornerRadius="8" Padding="6,4">
                     <DockPanel>
                         <TextBlock DockPanel.Dock="Left" Text="検索対象" Style="{DynamicResource HintText}" VerticalAlignment="Center" Margin="0,0,8,0"/>
@@ -168,7 +168,7 @@
                             <Button Content="{Binding HomeCharacterCountLabel}" Command="{Binding ShowAllHomeCharactersCommand}" Style="{DynamicResource CompactButton}" MinHeight="26" Margin="0,0,5,4"/>
                             <Button Content="グループ一覧に戻る" Command="{Binding BackToBrowseGroupsCommand}" Style="{DynamicResource CompactButton}" MinHeight="26" Margin="0,0,0,4"/>
                         </WrapPanel>
-                        <ScrollViewer MaxHeight="170" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                        <ScrollViewer Visibility="{Binding ShowBrowseGroupCandidates, Converter={StaticResource BoolVisibilityLocal}}" MaxHeight="110" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                             <ItemsControl ItemsSource="{Binding BrowseGroupOptions}">
                                 <ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel>
                                 <ItemsControl.ItemTemplate><DataTemplate>
@@ -182,7 +182,7 @@
                     </StackPanel>
                     </StackPanel>
                 </Border>
-            </StackPanel>
+            </StackPanel></ScrollViewer>
             <Border Grid.Row="3" Background="#F8FBFD" BorderBrush="{DynamicResource BorderBrushSoft}" BorderThickness="1" CornerRadius="8" Padding="6,4" Margin="0,0,0,4" Visibility="{Binding ShowUnifiedRefinement, Converter={StaticResource BoolVisibilityLocal}}">
                 <Grid>
                     <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
