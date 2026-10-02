@@ -280,4 +280,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../current/ADULT_IMAGE_GENERATION_TEACHING_CURRICULUM.md` — canonical teaching sequence from runtime literacy through adult relation binding, LoRA interference, Regional/control, repair, finishing and training evaluation.
 - `../research/BATCH_AT_TEACHING_CURRICULUM_AND_NATIVE_HOOKS_20261002.md` — teaching-method synthesis plus current ComfyUI native LoRA hook/mask/timestep primitives and recent multi-character practice.
+- `../current/ADULT_IMAGE_GENERATION_TEACHER_REFERENCE.md` — fast teacher-facing diagnostic reference: failure classes, model starting cards, intervention routing, Regional/LoRA boundaries, finishing, training and session templates.
 
