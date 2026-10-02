@@ -46,6 +46,7 @@ scene-planning synthesis:
 2. `docs/project/PERMANENT_RULES.md`
 3. Issue #44 最新body/comments
 4. `docs/PRODUCT_GOAL_LOCK.md`
+5. `docs/knowledge/current/README.md`
 6. `docs/knowledge/current/CURRENT_QUICK_REFERENCE.md`
 7. `docs/knowledge/current/CLAIM_REGISTRY.csv`
 8. **`docs/knowledge/KNOWLEDGE_CATALOG.md`（このファイル）**
@@ -58,7 +59,7 @@ scene-planning synthesis:
 current管理層の入口:
 `docs/knowledge/current/README.md`
 
-## Current product relationship
+## 現在のプロダクトとの関係
 
 v1 core:
 
@@ -67,7 +68,7 @@ v1 core:
 知識のうち、semantic authority / 日本語理解検索 / browse discovery / provenance はv1-supporting。
 モデル生成挙動 / support / Prompt最適化 / failure diagnosis / A/Bはfuture/advanced knowledgeであり、具体的採用featureが要求しない限りv1 blockerではない。
 
-## Canonical topic catalog
+## 正本topic catalog
 
 | # | ジャンル | 入口 | 主な内容 |
 |---|---|---|---|
