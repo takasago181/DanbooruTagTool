@@ -302,3 +302,22 @@ FreeFuse is retained as a research lead for spatial multi-LoRA routing; current 
 Research:
 `../research/BATCH_Z_COMPOSITIONAL_EVAL_AND_CONTROL_20261002.md`.
 
+---
+
+## Multi-subject LoRA dataset design — 2026-10-02
+
+Inference-time binding problems can originate in the training distribution itself.
+
+Current community hypotheses worth controlled testing:
+- isolated solo images do not teach coexistence automatically;
+- joint/interaction images can reduce feature bleed;
+- stitched composites may teach rigid spatial separation;
+- uncaptioned constant backgrounds/context can become entangled with identity;
+- solo and joint subsets need enough effective sampling balance that joint states are not drowned out;
+- viewpoint-count diversity alone does not guarantee generalization.
+
+For hard relation training, vary role/position/context independently where possible.
+
+Research:
+`../research/BATCH_AA_MULTI_SUBJECT_LORA_DATASET_DESIGN_20261002.md`.
+
