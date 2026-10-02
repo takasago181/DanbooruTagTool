@@ -1737,3 +1737,16 @@ Research:
 - `research/BATCH_AZ_GENERATION_FOUNDATIONS_PIPELINE_20261002.md`
 - `research/BATCH_BA_SAMPLING_GUIDANCE_FOUNDATIONS_20261002.md`
 - `research/BATCH_BB_EDITING_CONTROL_MEMORY_FOUNDATIONS_20261002.md`
+
+
+## 16.19 Output identity and auxiliary basics
+
+The foundation layer now also covers:
+- generation infotext/metadata as reproducibility evidence;
+- model hashes and file identity;
+- safetensors as a storage format rather than architecture;
+- Clip Skip as a CLIP text-encoder layer-selection option;
+- Textual Inversion as learned token embeddings distinct from LoRA.
+
+Research:
+`research/BATCH_BC_OUTPUT_METADATA_AUXILIARY_FOUNDATIONS_20261002.md`.
