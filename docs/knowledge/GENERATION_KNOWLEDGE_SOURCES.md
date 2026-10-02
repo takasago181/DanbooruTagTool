@@ -1543,3 +1543,23 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: early structural conditioning with later quality-modifier injection.
 - Limitation: asset-specific setup; exact switch fraction is not universal.
 
+**S-LEARN-002 — Anima intermediate-checkpoint visual validation**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/157
+- Class: `COMMUNITY / TECHNICAL_EXPERIMENT`
+- Scope: distillation LoRA with stable loss but poor visual quality.
+- Value: numerical convergence is insufficient; intermediate image tests matter.
+
+**S-COMM-078 — Anima training-duration discussion**
+- URLs:
+  - https://huggingface.co/circlestone-labs/Anima/discussions/106
+  - https://huggingface.co/circlestone-labs/Anima/discussions/129
+- Class: `COMMUNITY / TRAINING_PRACTICE`
+- Scope: widely varying style/character steps/epochs.
+- Value: rejects universal absolute-step recipes.
+
+**S-COMM-079 — Anima training determinism discussion**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/144
+- Class: `COMMUNITY / REPRODUCIBILITY`
+- Scope: nominally same training seed/config can differ without deterministic backend controls.
+- Value: repeat-run caution and full training-identity logging.
+
