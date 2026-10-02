@@ -1230,3 +1230,43 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: same/source-similar data, identity/outfit vs style capture.
 - Limitation: training recipe not a formal controlled benchmark.
 
+---
+
+## 2026-10-02 character/style evaluation + adapter sources
+
+**S-EVAL-CHAR-001 — CCIP anime character similarity**
+- URL: https://huggingface.co/deepghs/ccip
+- Class: `OFFICIAL_MODEL`
+- Scope: anime character identity similarity.
+- Limitation: base model card targets single-character images.
+
+**S-EVAL-STYLE-001 — Contrastive Style Descriptors**
+- URL: https://arxiv.org/abs/2404.01292
+- Class: `RESEARCH`
+- Scope: artistic style descriptors and style similarity.
+- Value: style-specific metric and OOD style-generalization analysis.
+
+**S-EVAL-VISUAL-001 — DiffSim**
+- URL: https://arxiv.org/abs/2412.14580
+- Class: `RESEARCH`
+- Scope: diffusion-feature instance/style similarity.
+- Value: complementary instance and style evaluation.
+
+**S-RESEARCH-019 — LyCORIS evaluation paper**
+- URL: https://arxiv.org/abs/2309.14859
+- Class: `RESEARCH / ICLR-2024`
+- Scope: LoRA/LoHa/LoKr/native fine-tuning and systematic T2I customization evaluation.
+- Value: fidelity, controllability, diversity, base-preservation and quality framework; dim/alpha/factor interactions.
+
+**S-TOOL-011 — LyCORIS current repository**
+- URL: https://github.com/KohakuBlueleaf/LyCORIS
+- Class: `OFFICIAL_RUNTIME`
+- Scope: current adapter algorithms and implementation freshness.
+- Freshness: 4.0.0 changelog dated 2026-09-01.
+
+**S-RESEARCH-020 — DoRA**
+- URL: https://arxiv.org/abs/2402.09353
+- Class: `RESEARCH`
+- Scope: magnitude/direction weight-decomposed low-rank adaptation.
+- Limitation: not direct proof of superiority for anime diffusion customization.
+
