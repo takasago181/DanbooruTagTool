@@ -1,6 +1,6 @@
 # CURRENT STATE
 
-最終更新: 2026-10-02 (#228/#229/#232 merged; STOP POINT reached)
+最終更新: 2026-10-02 (#245 B-lite implemented; user review STOP)
 
 このファイルは **現在地だけ** を保持する人間向けsummary。
 過去のrouting/runtime/taxonomy/完了記録は `docs/project/CURRENT_STATE_HISTORY.md` に保存する。
@@ -17,13 +17,13 @@
 
 現在の主要な独立lane:
 
-### #245 UI/UX consolidation — Phase B/C complete / implementation STOP
+### #245 UI/UX consolidation — B-lite implemented / user review STOP
 
-ユーザー指示で開始。#241 research ledgerと#244 STOP POINTを読み、live main `a96dcd10d77e85d629e0169669ea26028f88c835`のworkspace/actions/state/layout/shortcut/dialogを棚卸しした。189 XAML controls、23 WPF client viewport renders（900×600、1280×720、1600×900、2560×1440＋3 dialogs）を記録。製品source変更・新機能・production applyなし。
+ユーザーがB-liteを採用し、既存Draft PR246へ実装・after 8task auditを追加。top-levelは作成 / タグ探索 / ライブラリ。current P/N + session-only条件をPreset保存なしで既存#228 verified APIへ送る。shared LoRA quick-use、source/compatibility明示、compact header、900×560の結果一覧を整えた。Phase A/B/C evidenceを保持。
 
-初回338 PASS / 4 SKIP / 2 FAILを切り分けた。同一sessionのclean main/PRで元#223 testは各2 PASS。native probe両者一致、900×560はlist0、1280×720は41.33 DIP。表示環境縮小で既存group-layout defectとtestの要求寸法前提が露呈した。helper起因の証拠なし。test/threshold/製品UIは変更せず、現在PR fullは340 PASS / 4 SKIP / 0 FAIL。8 taskのexpert walkthrough、IA案A（4workspace維持＋作成整理）/B（3workspace＋asset Library）とA推奨まで記録。実装前に停止するユーザー指示を適用。`docs/issue245/BASELINE_FAILURE_DIAGNOSIS.md` / `PHASE_B_TASK_AUDIT.md` / `PHASE_C_IA_PROPOSALS.md`。次はユーザーによるIA選定。Draft PR246はauditのみ、#245全体/実装merge gateは未完了。#230/#231/new-feature STOPとproduction未適用は継続。
+検証済みproduct source `788e03e6cec3e0c9181337d9a7fbfcff79abe60f`。full355 PASS / 4既存SKIP / 0 FAIL、focused103 PASS / 1既存live-Forge SKIP / 0 FAIL、product CI9 SUCCESS。clean self-contained win-x64 publish / 実EXE隔離hooks / 別folder normal startup・restart・UI state・P/N/非空Preset Recipe persistence PASS。36 after render/tree。native group listは900×560 0→99.33 DIP、1280×720 41.33→259.33 DIP。元#223 threshold/skip/MinHeight不変。catalog/既存UserData9 hashes一致、Core/Data/authority/legacy変更なし。
 
-
+**User review before merge / production promotionでSTOP。** Draft PR246未merge、#245 open。production source `49963dc129a1725c8a74d7f29aeb960884b67569`を維持。#230/#231/new-featureを開始しない。今回のlive Forge生成・pointer study・別PCは未検証。結果/action map/8task/limits: `docs/issue245/PHASE_D_B_LITE_RESULT.md`。exact gates/hashes: `docs/issue245/AFTER_VALIDATION.json`。
 
 ### #226 Generation image library — COMPLETE / production APPLIED
 

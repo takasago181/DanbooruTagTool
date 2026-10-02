@@ -1,0 +1,26 @@
+{
+  "Result": "PASS",
+  "Fts5Available": true,
+  "NetworkCalls": 0,
+  "Framework": ".NET 10.0.12",
+  "Schema": 1,
+  "Warm": {
+    "Added": 0,
+    "Refreshed": 0,
+    "Unchanged": 1,
+    "Missing": 0,
+    "Errors": 0,
+    "Complete": true
+  },
+  "Missing": {
+    "Added": 0,
+    "Refreshed": 0,
+    "Unchanged": 0,
+    "Missing": 1,
+    "Errors": 0,
+    "Complete": true
+  },
+  "ForgeMockRequests": 2,
+  "WpfRender": "library-wpf.png",
+  "Scope": "isolated fixture / actual runtime; no production data writes; Forge rendering not invoked"
+}

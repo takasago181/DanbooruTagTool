@@ -83,3 +83,8 @@ Bを否定するものではない。asset横断管理の実ユーザー頻度�
 Phase B beforeとPhase C案/推奨まで完成。**ここで停止し、ユーザーによるIA選定を待つ。** Draft PR246はaudit成果でありUI実装の完成PRではない。#245はopen、merge/production applyしない。after map/実測/render/publish/newruntimeは未作成であり、実装後Gateへ繰り越す。
 
 実装前に確定が必要: A/B採用、current Recipe一時stateのsource/handoff仕様、二次互換操作の名称とN契約。ユーザー指示なしに実装しない。
+
+
+## Subsequent user decision / Phase D
+
+2026-10-02: ユーザーが[issue245 comment](https://github.com/takasago181/DanbooruTagTool/issues/245#issuecomment-5944355694)でB-liteを採用し実装を許可。上記A推奨/実装前STOPは当時の監査記録として保持。現在は[Phase D B-lite result](PHASE_D_B_LITE_RESULT.md)と[after validation](AFTER_VALIDATION.json)を参照。次STOPはUser review before merge / production promotion、PR246を自動mergeしない。

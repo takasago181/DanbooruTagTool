@@ -1,6 +1,6 @@
 {
   "schema_version": "project-current-routing-v1",
-  "generated_at": "2026-10-02T02:03:13.5104509Z",
+  "generated_at": "2026-10-02T03:37:05.008199+00:00",
   "purpose": "compact machine-readable routing snapshot; not a permanent branch-head authority",
   "live_main_snapshot": null,
   "must_refetch_live_heads_before_write": true,
@@ -16,11 +16,11 @@
     {
       "issue": 245,
       "lane": "UI/UX workflow consolidation",
-      "phase": "Phase B task audit / Phase C alternatives recorded; implementation STOP",
-      "authority": "live Issue #245; #241 research; #244 STOP POINT",
-      "evidence": "docs/issue245/PHASE_C_IA_PROPOSALS.md",
-      "next": "user IA selection before product UI implementation; existing small-window defect recorded",
-      "boundaries": "no new features; no production apply; #230/#231 remain stopped"
+      "phase": "Phase D B-lite implementation and after audit PASS; user review STOP",
+      "authority": "live Issue #245 user B-lite selection; #241 research; #244 STOP POINT",
+      "evidence": "docs/issue245/PHASE_D_B_LITE_RESULT.md",
+      "next": "User review before merge / production promotion; Draft PR246 unmerged",
+      "boundaries": "no automatic merge; no production apply; no #230/#231 or new feature"
     }
   ],
   "completed_or_non_default": [

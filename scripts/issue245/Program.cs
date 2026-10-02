@@ -68,8 +68,8 @@ internal static class Program
         using (var file = File.Create(Path.Combine(models, "sample.safetensors")))
         { var header = new byte[8]; BinaryPrimitives.WriteUInt64LittleEndian(header, (ulong)metadata.Length); file.Write(header); file.Write(metadata); }
         await vm.LoraLibrary!.AddRootAsync(models); await vm.LoraLibrary.ScanAsync(); vm.LoraLibrary.Selected = vm.LoraLibrary.Assets.Single();
-        vm.LoraLibrary.Note = "Audit fixture / 譌･譛ｬ隱槭Γ繝｢";
-        vm.Create.Load(new(Guid.NewGuid(), "audit", "", vm.Prompt.English, vm.Negative.English, new("sample", 42, 20, "Euler a", "Karras", 5, 512, 768)), "逶｣譟ｻfixture");
+        vm.LoraLibrary.Note = "Audit fixture / 日本語メモ";
+        vm.Create.Load(new(Guid.NewGuid(), "audit", "", vm.Prompt.English, vm.Negative.English, new("sample", 42, 20, "Euler a", "Karras", 5, 512, 768)), "監査fixture");
         foreach (var size in new[] { (900, 560), (1280, 720), (1600, 900), (2560, 1440) })
         {
             var w = new MainWindow(vm) { Width = size.Item1, Height = size.Item2, WindowState = WindowState.Normal,

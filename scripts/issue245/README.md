@@ -49,3 +49,10 @@ dotnet run --project scripts/issue245/GeometryProbe.csproj -c Release --disable-
 The source revision argument labels the product assembly baseline, not the helper
 commit. Existing output is refused. Requested native cases: 1200x900, 1500x900,
 900x560, 1280x720 DIP; all use Normal state and reviewed Three Houses group.
+
+
+## After B-lite / normal portable runtime smoke
+
+Updated UiAudit supports `[source-revision]`, 900x560/1280x720/1600x900/2560x1440, working conditions/quick LoRA/Negative, selected group results and comparison. The 36 after renders are detached client viewports, not physical-display pointer acceptance. Do not overlap native WPF helper/test/runtime processes.
+
+`NormalRuntimeSmoke.ps1 -Candidate <clean-published-folder> -FixtureUserDb <owned-schema2-fixture-db> -Output <new-workspace-directory>` copies a candidate to a fresh disposable folder, transactionally seeds only owned fixture UI state and a nonempty all8 Recipe preset, starts the real executable twice, waits up to30 seconds for MainWindow, closes its own process gracefully and compares P/N/preset/UI state. Existing UserData and production are not edited. Process lifecycle is not a pointer audit. Use the after manifest source.
