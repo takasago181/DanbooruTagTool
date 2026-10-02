@@ -346,3 +346,36 @@ High-value working hypotheses:
 These are CANDIDATE/community practices, not family-wide defaults. See:
 `../research/BATCH_O_COMMUNITY_PRACTICE_HARVEST_20261002.md`.
 
+---
+
+## 16. Community-controlled tag / Negative findings — 2026-10-02
+
+Use these as diagnostic hypotheses, not universal defaults.
+
+### Tags vs natural language
+- Prefer a known compact tag when it cleanly represents the concept.
+- Add prose when the desired relation/geometry/position has no adequate tag.
+- Descriptive English can accidentally materialize ambiguous nouns as visible objects.
+- If a specific garment/concept name repeatedly fails, test the defining visual structure without the name before escalating weights.
+- A semantically narrow tag may invoke a much broader learned visual prior; Danbooru meaning and generation effect remain separate.
+
+### Context confounds
+- A “fixed” style/pose/composition block can already encode the concept being tested.
+- When a tag appears weak, first remove overlapping instructions before concluding that the tag is unknown.
+- Derivative checkpoints can differ in how local a one-tag change remains.
+
+### Negative
+- A Negative term is not guaranteed to be ignored merely because its target is absent.
+- Targeted Negative edits should be tested with same-seed ON/OFF pairs.
+- Do not use the WAI-Anima community result as proof for official Anima/Noob/WAI; keep family/version scope.
+
+### Regional Prompter
+Current 2026-09-04 runtime documentation:
+- Forge Neo + Anima Latent: supported
+- Forge Neo + Anima Attention: supported
+- Anima Region LoRA: unsupported
+- Anima regional Attention is not SD/SDXL 75-token chunk splitting.
+
+Research detail:
+`../research/BATCH_P_COMMUNITY_TAG_NEGATIVE_RUNTIME_20261002.md`.
+
