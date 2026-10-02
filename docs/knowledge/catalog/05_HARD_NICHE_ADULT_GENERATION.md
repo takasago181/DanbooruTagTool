@@ -231,3 +231,48 @@ If censor/watermark-like artifacts persist:
 Full research:
 `../research/BATCH_Y_ADULT_GENERATION_STRUCTURAL_MASTERY_20261002.md`.
 
+---
+
+## Hard-domain continuity guarantee — 2026-10-02
+
+The current adult-generation expansion does not replace the earlier hard/niche research.
+
+The following remain first-class knowledge domains and must continue to be researched independently where relevant:
+
+- body-site-specific states and relations
+- insertion/contact relation families
+- exact count / simultaneity
+- restraint topology
+- machine/device relation
+- nonhuman-appendage relation
+- material/fluid source-destination-state
+- unusual/anatomy-changing cases
+- composite hard scenes
+- model-specific Negative collisions
+- LoRA/context leakage
+- evaluator blindness on rare relation concepts
+- Prompt-only vs assisted-control vs postprocess success
+
+Do not collapse these into a single generic `adult` or `explicit` category.
+
+The purpose of the adult mastery layer is to connect these existing specialized domains into a practical generation/diagnosis workflow, while keeping their detailed semantics intact.
+
+Authority precedence:
+1. exact Claim Registry verdict
+2. this catalog's structural classes
+3. focused hard/niche research files
+4. current adult mastery batch
+5. cross-cutting summaries
+
+Focused historical/current files remain valid:
+- `HARD_FETISH_ANAL_INSERTION_20260909.md`
+- `HARD_FETISH_BDSM_RESTRAINT_20260909.md`
+- `HARD_FETISH_MACHINE_DEVICE_20260909.md`
+- `HARD_FETISH_TENTACLE_FANTASY_20260909.md`
+- `HARD_FETISH_FLUID_EXCRETION_20260909.md`
+- `HARD_FETISH_RARE_EXTREME_20260909.md`
+- `HARD_FETISH_COMPOSITE_FAILURE_MATRIX_20260909.md`
+- `BATCH_Y_ADULT_GENERATION_STRUCTURAL_MASTERY_20261002.md`
+
+Future research should deepen these domains rather than replacing them with safer but less useful generalities.
+
