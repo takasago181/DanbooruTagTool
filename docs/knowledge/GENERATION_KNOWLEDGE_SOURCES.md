@@ -1804,3 +1804,90 @@ These sources are intentionally lower authority than exact author/runtime docume
   - https://www.reddit.com/r/comfyui/comments/1sq0a1q/upscale_after_detailer/
 - Class: `COMMUNITY_PRACTICAL`
 - Use: second-pass artifacts, tiled fallback and finishing separation.
+
+
+---
+
+## 2026-10-02 foundation batches AZ / BA / BB
+
+**S-AZ-001 — Diffusers Quickstart / pipeline components**
+- URL: https://huggingface.co/docs/diffusers/en/quicktour
+- Class: `OFFICIAL_RUNTIME`
+- Use: text encoders, scheduler, UNet/DiT and VAE roles in a diffusion pipeline.
+
+**S-AZ-002 — Latent Diffusion Models**
+- URL: https://arxiv.org/abs/2112.10752
+- Class: `PRIMARY_RESEARCH`
+- Use: diffusion in pretrained autoencoder latent space; compute/detail rationale.
+
+**S-AZ-003 — AutoencoderKL**
+- URL: https://huggingface.co/docs/diffusers/api/models/autoencoderkl
+- Class: `OFFICIAL_RUNTIME`
+- Use: pixel<->latent encode/decode, tiled encode/decode.
+
+**S-AZ-004 — Reproducibility**
+- URL: https://huggingface.co/docs/diffusers/using-diffusers/reusing_seeds
+- Class: `OFFICIAL_RUNTIME`
+- Use: seed/random generator behavior and cross-platform determinism limitations.
+
+**S-AZ-005 — Model formats**
+- URL: https://huggingface.co/docs/diffusers/using-diffusers/other-formats
+- Class: `OFFICIAL_RUNTIME`
+- Use: separated components vs single-file checkpoint layout.
+
+**S-AZ-006 — UNet and DiT**
+- URLs:
+  - https://huggingface.co/docs/diffusers/en/api/models/unet2d-cond
+  - https://arxiv.org/abs/2212.09748
+- Class: `OFFICIAL_RUNTIME / PRIMARY_RESEARCH`
+- Use: denoising backbone distinction.
+
+**S-BA-001 — Scheduler guide / overview**
+- URLs:
+  - https://huggingface.co/docs/diffusers/using-diffusers/schedulers
+  - https://huggingface.co/docs/diffusers/main/api/schedulers/overview
+- Class: `OFFICIAL_RUNTIME`
+- Use: timestep/sigma schedule, A1111/k-diffusion mappings, scheduler naming boundary.
+
+**S-BA-002 — Euler scheduler**
+- URL: https://huggingface.co/docs/diffusers/api/schedulers/euler
+- Class: `OFFICIAL_RUNTIME`
+- Use: prediction type, sigma schedules, stochasticity controls.
+
+**S-BA-003 — Classifier-Free Guidance**
+- URLs:
+  - https://arxiv.org/abs/2207.12598
+  - https://huggingface.co/docs/diffusers/main/api/modular_diffusers/guiders
+- Class: `PRIMARY_RESEARCH / OFFICIAL_RUNTIME`
+- Use: conditional/unconditional guidance mechanism and high-guidance quality tradeoff.
+
+**S-BB-001 — img2img**
+- URL: https://huggingface.co/docs/diffusers/main/api/pipelines/stable_diffusion/img2img
+- Class: `OFFICIAL_RUNTIME`
+- Use: source image + strength/noise + denoising semantics.
+
+**S-BB-002 — inpainting**
+- URL: https://huggingface.co/docs/diffusers/en/using-diffusers/inpaint
+- Class: `OFFICIAL_RUNTIME`
+- Use: white-edit/black-preserve mask convention, strength, padding mask crop.
+
+**S-BB-003 — ControlNet**
+- URLs:
+  - https://arxiv.org/abs/2302.05543
+  - https://huggingface.co/docs/diffusers/using-diffusers/controlnet
+  - https://huggingface.co/docs/diffusers/api/pipelines/controlnet
+- Class: `PRIMARY_RESEARCH / OFFICIAL_RUNTIME`
+- Use: structural condition types, control scale, start/end timing.
+
+**S-BB-004 — LoRA**
+- URL: https://huggingface.co/docs/diffusers/main/training/lora
+- Class: `OFFICIAL_RUNTIME`
+- Use: low-rank adapter concept, rank/alpha/target modules.
+
+**S-BB-005 — performance/memory**
+- URLs:
+  - https://huggingface.co/docs/diffusers/main/optimization/fp16
+  - https://huggingface.co/docs/diffusers/main/optimization/memory
+  - https://huggingface.co/docs/diffusers/main/quantization/overview
+- Class: `OFFICIAL_RUNTIME`
+- Use: fp16/bf16, attention backend, VAE tiling/slicing, offload, quantization and tradeoffs.
