@@ -270,3 +270,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AO_PROMPT_TUNING_SAMPLER_WEIGHT_20261002.md` — practical day-to-day tuning: semantic-vs-seed diagnosis, Anima sampler character, weight escalation, WAI Negative minimalism, resolution/aspect-ratio discipline and diagnostic-vs-production seeds.
 
+- `../research/BATCH_AP_ADULT_PRACTICAL_LEARNING_METHOD_20261002.md` — practical adult-generation study curriculum: structure-only reference analysis, stable subject IDs, fixed-seed A/B, failure journal, regional-control escalation, XY grids, and solo→joint LoRA learning progression.
+
