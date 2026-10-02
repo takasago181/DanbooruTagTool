@@ -1408,3 +1408,35 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Class: `AUTHOR_GUIDE`
 - Scope: near-1MP portrait/square/landscape resolution set.
 
+**S-PRACTICAL-004 — ComfyUI upscaling handbook**
+- URL: https://blog.comfy.org/p/upscaling-in-comfyui
+- Class: `OFFICIAL_RUNTIME_GUIDE`
+- Scope: upscale vs enhancement, conservative vs creative processing, production pipeline.
+- Value: style-preservation and artifact-repair routing.
+
+**S-TOOL-012 — Forge Hires UI implementation**
+- URL: https://github.com/lllyasviel/stable-diffusion-webui-forge/blob/main/modules/ui.py
+- Class: `OFFICIAL_RUNTIME`
+- Scope: Hires checkpoint/VAE/TE/sampler/scheduler/prompt/negative/CFG options.
+- Value: proves Hires is a configurable second generation pass.
+
+**S-COMM-072 — Anima second-pass sampler observation**
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1tmrh0l/the_not_so_anime_anima/
+- Class: `COMMUNITY / PRACTICAL`
+- Scope: sampler difference between raw generation and img2img/upscale.
+
+**S-COMM-073 — Anima Forge Neo Hires discussion**
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1t87xbc/anima_settings_in_forge_neo/
+- Class: `COMMUNITY / FAILURE_DISCUSSION`
+- Scope: Hires instability and low-denoise img2img alternatives.
+
+**S-COMM-074 — Anima 2026-09 upscale discussion**
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1wqb41q/anima_upscaling/
+- Class: `COMMUNITY / CURRENT_PRACTICE`
+- Scope: SeedVR/pixel/tiled/Forge Neo upscale ecosystem.
+
+**S-COMM-075 — Anima detailer instability report**
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1tj1fw2/detailing_in_anima_is_really_confusing_any_guides/
+- Class: `COMMUNITY / FAILURE_REPORT`
+- Scope: local crop size and sampler/scheduler sensitivity.
+
