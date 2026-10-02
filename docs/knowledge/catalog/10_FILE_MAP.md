@@ -292,3 +292,7 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AX_LOCAL_ADULT_IMAGE_GENERATION_TRENDS_20261002.md` — 2026年秋のローカル成人向け生成動向。Illustrious/WAI/Noob/Ponyの成熟資産、Anima急伸、local LLM/VLM、Regional/reference/Edit、multi-character LoRA、UI、写実別laneを時点付きで整理。
 - `../current/LOCAL_ADULT_IMAGE_GENERATION_TREND_MAP_20261002.md` — 日本語の現状地図。「成熟・急伸・実験中・別系統」に分け、#44で次に追う研究優先を提示。
+
+
+- `../research/BATCH_AY_REAL_WORLD_ADULT_WORKFLOW_ARCHETYPES_20261002.md` — 27件の公開workflow/case studyを native-first / LoRA / Regional / reference+geometry / Edit / data-first training / finishing に分解。成人向けへ転用できる共通構造を抽出。
+- `../current/LOCAL_ADULT_WORKFLOW_PLAYBOOK_20261002.md` — 日本語の実用playbook。identity・geometry・locality・repair・finishingを別担当にし、失敗から次のtoolへrouting。
