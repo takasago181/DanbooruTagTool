@@ -693,3 +693,27 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Value: weight spillover into identity/clothing/light/background.
 - Limitation: one LoRA; author's preferred value is not generalizable.
 
+**S-COMM-046 — Anima 162-image parameter sweep**
+- URL: https://note.com/tasty_cougar8018/n/n7315197114a6
+- Language: Japanese
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: CFG / steps / shift / sampler on Aesthetic v1.1.
+- Value: one-variable sweeps across two fixed scenes; includes measured timing.
+- Limitation: subjective image-quality judgement / profile-local.
+
+**S-COMM-047 — iterative 49→61-image character-LoRA repair**
+- URL: https://note.com/ai_on_desk/n/nfed78c91d76a
+- Language: Japanese
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: WAI-Anima character-LoRA, first-pass residual body failure, second-pass targeted dataset recuration.
+- Value: detailed failure-driven dataset iteration and leakage notes.
+- Limitation: one character / cloud trainer / mostly synthetic data.
+
+**S-COMM-048 — Anima Highres Boost 279-image test**
+- URL: https://note.com/tasty_cougar8018/n/nf4cff0c56535
+- Language: Japanese
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: Highres/Aesthetic Boost v1.0, 9 strengths × 3 resolutions × multiple scenes/seeds.
+- Value: resolution-dependent adapter behavior and excessive-weight failure.
+- Limitation: one runtime/workflow and visually selected scenes.
+
