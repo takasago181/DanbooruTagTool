@@ -4,21 +4,21 @@ Owner: Issue #44 `KNOWLEDGE:#44`
 対象: 成人であることが明確な、合意的・成人ファンタジーの二次元ローカル生成  
 役割: **学ぶ順番・演習・合格条件だけを定める**。
 
-モデル固有設定は `PRACTICAL_GENERATION_NOOB_ANIMA.md`、失敗診断はDecision Treeを見る。
+モデル固有設定は `PRACTICAL_GENERATION_NOOB_ANIMA.md`、失敗診断は `ADULT_IMAGE_GENERATION_DECISION_TREE.md` を見る。
 
 ## レベル0 — 再現できる
 
 学ぶ:
-- checkpoint/profile
-- seed
+- モデル / checkpoint / profile
+- シード（seed）
 - 解像度
-- Sampler / Scheduler
-- Steps / CFG
+- サンプラー / スケジューラ
+- ステップ数 / CFG
 - Prompt / Negative
 - metadata保存
 
 演習:
-同じ条件をmetadataから再生成し、1項目だけ変える。
+同じ条件をmetadataから再現し、1項目だけ変える。
 
 合格:
 「何を固定し、何を変えたか」を説明できる。
@@ -28,8 +28,9 @@ Owner: Issue #44 `KNOWLEDGE:#44`
 学ぶ:
 - 潜在表現（latent）
 - VAE
-- Tokenizer / Text Encoder
-- seedと初期noise
+- トークナイザー（Tokenizer）
+- 文章エンコーダー（Text Encoder）
+- seedと初期ノイズ
 - Sampler / Scheduler
 - CFG
 - Negative
@@ -39,26 +40,23 @@ Owner: Issue #44 `KNOWLEDGE:#44`
 
 合格:
 `Prompt -> 条件付け -> ノイズ除去 -> VAE -> 画像`
-を自分の言葉で説明できる。
+を日本語で説明できる。
 
 ## レベル2 — 単純な1人sceneを作る
 
 学ぶ:
 - 最小Prompt
-- camera/framing
+- カメラ / framing
 - seed差
-- style/backgroundを後から足す
-
-演習:
-同じ成人キャラを、構図だけ変えて複数seedで生成。
+- style / backgroundを後から足す
 
 合格:
-「概念失敗」と「単なる構図差」を分けられる。
+「概念失敗」と「構図の個体差」を分けられる。
 
-## レベル3 — identityを扱う
+## レベル3 — キャラ同一性（identity）
 
 学ぶ:
-- model native character
+- モデルが元から知るキャラ
 - Character LoRA
 - Reference
 - identity featureの採点
@@ -69,61 +67,54 @@ Owner: Issue #44 `KNOWLEDGE:#44`
 - 別背景
 - 別衣装
 - 別style
-を試す。
 
 合格:
-似ているだけでなく、**identity以外を変更できる**。
+顔が似るだけでなく、identity以外を変更できる。
 
-## レベル4 — styleを扱う
+## レベル4 — 画風（style）
 
 学ぶ:
-- native artist/style
+- native artist / style
 - Style LoRA
 - Reference style
-- content leakage
-
-演習:
-同じstyleを、訓練例と違うsubject/構図へ適用。
+- 内容の漏れ（content leakage）
 
 合格:
-styleを保ちながら内容を変更できる。
+画風を保ちつつ、訓練例と違う内容・構図へ変更できる。
 
 ## レベル5 — 2人を分離する
 
 順番:
-1. 2人、interactionなし
+1. 2人、相互作用なし
 2. 相対位置
 3. 単純な接触
 4. 重なり・遮蔽あり
 
 採点:
-- count
+- 人数
 - identity A
 - identity B
-- attribute ownership
-- visibility
+- 属性の持ち主
+- 可視性
 
 合格:
-「2人がいる」と「2人が正しく分かれている」を区別できる。
+「2人がいる」と「2人が正しく分離されている」を区別できる。
 
-## レベル6 — relationを扱う
+## レベル6 — 関係性（relation）
 
 学ぶ:
-- actor / target
-- role
-- body-site ownership
-- contact
-- source/destination
-- front/back
-- visibility
-
-演習:
-意味構造だけの最小sceneから開始し、不要なstyle/backgroundを後付け。
+- 行為者 / 対象（actor / target）
+- 役割
+- 身体部位の所有者
+- 接触
+- 起点 / 到達先
+- 前後関係
+- 可視性
 
 合格:
-「relation失敗」「geometry失敗」「visibility失敗」を分離できる。
+relation失敗、geometry失敗、visibility失敗を分けられる。
 
-## レベル7 — LoRA干渉を診断する
+## レベル7 — LoRA干渉
 
 演習:
 `base -> A -> B -> A+B`
@@ -137,20 +128,17 @@ styleを保ちながら内容を変更できる。
 - background
 
 合格:
-どのLoRA追加時点から崩れたか説明できる。
+どの追加時点から崩れたか説明できる。
 
 ## レベル8 — Controlを役割別に使う
 
 学ぶ:
-- Regional = 分離
+- Regional = 場所ごとの分離
 - Reference = 見た目
 - pose = 骨格
 - depth = 前後
-- line/edge = 輪郭
+- line / edge = 輪郭
 - inpaint = 局所修正
-
-演習:
-同じ失敗に対し、目的に合わないControlを足さず、最小の1手だけ使う。
 
 合格:
 「この道具を使う理由」を説明できる。
@@ -158,46 +146,40 @@ styleを保ちながら内容を変更できる。
 ## レベル9 — 部分修正と仕上げ
 
 学ぶ:
-- img2img
-- inpaint mask
+- 画像から画像生成（img2img）
+- 部分修正（inpaint）
 - detailer
 - Hires
-- pixel upscaleと再生成型upscaleの違い
-
-演習:
-base成功画像を保存してから、局所修正・高解像度化を別工程で実施。
+- 通常拡大と再生成型upscaleの違い
 
 合格:
-仕上げで崩れた時に、base Promptの失敗へ戻さない。
+仕上げで崩れた時にbase Promptの失敗へ戻さない。
 
 ## レベル10 — LoRA学習
 
 学ぶ:
-- dataset coverage
+- datasetの範囲
 - caption
-- nuisance要素
+- 不要要素
 - rank / alpha
 - learning rate
-- step/epoch
-- intermediate checkpoint評価
+- step / epoch
+- 途中checkpoint評価
 
 評価:
-- identity fidelity
-- editability
-- unseen pose/outfit/background
+- identityの再現
+- 編集自由度
+- 未学習pose / outfit / background
 - style leakage
-- multi-character coexistence
+- 複数人物共存
 - interaction
 
 合格:
-学習lossだけでなく、画像結果からdataset/学習設定を診断できる。
+lossだけでなく画像結果からdataset/学習設定を診断できる。
 
-## レベル11 — 実践sceneの統合
+## レベル11 — 実践sceneを統合する
 
-工程:
 `意味構造 -> identity -> geometry -> 必要なら分離 -> relation再確認 -> 局所修正 -> 仕上げ -> 最終監査`
-
-ここで初めて複数の手段を組み合わせる。
 
 合格:
 各手段が何を担当しているか説明できる。
@@ -205,28 +187,28 @@ base成功画像を保存してから、局所修正・高解像度化を別工�
 ## レベル12 — 自力診断
 
 未知の失敗に対して:
-1. 再現条件を固定
-2. 主症状を1つ決める
-3. 最小Promptへ戻す
+1. 再現条件固定
+2. 主症状を1つ選ぶ
+3. 最小Prompt
 4. 1変数A/B
-5. 複数seedで確認
-6. 必要なら最小Controlへ上げる
-7. 結果を記録
+5. 複数seed
+6. 必要なら最小Control
+7. 結果記録
 
 合格:
-先生からレシピをもらわず、自分で次の実験を設計できる。
+先生から完成レシピをもらわず、次の実験を自分で設計できる。
 
-## 学習中の証拠区分
+## 証拠区分
 
 - 1枚成功 = 可能性
 - 複数seed = 安定性
-- 補助ツールで救済 = 救済可能性
-- model/versionが変わる = 別条件
+- 補助機能で救済 = 救済可能性
+- model/version変更 = 別条件
 
-## 推奨の読む順番
+## 読む順番
 
 1. `IMAGE_GENERATION_FOUNDATIONS_JA.md`
 2. `PRACTICAL_GENERATION_NOOB_ANIMA.md`
 3. `ADULT_IMAGE_GENERATION_DECISION_TREE.md`
 4. このカリキュラム
-5. 必要に応じて `LOCAL_ADULT_WORKFLOW_PLAYBOOK_20261002.md`
+5. 必要な時だけ `LOCAL_ADULT_WORKFLOW_PLAYBOOK_20261002.md`
