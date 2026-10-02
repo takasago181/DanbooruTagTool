@@ -1315,3 +1315,20 @@ Anima author guidance confirms multiple caption variants are native to base trai
 Detail:
 `research/BATCH_AK_CHARACTER_STYLE_DATASET_CURATION_20261002.md`.
 
+---
+
+## 16.3 Native style vs trained style — 2026-10-02
+
+Style reproduction uses a baseline ladder:
+
+`base neutral -> native artist/style -> native style + character adapter -> Style LoRA/reference style -> combined adapters`.
+
+Style LoRA is not the automatic first choice.
+
+Native artist behavior must be tested across seeds and content because community Anima evidence shows prompt-context sensitivity.
+
+External style explorers are discovery aids, not semantic/model authority.
+
+Detail:
+`research/BATCH_AL_NATIVE_STYLE_VS_STYLE_LORA_20261002.md`.
+
