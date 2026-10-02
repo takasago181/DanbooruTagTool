@@ -1238,3 +1238,32 @@ See:
 
 A rejected secondary summary write does not invalidate or erase already committed research.
 
+---
+
+# 16. Character / style reproduction synthesis — 2026-10-02
+
+Character and style reproduction are now treated as separate coupled tasks.
+
+## Character
+Success = identity fidelity **and** editability.
+
+## Style
+Success = style fidelity **and** content preservation.
+
+## Combined adapters
+Character-LoRA + style-LoRA is a fusion experiment, not simple additive success.
+
+Required evaluation includes unseen conditions:
+- pose
+- background
+- outfit
+- camera
+- scene content
+- style/identity swaps
+
+Anima-specific warning:
+LoRA application can suppress native artist/style knowledge and reduce prompt-driven variability in community reports. Preserve native artist-tag response as an explicit test.
+
+Current detail:
+`research/BATCH_AI_CHARACTER_STYLE_REPRODUCTION_LORA_20261002.md`.
+
