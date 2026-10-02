@@ -47,16 +47,17 @@ The horizon is determined by claim scope/product relevance/validation state, not
 
 ## Restore flow
 
+The fixed-date `KNOWLEDGE_HANDOFF_CURRENT_20260909.md` is historical provenance, not live restore authority.
+
 1. `docs/project/CURRENT_STATE.md`
 2. `docs/project/PERMANENT_RULES.md`
 3. Issue #44 latest body/comments
 4. `docs/PRODUCT_GOAL_LOCK.md`
-5. `../KNOWLEDGE_HANDOFF_CURRENT_20260909.md`
-6. `../current/CURRENT_QUICK_REFERENCE.md`
-7. `../current/CLAIM_REGISTRY.csv`
-8. relevant topic file(s) here
-9. `../current/HOLD_CONFLICT_REGISTER.md` and/or `VERSION_FRESHNESS_LEDGER.csv` as needed
-10. detailed research originals only when evidence/provenance is needed
+5. `../current/CURRENT_QUICK_REFERENCE.md`
+6. `../current/CLAIM_REGISTRY.csv`
+7. relevant topic file(s) here
+8. `../current/HOLD_CONFLICT_REGISTER.md` and/or `VERSION_FRESHNESS_LEDGER.csv` as needed
+9. detailed research originals only when evidence/provenance is needed
 
 ## Layer model
 
