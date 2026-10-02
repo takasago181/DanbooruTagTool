@@ -1,1276 +1,261 @@
-# PRACTICAL GENERATION — NoobAI / Anima
+# NoobAI / Anima 実践ガイド
 
-Owner: Issue #44 `KNOWLEDGE:#44`
-Status: `CURRENT_OPERATIONAL_GUIDE / CLAIM_REGISTRY_WINS`
+Owner: Issue #44 `KNOWLEDGE:#44`  
+役割: **モデル固有の設定・Prompt傾向・使い分けだけを扱う**  
+一般的な生成原理: `IMAGE_GENERATION_FOUNDATIONS_JA.md`  
+失敗診断: `ADULT_IMAGE_GENERATION_DECISION_TREE.md`  
+現在判定: `CLAIM_REGISTRY.csv`
 
-> This is the short operational layer. It does not override `CLAIM_REGISTRY.csv`, exact model author guidance, or HOLD status.
+## 1. 最初にどれを使うか
 
-## 0. Current focus
+### NoobAI XL 1.1 EPSから始める
+向く状況:
+- Danbooru/e621系タグで表現しやすい
+- タグ中心で試したい
+- SDXL/Illustrious系のLoRA・周辺資産を試したい
+- Forge Neoで標準的に学習したい
 
-Primary practical generation families:
-1. **NoobAI XL 1.1 EPS** — tag-first workhorse
-2. **Anima** — relation-heavy / multi-character comparison・fallback lane。タグのみと短い自然文併用の優劣は未確定（HOLD）
+現在のStage10第一レーン。
 
-Secondary lanes:
-- NoobAI XL V-Pred 1.0 — separate V-Pred rendering/inference lane
-- Anima Turbo v1.1 — rapid exploration
-- Anima Base v1.0 — flexibility / controlled work / LoRA training
-- Anima Aesthetic v1.1 — consistency / default visual quality
+### Animaを比較する
+向く状況:
+- 複数人物
+- 属性の持ち主が混ざる
+- 関係性を短い自然文でも表したい
+- Regional / Reference / Edit系も含めて試したい
 
-WAI17 remains a useful comparison/reference lane, but NoobAI + Anima now receive priority for practical-generation knowledge expansion.
+ただし、**タグのみより自然文併用が普遍的に強いとは未確定（HOLD）**。
+タグだけで曖昧なsceneでは、短く事実的な自然文を比較候補にする。
 
----
+### WAI Illustrious v17
+現在は比較・履歴用。
+過去のローカル検証は捨てないが、第一レーンではない。
 
-# 1. Which one do I start with?
+## 2. NoobAI XL 1.1 EPS
 
-## Start NoobAI EPS when
-- the target is well represented by booru-style vocabulary
-- character/artist/tag knowledge matters
-- you want the mature SDXL/Illustrious LoRA/tool ecosystem
-- you want familiar Forge Neo SDXL operation
-
-## Start Anima when
-- multiple actors or attribute ownership are central
-- tag-only relation wording is ambiguous
-- 短い自然文の関係説明も比較候補にする。ただし、タグのみより普遍的に優れるとは扱わない
-- current Anima regional/control tooling may be useful
-- you need the Base/Aesthetic/Turbo workflow
-
-## Use both when
-A target is important enough to compare generation families.
-Do not force one family to solve every case.
-
----
-
-# 2. NoobAI EPS 1.1 quick start
-
-Author baseline:
-- Sampler: `Euler a`
-- Steps: `25–30`
+### 公式baseline
+- サンプラー（Sampler）: `Euler a`
+- ステップ数（Steps）: `25–30`
 - CFG: `5–6`
-- Size: around SDXL 1MP
+- 解像度: SDXLの約1MP帯を基準
 
-Good portrait starts:
+縦長の開始候補:
 - `832×1216`
 - `896×1152`
 - `768×1344`
 
-Prompt organization:
-`count -> character -> series -> artist -> target Special -> General support -> other`
+### Promptの基準順
+`人数 -> キャラ -> 作品 -> artist -> 目標概念 -> 一般タグ -> その他`
 
-Daily-use rule:
-- begin with the target and minimum visible support
-- do not paste the official `nsfw` Negative when the intended output itself is adult-rated
-- keep unusual-anatomy/count negatives OFF until there is a reason to add them
-- first diagnose without LoRA unless the LoRA is essential to the subject
+これはNoobAIの基準であり、全モデル共通文法ではない。
 
-Failure order:
-1. exact model/checkpoint
-2. exact tag/trigger surface
-3. visibility/crop
-4. target presence
-5. actor/target/body-site/count
-6. composition conflict
-7. Negative collision
-8. seed sensitivity
-9. LoRA/context leakage
-10. regional/inpaint assist
+### 成人向けでの注意
+公式例に安全寄りNegativeが含まれていても、成人向け能力検証の中立baselineとしてそのまま使わない。
 
----
+最初は:
+1. 目標sceneの最小構造
+2. 必要な可視性・構図
+3. 必要ならキャラ
+4. style/backgroundは後
 
-# 3. NoobAI V-Pred 1.0 quick start
+難しい人数・役割・身体部位・relationの成功率はまだHOLD。
 
-Author baseline:
-- Sampler: **Euler**
+### LoRA
+Illustrious系LoRAは**候補**にはなるが、互換性を保証しない。
+
+比較:
+`base -> LoRA単体 -> weight比較 -> 複数LoRA`
+
+いきなり複数積まない。
+
+## 3. NoobAI XL V-Pred 1.0
+
+EPSとは別モデルprofile。
+
+### baseline
+- Sampler: `Euler`
 - Steps: `28–35`
 - CFG: `4–5`
-- Size: around SDXL 1MP
+- V-Pred対応runtimeが必要
 
-Important:
-- this is not EPS with a different checkpoint filename
-- runtime must actually use V-Pred settings
-- current Forge Neo supports V-Pred metadata, but merged checkpoints can lose metadata assumptions
+### 注意
+- EPSの設定をそのまま移さない
+- EPSとV-Predの結果を一つのモデルとして集計しない
+- 1枚の色・コントラスト差から優劣を決めない
 
-Use when:
-- intentionally testing V-Pred
-- comparing its color/contrast rendering hypothesis
+実用差は今後の比較対象。
 
-Do not:
-- copy EPS sampler/settings
-- pool results with EPS as one model
-- conclude V-Pred is globally superior from one dark image
+## 4. Animaのprofile
 
----
+正確なfile/hashは `VERSION_FRESHNESS_LEDGER.csv` を正本にする。
 
-# 4. Anima Turbo v1.1 quick start
+### Base
+役割:
+- 柔軟性・多様性
+- 制御比較
+- 公式LoRA学習base
 
-Exact current file SHA-256:
-`fba11953276b57edf59d1dc4f1857ac05aa079c56f982b4d7c20298d57d3f7eb`
+通常生成の開始目安:
+- Steps `30–50`
+- CFG `4–5`
 
-Official role:
-- rapid generation / Prompt iteration
-- stronger default style and stability
-- reduced diversity
+### Aesthetic
+役割:
+- 一貫性・標準的な見栄えを優先する比較
+- quality/score系の扱いがBaseと同じとは限らない
 
-Start:
+### Turbo
+役割:
+- 高速なPrompt/seed探索
+
+開始目安:
 - CFG `1`
 - Steps `8–12`
 
-Important:
-- normal Negative conditioning is not a dependable control lane at CFG1
-- same seed/prompt does not mean Base-like composition
-- treat Turbo as its own generation profile
-
-Best practical use:
-- explore Prompt variants/seeds quickly
-- find promising composition directions
-- if structural fidelity matters, compare the promising Prompt on Base/Aesthetic rather than assuming Turbo outcome is final truth
-
----
-
-# 5. Anima Base v1.0 quick start
-
-Exact file SHA-256:
-`bd43b7cffe1ed1153d9c41e7beb2f18cb1273eafbaa3af3edd6a173dc90a006e`
-
-Official role:
-- maximum flexibility/diversity
-- strongest base for style flexibility
-- official LoRA training base
-
-Start:
-- Steps `30–50`
-- CFG `4–5`
-- `er_sde` = neutral/sharp author default-like choice
-- `euler_a` = softer/thinner lines
-- `dpmpp_2m_sde_gpu` = more variable/creative
-- `euler` = simple creative alternate
-
-Use when:
-- Turbo's default style is too strong
-- relation/hybrid Prompt needs careful work
-- developing/training an Anima LoRA
-- doing controlled profile comparison
-
----
-
-# 6. Anima Aesthetic v1.1 quick start
-
-Exact file SHA-256:
-`3c1868387a3a1ff504bbb87c33678321965ead381fcf87afbd0264daa600c082`
-
-Official role:
-- consistency
-- stronger high-quality default visual style
-
-Important Prompt rule:
-- quality tags were stripped during its training fine-tune
-- quality tags are not required
-- `masterpiece, best quality` may remain
-- avoid `score_*` in both Positive and Negative by default per author
-
-Use when:
-- visual consistency/default finish matters
-- its style bias matches the picture
-
-Switch back to Base when:
-- you need more style diversity/flexibility
-- Aesthetic's default look fights the target
-
----
-
-# 7. Anima Prompt construction for difficult scenes
-
-Official/high-confidence conventions:
-- lowercase tag surfaces
-- spaces instead of underscores except score tags
-- `@artist`
-- tag + natural language may be mixed
-- identify multiple characters/basic appearance explicitly
-
-Practical structure:
-1. quality/meta/rating only as needed
-2. subject count
-3. identities
-4. distinguishing appearance
-5. target action/relation
-6. camera/visibility
-7. scene/background
-8. short natural-language clarification if relation ownership remains ambiguous
-
-For multi-character relation:
-- prefer explicit actor labels over vague `another`/pronoun references
-- do not depend on tag distance for ownership
-- old BREAK-based character separation is not Anima semantic control
-
----
-
-# 8. Multiple characters — escalation
-
-1. plain Anima Prompt with explicit identities/attributes
-2. add concise factual relation wording
-3. Forge Couple Basic
-4. Forge Couple Advanced/Mask
-5. Anima Region/LLLite ControlNet when geometry/region itself is the bottleneck
-
-Forge Couple rule:
-- still state total subject count
-- regional prompting cannot invent composition understanding the checkpoint lacks
-
----
-
-# 9. LoRA rule
-
-## NoobAI
-- Noob/Illustrious-family LoRAs are candidates, not guaranteed matches
-- check each LoRA's training base/model card
-- start one adapter at a time
-
-## Anima
-- separate LoRA family from SDXL/Illustrious/Noob
-- official training base = Anima Base
-- do not assume SDXL LoRA portability
-
-For both:
-- if style/background/pose suddenly appears, suspect adapter context leakage
-- lower/remove LoRA before adding huge Negative stacks
-- loaded LoRA state is part of evidence identity
-
----
-
-# 10. Finishing ladder
-
-Do not start finishing tools before semantic structure is acceptable.
-
-Recommended order:
-1. base composition / relation
-2. choose good seed/composition
-3. LoRA/style adjustment
-4. upscale/Hires or img2img refinement
-5. ADetailer/inpaint for local defects
-6. regional/control only if still required, or earlier if region separation is the actual core problem
-
-ADetailer Neo:
-- face detector -> face detail
-- hand detector -> hand detail
-- person segmentation -> broader person redraw
-
-Do not use a repair tool to hide wrong count/relation/body-site.
-
----
-
-# 11. High-resolution Anima
-
-Official normal range reaches roughly 512²–1536².
-
-Practical approach above comfortable native range:
-- generate structure at supported size
-- upscale mostly-preserve first
-- use img2img/tiled refinement only when additional redraw/detail is needed
-- keep denoise low enough when preservation is the goal
-
-Exact denoise/upscaler values remain recipe-level until tested under the target profile/runtime.
-
----
-
-# 12. Current unresolved questions worth image testing
-
-NoobAI:
-- EPS vs V-Pred on dark/contrast hard scenes
-- rare Special activation
-- actor-target/body-site/count ceiling
-- Illustrious-LoRA cross-use reliability
-- model-specific Negative collisions
-
-Anima:
-- tag-only vs concise hybrid relation success rate
-- Base vs Aesthetic v1.1 vs Turbo v1.1 on hard relations
-- exact profile-specific LoRA behavior
-- high-resolution finishing best path
-- Forge Couple escalation benefit
-
-These remain HOLD/CANDIDATE until controlled local evidence exists.
-
----
-
-# 13. Restore reading
-
-For practical Noob/Anima work:
-1. this file
-2. `../research/BATCH_L_NOOB_ANIMA_PRACTICAL_GENERATION_DEEP_DIVE_20260913.md`
-3. `../research/BATCH_M_JAPANESE_PRACTICAL_SOURCE_AUDIT_NOOB_ANIMA_20260913.md`
-4. `CLAIM_REGISTRY.csv`
-5. `VERSION_FRESHNESS_LEDGER.csv`
-6. exact upstream source only as needed
-
----
-
-## 14. 2026-10-02 source refresh — newly pinned operational notes
-
-These are current upstream facts promoted into the Claim Registry. They do not close the image-test HOLDs for binding/count/Negative/LoRA interaction.
-
-### Anima
-- Prompt weighting is supported, but the author explicitly says it needs stronger weights than typical SDXL; the model-card example uses `(chibi:2)`. Treat old SDXL weight habits as a starting hypothesis, not a transferable rule.
-- Training used random tag dropout. Do not assume that restating every visible property is necessary; extra tags can still create unnecessary semantic workload.
-- Pure natural-language Prompting should be descriptive; the author recommends roughly two sentences or more. Tags and natural language may be mixed.
-- For multiple characters, write each identity plus basic appearance. A bare list of names is specifically called out as confusing.
-- Base is intentionally neutral/plain without artist or quality guidance. Aesthetic and Turbo have stronger built-in visual priors. Turbo uses CFG 1 / 8–12 steps and sacrifices diversity for stability/default style.
-- For Anima LoRA training, use Base; do not train the LLM adapter. Rank-32 LoRA author guidance suggests `2e-5` as a starting learning rate, not a universal optimum.
-
-### NoobAI V-Pred
-- Current author guidance remains CFG 4–5 / 28–35 steps / Euler.
-- The card describes native-tag plus natural-language captioning, but this does not make V-Pred Prompt behavior interchangeable with Anima or EPS.
-
-### Forge Couple / Forge Neo
-- Forge Couple supports Anima and still recommends keeping total subject count in every region.
-- It cannot compensate for a checkpoint that does not understand the requested composition.
-- Dynamic-Prompts-like preprocessing can break separators/common Prompt handling; record extension state in reproducibility evidence.
-- Forge Couple can be disabled during Hires Fix via compatibility mode, so base pass and Hires pass may not share the same regional conditioning.
-- Forge Neo currently documents Anima Region ControlNet plus LLLite ControlNet support for SDXL/Anima. Treat this as assisted control, not Prompt-only evidence.
-
----
-
-## 15. Community evidence layer — 2026-10-02
-
-Community evidence is now tracked separately from author guidance.
-
-High-value working hypotheses:
-- For Anima multi-character prompts, write each subject as a closed sentence with identity + appearance + action when flat tag lists start leaking attributes.
-- Do not treat `left side:` or a colon as a semantic binding operator by itself.
-- Use tags for canonical/common attributes and add short prose only where geometry, ownership, relation, or screen position is not cleanly expressible by tags.
-- Multi-character accessory leakage can remain even when hair/eye/skin identity looks correct.
-- Treat multi-character LoRA competition as a separate failure axis from checkpoint-native character binding.
-- For Anima finishing, avoid assuming SDXL Hires recipes transfer unchanged; compare low-denoise img2img/tiled refinement against the base pass.
-- LoRA training data should vary crop/view/pose/background/clothing enough to prevent accidental welding of context into identity.
-
-These are CANDIDATE/community practices, not family-wide defaults. See:
-`../research/BATCH_O_COMMUNITY_PRACTICE_HARVEST_20261002.md`.
-
----
-
-## 16. Community-controlled tag / Negative findings — 2026-10-02
-
-Use these as diagnostic hypotheses, not universal defaults.
-
-### Tags vs natural language
-- Prefer a known compact tag when it cleanly represents the concept.
-- Add prose when the desired relation/geometry/position has no adequate tag.
-- Descriptive English can accidentally materialize ambiguous nouns as visible objects.
-- If a specific garment/concept name repeatedly fails, test the defining visual structure without the name before escalating weights.
-- A semantically narrow tag may invoke a much broader learned visual prior; Danbooru meaning and generation effect remain separate.
-
-### Context confounds
-- A “fixed” style/pose/composition block can already encode the concept being tested.
-- When a tag appears weak, first remove overlapping instructions before concluding that the tag is unknown.
-- Derivative checkpoints can differ in how local a one-tag change remains.
-
-### Negative
-- A Negative term is not guaranteed to be ignored merely because its target is absent.
-- Targeted Negative edits should be tested with same-seed ON/OFF pairs.
-- Do not use the WAI-Anima community result as proof for official Anima/Noob/WAI; keep family/version scope.
-
-### Regional Prompter
-Current 2026-09-04 runtime documentation:
-- Forge Neo + Anima Latent: supported
-- Forge Neo + Anima Attention: supported
-- Anima Region LoRA: unsupported
-- Anima regional Attention is not SD/SDXL 75-token chunk splitting.
-
-Research detail:
-`../research/BATCH_P_COMMUNITY_TAG_NEGATIVE_RUNTIME_20261002.md`.
-
----
-
-## 17. Illustrious / NoobAI community layer — 2026-10-02
-
-Working practices from public-user evidence:
-
-- When a character LoRA copies the training set's background/style too aggressively, treat the dataset as entangled before trying to repair everything with Prompt/Negative changes.
-- Vary viewpoint, crop, pose, clothing, background and style when those attributes are supposed to remain changeable.
-- Caption mutable/context/style factors separately when the trigger should represent identity rather than the entire training-image recipe.
-- Cross-derivative LoRA loading is only a compatibility experiment; successful loading does not establish faithful concept transfer.
-- Fixed-seed step/CFG sweeps are useful for a single exact checkpoint/runtime, but user-preferred values are recipe evidence rather than model-family truth.
-- Same seed across different checkpoints is useful for visual comparison, not a controlled same-latent reliability proof.
-
-Details:
-`../research/BATCH_Q_ILL_NOOB_LORA_COMMUNITY_MAP_20261002.md`.
-
----
-
-## 18. Multi-LoRA failure decomposition — 2026-10-02
-
-When two characters/LoRAs blend, split the diagnosis:
-
-1. **global contamination**
-   - one LoRA weight dominates;
-   - a weighted/redundant hair or color instruction spills across the image;
-   - repeated synonymous action/style pressure consumes prompt capacity.
-
-2. **binding failure**
-   - both identities are present but clothes/accessories are assigned to the wrong actor;
-   - fixing global color leakage does not necessarily fix ownership.
-
-Practical test order:
-- equal LoRA strengths;
-- remove duplicate/weighted character attributes;
-- remove contradictory framing;
-- preserve genuinely necessary style tokens;
-- compare same seeds;
-- only then escalate to regional/inpaint reconstruction.
-
-Do not call a postprocessed per-character inpaint success “plain two-character binding success”.
-
-Research detail:
-`../research/BATCH_R_ADVANCED_COMMUNITY_FAILURE_DIAGNOSTICS_20261002.md`.
-
----
-
-## 19. Tag generation-effect diagnostics — 2026-10-02
-
-When evaluating a tag/prompt surface, record more than “worked / didn't work”:
-
-1. **canonical meaning** — what the tag means in Danbooru;
-2. **activation strength** — how much the image changes;
-3. **semantic fidelity** — whether that change matches the intended meaning;
-4. **spillover** — pose/clothing/background/identity changes outside the target;
-5. **context sensitivity** — what happens when scene/style/visibility instructions compete;
-6. **model/profile** — exact checkpoint/derivative/runtime.
-
-Practical lessons from community-controlled tests:
-- a large visual change can still be the wrong semantic effect;
-- extreme framing often benefits from canonical framing tags;
-- visibility-conflicting descriptions can defeat a correct framing tag;
-- Anima/WAI-Anima should not inherit Illustrious underscores/BREAK/weight habits blindly;
-- for multi-character binding, subject-specific sentences are a strong candidate when positional tag grouping becomes fragile;
-- quality/meta tags can alter face/rendering priors, not only perceived detail.
-
-Research:
-`../research/BATCH_S_TAG_STYLE_COMPOSITION_COMMUNITY_20261002.md`.
-
----
-
-## 20. LoRA caption and stacking diagnostics — 2026-10-02
-
-For LoRA work, ask two separate questions:
-
-**Training/caption allocation**
-- What should the trigger alone reproduce?
-- What must remain switchable?
-- Which attributes vary in the dataset?
-- Which attributes are explicitly captioned?
-- Is the dataset itself generated by the same model and therefore carrying its biases?
-
-**Inference interference**
-- What changes with LoRA OFF?
-- What changes with exactly one LoRA?
-- What new unrequested content appears as adapters are stacked?
-- Does weight change only style, or also identity/clothing/composition/background?
-
-Do not assume:
-- more training captions are always better;
-- fewer captions are always better;
-- more LoRAs mean more quality;
-- LoRA weight is only “effect strength”;
-- synthetic training data is neutral with respect to the base model's concept correlations.
-
-Research:
-`../research/BATCH_W_LORA_CAPTION_STACKING_COMMUNITY_20261002.md`.
-
----
-
-## 21. Parameter and high-resolution testing — 2026-10-02
-
-When tuning Anima:
-- use author settings as the first baseline;
-- change one variable at a time;
-- treat steps as a diminishing-return curve, not a quality score;
-- record resolution whenever judging CFG/shift/sampler;
-- do not assume a high-resolution rescue LoRA helps at standard resolution;
-- test helper LoRA strength at the resolution where the failure actually occurs.
-
-For character-LoRA repair:
-- diagnose what survived the first training pass;
-- replace weak/confounded training examples rather than only adding more images;
-- generate candidate data deliberately for the missing attribute/coverage axis;
-- manually reject incidental props/artifacts before retraining;
-- remember recursive synthetic training can amplify both target traits and generator biases.
-
-Research:
-`../research/BATCH_X_PARAMETER_HIGHRES_DATASET_COMMUNITY_20261002.md`.
-
----
-
-## 22. Noob exact identity and dataset freshness — 2026-10-02
-
-Official remote identities:
-- EPS 1.1 SHA256: `6681e8e4b134c81f16533acedb0d406d7e5e366e1624b4105178c64d00b05d51`
-- V-Pred 1.0 SHA256: `ea349eeae87ca8d25ba902c93810f7ca83e5c82f920edf12f273af004ae02819`
-
-NoobAI author documentation places Danbooru exposure at its training-era snapshot (v1.0 approximately before 2024-10-23) plus e621-2024-webp-4Mpixel.
-
-Therefore:
-- current tag existence/post_count does not prove exposure;
-- renamed/new tags need trigger-freshness testing;
-- semantic identity stays current Danbooru authority even when an older model surface generates better.
-
-NoobXL-specific normal/depth/canny ControlNets are documented as released assisted-control options.
-
-Research:
-`../research/BATCH_AC_NOOBAI_EXACT_IDENTITY_DATASET_CONTROL_20261002.md`.
-
----
-
-## 23. Structural-control escalation — 2026-10-02
-
-Choose assistance by failure type:
-
-- pose wrong -> Pose Control
-- front/back or overlap wrong -> Depth
-- contour/layout wrong -> Lineart/Edge
-- character/LoRA leakage -> Region/Mask
-- only one local area remains wrong -> Inpaint
-
-Do not use pose control as a substitute for actor/target/ownership reasoning.
-
-Evidence identity must retain:
-- preprocessor
-- preprocessor output
-- control type
-- control strength/schedule
-- edit mask
-- whether success existed before assistance
-
-Research:
-`../research/BATCH_AD_POSE_DEPTH_REGION_INPAINT_ESCALATION_20261002.md`.
-
----
-
-## 24. Count and camera diagnosis — 2026-10-02
-
-If a target looks wrong, ask separately:
-
-- target present?
-- exact count correct?
-- owner/actor correct?
-- relation correct?
-- relevant region visible?
-- camera angle lets you judge it?
-
-Do not try to fix exact count by endlessly rephrasing the same number.
-Do not try to fix camera failure by adding more semantic target tags.
-
-Count and viewpoint are separate capabilities.
-
-Research:
-`../research/BATCH_AE_COUNT_CAMERA_VISIBILITY_LIMITS_20261002.md`.
-
----
-
-## 25. Anatomy vs relation — 2026-10-02
-
-Separate:
-- relation correct?
-- local anatomy correct?
-- depth/occlusion correct?
-
-If relation is right and only a hand/local region is broken:
-use local repair.
-
-If anatomy is clean but ownership/relation is wrong:
-do not waste time on detailers/inpaint first.
-
-If the target exists but is hidden:
-classify visibility/occlusion failure.
-
-Research:
-`../research/BATCH_AF_ANATOMY_OCCLUSION_LOCAL_REPAIR_20261002.md`.
-
----
-
-## 26. Secondary-source conflict handling — 2026-10-02
-
-If a blog/community recipe conflicts with the exact current model card:
-- keep the recipe as a separate experiment;
-- do not average settings;
-- do not silently replace the author baseline;
-- record the exact checkpoint/runtime used by the community source.
-
-Current example:
-a recent NoobAI review recommends V-Pred settings that conflict with current V-Pred 1.0 author guidance.
-
-Use author baseline first, secondary recipe second.
-
-Research:
-`../research/BATCH_AH_ILL_NOOB_MULTI_SUBJECT_AND_SOURCE_CONFLICT_20261002.md`.
-
----
-
-## 27. Character and style reproduction — 2026-10-02
-
-### Character LoRA
-Do not ask only “does it look like the character?”
-
-Score:
-- identity fidelity
-- unseen pose
-- unseen background
-- outfit mutability
-- camera mutability
-- expression mutability
-- ability to accept a different style
-
-### Style LoRA
-Score:
-- line/style fidelity
-- coloring/shading/texture fidelity
-- subject/content preservation
-- composition freedom
-- identity preservation
-- prompt responsiveness
-
-### Character + Style LoRA
-Test each adapter alone before combining.
-Combined success is not implied by independent success.
-
-For Anima:
-- train against Base as the official default;
-- freeze the LLM adapter;
-- preserve native artist-tag response as an explicit evaluation metric;
-- do not judge layer-training variants only on training-domain reconstruction.
-
-Research:
-`../research/BATCH_AI_CHARACTER_STYLE_REPRODUCTION_LORA_20261002.md`.
-
----
-
-## 28. LoRA capacity and character/style evaluation — 2026-10-02
-
-Do not optimize LoRA by rank alone.
-
-Record:
-- rank
-- alpha
-- LR
-- target modules
-- dropout
-- captions
-- steps/timestep distribution
-- trainer path
-
-Character evaluation:
-- identity: human + anime-domain CCIP where applicable
-- editability: unseen pose/background/outfit/camera/style
-
-Style evaluation:
-- style similarity
-- content preservation
-- identity preservation
-- composition freedom
-
-CLIP alone is not sufficient as a style metric.
-
-Before training a character LoRA, consider a reference-adapter baseline where compatible.
-
-Research:
-`../research/BATCH_AJ_LORA_CAPACITY_REFERENCE_AND_EVALUATION_20261002.md`.
-
----
-
-## 29. Character/style dataset curation — 2026-10-02
-
-Character LoRA data should be audited for:
-- wrong-character images
-- duplicates
-- crop/framing distribution
-- front/side/back coverage
-- pose/expression coverage
-- outfit/background correlation
-- source domain
-- synthetic/editor artifacts
-
-Anima does not require one single caption surface; its base training used multiple caption variants per image.
-
-Do not use image count as the main quality metric.
-Use coverage of intended mutable axes.
-
-Research:
-`../research/BATCH_AK_CHARACTER_STYLE_DATASET_CURATION_20261002.md`.
-
----
-
-## 30. Native style before Style LoRA — 2026-10-02
-
-Before training a Style LoRA:
-
-1. test the native artist/style surface;
-2. use a neutral fixed prompt;
-3. test multiple seeds;
-4. test different subjects/content;
-5. test with the intended character LoRA.
-
-Train/apply Style LoRA only when native style is absent, unstable, insufficiently faithful, or you need a reusable custom style.
-
-Do not judge raw artist strength while simultaneously changing quality/year/series modifiers.
-
-Research:
-`../research/BATCH_AL_NATIVE_STYLE_VS_STYLE_LORA_20261002.md`.
-
----
-
-## 31. Character identity vs outfit variants — 2026-10-02
-
-Decide the adapter target before training:
-
-- identity-only
-- identity + default outfit
-- identity + multiple switchable outfits
-
-Do not score all three with one criterion.
-
-If clothes should change later, treat them as independently conditioned/mutable during dataset design.
-If default clothes should be trigger-implicit, bind them deliberately and test whether alternate clothes remain possible.
-
-Separate outfit LoRAs can change identity; test them as multi-adapter interference.
-
-Research:
-`../research/BATCH_AM_CHARACTER_IDENTITY_OUTFIT_FACTORING_20261002.md`.
-
----
-
-## 32. Character identity-core tests — 2026-10-02
-
-A character is not “correct” only because the hair color and default outfit match.
-
-Define:
-- identity_core
-- default presentation
-- mutable variants
-
-Then deliberately change:
-- outfit
-- background
-- style
-- camera
-- viewpoint
-
-and verify identity survives.
-
-Use CCIP as an anime identity screening signal where applicable, but pair it with feature-level review.
-
-Research:
-`../research/BATCH_AN_CHARACTER_IDENTITY_CORE_EVALUATION_20261002.md`.
-
----
-
-## 33. Base family changes LoRA behavior — 2026-10-02
-
-Do not assume the same dataset produces the same kind of LoRA on:
-- Illustrious/WAI
-- NoobAI
-- Anima
-
-Compare independently trained adapters.
-
-Watch for:
-- identity vs style balance
-- source-style entanglement
-- palette/tint leakage
-- editability
-- default outfit binding
-
-Do not copy the same hyperparameters across architectures merely to make the comparison “fair”; use each family's valid baseline and keep the dataset/evaluation target fixed.
-
-Research:
-`../research/BATCH_AO_ILL_NOOB_CHARACTER_STYLE_TRAINING_20261002.md`.
-
----
-
-## 28. Character/style evaluation stack — 2026-10-02
-
-### Character LoRA
-Use separate metrics for:
-- anime identity (CCIP/reference review)
-- pose/composition
-- prompt editability
-- background/style independence
-
-### Style LoRA
-Use separate metrics for:
-- style similarity (CSD/DiffSim-like)
-- content/identity preservation
-- OOD subject generalization
-- composition freedom
-
-### Adapter training
-Do not tune only by rank or file size.
-Rank/dim, alpha, LR and duration interact.
-
-LoRA/LoCon/LoHa/LoKr are experimental choices, not quality tiers.
-
-Research:
-`../research/BATCH_AJ_CHARACTER_STYLE_EVALUATION_AND_LYCORIS_20261002.md`.
-
----
-
-## 29. Character/style dataset design — 2026-10-02
-
-Do not optimize datasets by image count alone.
-
-### Character
-Separate:
-- identity-intrinsic
-- switchable
-- incidental context
-
-Ensure switchable factors actually vary:
-- outfit
-- pose
-- camera
-- background
-- expression
-- style
-
-### Style
-Hold style coherent while varying:
-- subject
-- composition
-- location
-- object category
-
-### Validation
-Use unseen conditions and concept-agnostic prompts to detect:
-- context welding
-- trigger leakage
-- base-model damage
-
-For multi-character source material, subject masks/isolation are a valid research lane.
-
-Research:
-`../research/BATCH_AK_PERSONALIZATION_DISENTANGLEMENT_DATASET_20261002.md`.
-
----
-
-## 30. LoRA vs reference conditioning — 2026-10-02
-
-Do not start every reproduction task with LoRA.
-
-- model already knows it -> native tag/prompt first
-- one/few reference images, quick use -> reference adapter
-- recurring reusable character -> character LoRA
-- reusable transferable style -> style LoRA
-- image-set style consistency -> shared-attention/reference style method
-- multi-character ownership/layout -> regional/reference/control hybrid
-
-Benchmark setup cost as well as final fidelity.
-
-Research:
-`../research/BATCH_AL_REFERENCE_ADAPTER_VS_LORA_20261002.md`.
-
----
-
-## 31. End-to-end creation workflow — 2026-10-02
-
-Use this order:
-
-1. choose model/profile
-2. fast prompt/scene exploration
-3. lock structure
-4. verify character identity
-5. add/verify style
-6. add LoRAs one at a time
-7. tune parameters with fixed seed
-8. pass structural gate
-9. Hires/upscale
-10. local inpaint/detailer
-11. final audit
-
-For Anima, Turbo is a useful fast-iteration lane; revalidate on the actual final profile.
-
-Keep style / character / scene modules conceptually separate.
-
-Do not upscale or detail a structurally wrong image.
-
-Research:
-`../research/BATCH_AM_PRACTICAL_CREATION_WORKFLOW_20261002.md`.
-
----
-
-## 32. Failure-driven creation recipes — 2026-10-02
-
-When a result breaks, remove the last major conditioning change before adding another fix.
-
-Examples:
-- style LoRA breaks identity -> test character/style separately
-- character LoRA ignores pose -> lower/remove style/context, test LoRA editability
-- two characters mix -> A/B isolated tests, then regional
-- ControlNet fails -> inspect preprocessor output
-- Hires changes face -> compare base vs pixel upscale vs generative finishing
-- reference edit is too rigid -> switch to mask/inpaint/pose-control lane
-
-Regional separation cannot create semantic understanding the checkpoint lacks.
-
-Research:
-`../research/BATCH_AN_FAILURE_DRIVEN_CREATION_RECIPES_20261002.md`.
-
----
-
-## 33. Model profiles and comparison grids — 2026-10-02
-
-Use grids, not showcase pairs.
-
-- columns: model/profile/weight/setting
-- rows: fixed seeds
-
-Use one fixed seed for diagnosis, then a small fixed seed set for robustness.
-
-Anima:
-- Turbo -> fast iteration
-- Aesthetic -> stable final candidate
-- Base -> flexibility/LoRA research
-
-Noob EPS:
-choose portrait/square/landscape resolution from composition before tuning other settings.
-
-Character + style LoRA:
-use a small 2D weight matrix and score identity/style/control separately.
-
-Research:
-`../research/BATCH_AO_MODEL_PROFILES_AND_COMPARISON_GRIDS_20261002.md`.
-
----
-
-## 32. Finishing and upscale — 2026-10-02
-
-Finishing is not one operation.
-
-- conservative upscale -> preserve identity/style
-- creative enhancement -> add/re-imagine detail
-- Hires/img2img -> second generation pass
-- detailer/inpaint -> local regeneration
-
-Fix anatomy/structure before final upscale.
-
-For Forge Hires, record second-pass:
-checkpoint / VAE-TE / sampler / scheduler / prompt / negative / CFG / steps / denoise.
-
-For Anima, test second-pass sampler/denoise separately from the first-pass choice.
-
-Research:
-`../research/BATCH_AN_FINISHING_UPSCALE_DETAILER_20261002.md`.
-
----
-
-## 33. Daily tuning order — 2026-10-02
-
-When an image is close but wrong:
-
-1. test several seeds
-2. simplify conflicts
-3. verify exact trigger/tag
-4. fix relation/camera
-5. weight sweep
-6. LoRA strength
-7. sampler
-8. CFG
-9. steps
-10. control/regional
-11. finishing
-
-If a failure repeats across seeds, change representation.
-If semantics are already correct, explore seeds before overloading the Prompt.
-
-For WAI, avoid huge quality/Negative stacks.
-For Anima, sampler choice changes rendering character and weights often need stronger values than SDXL.
-
-Research:
-`../research/BATCH_AO_PROMPT_TUNING_SAMPLER_WEIGHT_20261002.md`.
-
----
-
-## 34. Adult practical learning loop — 2026-10-02
-
-For clearly adult/consensual scenes, study in this order:
-
-1. analyze reference structure
-2. isolate count/camera/position/relation from appearance/style
-3. generate with a minimal prompt
-4. use a small fixed seed set
-5. score each predicate separately
-6. change one variable
-7. add character/style LoRAs one at a time
-8. escalate to pose/depth/regional only when needed
-9. use inpaint/detailer only after global semantics are correct
-10. retain both successes and failures
-
-Do not learn by memorizing giant finished prompts.
-
-Use a failure journal and XY/grid tests for weight/CFG/steps/denoise/sampler.
-
-Research:
-`../research/BATCH_AP_ADULT_PRACTICAL_LEARNING_METHOD_20261002.md`.
-
----
-
-## 35. Regional learning and reproducibility — 2026-10-02
-
-For Anima on current Forge Neo Regional Prompter:
-- regional Latent/Attention: supported
-- Region LoRA: not supported
-
-So learn these separately:
-1. regional text separation
-2. geometry control
-3. adapter localization
-4. per-subject inpaint
-
-Too much regional isolation can break cross-subject interaction and create hard boundaries.
-
-Preserve original PNG metadata/workflow for every important diagnostic image.
-
-Research:
-`../research/BATCH_AQ_REGIONAL_LEARNING_AND_REPRODUCIBILITY_20261002.md`.
-
----
-
-## 36. Staged conditioning — 2026-10-02
-
-Use scheduling only after a constant Prompt baseline is understood.
-
-Study:
-- constant minimal
-- constant full
-- minimal -> full
-- LoRA all steps
-- LoRA late/early only
-
-For relation-heavy scenes:
-fix semantics first; use scheduling only to separate structural pressure from later style/quality pressure.
-
-Record every switch fraction and scheduled resource.
-
-Research:
-`../research/BATCH_AR_STAGED_CONDITIONING_AND_LEARNING_20261002.md`.
-
----
-
-## 37. LoRA training evaluation — 2026-10-02
-
-Do not choose a LoRA checkpoint from loss alone.
-
-Save intermediate checkpoints and evaluate all of them with the same:
-- prompt suite
-- seed set
-- sampler/CFG/steps
-- resolution
-- adapter weight
-
-Character test:
-trigger / unseen pose / outfit / background / alternate style / no-trigger leakage.
-
-Style test:
-training-like / unseen subject / unusual content / no-trigger leakage / character-LoRA combination.
-
-Absolute step counts are meaningless without dataset/repeats/batch/trainer context.
-
-Research:
-`../research/BATCH_AS_LORA_TRAINING_EVALUATION_METHOD_20261002.md`.
-
----
-
-## 38. Teaching-mode workflow — 2026-10-02
-
-When teaching/debugging, classify success as:
-- possibility
-- reliability
-- salvageability
-
-Do not hide a failed base generation behind a repaired final image.
-
-Teach the least invasive intervention first.
-
-For current tooling:
-- Forge Neo Anima Regional Prompter separates regional text but not Region LoRA;
-- ComfyUI core advanced hooks provide experimental LoRA hook + mask + timestep primitives.
-
-Canonical curriculum:
-`ADULT_IMAGE_GENERATION_TEACHING_CURRICULUM.md`.
-
-Research:
-`../research/BATCH_AT_TEACHING_CURRICULUM_AND_NATIVE_HOOKS_20261002.md`.
-
----
-
-## 39. Teacher diagnostic reference — 2026-10-02
-
-Fast operational guide:
-`ADULT_IMAGE_GENERATION_TEACHER_REFERENCE.md`.
-
-Use it to map:
-`failure -> first diagnostic -> least invasive intervention -> evidence level`.
-
-The curriculum teaches sequence; the teacher reference is the live troubleshooting sheet.
-
----
-
-## 40. Proxy-based regional replacement — 2026-10-02
-
-For unsupported/multi-LoRA characters, an advanced route is:
-
-1. create a strong native/reference composition;
-2. use structurally similar proxy characters if necessary;
-3. regionally replace only the target identity;
-4. preserve global pose/relation when possible;
-5. re-audit contact/anatomy after replacement.
-
-Regional replacement balances:
-- mask size
-- base preservation
-- regional LoRA/prompt strength
-- boundary overlap.
-
-Do not copy one user's exact numeric recipe as universal.
-
-Research:
-`../research/BATCH_AU_REGIONAL_SAMPLER_PROXY_METHOD_20261002.md`.
-
----
-
-## 41. Dataset-first LoRA diagnosis — 2026-10-02
-
-If a trained LoRA always forces one:
-- style
-- background
-- outfit
-- camera
-- role
-
-inspect the dataset before changing rank/LR/steps.
-
-Audit whether the factor:
-- is nearly constant;
-- is missing from captions;
-- was omitted by the auto-tagger.
-
-Fix representation/diversity first when possible.
-
-Research:
-`../research/BATCH_AV_DATASET_STYLE_BIAS_AND_PREPROCESSING_20261002.md`.
-
-
-
----
-
-## Adult teaching: Prompt-only escalation gate
-
-成人向けrelation-heavy生成では、失敗時にタグを無限追加しない。
-
-#44の標準教材では:
-
-1. conceptを単体で確認
-2. model-nativeな最小表現
-3. conciseな別表現を1系統
-4. 固定4 seedで同じfailure labelを採点
-
-同じprimary structural failureが4 seed中3以上で再発する場合、
-Prompt-onlyの再作文から、失敗種類に対応したControlへ上げる。
-
-- identity/binding -> Regional/reference/localized adapter
-- pose/contact geometry -> pose/depth/line
-- visibility/overlap -> camera/depth
-- local anatomy -> inpaint/detailer
-
-これはPrompt-only不可能判定ではなく、実用上の学習打ち切り線。
-
-### Adult Negative A/B
-
-NoobAI XL 1.1 EPS公式例は `safe` positive / `nsfw` Negative を含むため、
-成人向け能力検証ではそのまま中立baselineとしない。
-
-同じseed/settingsでNegative conditionだけを変え、
-target presence / relation / count / visibility / anatomy / composition driftを別採点する。
-
-Operational decision tree:
-`ADULT_IMAGE_GENERATION_DECISION_TREE.md`
-
-Research:
-`../research/BATCH_AW_ADULT_DIAGNOSTIC_ESCALATION_AND_MODEL_GAPS_20261002.md`
-
-
----
-
-## 42. 2026秋 ecosystem selection — 2026-10-02
-
-Do not select a model only from a universal “best model” ranking.
-
-### If existing LoRA assets matter most
-Prefer evaluating the Illustrious/WAI/Pony/NoobAI lane first.
-
-### If current anime knowledge + hybrid prompting + new control experiments matter
-Evaluate Anima.
-
-### If the main failure is multi-character binding
-Model switching alone is not the full answer.
-Test:
-- minimal Prompt
-- LoRA isolation
-- Regional
-- reference
-- Edit/local reconstruction
-
-### If using local LLM/VLM
-Use it to structure:
+CFG1系では通常のNegative運用をそのまま移植しない。
+Base/Aestheticとは別profileとして評価する。
+
+## 5. AnimaのPrompt
+
+公式系統ではタグと自然文の混在が可能。
+
+実践上は次を分けて比較する。
+
+### タグ中心
+向く:
+- 既知キャラ
+- 外見
+- artist/style
+- atomicな概念
+
+### 短い自然文を追加
+比較価値が高い:
+- 誰が誰に何をしているか
+- 属性の持ち主
+- 相対位置
+- 関係性
+- 視認条件
+
+ただし**長文にすれば強い**とは扱わない。
+情報量が増えるほど構造負荷も増える。
+
+### 複数人物
+最低限:
+- Aのidentity
+- Bのidentity
+- 区別に必要な外見
 - count
-- identity
-- position
 - relation
 - camera/visibility
 
-Do not treat generated prose as ground truth.
+タグの距離だけで「この属性はA」と保証しない。
 
-Current map:
-`LOCAL_ADULT_IMAGE_GENERATION_TREND_MAP_20261002.md`
+## 6. Animaでの複数人物・LoRA
 
-Research:
-`../research/BATCH_AX_LOCAL_ADULT_IMAGE_GENERATION_TRENDS_20261002.md`
+能力を段階で分ける。
 
+1. 1人でidentityが出る
+2. 2人が同時に存在できる
+3. 単純なinteractionが成立する
+4. 強いrelationでもidentity/roleが維持される
 
----
+1が成功しても4の成功を意味しない。
 
-## 43. Control decomposition from real workflows — 2026-10-02
+複数Character LoRAでは:
+`base -> A -> B -> A+B`
 
-27 current public workflow/case studies reinforce a practical rule:
+混ざる場合:
+- weight
+- source dataset
+- Regional
+- Reference
+- localized adapter
+を順に疑う。
 
-**one control, one primary job.**
+詳細診断はDecision Treeへ。
 
-- tag/NL -> semantics
-- native identity / Character LoRA -> identity
-- Regional -> locality/separation
-- IP-Adapter/reference -> visual identity/style prior
-- pose/line/depth -> geometry
-- Edit/inpaint -> local reconstruction
-- Hires/detailer -> finishing
+## 7. AnimaのRegional / Reference / Edit
 
-### Reference + geometry warning
+Anima周辺には現在:
+- Regional conditioning
+- Region/LLLite Control系
+- IP-Adapter系
+- Edit/Reference系
+など複数の補助手段がある。
 
-Control/reference sources can contain unwanted information.
+役割を分ける。
 
-If a lineart source carries hair/accessory/clothing shape but you only need pose:
-mask/remove the irrelevant source area before simply increasing competing reference strength.
+| 手段 | 主担当 |
+|---|---|
+| Regional | 情報を場所ごとに分離 |
+| Reference / IP-Adapter | 見た目・identityの参照 |
+| pose / line / depth | 構造・geometry |
+| Edit / inpaint | 既に良い画像の局所修正 |
+| Hires / detailer | 仕上げ |
 
-### Multi-subject reference warning
+**1つの道具に全部を担当させない。**
 
-If the second character becomes reference-like:
-first check whether its unspecified attributes are being filled from the reference prior.
-Explicitly describe the second subject before assuming total adapter takeover.
+Control元画像に髪型・服・小物など不要な情報が残っている場合、その情報も移ることがある。強度を上げる前にControl元を整理する。
 
-### Evaluation ladder
+## 8. Negativeのモデル境界
 
-`solo -> coexistence -> simple interaction -> relation-heavy`
+Negativeは生成後の消しゴムではなく条件付け。
 
-Each level is a separate capability test.
+モデル・profile・sceneによって効き方が変わる。
 
-Full Japanese playbook:
-`LOCAL_ADULT_WORKFLOW_PLAYBOOK_20261002.md`
+成人向けや通常と異なる人数・身体構造を扱う時は:
+- broad anatomy Negative
+- safety/rating Negative
+が目標自体を弱めないかA/Bする。
 
-Research:
-`../research/BATCH_AY_REAL_WORLD_ADULT_WORKFLOW_ARCHETYPES_20261002.md`
+Anima TurboのCFG1と、NoobAI EPSの通常CFGを同じNegative運用にしない。
+
+## 9. Hires / img2img / 仕上げ
+
+モデルの素の成功と、仕上げ後の成功を分ける。
+
+保存順:
+1. base PNG
+2. Hires/高解像度版
+3. inpaint/Edit版
+4. 最終版
+
+Animaはsecond-passやlatent upscaleで崩れる報告があり、万能な数値レシピは固定しない。
+
+「baseは正しいが仕上げで壊れた」なら、Promptを作り直す前に第二passを疑う。
+
+## 10. 比較実験の最低ルール
+
+モデル差を比べる時:
+- scene定義を固定
+- seed setを固定
+- 解像度を同等条件にする
+- 各モデルの公式profileを使う
+- LoRA/Controlなしのbase比較を先にする
+- その後に補助手段を足す
+
+Sampler/Steps/CFGを全部同時に変えた比較から、原因を1つに断定しない。
+
+## 11. 現在確定していないもの
+
+- NoobAIの難しいrelation/body-site/countの安定上限
+- Noob EPSとV-Predの実用的な優劣
+- Animaのtag-only vs 短い自然文併用の普遍的勝敗
+- Anima Base/Aesthetic/Turboの難しいsceneでの成功率差
+- 複数Character LoRA + interactionの安定性
+- Anima finishingの万能設定
+
+数値を断定する前に `CLAIM_REGISTRY.csv` / HOLDを確認する。
+
+## 12. 根拠
+
+モデル・runtimeの現在情報:
+`VERSION_FRESHNESS_LEDGER.csv`
+
+主な研究:
+- `../research/BATCH_L_NOOB_ANIMA_PRACTICAL_GENERATION_DEEP_DIVE_20260913.md`
+- `../research/BATCH_N_CURRENT_MODEL_PROMPT_RUNTIME_REFRESH_20261002.md`
+- `../research/BATCH_O_COMMUNITY_PRACTICE_HARVEST_20261002.md`
+- `../research/BATCH_P_COMMUNITY_TAG_NEGATIVE_RUNTIME_20261002.md`
+- `../research/BATCH_AG_ANIMA_RELATION_STRESS_COMMUNITY_20261002.md`
+- `../research/BATCH_AY_REAL_WORLD_ADULT_WORKFLOW_ARCHETYPES_20261002.md`
