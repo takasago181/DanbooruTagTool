@@ -1,0 +1,37 @@
+{
+  "result": "PASS",
+  "before_schema": [
+    0,
+    1
+  ],
+  "after_schema": [
+    2,
+    2
+  ],
+  "checks": {
+    "prompt_ids_order_raw_recovery": true,
+    "presets": true,
+    "schema": true,
+    "negative_empty": true,
+    "one_backup": true,
+    "backup_original_payload": true,
+    "other_userdata_byte_identical": true,
+    "catalog_byte_identical": true
+  },
+  "unchanged_files": {
+    "UserData\\generation-library.db": true,
+    "UserData\\README.txt": true,
+    "UserData\\Cache\\GenerationThumbnails\\0369292A5AB808B513B16397D0A08101B1D2B20D6B2DBFA0BB4D09C195FAC2BA.png": true,
+    "UserData\\Cache\\GenerationThumbnails\\308C971522374876C6FB39B619CA8CAFDD48E86A4C92F70192BE96D12581D126.png": true,
+    "UserData\\Cache\\GenerationThumbnails\\809DA341E42CE37F5B97021FF406BD3BC26390A6714AD6981399B9E8817EC4C0.png": true,
+    "UserData\\Cache\\GenerationThumbnails\\893AFBE2C0B4D0A8B9842B41E646855DE781360B2A2D1EF033E7DE58CF4D833B.png": true,
+    "UserData\\Cache\\GenerationThumbnails\\9672E49ABDBB228F768D169D6F278A42513CEF46C4105D93B126A6CD0A65D445.png": true
+  },
+  "prompt_items": 13,
+  "presets": 2,
+  "expected_serialization_delta": "Separator default comma now explicit; no raw/id/order/recovery changes",
+  "new_files": [
+    "UserData\\lora-library.db",
+    "UserData\\user.db.before-migration-4e7af2ca62f442f591e9337cb62d4d65.bak"
+  ]
+}

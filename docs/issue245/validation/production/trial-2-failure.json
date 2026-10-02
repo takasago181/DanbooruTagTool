@@ -1,0 +1,27 @@
+{
+  "state": "FAIL_CLOSED_MODEL_NAME_SPELLING",
+  "automatic_retry": false,
+  "batch_size": 1,
+  "n_iter": 1,
+  "output_filename": "forge-bd316b0160714e1985b800836223b63a.png",
+  "output_sha256": "6C54026203BF1E6F8994020B6113BD5E64C2046AA471BEEE5A98FC02741E5B5F",
+  "library_readback": {
+    "image_id": 6,
+    "positive": "blue ceramic teapot, wooden table, still life",
+    "negative": "text, watermark",
+    "model": "waiIllustriousSDXL_v170",
+    "model_hash": "f116b0c78f",
+    "seed": 24520261003,
+    "steps": 8,
+    "sampler": "Euler",
+    "scheduler": "Karras",
+    "cfg": 4.75,
+    "width": 512,
+    "height": 640,
+    "parser_version": 1
+  },
+  "expected_api_model_name": "sd_waiIllustriousSDXL_v170",
+  "expected_png_title_basename": "waiIllustriousSDXL_v170",
+  "declared_hash": "f116b0c78f",
+  "other_nine_fields_match": true
+}

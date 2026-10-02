@@ -1,0 +1,15 @@
+{
+  "result": "PASS",
+  "source": "b3f48c359a8473c8bbf02347487cba5d8dacf96c",
+  "startup_performed": false,
+  "managed": [
+    "DanbooruTagTool.exe",
+    "Data/catalog.db",
+    "runtime-manifest.json",
+    "ForgeBridge/scripts/dtt_bridge.py",
+    "ForgeBridge/javascript/dtt_bridge.js"
+  ],
+  "userdata_byte_identical_before_start": true,
+  "reason": "Migration-aware split: strict prestart hash gate, then separately validated schema0/payload1 to schema2 normal startup",
+  "backup": "C:\\Codex\\DanbooruTagTool\\.staging-issue245-before-resolver-production"
+}

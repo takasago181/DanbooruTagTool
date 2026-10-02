@@ -1,0 +1,226 @@
+{
+  "captured_utc": "2026-10-02T22:16:46.661027+00:00",
+  "result": "PASS",
+  "checks": {
+    "Prompt": true,
+    "Negative": true,
+    "Presets": true,
+    "lora_db_byte_identical": true,
+    "catalog_byte_identical": true,
+    "library_root": true,
+    "image_asset": true,
+    "generation_metadata": true,
+    "generation_parameter": true,
+    "generation_lora": true,
+    "image_annotation": true,
+    "library_integrity": true,
+    "all10_fields_and_declared_hash": true,
+    "original_file_hashes": true
+  },
+  "kept_resume_prompt_items": 5,
+  "preset_count": 2,
+  "library_counts": {
+    "library_root": {
+      "before": 2,
+      "after": 3
+    },
+    "image_asset": {
+      "before": 5,
+      "after": 7
+    },
+    "generation_metadata": {
+      "before": 4,
+      "after": 6
+    },
+    "generation_parameter": {
+      "before": 40,
+      "after": 60
+    },
+    "generation_lora": {
+      "before": 0,
+      "after": 0
+    },
+    "image_annotation": {
+      "before": 1,
+      "after": 1
+    }
+  },
+  "real_generation": {
+    "result": "PASS",
+    "batch_size": 1,
+    "n_iter": 1,
+    "generation_requests_total_this_resume": 3,
+    "failed_requests_retained": 2,
+    "automatic_retry": false,
+    "output_filename": "forge-4f573db27de8430394d9e2192c45d73c.png",
+    "output_sha256": "6C54026203BF1E6F8994020B6113BD5E64C2046AA471BEEE5A98FC02741E5B5F",
+    "library_image_id": 7,
+    "requested_and_readback": {
+      "positive": "blue ceramic teapot, wooden table, still life",
+      "negative": "text, watermark",
+      "model": "waiIllustriousSDXL_v170",
+      "model_hash": "f116b0c78f",
+      "seed": 24520261003,
+      "steps": 8,
+      "sampler": "Euler",
+      "scheduler": "Karras",
+      "cfg": 4.75,
+      "width": 512,
+      "height": 640
+    }
+  },
+  "hashes": {
+    "exe_sha256": "C69C83B365C24CBA8B870BA6A5778AC83CE28DEBED779D1D556C1A9B74768F7B",
+    "catalog_sha256": "D91A68186661127F16E2AE102B4DD9F3A96EAE578B3C989A8B4F17169639FC6F",
+    "runtime_manifest_sha256": "341E5D3AF2661A540EB597F8DA9F9FFFFBE5B0E75BE467438E36F5393DAF9C0A",
+    "user_db_sha256": "298CE21C2A29D1250224C2DE3AAE572F66F3AD57CC2AA4D380920D63F0598354"
+  },
+  "final_userdata_inventory": [
+    {
+      "path": "Cache/GenerationThumbnails/0369292A5AB808B513B16397D0A08101B1D2B20D6B2DBFA0BB4D09C195FAC2BA.png",
+      "bytes": 73960,
+      "sha256": "8C685D4C56818CFF2B1C6B3EE1458D143256F100565F0F456A4EA558C56E4DB7"
+    },
+    {
+      "path": "Cache/GenerationThumbnails/308C971522374876C6FB39B619CA8CAFDD48E86A4C92F70192BE96D12581D126.png",
+      "bytes": 34066,
+      "sha256": "86696144F8D7EFA2EE030B8A603A7BCD7D3739A914A90C3FCC0B6C14F1EBB816"
+    },
+    {
+      "path": "Cache/GenerationThumbnails/809DA341E42CE37F5B97021FF406BD3BC26390A6714AD6981399B9E8817EC4C0.png",
+      "bytes": 111639,
+      "sha256": "CE344B15172DFBC9669C3F4D52EA609B7B70EC32EF98172AA67CEA146CB81F39"
+    },
+    {
+      "path": "Cache/GenerationThumbnails/893AFBE2C0B4D0A8B9842B41E646855DE781360B2A2D1EF033E7DE58CF4D833B.png",
+      "bytes": 83591,
+      "sha256": "64171A736938E4CCB83F5FC788FFB9E090843D8BD3D690F0ADE579E23C8CCE3A"
+    },
+    {
+      "path": "Cache/GenerationThumbnails/90CE5BE419AFD03DFF8AF5D4171A368A84FD98DEEBFBB2431A18BD9DF9BF330B.png",
+      "bytes": 73874,
+      "sha256": "962DF09307E96A37A0E976A31CEE9B85C69CE240C123DDB02AF8B81E04DA7F06"
+    },
+    {
+      "path": "Cache/GenerationThumbnails/9672E49ABDBB228F768D169D6F278A42513CEF46C4105D93B126A6CD0A65D445.png",
+      "bytes": 100448,
+      "sha256": "394E5EE0777F17E61C7287F9BB27C8A966447D3F79A9185C4AA54F6164DCC7A0"
+    },
+    {
+      "path": "Cache/GenerationThumbnails/ABDB02A39CCB168386994FE436CB4A0319063965460535CB13036F2568D2E38C.png",
+      "bytes": 73874,
+      "sha256": "962DF09307E96A37A0E976A31CEE9B85C69CE240C123DDB02AF8B81E04DA7F06"
+    },
+    {
+      "path": "ForgeResults/forge-4f573db27de8430394d9e2192c45d73c.png",
+      "bytes": 415916,
+      "sha256": "6C54026203BF1E6F8994020B6113BD5E64C2046AA471BEEE5A98FC02741E5B5F"
+    },
+    {
+      "path": "ForgeResults/forge-bd316b0160714e1985b800836223b63a.png",
+      "bytes": 415916,
+      "sha256": "6C54026203BF1E6F8994020B6113BD5E64C2046AA471BEEE5A98FC02741E5B5F"
+    },
+    {
+      "path": "generation-library.db",
+      "bytes": 90112,
+      "sha256": "FF75A4FA2A4AE587F9515423C781EF914F6D1E7EF52E8399247BE126512B1313"
+    },
+    {
+      "path": "lora-library.db",
+      "bytes": 32768,
+      "sha256": "4C05F73EABDC432F7895C362405B29899C765B6871EBCA6632060BD440CB534C"
+    },
+    {
+      "path": "README.txt",
+      "bytes": 108,
+      "sha256": "B6A25CC3334885F0249D7AF6B1D2954C4B778B79D9C322C13D4F24F262F6B28E"
+    },
+    {
+      "path": "user.db",
+      "bytes": 24576,
+      "sha256": "298CE21C2A29D1250224C2DE3AAE572F66F3AD57CC2AA4D380920D63F0598354"
+    },
+    {
+      "path": "user.db.before-migration-2a9f900d88254a539564903c3b1ea1a8.bak",
+      "bytes": 24576,
+      "sha256": "687EEA600E4521EBF5BB6046F09C6C68B6C168924CED400F16C6946B2A8D64EA"
+    }
+  ],
+  "native_visual_ui_verified": false,
+  "native_capture_limitation": "White client capture; native accessibility actions/status and Library readback verified; no rendering override.",
+  "issue": 245,
+  "source_main_commit": "b3f48c359a8473c8bbf02347487cba5d8dacf96c",
+  "previous_source_main_commit": "49963dc129a1725c8a74d7f29aeb960884b67569",
+  "included_issues": [
+    226,
+    228,
+    229,
+    232,
+    245
+  ],
+  "merged_pull_requests": [
+    240,
+    242,
+    243,
+    246,
+    257,
+    258
+  ],
+  "product_merge_commits": {
+    "246": "94bcb81e63e152067f8794ea76384b01d27b3bb8",
+    "257": "f815c2eb46b8754c3ecf7fe5858df3baf0beaea1",
+    "258": "b3f48c359a8473c8bbf02347487cba5d8dacf96c"
+  },
+  "tests": {
+    "full": {
+      "passed": 364,
+      "failed": 0,
+      "skipped": 4
+    },
+    "focused": {
+      "passed": 112,
+      "failed": 0,
+      "skipped": 1
+    },
+    "skips": "existing opt-in/live-Forge tests unchanged; actual installed UI smoke replaces missing real-generation evidence, without changing skip policy",
+    "src_tree": "b85bcdcc6904bbc44a384e1deebc3782bb5717ea",
+    "initial_timeout": "An unchanged Issue80 timeout test failed once under concurrent computer-use load; focused repeat and unchanged full repeated suite passed. No assertion/threshold changed."
+  },
+  "ci": {
+    "246": "9 SUCCESS",
+    "257": "5 SUCCESS",
+    "258": "5 SUCCESS",
+    "258_runs": [
+      37070516759,
+      37070516795,
+      37070516730
+    ]
+  },
+  "production_path": "C:\\Codex\\DanbooruTagTool-App",
+  "backup_paths": {
+    "original_runtime": "C:\\Codex\\DanbooruTagTool\\.staging-issue245-production-backup-20261002",
+    "resumed5_UserData": "C:\\Codex\\DanbooruTagTool\\.staging-issue245-resume-userdata-20261003",
+    "final_LKG": "C:\\Codex\\DanbooruTagTool\\.staging-issue245-LKG-20261003"
+  },
+  "protection": {
+    "promotion_excludes_UserData": true,
+    "strict_prestart_byte_identity": true,
+    "versioned_migration": "payload1→2; transactional backup; newer schema refusal covered; disposable actual-user migration probe passed",
+    "restoration": "Exact resumed5 Prompt IDs/order/raw/Recovery + original empty Negative +2 Presets restored transactionally after smoke; normal restart retained. Original old13 remain in full prior backup; private contents not published.",
+    "post_smoke_byte_identical": false,
+    "intentional_deltas": "user.db payload2 migration/UI serialization; Library new root3 +2 PNG/metadata/20 parameters/thumbnails. Original Library rows and annotations, original file hashes, lora DB and catalog unchanged.",
+    "authority_changes": 0,
+    "legacy_research_data_moved_deleted": false
+  },
+  "installed_hooks": "Actual final EXE, isolated fixtures (not actual owned LoRA generation): all3 PASS, startup network calls0; WPF renders passed.",
+  "normal_restart": "PASS: resumed5 items and emptyNegative/2 Presets unchanged; Forge state unconfirmed at offline startup.",
+  "limits": [
+    "Native pixel capture white client; visual appearance NOT_VERIFIED; accessibility operations/status and WPF render/tree pass.",
+    "No different-PC / physical network-disconnect / actual JPEG-WebP smoke.",
+    "Owned real LoRA generation and actual Forge extension compatibility reinstall not performed; fixture LoRA and compatibility tests pass.",
+    "Working Recipe is session-only; save a Preset for retention.",
+    "Forge stale local selection was repaired without downloads; independent Forge restart and stale extension-specific model preset aliases are not certified."
+  ],
+  "next": "STOP; await user instruction; no #230/#231 or new feature."
+}

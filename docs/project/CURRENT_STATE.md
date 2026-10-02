@@ -1,6 +1,6 @@
 # CURRENT STATE
 
-最終更新: 2026-10-02 (#245 B-lite implemented; user review STOP)
+最終更新: 2026-10-03 (#245 combined production promotion complete; STOP)
 
 このファイルは **現在地だけ** を保持する人間向けsummary。
 過去のrouting/runtime/taxonomy/完了記録は `docs/project/CURRENT_STATE_HISTORY.md` に保存する。
@@ -17,22 +17,13 @@
 
 現在の主要な独立lane:
 
-### #245 UI/UX consolidation — B-lite implemented / user review STOP
+### #245 B-lite — COMPLETE / production APPLIED (2026-10-03)
 
-ユーザーがB-liteを採用し、既存Draft PR246へ実装・after 8task auditを追加。top-levelは作成 / タグ探索 / ライブラリ。current P/N + session-only条件をPreset保存なしで既存#228 verified APIへ送る。shared LoRA quick-use、source/compatibility明示、compact header、900×560の結果一覧を整えた。Phase A/B/C evidenceを保持。
+Human authorized PR246 merge and combined #228/#229/#232/#245 promotion. PR246/257/258 merged; clean merged-main runtime source `b3f48c359a8473c8bbf02347487cba5d8dacf96c` installed. Full364 PASS/4 existing SKIP, focused112 PASS/1 existing SKIP, product CI PASS. Primary Create real Forge1PNG and Library10-field/hash round-trip PASS. Resumed5 Prompt/Recovery, emptyNegative and2 Presets preserved through normal restart; original Library/LoRA files and catalog/authority unchanged. New LKG recorded; previous backups retained.
 
-検証済みproduct source `788e03e6cec3e0c9181337d9a7fbfcff79abe60f`。full355 PASS / 4既存SKIP / 0 FAIL、focused103 PASS / 1既存live-Forge SKIP / 0 FAIL、product CI9 SUCCESS。clean self-contained win-x64 publish / 実EXE隔離hooks / 別folder normal startup・restart・UI state・P/N/非空Preset Recipe persistence PASS。36 after render/tree。native group listは900×560 0→99.33 DIP、1280×720 41.33→259.33 DIP。元#223 threshold/skip/MinHeight不変。catalog/既存UserData9 hashes一致、Core/Data/authority/legacy変更なし。
+Top-level 作成 / タグ探索 / ライブラリ; shared P/N, working8条件/source, LoRA quick-use, compact context actions and small-window group pane. Phase A/B/C/D audit remains evidence. Neo API spelling compatibility was corrected minimally without fallback/identity weakening; failed trials retained.
 
-**User review before merge / production promotionでSTOP。** Draft PR246未merge、#245 open。production source `49963dc129a1725c8a74d7f29aeb960884b67569`を維持。#230/#231/new-featureを開始しない。今回のlive Forge生成・pointer study・別PCは未検証。結果/action map/8task/limits: `docs/issue245/PHASE_D_B_LITE_RESULT.md`。exact gates/hashes: `docs/issue245/AFTER_VALIDATION.json`。
-
-### #226 Generation image library — COMPLETE / production APPLIED
-
-PR #238 is merged; clean published source main `49963dc129a1725c8a74d7f29aeb960884b67569` is installed at `C:\Codex\DanbooruTagTool-App`. Generation Library uses separate schema1 SQLite DB and reconstructible thumbnail cache. Full Release 276 PASS / 3 opt-in SKIP / 0 FAIL; focused 35 PASS; isolated unchanged-threshold performance Gate PASS. Native installed real PNG scan/metadata/thumbnail/search, annotation restart, Prompt restore + Undo/Recovery, preset editor, real Forge send/one successful generate, diff and missing-file annotation protection passed.
-
-Catalog/#179/#180/#216/#223 unchanged; whole prior runtime/UserData backup retained. Promotion excluded UserData; after explicit UI smoke original Prompt/Recovery and both Presets equal backup, only Workspace/PromptWidth changed. Exact hashes/evidence: `docs/project/LAST_KNOWN_GOOD.json`, `docs/issue226/PRODUCTION_CHECKPOINT_2026-10-02.json`.
-
-Manual scan/rename limitations remain; actual WebP/JPEG preview, different PC and physical network disconnect unverified. Production remains the #226 build. #228/#229/#232 are COMPLETE / merged via PR #240/#242/#243; latest feature merge `761e71215f0eb4ccc108761aad0a2c8846a5e8d8`. Final protected-source Release 340 PASS / 4 opt-in SKIP / 0 FAIL; CI and clean publish / disposable runtime gates PASS. No production apply. **STOP POINT reached: 新機能実装停止。UI/UXはユーザー指示で#245 Phase Aへ。** Current UI map, UX debt, unimplemented consolidation proposals and exact commits/tests/protection/limits: `docs/issue225/STOP_POINT_2026-10-02.md`. Do not start #230/#231 or other large workspaces without user confirmation.
-
+Evidence: `docs/issue245/PRODUCTION_CHECKPOINT_2026-10-03.md` and `.json`; `docs/project/LAST_KNOWN_GOOD.json`. Native screenshot capture remains white: visual appearance NOT_VERIFIED; native operations/status/metadata and WPF renders PASS. Different-PC/physical-disconnect/owned real-LoRA generation remain unverified. **STOP: await user instruction; no #230/#231/new feature.**
 
 - **#223 — Browse Groups: COMPLETE / production deployed**
 
@@ -111,9 +102,9 @@ No default further classification: ambiguous HOLD and unclassified remain preser
   - BODY: **247**
   - THEME: **108**
 - current Special authority: Issue #76 shallow kind/body/theme model
-- production LKG: `docs/project/LAST_KNOWN_GOOD.json` and `.md` (source main `49963dc129a1725c8a74d7f29aeb960884b67569`)
-- runtime shape: 13 total files including UserData/cache; single-file self-contained win-x64; root DLL 0; PDB 0; external catalog/UserData/ForgeBridge/manifest schema 3
-- current production EXE SHA256: `A805FBBD80B735F354AB0CC2FBFE7F4B24A93436243888A6C6A1A4EAE8431FBE`; catalog SHA256 `D91A68186661127F16E2AE102B4DD9F3A96EAE578B3C989A8B4F17169639FC6F`
+- production LKG: `docs/project/LAST_KNOWN_GOOD.json` and `.md` (source main `b3f48c359a8473c8bbf02347487cba5d8dacf96c`)
+- runtime shape: 19 total files including UserData/cache; single-file self-contained win-x64; root DLL 0; PDB 0; external catalog/UserData/ForgeBridge/manifest schema 3
+- current production EXE SHA256: `C69C83B365C24CBA8B870BA6A5778AC83CE28DEBED779D1D556C1A9B74768F7B`; catalog SHA256 `D91A68186661127F16E2AE102B4DD9F3A96EAE578B3C989A8B4F17169639FC6F`
 - current UI mitigation authority: #177
   - Artist hidden
   - legacy RelatedCopyright remains excluded; #216 formal HOME / reviewed Browse fallback now powers Character-Copyright Browse/search
