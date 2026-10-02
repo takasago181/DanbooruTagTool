@@ -1,87 +1,90 @@
-# KNOWLEDGE Catalog Directory
+# KNOWLEDGE Catalog ディレクトリ
 
 Owner: Issue #44 `KNOWLEDGE:#44`
 
-Status: `CANONICAL_TOPIC_INDEX_V4 / CLAIM_REGISTRY_LINKED / PROMPT_MERGED`
+このディレクトリは、知識を**topic別に読むための説明層**。
 
-This directory is the **current topic-organized human reading layer** for persistent DanbooruTagTool knowledge.
-
-Top-level topic map:
-`../KNOWLEDGE_CATALOG.md`
-
-Current claim verdict source of truth:
+現在判定の正本:
 `../current/CLAIM_REGISTRY.csv`
 
-Current management entry point:
+current管理入口:
 `../current/README.md`
 
-Research originals under `../research/` remain preserved as evidence/provenance. The Catalog explains claims by topic; it does not override Claim Registry status/scope/validation.
+topic全体地図:
+`../KNOWLEDGE_CATALOG.md`
 
-Current product goal is owned by main `docs/PRODUCT_GOAL_LOCK.md`. The separate PROMPT team was retired on 2026-09-12; Prompt/generation-effectiveness topics remain within this KNOWLEDGE catalog rather than forming another lane/taxonomy.
+research原本は `../research/` に保全する。
+CatalogはClaimを読みやすく説明するが、RegistryのSTATUS/SCOPEを上書きしない。
 
-## Canonical topic order
+## topic番号
 
-0. `00_FOUNDATIONS_AND_AUTHORITY.md`
-1. `01_MODEL_FAMILIES.md`
-2. `02_PROMPT_SUPPORT_AND_COMPOSITION.md`
-3. `03_FAILURE_TESTING_AND_EVALUATION.md`
-4. `04_TOOLS_POSTPROCESS_AND_LORA.md`
-5. `05_HARD_NICHE_ADULT_GENERATION.md`
-6. `06_SEMANTICS_ALIAS_TRIGGER.md`
-7. `07_WAI17_LOCAL_TEST_PROFILE.md`
-8. `08_SOURCE_AND_SITE_AUDITS.md`
-9. `09_OPEN_QUESTIONS_AND_HOLD.md`
-10. `10_FILE_MAP.md`
+0. `00_FOUNDATIONS_AND_AUTHORITY.md` — 基礎・目的・権限
+1. `01_MODEL_FAMILIES.md` — モデル別
+2. `02_PROMPT_SUPPORT_AND_COMPOSITION.md` — Prompt・support・構成
+3. `03_FAILURE_TESTING_AND_EVALUATION.md` — 失敗診断・評価
+4. `04_TOOLS_POSTPROCESS_AND_LORA.md` — ツール・後処理・LoRA
+5. `05_HARD_NICHE_ADULT_GENERATION.md` — 特殊・ハード系成人生成
+6. `06_SEMANTICS_ALIAS_TRIGGER.md` — 意味・Alias・trigger
+7. `07_WAI17_LOCAL_TEST_PROFILE.md` — WAI17履歴/比較
+8. `08_SOURCE_AND_SITE_AUDITS.md` — 情報源監査
+9. `09_OPEN_QUESTIONS_AND_HOLD.md` — HOLD説明
+10. `10_FILE_MAP.md` — 全ファイル地図
 
-This numbering is canonical. Do not create another overlapping genre-numbering scheme.
-The `current/` directory is a cross-topic metadata/control layer, not a second genre taxonomy.
+この番号体系を正本とし、並行する別taxonomyを作らない。
+`current/` はtopic体系ではなく、Claim/status/versionを横断管理する層。
 
-## Knowledge horizons
+## 2つの知識用途
 
-The same catalog contains two different product horizons:
+### v1支援
+- canonical意味
+- 日本語理解
+- 検索・発見
+- 出典追跡
 
-- **v1-supporting:** semantics, authority, Japanese understanding/search, discovery/traceability
-- **future/advanced generation:** Prompt composition, support/anti-support, model behavior, failure diagnosis, tools/evaluators, controlled generation evidence
+### 実践・高度生成
+- Prompt構成
+- モデル差
+- failure diagnosis
+- LoRA / Control
+- evaluator
+- controlled generation evidence
 
-The horizon is determined by claim scope/product relevance/validation state, not by a separate team.
+別チームには分けない。
 
-## Restore flow
+## 復元順
 
-The fixed-date `KNOWLEDGE_HANDOFF_CURRENT_20260909.md` is historical provenance, not live restore authority.
+1. main `CURRENT_STATE`
+2. main `PERMANENT_RULES`
+3. live Issue #44
+4. main `PRODUCT_GOAL_LOCK`
+5. `../current/README.md`
+6. `../current/CURRENT_QUICK_REFERENCE.md`
+7. `../current/CLAIM_REGISTRY.csv`
+8. 必要なtopic
+9. HOLD / freshness
+10. 必要な時だけresearch
 
-1. `docs/project/CURRENT_STATE.md`
-2. `docs/project/PERMANENT_RULES.md`
-3. Issue #44 latest body/comments
-4. `docs/PRODUCT_GOAL_LOCK.md`
-5. `../current/CURRENT_QUICK_REFERENCE.md`
-6. `../current/CLAIM_REGISTRY.csv`
-7. relevant topic file(s) here
-8. `../current/HOLD_CONFLICT_REGISTER.md` and/or `VERSION_FRESHNESS_LEDGER.csv` as needed
-9. detailed research originals only when evidence/provenance is needed
+固定日付handoffはhistorical。
 
-## Layer model
+## 不変条件
 
-- **Handoff** — lane state/restart
-- **Current management** — current claim verdict/status/scope/validation, HOLD, freshness
-- **Catalog** — readable topic explanations
-- **Corpus** — cross-topic durable synthesis
-- **Sources** — source registry/provenance
-- **Research** — detailed evidence/history
+混ぜない:
+- canonical意味
+- Alias
+- implication
+- 関連・共起
+- UI日本語
+- model trigger
+- generation support
+- Prompt-only能力
+- LoRA/Control/Edit後の能力
+- evaluator判定
+- product採用
 
-## Invariants
+不明はHOLDのまま残す。
 
-Never collapse canonical meaning, Alias, implication, related/co-occurrence, UI Japanese, model trigger, generation support, Prompt-only capability, assisted-control/postprocess capability, evaluator verdict, or product adoption.
+## 更新
 
-Unknown behavior stays `HOLD` in the Claim Registry and HOLD register until its required validation is complete.
+`research/source -> Claim確認 -> Registry -> 必要なtopicだけ更新 -> HOLD/freshness -> 必要なら狭い検証 -> #44 checkpoint`
 
-Knowledge evidence does not automatically become v1 runtime behavior.
-
-## Current WAI17 shortcut
-
-Use only when image-dependent generation knowledge is actually relevant:
-
-`../current/CURRENT_QUICK_REFERENCE.md -> ../current/CLAIM_REGISTRY.csv (K-MODEL-WAI-*) -> 07_WAI17_LOCAL_TEST_PROFILE.md -> 01_MODEL_FAMILIES.md -> 03_FAILURE_TESTING_AND_EVALUATION.md -> 02_PROMPT_SUPPORT_AND_COMPOSITION.md -> ../current/HOLD_CONFLICT_REGISTER.md`
-
-## Maintenance
-
-`research/source -> claim review -> Registry update -> category explanation if needed -> HOLD/version update if needed -> narrow validation only when required -> DEV/product handoff if authorized -> #44 checkpoint`.
+同じ結論を複数topic/currentへコピーしない。
