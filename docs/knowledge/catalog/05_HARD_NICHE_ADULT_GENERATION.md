@@ -405,3 +405,19 @@ Local reconstruction is appropriate only after global semantics are acceptable.
 Research:
 `../research/BATCH_AF_ANATOMY_OCCLUSION_LOCAL_REPAIR_20261002.md`.
 
+---
+
+## Anima interaction stress — 2026-10-02
+
+Community evidence reinforces:
+- identities can work alone but fail as a pair;
+- strong series/concept priors can leak across subjects;
+- 3+ subjects with distinct resources/positions are a separate stress class;
+- correct subject presence does not prove correct role/body-site assignment.
+
+Use A_ONLY/B_ONLY/AB before declaring concept ignorance.
+Escalate to regional/mask control when pairwise Prompt cleanup cannot stabilize ownership.
+
+Research:
+`../research/BATCH_AG_ANIMA_RELATION_STRESS_COMMUNITY_20261002.md`.
+
