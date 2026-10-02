@@ -210,3 +210,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_S_TAG_STYLE_COMPOSITION_COMMUNITY_20261002.md` — same-seed public experiments on 108 style surfaces, Anima step convergence, framing tags vs prose, Illustrious→Anima Prompt-dialect transfer, 48-image multi-character binding and quality/meta visual priors.
 
+- `../research/BATCH_T_LEXICAL_TAG_COVERAGE_COMMUNITY_20261002.md` — public tag-behavior map covering Anima color-word lexical collisions, preview body/tag sweeps, real-world garment vocabulary, LoRA auto-tag leads and cross-model tag-response sources.
+
