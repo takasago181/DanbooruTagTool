@@ -42,17 +42,18 @@ These are one knowledge system, not separate teams.
 
 ## Canonical restore order
 
+固定日付handoffはhistorical snapshotであり、live復元authorityではない。
+
 1. `docs/project/CURRENT_STATE.md`
 2. `docs/project/PERMANENT_RULES.md`
 3. Issue #44 latest body/comments
 4. `docs/PRODUCT_GOAL_LOCK.md`
-5. `docs/knowledge/KNOWLEDGE_HANDOFF_CURRENT_20260909.md`
-6. `docs/knowledge/current/CURRENT_QUICK_REFERENCE.md`
-7. `docs/knowledge/current/CLAIM_REGISTRY.csv`
-8. relevant `docs/knowledge/catalog/*.md`
-9. `docs/knowledge/current/HOLD_CONFLICT_REGISTER.md` and `VERSION_FRESHNESS_LEDGER.csv` when uncertainty/version matters
-10. `docs/knowledge/research/*` only for evidence/provenance
-11. corpus/sources/index for broader historical context
+5. `docs/knowledge/current/CURRENT_QUICK_REFERENCE.md`
+6. `docs/knowledge/current/CLAIM_REGISTRY.csv`
+7. relevant `docs/knowledge/catalog/*.md`
+8. `docs/knowledge/current/HOLD_CONFLICT_REGISTER.md` and `VERSION_FRESHNESS_LEDGER.csv` when uncertainty/version matters
+9. `docs/knowledge/research/*` only for evidence/provenance
+10. corpus/sources/index for broader historical context
 
 ## Conflict rule
 
