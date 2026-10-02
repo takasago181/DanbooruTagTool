@@ -1922,3 +1922,102 @@ These sources are intentionally lower authority than exact author/runtime docume
   - https://huggingface.co/docs/diffusers/api/pipelines/stable_diffusion/text2img
 - Class: `OFFICIAL_RUNTIME`
 - Use: learned token embedding personalization.
+
+
+## 2026-10-02 — Prediction / Attention / LoRA training / Color foundations
+
+**S-BD-001 — Diffusers DDPM scheduler prediction types**
+- URL: https://huggingface.co/docs/diffusers/api/schedulers/ddpm
+- Class: `OFFICIAL_RUNTIME`
+- Scope: epsilon / sample / v_prediction distinction.
+
+**S-BD-002 — Progressive Distillation**
+- URL: https://arxiv.org/abs/2202.00512
+- Class: `RESEARCH`
+- Scope: diffusion parameterization and few-step stability.
+
+**S-BD-003 — Imagen Video**
+- URL: https://arxiv.org/abs/2210.02303
+- Class: `RESEARCH`
+- Scope: v-parameterization usage.
+
+**S-BD-004 — Flow Matching for Generative Modeling**
+- URL: https://arxiv.org/abs/2210.02747
+- Class: `RESEARCH`
+- Scope: continuous flow/vector-field training objective.
+
+**S-BD-005 — Diffusers FlowMatchEulerDiscreteScheduler**
+- URL: https://huggingface.co/docs/diffusers/api/schedulers/flow_match_euler_discrete
+- Class: `OFFICIAL_RUNTIME`
+- Scope: FlowMatch scheduler behavior.
+
+**S-BD-006 — Diffusers scheduler selection guide**
+- URL: https://huggingface.co/docs/diffusers/main/using-diffusers/schedulers
+- Class: `OFFICIAL_RUNTIME`
+- Scope: checkpoint/scheduler compatibility and FlowMatch guidance.
+
+**S-BD-007 — Diffusers attention processors**
+- URL: https://huggingface.co/docs/diffusers/main/api/attnprocessor
+- Class: `OFFICIAL_RUNTIME`
+- Scope: self/cross/joint attention processor distinctions.
+
+**S-BD-008 — Prompt-to-Prompt**
+- URL: https://arxiv.org/abs/2208.01626
+- Class: `RESEARCH`
+- Scope: cross-attention and prompt-word/spatial-layout control.
+
+**S-BD-009 — Attention Refocusing**
+- URL: https://arxiv.org/abs/2306.05427
+- Class: `RESEARCH`
+- Scope: cross/self-attention failure in multi-object binding/layout.
+
+**S-BD-010 — Diffusers SD3 Transformer**
+- URL: https://huggingface.co/docs/diffusers/api/models/sd3_transformer2d
+- Class: `OFFICIAL_RUNTIME`
+- Scope: MMDiT joint text-image attention.
+
+Reused existing sources:
+- `S-BA-002` — Diffusers Euler scheduler
+- `S-AZ-002` — Latent Diffusion Models
+- `S-RESEARCH-002` — Attend-and-Excite
+- `S-BC-003` — Stable Diffusion 3 pipeline documentation
+
+**S-BE-001 — LoRA paper**
+- URL: https://arxiv.org/abs/2106.09685
+- Class: `RESEARCH`
+- Scope: low-rank parameter-efficient adaptation.
+
+**S-BE-002 — Diffusers LoRA training**
+- URL: https://huggingface.co/docs/diffusers/main/en/training/lora
+- Class: `OFFICIAL_RUNTIME`
+- Scope: rank, target modules, optimizer, learning rate, training loop.
+
+**S-BE-003 — Diffusers DreamBooth training**
+- URL: https://huggingface.co/docs/diffusers/main/training/dreambooth
+- Class: `OFFICIAL_RUNTIME`
+- Scope: overfit, text encoder training, prior preservation, Min-SNR, checkpoints.
+
+**S-BE-004 — Hugging Face DreamBooth experiments**
+- URL: https://huggingface.co/blog/dreambooth
+- Class: `RESEARCH`
+- Scope: learning-rate/step overfit and underfit behavior.
+
+**S-BE-005 — sd-scripts advanced network training**
+- URL: https://github.com/kohya-ss/sd-scripts/blob/main/docs/train_network_advanced.md
+- Class: `OFFICIAL_RUNTIME`
+- Scope: optimizer, optimizer args, learning-rate scheduler, U-Net/text-encoder LR.
+
+**S-BE-006 — Hugging Face gradient accumulation**
+- URL: https://huggingface.co/docs/transformers/grad_accumulation
+- Class: `OFFICIAL_RUNTIME`
+- Scope: gradient accumulation semantics.
+
+**S-BE-007 — Diffusers Custom Diffusion training**
+- URL: https://huggingface.co/docs/diffusers/training/custom_diffusion
+- Class: `OFFICIAL_RUNTIME`
+- Scope: regularization and prior-preservation concepts.
+
+**S-BF-001 — PNG Specification Third Edition**
+- URL: https://www.w3.org/TR/png-3/
+- Class: `SEMANTIC_AUTHORITY`
+- Scope: PNG color-space signaling, ICC, sRGB, gamma, metadata.
