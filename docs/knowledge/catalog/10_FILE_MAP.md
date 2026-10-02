@@ -317,3 +317,5 @@ Do not create a parallel genre numbering scheme.
 - `../research/BATCH_BD_PREDICTION_AND_ATTENTION_FOUNDATIONS_20261002.md` — epsilon / v-prediction / Flow Matching、self/cross/joint attention、bindingとarchitecture移植境界を整理。
 - `../research/BATCH_BE_LORA_TRAINING_PARAMETER_FOUNDATIONS_20261002.md` — learning rate、optimizer、LR scheduler、step/epoch/repeat、batch/gradient accumulation、rank/alpha、Text Encoder、intermediate checkpointを整理。
 - `../research/BATCH_BF_COLOR_OUTPUT_FOUNDATIONS_20261002.md` — sRGB、ICC、gamma、PNG色metadata、lossless masterと生成metadataの分離を整理。
+
+- `../research/BATCH_BG_LORA_LOSS_TIMESTEP_DATASET_PREPROCESSING_20261002.md` — Min-SNR、training timestep bias、resolution bucket、caption/tag dropout、shuffle/keep-tokenをtraining identityとして整理。
