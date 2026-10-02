@@ -824,3 +824,34 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: Danbooru vs mixed NL captions / official ordering.
 - Limitation: practitioner advice, not author-prescribed universal training format.
 
+**S-TOOL-006 — Forge Neo NegPiP (archived Anima path)**
+- URL: https://github.com/Haoming02/sd-forge-negpip
+- Class: `OFFICIAL_RUNTIME / ARCHIVED`
+- Scope: Forge Classic/Neo, SD1/SDXL/Anima.
+- Value: documents negative-in-positive conditioning for Anima.
+- Freshness: repository archived 2026-09-30; pin local commit before use.
+
+**S-TOOL-007 — NegPiP upstream**
+- URL: https://github.com/hako-mikan/sd-webui-negpip
+- Class: `OFFICIAL_RUNTIME`
+- Scope: negative-effect prompt conditioning.
+- Value: mechanism and runtime semantics for NegPiP.
+- Limitation: exact Forge-Neo-Anima compatibility is branch/integration specific.
+
+**S-TOOL-008 — TrainTrain**
+- URL: https://github.com/hako-mikan/sd-webui-traintrain
+- Class: `OFFICIAL_RUNTIME`
+- Scope: LoRA/iLECO/differential training; Forge Neo Anima support from 2026-09-04.
+- Value: current local-training route and documented architecture constraints.
+
+**S-COMM-054 — Anima censor/watermark prior cluster**
+- URLs:
+  - https://huggingface.co/circlestone-labs/Anima/discussions/94
+  - https://huggingface.co/circlestone-labs/Anima/discussions/104
+  - https://huggingface.co/circlestone-labs/Anima/discussions/152
+  - https://huggingface.co/circlestone-labs/Anima/discussions/132
+- Class: `COMMUNITY / MULTI_SOURCE_FAILURE`
+- Scope: watermark/censorship/text persistence under Negative Prompt.
+- Value: positive-prior/context-entanglement hypothesis.
+- Limitation: no controlled universal frequency estimate.
+
