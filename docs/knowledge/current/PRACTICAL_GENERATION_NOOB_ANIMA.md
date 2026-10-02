@@ -9,7 +9,7 @@ Status: `CURRENT_OPERATIONAL_GUIDE / CLAIM_REGISTRY_WINS`
 
 Primary practical generation families:
 1. **NoobAI XL 1.1 EPS** — tag-first workhorse
-2. **Anima** — hybrid/explicit-relation workhorse
+2. **Anima** — relation-heavy / multi-character comparison・fallback lane。タグのみと短い自然文併用の優劣は未確定（HOLD）
 
 Secondary lanes:
 - NoobAI XL V-Pred 1.0 — separate V-Pred rendering/inference lane
@@ -32,7 +32,7 @@ WAI17 remains a useful comparison/reference lane, but NoobAI + Anima now receive
 ## Start Anima when
 - multiple actors or attribute ownership are central
 - tag-only relation wording is ambiguous
-- a concise natural-language relation can clarify the scene
+- 短い自然文の関係説明も比較候補にする。ただし、タグのみより普遍的に優れるとは扱わない
 - current Anima regional/control tooling may be useful
 - you need the Base/Aesthetic/Turbo workflow
 
