@@ -4,13 +4,13 @@ Current verdict = `CLAIM_REGISTRY.csv`. This map prevents old evidence documents
 
 | Old / evidence document | Current category | Related Claim IDs | Role now |
 |---|---|---|---|
-| `CURRENT_PRODUCT_GOAL_20260909.md` | 00 Foundations / purpose | `K-GOV-001; K-GOV-002` | current purpose evidence |
+| `CURRENT_PRODUCT_GOAL_20260909.md` | 00 Foundations / history | `K-GOV-001; K-GOV-002` | historical product-goal snapshot; main `docs/PRODUCT_GOAL_LOCK.md` governs current purpose |
 | `PRODUCT_GOAL_EVOLUTION_20260909.md` | 00 Foundations / history | `K-HIST-001` | historical evolution |
 | `KNOWLEDGE_REASSESSMENT_20260909.md` | 00 Governance + 09 HOLD/Reject | `K-GOV-*; K-REJECT-*; K-HIST-*` | decision/evidence history |
 | `GENERATION_KNOWLEDGE_CORPUS.md` | cross-topic | `many; see Registry domain filters` | durable synthesis/evidence |
 | `GENERATION_KNOWLEDGE_SOURCES.md` | 08 Sources | `all evidence-linked claims` | source registry |
 | `GENERATION_KNOWLEDGE_INDEX.md` | historical coverage/backlog | `K-HARD-*; K-EVAL-*; HOLD claims` | historical index, not restore authority |
-| `KNOWLEDGE_HANDOFF_CURRENT_20260909.md` | current routing | `K-GOV-*` | current lane restart |
+| `KNOWLEDGE_HANDOFF_CURRENT_20260909.md` | historical routing snapshot | `K-GOV-*` | historical handoff only; live Issue #44 + main project docs govern restart |
 | `KNOWLEDGE_CATALOG.md` | current explanation | `all domains` | master readable map |
 | `catalog/00_FOUNDATIONS_AND_AUTHORITY.md` | 00 Governance | `K-GOV-*; K-SEM-001/002/006` | readable explanation |
 | `catalog/01_MODEL_FAMILIES.md` | 01 Model families | `K-MODEL-*` | readable explanation |
@@ -50,5 +50,10 @@ Current verdict = `CLAIM_REGISTRY.csv`. This map prevents old evidence documents
 | `research/HARD_FETISH_COMPOSITE_FAILURE_MATRIX_20260909.md` | 05 | `K-BIND-002; K-HARD-001/007` | composite evidence |
 | `research/HARD_FETISH_SOURCES_20260909.md` | 09 Sources | `K-HARD-* source links` | source evidence |
 | `../../stages/STAGE_10_KNOWLEDGE_HANDOFF.md` | Stage10 historical handoff | `K-PROMPT-*; K-SUPPORT-*; K-NEG-*; K-REJECT-*` | historical/current handoff evidence; Registry governs present status |
+
+| `current/SELF_AUDIT_20260909.md` | historical audit snapshot | `K-GOV-*` | superseded by 2026-10-02 hygiene audit |
+| `current/PRACTICAL_GENERATION_READINESS_AUDIT_20260913.md` | historical readiness snapshot | practical claims | superseded by 2026-10-02 knowledge expansion |
+| `current/RESEARCH_BACKLOG_20260913.md` | historical planning snapshot | HOLD/CANDIDATE history | current unresolved state comes from Registry/HOLD/latest #44 |
+| `current/ASSET_INVENTORY.md` | partial inventory snapshot | n/a | useful topic map but not complete after 2026-10-02 expansion |
 
 Old documents are preserved. A document may support several Claims; the Registry status/scope wins if wording diverges.
