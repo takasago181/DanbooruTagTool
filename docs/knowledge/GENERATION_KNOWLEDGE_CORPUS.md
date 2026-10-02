@@ -1554,3 +1554,18 @@ For hard scenes it can separate early structural pressure from late rendering pr
 Research:
 `research/BATCH_AR_STAGED_CONDITIONING_AND_LEARNING_20261002.md`.
 
+## 16.10 LoRA training as an evaluated process
+
+Training loss is not a generation-quality verdict.
+
+Select character/style checkpoints using:
+- fixed visual evaluation prompts
+- OOD/generalization cases
+- concept-agnostic leakage cases
+- multiple diagnostic seeds
+
+Training evidence must include the full trainer/dataset/optimization/adapter identity.
+
+Research:
+`research/BATCH_AS_LORA_TRAINING_EVALUATION_METHOD_20261002.md`.
+
