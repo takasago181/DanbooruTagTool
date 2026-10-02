@@ -1390,3 +1390,26 @@ These remain scoped observations, not family rankings.
 Detail:
 `research/BATCH_AO_ILL_NOOB_CHARACTER_STYLE_TRAINING_20261002.md`.
 
+## 16.1 Character/style quantitative evaluation
+
+Character reproduction should not be scored by generic image similarity alone.
+
+Recommended separation:
+- identity: anime-specific CCIP + human reference
+- geometry: pose/composition metrics
+- editability: unseen prompt conditions
+- style: CSD/DiffSim-style metrics
+- content preservation: semantic/identity checks
+
+LoRA tuning should expose:
+- fidelity
+- controllability
+- diversity
+- base-model preservation
+- image quality
+
+Adapter algorithm/rank/alpha are optimization variables, not monotonic quality settings.
+
+Research:
+`research/BATCH_AJ_CHARACTER_STYLE_EVALUATION_AND_LYCORIS_20261002.md`.
+
