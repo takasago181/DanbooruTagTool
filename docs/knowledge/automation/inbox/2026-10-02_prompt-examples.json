@@ -1,0 +1,74 @@
+{
+  "run_date": "2026-10-02",
+  "lane": "prompt-examples",
+  "status": "BACKFILLED_AFTER_ISSUE_COMMENT_REJECTION",
+  "models_versions": [
+    "NoobAI-XL-1.1",
+    "Anima base/current",
+    "Anima-Turbo",
+    "Anima-2.9B",
+    "WAI-Illustrious-SDXL v17"
+  ],
+  "examples_analyzed": 8,
+  "new_or_updated_count": 6,
+  "hold_count": 7,
+  "evidence_urls": [
+    "https://huggingface.co/Laxhar/noobai-XL-1.1/blob/main/README.md",
+    "https://huggingface.co/circlestone-labs/Anima/blob/main/README.md",
+    "https://huggingface.co/circlestone-labs/Anima/blob/d36a47b0b7ea47e8edd11f4d45f8385b216eb804/README.md",
+    "https://huggingface.co/EastsideNinja88/Anima-2.9B",
+    "https://huggingface.co/circlestone-labs/Anima/discussions/140",
+    "https://yodayo.com/ja/models/5ecbf952-6a89-4b42-bd52-54802ee55eba?modelversion=06f580dc-dc94-4279-a254-f779c8021a58",
+    "https://tungsten.run/model/7X9JiWe5wj",
+    "https://pixai.art/en/model/2032840993684257031/2032840994510534958"
+  ],
+  "findings": [
+    {
+      "scope": "NoobAI-XL-1.1",
+      "summary": "Caption-role order is explicitly documented; treat it as a model-scoped serialization/caption structure, not a universal prompt grammar.",
+      "confidence": "HIGH"
+    },
+    {
+      "scope": "Anima base/current",
+      "summary": "Tags, natural language, and mixed prompts are all supported; tag order within sections is flexible, so one global prompt-order rule is not justified.",
+      "confidence": "HIGH"
+    },
+    {
+      "scope": "Anima multi-character",
+      "summary": "Character identity should be paired with basic appearance; this supports per-character Character/Appearance/BINDING grouping.",
+      "confidence": "HIGH"
+    },
+    {
+      "scope": "Anima-Turbo",
+      "summary": "Turbo uses a separate low-step/low-CFG runtime profile, so prompt examples require model/profile/runtime metadata.",
+      "confidence": "HIGH"
+    },
+    {
+      "scope": "WAI-Illustrious-SDXL v17",
+      "summary": "Quality/negative/runtime settings are model-scoped control blocks and should remain separate from scene semantics.",
+      "confidence": "MEDIUM_HIGH"
+    },
+    {
+      "scope": "LoRA-assisted examples",
+      "summary": "Do not promote a LoRA-assisted success into evidence for base-model prompt capability without a controlled comparison.",
+      "confidence": "MEDIUM"
+    }
+  ],
+  "holds": [
+    "minimum-sufficient role structure",
+    "causal effect of prompt order",
+    "exact weight thresholds",
+    "NoobAI hard binding/count reliability",
+    "negative prompt ON/OFF causal benefit",
+    "LoRA-assisted example to base-model capability generalization",
+    "cross-model universal serialization"
+  ],
+  "tool_impact": [
+    "Store model/profile/runtime metadata with prompt examples.",
+    "Keep scene semantics separate from quality/negative/model-control blocks.",
+    "Represent multi-character prompts with per-character binding groups where evidence supports it.",
+    "Keep LoRA/control/postprocess contributions as separate authority from base-model behavior."
+  ],
+  "sensitive_content_policy": "Metadata-only. Sensitive examples reduced to abstract classes such as ADULT_RELATION / INTERACTION / BODY_SITE / BINDING.",
+  "production_modified": false
+}
