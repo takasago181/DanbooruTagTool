@@ -1622,3 +1622,30 @@ Auto-taggers are not dataset authority; nuisance factors require manual audit.
 Research:
 `research/BATCH_AV_DATASET_STYLE_BIAS_AND_PREPROCESSING_20261002.md`.
 
+
+
+## 16.15 Adult diagnostic escalation gate
+
+The teacher-facing corpus now has an explicit operational stop condition for unbounded Prompt rewriting.
+
+Project heuristic:
+
+- concept works alone;
+- minimal model-appropriate representation tested;
+- one concise alternate representation tested;
+- same primary structural failure persists in at least 3 of 4 fixed diagnostic seeds.
+
+Then test the smallest failure-specific assisted mechanism.
+
+This is a teaching/diagnostic efficiency rule, not proof that Prompt-only success is impossible.
+
+Adult Negative state is part of Evidence Identity.
+NoobAI XL 1.1 EPS author examples are safety-biased (`safe` positive, `nsfw` Negative), so they are not neutral adult-capability baselines.
+
+Current Anima author material establishes a mixed tag/NL prompt surface and safety tags, but not hard-relation adult reliability.
+
+Japanese operational artifact:
+`current/ADULT_IMAGE_GENERATION_DECISION_TREE.md`
+
+Research:
+`research/BATCH_AW_ADULT_DIAGNOSTIC_ESCALATION_AND_MODEL_GAPS_20261002.md`.
