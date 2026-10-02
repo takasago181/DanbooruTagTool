@@ -476,3 +476,25 @@ Do not assume:
 Research:
 `../research/BATCH_W_LORA_CAPTION_STACKING_COMMUNITY_20261002.md`.
 
+---
+
+## 21. Parameter and high-resolution testing — 2026-10-02
+
+When tuning Anima:
+- use author settings as the first baseline;
+- change one variable at a time;
+- treat steps as a diminishing-return curve, not a quality score;
+- record resolution whenever judging CFG/shift/sampler;
+- do not assume a high-resolution rescue LoRA helps at standard resolution;
+- test helper LoRA strength at the resolution where the failure actually occurs.
+
+For character-LoRA repair:
+- diagnose what survived the first training pass;
+- replace weak/confounded training examples rather than only adding more images;
+- generate candidate data deliberately for the missing attribute/coverage axis;
+- manually reject incidental props/artifacts before retraining;
+- remember recursive synthetic training can amplify both target traits and generator biases.
+
+Research:
+`../research/BATCH_X_PARAMETER_HIGHRES_DATASET_COMMUNITY_20261002.md`.
+
