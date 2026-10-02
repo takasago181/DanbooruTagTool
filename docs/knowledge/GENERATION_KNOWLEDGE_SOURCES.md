@@ -661,3 +661,35 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: cross-attention artist mixing / compatibility constraints.
 - Limitation: no controlled benchmark.
 
+**S-COMM-042 — Anima character-LoRA caption comparison**
+- URL: https://note.com/kuon_noise/n/n5bd44f5bb1fb
+- Language: Japanese
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: trigger-only vs reduced captions vs full tagger captions, simple/detailed inference.
+- Value: direct evidence about trigger absorption vs independently controllable traits.
+- Limitation: author's training regime / one main character family.
+
+**S-COMM-043 — synthetic Anima-only character-LoRA training**
+- URL: https://lilting.ch/articles/wai-anima-keichan-lora-training
+- Language: Japanese
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: 45-image epoch × inference-format evaluation.
+- Value: synthetic-data convergence and inherited base-model correlation evidence.
+- Limitation: one character / synthetic-source dataset / Turbo-assisted evaluation.
+
+**S-COMM-044 — Anima 0/1/3 LoRA same-seed stack comparison**
+- URL: https://note.com/fresh_macaw9581/n/n7a3a7f6ed1e7
+- Language: Japanese
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: fixed seed, no/one/three adapters.
+- Value: incremental adapter interference example.
+- Limitation: one scene and selected LoRAs.
+
+**S-COMM-045 — Anima style-LoRA weight sweep**
+- URL: https://note.com/fresh_macaw9581/n/nc7bf40b8429c
+- Language: Japanese
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: Model strength 0/0.4/0.7/1.0, fixed CLIP/seed/settings.
+- Value: weight spillover into identity/clothing/light/background.
+- Limitation: one LoRA; author's preferred value is not generalizable.
+
