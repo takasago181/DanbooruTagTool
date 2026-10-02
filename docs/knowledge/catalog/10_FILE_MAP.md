@@ -258,3 +258,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AK_PERSONALIZATION_DISENTANGLEMENT_DATASET_20261002.md` — character/style dataset design from DisenBooth/Infusion/Custom Diffusion/Break-A-Scene: identity-context disentanglement, two types of overfit, concept-agnostic leakage tests, effective diversity and masked multi-concept training.
 
+- `../research/BATCH_AL_REFERENCE_ADAPTER_VS_LORA_20261002.md` — method-selection map for native tags, IP-Adapter/reference conditioning, character/style LoRA, InstantStyle/StyleAligned, AnimeAdapter and StoryDiffusion sequence consistency.
+
