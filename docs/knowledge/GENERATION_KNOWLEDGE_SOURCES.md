@@ -1392,3 +1392,19 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: image-to-image preservation versus reinterpretation.
 - Value: denoise as a workflow-intent axis rather than a fixed magic value.
 
+**S-PRACTICAL-004 — Anima official model comparison workflow**
+- URL: https://huggingface.co/circlestone-labs/Anima
+- Class: `AUTHOR_GUIDE`
+- Scope: multi-model × multi-seed comparison grid.
+- Value: matrix comparison instead of cherry-picked pairs.
+
+**S-PRACTICAL-005 — Anima sampler behavior descriptions**
+- URL: https://huggingface.co/circlestone-labs/Anima
+- Class: `AUTHOR_GUIDE`
+- Scope: er_sde / Euler a / dpmpp_2m_sde_gpu / Euler rendering characteristics.
+
+**S-PRACTICAL-006 — NoobAI EPS resolution grid**
+- URL: https://huggingface.co/Laxhar/noobai-XL-1.1/blob/main/README.md
+- Class: `AUTHOR_GUIDE`
+- Scope: near-1MP portrait/square/landscape resolution set.
+
