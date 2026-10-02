@@ -236,3 +236,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AF_ANATOMY_OCCLUSION_LOCAL_REPAIR_20261002.md` — separates relation correctness from local anatomy, adds hand-repair research, occlusion/depth failure classes and postprocess-assisted anatomy evaluation.
 
+- `../research/BATCH_AG_ANIMA_RELATION_STRESS_COMMUNITY_20261002.md` — Anima community evidence on pairwise identity interference, strong-prior leakage, 3+ subject stress and interaction-heavy role/body-site assignment failures.
+
