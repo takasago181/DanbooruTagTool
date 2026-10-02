@@ -585,3 +585,21 @@ classify visibility/occlusion failure.
 Research:
 `../research/BATCH_AF_ANATOMY_OCCLUSION_LOCAL_REPAIR_20261002.md`.
 
+---
+
+## 26. Secondary-source conflict handling — 2026-10-02
+
+If a blog/community recipe conflicts with the exact current model card:
+- keep the recipe as a separate experiment;
+- do not average settings;
+- do not silently replace the author baseline;
+- record the exact checkpoint/runtime used by the community source.
+
+Current example:
+a recent NoobAI review recommends V-Pred settings that conflict with current V-Pred 1.0 author guidance.
+
+Use author baseline first, secondary recipe second.
+
+Research:
+`../research/BATCH_AH_ILL_NOOB_MULTI_SUBJECT_AND_SOURCE_CONFLICT_20261002.md`.
+
