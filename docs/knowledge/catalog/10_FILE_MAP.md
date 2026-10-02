@@ -240,3 +240,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AH_ILL_NOOB_MULTI_SUBJECT_AND_SOURCE_CONFLICT_20261002.md` — Illustrious/NoobAI multi-subject community practice, masked OpenPose+LoRA+img2img workflow, and secondary-source conflict handling against exact current author guidance.
 
+- `../research/BATCH_AI_CHARACTER_STYLE_REPRODUCTION_LORA_20261002.md` — 2D character/style reproduction framework: identity vs editability, style vs content preservation, Anima layer/artist-tag interference, style-LoRA weight/timestep tests, subject+style LoRA fusion and AnimeAdapter reference baseline.
+
