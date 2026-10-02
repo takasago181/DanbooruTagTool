@@ -674,3 +674,25 @@ Before training a character LoRA, consider a reference-adapter baseline where co
 Research:
 `../research/BATCH_AJ_LORA_CAPACITY_REFERENCE_AND_EVALUATION_20261002.md`.
 
+---
+
+## 29. Character/style dataset curation — 2026-10-02
+
+Character LoRA data should be audited for:
+- wrong-character images
+- duplicates
+- crop/framing distribution
+- front/side/back coverage
+- pose/expression coverage
+- outfit/background correlation
+- source domain
+- synthetic/editor artifacts
+
+Anima does not require one single caption surface; its base training used multiple caption variants per image.
+
+Do not use image count as the main quality metric.
+Use coverage of intended mutable axes.
+
+Research:
+`../research/BATCH_AK_CHARACTER_STYLE_DATASET_CURATION_20261002.md`.
+
