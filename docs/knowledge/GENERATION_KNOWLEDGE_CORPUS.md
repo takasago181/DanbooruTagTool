@@ -1372,3 +1372,21 @@ Identity metrics are screening signals; feature-level review remains required.
 Detail:
 `research/BATCH_AN_CHARACTER_IDENTITY_CORE_EVALUATION_20261002.md`.
 
+---
+
+## 16.6 Base-family effects on personalization — 2026-10-02
+
+The same dataset can yield different identity/style/editability tradeoffs across model families.
+
+Cross-family LoRA research should retrain the adapter on each valid base rather than infer behavior from cross-loading one LoRA.
+
+Current community evidence suggests:
+- Illustrious can readily absorb source style with character;
+- Anima can strongly learn character/outfit while source-style capture may differ;
+- Noob V-Pred style training can exhibit global palette leakage in small-data cases.
+
+These remain scoped observations, not family rankings.
+
+Detail:
+`research/BATCH_AO_ILL_NOOB_CHARACTER_STYLE_TRAINING_20261002.md`.
+
