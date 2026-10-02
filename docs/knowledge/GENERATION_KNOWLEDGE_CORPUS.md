@@ -1430,3 +1430,20 @@ Evaluation must include:
 Research:
 `research/BATCH_AK_PERSONALIZATION_DISENTANGLEMENT_DATASET_20261002.md`.
 
+## 16.3 Reproduction method selection
+
+LoRA is one lane, not the default.
+
+Choose among:
+- native model knowledge
+- reference conditioning
+- trained character adapter
+- trained style adapter
+- shared-attention sequence consistency
+- regional/control hybrids
+
+according to reuse horizon, training budget, identity/style target and multi-subject complexity.
+
+Research:
+`research/BATCH_AL_REFERENCE_ADAPTER_VS_LORA_20261002.md`.
+
