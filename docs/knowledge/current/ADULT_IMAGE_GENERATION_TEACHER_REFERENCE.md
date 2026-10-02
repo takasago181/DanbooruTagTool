@@ -475,3 +475,44 @@ Ask:
 
 Do not prescribe more training to fix a dataset entanglement problem.
 
+
+
+---
+
+## 23. 日本語診断正本とPrompt打ち切り基準
+
+実際の授業・デバッグでは、まず次を使う:
+
+`ADULT_IMAGE_GENERATION_DECISION_TREE.md`
+
+標準gate:
+
+- concept単体成功
+- minimal Prompt済み
+- conciseな別表現1系統済み
+- 固定4 seed中3以上で同じprimary structural failure
+
+ここまで揃ったら、同じ意味のPromptを書き直し続けず、
+failure classに対応するRegional / reference / pose / depth / inpaintへ進む。
+
+この3/4はproject teaching heuristicであり、
+Prompt-only不可能の科学的証明ではない。
+
+### NoobAI EPS adult注意
+
+公式推奨例は `safe` positive / `nsfw` Negative。
+成人向けtestではsafety/rating conditioningをEvidence Identityへ含める。
+
+### Anima adult注意
+
+公式はtags/NL/mixed promptとsafety tagsを説明しているが、
+hard relation bindingのreliability benchmarkではない。
+
+recent communityでは、
+single identity成功 -> pair attribute swap、
+Regional separation -> overlap/coherence悪化
+の両方が報告されている。
+
+したがって先生役は、
+`identity -> coexistence -> interaction -> regional`
+の順で試験する。
