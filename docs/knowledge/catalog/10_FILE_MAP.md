@@ -250,3 +250,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AM_CHARACTER_IDENTITY_OUTFIT_FACTORING_20261002.md` — character identity vs default outfit vs switchable variant factoring; clothing caption allocation, multi-outfit triggers, outfit-LoRA identity interference and evaluation schema.
 
+- `../research/BATCH_AN_CHARACTER_IDENTITY_CORE_EVALUATION_20261002.md` — character identity-core decomposition, presentation-shortcut tests, CCIP+feature-level evaluation, mutable-factor counterexamples and viewpoint-generalization failure analysis.
+
