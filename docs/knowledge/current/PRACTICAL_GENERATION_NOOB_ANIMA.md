@@ -1051,3 +1051,27 @@ Record every switch fraction and scheduled resource.
 Research:
 `../research/BATCH_AR_STAGED_CONDITIONING_AND_LEARNING_20261002.md`.
 
+---
+
+## 37. LoRA training evaluation — 2026-10-02
+
+Do not choose a LoRA checkpoint from loss alone.
+
+Save intermediate checkpoints and evaluate all of them with the same:
+- prompt suite
+- seed set
+- sampler/CFG/steps
+- resolution
+- adapter weight
+
+Character test:
+trigger / unseen pose / outfit / background / alternate style / no-trigger leakage.
+
+Style test:
+training-like / unseen subject / unusual content / no-trigger leakage / character-LoRA combination.
+
+Absolute step counts are meaningless without dataset/repeats/batch/trainer context.
+
+Research:
+`../research/BATCH_AS_LORA_TRAINING_EVALUATION_METHOD_20261002.md`.
+
