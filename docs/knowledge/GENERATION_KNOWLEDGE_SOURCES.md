@@ -337,3 +337,130 @@ These are intentionally not treated as complete Special ground truth.
 - A downstream fine-tune or different prediction regime is not interchangeable with its base model.
 - A Japanese/Chinese/Korean practical article may be more useful than generic English community advice when it gives exact model/settings/seed, but it still does not outrank exact author evidence.
 - When two credible sources conflict, record the conflict and move the material conclusion to HOLD until the scope/version difference is resolved.
+
+---
+
+## 2026-10-02 public community evidence harvest
+
+These sources are intentionally lower authority than exact author/runtime documentation. They are retained because they publish useful A/B structure, sample counts, failure cases, or multilingual practical experience.
+
+**S-COMM-001 — Anima two-character leakage, 16-image A/B**
+- URL: https://note.com/stray_dog0012/n/n74ad8ac4582f
+- Language: Japanese
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: Anima multi-character attribute leakage
+- Value: separates flat tags vs natural-language grouping and tests the claimed left-side separator independently.
+- Limitation: small sample and community setup; exact project checkpoint is not pinned.
+
+**S-COMM-002 — Anima Prompt surface, 256-image comparison**
+- URL: https://note.com/tasty_cougar8018/n/na0979098fa50
+- Language: Japanese
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: Anima Aesthetic v1.1 tags vs natural language vs mixed vs tag+supplement.
+- Value: unusually large public comparison with fixed setup and scene-type breakdown.
+- Limitation: human scoring / one profile and workflow.
+
+**S-COMM-003 — Anima sampler/CFG, 21-image comparison**
+- URL: https://note.com/stray_dog0012/n/n949c921640f8
+- Language: Japanese
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: sampler/CFG visual response
+- Value: attempts measured line/detail differences rather than pure preference.
+- Limitation: metrics are local and not a universal quality score.
+
+**S-COMM-004 — Anima one-tag uniform behavior, 194 images**
+- URL: https://note.com/tasty_cougar8018/n/nfc1d6a8cf973
+- Language: Japanese
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: garment/uniform tag generation behavior
+- Value: direct evidence that canonical semantic scope and learned visual effect differ; includes a rerun after discovering prompt-context confounding.
+- Limitation: exact profile and style context matter.
+
+**S-COMM-005 — Anima fisheye/perspective, 30-image controlled test**
+- URL: https://note.com/tasty_cougar8018/n/n8264b41bc5fa
+- Language: Japanese
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: existing tags vs descriptive perspective wording
+- Value: author documents an initial confounded result and reruns after removing the overlap.
+- Limitation: one profile / five scenes.
+
+**S-COMM-006 — WAI-Anima Negative Prompt same-seed pairs**
+- URL: https://note.com/ai_on_desk/n/nfa078139f8c6
+- Language: Japanese
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: targeted Negative additions / absent-target side effects
+- Value: same-seed pair design; directly useful for failure diagnosis.
+- Limitation: WAI-Anima v1.0 derivative; does not close official Anima/WAI/Noob Negative HOLDs.
+
+**S-COMM-007 — WAI-Anima multi-character LoRA failure decomposition**
+- URL: https://note.com/kla_cla/n/n801437941d2e
+- Language: Japanese
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: two custom character LoRAs, attribute leakage vs ownership swap
+- Value: sequentially changes LoRA weights and prompt redundancy and reports 3/4 failure frequencies.
+- Limitation: the author's architectural explanation is hypothesis; only observed behavior is promoted.
+
+**S-COMM-008 — same-dataset WAI/Anima LoRA retraining**
+- URL: https://zenn.dev/ojisan_ai_lab/articles/lora-wai-anima-howto-20260722
+- Language: Japanese
+- Class: `PRACTICAL / COMMUNITY`
+- Scope: 64-image shared source dataset, WAI vs Anima training
+- Value: documents earlier style-entanglement failure and revised caption/dataset design.
+- Limitation: one project; training throughput/VRAM values are environment-specific.
+
+**S-COMM-009 — Anima LoRA timestep parameter experiments**
+- URL: https://note.com/kuon_noise/n/na40804c255b5
+- Language: Japanese
+- Class: `RESEARCH_LEAD / COMMUNITY`
+- Scope: timestep_sampling / sigmoid_scale / discrete_flow_shift
+- Value: directly targets Anima-specific training variables and notes a prior GUI configuration issue.
+- Limitation: exact experiment detail was not fully recoverable in the current harvest; do not promote directional conclusions yet.
+
+**S-COMM-010 — Anima upscale / USDU user report**
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1tvhmrm/what_are_your_experiences_in_upscaling_anima_with/
+- Language: English
+- Class: `PRACTICAL / COMMUNITY`
+- Scope: upscale model / denoise sensitivity
+- Value: concrete same-user thresholds and artifact descriptions useful for hypothesis design.
+- Limitation: single-user recipe; numeric denoise values are not family rules.
+
+**S-COMM-011 — Anima style-LoRA caption discussion**
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1wq972q/training_a_style_lora_for_anima_a_few_tagging/
+- Language: English
+- Class: `COMMUNITY / CURRENT_DISCUSSION`
+- Scope: style triggers, character tags, tag dropout, auto-tag cleanup
+- Value: fresh 2026-09 discussion showing current practitioner disagreement.
+- Limitation: anecdotal comments; no controlled benchmark.
+
+**S-COMM-012 — NoobAI V-Pred style LoRA tint failure**
+- URL: https://www.reddit.com/r/StableDiffusion/comments/1vbsj8k/what_am_i_doing_wrong_in_my_lora_training/
+- Language: English
+- Class: `FAILURE_REPORT / COMMUNITY`
+- Scope: 21-image V-Pred style LoRA
+- Value: concrete unwanted global tint failure for dataset/caption debugging.
+- Limitation: unresolved first-time trainer case; source-map only.
+
+**S-COMM-013 — Anima Regional Conditioning user workflow**
+- URL: https://note.com/hkmclab/n/n1526e44f4df9
+- Language: Japanese
+- Class: `PRACTICAL / COMMUNITY`
+- Scope: masked per-region Anima conditioning
+- Value: reproduces current workflow structure and documents a CFG-vs-region-boundary tradeoff in one setup.
+- Limitation: effectiveness observation is single-user; runtime project documentation wins for supported behavior.
+
+**S-COMM-014 — Anima dataset-noise/tagger discussion**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/201
+- Language: English
+- Class: `COMMUNITY / DATASET_HYPOTHESIS`
+- Scope: Danbooru-style label noise from a tagger developer's large manual-cleaning experience
+- Value: concrete noise families useful for generation/tagger failure hypotheses.
+- Limitation: does not prove exact Anima training-set composition.
+
+**S-COMM-015 — Chinese Illustrious LoRA cross-derivative practice**
+- URL: https://www.bilibili.com/opus/1181478497372078082
+- Language: Chinese
+- Class: `PRACTICAL / COMMUNITY`
+- Scope: Illustrious-trained LoRA tested across derivatives / NoobAI
+- Value: ecosystem evidence that loadable cross-derivative use often requires weight/CFG adjustment.
+- Limitation: compatibility is not guaranteed and is not promoted as a family fact.
+
