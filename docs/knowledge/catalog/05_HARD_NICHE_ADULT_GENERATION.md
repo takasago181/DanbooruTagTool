@@ -321,3 +321,25 @@ For hard relation training, vary role/position/context independently where possi
 Research:
 `../research/BATCH_AA_MULTI_SUBJECT_LORA_DATASET_DESIGN_20261002.md`.
 
+---
+
+## Negative prior / toolchain escalation — 2026-10-02
+
+Do not collapse all unwanted-content failures into “Negative too weak”.
+
+Separate:
+- ordinary Negative response;
+- positive artist/concept prior;
+- LoRA context contamination;
+- NegPiP-assisted suppression;
+- edit/postprocess cleanup.
+
+Current Anima/Forge research notes:
+- persistent censor/watermark-like artifacts can be tied to positive learned priors;
+- the archived Haoming02 Forge NegPiP path documents Anima support;
+- NegPiP success is assisted conditioning, not ordinary Negative success;
+- TrainTrain currently supports Anima training through Forge Neo, with tool-specific architecture constraints.
+
+Research:
+`../research/BATCH_AB_NEGATIVE_PRIOR_AND_TRAINING_TOOLCHAIN_20261002.md`.
+
