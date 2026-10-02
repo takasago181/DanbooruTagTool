@@ -464,3 +464,51 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Value: ecosystem evidence that loadable cross-derivative use often requires weight/CFG adjustment.
 - Limitation: compatibility is not guaranteed and is not promoted as a family fact.
 
+**S-COMM-016 — Anima 108-style same-seed study**
+- URL: https://note.com/ai_0049/n/n74ccab5370e0
+- Language: Japanese
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: 108 style phrases under fixed seed/minimal prompt.
+- Value: separates output-change magnitude from actual style fidelity and catalogs spillover into pose/clothing/background.
+- Limitation: visual/manual scoring and one base setup.
+
+**S-COMM-017 — Anima Base 5–40 step sweep**
+- URL: https://note.com/nobrain/n/ncc77e7c3452b
+- Language: Japanese
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: Anima Base v1.0 er_sde/simple/CFG4 fixed-seed step sweep.
+- Value: concrete time/VRAM/convergence observation.
+- Limitation: one seed / one simple scene / one GPU.
+
+**S-COMM-018 — Anima composition tags vs prose**
+- URL: https://note.com/tasty_cougar8018/n/n713f5a8c1218
+- Language: Japanese
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: framing/visibility.
+- Value: direct example of face-closeup tags outperforming prose and of feet/ground context defeating close-up.
+- Limitation: derivative checkpoint / small condition set.
+
+**S-COMM-019 — Illustrious habits imported into WAI-Anima**
+- URL: https://note.com/ai_on_desk/n/n72f6f4e58dfe
+- Language: Japanese
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: quality/Negative/CFG/underscore/weight/BREAK.
+- Value: one-variable same-seed comparisons with reported pixel-difference measurements.
+- Limitation: WAI-Anima v1.0 + ComfyUI 0.34.0; implementation-cause claims require code verification.
+
+**S-COMM-020 — WAI-Anima multi-character grouping, 48 images**
+- URL: https://note.com/ai_on_desk/n/n462ad57df450
+- Language: Japanese
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: tags-only positional/name/relative/depth grouping vs per-subject English sentences.
+- Value: published success/failure counts across seeds and orientations plus 3-character extension.
+- Limitation: visual scoring / one derivative.
+
+**S-COMM-021 — WAI-Anima quality/meta and face-prior test**
+- URL: https://note.com/ai_on_desk/n/na0edcfbebe28
+- Language: Japanese
+- Class: `CONTROLLED_PRACTICAL / COMMUNITY`
+- Scope: quality tags / safe / explicit face descriptors.
+- Value: same-seed one-variable comparison.
+- Limitation: small condition count; broad causal interpretation not accepted.
+
