@@ -757,3 +757,34 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Class: `COMMUNITY / PRACTICAL`
 - Value: reports of tag-first vs long-NL anatomy/framing tradeoffs relevant to complex adult relation scenes.
 
+**S-RESEARCH-005 — T2I-CompBench**
+- URL: https://arxiv.org/abs/2307.06350
+- Class: `RESEARCH`
+- Scope: attribute binding / spatial / non-spatial / complex composition.
+- Value: supports predicate-level separation of presence, binding and relation.
+
+**S-RESEARCH-006 — CompAlign / CompQuest**
+- URL: https://arxiv.org/abs/2505.11178
+- Class: `RESEARCH`
+- Scope: 3+ subject numeracy / 3D relation / attribute-binding evaluation.
+- Value: atomic sub-question evaluation for complex generation.
+
+**S-RESEARCH-007 — T2I-FineEval**
+- URL: https://arxiv.org/abs/2503.11481
+- Class: `RESEARCH`
+- Scope: fine-grained compositional evaluation.
+- Value: aggregate similarity metrics can hide relation/binding failures.
+
+**S-TOOL-004 — ComfyUI LoRA/model masking and scheduling**
+- URL: https://blog.comfy.org/p/masking-and-scheduling-lora-and-model-weights
+- Class: `OFFICIAL_RUNTIME`
+- Scope: spatial LoRA masking and denoising-step scheduling.
+- Value: independent spatial/time control axes for adapter interference experiments.
+
+**S-TOOL-005 — FreeFuse**
+- URL: https://github.com/yaoliliu/FreeFuse
+- Class: `RESEARCH_TOOL`
+- Scope: training-free multi-subject LoRA routing.
+- Value: spatial adapter routing as a multi-LoRA contamination mitigation hypothesis.
+- Limitation: do not assume Anima support from current public implementation.
+
