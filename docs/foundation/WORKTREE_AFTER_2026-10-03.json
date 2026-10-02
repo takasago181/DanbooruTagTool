@@ -1,6 +1,6 @@
 {
   "schema": "workspace-health-v1",
-  "utc": "2026-10-02T23:12:02.245210+00:00",
+  "utc": "2026-10-02T23:30:51.171718+00:00",
   "main": "0d76ee2d6df2af6831f88dbfc56436b7bc7daf66",
   "worktrees": [
     {
@@ -9,11 +9,13 @@
       "branch": "refs/heads/codex/issue91-structural-hardening",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "origin/codex/issue91-structural-hardening",
       "ahead_behind": "0\t0",
       "unique_vs_main": 0,
       "head_date": "2026-09-16T00:03:32+09:00",
+      "clean": true,
+      "retirement_candidate": true,
       "ignored_count": 27228,
       "ignored_classes": {
         "C build/publish/recovery": 8335,
@@ -384,8 +386,6 @@
         "uia161-same.log": 1,
         "uia161-same.log.err": 1
       },
-      "clean": true,
-      "retirement_candidate": true,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -396,16 +396,16 @@
       "branch": "refs/heads/ops/issue117-local-runtime-preflight",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "origin/ops/issue117-local-runtime-preflight",
       "ahead_behind": "0\t0",
       "unique_vs_main": 7,
       "head_date": "2026-09-18T16:07:56+09:00",
+      "clean": true,
+      "retirement_candidate": false,
       "ignored_count": 0,
       "ignored_classes": {},
       "ignored_top_directories": {},
-      "clean": true,
-      "retirement_candidate": false,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -416,11 +416,13 @@
       "branch": "refs/heads/audit/issue132-final-reconcile-1",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "",
       "ahead_behind": null,
       "unique_vs_main": 1095,
       "head_date": "2026-09-27T14:35:32+09:00",
+      "clean": true,
+      "retirement_candidate": false,
       "ignored_count": 3,
       "ignored_classes": {
         "H research/generated data": 1,
@@ -430,8 +432,6 @@
         "docs": 1,
         "scripts": 2
       },
-      "clean": true,
-      "retirement_candidate": false,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -442,16 +442,16 @@
       "branch": "refs/heads/audit/issue132-final-reconcile-0",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "",
       "ahead_behind": null,
       "unique_vs_main": 1096,
       "head_date": "2026-09-27T15:12:04+09:00",
+      "clean": true,
+      "retirement_candidate": false,
       "ignored_count": 0,
       "ignored_classes": {},
       "ignored_top_directories": {},
-      "clean": true,
-      "retirement_candidate": false,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -462,11 +462,13 @@
       "branch": "refs/heads/audit/issue132-final-finalizer",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "",
       "ahead_behind": null,
       "unique_vs_main": 1094,
       "head_date": "2026-09-27T16:33:25+09:00",
+      "clean": true,
+      "retirement_candidate": false,
       "ignored_count": 2,
       "ignored_classes": {
         "E logs/temp/cache": 2
@@ -474,8 +476,6 @@
       "ignored_top_directories": {
         "scripts": 2
       },
-      "clean": true,
-      "retirement_candidate": false,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -486,11 +486,13 @@
       "branch": "refs/heads/audit/issue132-final-reconcile-3",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "",
       "ahead_behind": null,
       "unique_vs_main": 1095,
       "head_date": "2026-09-27T15:12:37+09:00",
+      "clean": true,
+      "retirement_candidate": false,
       "ignored_count": 2,
       "ignored_classes": {
         "E logs/temp/cache": 2
@@ -498,8 +500,6 @@
       "ignored_top_directories": {
         "scripts": 2
       },
-      "clean": true,
-      "retirement_candidate": false,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -510,11 +510,13 @@
       "branch": null,
       "detached": true,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "",
       "ahead_behind": null,
       "unique_vs_main": 0,
       "head_date": "2026-09-21T17:40:58+09:00",
+      "clean": true,
+      "retirement_candidate": true,
       "ignored_count": 854,
       "ignored_classes": {
         "E logs/temp/cache": 23,
@@ -524,8 +526,6 @@
         "scripts": 22,
         "src": 832
       },
-      "clean": true,
-      "retirement_candidate": true,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -536,11 +536,13 @@
       "branch": null,
       "detached": true,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "",
       "ahead_behind": null,
       "unique_vs_main": 0,
       "head_date": "2026-09-21T15:32:31+09:00",
+      "clean": true,
+      "retirement_candidate": true,
       "ignored_count": 818,
       "ignored_classes": {
         "C build/publish/recovery": 817,
@@ -549,8 +551,6 @@
       "ignored_top_directories": {
         "src": 818
       },
-      "clean": true,
-      "retirement_candidate": true,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -561,11 +561,13 @@
       "branch": "refs/heads/research/issue180-legacy-salvage",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "origin/research/issue180-legacy-salvage",
       "ahead_behind": "0\t0",
       "unique_vs_main": 1,
       "head_date": "2026-09-26T19:25:40+09:00",
+      "clean": true,
+      "retirement_candidate": false,
       "ignored_count": 621,
       "ignored_classes": {
         "F test output": 6,
@@ -579,8 +581,6 @@
         "scripts": 7,
         "tests": 2
       },
-      "clean": true,
-      "retirement_candidate": false,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -591,11 +591,13 @@
       "branch": "refs/heads/dev/issue223-browse-groups",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "origin/dev/issue223-browse-groups",
       "ahead_behind": "0\t0",
       "unique_vs_main": 0,
       "head_date": "2026-10-01T20:13:48+09:00",
+      "clean": true,
+      "retirement_candidate": true,
       "ignored_count": 882,
       "ignored_classes": {
         "E logs/temp/cache": 23,
@@ -607,8 +609,6 @@
         "src": 839,
         "tests": 20
       },
-      "clean": true,
-      "retirement_candidate": true,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -619,11 +619,13 @@
       "branch": null,
       "detached": true,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "",
       "ahead_behind": null,
       "unique_vs_main": 0,
       "head_date": "2026-10-01T19:18:30+09:00",
+      "clean": true,
+      "retirement_candidate": true,
       "ignored_count": 814,
       "ignored_classes": {
         "C build/publish/recovery": 814
@@ -631,8 +633,6 @@
       "ignored_top_directories": {
         "src": 814
       },
-      "clean": true,
-      "retirement_candidate": true,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -643,11 +643,13 @@
       "branch": "refs/heads/docs/issue223-production-closeout",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "origin/docs/issue223-production-closeout",
       "ahead_behind": "0\t0",
       "unique_vs_main": 0,
       "head_date": "2026-10-01T20:38:31+09:00",
+      "clean": true,
+      "retirement_candidate": true,
       "ignored_count": 814,
       "ignored_classes": {
         "C build/publish/recovery": 814
@@ -655,8 +657,6 @@
       "ignored_top_directories": {
         "src": 814
       },
-      "clean": true,
-      "retirement_candidate": true,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -667,11 +667,13 @@
       "branch": "refs/heads/dev/issue226-generation-image-library",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "origin/dev/issue226-generation-image-library",
       "ahead_behind": "0\t0",
       "unique_vs_main": 0,
       "head_date": "2026-10-01T22:09:44+09:00",
+      "clean": true,
+      "retirement_candidate": true,
       "ignored_count": 879,
       "ignored_classes": {
         "C build/publish/recovery": 879
@@ -679,8 +681,6 @@
       "ignored_top_directories": {
         "src": 879
       },
-      "clean": true,
-      "retirement_candidate": true,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -691,11 +691,13 @@
       "branch": null,
       "detached": true,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "",
       "ahead_behind": null,
       "unique_vs_main": 0,
       "head_date": "2026-10-01T22:13:13+09:00",
+      "clean": true,
+      "retirement_candidate": true,
       "ignored_count": 828,
       "ignored_classes": {
         "C build/publish/recovery": 828
@@ -703,8 +705,6 @@
       "ignored_top_directories": {
         "src": 828
       },
-      "clean": true,
-      "retirement_candidate": true,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -715,11 +715,13 @@
       "branch": "refs/heads/codex/issue228-forge-api",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "origin/codex/issue228-forge-api",
       "ahead_behind": "0\t0",
       "unique_vs_main": 0,
       "head_date": "2026-10-02T01:10:59+09:00",
+      "clean": true,
+      "retirement_candidate": true,
       "ignored_count": 846,
       "ignored_classes": {
         "C build/publish/recovery": 846
@@ -727,8 +729,6 @@
       "ignored_top_directories": {
         "src": 846
       },
-      "clean": true,
-      "retirement_candidate": true,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -739,11 +739,13 @@
       "branch": "refs/heads/codex/issue229-local-lora",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "origin/codex/issue229-local-lora",
       "ahead_behind": "0\t0",
       "unique_vs_main": 0,
       "head_date": "2026-10-02T01:47:15+09:00",
+      "clean": true,
+      "retirement_candidate": true,
       "ignored_count": 855,
       "ignored_classes": {
         "C build/publish/recovery": 855
@@ -751,8 +753,6 @@
       "ignored_top_directories": {
         "src": 855
       },
-      "clean": true,
-      "retirement_candidate": true,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -763,11 +763,13 @@
       "branch": "refs/heads/codex/issue232-prompt-intelligence",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "origin/codex/issue232-prompt-intelligence",
       "ahead_behind": "0\t0",
       "unique_vs_main": 0,
       "head_date": "2026-10-02T02:22:18+09:00",
+      "clean": true,
+      "retirement_candidate": true,
       "ignored_count": 858,
       "ignored_classes": {
         "C build/publish/recovery": 857,
@@ -776,8 +778,6 @@
       "ignored_top_directories": {
         "src": 858
       },
-      "clean": true,
-      "retirement_candidate": true,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -788,11 +788,13 @@
       "branch": "refs/heads/codex/issue245-ui-audit",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "origin/codex/issue245-ui-audit",
       "ahead_behind": "0\t0",
       "unique_vs_main": 0,
       "head_date": "2026-10-02T12:42:10+09:00",
+      "clean": true,
+      "retirement_candidate": true,
       "ignored_count": 1028,
       "ignored_classes": {
         "C build/publish/recovery": 1025,
@@ -802,8 +804,6 @@
         "scripts": 105,
         "src": 923
       },
-      "clean": true,
-      "retirement_candidate": true,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -814,11 +814,13 @@
       "branch": null,
       "detached": true,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "",
       "ahead_behind": null,
       "unique_vs_main": 0,
       "head_date": "2026-10-02T02:34:43+09:00",
+      "clean": true,
+      "retirement_candidate": true,
       "ignored_count": 295,
       "ignored_classes": {
         "C build/publish/recovery": 295
@@ -826,8 +828,6 @@
       "ignored_top_directories": {
         "src": 295
       },
-      "clean": true,
-      "retirement_candidate": true,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -838,11 +838,13 @@
       "branch": "refs/heads/codex/issue245-lkg-closeout",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "origin/codex/issue245-lkg-closeout",
       "ahead_behind": "1\t0",
       "unique_vs_main": 0,
       "head_date": "2026-10-03T07:24:41+09:00",
+      "clean": true,
+      "retirement_candidate": true,
       "ignored_count": 875,
       "ignored_classes": {
         "C build/publish/recovery": 875
@@ -850,8 +852,6 @@
       "ignored_top_directories": {
         "src": 875
       },
-      "clean": true,
-      "retirement_candidate": true,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -862,11 +862,13 @@
       "branch": "refs/heads/maint/github-authority-sync-20260916",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "origin/maint/github-authority-sync-20260916",
       "ahead_behind": "0\t0",
       "unique_vs_main": 6,
       "head_date": "2026-09-16T19:43:54+09:00",
+      "clean": true,
+      "retirement_candidate": false,
       "ignored_count": 295,
       "ignored_classes": {
         "F test output": 6,
@@ -879,8 +881,6 @@
         "src": 287,
         "tests": 1
       },
-      "clean": true,
-      "retirement_candidate": false,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -891,11 +891,13 @@
       "branch": "refs/heads/audit/runtime-performance-post131",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "origin/audit/runtime-performance-post131",
       "ahead_behind": "0\t0",
       "unique_vs_main": 1,
       "head_date": "2026-09-20T09:53:21+09:00",
+      "clean": true,
+      "retirement_candidate": false,
       "ignored_count": 811,
       "ignored_classes": {
         "J other/review": 2,
@@ -905,29 +907,25 @@
         "docs": 2,
         "src": 809
       },
-      "clean": true,
-      "retirement_candidate": false,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
     },
     {
       "path": "C:/Codex/DanbooruTagTool/.worktrees/foundation-batch-a",
-      "head": "0d76ee2d6df2af6831f88dbfc56436b7bc7daf66",
+      "head": "77899c9a5f4de22d4f5a4a8fba89bcd15eee3e43",
       "branch": "refs/heads/foundation/batch-a",
       "detached": false,
       "classes": {
-        "J other/review": 5,
-        "A source/tooling": 30,
-        "D runtime": 1,
-        "E logs/temp/cache": 36,
-        "H research/generated data": 7
+        "J other/review": 9
       },
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 1,
       "tracking": "origin/main",
-      "ahead_behind": "0\t0",
-      "unique_vs_main": 0,
-      "head_date": "2026-10-03T07:38:26+09:00",
+      "ahead_behind": "2\t0",
+      "unique_vs_main": 2,
+      "head_date": "2026-10-03T08:23:59+09:00",
+      "clean": false,
+      "retirement_candidate": false,
       "ignored_count": 391,
       "ignored_classes": {
         "J other/review": 7,
@@ -938,11 +936,9 @@
         ".local": 9,
         "src": 382
       },
-      "clean": false,
-      "retirement_candidate": false,
       "staged_count": 0,
-      "unstaged_count": 38,
-      "untracked_count": 41
+      "unstaged_count": 6,
+      "untracked_count": 3
     },
     {
       "path": "C:/Codex/DanbooruTagTool/.worktrees/issue109-b2",
@@ -950,11 +946,13 @@
       "branch": "refs/heads/audit/issue109-special-reverse-audit",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "origin/audit/issue109-special-reverse-audit",
       "ahead_behind": "0\t0",
       "unique_vs_main": 13,
       "head_date": "2026-09-16T17:34:54+09:00",
+      "clean": true,
+      "retirement_candidate": false,
       "ignored_count": 1,
       "ignored_classes": {
         "E logs/temp/cache": 1
@@ -962,8 +960,6 @@
       "ignored_top_directories": {
         "scripts": 1
       },
-      "clean": true,
-      "retirement_candidate": false,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -974,11 +970,13 @@
       "branch": "refs/heads/audit/issue94-special-gap-audit",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "origin/audit/issue94-special-gap-audit",
       "ahead_behind": "0\t4",
       "unique_vs_main": 23,
       "head_date": "2026-09-16T05:42:41+09:00",
+      "clean": true,
+      "retirement_candidate": false,
       "ignored_count": 5,
       "ignored_classes": {
         "J other/review": 1,
@@ -989,8 +987,6 @@
         "artifacts": 2,
         "scripts": 3
       },
-      "clean": true,
-      "retirement_candidate": false,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -1001,16 +997,16 @@
       "branch": "refs/heads/main",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "origin/main",
       "ahead_behind": "0\t0",
       "unique_vs_main": 0,
       "head_date": "2026-10-03T07:38:26+09:00",
+      "clean": true,
+      "retirement_candidate": true,
       "ignored_count": 0,
       "ignored_classes": {},
       "ignored_top_directories": {},
-      "clean": true,
-      "retirement_candidate": true,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -1021,11 +1017,13 @@
       "branch": "refs/heads/dev/issue132-production-delta",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "origin/dev/issue132-production-delta",
       "ahead_behind": "0\t0",
       "unique_vs_main": 0,
       "head_date": "2026-09-27T18:59:06+09:00",
+      "clean": true,
+      "retirement_candidate": true,
       "ignored_count": 596,
       "ignored_classes": {
         "C build/publish/recovery": 596
@@ -1033,8 +1031,6 @@
       "ignored_top_directories": {
         "src": 596
       },
-      "clean": true,
-      "retirement_candidate": true,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -1045,16 +1041,16 @@
       "branch": null,
       "detached": true,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "",
       "ahead_behind": null,
       "unique_vs_main": 0,
       "head_date": "2026-09-28T02:22:57+09:00",
+      "clean": true,
+      "retirement_candidate": true,
       "ignored_count": 0,
       "ignored_classes": {},
       "ignored_top_directories": {},
-      "clean": true,
-      "retirement_candidate": true,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -1065,11 +1061,13 @@
       "branch": null,
       "detached": true,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "",
       "ahead_behind": null,
       "unique_vs_main": 46,
       "head_date": "2026-09-28T22:17:37+09:00",
+      "clean": true,
+      "retirement_candidate": false,
       "ignored_count": 2,
       "ignored_classes": {
         "E logs/temp/cache": 2
@@ -1077,8 +1075,6 @@
       "ignored_top_directories": {
         "scripts": 2
       },
-      "clean": true,
-      "retirement_candidate": false,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -1089,11 +1085,13 @@
       "branch": null,
       "detached": true,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "",
       "ahead_behind": null,
       "unique_vs_main": 0,
       "head_date": "2026-09-28T22:23:08+09:00",
+      "clean": true,
+      "retirement_candidate": true,
       "ignored_count": 35,
       "ignored_classes": {
         "F test output": 9,
@@ -1107,8 +1105,6 @@
         "scripts": 7,
         "tests": 10
       },
-      "clean": true,
-      "retirement_candidate": true,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -1119,11 +1115,13 @@
       "branch": null,
       "detached": true,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "",
       "ahead_behind": null,
       "unique_vs_main": 1021,
       "head_date": "2026-09-27T01:18:59+09:00",
+      "clean": true,
+      "retirement_candidate": false,
       "ignored_count": 2,
       "ignored_classes": {
         "E logs/temp/cache": 2
@@ -1131,8 +1129,6 @@
       "ignored_top_directories": {
         "scripts": 2
       },
-      "clean": true,
-      "retirement_candidate": false,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -1143,11 +1139,13 @@
       "branch": "refs/heads/audit/issue179-refresh-20261001",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "origin/audit/issue179-refresh-20261001",
       "ahead_behind": "0\t0",
       "unique_vs_main": 0,
       "head_date": "2026-10-01T19:07:28+09:00",
+      "clean": true,
+      "retirement_candidate": true,
       "ignored_count": 8807,
       "ignored_classes": {
         "F test output": 24,
@@ -1167,8 +1165,6 @@
         "src": 879,
         "tests": 37
       },
-      "clean": true,
-      "retirement_candidate": true,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -1179,13 +1175,15 @@
       "branch": "refs/heads/research/high-frequency-character-home-rescue",
       "detached": false,
       "classes": {
-        "J other/review": 65
+        "B historical/unfinished Issue work": 65
       },
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "",
       "ahead_behind": null,
       "unique_vs_main": 0,
       "head_date": "2026-09-29T23:39:49+09:00",
+      "clean": false,
+      "retirement_candidate": false,
       "ignored_count": 51,
       "ignored_classes": {
         "E logs/temp/cache": 24,
@@ -1200,8 +1198,6 @@
         "scripts": 13,
         "tests": 15
       },
-      "clean": false,
-      "retirement_candidate": false,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 65
@@ -1212,11 +1208,13 @@
       "branch": null,
       "detached": true,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "",
       "ahead_behind": null,
       "unique_vs_main": 191,
       "head_date": "2026-09-28T22:14:18+09:00",
+      "clean": true,
+      "retirement_candidate": false,
       "ignored_count": 3,
       "ignored_classes": {
         "E logs/temp/cache": 3
@@ -1224,8 +1222,6 @@
       "ignored_top_directories": {
         "scripts": 3
       },
-      "clean": true,
-      "retirement_candidate": false,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -1236,14 +1232,15 @@
       "branch": "refs/heads/codex/issue44-smartphone-textbook",
       "detached": false,
       "classes": {
-        "J other/review": 4,
-        "H research/generated data": 1
+        "B historical/unfinished Issue work": 5
       },
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "origin/codex/issue44-smartphone-textbook",
       "ahead_behind": "0\t0",
       "unique_vs_main": 1,
       "head_date": "2026-10-01T01:44:38+09:00",
+      "clean": false,
+      "retirement_candidate": false,
       "ignored_count": 1895,
       "ignored_classes": {
         "J other/review": 1895
@@ -1251,8 +1248,6 @@
       "ignored_top_directories": {
         "tmp": 1895
       },
-      "clean": false,
-      "retirement_candidate": false,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 5
@@ -1263,11 +1258,13 @@
       "branch": null,
       "detached": true,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "",
       "ahead_behind": null,
       "unique_vs_main": 76,
       "head_date": "2026-09-28T17:25:18+09:00",
+      "clean": true,
+      "retirement_candidate": false,
       "ignored_count": 2,
       "ignored_classes": {
         "E logs/temp/cache": 2
@@ -1275,8 +1272,6 @@
       "ignored_top_directories": {
         "scripts": 2
       },
-      "clean": true,
-      "retirement_candidate": false,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -1287,16 +1282,16 @@
       "branch": null,
       "detached": true,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "",
       "ahead_behind": null,
       "unique_vs_main": 0,
       "head_date": "2026-09-28T02:22:57+09:00",
+      "clean": true,
+      "retirement_candidate": true,
       "ignored_count": 0,
       "ignored_classes": {},
       "ignored_top_directories": {},
-      "clean": true,
-      "retirement_candidate": true,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -1307,11 +1302,13 @@
       "branch": "refs/heads/maint/post-211-routing-finalization",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "origin/maint/post-211-routing-finalization",
       "ahead_behind": "0\t0",
       "unique_vs_main": 0,
       "head_date": "2026-09-28T02:22:06+09:00",
+      "clean": true,
+      "retirement_candidate": true,
       "ignored_count": 1007,
       "ignored_classes": {
         "E logs/temp/cache": 2,
@@ -1323,8 +1320,6 @@
         ".audit": 37,
         "src": 970
       },
-      "clean": true,
-      "retirement_candidate": true,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -1335,11 +1330,13 @@
       "branch": null,
       "detached": true,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "",
       "ahead_behind": null,
       "unique_vs_main": 133,
       "head_date": "2026-09-28T20:44:10+09:00",
+      "clean": true,
+      "retirement_candidate": false,
       "ignored_count": 6,
       "ignored_classes": {
         "E logs/temp/cache": 6
@@ -1348,8 +1345,6 @@
         "scripts": 4,
         "tests": 2
       },
-      "clean": true,
-      "retirement_candidate": false,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -1360,11 +1355,13 @@
       "branch": "refs/heads/research/ordinary-tag-practical-retrieval-audit",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "origin/research/ordinary-tag-practical-retrieval-audit",
       "ahead_behind": "0\t0",
       "unique_vs_main": 1,
       "head_date": "2026-09-28T02:58:25+09:00",
+      "clean": true,
+      "retirement_candidate": false,
       "ignored_count": 291,
       "ignored_classes": {
         "C build/publish/recovery": 291
@@ -1372,8 +1369,6 @@
       "ignored_top_directories": {
         "src": 291
       },
-      "clean": true,
-      "retirement_candidate": false,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -1384,16 +1379,16 @@
       "branch": "refs/heads/codex/issue216-unresolved-coverage",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "origin/codex/issue216-unresolved-coverage",
       "ahead_behind": "0\t0",
       "unique_vs_main": 0,
       "head_date": "2026-09-30T01:06:50+09:00",
+      "clean": true,
+      "retirement_candidate": true,
       "ignored_count": 0,
       "ignored_classes": {},
       "ignored_top_directories": {},
-      "clean": true,
-      "retirement_candidate": true,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
@@ -1404,11 +1399,13 @@
       "branch": "refs/heads/codex/issue203-storage-runtime-guard",
       "detached": false,
       "classes": {},
-      "eol_only_unstaged": 0,
+      "eol_or_trailing_whitespace_only": 0,
       "tracking": "origin/codex/issue203-storage-runtime-guard",
       "ahead_behind": "0\t0",
       "unique_vs_main": 1,
       "head_date": "2026-09-27T23:02:47+09:00",
+      "clean": true,
+      "retirement_candidate": false,
       "ignored_count": 817,
       "ignored_classes": {
         "J other/review": 5,
@@ -1418,12 +1415,11 @@
         ".audit": 5,
         "src": 812
       },
-      "clean": true,
-      "retirement_candidate": false,
       "staged_count": 0,
       "unstaged_count": 0,
       "untracked_count": 0
     }
   ],
-  "policy": "Ignored files are protected, not garbage. Retirement candidates require ownership/recovery review; this tool never removes them."
+  "policy": "Ignored files are protected, not garbage. Retirement candidates require ownership/recovery review; this tool never removes them.",
+  "note": "Final docs checkpoint preparation; Foundation source implementation HEAD is 77899c9a, documentation changes are committed next. All other worktrees are read-only current inventory. Ignored counts retained from post-repair deep scan."
 }

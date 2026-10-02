@@ -1,0 +1,40 @@
+{
+  "clean_release_build": {
+    "result": "PASS",
+    "warnings": 0,
+    "errors": 0
+  },
+  "full_release": {
+    "pass": 368,
+    "skip": 7,
+    "fail": 0
+  },
+  "protected_discovery_opt_in": {
+    "pass": 3,
+    "skip": 0,
+    "fail": 0
+  },
+  "python_workspace_tests": {
+    "pass": 2
+  },
+  "workspace_lifecycle_fixture": {
+    "start": "PASS",
+    "dirty_refusal": "PASS",
+    "ignored_preservation": "PASS",
+    "unmerged_refusal": "PASS",
+    "merged_empty_retirement": "PASS"
+  },
+  "runtime_pipeline_contracts": "PASS",
+  "wpf_tests": 11,
+  "skipped_in_full": [
+    "DanbooruTagTool.Tests.Issue228LiveForgeTests.TwoBoundedGenerationsRoundTripAndEnterLibrary",
+    "DanbooruTagTool.Tests.Issue117NoSafeSearchRegressionTests.NoSafeSpecialSurvivesEveryRuntimeSearchBoundary",
+    "DanbooruTagTool.Tests.FoundationCatalogTests.ExportAcceptedAuthorityAfterLegacyAndInstalledParity",
+    "DanbooruTagTool.Tests.Issue199IsolatedPerformanceGateTests.FreshLiveMainBaselineVersusFacetCandidatePerformanceGate",
+    "DanbooruTagTool.Tests.Issue201PracticalScenarioTests.ProductionCatalogSupportsIntentFirstDiscoveryScenarios",
+    "DanbooruTagTool.Tests.Issue118SexualIntentV2AuthorityTests.GenerateAndValidateRuntimeCanonicalV2Authority",
+    "DanbooruTagTool.Tests.Issue118OrdinaryStagingValidationTests.StagedOrdinaryCatalogMatchesV2AuthorityAndRuntimeContracts"
+  ],
+  "local_trx_sha256": "ecae900ecc76993fdee38ae80e5e8dc39dd203c273804be1a56e75132de897d9",
+  "notes": "Three full-suite skips were subsequently enabled and passed: no-safe Special search, production intent-first scenarios, ordinary SexualIntent staging. Remaining four are live Forge generation, historical authority generation/export, and historical performance comparison (out of scope)."
+}

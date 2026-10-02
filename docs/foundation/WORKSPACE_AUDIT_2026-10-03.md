@@ -12,7 +12,7 @@ cwd points there; creating a fresh task worktree never corrected that entry.
 Initial porcelain reported **2,051 unstaged files / 0 staged**. Git's
 `--ignore-space-at-eol` diff was empty. Raw HEAD-vs-file byte inspection of **all
 tracked files** found **2,403 LF-equivalent differences, all exclusively CRLF/LF**.
-The difference in counts reflects Git's stat/index/normalization cache, not extra
+The difference in counts reflects Git's attributes/normalization and stat/index cache, not extra
 unsaved semantic changes. The read-only `-c core.autocrlf=true` diagnostic refreshed
 that cache, so the initial pre-repair machine census already showed zero tracked
 status changes. We therefore retained raw-byte evidence separately.
@@ -164,7 +164,7 @@ snapshots; concurrent owner work may change them.
 | `C:/Codex/DanbooruTagTool/.worktree-issue245-release` | `codex/issue245-lkg-closeout` / `c75a4795bd08` | `origin/codex/issue245-lkg-closeout` / `1	0` | 0 / 0 / 0 | 875 | retain protected ignored files/other chat ownership; Issue closed |
 | `C:/Codex/DanbooruTagTool/.worktree-maint-github-authority-sync-20260916` | `maint/github-authority-sync-20260916` / `b3711dfcead1` | `origin/maint/github-authority-sync-20260916` / `0	0` | 0 / 0 / 0 | 295 | retain unique history; not proven merged |
 | `C:/Codex/DanbooruTagTool/.worktree-runtime-performance-post131-20260920` | `audit/runtime-performance-post131` / `c392c86f16f5` | `origin/audit/runtime-performance-post131` / `0	0` | 0 / 0 / 0 | 811 | retain unique history; not proven merged |
-| `C:/Codex/DanbooruTagTool/.worktrees/foundation-batch-a` | `foundation/batch-a` / `0d76ee2d6df2` | `origin/main` / `0	0` | 0 / 38 / 41 | 391 | Foundation active; commit/PR review STOP |
+| `C:/Codex/DanbooruTagTool/.worktrees/foundation-batch-a` | `foundation/batch-a` / `77899c9a5f4d` | `origin/main` / `0	0` | 0 / 38 / 41 | 391 | Foundation active; commit/PR review STOP |
 | `C:/Codex/DanbooruTagTool/.worktrees/issue109-b2` | `audit/issue109-special-reverse-audit` / `ac2be96b0ac3` | `origin/audit/issue109-special-reverse-audit` / `0	0` | 0 / 0 / 0 | 1 | retain unique history; not proven merged; Issue closed |
 | `C:/Codex/DanbooruTagTool/.worktrees/issue94` | `audit/issue94-special-gap-audit` / `3d47a36374dd` | `origin/audit/issue94-special-gap-audit` / `0	4` | 0 / 0 / 0 | 5 | retain unique history; not proven merged; Issue closed |
 | `C:/Codex/DanbooruTagTool/.worktrees/main` | `main` / `0d76ee2d6df2` | `origin/main` / `0	0` | 0 / 0 / 0 | 0 | clean main entry |

@@ -1,6 +1,6 @@
 # CURRENT STATE
 
-最終更新: 2026-10-03 — #248 Foundation Audit COMPLETE / REVIEW STOP
+最終更新: 2026-10-03 — #247 P0 + Batch A IMPLEMENTED / PR REVIEW STOP
 
 ## Current status
 
@@ -15,9 +15,13 @@ Production:
 Foundation:
 - #248 COMPLETE / CLOSED
 - report: `docs/issue248/FOUNDATION_AUDIT_2026-10-03.md`
-- implementation has **not** started
+- P0 + Batch A implemented after explicit user authorization; branch `foundation/batch-a`
+- implementation checkpoint: `77899c9a`
+- report: `docs/foundation/BATCH_A_CHECKPOINT_2026-10-03.md`
+- worktree recurrence audit/remediation included by additional user instruction
+- production not applied; Batch B not started
 
-## Recommended implementation after review
+## Selected implementation / deferred scope
 
 P0:
 - archive/disable two Issue70 workflows that still write directly to main.
@@ -40,4 +44,5 @@ Skipped now:
 
 ## Review stop
 
-No child Foundation implementation should begin until the user reviews/approves the #248 disposition.
+P0 + Batch A are stopped for PR review. Do not self-merge or start Batch B/new features.
+Foundation Epic #247 remains open; installed production/LKG are unchanged.

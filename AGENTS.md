@@ -168,3 +168,19 @@ Do not turn routine work into a long compliance report when the evidence is stra
 Completed Issue-specific execution machinery belongs in Issue/history documents, not in this global operating policy.
 
 Do not restore old #132/#180/etc. worker procedures from historical text unless that Issue is explicitly reopened and its live contract requires them.
+
+## Workspace entry / lifecycle
+
+The preserved legacy root may be on an old completed branch. Do not use its branch
+as the source baseline for a new task. If the common Git directory contains
+`workspace-layout.json`, use its clean `main_entry` and `task_root`.
+On this workstation the clean main entry is
+`C:/Codex/DanbooruTagTool/.worktrees/main`; old root/data/recovery stay intact.
+Use `scripts/maintenance/workspace_health.py` for read-only diagnosis and
+`workspace_task.ps1 -Action Start -Issue N` for one primary task worktree.
+Commit/checkpoint before retirement. Finish refuses uncommitted, ignored/protected
+or unmerged content; never bypass it with force/clean/reset. Keep publish/browser/
+test-result scratch in TEMP or the configured artifact root. Known .NET bin/obj
+stay ignored until fixture/output migration is deliberately handled.
+See `docs/foundation/WORKSPACE_AUDIT_2026-10-03.md` for the completed recurrence
+audit, recovery copies and retained worktree ownership.

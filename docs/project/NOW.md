@@ -1,6 +1,6 @@
 # NOW — いま何をやっているか
 
-最終整理: 2026-10-03 JST — #248 Foundation Audit COMPLETE / REVIEW STOP
+最終整理: 2026-10-03 JST — #247 P0 + Batch A IMPLEMENTED / PR REVIEW STOP
 
 ## 現在地
 
@@ -45,6 +45,9 @@
 
 ## STOP
 
-Foundation実装はまだ開始しない。
+明示依頼されたP0 + Batch Aとworktree再発原因の修正を実装済み。
+branch: `foundation/batch-a` / implementation: `77899c9a`。
+報告: `docs/foundation/BATCH_A_CHECKPOINT_2026-10-03.md`。
+production未適用。
 
-次はユーザーが#248結果を確認してから、選定した最小構成を実装へ進める。
+PRレビュー待ちで停止。self-merge、Batch B、新機能は開始しない。
