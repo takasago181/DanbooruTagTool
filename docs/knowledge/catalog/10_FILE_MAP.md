@@ -206,3 +206,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_Q_ILL_NOOB_LORA_COMMUNITY_MAP_20261002.md` — public Illustrious/NoobAI/LoRA community map; same-dataset LoRA retraining and fixed-seed parameter evidence promoted conservatively, recipes/failure reports preserved without false promotion.
 
+- `../research/BATCH_R_ADVANCED_COMMUNITY_FAILURE_DIAGNOSTICS_20261002.md` — advanced public-user diagnostics for multi-character LoRA contamination vs binding, Anima regional conditioning practice, timestep-training leads, upscale/detailer reports and latest LoRA-caption discussions.
+
