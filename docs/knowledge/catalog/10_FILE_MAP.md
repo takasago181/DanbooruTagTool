@@ -276,3 +276,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AR_STAGED_CONDITIONING_AND_LEARNING_20261002.md` — practical staged-conditioning research: prompt/LoRA schedules, constant-baseline A/B, late quality/style injection and schedule-specific reproducibility metadata.
 
+- `../research/BATCH_AS_LORA_TRAINING_EVALUATION_METHOD_20261002.md` — practical LoRA study method: intermediate-checkpoint visual evaluation, fixed OOD prompt suites, effective training exposure, full training identity and determinism caution.
+
