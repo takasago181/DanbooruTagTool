@@ -438,3 +438,25 @@ Before giving confident guidance, verify:
 - any known HOLD/conflict relevant?
 
 If not, teach the test rather than pretending the answer is settled.
+
+---
+
+## 21. Proxy / replacement teaching pattern
+
+When the target character is not known natively or two LoRAs contaminate each other:
+
+1. create a base pair whose geometry and interaction already work;
+2. prefer a proxy with a similar silhouette/pose/large traits;
+3. replace only the proxy region;
+4. keep metadata synchronized;
+5. audit relation again after replacement.
+
+Teach four coupled controls:
+- mask size
+- base preservation
+- local adapter/prompt pressure
+- region overlap
+
+Goal:
+**minimum necessary local rewrite**, not maximum regional freedom.
+
