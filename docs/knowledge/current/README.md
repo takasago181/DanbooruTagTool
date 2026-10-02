@@ -1,97 +1,77 @@
-# KNOWLEDGE Current Management Layer
+# KNOWLEDGE current 管理層
 
-Owner: Issue #44 `KNOWLEDGE:#44`
+Owner: Issue #44 `KNOWLEDGE:#44`  
+状態: `CURRENT_MANAGEMENT_LAYER / CLAIM_REGISTRY_WINS`
 
-Status: `CLAIM_LEVEL_CURRENT_V2 / PROMPT_MERGED`
+このディレクトリは、知識班の**現在状態を管理する層**。research原本やtopic catalogの代わりではない。
 
-This directory is the **current management layer** for DanbooruTagTool KNOWLEDGE. It does not replace the topic catalog or research originals.
+## 正本の役割
 
-The separate PROMPT team/lane was retired on 2026-09-12. Prompt/generation-effectiveness knowledge is now part of KNOWLEDGE #44.
+| ファイル | 役割 | 書かないこと |
+|---|---|---|
+| `CLAIM_REGISTRY.csv` | Claim単位の現在判定 | 長い解説 |
+| `HOLD_CONFLICT_REGISTER.md` | 未解決・対立 | 解決済み知識の再掲 |
+| `VERSION_FRESHNESS_LEDGER.csv` | モデル・runtime・source鮮度 | 一般的な使い方 |
+| `KNOWLEDGE_GOVERNANCE.md` | 採用・出典・ID管理規則 | モデル別レシピ |
+| `CURRENT_QUICK_REFERENCE.md` | 30〜60秒の入口・索引 | 詳細設定・長い教材 |
+| `IMAGE_GENERATION_FOUNDATIONS_JA.md` | 生成の基礎原理 | モデル別の細かい差 |
+| `PRACTICAL_GENERATION_NOOB_ANIMA.md` | NoobAI / Animaのモデル固有実践 | 一般基礎・成人向け診断全般 |
+| `ADULT_IMAGE_GENERATION_DECISION_TREE.md` | 成人向け生成の失敗診断 | モデルカードの重複 |
+| `ADULT_IMAGE_GENERATION_TEACHING_CURRICULUM.md` | 教える順番・演習・合格条件 | 詳細な診断表 |
+| `ADULT_IMAGE_GENERATION_TEACHER_REFERENCE.md` | 先生役の進め方・参照先 | モデル設定値の再掲 |
+| `LOCAL_ADULT_WORKFLOW_PLAYBOOK_20261002.md` | 実ワークフローの型 | 一般診断の再掲 |
+| `READING_ROUTES.md` | 用途別の読む順番 | Claimの再説明 |
+| `LEGACY_MAP.md` | 旧資料の扱い | current判定 |
+| `SOURCE_ID_MIGRATION_20261002.md` | Source ID修復記録 | 新しい知識 |
+| `KNOWLEDGE_HYGIENE_AUDIT_20261002.md` | 整理監査・修復状態 | 技術正本 |
 
-## Source-of-truth roles
+## 外側の層
 
-- `CLAIM_REGISTRY.csv` — **current verdict source of truth at claim level**
-- `KNOWLEDGE_GOVERNANCE.md` — field meanings, label rules, promotion rules, authority boundaries
-- `HOLD_CONFLICT_REGISTER.md` — current unresolved/contested claims and resolution path
-- `VERSION_FRESHNESS_LEDGER.csv` — model/runtime/evaluator/source freshness and version applicability
-- `CURRENT_QUICK_REFERENCE.md` — 30–60 second overview; never overrides the Claim Registry
-- `READING_ROUTES.md` — task-specific 3–5 file restore routes
-- `ASSET_INVENTORY.md` — what knowledge exists and where
-- `LEGACY_MAP.md` — old/current evidence documents -> category + Claim IDs
-- `LABEL_MIGRATION_MAP.md` — old mixed labels -> new SOURCE_CLASS / STATUS / VALIDATION interpretation
+- `../KNOWLEDGE_CATALOG.md` と `../catalog/*.md` — topic別の読み物
+- `../GENERATION_KNOWLEDGE_CORPUS.md` — 横断的な長期統合
+- `../GENERATION_KNOWLEDGE_SOURCES.md` — Source Registry
+- `../research/*` — 詳細な根拠・実験・履歴
+- `../GENERATION_KNOWLEDGE_INDEX.md` — historical coverage index
 
-Existing layers remain:
-- `../KNOWLEDGE_CATALOG.md` + `../catalog/*.md` = readable current explanation by topic
-- `../GENERATION_KNOWLEDGE_CORPUS.md` = durable cross-topic synthesis
-- `../GENERATION_KNOWLEDGE_SOURCES.md` = source/evidence registry
-- `../research/*` = detailed evidence, limitations, audit and historical reasoning
-- `../GENERATION_KNOWLEDGE_INDEX.md` = broad historical coverage/backlog context only
+## 現在のプロダクト関係
 
-## Current product relationship
-
-Current v1 product goal is owned by main `docs/PRODUCT_GOAL_LOCK.md`:
+v1の正本はmain `docs/PRODUCT_GOAL_LOCK.md`。
 
 `理解 -> 発見 -> 選択 -> 出力`
 
-KNOWLEDGE contains two horizons:
+知識班は生成知識を管理するが、知識があるだけでproduction/UIへ自動採用しない。
 
-- **v1-supporting knowledge** — meaning/search/discovery/source authority/traceability that can support the beginner-first product without image-effectiveness claims
-- **future/advanced generation knowledge** — Prompt composition, model behavior, support/anti-support, failure diagnosis, evaluator/tool knowledge, and narrow controlled validation when justified
+## 復元順
 
-These are one knowledge system, not separate teams.
+固定日付handoffはhistorical snapshotであり、live authorityではない。
 
-## Canonical restore order
+1. main `docs/project/CURRENT_STATE.md`
+2. main `docs/project/PERMANENT_RULES.md`
+3. live Issue #44 本文・最新checkpoint
+4. main `docs/PRODUCT_GOAL_LOCK.md`
+5. このREADME
+6. `CURRENT_QUICK_REFERENCE.md`
+7. `CLAIM_REGISTRY.csv`
+8. 必要なtopic catalog
+9. HOLD / freshness
+10. researchは根拠確認が必要な時だけ
 
-固定日付handoffはhistorical snapshotであり、live復元authorityではない。
+## 更新規則
 
-1. `docs/project/CURRENT_STATE.md`
-2. `docs/project/PERMANENT_RULES.md`
-3. Issue #44 latest body/comments
-4. `docs/PRODUCT_GOAL_LOCK.md`
-5. `docs/knowledge/current/CURRENT_QUICK_REFERENCE.md`
-6. `docs/knowledge/current/CLAIM_REGISTRY.csv`
-7. relevant `docs/knowledge/catalog/*.md`
-8. `docs/knowledge/current/HOLD_CONFLICT_REGISTER.md` and `VERSION_FRESHNESS_LEDGER.csv` when uncertainty/version matters
-9. `docs/knowledge/research/*` only for evidence/provenance
-10. corpus/sources/index for broader historical context
+`research -> Source登録 -> Claim確認 -> Registry -> 必要な正本1か所だけ更新 -> HOLD/freshness -> #44 checkpoint`
 
-## Conflict rule
+**同じ現在結論を複数current文書へコピーしない。**
 
-If a current Claim Registry row conflicts with an older catalog/corpus/research statement:
-- **current verdict = `CLAIM_REGISTRY.csv`**
-- older document = evidence/history until explicitly reconciled
+## 言語規則
 
-If branch-local product wording conflicts with current main `PRODUCT_GOAL_LOCK.md`, main product authority wins.
+人間向け説明は**日本語を主、英語は補助**。
+モデル名、タグ、Prompt、Sampler名、API名など実体の識別子は原文を保持してよい。
 
-A Registry row does **not** change production behavior by itself.
+## 恒久境界
 
-## Update workflow
-
-`research -> source registration -> Claim review -> Registry update -> category explanation update -> HOLD/CONFLICT update -> version/freshness update -> narrow validation only if needed -> downstream DEV/product handoff when authorized -> Issue #44 checkpoint`
-
-Do not copy the same conclusion into every file. Each layer has one job.
-
-## Legacy PROMPT references
-
-Historical documents and current Registry metadata may still contain strings such as `PROMPT`, `PROMPT:#5`, or downstream relevance `PROMPT`.
-
-After 2026-09-12:
-- they do **not** identify an active independent team;
-- they mean historical Prompt/generation-guidance provenance or a knowledge-consumption domain;
-- new work is routed through KNOWLEDGE #44;
-- Issue #5 is historical/retired and must not be reactivated as a separate lane.
-
-A later cleanup may normalize legacy metadata labels, but label cleanup must not alter claim meaning/evidence.
-
-## Hard invariants
-
-- GitHub is source of truth; chat history is not.
-- No automatic promotion from official/author statement to project production optimum.
-- No automatic promotion from community/practical evidence to semantic truth.
-- Canonical semantics and generation effectiveness are separate.
-- Exact model/version/profile scope is part of the claim.
-- HOLD/CONFLICT/REJECTED/HISTORICAL are preserved, not hidden.
-- KNOWLEDGE may own Prompt/generation evidence but does not own product/spec adoption.
-- `data/**`, current DEV authority, #32 verdicts, and broad Stage10 production authorization remain outside this layer's independent authority.
-
-Latest organization decision: Issue #44 current body, 2026-09-12 PROMPT merge.
+- semantic truth と generation effectivenessを分ける
+- model/version/profileをClaimの一部として扱う
+- HOLDを推測で閉じない
+- research原本をcurrent authorityにしない
+- production `data/**` は別権限
+- 旧PROMPT班はhistorical。新規作業はKNOWLEDGE #44
