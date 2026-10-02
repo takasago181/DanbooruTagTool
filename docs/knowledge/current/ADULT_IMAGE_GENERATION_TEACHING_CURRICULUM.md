@@ -458,3 +458,24 @@ Advanced competence requires:
 7. `../research/BATCH_AT_TEACHING_CURRICULUM_AND_NATIVE_HOOKS_20261002.md`
 
 This file is the teaching map; Claims and focused research files remain the evidence authority.
+
+---
+
+## 19. Dataset bias exercise
+
+Take one character/style dataset and create a coverage table for:
+- rendering style
+- background
+- outfit
+- camera
+- pose
+- partner/role
+- props.
+
+Identify the most constant mutable factor.
+
+Create one validation prompt that attempts to change it.
+
+### Pass condition
+Learner can predict which factor is most likely to become welded into the LoRA and can propose a dataset/caption correction before touching optimizer settings.
+
