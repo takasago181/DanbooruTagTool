@@ -276,3 +276,29 @@ Focused historical/current files remain valid:
 
 Future research should deepen these domains rather than replacing them with safer but less useful generalities.
 
+---
+
+## Compositional evaluation/control upgrade — 2026-10-02
+
+Recent compositional T2I research supports the current hard-domain architecture:
+
+- score count separately from presence;
+- score attribute/body-site ownership separately;
+- score spatial/non-spatial relation separately;
+- treat 3+ subjects as a distinct stress class;
+- use atomic yes/no predicates instead of one holistic similarity verdict.
+
+New assisted-control axes:
+- global LoRA
+- spatially masked LoRA
+- denoising-scheduled LoRA
+- masked + scheduled LoRA
+- regional/control
+- postprocess/inpaint
+
+ComfyUI supports LoRA/model masking and scheduling natively.
+FreeFuse is retained as a research lead for spatial multi-LoRA routing; current public support does not authorize assuming Anima compatibility.
+
+Research:
+`../research/BATCH_Z_COMPOSITIONAL_EVAL_AND_CONTROL_20261002.md`.
+
