@@ -869,3 +869,23 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: V-Pred exact checkpoint identity.
 - SHA256: `ea349eeae87ca8d25ba902c93810f7ca83e5c82f920edf12f273af004ae02819`.
 
+**S-RESEARCH-008 — Whole-body pose / DWPose**
+- URLs:
+  - https://arxiv.org/abs/2007.11858
+  - https://arxiv.org/abs/2307.15880
+- Class: `RESEARCH`
+- Scope: dense body/hand/face/foot keypoint estimation.
+- Value: clarifies what pose control can encode and what semantic relation it cannot.
+
+**S-TOOL-009 — ComfyUI preprocessor workflows**
+- URL: https://blog.comfy.org/p/preprocessor-and-frame-interpolation
+- Class: `OFFICIAL_RUNTIME`
+- Scope: depth / lineart / pose / normals preprocessing.
+- Value: reusable inspected preprocessing as separate evidence stage.
+
+**S-TOOL-010 — ComfyUI masked inpaint example**
+- URL: https://docs.comfy.org/tutorials/api-nodes/openai/gpt-image-1
+- Class: `OFFICIAL_RUNTIME`
+- Scope: image + mask local editing.
+- Value: supports keeping local reconstruction separate from base generation.
+
