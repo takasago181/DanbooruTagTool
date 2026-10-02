@@ -23,6 +23,7 @@ public partial class PromptEditorView : UserControl
         SizeChanged += (_, _) =>
         {
             var compact = ActualHeight < 300;
+            PreviewHintText.Visibility = compact ? Visibility.Collapsed : Visibility.Visible;
             ViewHintText.Visibility = compact ? Visibility.Collapsed : Visibility.Visible;
             DragHintText.Visibility = compact ? Visibility.Collapsed : Visibility.Visible;
             EditorScroll.Margin = compact ? new Thickness(0) : new Thickness(0, 0, 0, 24);

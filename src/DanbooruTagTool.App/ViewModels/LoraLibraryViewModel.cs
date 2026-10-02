@@ -31,6 +31,7 @@ public sealed class LoraLibraryViewModel(PortablePaths paths, PromptWorkspace wo
     private bool favoriteOnly;
     public bool FavoriteOnly { get => favoriteOnly; set => Set(ref favoriteOnly, value); }
     public bool Busy { get => busy; private set { Set(ref busy, value); Notify(nameof(CanEdit)); } }
+    public void RefreshEditAvailability() => Notify(nameof(CanEdit));
     public bool CanEdit => !Busy && canMutate();
     public string Status { get => status; private set => Set(ref status, value); }
     public string Category { get; set; } = "Other";

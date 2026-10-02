@@ -59,13 +59,17 @@ internal static class Program
             [image, "1girl, blue_hair, smile\nNegative prompt: lowres\nSteps: 20, Sampler: Euler a, Schedule type: Karras, CFG scale: 5, Seed: 42, Size: 512x768, Model: sample, Model hash: abc"]);
         await vm.GenerationLibrary!.AddRootAsync(images); await vm.GenerationLibrary.ScanAsync();
         vm.GenerationLibrary.Selected = vm.GenerationLibrary.Images.Single();
+        var otherImage = Path.Combine(images, "fixture-seed43.png");
+        typeof(GenerationLibraryValidation).GetMethod("WriteFixture", BindingFlags.NonPublic | BindingFlags.Static)!.Invoke(null, [otherImage, "1girl, blue_hair, smile\nNegative prompt: lowres\nSteps: 20, Sampler: Euler a, Schedule type: Karras, CFG scale: 5, Seed: 43, Size: 512x768, Model: sample, Model hash: abc"]);
+        await vm.GenerationLibrary.ScanAsync();
+        vm.GenerationLibrary.Selected = vm.GenerationLibrary.Images.Single(i => i.Filename == "fixture.png");
         var models = Path.Combine(output, "Models"); Directory.CreateDirectory(models);
         var metadata = Encoding.UTF8.GetBytes("{\"__metadata__\":{\"modelspec.architecture\":\"SDXL\",\"modelspec.trigger_phrase\":\"sample_trigger\"}}");
         using (var file = File.Create(Path.Combine(models, "sample.safetensors")))
         { var header = new byte[8]; BinaryPrimitives.WriteUInt64LittleEndian(header, (ulong)metadata.Length); file.Write(header); file.Write(metadata); }
         await vm.LoraLibrary!.AddRootAsync(models); await vm.LoraLibrary.ScanAsync(); vm.LoraLibrary.Selected = vm.LoraLibrary.Assets.Single();
-        vm.LoraLibrary.Note = "Audit fixture / 日本語メモ";
-        vm.Create.Load(new(Guid.NewGuid(), "audit", "", vm.Prompt.English, vm.Negative.English, new("sample", 42, 20, "Euler a", "Karras", 5, 512, 768)), "監査fixture");
+        vm.LoraLibrary.Note = "Audit fixture / 譌･譛ｬ隱槭Γ繝｢";
+        vm.Create.Load(new(Guid.NewGuid(), "audit", "", vm.Prompt.English, vm.Negative.English, new("sample", 42, 20, "Euler a", "Karras", 5, 512, 768)), "逶｣譟ｻfixture");
         foreach (var size in new[] { (900, 560), (1280, 720), (1600, 900), (2560, 1440) })
         {
             var w = new MainWindow(vm) { Width = size.Item1, Height = size.Item2, WindowState = WindowState.Normal,
@@ -76,6 +80,20 @@ internal static class Program
                 vm.WorkspaceIndex = page.Item1; vm.CreatePageIndex = page.Item2;
                 await Task.Delay(100); w.UpdateLayout();
                 Capture(w, $"{page.Item3}-{size.Item1}x{size.Item2}", size.Item1, size.Item2);
+            }
+            vm.WorkspaceIndex = 0;
+            vm.Dictionary.OpenRelated(catalog.Resolve("fire_emblem")!); await Task.Delay(100); w.UpdateLayout();
+            vm.Dictionary.SelectBrowseGroup("fire_emblem:_three_houses"); await Task.Delay(100); w.UpdateLayout();
+            Capture(w, $"group-results-{size.Item1}x{size.Item2}", size.Item1, size.Item2);
+            vm.Dictionary.ClearRelatedBrowseCommand.Execute(null); vm.Query = "blue_hair";
+            if (size.Item1 == 1280)
+            {
+                vm.WorkspaceIndex = 2;
+                vm.GenerationLibrary.Selected = vm.GenerationLibrary.Images.Single(i => i.Filename == "fixture.png");
+                vm.GenerationLibrary.SetCompareLeft.Execute(null);
+                vm.GenerationLibrary.Selected = vm.GenerationLibrary.Images.Single(i => i.Filename == "fixture-seed43.png");
+                vm.GenerationLibrary.Compare.Execute(null); await Task.Delay(100); w.UpdateLayout();
+                Capture(w, "image-compare-1280x720", 1280, 720);
             }
             w.Close();
         }

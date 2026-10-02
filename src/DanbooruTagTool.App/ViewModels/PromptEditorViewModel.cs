@@ -44,6 +44,8 @@ public sealed class PromptEditorViewModel : Observable
     public IReadOnlyList<PromptCategoryGroup> CategoryGroups { get => categoryGroups; private set => Set(ref categoryGroups, value); }
     public PromptWorkspace Workspace => workspace;
     public string SideLabel { get; init; } = "Prompt";
+    public string CopyLabel => SideLabel + "をコピー";
+    public string RawEditLabel => SideLabel + "をRaw編集";
     public string EditorTitle => SideLabel + "編集";
     public string PreviewTitle => SideLabel + " 英語出力";
     public event Action<Guid>? ScrollToChip;

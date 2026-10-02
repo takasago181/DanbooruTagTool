@@ -51,7 +51,14 @@ public sealed class Issue245WpfTests
                 { var pos = button.TranslatePoint(new Point(), header); Assert.True(pos.X >= 0 && pos.X + button.ActualWidth <= header.ActualWidth + 1); }
                 var tabs = (TabControl)w.FindName("Workspaces");
                 Assert.Equal(new[] { "作成", "タグ探索", "ライブラリ" }, tabs.Items.Cast<TabItem>().Select(t => t.Header));
-                vm.ShellWorkspaceIndex = 0; vm.CreatePageIndex = 3; Pump(w);
+                vm.ShellWorkspaceIndex = 0; vm.CreatePageIndex = 0; Pump(w);
+                var positiveEditor = (FrameworkElement)w.FindName("PromptEditor");
+                Assert.True(Children<ScrollViewer>(positiveEditor).Single(s => s.Name == "EditorScroll").ActualHeight > 40, $"Current Positive chips must remain reachable: editor={positiveEditor.ActualHeight}; chips={Children<ScrollViewer>(positiveEditor).Single(s => s.Name == "EditorScroll").ActualHeight}; window={w.ActualHeight}");
+                Assert.True(Children<TextBox>(positiveEditor).Single(s => s.Name == "EnglishPreview").ActualHeight > 20, "Current output preview must remain reachable.");
+                Assert.Contains(Children<Button>(positiveEditor), b => b.Content as string == "Positiveをコピー");
+                vm.CreatePageIndex = 1; Pump(w);
+                Assert.Contains(Children<Button>((FrameworkElement)w.FindName("NegativeEditor")), b => b.Content as string == "NegativeをRaw編集");
+                vm.CreatePageIndex = 3; Pump(w);
                 Assert.Same(vm.LoraLibrary, Children<LoraQuickUseView>(w).Single().DataContext);
                 vm.ShellWorkspaceIndex = 2; vm.LibrarySubtypeIndex = 1; Pump(w);
                 Assert.Same(vm.LoraLibrary, ((FrameworkElement)w.FindName("LoraLibraryWorkspace")).DataContext);

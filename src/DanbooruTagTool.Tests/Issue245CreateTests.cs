@@ -92,6 +92,29 @@ public sealed class Issue245CreateTests
     }
     private sealed class FailingStore : IUserStateStore
     { public UserState? Load() => null; public void Save(UserState state) => throw new IOException("fixture disk failure"); }
+    [Theory]
+    [InlineData(false)] [InlineData(true)]
+    public async Task WorkingCreateRunsRealApiAdapterPngRoundTripAndIndexesSuccessOrFailure(bool mismatch)
+    {
+        using var d = new LibraryFixture();
+        var server = new Issue228ForgeApiTests.FakeApi(d, (path, info) =>
+            typeof(DanbooruTagTool.App.GenerationLibraryValidation).GetMethod("WriteFixture", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic)!.Invoke(null, [path, info]));
+        server.Info = "blue_hair\nNegative prompt: lowres\nSteps: 20, Sampler: Euler a, Schedule type: Karras, CFG scale: " + (mismatch ? "6" : "5") + ", Seed: 42, Size: 512x768, Model: sample, Model hash: abc";
+        var api = new ForgeGenerationApiClient(new System.Net.Http.HttpClient(server));
+        var vm = new MainViewModel(Fixtures.Catalog(), new MemoryStore(), new MemoryClipboard(), paths: new(d.Path), generationApi: api);
+        vm.Create.Load(Preset() with { Positive = "blue_hair" }, "working fixture");
+        await vm.Create.GenerateAsync();
+        Assert.Equal(1, server.Posts); Assert.Empty(vm.Presets);
+        var payload = System.Text.Json.JsonDocument.Parse(server.Payload!).RootElement;
+        Assert.Equal("blue_hair", payload.GetProperty("prompt").GetString()); Assert.Equal("lowres", payload.GetProperty("negative_prompt").GetString());
+        Assert.Equal(1, payload.GetProperty("batch_size").GetInt32()); Assert.Equal(1, payload.GetProperty("n_iter").GetInt32());
+        var store = new GenerationLibraryStore(Path.Combine(d.Path, "UserData", "generation-library.db"));
+        var image = store.Query(new(Seed: 42)).Images.Single();
+        Assert.True(File.Exists(image.NormalizedPath));
+        Assert.Equal(mismatch ? 6m : 5m, GenerationRecipe.FromMetadata(store.Metadata(image.Id)!).Cfg);
+        Assert.Equal(mismatch, vm.Forge.RecipeStatus.Contains("照合失敗"));
+        Assert.Contains(mismatch ? "error" : "idle", vm.Forge.ConnectionStatus);
+    }
     private sealed class RecordingApi : IForgeGenerationApiClient
     {
         public int Probes, Generations;

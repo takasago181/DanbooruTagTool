@@ -84,7 +84,7 @@ public class Issue228ForgeApiTests
         var result = await new ForgeGenerationApiClient(new(server)).GenerateAsync("http://localhost:7860", new("1girl, <lora:detail:0.75>", "lowres", Recipe), d.Images);
         Assert.False(result.Success); Assert.Equal(mode == "schema" ? 0 : 1, server.Posts);
     }
-    private sealed class FakeApi(LibraryFixture d) : HttpMessageHandler
+    internal sealed class FakeApi(LibraryFixture d, Action<string, string>? writeImage = null) : HttpMessageHandler
     {
         public string Info = Issue226LibraryFoundationTests.Info; public string Mode = ""; public int Posts, Calls, Options; public string? Payload;
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken ct)
@@ -103,7 +103,7 @@ public class Issue228ForgeApiTests
             {
                 Assert.Equal("/sdapi/v1/txt2img", path); Posts++; Payload = await request.Content!.ReadAsStringAsync(ct);
                 if (Mode == "http") return new(HttpStatusCode.InternalServerError);
-                var temp = Path.Combine(d.Path, "api-fixture.png"); Issue226LibraryFoundationTests.WritePng(temp, Info);
+                var temp = Path.Combine(d.Path, "api-fixture.png"); if (writeImage is null) Issue226LibraryFoundationTests.WritePng(temp, Info); else writeImage(temp, Info);
                 var encoded = Convert.ToBase64String(File.ReadAllBytes(temp)); body = new { images = Mode == "duplicate" ? new[] { encoded, encoded } : new[] { encoded }, info = "{}" };
             }
             return new(HttpStatusCode.OK) { Content = new StringContent(JsonSerializer.Serialize(body), Encoding.UTF8, "application/json") };

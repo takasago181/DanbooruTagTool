@@ -494,7 +494,7 @@
         </DataTemplate>
     </Window.Resources>
 
-    <DockPanel Margin="16">
+    <DockPanel Margin="12">
         <Border x:Name="GlobalHeader" DockPanel.Dock="Top" Style="{StaticResource HeaderCard}" Padding="12,6">
             <DockPanel>
                 <Button DockPanel.Dock="Right" Content="設定" Command="{Binding OpenForgeSettings}" Style="{StaticResource CompactButton}"/>
@@ -507,9 +507,9 @@
         <TabControl x:Name="Workspaces" SelectedIndex="{Binding ShellWorkspaceIndex}" SelectionChanged="WorkspaceChanged" Margin="0,8,0,0">
             <TabItem Header="作成" Style="{StaticResource WorkspaceTabItem}">
               <DockPanel>
-                <Border DockPanel.Dock="Bottom" Style="{StaticResource WorkSurfaceCard}" Padding="8" Margin="0,4,0,0">
+                <Border DockPanel.Dock="Bottom" Style="{StaticResource WorkSurfaceCard}" Padding="4" Margin="0,4,0,0">
                  <Grid><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="100"/><ColumnDefinition Width="68"/></Grid.ColumnDefinitions>
-                  <ScrollViewer MaxHeight="88" VerticalScrollBarVisibility="Auto"><StackPanel><TextBlock Text="{Binding Create.SourceSummary}" FontWeight="SemiBold"/><TextBlock Text="{Binding Create.ConditionsSummary}" FontSize="12"/><TextBlock Text="{Binding Create.Validation}" FontSize="12"/></StackPanel></ScrollViewer>
+                  <ScrollViewer MaxHeight="60" VerticalScrollBarVisibility="Auto"><StackPanel><TextBlock Text="{Binding Create.SourceSummary}" FontWeight="SemiBold"/><TextBlock Text="{Binding Create.ConditionsSummary}" FontSize="12"/><TextBlock Text="{Binding Create.Validation}" FontSize="12"/></StackPanel></ScrollViewer>
                   <Button x:Name="PrimaryGenerate" Grid.Column="1" Content="生成" Command="{Binding Create.Generate}" Style="{StaticResource PrimaryButton}" Margin="8,0,0,0" ToolTipService.ShowOnDisabled="True" ToolTip="現在のPositive / Negative / 表示された生成条件で1画像生成し、実画像metadataと照合します。条件不足や不一致時は失敗し、互換生成へfallbackしません。"/>
                   <Button Content="その他 ▾" Click="CreateMoreClick" Style="{StaticResource CompactButton}" Grid.Column="2" Margin="4,0,0,0" VerticalAlignment="Center">
                    <Button.ContextMenu><ContextMenu>

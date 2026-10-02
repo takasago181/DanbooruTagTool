@@ -42,7 +42,7 @@ public sealed class CreateViewModel : Observable
     public bool Changed => origin != "未保存の現在設定" &&
         (Positive != baselinePositive || Negative != baselineNegative || !TryRecipe(out var r, out _) || r != baselineRecipe);
     public string ConditionsSummary => $"Model: {Value(Model)} · Seed: {Value(Seed)} · Steps: {Value(Steps)} · {Value(Sampler)} / {Value(Scheduler)} · CFG: {Value(Cfg)} · {Value(Width)}×{Value(Height)}";
-    public string Validation => !TryRecipe(out var r, out var error) ? error : !Complete(r) ? "Model / fixed Seed / Steps / Sampler / Scheduler / CFG / Width / Heightをすべて指定してください。" : "入力OK。生成前にForge capabilityを再確認し、実画像metadataで照合します。";
+    public string Validation => !TryRecipe(out var r, out var error) ? error : !Complete(r) ? "生成条件が不足または無効です。「生成条件 / Preset」で全項目を確認してください。" : "入力OK。生成前にForge capabilityを再確認し、実画像metadataで照合します。";
     public bool CanGenerate => main.CanEditPrompt && main.Forge.RecipeExecutionAvailable && !main.PresetManagementOpen && TryRecipe(out var r, out _) && Complete(r);
     public AsyncRelayCommand Generate { get; }
     public RelayCommand LoadPreset { get; }

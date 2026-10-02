@@ -63,7 +63,7 @@ public sealed class MainViewModel : Observable
         var state = UserState.Load();
         if (state != null) Workspace.Restore(state.Prompt);
         if (state?.Negative is { } negative) NegativeWorkspace.Restore(negative);
-        var canMutate = () => !(Prompt?.DirectEditing ?? false) && !(Negative?.DirectEditing ?? false);
+        var canMutate = () => !(Prompt?.DirectEditing ?? false) && !(Negative?.DirectEditing ?? false) && !(Forge?.RecipeBusy ?? false);
         Prompt = new(runtime, Workspace, clipboard, Persist, canMutate, message => Status = message,
             chip => Dictionary?.InspectChip(chip), () => PresetsRequested?.Invoke()) { SideLabel = "Positive" };
         Negative = new(runtime, NegativeWorkspace, clipboard, Persist, canMutate, message => Status = message,
@@ -119,7 +119,12 @@ public sealed class MainViewModel : Observable
         Prompt.PropertyChanged += (_, e) => { Notify(e.PropertyName);
             if (e.PropertyName == nameof(Prompt.WorkspaceIndex)) { if (WorkspaceIndex >= 2) librarySubtypeIndex = WorkspaceIndex - 2; Notify(nameof(ShellWorkspaceIndex)); Notify(nameof(LibrarySubtypeIndex)); } if (e.PropertyName == nameof(Prompt.OutputProfile)) Intelligence.Refresh(); if (e.PropertyName == nameof(Prompt.DirectEditing)) { Negative.RefreshEditAvailability(); GenerationLibrary?.RefreshCommands(); } };
         Dictionary.PropertyChanged += (_, e) => Notify(e.PropertyName);
-        Forge.PropertyChanged += (_, e) => { Notify(e.PropertyName); Notify(nameof(CreateEditingAvailable)); };
+        Forge.PropertyChanged += (_, e) =>
+        {
+            Notify(e.PropertyName); Notify(nameof(CreateEditingAvailable));
+            if (e.PropertyName == nameof(Forge.RecipeBusy))
+            { Prompt.RefreshEditAvailability(); Negative.RefreshEditAvailability(); LoraLibrary?.RefreshEditAvailability(); GenerationLibrary?.RefreshCommands(); Notify(nameof(CanEditPrompt)); }
+        };
         PresetEditor.PropertyChanged += (_, e) => Notify(e.PropertyName);
     }
     private void OnPromptChanged() { Prompt.RefreshFromWorkspace(); Dictionary.RefreshPromptState(); GenerationLibrary?.RefreshCommands(); Intelligence.Refresh(); Persist(); }
