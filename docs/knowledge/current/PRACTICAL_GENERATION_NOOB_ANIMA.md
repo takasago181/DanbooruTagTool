@@ -1075,3 +1075,26 @@ Absolute step counts are meaningless without dataset/repeats/batch/trainer conte
 Research:
 `../research/BATCH_AS_LORA_TRAINING_EVALUATION_METHOD_20261002.md`.
 
+---
+
+## 38. Teaching-mode workflow — 2026-10-02
+
+When teaching/debugging, classify success as:
+- possibility
+- reliability
+- salvageability
+
+Do not hide a failed base generation behind a repaired final image.
+
+Teach the least invasive intervention first.
+
+For current tooling:
+- Forge Neo Anima Regional Prompter separates regional text but not Region LoRA;
+- ComfyUI core advanced hooks provide experimental LoRA hook + mask + timestep primitives.
+
+Canonical curriculum:
+`ADULT_IMAGE_GENERATION_TEACHING_CURRICULUM.md`.
+
+Research:
+`../research/BATCH_AT_TEACHING_CURRICULUM_AND_NATIVE_HOOKS_20261002.md`.
+
