@@ -1,0 +1,64 @@
+{
+  "run_date": "2026-10-02",
+  "lane": "failure-patterns",
+  "status": "BACKFILLED_AFTER_ISSUE_COMMENT_REJECTION",
+  "models_versions": [
+    "Forge Neo current",
+    "Anima current",
+    "Anima-3.8B v1.1",
+    "Regional Prompter 2026-09-04",
+    "ADetailer Neo current"
+  ],
+  "new_or_updated_count": 6,
+  "hold_count": 5,
+  "evidence_urls": [
+    "https://github.com/hako-mikan/sd-webui-regional-prompter/blob/main/README.md",
+    "https://huggingface.co/lylogummy/Anima-3.8B",
+    "https://github.com/Haoming02/ADetailer-Neo"
+  ],
+  "findings": [
+    {
+      "scope": "Regional Prompter + Anima",
+      "summary": "Latent/Attention regional control is supported but Region LoRA is not; a no-op Region LoRA must not be misdiagnosed as prompt failure.",
+      "confidence": "HIGH"
+    },
+    {
+      "scope": "Regional Prompter 2026-09-04",
+      "summary": "A prior guidance-multiplication bug on newer Forge Neo models was fixed; older results can be runtime-confounded.",
+      "confidence": "HIGH"
+    },
+    {
+      "scope": "Anima-3.8B v1.1",
+      "summary": "This release explicitly targets prompt adherence, multi-character binding, interactions, and spatial instructions; keep it a separate behavior profile.",
+      "confidence": "HIGH"
+    },
+    {
+      "scope": "ADetailer Neo",
+      "summary": "Automatic post-generation detection/inpainting is postprocess evidence, not proof that the base prompt solved anatomy or binding.",
+      "confidence": "HIGH"
+    },
+    {
+      "scope": "Multi-character diagnostics",
+      "summary": "Count, identity, attribute binding, spatial binding, and interaction binding should be evaluated separately.",
+      "confidence": "MEDIUM_HIGH"
+    },
+    {
+      "scope": "CONTROL_ASSISTED",
+      "summary": "Prompt-only and regional/control/postprocess-assisted success must stay in separate evidence lanes.",
+      "confidence": "HIGH"
+    }
+  ],
+  "holds": [
+    "Exact negative-prompt causal benefit",
+    "Exact weight thresholds",
+    "Multiple-LoRA binding reliability",
+    "Prompt-only to control-assisted escalation threshold",
+    "Cross-version Anima behavior generalization"
+  ],
+  "tool_impact": [
+    "Add runtime-confound warnings to diagnostics.",
+    "Track prompt-only vs control-assisted vs postprocess-assisted separately.",
+    "Do not infer base-model success from ADetailer or Regional Prompter outcomes."
+  ],
+  "production_modified": false
+}
