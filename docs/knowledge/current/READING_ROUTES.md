@@ -162,12 +162,7 @@ Source IDは必ず一意。
 
 正式判定では `Claim ID + STATUS + SCOPE + VALIDATION_STATE + evidence` を返す。
 
-## historical注意
+## 履歴資料の扱い
 
-次は現在の作業導線に使わない:
-- `RESEARCH_BACKLOG_20260913.md`
-- `PRACTICAL_GENERATION_READINESS_AUDIT_20260913.md`
-- `SELF_AUDIT_20260909.md`
-- `KNOWLEDGE_HANDOFF_CURRENT_20260909.md`
-
-これらは履歴確認用。
+2026-09の固定日付handoff・旧audit・旧backlogは現役導線に使わない。
+必要な場合は `LEGACY_MAP.md` から履歴として参照する。
