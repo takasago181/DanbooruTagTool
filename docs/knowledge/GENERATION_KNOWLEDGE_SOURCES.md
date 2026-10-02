@@ -2021,3 +2021,31 @@ Reused existing sources:
 - URL: https://www.w3.org/TR/png-3/
 - Class: `SEMANTIC_AUTHORITY`
 - Scope: PNG color-space signaling, ICC, sRGB, gamma, metadata.
+
+
+## 2026-10-02 — LoRA loss / timestep / dataset preprocessing
+
+**S-BG-001 — Min-SNR Diffusion Training**
+- URL: https://arxiv.org/abs/2303.09556
+- Class: `RESEARCH`
+- Scope: timestep-dependent loss weighting / convergence.
+
+**S-BG-002 — Diffusers text-to-image training**
+- URL: https://huggingface.co/docs/diffusers/training/text2image
+- Class: `OFFICIAL_RUNTIME`
+- Scope: Min-SNR implementation and general diffusion training loop.
+
+**S-BG-003 — Diffusers SDXL training**
+- URL: https://huggingface.co/docs/diffusers/v0.35.0/training/sdxl
+- Class: `OFFICIAL_RUNTIME`
+- Scope: timestep bias and Min-SNR options.
+
+**S-BG-004 — sd-scripts dataset configuration**
+- URL: https://github.com/kohya-ss/sd-scripts/blob/main/docs/config_README-ja.md
+- Class: `OFFICIAL_RUNTIME`
+- Scope: bucket, repeat, caption/tag dropout, shuffle/keep-token dataset controls.
+
+**S-BG-005 — sd-scripts dataset implementation**
+- URL: https://github.com/kohya-ss/sd-scripts/blob/main/library/dataset.py
+- Class: `OFFICIAL_RUNTIME`
+- Scope: actual caption dropout/tag processing implementation.
