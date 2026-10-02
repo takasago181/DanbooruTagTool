@@ -272,3 +272,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AP_ADULT_PRACTICAL_LEARNING_METHOD_20261002.md` — practical adult-generation study curriculum: structure-only reference analysis, stable subject IDs, fixed-seed A/B, failure journal, regional-control escalation, XY grids, and solo→joint LoRA learning progression.
 
+- `../research/BATCH_AQ_REGIONAL_LEARNING_AND_REPRODUCIBILITY_20261002.md` — Anima regional-control learning: Regional Prompter support limits, regional-text vs Region-LoRA distinction, interaction/coherence tradeoffs, directional ambiguity and metadata-preserving reproducibility.
+
