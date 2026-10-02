@@ -114,7 +114,7 @@ MainWindow closing時に補助3windowを閉じる。Library annotation flush失�
 |---|---|
 | Main | default1280×720、min900×560、startup Maximized。UiState Width/Height/Left/Top、旧height820は720へmigration。WindowState自体はUiState fieldなし |
 | Dictionary | nav300 min240、中央3* min320、右400 min360、splitter各8。nav/right幅保存、最低列幅合計936（外側margin/paddingを除く）。900で既に収まらない |
-| Prompt editor | editor3* min350 / splitter8 / preview1* min225、ratio default .75をconstructorで適用 | 
+| Prompt editor | editor3* min350 / splitter8 / preview1* min225、ratio default .75をconstructorで適用 |
 | ratio persistence | Positive Editor.EditRatioChangedのみSaveGeometryへ接続。Negativeの同eventは接続されない。保存値もPositive ratioから読むため、両側共通保存というUI説明はできない |
 | Library | 左220 / splitter6 / grid* / splitter6 / 右330。調節可能だがUiStateへの幅保存なし。左/右はvertical scroll |
 | LoRA | list* / 固定right440、splitterなし。toolbarWrapPanel、rightscroll、100件ページ |

@@ -107,7 +107,7 @@ internal static class Program
         var encoder = new PngBitmapEncoder(); encoder.Frames.Add(BitmapFrame.Create(bitmap));
         using (var f = File.Create(Path.Combine(output, name + ".png"))) encoder.Save(f);
         var tree = new List<object>(); Walk(root, root, tree);
-        File.WriteAllText(Path.Combine(output, name + ".json"), JsonSerializer.Serialize(tree, new JsonSerializerOptions { WriteIndented = true }));
+        File.WriteAllText(Path.Combine(output, name + ".json"), "[\n" + string.Join(",\n", tree.Select(row => JsonSerializer.Serialize(row))) + "\n]\n");
         renders.Add(new { Name = name, Width = width, Height = height, NativeWidth = window.ActualWidth, NativeHeight = window.ActualHeight, WindowState = window.WindowState.ToString(), Controls = tree.Count });
         root.Child = null;
         window.Content = content;
