@@ -379,3 +379,19 @@ Current 2026-09-04 runtime documentation:
 Research detail:
 `../research/BATCH_P_COMMUNITY_TAG_NEGATIVE_RUNTIME_20261002.md`.
 
+---
+
+## 17. Illustrious / NoobAI community layer — 2026-10-02
+
+Working practices from public-user evidence:
+
+- When a character LoRA copies the training set's background/style too aggressively, treat the dataset as entangled before trying to repair everything with Prompt/Negative changes.
+- Vary viewpoint, crop, pose, clothing, background and style when those attributes are supposed to remain changeable.
+- Caption mutable/context/style factors separately when the trigger should represent identity rather than the entire training-image recipe.
+- Cross-derivative LoRA loading is only a compatibility experiment; successful loading does not establish faithful concept transfer.
+- Fixed-seed step/CFG sweeps are useful for a single exact checkpoint/runtime, but user-preferred values are recipe evidence rather than model-family truth.
+- Same seed across different checkpoints is useful for visual comparison, not a controlled same-latent reliability proof.
+
+Details:
+`../research/BATCH_Q_ILL_NOOB_LORA_COMMUNITY_MAP_20261002.md`.
+
