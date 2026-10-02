@@ -282,4 +282,5 @@ Do not create a parallel genre numbering scheme.
 - `../research/BATCH_AT_TEACHING_CURRICULUM_AND_NATIVE_HOOKS_20261002.md` — teaching-method synthesis plus current ComfyUI native LoRA hook/mask/timestep primitives and recent multi-character practice.
 - `../current/ADULT_IMAGE_GENERATION_TEACHER_REFERENCE.md` — fast teacher-facing diagnostic reference: failure classes, model starting cards, intervention routing, Regional/LoRA boundaries, finishing, training and session templates.
 - `../research/BATCH_AU_REGIONAL_SAMPLER_PROXY_METHOD_20261002.md` — Impact-Pack RegionalSampler mechanics plus recent Anima native-proxy/reference method, regional replacement tradeoffs and metadata synchronization.
+- `../research/BATCH_AV_DATASET_STYLE_BIAS_AND_PREPROCESSING_20261002.md` — nuisance-style/context entanglement in LoRA datasets, auto-tagger audit, dataset-first correction and OOD validation.
 
