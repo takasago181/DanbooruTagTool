@@ -1514,3 +1514,13 @@ Sampler, prompt weight, resolution and Negative length are model-specific behavi
 Research:
 `research/BATCH_AO_PROMPT_TUNING_SAMPLER_WEIGHT_20261002.md`.
 
+## 16.7 Adult practical learning method
+
+For clearly adult/consensual generation, practical skill is built by:
+`reference decomposition -> minimal reconstruction -> multi-seed predicate scoring -> one-variable correction -> assisted escalation -> retained evidence`.
+
+Community-derived structural captioning and regional/multi-LoRA methods are retained as scoped CANDIDATE evidence; exact explicit community prompt wording is not required for durable knowledge.
+
+Research:
+`research/BATCH_AP_ADULT_PRACTICAL_LEARNING_METHOD_20261002.md`.
+
