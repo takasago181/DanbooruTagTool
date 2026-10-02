@@ -1110,3 +1110,26 @@ Use it to map:
 
 The curriculum teaches sequence; the teacher reference is the live troubleshooting sheet.
 
+---
+
+## 40. Proxy-based regional replacement — 2026-10-02
+
+For unsupported/multi-LoRA characters, an advanced route is:
+
+1. create a strong native/reference composition;
+2. use structurally similar proxy characters if necessary;
+3. regionally replace only the target identity;
+4. preserve global pose/relation when possible;
+5. re-audit contact/anatomy after replacement.
+
+Regional replacement balances:
+- mask size
+- base preservation
+- regional LoRA/prompt strength
+- boundary overlap.
+
+Do not copy one user's exact numeric recipe as universal.
+
+Research:
+`../research/BATCH_AU_REGIONAL_SAMPLER_PROXY_METHOD_20261002.md`.
+
