@@ -2,15 +2,18 @@
 param(
  [Parameter(Mandatory=$true)][string]$SourceRevision,
  [Parameter(Mandatory=$true)][string]$OutputRoot,
- [Parameter(Mandatory=$true)][string]$SourceRoot,
+ [string]$SourceRoot='',
  [Parameter(Mandatory=$true)][string]$AuthorityRoot,
  [string]$RepositoryRoot='',
+ [string]$AuthorityManifest='',
  [switch]$SkipRestore
 )
 $ErrorActionPreference='Stop'
 if(-not $RepositoryRoot){$RepositoryRoot=Split-Path -Parent (Split-Path -Parent $PSScriptRoot)}
 $RepositoryRoot=(Resolve-Path -LiteralPath $RepositoryRoot).Path
 $OutputRoot=[IO.Path]::GetFullPath($OutputRoot)
+if(-not $SourceRoot){$SourceRoot=$RepositoryRoot}
+if(-not $AuthorityManifest){$AuthorityManifest=Join-Path $AuthorityRoot 'authority/catalog/current/manifest.json'}
 $SourceRoot=(Resolve-Path -LiteralPath $SourceRoot).Path; $AuthorityRoot=(Resolve-Path -LiteralPath $AuthorityRoot).Path
 $rootPrefix=$RepositoryRoot.TrimEnd('\')+'\'
 if($OutputRoot.StartsWith($rootPrefix,[StringComparison]::OrdinalIgnoreCase)){throw 'OutputRoot must be outside the source checkout.'}
@@ -24,12 +27,6 @@ $work=Join-Path $env:TEMP ('DTT-publish-'+[guid]::NewGuid().ToString('N')); $pub
 New-Item -ItemType Directory -Path $publish,$built | Out-Null
 function Invoke-Checked([string]$exe,[string[]]$arguments){& $exe @arguments; if($LASTEXITCODE -ne 0){throw "Command failed ($LASTEXITCODE): $exe $($arguments -join ' ')"}}
 function Sha([string]$path){(Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash}
-function Invoke-CatalogBuild([string]$exe,[string[]]$arguments){
- $start=New-Object Diagnostics.ProcessStartInfo; $start.FileName=$exe; $start.WorkingDirectory=$RepositoryRoot; $start.UseShellExecute=$false
- foreach($argument in $arguments){[void]$start.ArgumentList.Add($argument)}
- $process=[Diagnostics.Process]::Start($start); $process.WaitForExit()
- if($process.ExitCode -ne 0){$errorPath=Join-Path $publish 'catalog-build-error.txt';$detail=if(Test-Path -LiteralPath $errorPath){Get-Content -LiteralPath $errorPath -Raw}else{''};throw "Catalog builder failed ($($process.ExitCode)). $detail"}
-}
 try {
  $appProject=Join-Path $RepositoryRoot 'src/DanbooruTagTool.App/DanbooruTagTool.App.csproj'
  $solution=Join-Path $RepositoryRoot 'src/DanbooruTagTool.sln'
@@ -37,11 +34,11 @@ try {
  Invoke-Checked $dotnet @('publish',$appProject,'-c','Release','-r','win-x64','--self-contained','true','--no-restore','-p:PublishSingleFile=true','-p:IncludeNativeLibrariesForSelfExtract=true','-p:PublishTrimmed=false','-p:DebugSymbols=false','-p:DebugType=None','-p:MSBuildEnableWorkloadResolver=false','-o',$publish)
  $exe=Join-Path $publish 'DanbooruTagTool.exe'; if(-not(Test-Path -LiteralPath $exe)){throw 'Publish did not create DanbooruTagTool.exe.'}
  if(@(Get-ChildItem -LiteralPath $publish -File -Filter '*.dll' -Recurse).Count -or @(Get-ChildItem -LiteralPath $publish -File -Filter '*.pdb' -Recurse).Count){throw 'Publish produced loose DLL or PDB files.'}
- Invoke-CatalogBuild $exe @('--build-catalog',$SourceRoot,$AuthorityRoot,$built)
+ Invoke-Checked $dotnet @('run','--project',(Join-Path $RepositoryRoot 'src/DanbooruTagTool.Maintenance/DanbooruTagTool.Maintenance.csproj'),'-c','Release','--no-restore','--','compile',$AuthorityManifest,$built)
  $catalog=Join-Path $built 'catalog.db'; if(-not(Test-Path -LiteralPath $catalog)){throw 'Accepted full catalog build did not produce catalog.db.'}
  $structuralRaw=& $python -B (Join-Path $RepositoryRoot 'scripts/maintenance/catalog_structural_health.py') --catalog $catalog
  if($LASTEXITCODE -ne 0){throw "Structural catalog validation failed: $structuralRaw"}; $structural=$structuralRaw | ConvertFrom-Json
- & (Join-Path $RepositoryRoot 'scripts/maintenance/validate_production_contract.ps1') -CatalogPath $catalog -SourceRoot $SourceRoot -AuthorityRoot $AuthorityRoot -ReportPath $contract -RepositoryRoot $RepositoryRoot | Out-Null
+ & (Join-Path $RepositoryRoot 'scripts/maintenance/validate_production_contract.ps1') -CatalogPath $catalog -SourceRoot $SourceRoot -AuthorityRoot $AuthorityRoot -ReportPath $contract -RepositoryRoot $RepositoryRoot -AuthorityManifest $AuthorityManifest | Out-Null
  $contractResult=Get-Content -LiteralPath $contract -Raw | ConvertFrom-Json
  if($contractResult.catalog_sha256 -ne $structural.catalog_sha256){throw 'Production contract report does not describe the structurally checked catalog.'}
  $sourceReport=Get-Content -LiteralPath (Join-Path $built 'import-report.json') -Raw | ConvertFrom-Json

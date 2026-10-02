@@ -1,0 +1,34 @@
+name: Catalog semantic authority
+on:
+  pull_request:
+    paths: ['authority/catalog/**', 'src/**', '.github/workflows/catalog_authority.yml']
+  push:
+    branches: [main]
+    paths: ['authority/catalog/**', 'src/**', '.github/workflows/catalog_authority.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-compile-regression:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Verify accepted input and compile without historical/protected sources
+        shell: pwsh
+        run: |
+          dotnet run --project src/DanbooruTagTool.Maintenance -c Release -- verify authority/catalog/current/manifest.json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          dotnet run --project src/DanbooruTagTool.Maintenance -c Release --no-build -- compile authority/catalog/current/manifest.json "${{ runner.temp }}/dtt-catalog"
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+      - name: Full regression (local/protected oracle checks remain opt-in)
+        shell: pwsh
+        run: dotnet test src/DanbooruTagTool.sln -c Release --logger "trx;LogFileName=catalog.trx" --results-directory "${{ runner.temp }}/dtt-tests"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: catalog-authority-regression
+          path: ${{ runner.temp }}/dtt-tests

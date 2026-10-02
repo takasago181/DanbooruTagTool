@@ -1,6 +1,6 @@
 # DanbooruTagTool WPF v1
 
-This directory contains the clean WPF implementation for Issue #66. The application is split into `App`, `Core`, `Data`, and `Tests` projects. `Core` contains the prompt and search rules and does not depend on WPF or SQLite. `Data` owns the SQLite boundaries and portable persistence. `App` is the WPF composition root and UI.
+This directory contains the clean WPF implementation for Issue #66. The application is split into `App`, `Core`, `Data`, `Maintenance`, and `Tests` projects. `Core` contains the prompt and search rules and does not depend on WPF or SQLite. `Data` owns the SQLite boundaries and portable persistence. `App` is the WPF composition root and UI.
 
 The checked-in solution targets .NET 10.0 (`net10.0-windows` for WPF) and is pinned to SDK `10.0.401` by `global.json`. The normal runtime path opens an existing `Data/catalog.db` and autosaves user state to `UserData/user.db`; it does not rebuild a catalog on startup.
 
@@ -16,19 +16,19 @@ dotnet test DanbooruTagTool.sln -c Release --no-build
 
 ## Explicit catalog build
 
-Catalog import is an explicit operation. It reads the existing protected source assets and writes a new SQLite catalog to the requested output directory. It does not modify the source assets and imports the accepted Issue #64 General taxonomy only during this explicit build.
+Catalog compilation is an explicit Maintenance operation. It reads only the accepted semantic snapshot and manifest under `authority/catalog/current/`, validates hashes/population/identity/classifications, and writes a new SQLite catalog to a fresh output. The command below is run from the repository root:
 
 ```powershell
-DanbooruTagTool.exe --build-catalog <repository-root> <authority-root> <output-directory>
+dotnet run --project src/DanbooruTagTool.Maintenance -c Release -- compile authority/catalog/current/manifest.json <new-empty-output-directory>
 ```
 
-The importer consumes the accepted Special/Japanese/Alias/usage assets, the hash-pinned Issue #96 and #107 promotion proposals, the current 3,059-row production Special profile, Issue #56 browse taxonomy, Issue #63 product-fit sidecar, and the hash-pinned Issue #64 production candidate files under `docs/issue64/production_candidate/`. The accepted production Special population uses stable IDs from 1..3088; the 29 Issue #109 removals remain gaps. It places only `PROPOSED` General taxonomy paths into the rebuildable catalog; the 2,403 `UNRESOLVED` rows retain an explicit status and no browse paths. Primary and accepted secondary paths share the existing `IGeneralBrowseProvider` contract. The existing #63 product-fit gate remains active. Source files and the Japanese overlay remain separate and unchanged.
+The snapshot preserves every accepted domain field, stable Special ID, Japanese/English/mixed discovery, SexualIntent, Unified route/facet and HOME/group. Production code no longer imports historical Issue overlays or generation-profile membership. The old build remains test-only for parity and provenance; see [catalog authority](../docs/foundation/CATALOG_AUTHORITY.md).
 
-The taxonomy is loaded only by the explicit `--build-catalog` operation. Normal application startup reads the resulting `Data/catalog.db` and selects the General browse provider from catalog metadata; it does not re-read CSV/JSON sources or rebuild indexes.
+Normal WPF startup opens only `Data/catalog.db`. It never compiles authority or owns build sequencing.
 
 ## Portable publish
 
-`scripts/maintenance/publish_portable_runtime.ps1` is the canonical publisher. `publish-portable.ps1` is a compatibility wrapper. The pipeline requires an explicit clean source revision, protected source and authority roots, builds and validates a full catalog, and publishes a self-contained single-file Windows x64 runtime into a fresh output folder. Candidate `UserData` contains only disposable data; real UserData is never a publish input. See `docs/maintenance/PORTABLE_RUNTIME_PIPELINE.md` for the candidate, manifest, runtime-shape, promotion, and rollback sequence.
+`scripts/maintenance/publish_portable_runtime.ps1` is the canonical publisher. `publish-portable.ps1` is a compatibility wrapper. The pipeline requires an explicit clean source revision, the accepted semantic authority manifest (`SourceRoot` is now optional compatibility input), builds and validates a full catalog, and publishes a self-contained single-file Windows x64 runtime into a fresh output folder. Candidate `UserData` contains only disposable data; real UserData is never a publish input. See `docs/maintenance/PORTABLE_RUNTIME_PIPELINE.md` for the candidate, manifest, runtime-shape, promotion, and rollback sequence.
 
 ```powershell
 ../scripts/maintenance/publish_portable_runtime.ps1 `

@@ -1,3 +1,4 @@
+using System.IO;
 namespace DanbooruTagTool.Data;
 
 // Accepted #56 evidence from main dad9d24551cb08f573507101221b934442339ecf (PR #62).

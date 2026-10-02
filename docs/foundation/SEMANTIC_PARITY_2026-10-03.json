@@ -1,0 +1,11 @@
+{
+  "same_ordinal_id_canonical_all_fields": true,
+  "rows": 124895,
+  "special_ids": 3059,
+  "ordered_payload_sha256": "54cea0843eb79f61c936d0598c420a8727c0a52c69f3f86c267ba25f1505979a",
+  "home_backing_rows": 32942,
+  "group_keys": 64,
+  "installed_catalog_sha256": "d91a68186661127f16e2ae102b4dd9f3a96eae578b3c989a8b4f17169639fc6f",
+  "new_catalog_sha256": "3e05d22055acd683f5dc6625e77baf9c06b61f4d3daef9b8851cd36569377a92",
+  "notes": "SQLite metadata/source provenance changes by design. Every accepted runtime payload is unchanged."
+}

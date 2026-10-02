@@ -1,3 +1,4 @@
+using System.IO;
 namespace DanbooruTagTool.Data;
 
 public static class CatalogOutputGuard
