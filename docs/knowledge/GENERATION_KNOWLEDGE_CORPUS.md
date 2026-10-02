@@ -1413,3 +1413,20 @@ Adapter algorithm/rank/alpha are optimization variables, not monotonic quality s
 Research:
 `research/BATCH_AJ_CHARACTER_STYLE_EVALUATION_AND_LYCORIS_20261002.md`.
 
+## 16.2 Personalization dataset disentanglement
+
+Character/style dataset design is treated as editable-factor design.
+
+Key split:
+- identity/style factors intentionally learned
+- factors intended to remain controllable
+- incidental context that must not be silently constant
+
+Evaluation must include:
+- target fidelity
+- alteration/generalization
+- concept-agnostic leakage/base preservation
+
+Research:
+`research/BATCH_AK_PERSONALIZATION_DISENTANGLEMENT_DATASET_20261002.md`.
+
