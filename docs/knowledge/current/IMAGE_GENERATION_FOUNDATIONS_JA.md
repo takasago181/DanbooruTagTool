@@ -1,398 +1,277 @@
 # 画像生成 基礎教科書 — 2026-10-02
 
 Owner: Issue #44 `KNOWLEDGE:#44`  
-Status: `CURRENT_FOUNDATION_GUIDE / CLAIM_REGISTRY_WINS`
+役割: モデル別レシピより前に理解する**共通の基礎原理**  
+現在判定: `CLAIM_REGISTRY.csv`
 
-この文書は、NoobAI / Anima / Illustrious等の具体的レシピより前に理解する共通知識。
+## 表記ルール
 
-## この教科書の表記ルール
-
-**説明は日本語を主にする。**
-英語は、実際のUI名・モデル名・技術用語を照合できるように括弧で補助する。
+説明は日本語を主にし、実際のUIや資料と照合しやすいように英語原語を括弧で補助する。
 
 例:
 - 潜在表現（latent）
 - 条件付け（conditioning）
 - ノイズ除去（denoising）
 - 文章エンコーダー（Text Encoder）
-- サンプラー（Sampler）
-- スケジューラ（Scheduler）
 
-英語の名称を並べるだけで説明を終えない。
+## 1. 画像ができるまで
 
----
+大まかな流れ:
 
-# 1. まず1本の図
-
-`プロンプト（Prompt）`
-→ `文字をトークンへ分ける（Tokenizer）`
-→ `文章を数値表現へ変える（Text Encoder）`
-→ `生成条件（Conditioning）`
+`プロンプト（Prompt）`  
+→ `文字を分割するトークナイザー（Tokenizer）`  
+→ `文章を数値表現へ変える文章エンコーダー（Text Encoder）`  
+→ `生成条件（conditioning）`
 
 同時に:
 
-`シード（Seed）`
-→ `初期ノイズ / 潜在表現（Random Noise / Latent）`
+`シード（seed）`  
+→ `初期ノイズ / 潜在表現（latent）`
 
 そして:
 
-`生成条件 + ノイズを含む潜在表現`
-→ `UNet / DiT が各ステップで修正方向を予測`
-→ `サンプラー / スケジューラが次の状態を計算`
-→ `繰り返す`
-→ `完成した潜在表現`
-→ `VAEで画像へ復号`
-→ `画像`
+`生成条件 + ノイズを含む潜在表現`  
+→ `UNet / DiTが各ステップで修正方向を予測`  
+→ `サンプラー / スケジューラが次の状態を計算`  
+→ `反復`  
+→ `完成した潜在表現`  
+→ `VAEが画像へ復号`  
+→ `完成画像`
 
-この図を基準にすると設定の意味が整理しやすい。
+モデルfamilyによって内部構成は違うが、設定項目を考える時の土台として使える。
 
----
+## 2. 最低限の用語
 
-# 2. 用語を一言で
-
-| 用語 | 一言 |
+| 用語 | 役割 |
 |---|---|
-| プロンプト（Prompt） | 作りたい内容をモデルへ伝える条件 |
+| プロンプト（Prompt） | 作りたい内容をモデルへ伝える |
 | トークナイザー（Tokenizer） | 文字列をモデルが扱う単位へ分ける |
-| 文章エンコーダー（Text Encoder） | トークンを生成モデルが使える数値表現へ変える |
-| 条件付け（Conditioning） | ノイズ除去の方向を誘導する条件情報 |
-| シード（Seed） | 擬似乱数生成器の初期値 |
-| ノイズ（Noise） | 生成開始点などで使うランダムな数値配列 |
-| 潜在表現（Latent） | 画像を圧縮して扱う内部表現 |
+| 文章エンコーダー（Text Encoder） | 文字情報を数値的な生成条件へ変える |
+| 条件付け（conditioning） | 生成をどちらへ進めるか誘導する情報 |
+| シード（seed） | 擬似乱数生成器の初期値 |
+| ノイズ（noise） | 生成開始点などで使うランダムな数値 |
+| 潜在表現（latent） | 画像を圧縮して扱う内部表現 |
 | UNet / DiT | 各ステップで修正方向を予測する中心モデル |
-| サンプラー（Sampler） | モデルの予測から次の状態へ進む計算方法 |
-| スケジューラ（Scheduler） | ノイズ量や時間刻みをどう進めるか決める仕組み。ライブラリによってはサンプラー相当も含む |
-| ステップ数（Steps） | ノイズ除去・更新を何回繰り返すか |
-| CFG | プロンプト条件へどれだけ強く寄せるかを調整する値 |
-| ネガティブプロンプト（Negative） | 避けたい方向を生成条件として与える。生成後の消しゴムではない |
+| サンプラー（Sampler） | 予測を使って次の状態へ進む計算方法 |
+| スケジューラ（Scheduler） | ノイズ量・時間刻みの進め方を決める仕組み |
+| ステップ数（Steps） | ノイズ除去の更新回数 |
+| CFG | プロンプト条件へどれだけ強く寄せるか |
+| ネガティブプロンプト（Negative） | 避けたい方向も生成条件として与える |
 | VAE | 画像と潜在表現を相互変換する |
-| LoRA | 基本モデルへ追加して特徴を学習させる小型アダプター |
-| ControlNet | ポーズ・奥行き・輪郭などの構造情報を追加して誘導する |
-| 画像から画像生成（img2img） | 元画像の潜在表現へノイズを加えて描き直す |
-| 部分修正（inpaint） | マスクした範囲を中心に再生成する |
-| 高解像度化（Hires） | 基本生成後の高解像度化・再生成工程。単純な拡大とは限らない |
+| LoRA | 基本モデルへ追加する小型の学習差分 |
+| ControlNet | ポーズ・奥行き・輪郭などの構造条件を追加する |
+| 画像から画像生成（img2img） | 元画像へノイズを加えて描き直す |
+| 部分修正（inpaint） | 指定範囲を中心に再生成する |
+| 高解像度化（Hires） | 基本生成後の高解像度化・再生成工程 |
 | VRAM | GPU上でモデルや計算途中のデータを保持するメモリ |
 
----
+## 3. シードは「構図番号」ではない
 
-# 3. Seedを「構図番号」と覚えない
+シードは乱数生成の初期値。
 
-Seedはrandom generatorの初期値。
+同じシードで比較しやすいのは、他の実行条件を揃えているから。
 
-同じ:
-- model
-- Prompt
-- sampler/scheduler
-- resolution
-- LoRA/Control
-- runtime
-
-なら比較用に強い。
-
-しかしmodelを変えれば同じseedでも同じ構図を保証しない。
+結果が変わり得る要素:
+- モデル
+- VAE
+- Prompt / Negative
+- Sampler / Scheduler
+- 解像度
+- LoRA / Control
+- runtimeや実装
 
 使い方:
-- 1変数A/B -> seed固定
-- reliability -> 固定seedを複数使う
+- 原因比較: シード固定
+- 安定性確認: 固定した複数シードで反復
 
----
+## 4. ステップ数は画質点数ではない
 
-# 4. Stepsを「画質」と覚えない
+ステップ数は更新回数。
 
-Steps = denoising反復回数。
+多くすると計算時間は増えるが、画質が比例して上がるわけではない。
 
-多いほど時間は増える。
-品質向上はmodel/samplerごとに頭打ちがある。
+- モデル
+- Sampler
+- Scheduler
+- Turbo / 蒸留型かどうか
 
-Turbo/distilled modelは少数step前提のこともある。
+で適切な範囲が変わる。
 
-まずauthor baseline。
+まずモデル作者の基準値を使う。
 
----
+## 5. サンプラーとスケジューラ
 
-# 5. SamplerとScheduler
+Forge系UIでは別項目として見えることが多い。
 
-Forge系で:
+- **サンプラー**: 次の状態へどう進むか
+- **スケジューラ**: 各ステップをどのノイズ量へ配置するか
 
-Sampler:
-`Euler a / Euler / DPM++ ...`
+ただしライブラリによっては両方をまとめてSchedulerと呼ぶ。
 
-Scheduler:
-`Normal / Karras / Exponential / Beta ...`
+名称より、**更新方法**と**ノイズ量の進め方**を分けて理解する。
 
-と分かれていても、
-Diffusersでは両方まとめてScheduler classとして実装されることがある。
+## 6. CFG
 
-だから用語より:
+CFGは、プロンプト条件へ寄せる強さ。
 
-- **更新方法**
-- **noise levelをどう配置するか**
+高くすればモデルの理解力が上がるわけではない。
 
-の2点を見る。
+高過ぎると:
+- 色やコントラストの崩れ
+- 多様性低下
+- 構図変化
+- 品質低下
+などが起こり得る。
 
----
+## 7. ネガティブプロンプト
 
-# 6. CFG
+Negativeは生成後の消しゴムではない。
 
-CFGはPromptへの「従わせる圧力」。
+生成中の条件として効くため、意図した内容まで弱めることがある。
 
-高くすれば何でも理解するわけではない。
+特に:
+- 通常と違う人数
+- 通常と違う身体構造
+- 成人向けrating
+を扱う時は、広いNegativeを中立と思わない。
 
-高すぎると:
-- quality低下
-- 色/コントラスト変化
-- diversity低下
-- composition変化
+## 8. 解像度と縦横比
 
-があり得る。
-
-モデル公式値をbaselineにする。
-
----
-
-# 7. Negative
-
-Negativeは消しゴムではない。
-
-denoising conditioningの一部。
-
-だから:
-「extra armsを消したい」
-と入れたNegativeが、
-意図的に通常と違う手足/人数を要求するsceneまで弱める可能性がある。
-
-成人向けでもrating/safety Negativeは実験変数。
-
----
-
-# 8. Resolution
-
-解像度は:
-- detail
-- composition
-- visible body range
+解像度は見た目だけでなく:
+- 構図
+- 画面に入る身体範囲
+- 人物間距離
+- 計算量
 - VRAM
-- generation time
+へ影響する。
 
-に関係。
+モデル推奨の画素量・縦横比から始める。
 
-幅×高さが増えるほど負荷は増える。
+## 9. 画像から画像生成（img2img）
 
-モデル推奨のpixel area / aspect bucketから開始。
+流れ:
 
----
+`元画像 -> VAEで潜在表現化 -> ノイズ追加 -> 再生成 -> 画像化`
 
-# 9. img2img
+変化量（denoise / strength）が低い:
+元画像を強く残す。
 
-元画像:
-→ VAE encode
-→ noise追加
-→ denoise
-→ decode
-
-Denoise/strength:
-
-低:
-元画像を強く保持。
-
-高:
+高い:
 より自由に描き直す。
 
-目的:
-- preserve
-- restyle
-- redraw
+「保持」「画風変更」「大きく描き直す」のどれが目的か先に決める。
 
-を先に決める。
+## 10. 部分修正（inpaint）
 
----
+マスクした場所を中心に再生成する。
 
-# 10. Inpaint
+見るもの:
+- マスク範囲
+- 境界のぼかし
+- 周辺をどこまで含めるか
+- 変化量
+- 周囲とのつながり
 
-Maskの中を再生成。
+全体の人数・役割・構図が壊れているのに、小さいmaskだけで無理に直さない。
 
-基本:
-- white = edit
-- black = keep
-  ※UI inversion設定に注意。
+## 11. ControlNet
 
-局所異常なら強い。
-global relation/countが間違っているならbaseへ戻る。
-
----
-
-# 11. ControlNet
-
-Prompt:
-「何を描くか」
-
-Control:
-「どんな構造にするか」
+Promptが「何を描くか」なら、Controlは「どんな構造にするか」を補助する。
 
 例:
-- pose -> skeleton
-- depth -> front/back/depth
-- canny/line -> contour/layout
+- ポーズ（pose）: 骨格
+- 奥行き（depth）: 前後関係
+- 線画・輪郭（line / edge）: 外形や配置
 
 Controlには:
-- strength
-- start
-- end
-
+- 強さ
+- どの生成区間で効かせるか
 がある。
 
-強くすれば必ず良くなるわけではない。
+元のControl画像に不要な髪・服・小物が残っていると、それも移ることがある。
 
----
+## 12. LoRA
 
-# 12. LoRA
+LoRAは基本モデル全部を入れ替えるものではなく、追加の学習差分。
 
-Base checkpointを丸ごと交換せず、
-追加weightでcharacter/style/conceptを学習・適用する。
-
-初心者の順:
+扱う時は:
 1. base
 2. LoRA 1個
-3. weight sweep
+3. weight比較
 4. 2個目
-5. A+B比較
+5. 組み合わせ
 
-最初からLoRA5個積まない。
+最初から多数積むと、どれが原因か分からなくなる。
 
----
+学習側ではrankやalphaだけで品質を決めず、dataset・caption・学習時間等も見る。
 
-# 13. VRAM
+## 13. VRAMと軽量化
 
-VRAM不足でまず確認:
-
-1. resolution
+VRAM不足時に確認する順:
+1. 解像度
 2. batch size
-3. model size
-4. Control/adapter数
-5. precision
-6. attention optimization
-7. VAE tiling
-8. offload
-9. quantization
+3. モデル規模
+4. Control / adapter数
+5. 数値精度（fp16 / bf16等）
+6. attention最適化
+7. VAE分割処理
+8. CPUへの退避（offload）
+9. 量子化（quantization）
 
-CPU offloadはVRAMを減らせるが遅くなり得る。
+VRAMを減らす方法は、速度・互換性・再現性へ影響し得る。
 
----
+## 14. 保存する情報
 
-# 14. 初心者が最初に保存するもの
-
-- checkpoint/hash
+最低限:
+- checkpoint / hash
 - VAE
-- Prompt
-- Negative
+- Prompt / Negative
 - seed
-- width/height
-- sampler
-- scheduler
-- steps
-- CFG
+- 幅・高さ
+- Sampler / Scheduler
+- Steps / CFG
 - LoRA + weight
-- Control
-- img2img/inpaint/Hires state
+- Control / Reference
+- img2img / inpaint / Hires
 - runtime/version
 
-これがないと
-「昨日の画像がなぜ出ない」
-を診断できない。
+元PNGやworkflowを残す。
 
----
+## 15. safetensors / Clip Skip / Textual Inversion
 
-# 15. 最初の学習順
+### safetensors
+モデルfamily名ではなく、tensor保存形式。
+同じ拡張子でもcheckpoint、LoRA、VAE等があり得る。
 
-### Level 1
-txt2img:
-seed / resolution / steps / CFG
+### Clip Skip
+CLIP系文章エンコーダーの、どの層の出力を使うか変える設定。
+CFGやPrompt weightとは別。
 
-### Level 2
-Prompt:
-tag / Negative / weight
+### Textual Inversion
+新しいtoken embeddingを学習するpersonalization手法。
+LoRAとは仕組みが違う。
 
-### Level 3
-LoRA:
-1 adapter + weight
+## 16. 基礎PASS判定
 
-### Level 4
-img2img / inpaint
+次を日本語で説明できれば最低基礎PASS:
 
-### Level 5
-pose/depth/line Control
-
-### Level 6
-Regional / reference
-
-### Level 7
-multi-character / relation-heavy
-
-### Level 8
-training / dataset
-
-順番を飛ばすと
-何が効いたか分からなくなる。
-
----
-
-# 16. 基礎を理解した判定
-
-次を自分の言葉で説明できれば最低基礎PASS:
-
-- latent
+- 潜在表現
 - seed
 - VAE
-- tokenizer/text encoder
-- sampler/scheduler
-- steps
+- Tokenizer / Text Encoder
+- Sampler / Scheduler
+- Steps
 - CFG
 - Negative
-- resolution
-- img2img denoise
+- 解像度
+- img2imgの変化量
 - inpaint mask
-- Control strength
+- Controlの強さ
 - LoRA
-- VRAM/precision/offload
+- VRAM / precision / offload
 
 詳細根拠:
 - `../research/BATCH_AZ_GENERATION_FOUNDATIONS_PIPELINE_20261002.md`
 - `../research/BATCH_BA_SAMPLING_GUIDANCE_FOUNDATIONS_20261002.md`
 - `../research/BATCH_BB_EDITING_CONTROL_MEMORY_FOUNDATIONS_20261002.md`
-
-
----
-
-# 17. Metadata / Hash / safetensors
-
-生成画像だけでなく設定も保存する。
-
-特に:
-- PNG Info / workflow
-- model hash
-- exact LoRA
-- seed/settings
-
-を残す。
-
-`.safetensors` は安全なtensor保存形式で、model family名ではない。
-同じ拡張子にcheckpoint/LoRA/VAE等があり得る。
-
-# 18. Clip Skip
-
-CLIP text encoderのどのlayer出力をPrompt embeddingに使うか変える設定。
-
-CFGやPrompt weightとは別。
-CLIP構成が違うmodelへ古いClip Skip recipeをそのまま移さない。
-
-# 19. Textual Inversion
-
-少数画像から新しいtoken embeddingを学習するpersonalization。
-
-- embedding = text encoder側のlearned token
-- LoRA = model layer側へ追加するlow-rank update
-
-別物として扱う。
-
-詳細:
-`../research/BATCH_BC_OUTPUT_METADATA_AUXILIARY_FOUNDATIONS_20261002.md`
+- `../research/BATCH_BC_OUTPUT_METADATA_AUXILIARY_FOUNDATIONS_20261002.md`
