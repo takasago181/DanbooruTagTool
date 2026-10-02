@@ -1009,3 +1009,24 @@ Use a failure journal and XY/grid tests for weight/CFG/steps/denoise/sampler.
 Research:
 `../research/BATCH_AP_ADULT_PRACTICAL_LEARNING_METHOD_20261002.md`.
 
+---
+
+## 35. Regional learning and reproducibility — 2026-10-02
+
+For Anima on current Forge Neo Regional Prompter:
+- regional Latent/Attention: supported
+- Region LoRA: not supported
+
+So learn these separately:
+1. regional text separation
+2. geometry control
+3. adapter localization
+4. per-subject inpaint
+
+Too much regional isolation can break cross-subject interaction and create hard boundaries.
+
+Preserve original PNG metadata/workflow for every important diagnostic image.
+
+Research:
+`../research/BATCH_AQ_REGIONAL_LEARNING_AND_REPRODUCIBILITY_20261002.md`.
+
