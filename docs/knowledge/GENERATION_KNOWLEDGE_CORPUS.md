@@ -1613,3 +1613,12 @@ Exact numeric settings remain community recipe-level.
 Research:
 `research/BATCH_AU_REGIONAL_SAMPLER_PROXY_METHOD_20261002.md`.
 
+## 16.14 Dataset-first diagnosis
+
+Persistent LoRA style/background/role bias may originate in dataset constancy rather than inference.
+
+Auto-taggers are not dataset authority; nuisance factors require manual audit.
+
+Research:
+`research/BATCH_AV_DATASET_STYLE_BIAS_AND_PREPROCESSING_20261002.md`.
+
