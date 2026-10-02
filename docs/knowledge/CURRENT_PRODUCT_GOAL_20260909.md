@@ -1,3 +1,6 @@
+> **SUPERSEDED / HISTORICAL SNAPSHOT**  
+> これは2026-09-09時点の目的整理であり、現在のproduct goal authorityではない。現在の目的はmain `docs/PRODUCT_GOAL_LOCK.md` の **理解 -> 発見 -> 選択 -> 出力** を正本とする。旧Special-first記述は履歴としてのみ参照する。
+
 # Current Product Goal — KNOWLEDGE Rebase 2026-09-09
 
 Owner: Issue #44 `[KNOWLEDGE][ONGOING] Persistent generation knowledge corpus for dictionary audit and Stage10`
