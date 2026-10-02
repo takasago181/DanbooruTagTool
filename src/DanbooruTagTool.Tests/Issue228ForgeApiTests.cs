@@ -84,6 +84,23 @@ public class Issue228ForgeApiTests
         var result = await new ForgeGenerationApiClient(new(server)).GenerateAsync("http://localhost:7860", new("1girl, <lora:detail:0.75>", "lowres", Recipe), d.Images);
         Assert.False(result.Success); Assert.Equal(mode == "schema" ? 0 : 1, server.Posts);
     }
+    [Theory]
+    [InlineData("sample", "abc", "abc", true)]
+    [InlineData("sample", "abc", "wrong", false)]
+    [InlineData("sample", "abc", null, false)]
+    [InlineData("sample", null, "abc", false)]
+    [InlineData("other_sample", "abc", "abc", false)]
+    [InlineData("folder_sample", null, null, true)]
+    public void NeoFolderBasenameAliasRequiresExactDeclaredHash(string actualName, string? apiHash, string? pngHash, bool accepted)
+    {
+        var info = Issue226LibraryFoundationTests.Info.Replace("Model: sample", "Model: " + actualName);
+        info = pngHash is null ? info.Replace(", Model hash: abc", "") : info.Replace("Model hash: abc", "Model hash: " + pngHash);
+        var metadata = ForgePngGenerationMetadata.Parse("fixture.png", info);
+        var errors = ForgeGenerationApiClient.Compare(new("1girl, <lora:detail:0.75>", "lowres", Recipe),
+            new("folder\\sample.safetensors [abc]", "folder_sample", apiHash), metadata);
+        Assert.Equal(accepted, errors.Count == 0);
+        if (!accepted) Assert.Equal(new[] { "Model/hash" }, errors);
+    }
     internal sealed class FakeApi(LibraryFixture d, Action<string, string>? writeImage = null) : HttpMessageHandler
     {
         public string Info = Issue226LibraryFoundationTests.Info; public string Mode = ""; public int Posts, Calls, Options; public string? Payload;
