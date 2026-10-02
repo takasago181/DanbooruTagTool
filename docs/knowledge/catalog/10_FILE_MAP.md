@@ -212,3 +212,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_T_LEXICAL_TAG_COVERAGE_COMMUNITY_20261002.md` — public tag-behavior map covering Anima color-word lexical collisions, preview body/tag sweeps, real-world garment vocabulary, LoRA auto-tag leads and cross-model tag-response sources.
 
+- `../research/BATCH_U_GLOBAL_COMMUNITY_SIGNAL_MAP_20261002.md` — English/Hugging Face/Reddit community map covering long-NL workload, weighting discussions, LoRA-added multi-character failure, regional-control leads, hidden runtime differences and dataset-automation practice.
+
