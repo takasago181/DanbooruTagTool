@@ -498,3 +498,23 @@ For character-LoRA repair:
 Research:
 `../research/BATCH_X_PARAMETER_HIGHRES_DATASET_COMMUNITY_20261002.md`.
 
+---
+
+## 22. Noob exact identity and dataset freshness — 2026-10-02
+
+Official remote identities:
+- EPS 1.1 SHA256: `6681e8e4b134c81f16533acedb0d406d7e5e366e1624b4105178c64d00b05d51`
+- V-Pred 1.0 SHA256: `ea349eeae87ca8d25ba902c93810f7ca83e5c82f920edf12f273af004ae02819`
+
+NoobAI author documentation places Danbooru exposure at its training-era snapshot (v1.0 approximately before 2024-10-23) plus e621-2024-webp-4Mpixel.
+
+Therefore:
+- current tag existence/post_count does not prove exposure;
+- renamed/new tags need trigger-freshness testing;
+- semantic identity stays current Danbooru authority even when an older model surface generates better.
+
+NoobXL-specific normal/depth/canny ControlNets are documented as released assisted-control options.
+
+Research:
+`../research/BATCH_AC_NOOBAI_EXACT_IDENTITY_DATASET_CONTROL_20261002.md`.
+
