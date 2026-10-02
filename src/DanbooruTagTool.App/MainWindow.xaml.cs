@@ -197,6 +197,7 @@ public partial class MainWindow : Window
         if (ActualWidth < 1400)
         { NavColumn.Width = new(ActualWidth < 1050 ? 170 : 240); PromptColumn.Width = new(ActualWidth < 1050 ? 230 : 300); }
         else { NavColumn.Width = new(Math.Clamp(vm.Ui.NavWidth, 240, ActualWidth * .3)); PromptColumn.Width = new(Math.Clamp(vm.Ui.PromptWidth, 300, ActualWidth * .35)); }
+        Resources["NavigationLabelWidth"] = Math.Clamp(NavColumn.Width.Value - 80, 60, 270);
     }
     private void ImportGenerationPngClick(object sender, RoutedEventArgs e)
     {
