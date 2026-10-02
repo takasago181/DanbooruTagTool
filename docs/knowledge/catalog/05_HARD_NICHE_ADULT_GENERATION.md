@@ -386,3 +386,22 @@ Do not classify a hidden/off-frame relation as semantic concept failure.
 Research:
 `../research/BATCH_AE_COUNT_CAMERA_VISIBILITY_LIMITS_20261002.md`.
 
+---
+
+## Anatomy/occlusion/local repair — 2026-10-02
+
+Keep two verdicts:
+- relation/scene semantics
+- local anatomy quality
+
+A correct relation with a malformed hand is not the same failure as a clean hand attached to the wrong subject/relation.
+
+Occlusion/depth is also separate from pose:
+- correct skeleton can still be layered incorrectly;
+- a required relation can exist but be hidden.
+
+Local reconstruction is appropriate only after global semantics are acceptable.
+
+Research:
+`../research/BATCH_AF_ANATOMY_OCCLUSION_LOCAL_REPAIR_20261002.md`.
+
