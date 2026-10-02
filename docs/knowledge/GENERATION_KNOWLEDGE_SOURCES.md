@@ -1576,3 +1576,16 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Scope: attribute swapping in Anima/Illustrious; regional prompting and LoRA-hook localization discussion.
 - Value: very recent practical confirmation of native-character vs LoRA-character distinction.
 
+**S-TOOL-017 — ComfyUI-Impact-Pack RegionalSampler**
+- URL: https://github.com/ltdrdata/ComfyUI-Impact-Pack
+- Class: `OFFICIAL_RUNTIME`
+- Scope: latent-level per-region sampling, masks, overlap_factor, restore_latent.
+- Value: tool authority for RegionalSampler mechanics.
+
+**S-COMM-081 — Anima crossover RegionalSampler guide**
+- URL: https://huggingface.co/datasets/rouge-kasshoku/anima-crossover-couples-regional-sampler-guide
+- Class: `COMMUNITY / DETAILED_PRACTICAL_GUIDE`
+- Scope: native proxy references, RegionalSampler, LoRA isolation, masks and two-pass metadata synchronization.
+- Value: months-of-testing practical workflow with strong mechanistic reasoning.
+- Limitation: numeric parameter values are author-specific recipes.
+
