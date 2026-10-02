@@ -1194,3 +1194,41 @@ Operational decision tree:
 
 Research:
 `../research/BATCH_AW_ADULT_DIAGNOSTIC_ESCALATION_AND_MODEL_GAPS_20261002.md`
+
+
+---
+
+## 42. 2026秋 ecosystem selection — 2026-10-02
+
+Do not select a model only from a universal “best model” ranking.
+
+### If existing LoRA assets matter most
+Prefer evaluating the Illustrious/WAI/Pony/NoobAI lane first.
+
+### If current anime knowledge + hybrid prompting + new control experiments matter
+Evaluate Anima.
+
+### If the main failure is multi-character binding
+Model switching alone is not the full answer.
+Test:
+- minimal Prompt
+- LoRA isolation
+- Regional
+- reference
+- Edit/local reconstruction
+
+### If using local LLM/VLM
+Use it to structure:
+- count
+- identity
+- position
+- relation
+- camera/visibility
+
+Do not treat generated prose as ground truth.
+
+Current map:
+`LOCAL_ADULT_IMAGE_GENERATION_TREND_MAP_20261002.md`
+
+Research:
+`../research/BATCH_AX_LOCAL_ADULT_IMAGE_GENERATION_TRENDS_20261002.md`
