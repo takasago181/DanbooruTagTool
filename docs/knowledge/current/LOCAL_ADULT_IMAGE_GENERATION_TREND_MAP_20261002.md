@@ -1,384 +1,175 @@
-# 2026年秋 — ローカル成人向け画像生成 トレンド地図
+# 2026年秋 — ローカル成人向け画像生成 動向メモ
 
 Owner: Issue #44 `KNOWLEDGE:#44`  
-Snapshot date: 2026-10-02  
-Scope: 成人であることが明確な成人向けローカル画像生成。主対象は二次元/anime。  
-注意: 「人気」と「性能の証明」は別。
+基準日: 2026-10-02  
+対象: 成人であることが明確な成人向けローカル画像生成。主に二次元。  
+役割: **現在のecosystem動向だけを記録する**。実際の操作手順は別currentガイドへ置く。
 
-## まず結論
+## 結論
 
-2026年秋は**Anima一強でも、Illustrious終了でもない**。
+2026年秋は、既存資産が厚いSDXL/Illustrious系と、急成長したAnima系が並行している。
 
-二次元成人向けは現在、
+「Anima一強」「Illustrious終了」のような単純な置き換えではない。
 
-### 1. 資産が強いSDXL陣営
+大きな変化は、**Prompt一発で全部解くより、identity・geometry・Regional・Reference・Edit・仕上げを分担する工程型生成が増えていること**。
+
+## 1. 成熟したSDXL / Illustrious系
+
+現在も重要:
 - Illustrious
 - WAI
 - NoobAI
 - Pony
-- 大量の既存LoRA
-- Forge / ComfyUIの成熟機能
+- 既存Character / Style LoRA
+- Forge / ComfyUIの成熟した周辺機能
 
-### 2. 急成長中のAnima陣営
+強みはモデル単体より、**既存資産と運用ノウハウの厚さ**。
+
+NoobAIはタグ中心の指定と知識面で引き続き重要。
+WAIは比較・履歴レーンとして残る。
+
+## 2. Animaは大規模ecosystemへ成長
+
+2026-10-02時点のCivitai snapshotでは:
+- Anima: 32K+ LoRA
+- Anima generated images: 283M+
+- Illustrious: 199K+ LoRA
+- Pony: 101K+ LoRA
+- NoobAI: 8K+ LoRA
+
+これは**品質ランキングではなく、プラットフォーム内の資産量・利用規模の指標**。
+
+Animaでは:
 - Base / Aesthetic / Turbo
-- tags + 自然言語
-- 新しいanime知識
-- Anima LoRA
+- Character / Style LoRA
 - Regional
-- reference
+- Reference
 - Edit
-- ローカルLLM/VLM
+- Control
+など周辺資産が増えている。
 
-の二本立て。
+## 3. 複数人物が主要な研究対象
 
-一番大きな変化はcheckpoint名ではなく、
-**「Prompt一発」から「Prompt + LoRA + reference + Regional + local repair」の工程型生成へ進んでいること**。
-
----
-
-## 現在の勢力図
-
-### 成熟している
-
-**WAI / Illustrious**
-
-今でも成人向け二次元の日常生成で強い。
-
-理由:
-- 既存LoRAが非常に多い
-- SDXL系ツールが成熟
-- Hires / Detailer / inpaintが使いやすい
-- WAIは初手から見栄えが出やすい
-
-既に大量のIllustrious LoRAを持っているなら、
-Animaへ全移行する理由はまだない。
-
----
-
-**NoobAI**
-
-今でも「タグを理解して細かく指定する」方向で重要。
-
-向く:
-- Danbooru/e621を理解している
-- キャラ/概念知識を使いたい
-- Promptを細かく制御したい
-
-弱点:
-- 初心者にはWAIより面倒
-- dedicated LoRA数はIllustrious/Ponyほど多くない
-
----
-
-**Pony**
-
-最新技術の中心ではなくなっても、
-LoRA資産が非常に大きいので消えていない。
-
-特に既存の特殊concept・stylized系資産を持つ人には現役。
-
----
-
-## 一番伸びている: Anima
-
-2026-10-02時点のCivitai ecosystem表示では:
-
-- 32K+ Anima LoRA
-- 283M+ generated images
-
-比較表:
-- Illustrious 199K+ LoRA
-- Pony 101K+
-- Anima 32K+
-- NoobAI 8K+
-
-数だけで品質は決められないが、
-**Animaは既に「試験的な新モデル」の段階を抜けて大規模ecosystemになっている**。
-
-### Animaで流行っている使い方
-
-- Turboで高速試行
-- Base/Aestheticで本番確認
-- tags + 短い自然言語
-- Character LoRA
-- Style LoRA
-- Regional
-- reference image
-- Edit LoRA
-- Highres / Detailer
-- ローカルLLMによるPrompt整理
-
----
-
-## 今一番重要な流行: Promptを全部手で書かない
-
-昔:
-`Danbooruタグを大量に手入力`
-
-今:
-`意図 -> タグ/自然文の構造化 -> 生成 -> 失敗診断 -> Control`
-
-特にAnimaで、
-
-- LM Studio
-- ローカルLLM
-- VLM
-- TIPO / DanTagGen
-- Anima用Prompt helper
-
-を前処理に使う流れが出ている。
-
-成人向けではクラウドLLMの制限を避けるため、
-**Prompt整理役までローカル化する**人もいる。
-
-ただしLLMに全部任せるのではなく、
-人数・役割・位置・relation・camera等を構造化させる使い方が実用的。
-
----
-
-## 複数人物が今の主戦場
-
-成人向けで現在かなり研究されているのは:
-
-- 2人以上
-- Character LoRA複数
+現在の難所:
 - identity bleed
+- attribute swap
 - role swap
-- body-site ownership
+- 身体部位の所有者
 - 接触
 - overlap
 - occlusion
+- 複数Character LoRA干渉
 
-単体の綺麗な一人絵より、
-**「誰が誰なのかを保ったまま相互作用させる」方が難しい**。
+1人を綺麗に出す能力と、複数人物を関係させる能力が別として扱われるようになっている。
 
-そのためRegionalやreference系が伸びている。
+## 4. Regionalは一般的な上級手段へ
 
----
+Forge Neo / ComfyUI双方で、人物ごとの条件分離を行う手段が増えている。
 
-## Regionalの流行
+重要な知見:
+- 分離を強くすれば常に良いわけではない
+- 強過ぎる分離はinteractionや一体感を壊し得る
+- 「必要な分離を満たす最弱設定」という考え方が重要
 
-### Forge Neo
-Regional PrompterがAnimaに対応。
+具体的操作はPlaybook / Decision Treeへ。
 
-現状:
-- Latent: 対応
-- Attention: 対応
-- Region LoRA: 非対応
+## 5. Reference / Edit系が伸びている
 
-### ComfyUI
-Anima専用Regional Conditioningが登場。
+目立つ流れ:
+- IP-Adapter系
+- Reference conditioning
+- Edit LoRA / masked edit
+- accepted baseからの局所修正
 
-できる:
-- regionごとにtext conditioning
-- cross-attention分離
-- self-attention分離
+つまり「全部をTextから毎回再生成」せず、良い構造を残してidentityや局所だけ直す方向。
 
-問題:
-分離を強くし過ぎると、
-人物同士が関係しなくなったり境界が硬くなる。
-
-つまり流行は
-**最大分離ではなく、必要最小限の分離**。
-
----
-
-## Reference / Editが伸びている
-
-2026年夏から目立つ。
-
-### Anima IP-Adapter
-参照画像からcharacter/styleを引く。
-
-### Anima Edit LoRA
-生成済み画像を基準に変更する。
-
-### ReferenceLatent / Native reference系
-「全部をTextから再生成」しない。
-
-これは成人向け複数人物とも相性が良い考え方。
-
-最初に:
-- 人数
-- 大きいpose
-- interaction
-- camera
-
-が良い画像を作り、
-
-後から:
-- character
-- style
-- 局所detail
-
-を合わせる。
-
----
-
-## LoRAの流行も変わった
+## 6. LoRA評価が厳しくなっている
 
 以前:
-「キャラLoRAが似ていれば成功」
+「キャラに似れば成功」
 
 現在:
-- unseen pose
-- alternate outfit
-- alternate background
+- 未学習pose
+- 別衣装
+- 別背景
+- 別style
+- 複数人物共存
 - interaction
-- pair coexistence
-- style変更
-- LoRA同士の干渉
+- 他LoRAとの干渉
 
-まで評価する方向。
+まで見る傾向が強い。
 
-特にAnima communityでは
-**multi-character用のjoint imageをdatasetに入れる**
-という研究が増えている。
+dataset作成も、画像枚数より**何が変化して何が固定されているか**を重視する方向。
 
-具体的な必要枚数はまだcommunity recipe扱い。
+## 7. Dataset自動化が進行
 
----
+公開例では:
+`動画・画像収集 -> shot分割 -> キャラ抽出 -> 重複除去 -> 自動tag/caption -> 人間監査 -> LoRA学習`
 
-## 仕上げは一発生成から分離
+のようなpipelineが増えている。
 
-現在のAIO workflowでは普通に:
+ただし自動処理だけでidentity/nuisanceの正しさを保証しない。
 
-1. T2I
-2. I2I
-3. inpaint
-4. Highres
-5. Face/Eye detailer
-6. upscale
+## 8. ローカルLLM / VLMによるPrompt前処理
 
-まで一つのworkflowに入る。
+Anima周辺では:
+- ローカルLLM
+- VLM
+- Prompt helper
+を使い、人間の意図を構造化してから画像モデルへ渡す例が増えている。
 
-成人向けでは特に、
+現時点では**流行・workflow候補**であり、「LLMが書いたPromptの方が常に強い」という結論ではない。
 
-**relation成功**
-と
-**局所anatomy成功**
+## 9. UIはForge NeoとComfyUIの役割分担
 
-を別工程にした方が合理的。
+傾向:
+- Forge Neo: 日常的な対話型生成
+- ComfyUI: Reference / Edit / Regional / 複雑な制御と再現可能なgraph
 
----
+どちらか一方が常に優れるとは扱わない。
 
-## UIは二強
+## 10. 仕上げは別工程化
 
-### Forge Neo
-向く:
-- 普段遣い
-- WebUI形式
-- 生成しながら調整
-- Anima
-- Regional
-- 日本語情報が増えている
+現在の高度workflowでは:
+- base生成
+- 局所修正
+- detailer
+- 高解像度化
+- upscale
+を分離することが一般的。
 
-### ComfyUI
-向く:
-- 最新技術
-- Reference
-- Edit
-- Regional
-- 複雑なLoRA制御
-- workflow再現
-- 実験
+base能力と最終仕上がりを同じ指標にしない。
 
-今の流れは
-**Forge Neoで日常生成、ComfyUIで高度な工程**
-という住み分け。
+## 11. 写実成人向けは別研究lane
 
----
+Chroma / Z-Image / FLUX系など、写実側は別ecosystem。
 
-## 中国圏でもAnimaが一般化
-
-2026年6〜8月のBilibiliでは:
-
-- Anima初心者教程
-- LoRA導入
-- Prompt plugin
-- 自動反推
-- all-in-one workflow
-- LoRA管理
-
-まで「初心者向けパッケージ」として出ている。
-
-つまりAnimaは研究者だけのモデルではなくなった。
-
----
-
-## 写実成人向けは別世界
-
-二次元と混ぜない。
-
-最近の写実ローカルでは:
-- Chroma
-- Z-Image
-- FLUX.2 Klein系
-- SDXL realism finetune
-
-が話題。
-
-ただし:
-- Prompt方式
-- LoRA互換性
+二次元の:
+- Prompt
+- LoRA互換
+- Control
 - anatomy prior
-- VRAM
-- Control系
+をそのまま転用しない。
 
-が二次元と違う。
+DanbooruTagToolの知識班では二次元を主軸とし、写実は別laneで扱う。
 
-DanbooruTagToolでは当面anime側を主軸で正しい。
+## 12. 追跡優先度
 
----
-
-## 今追う価値が高い順
-
-### A — 今すぐ知識に入れる
-- Anima
-- WAI / Illustrious
-- NoobAI
-- Character/Style LoRA
+### 継続追跡
+- Anima公式family
+- NoobAI / Illustrious
+- Character / Style LoRA
 - Regional
-- Hires/inpaint/detailer
-- hybrid tags + NL
-- multi-character diagnosis
+- Reference / Edit
+- 複数人物
+- LoRA dataset設計
 
-### B — 重点追跡
-- local LLM/VLM Prompt structuring
-- Anima IP-Adapter
-- Anima Edit
-- reference-driven character consistency
-- multi-character LoRA training
+### 実験扱いを維持
+- 万能Regional数値
+- IP-Adapter万能論
+- community派生モデルを標準化
+- 一つの「最強モデル」論
+- 高解像度化の万能設定
 
-### C — まだ実験扱い
-- exact Regional recipes
-- IP-Adapterを万能扱い
-- community独自Anima派生を標準扱い
-- very-high-resolution native generation
-- “この一個が最強モデル”論
-
-### D — 別研究lane
-- Chroma
-- Z-Image
-- FLUX2
-- photoreal adult
-
----
-
-## #44での今後の研究優先
-
-次に価値が高いのは:
-
-1. Anima成人向け hybrid tag/NL controlled comparison
-2. local LLM/VLMが作った構造Promptの精度
-3. Character LoRA 2本のglobal vs Regional vs reference比較
-4. Anima IP-Adapterのidentity preservation
-5. Edit LoRAでrelationを壊さずidentityを置換できるか
-6. WAI/Noob/Anima同一scene比較
-7. Regional strengthとinteraction coherence
-8. multi-character LoRA datasetのjoint-example効果
-9. failure -> tool routingの実測
-10. final Hires/detailerでrelationがどの程度維持されるか
-
-Evidence:
+根拠:
 `../research/BATCH_AX_LOCAL_ADULT_IMAGE_GENERATION_TRENDS_20261002.md`
