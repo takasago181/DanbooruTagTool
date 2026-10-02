@@ -1290,3 +1290,28 @@ rank is capacity, alpha changes scaling, and neither should be interpreted witho
 Detail:
 `research/BATCH_AJ_LORA_CAPACITY_REFERENCE_AND_EVALUATION_20261002.md`.
 
+---
+
+## 16.2 Dataset curation for identity/style — 2026-10-02
+
+Dataset quality is represented as coverage, not raw image count.
+
+Character:
+- identity-defining features
+- mutable features
+- crop/view/pose/background/outfit coverage
+- source-domain metadata
+- duplicate clusters
+- OOD validation.
+
+Style:
+- content diversity
+- subject diversity
+- composition diversity
+- style consistency.
+
+Anima author guidance confirms multiple caption variants are native to base training; one exact caption syntax is not required.
+
+Detail:
+`research/BATCH_AK_CHARACTER_STYLE_DATASET_CURATION_20261002.md`.
+
