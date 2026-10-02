@@ -268,3 +268,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_AN_FINISHING_UPSCALE_DETAILER_20261002.md` — practical finishing layer: conservative vs creative upscale, Forge Hires second-pass identity, Anima img2img/upscale sensitivity, detailer crop/sampler variables and final reproduction audit.
 
+- `../research/BATCH_AO_PROMPT_TUNING_SAMPLER_WEIGHT_20261002.md` — practical day-to-day tuning: semantic-vs-seed diagnosis, Anima sampler character, weight escalation, WAI Negative minimalism, resolution/aspect-ratio discipline and diagnostic-vs-production seeds.
+
