@@ -1353,3 +1353,22 @@ Do not assume a character tag or LoRA trigger automatically represents the offic
 Detail:
 `research/BATCH_AM_CHARACTER_IDENTITY_OUTFIT_FACTORING_20261002.md`.
 
+---
+
+## 16.5 Identity-core vs presentation shortcuts — 2026-10-02
+
+Character evaluation now includes shortcut tests.
+
+A robust character adapter must remain recognizable after changes to:
+- outfit
+- background
+- camera
+- pose
+- art style
+where those variables are intended to be mutable.
+
+Identity metrics are screening signals; feature-level review remains required.
+
+Detail:
+`research/BATCH_AN_CHARACTER_IDENTITY_CORE_EVALUATION_20261002.md`.
+
