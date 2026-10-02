@@ -543,3 +543,24 @@ Evidence identity must retain:
 Research:
 `../research/BATCH_AD_POSE_DEPTH_REGION_INPAINT_ESCALATION_20261002.md`.
 
+---
+
+## 24. Count and camera diagnosis — 2026-10-02
+
+If a target looks wrong, ask separately:
+
+- target present?
+- exact count correct?
+- owner/actor correct?
+- relation correct?
+- relevant region visible?
+- camera angle lets you judge it?
+
+Do not try to fix exact count by endlessly rephrasing the same number.
+Do not try to fix camera failure by adding more semantic target tags.
+
+Count and viewpoint are separate capabilities.
+
+Research:
+`../research/BATCH_AE_COUNT_CAMERA_VISIBILITY_LIMITS_20261002.md`.
+
