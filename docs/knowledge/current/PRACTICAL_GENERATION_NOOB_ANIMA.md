@@ -518,3 +518,28 @@ NoobXL-specific normal/depth/canny ControlNets are documented as released assist
 Research:
 `../research/BATCH_AC_NOOBAI_EXACT_IDENTITY_DATASET_CONTROL_20261002.md`.
 
+---
+
+## 23. Structural-control escalation — 2026-10-02
+
+Choose assistance by failure type:
+
+- pose wrong -> Pose Control
+- front/back or overlap wrong -> Depth
+- contour/layout wrong -> Lineart/Edge
+- character/LoRA leakage -> Region/Mask
+- only one local area remains wrong -> Inpaint
+
+Do not use pose control as a substitute for actor/target/ownership reasoning.
+
+Evidence identity must retain:
+- preprocessor
+- preprocessor output
+- control type
+- control strength/schedule
+- edit mask
+- whether success existed before assistance
+
+Research:
+`../research/BATCH_AD_POSE_DEPTH_REGION_INPAINT_ESCALATION_20261002.md`.
+
