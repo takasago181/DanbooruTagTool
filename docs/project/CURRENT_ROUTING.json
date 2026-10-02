@@ -1,6 +1,6 @@
 {
   "schema_version": "project-current-routing-v1",
-  "generated_at": "2026-10-02T03:37:05.008199+00:00",
+  "generated_at": "2026-10-02T22:16:46.661027+00:00",
   "purpose": "compact machine-readable routing snapshot; not a permanent branch-head authority",
   "live_main_snapshot": null,
   "must_refetch_live_heads_before_write": true,
@@ -12,17 +12,7 @@
     "docs/project/PERMANENT_RULES.md",
     "task-specific contract/spec"
   ],
-  "active_lanes": [
-    {
-      "issue": 245,
-      "lane": "UI/UX workflow consolidation",
-      "phase": "Phase D B-lite implementation and after audit PASS; user review STOP",
-      "authority": "live Issue #245 user B-lite selection; #241 research; #244 STOP POINT",
-      "evidence": "docs/issue245/PHASE_D_B_LITE_RESULT.md",
-      "next": "User review before merge / production promotion; Draft PR246 unmerged",
-      "boundaries": "no automatic merge; no production apply; no #230/#231 or new feature"
-    }
-  ],
+  "active_lanes": [],
   "completed_or_non_default": [
     "Performance / Runtime Load Audit",
     "portable/runtime hardening",
@@ -39,11 +29,12 @@
     "#188 execution-efficiency foundation and stale-current-authority cleanup complete/closed; reopen only for a concrete new overhead defect",
     "#179 reviewed display/search overlay deployed through PR #220/#221; 1,215 rows, display 221 / search 1,000; formal HOME and Issue70 source unchanged; residual REVIEW/HOLD retained",
     "#223 display-only Browse Groups complete and production-deployed through PR #224; 7 HOME / 64 groups / 2,467 grouped / 2,072 unclassified / 21 HOLD; HOME authority and #179/#70 unchanged; UserData byte-identical",
-    "#226 generation image library complete via PR #238; production APPLIED from source main 49963dc129a1725c8a74d7f29aeb960884b67569; schema1 separate DB; real Forge one-image/UI/search/missing/UserData closeout PASS; production unchanged",
-    "#228 API-first GenerationRecipe merged through PR #240; actual PNG/Library round-trip PASS; not production-applied",
-    "#229 Local LoRA complete via PR #242; offline SHA-keyed personal inventory/recipes; not production-applied",
-    "#232 Negative/Prompt intelligence complete via PR #243; versioned backed-up UserData2; full protected regression 340 PASS/4 SKIP; not production-applied",
-    "#225 STOP POINT reached after #228/#229/#232 merged checkpoints; new features stopped; user started #245 UI/UX Phase A; no #230/#231/new large workspaces; docs/issue225/STOP_POINT_2026-10-02.md"
+    "#226 Library remains included; prior release checkpoint archived; current combined release docs/issue245/PRODUCTION_CHECKPOINT_2026-10-03.json",
+    "#228 API-first GenerationRecipe merged through PR #240; actual PNG/Library round-trip PASS; production-applied together with #245; docs/issue245/PRODUCTION_CHECKPOINT_2026-10-03.json",
+    "#229 Local LoRA complete via PR #242; offline SHA-keyed personal inventory/recipes; production-applied together with #245; docs/issue245/PRODUCTION_CHECKPOINT_2026-10-03.json",
+    "#232 Negative/Prompt intelligence complete via PR #243; versioned backed-up UserData2; full protected regression 340 PASS/4 SKIP; production-applied together with #245; docs/issue245/PRODUCTION_CHECKPOINT_2026-10-03.json",
+    "#225 STOP POINT retained; #245 consolidation and authorized production promotion complete; await human instruction; no #230/#231/new feature",
+    "#245 B-lite complete and production-promoted; resumed5 UserData protected; new LKG; docs/issue245/PRODUCTION_CHECKPOINT_2026-10-03.json"
   ],
   "protected_boundaries": [
     "UserData is user-owned",

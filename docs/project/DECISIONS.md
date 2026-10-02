@@ -333,6 +333,14 @@ D-020 therefore supersedes only D-019 statements that describe portable as merel
 
 ---
 
+## D-021 — #245 B-lite adoption and combined production promotion (2026-10-03)
+
+Human selected B-lite after at least two IA alternatives and authorized PR246 merge, clean merged-main build and combined #228/#229/#232/#245 promotion with actual Forge smoke, protection and new LKG. Prior implementation-review STOP was fulfilled and superseded by this explicit authorization. Create / tag discovery / Library reuses existing state/services; working Recipe stays session-only, saved Preset remains explicit. Compatibility operations remain secondary and precisely scoped; ordinary Generate is verified API first and fail closed. Scope does not authorize #230/#231 or further feature expansion.
+
+User explicitly chose retaining resumed5 Prompt items. Full old13 backup remains recoverable; no reset/automatic replacement. Neo exact title-basename/hash adapter correction was required by real production evidence, not a new feature. Current runtime/evidence/limits: `docs/issue245/PRODUCTION_CHECKPOINT_2026-10-03.json`. Native screenshot appearance is not certified; actual execution and WPF render/tree are verified. STOP after closeout.
+
+---
+
 ## Historical note
 
 旧Stage0–9実装判断、旧Stage10 A/B準備、evaluator校正、Prompt Composer研究等の詳細はGit historyと対応Issue/Stage文書に保持する。

@@ -1,0 +1,22 @@
+{
+  "result": "FAIL_CLOSED",
+  "request_count": 1,
+  "batch_size": 1,
+  "n_iter": 1,
+  "positive": "blue ceramic teapot, wooden table, still life",
+  "negative": "text, watermark",
+  "model": "sd\\waiIllustriousSDXL_v170.safetensors [f116b0c78f]",
+  "seed": 24520261003,
+  "steps": 8,
+  "sampler": "Euler",
+  "scheduler": "Karras",
+  "cfg": 4.75,
+  "width": 512,
+  "height": 640,
+  "http": 500,
+  "server_root_cause": "Saved checkpoint basename absent from current aliases caused startup fallback to Anima; missing VAE state dict. Forge override cleanup additionally rejected old alias.",
+  "forge_revision": "97b26fb404314a11dad7cdde2706da57ea53f4f2",
+  "automatic_retry": false,
+  "gradio_fallback": false,
+  "actual_returned_images": 0
+}

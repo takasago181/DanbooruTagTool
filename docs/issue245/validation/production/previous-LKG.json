@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "kind": "snapshot_not_validator",
+  "captured_utc": "2026-10-01T15:34:31.927968+00:00",
+  "source_main_commit": "49963dc129a1725c8a74d7f29aeb960884b67569",
+  "merged_pull_requests": [
+    238
+  ],
+  "app_version": "1.0.0+49963dc129a1725c8a74d7f29aeb960884b67569",
+  "production_path": "C:\\Codex\\DanbooruTagTool-App",
+  "publish": {
+    "configuration": "Release",
+    "runtime_identifier": "win-x64",
+    "self_contained": true,
+    "single_file": true,
+    "native_libraries_self_extract": true,
+    "publish_trimmed": false,
+    "debug_symbols": false,
+    "debug_type": "None",
+    "manifest_schema_version": 3,
+    "build_utc": "2026-10-01T13:28:40.9243300Z"
+  },
+  "hashes": {
+    "exe_sha256": "A805FBBD80B735F354AB0CC2FBFE7F4B24A93436243888A6C6A1A4EAE8431FBE",
+    "catalog_sha256": "D91A68186661127F16E2AE102B4DD9F3A96EAE578B3C989A8B4F17169639FC6F",
+    "runtime_manifest_sha256": "776F9733B3DC1181117910400DB337716BD97ACDDFF2A9B9406D6CC4E6C640E9",
+    "user_db_sha256": "4D1DF299F4E91BC29D7C8612DFF6F86C6E14F02CDDA36AF0D9A1AC704466B5A1"
+  },
+  "validators": {
+    "structural": {
+      "id": "dtt.catalog-structural-health",
+      "version": "2.0.0",
+      "sha256": "50F1FCBAD4C46C14265F444DA5AE9DA4611CE5E8103556695AB8B7B8F1F9ACFD"
+    },
+    "production_contract": {
+      "id": "dtt.production-source-contract",
+      "version": "2.0.0",
+      "sha256": "0A8CA1258E0D7CC3870E86870A2ECF013FCB9C705425E4AB93F6C49947AC6380"
+    }
+  },
+  "runtime_shape": {
+    "total_files": 13,
+    "managed_payload_files_excluding_userdata": 5,
+    "total_bytes": 325777907,
+    "root_dll_count": 0,
+    "pdb_count": 0,
+    "top_level": [
+      "DanbooruTagTool.exe",
+      "runtime-manifest.json",
+      "Data/",
+      "UserData/",
+      "ForgeBridge/"
+    ],
+    "real_userdata_embedded": false
+  },
+  "catalog": {
+    "schema_version": 1,
+    "rows": 124895,
+    "category_counts": {
+      "Artist": 48313,
+      "Character": 35278,
+      "Copyright": 7616,
+      "General": 30629,
+      "Special": 3059
+    },
+    "sqlite_integrity_check": "ok",
+    "sqlite_quick_check": "ok",
+    "browse_home_counts": {
+      "FORMAL_HOME": 25533,
+      "REVIEWED_BROWSE_FALLBACK": 7409,
+      "UNRESOLVED": 2336
+    },
+    "browse_groups": {
+      "home_count": 7,
+      "group_count": 64,
+      "grouped_characters": 2467,
+      "selected_home_unclassified": 2072,
+      "hold_count": 21
+    }
+  },
+  "forgebridge_sha256": {
+    "ForgeBridge/javascript/dtt_bridge.js": "493A54C35E99C8107BD60499ED1852E1E1E08076BB0D0925FDE1DF4C69E49345",
+    "ForgeBridge/scripts/dtt_bridge.py": "5F399906CD1AEBE4BC99391609756B6B2F32DC94C70CC24F30004595E2A3FE0A"
+  },
+  "semantic_baseline_references": {
+    "issue_118": "Sexual Intent v2/current production source-integrity gate",
+    "issue_132": "31,003 ordinary identities; accepted route usability audit complete",
+    "issue_199": "346 General identities / 355 assignments; BODY 247, THEME 108",
+    "issue_201": "Production-size intent-first scenario QA; no catalog semantic delta",
+    "issue_204": "Unified filter live refresh and fixed refinement-row layout production baseline",
+    "issue_216": "Formal HOME 25,533; reviewed Browse-only fallback 7,409; unresolved 2,336. Formal decisions immutable.",
+    "issue_179": "Reviewed quality projection: 1,215 rows / display 221 / search 1,000; HOME and identities unchanged; HOLD 17, Stage B REVIEW 373 retained.",
+    "issue_223": "7 HOME / 64 display-only groups / 2,467 grouped / 2,072 unclassified / 21 HOLD; HOME authority unchanged.",
+    "issue_226": "Separate schema1 generation-library.db; current Forge settings only; PromptWorkspace/preset editor/Bridge reused."
+  },
+  "validation": {
+    "release_tests": {
+      "passed": 276,
+      "failed": 0,
+      "skipped": 3,
+      "total": 279
+    },
+    "focused_tests": {
+      "passed": 35,
+      "failed": 0
+    },
+    "issue199_performance_gate": "PASS: isolated; thresholds unchanged; all blocker flags false",
+    "isolated_smoke": "PASS: actual self-contained runtime; schema1/FTS5; zero network calls; WPF render",
+    "installed_smoke": "PASS: real PNG indexing, thumbnail/metadata/search, annotation restart, restore/Undo/Recovery, preset editor, real Forge send and one successful generate, diff, missing/restore annotation",
+    "visual_ui_verified": true,
+    "wpf_layout_render_verified": true,
+    "issue226_report": "docs/issue226/PRODUCTION_CHECKPOINT_2026-10-02.json"
+  },
+  "real_userdata_baseline": {
+    "apply_before_inventory": [
+      {
+        "path": "README.txt",
+        "bytes": 108,
+        "sha256": "B6A25CC3334885F0249D7AF6B1D2954C4B778B79D9C322C13D4F24F262F6B28E"
+      },
+      {
+        "path": "user.db",
+        "bytes": 24576,
+        "sha256": "3664C3A84A97E45EB067A1EE6949864227139077107126631A606E8DD63AAF73"
+      }
+    ],
+    "apply_before_after_byte_identical": true,
+    "final_inventory": [
+      {
+        "path": "Cache/GenerationThumbnails/0369292A5AB808B513B16397D0A08101B1D2B20D6B2DBFA0BB4D09C195FAC2BA.png",
+        "bytes": 73960,
+        "sha256": "8C685D4C56818CFF2B1C6B3EE1458D143256F100565F0F456A4EA558C56E4DB7"
+      },
+      {
+        "path": "Cache/GenerationThumbnails/308C971522374876C6FB39B619CA8CAFDD48E86A4C92F70192BE96D12581D126.png",
+        "bytes": 34066,
+        "sha256": "86696144F8D7EFA2EE030B8A603A7BCD7D3739A914A90C3FCC0B6C14F1EBB816"
+      },
+      {
+        "path": "Cache/GenerationThumbnails/809DA341E42CE37F5B97021FF406BD3BC26390A6714AD6981399B9E8817EC4C0.png",
+        "bytes": 111639,
+        "sha256": "CE344B15172DFBC9669C3F4D52EA609B7B70EC32EF98172AA67CEA146CB81F39"
+      },
+      {
+        "path": "Cache/GenerationThumbnails/893AFBE2C0B4D0A8B9842B41E646855DE781360B2A2D1EF033E7DE58CF4D833B.png",
+        "bytes": 83591,
+        "sha256": "64171A736938E4CCB83F5FC788FFB9E090843D8BD3D690F0ADE579E23C8CCE3A"
+      },
+      {
+        "path": "Cache/GenerationThumbnails/9672E49ABDBB228F768D169D6F278A42513CEF46C4105D93B126A6CD0A65D445.png",
+        "bytes": 100448,
+        "sha256": "394E5EE0777F17E61C7287F9BB27C8A966447D3F79A9185C4AA54F6164DCC7A0"
+      },
+      {
+        "path": "generation-library.db",
+        "bytes": 90112,
+        "sha256": "5728C62A87FCE8D20D6EA7461FDF4AAC288694B941817DD33D48DC3BF8DA2B98"
+      },
+      {
+        "path": "README.txt",
+        "bytes": 108,
+        "sha256": "B6A25CC3334885F0249D7AF6B1D2954C4B778B79D9C322C13D4F24F262F6B28E"
+      },
+      {
+        "path": "user.db",
+        "bytes": 24576,
+        "sha256": "4D1DF299F4E91BC29D7C8612DFF6F86C6E14F02CDDA36AF0D9A1AC704466B5A1"
+      }
+    ],
+    "post_smoke_byte_identical": false,
+    "explanation": "Explicit UI smoke changed only Workspace and PromptWidth; Prompt/Recovery and both Presets equal original backup. Library/cache intentionally added.",
+    "copied_or_embedded": false,
+    "full_backup_retained": true
+  },
+  "previous_production_baseline": {
+    "source_main_commit": "bbbd6cac7368edab9d6faf096070ec77452cc49b",
+    "exe_sha256": "A65D3056E0BFDD177E1D37B1A4CD9C9FF2FD208725D1311005389E9E7027E21E",
+    "catalog_sha256": "D91A68186661127F16E2AE102B4DD9F3A96EAE578B3C989A8B4F17169639FC6F",
+    "runtime_manifest_sha256": "805FDC0EFCDC044F776F1DB0D83699C248C797192808E35BAADC912A40E7DE05",
+    "checkpoint": "docs/issue223/PRODUCTION_CHECKPOINT_2026-10-01.json"
+  },
+  "generation_library": {
+    "schema_version": 1,
+    "integrity": "ok",
+    "counts": {
+      "library_root": 2,
+      "image_asset": 5,
+      "generation_metadata": 4,
+      "generation_parameter": 40,
+      "image_annotation": 1
+    },
+    "thumbnail_cache": "UserData/Cache/GenerationThumbnails",
+    "annotations_restart_and_missing_preserved": true
+  },
+  "known_limitations": [
+    "Manual scan; no automatic rename merge or prune UI.",
+    "WebP preview depends on installed WIC codec; actual WebP image UI smoke not verified.",
+    "Different-PC launch and physical network disconnect not verified; isolated no-service/proxy-unavailable candidate passed.",
+    "Full Recipe application, A/B Lab, LoRA Library and Region Composer remain separate scope.",
+    "This real-image smoke contains PNG only; JPEG/WebP parsing remains covered by focused fixtures.",
+    "Real smoke has no LoRA token; empty LoRA list and explicit-token parser fixtures passed."
+  ]
+}
