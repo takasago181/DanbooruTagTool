@@ -1,201 +1,80 @@
 # CURRENT STATE
 
-最終更新: 2026-10-03 (#245 combined production promotion complete; STOP)
+最終更新: 2026-10-03 — #245 production closeout complete; Foundation Gate 0 open
 
-このファイルは **現在地だけ** を保持する人間向けsummary。
-過去のrouting/runtime/taxonomy/完了記録は `docs/project/CURRENT_STATE_HISTORY.md` に保存する。
+This file keeps only the current project state. Historical detail belongs in `CURRENT_STATE_HISTORY.md`.
 
-人間向けcurrent dashboard:
-- `docs/project/NOW.md`
+## Current routing
 
-機械向けcompact routing:
-- `docs/project/CURRENT_ROUTING.json`
+### #248 — Foundation Audit
 
-作業開始時は固定SHAをcurrent truthとせず、live GitHubを再取得する。
+Status: **READY / ACTIVE NEXT**
 
-## 1. Current routing
+Start gate is satisfied:
+- #245 production promotion complete and Issue closed;
+- new LKG recorded;
+- production UserData/Library/LoRA/catalog/authority protection verified;
+- real Forge -> Library round-trip verified;
+- final Release 364 PASS / 4 SKIP / 0 FAIL.
 
-現在の主要な独立lane:
+#248 is audit/measurement only. It must determine what Foundation work is actually necessary and then stop for review.
 
-### #245 B-lite — COMPLETE / production APPLIED (2026-10-03)
+Detailed scope: live Issue #248.
 
-Human authorized PR246 merge and combined #228/#229/#232/#245 promotion. PR246/257/258 merged; clean merged-main runtime source `b3f48c359a8473c8bbf02347487cba5d8dacf96c` installed. Full364 PASS/4 existing SKIP, focused112 PASS/1 existing SKIP, product CI PASS. Primary Create real Forge1PNG and Library10-field/hash round-trip PASS. Resumed5 Prompt/Recovery, emptyNegative and2 Presets preserved through normal restart; original Library/LoRA files and catalog/authority unchanged. New LKG recorded; previous backups retained.
+### #259 — Codex/autonomy + personal-workstation policy cleanup
 
-Top-level 作成 / タグ探索 / ライブラリ; shared P/N, working8条件/source, LoRA quick-use, compact context actions and small-window group pane. Phase A/B/C/D audit remains evidence. Neo API spelling compatibility was corrected minimally without fallback/identity weakening; failed trials retained.
+Draft PR #259 contains global rule simplification. It is management/policy-only and does not change product source/runtime/UserData.
 
-Evidence: `docs/issue245/PRODUCTION_CHECKPOINT_2026-10-03.md` and `.json`; `docs/project/LAST_KNOWN_GOOD.json`. Native screenshot capture remains white: visual appearance NOT_VERIFIED; native operations/status/metadata and WPF renders PASS. Different-PC/physical-disconnect/owned real-LoRA generation remain unverified. **STOP: await user instruction; no #230/#231/new feature.**
+Core policy:
+- WHAT / WHY / HARD BOUNDARIES / ACCEPTANCE are fixed by project intent;
+- HOW is chosen by Codex;
+- private single-user workstation, not public-distribution quality, is the default deployment assumption;
+- adult/sexual/fetish/hard-niche 2D generation is a first-class product priority.
 
-- **#223 — Browse Groups: COMPLETE / production deployed**
+## Current production baseline
 
-PR #224 merged and clean-published from main `bbbd6cac7368edab9d6faf096070ec77452cc49b`. Production apply is complete.
-7 HOME / 64 display-only groups / 2,467 grouped Characters / 2,072 other-unclassified / 21 HOLD (included in unclassified).
-Character 35,278 / Copyright 7,616 and formal/fallback/unresolved 25,533 / 7,409 / 2,336 unchanged. #70 source, #179 overlay and HOME authority unchanged.
-Candidate 260 PASS / 2 SKIP; installed 259 PASS / 3 SKIP; Python 124 PASS; performance and CI PASS. UserData byte-identical; saved 13-tag Prompt restored.
-Runtime hashes and exact evidence: `docs/project/LAST_KNOWN_GOOD.json`, `docs/issue223/PRODUCTION_CHECKPOINT_2026-10-01.json`.
-Native screenshot appearance and a different-PC launch remain NOT_VERIFIED; actual WPF render and installed launch/accessibility passed.
-No default further classification: ambiguous HOLD and unclassified remain preserved; reopen only for a concrete regression or new approved scope.
+- runtime: `C:\Codex\DanbooruTagTool-App`
+- source commit: `b3f48c359a8473c8bbf02347487cba5d8dacf96c`
+- repository gate-open main: `c75a4795bd082987e8e8348f0432200b20094ff5`
+- LKG: `docs/project/LAST_KNOWN_GOOD.json`
+- EXE SHA256: `C69C83B365C24CBA8B870BA6A5778AC83CE28DEBED779D1D556C1A9B74768F7B`
+- catalog SHA256: `D91A68186661127F16E2AE102B4DD9F3A96EAE578B3C989A8B4F17169639FC6F`
+- Release: 364 PASS / 4 SKIP / 0 FAIL
+- focused: 112 PASS / 1 SKIP / 0 FAIL
+- primary Create -> Forge -> PNG -> Library metadata/hash: PASS
 
+Known limitation:
+- native pixel capture white client; final visual appearance NOT_VERIFIED.
+- actual UI operations/status, WPF render/tree and generation workflow passed.
 
-- **#132 — Tag classification usability / discoverability**
-  - state: **complete; production promotion passed 2026-09-27**
-  - Pass A complete for all 31,003 ordinary identities; Pass B/C reconciliation and semantic QA complete
-  - PR #197 merged at implementation source main f229ee4d2c3f5ea03dc964634a6d39d7f730710e
-  - production static secondary-route delta: 274 pairs / 273 identities; unexpected changes 0; removals 0
-  - production runtime: C:\Codex\DanbooruTagTool-App; clean self-contained win-x64; manifest/executable/catalog hashes are recorded in docs/project/NOW.md
-  - UserData remained unchanged and was excluded from the publish copy
-  - separate semantic residuals were re-derived by #201; no safe shared production rule was accepted
-- **#199 — General body/theme facets**
-  - state: **complete; production-promoted through PR #200**
-  - General: 346 identities / 355 assignments; BODY 247 / THEME 108
-  - existing #76 facet IDs and UnifiedBrowseIndex are the production authority
-- **#201 — Practical ordinary-tag discoverability finish**
-  - state: **complete; PR #202 merged**
-  - accepted #64 color/LIVING/local owner projections showed 0 projection omissions
-  - no production taxonomy/catalog semantic change was justified
-  - production-size intent-first scenario regression coverage added
-  - catalog/runtime/UserData remain unchanged from #199 production
-- **#179 — Character/Copyright quality audit**
-  - state: **reviewed display/search overlay production-promoted; residual REVIEW/HOLD retained**
-  - retained continuation branch: `audit/issue179-refresh-20261001`; merged PR #220/#221
-  - historical research branch: `research/issue179-character-quality-audit` (evidence only)
-  - old Draft PR #181: **closed as stale merge path**
-  - Stage A 44,426-row census evidence is retained
-  - keep existing continuation commits/evidence; do not restart from main
-  - accepted projection 1,215 rows / 1,221 field changes (display 221, search 1,000); display HOLD 17
-  - audit checkpoint: `docs/issue179/FINAL_CHECKPOINT_2026-10-01.json`
-  - clean main source `a317efdc831b45b2a088fb9d4cdeb7873472253e` promoted; installed 252 PASS / 3 opt-in SKIP; all CI PASS; UserData byte-identical
-  - production checkpoint: `docs/issue179/PRODUCTION_CHECKPOINT_2026-10-01.json`
-  - Stage B REVIEW subjects 373 and post-overlay regex residuals 12 retained; no forced corrections
-  - scope: Character/Copyright identity・日本語display/search・ranking・2D scope品質
-  - Artist監査は対象外
-  - completed #180/#216 HOME authority is separate and must not be reopened by default
+## Product goal
 
-- **#180 / #216 — Character -> HOME Copyright**
-  - state: **complete / closed / production-promoted**
-  - formal HOME authority + reviewed Browse fallback integrated
-  - production fallback: 7,409 Characters
-  - unresolved in runtime: 2,336
-  - immutable production result: `docs/issue216/PRODUCTION_PROMOTION_2026-10-01.json`
-  - research branches/ledgers remain provenance only
-
-- **#188 — Project-wide execution efficiency**
-  - state: **complete / closed**
-  - cold/warm resume separation, compact routing, immutable-evidence-first progress, transport/CI efficiency and canonical promotion pipeline are in place
-  - stale current-authority references to active #180 / next-10-run waiting condition were removed during final cleanup
-  - historical progress/status files remain evidence/cache only and do not override immutable results
-  - reopen only for a concrete new execution-overhead defect
-- **#52 / #138 / #203 / #210 / #211 — maintenance**: complete and closed after #210 promotion and #211 hygiene finalization. PR #205 was superseded and closed without merge; PR #212 supplied the current pipeline.
-
-## 2. Current product/runtime baseline
-
-- user-facing runtime: `C:\Codex\DanbooruTagTool-App`
-- distribution: self-contained `win-x64`
-- `artifacts/current/` はfallback/reference
-- real `UserData` はuser-owned protected state
-- production ordinary catalog baseline:
-  - General: **30,629**
-  - Special: **3,059**
-  - runtime ordinary identities: **31,003**
-- #199 General body/theme baseline:
-  - identities: **346**
-  - assignments: **355**
-  - BODY: **247**
-  - THEME: **108**
-- current Special authority: Issue #76 shallow kind/body/theme model
-- production LKG: `docs/project/LAST_KNOWN_GOOD.json` and `.md` (source main `b3f48c359a8473c8bbf02347487cba5d8dacf96c`)
-- runtime shape: 19 total files including UserData/cache; single-file self-contained win-x64; root DLL 0; PDB 0; external catalog/UserData/ForgeBridge/manifest schema 3
-- current production EXE SHA256: `C69C83B365C24CBA8B870BA6A5778AC83CE28DEBED779D1D556C1A9B74768F7B`; catalog SHA256 `D91A68186661127F16E2AE102B4DD9F3A96EAE578B3C989A8B4F17169639FC6F`
-- current UI mitigation authority: #177
-  - Artist hidden
-  - legacy RelatedCopyright remains excluded; #216 formal HOME / reviewed Browse fallback now powers Character-Copyright Browse/search
-- Performance / Runtime Load Audit と portable/runtime hardening は完了済み。default next taskへ戻さない
-- #117/#118 completed baselineをold current-task textから再開しない
-- #65 Stage10はparallel learningでありv1 product Gateではない
-- #44 KNOWLEDGEはlong-term generation-knowledge owner
-
-## 3. Product goal
-
-Canonical product goal:
-- `docs/PRODUCT_GOAL_LOCK.md`
+Canonical source:
+`docs/PRODUCT_GOAL_LOCK.md`
 
 Core flow:
-
 `理解 -> 発見 -> 選択 -> 出力`
 
-v1の中心:
-- Promptを日本語-first + canonical Englishで理解
-- Japanese / English / mixed search
-- General / Specialを実用分類から発見
-- userが明示的に選択・削除・並べ替え
-- canonical-English Promptを出力
+Priority use case:
+**adult / sexual / fetish / hard-niche 2D generation**, especially terminology discovery and difficult structural concepts such as relation/body-site/actor-target/count/visibility/device/restraint/fluid/topology.
 
-runtime LLM依存、自動Prompt最適化、hidden automatic insertionをv1 defaultにしない。
+General-purpose use remains supported.
 
-## 4. Execution architecture
+## Permanent protections
 
-Project-wide authority:
-- `docs/project/EXECUTION_ARCHITECTURE.md`
-- `docs/project/EFFICIENT_EXECUTION_RULES.md`
-- `docs/project/CHAT_START_PROTOCOL.md`
+Keep:
+- UserData/personal Library/LoRA protection;
+- rollback/recovery for risky runtime changes;
+- no destructive `git clean -fdx/-fdX`;
+- canonical identity / stable Special-ID protection;
+- explicit research/evidence -> production promotion decision;
+- credentials/secrets out of Git;
+- relevant regression tests.
 
-### Cold start
+Do not treat second-PC portability, single-file packaging, zero-PDB/DLL shape, machine-independent paths, universal offline operation, or PR ceremony for trivial edits as universal requirements.
 
-lane/contract/current authorityが未確定ならfull authority recoveryを行う。
+## Completed / do not reopen by default
 
-### Warm resume
+#132, #179 accepted projection, #180, #188, #199, #201, #204, #210/#211, #216, #223, #226, #228, #229, #232, #245.
 
-同一lane・同一frozen contract・immutable progress継続時は:
-1. compact routing / contract fingerprint
-2. live Issue/branch state
-3. immutable progress listing
-4. changed task-local state
-
-だけを先に確認する。
-
-hash/fingerprint一致時に、このhistoryや大型spec群を毎run全文再読しない。
-
-## 5. Authority and progress rules
-
-Routing precedence:
-
-`live GitHub -> NOW.md / CURRENT_ROUTING.json -> CURRENT_STATE.md -> selected live Issue/latest checkpoint -> PERMANENT_RULES -> task-specific contract -> history`
-
-Progress precedence:
-
-`immutable checkpoint/result -> deterministic validator/reconstruction -> status/progress cache`
-
-- checkpoint/resultは進捗authority
-- status/progress summaryは原則derived cache
-- stale cacheがvalid immutable progressを巻き戻してはいけない
-- source/contract drift時はfail-closed
-- protected data / production promotion / deleteは軽量warm-resume対象外
-
-## 6. Protected boundaries
-
-絶対に一般化しない:
-- `git clean -fdx`
-- `git clean -fdX`
-- ignored/protected dataの広範囲cleanup
-- real UserDataをpublish output扱いすること
-- research laneからproduction apply
-- unrelated active laneのbranch/data/authority混在
-
-GitHubに見えないlocal/ignored dataを「不要」「削除済み」と推定しない。
-
-## 7. Historical evidence
-
-以前このファイルに蓄積されていた以下の詳細は:
-
-- 2026-09-22以前のrouting snapshot
-- 2026-09-20 runtime authority
-- #64/#66/#68/#69/#70/#76/#83/#109/#114/#117/#118等の完了記録
-- historical SHAs / CI / taxonomy counts
-- old Stage / handoff / maintenance state
-
-すべて:
-
-`docs/project/CURRENT_STATE_HISTORY.md`
-
-へ退避済み。
-
-current taskをhistoryから選ばない。
+Use live GitHub + immutable checkpoint/result rather than fixed historical SHAs when a completed area must be inspected.

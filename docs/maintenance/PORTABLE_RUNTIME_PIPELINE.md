@@ -1,6 +1,21 @@
 # Portable runtime maintenance pipeline
 
-This is the canonical path for clean Release publish and bounded production promotion. It replaces legacy loose-DLL publish instructions and never accepts real UserData as a build input.
+This is the current conservative path for clean Release publish and bounded workstation-runtime promotion. It never accepts real UserData as a build input.
+
+## Scope note — personal workstation
+
+DTT is currently a private single-user workstation tool. The current scripts still enforce historical portable-package details such as self-contained/single-file/no-PDB shape because that is the existing known-good pipeline, **not because those details are permanent product requirements**.
+
+Foundation may simplify or replace those packaging checks if the resulting workstation update path remains safe and recoverable.
+
+The following are not default future acceptance gates unless a task specifically needs them:
+- second-PC launch;
+- arbitrary folder-copy portability;
+- single-file packaging;
+- zero DLL/PDB shape;
+- machine-independent paths.
+
+Keep the UserData, provenance, runtime-start, regression, and rollback protections.
 
 ## Authorities
 

@@ -1,272 +1,174 @@
 # Project Execution Architecture
 
-Status: **Issue #188 foundation / project-wide guidance**
+Purpose: let capable Codex/ChatGPT runs spend effort on the actual problem instead of reconstructing unchanged project ceremony.
 
-Purpose: keep recurring research, translation, audit, and automation work fast **without weakening semantic accuracy, provenance, protected-data safety, or final acceptance gates**.
+## 1. Default contract
 
-## 1. Core architecture
+The project should normally specify:
 
-Use this default shape for large recurring work:
+- **WHAT** outcome is needed;
+- **WHY** it matters;
+- **HARD BOUNDARIES** that must not be crossed;
+- **ACCEPTANCE** evidence that demonstrates success.
 
-```
-heavy authority/source
-  -> immutable hash/manifest
-  -> compact execution capsule
-  -> deterministic bounded input extraction
-  -> semantic/translation work
-  -> immutable append-only result/checkpoint
-  -> cheap incremental validation
-  -> periodic risk-based QA
-  -> final full audit / acceptance
-```
+The model owns **HOW** unless the task genuinely requires a fixed procedure.
 
-The model should spend time on judgment, not repeatedly reconstructing unchanged state.
+This includes:
+- work decomposition;
+- analysis method;
+- helper scripts/tools;
+- implementation order;
+- refactor granularity;
+- whether an existing subsystem should be kept, wrapped, rewritten, deleted, or archived;
+- whether an existing OSS implementation is preferable to local code.
 
-## 2. Execution tiers
+A planned checklist is not a quota.
 
-Classify the task before selecting preflight strength.
+## 2. Risk-based execution
 
 ### READ_ONLY
+Examples: inspect, compare, audit, benchmark, review.
 
-Examples:
-- inspect state;
-- compare artifacts;
-- review a report.
-
-Normal gate:
-- verify live target;
-- read only evidence needed for the question.
+Use the minimum evidence necessary. Expand only when findings expose a dependency.
 
 ### APPEND_ONLY
+Examples: immutable review/result ledgers.
 
-Examples:
-- semantic review ledger;
-- translation queue result;
-- immutable audit checkpoint.
+Verify the target/contract, append the next useful bounded result, validate it, and avoid unrelated full-project preflight.
 
-Normal gate:
-- verify compact routing/contract fingerprints;
-- derive exact next prefix from immutable evidence;
-- read only the bounded next input;
-- validate the new append;
-- avoid destructive/protected-data preflight that cannot be exercised by the task.
+### NORMAL MUTATION
+Examples: source/docs/tests/tooling changes.
 
-### MUTATING
+Recover current task authority, change the bounded subsystem, run relevant regression/quality checks, and leave recoverable evidence. Use a branch/PR when the change is substantial or risky; do not require it for every trivial personal-repo edit.
 
-Examples:
-- implementation changes;
-- generated sidecar replacement;
-- queue reconciliation.
+### PROTECTED / DESTRUCTIVE / PRODUCTION
+Examples: UserData migration, runtime promotion, accepted authority replacement, broad cleanup.
 
-Normal gate:
-- current routing + live Issue;
-- affected contract/spec;
-- focused regression;
-- dependency/impact checks.
+Use full provenance, backup/recovery, exact affected scope, rollback, and appropriate acceptance testing.
 
-### DESTRUCTIVE / PRODUCTION
+Autonomy and efficiency do not weaken this tier.
 
-Examples:
-- runtime promotion;
-- UserData migration;
-- cleanup/delete;
-- production taxonomy apply.
+## 3. Cold vs warm state recovery
 
-Normal gate:
-- full fail-closed authority recovery;
-- protected-data evidence;
-- exact before/after provenance;
-- complete acceptance criteria.
+Cold start is for:
+- a new session;
+- changed lane/contract;
+- uncertain branch/authority;
+- material conflict.
 
-**Efficiency rules may never weaken DESTRUCTIVE / PRODUCTION safeguards.**
+Warm resume is for the same task/contract with recoverable progress.
 
-## 3. Cold start vs warm resume
+Warm resume should inspect changed state and immutable progress, not reread large unchanged docs.
 
-### Cold start
+Use live GitHub and immutable evidence to resolve stale summaries. Fall back to broader reading only when the conflict matters.
 
-Use when:
-- new chat/session;
-- lane selection changed;
-- contract changed;
-- branch/Issue authority is uncertain;
-- previous state cannot be trusted.
-
-Read the full authority chain required by the project.
-
-### Warm resume
-
-Use when:
-- same lane;
-- same frozen contract;
-- recurring scheduled worker;
-- immutable progress exists;
-- compact routing and contract fingerprints match.
-
-Warm resume should normally read:
-1. compact routing/contract fingerprints;
-2. task-local immutable progress listing;
-3. next bounded input;
-4. any changed/required evidence.
-
-Do **not** reread large unchanged authority documents merely because they exist.
-
-If a fingerprint differs, fall back to cold-start/full-authority behavior.
-
-## 3.5. Compact routing must be stable
-
-A compact routing fingerprint should contain **routing identity**, not fast-changing progress.
+## 4. Evidence model
 
 Prefer:
-- active Issue ID;
-- branch name;
-- authority/spec path;
-- execution tier;
-- protected boundaries;
-- where to fetch progress.
+- immutable result/checkpoint/manifest;
+- current source/tests;
+- reproducible benchmark;
+- live Issue decision.
 
-Avoid embedding as required routing truth:
-- current branch HEAD for fast-moving lanes;
-- reviewed row counts;
-- latest checkpoint filename;
-- transient CI run IDs.
+Treat status/progress summaries as derived convenience.
 
-Those values should be fetched from their live authority when needed.
+A stale cache/dashboard does not roll back validated work.
 
-Otherwise every normal progress commit invalidates the routing fingerprint and turns warm resume back into cold-start behavior.
+## 5. Large inputs
 
-## 4. Authority vs cache
+Do not make the model repeatedly read giant source/evidence files when a deterministic projection can preserve the task-relevant information.
 
-Project-wide default:
+Useful pattern:
 
-> immutable evidence is authority; status/progress summary is derived cache.
+`authority -> pinned hash/manifest -> compact bounded input -> work -> result -> targeted validation -> final parity/audit`
 
-Examples of immutable evidence:
-- checkpoint CSV;
-- result CSV;
-- accepted manifest;
-- committed decision record.
+Compact inputs are transport/cache, not replacement authority.
 
-Examples of cache:
-- status.json;
-- progress counters;
-- coordinator summary.
+The exact shard size, batch size, or QA cadence should be chosen from task complexity and measured failure risk rather than copied as a universal quota.
 
-A stale cache must be reconstructable from immutable evidence and must never invalidate already-valid immutable progress.
+## 6. Quality strategy
 
-Operational rules:
-- workers should not rewrite a status cache after every small append unless a consumer actually requires it;
-- prefer cache refresh at run end / meaningful boundary / coordinator cycle;
-- a cache count lower than the checkpoint union means **cache stale**, not progress rollback;
-- cache reconstruction must be deterministic where possible;
-- if both cache and immutable evidence are read, reconcile in favor of validated immutable evidence.
+Prefer risk-based validation:
+- exact/deterministic checks for schema, hashes, IDs, counts, migration, persistence;
+- semantic review where judgment is actually required;
+- focused regression around changed boundaries;
+- full regression when the change/risk justifies it;
+- production smoke only when production/runtime behavior is involved.
 
-## 5. Large-source transport
+Do not equate quality with repeated full rereads or duplicated test suites.
 
-Authoritative large files are not automatically good worker inputs.
+## 7. Refactoring/replacement
 
-For large recurring work:
-- preserve original authority unchanged;
-- create deterministic compact shards/ranges;
-- pin source hash/order/population;
-- include only fields needed for the task;
-- let workers reason over only the next bounded slice;
-- run final audit against original authority.
+When historical structure is costly, Codex may recommend or perform a bounded replacement instead of incrementally beautifying the old code.
 
-Issue #70 compact shards are the current reference pattern.
+Use parity/strangler techniques when they reduce risk, especially for high-value production semantics.
 
-Generic deterministic extractor:
-- `scripts/maintenance/extract_compact_csv_slice.py`
+Do not require a formal strangler sequence for tiny changes where direct replacement is obviously safer.
 
-Use it when a large CSV can be narrowed by stable order/lane/range/field projection before semantic reasoning. The generated slice manifest pins the source SHA, source/filtered counts, selected range, output fields, and output SHA.
+## 8. External reuse
 
-The compact output remains transport/cache only and must never silently replace the source authority.
+Before implementing substantial commodity functionality, inspect maintained existing tools/libraries/data when reuse could materially improve the result.
 
-## 6. Quality model
+Evaluate:
+- fit to DTT's actual use case;
+- behavior parity;
+- maintenance/upstream risk;
+- network/local-state implications;
+- integration complexity.
 
-Do not equate quality with repeated full rereads.
+For the current private/local-only project, do not turn license/provenance research into a default blocker. Record the upstream source when practical. Escalate to a real legal/provenance review only when there is an obvious restriction or before distribution/publication/shared-service/commercial use.
 
-Prefer:
-- strong per-item certainty gate;
-- mandatory research when material uncertainty remains;
-- explicit unresolved state when research cannot resolve meaning;
-- risk-based periodic QA;
-- deterministic ordinary-case sampling;
-- machine structural validation.
+Possible result:
+- adopt/port;
+- wrap;
+- imitate UX/architecture;
+- use only as test/reference;
+- reject and keep DTT.
 
-Remove:
-- duplicate rereads of obviously clear items;
-- repeated verification of unchanged hashes;
-- full-population ingestion where deterministic filtering can happen first.
+The goal is not maximum dependency reuse; it is avoiding unnecessary reinvention.
 
-## 6.5. Machine serialization boundary
+## 9. Reporting and checkpoints
 
-Structured output must not rely on the model visually counting delimiters.
+Record enough to resume/review:
+- result;
+- branch/commit/PR when changed;
+- important tests/measurements;
+- protected/production impact;
+- unresolved decision.
 
-For CSV / JSON / manifests / ledgers:
-1. build a structured row/object first;
-2. serialize with a real CSV/JSON writer;
-3. parse the produced bytes/text back;
-4. assert exact schema/field count/types/enums/order;
-5. only then persist or push.
+Do not produce large repetitive compliance reports unless the task itself is an audit.
 
-This is especially important for append-only Automation work. Semantic review belongs to the model; quoting, column alignment, JSON escaping, sorting, duplicate/gap detection, and schema conformance belong to deterministic code.
+## 10. Anti-patterns
 
-Do not add a second semantic reread merely to compensate for weak serialization. Fix the serialization boundary instead.
+Avoid:
+- fixed batch/row quotas without evidence;
+- rereading unchanged full authority every run;
+- stopping on harmless stale dashboard text;
+- cleaning an implementation that is about to be replaced;
+- introducing abstraction/frameworks for aesthetics;
+- preserving Issue-era ownership only because tests are named after it;
+- implementing future-feature architecture before the feature needs it;
+- requiring the user to choose routine internal engineering decisions.
 
-## 7. CI tiers
 
-### Incremental
+## 11. Single-user workstation assumption
 
-For append-only progress:
-- changed checkpoint/result schema;
-- enum/ID validity;
-- exact prefix/assignment;
-- duplicate/gap checks;
-- JSON/CSV parse;
-- lightweight union consistency.
+Current default is a private, single-user Windows workstation tool, not a distributable desktop product.
 
-### Boundary
+Therefore these are **not universal acceptance gates**:
+- launching on a second PC;
+- portable folder-copy verification;
+- self-contained or single-file packaging;
+- zero DLL/PDB packaging shape;
+- avoidance of machine-specific paths when a stable local path is simpler;
+- offline operation for every feature;
+- PR/reviewer ceremony for every small change.
 
-At meaningful milestones:
-- accumulated block consistency;
-- risk QA;
-- broader union validation.
+Keep or use any of them when they materially improve the user's workflow or recovery, but do not block unrelated work merely to satisfy distribution-quality packaging.
 
-### Full
-
-Only for:
-- source/contract changes;
-- explicit manual dispatch;
-- finalization;
-- merge/acceptance gate.
-
-Full CI may rebuild large source products, rerun all smoke tests, and upload artifacts.
-
-## 8. Telemetry
-
-Recurring workers should expose enough operational metrics to distinguish semantic difficulty from workflow overhead:
-- rows completed;
-- researched/unresolved count;
-- checkpoint count;
-- tool/read/write counts when available;
-- validator failures;
-- actual stop reason;
-- approximate run duration when observable.
-
-Telemetry is operational evidence only, not semantic authority.
-
-Common schema:
-- `docs/project/EXECUTION_TELEMETRY.md`
-
-Prefer embedding `last_run_metrics` into an already-required run-end status/cache write. Do not create a separate commit just for telemetry.
-
-## 9. Anti-regression rule
-
-Before adding a new safety step to a recurring worker, ask:
-1. What failure does it prevent?
-2. Is that failure already covered elsewhere?
-3. Can the check be deterministic instead of model-based?
-4. Must it run every item/run, or only on change/boundary/finalization?
-5. Does it preserve ambiguity detection and final evidence?
-
-If the new step duplicates an existing gate, prefer consolidation rather than accumulation.
+What remains mandatory is practical safety on the actual workstation:
+- current runtime can start and perform the changed workflow;
+- UserData is preserved;
+- source/runtime provenance is recoverable enough to roll back;
+- destructive changes are bounded;
+- regressions relevant to the change are tested.
