@@ -717,3 +717,43 @@ These sources are intentionally lower authority than exact author/runtime docume
 - Value: resolution-dependent adapter behavior and excessive-weight failure.
 - Limitation: one runtime/workflow and visually selected scenes.
 
+---
+
+## 2026-10-02 adult-generation structural sources
+
+**S-ADULT-001 — NoobAI XL 1.1 author content baseline**
+- URL: https://huggingface.co/Laxhar/noobai-XL-1.1/blob/main/README.md
+- Class: `AUTHOR_GUIDE / EXACT_MODEL`
+- Value: SFW-oriented safe/nsfw default, native Danbooru+e621 caption context, exact caption order and baseline settings.
+- Current remote checkpoint SHA256: `6681e8e4b134c81f16533acedb0d406d7e5e366e1624b4105178c64d00b05d51`.
+
+**S-ADULT-002 — WAI Illustrious v17 rating surfaces**
+- URL: https://huggingface.co/LyliaEngine/waiIllustriousSDXL_v170/blob/main/README.md
+- Class: `AUTHOR_GUIDE / EXACT_MODEL`
+- Value: four rating surfaces and author filtering guidance; baseline/Hires settings.
+
+**S-ADULT-003 — Anima official safety/prompting card**
+- URL: https://huggingface.co/circlestone-labs/Anima
+- Class: `AUTHOR_GUIDE / EXACT_FAMILY`
+- Value: tag/NL mixture, safety surfaces, stronger weighting behavior and multi-character guidance.
+
+**S-ADULT-004 — Anima censorship/watermark discussion**
+- URLs:
+  - https://huggingface.co/circlestone-labs/Anima/discussions/104
+  - https://huggingface.co/circlestone-labs/Anima/discussions/132
+  - https://huggingface.co/circlestone-labs/Anima/discussions/162
+- Class: `COMMUNITY / MULTI_SOURCE`
+- Value: repeated reports that artist/concept priors can carry censor/watermark artifacts that resist targeted Negatives.
+- Limitation: mechanism attribution remains community-level.
+
+**S-ADULT-005 — Anima adult relation-caption community practice**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/141
+- Class: `COMMUNITY / PRACTICAL`
+- Value: stable subject-ID and relation-focused caption workflow for complex adult multi-subject scenes.
+- Limitation: explicit user system prompt is not copied into project knowledge; only the structural method is retained.
+
+**S-ADULT-006 — Anima long-NL / structure discussion**
+- URL: https://huggingface.co/circlestone-labs/Anima/discussions/140
+- Class: `COMMUNITY / PRACTICAL`
+- Value: reports of tag-first vs long-NL anatomy/framing tradeoffs relevant to complex adult relation scenes.
+
