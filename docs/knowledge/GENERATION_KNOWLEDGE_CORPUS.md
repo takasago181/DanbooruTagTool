@@ -1487,3 +1487,16 @@ Character/style LoRAs should be compared as a weight matrix with separate identi
 Research:
 `research/BATCH_AO_MODEL_PROFILES_AND_COMPARISON_GRIDS_20261002.md`.
 
+## 16.5 Finishing as a separate generation stage
+
+Upscale, enhancement, Hires/img2img and local detailers are distinct interventions.
+
+For stylized/anime reproduction:
+- preservation and creative detail are competing objectives;
+- fix structural/anatomy errors before delivery upscale;
+- retain second-pass generation settings as evidence identity;
+- compare final identity/style against the accepted source image.
+
+Research:
+`research/BATCH_AN_FINISHING_UPSCALE_DETAILER_20261002.md`.
+
