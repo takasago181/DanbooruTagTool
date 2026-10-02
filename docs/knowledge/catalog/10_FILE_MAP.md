@@ -204,3 +204,5 @@ Do not create a parallel genre numbering scheme.
 
 - `../research/BATCH_P_COMMUNITY_TAG_NEGATIVE_RUNTIME_20261002.md` — controlled public-user studies on Anima tag-vs-language behavior, uniform/fisheye tags, Negative Prompt side effects, derivative sensitivity, dataset-noise hypotheses, plus current Regional Prompter Anima support.
 
+- `../research/BATCH_Q_ILL_NOOB_LORA_COMMUNITY_MAP_20261002.md` — public Illustrious/NoobAI/LoRA community map; same-dataset LoRA retraining and fixed-seed parameter evidence promoted conservatively, recipes/failure reports preserved without false promotion.
+
