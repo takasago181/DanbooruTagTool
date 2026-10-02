@@ -1475,3 +1475,15 @@ Use them for the predicate they control rather than stacking them as generic qua
 Research:
 `research/BATCH_AN_FAILURE_DRIVEN_CREATION_RECIPES_20261002.md`.
 
+## 16.6 Practical comparison grids
+
+Configuration selection uses:
+- one fixed debug seed for causality;
+- a small fixed robustness seed set for reliability;
+- model/setting columns × seed rows.
+
+Character/style LoRAs should be compared as a weight matrix with separate identity/style/editability scores.
+
+Research:
+`research/BATCH_AO_MODEL_PROFILES_AND_COMPARISON_GRIDS_20261002.md`.
+
