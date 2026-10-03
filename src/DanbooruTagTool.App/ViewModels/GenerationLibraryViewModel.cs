@@ -25,6 +25,7 @@ public sealed class LibraryImageCard(LibraryImage image) : Observable
 
 public sealed class GenerationLibraryViewModel : Observable
 {
+    public ImageTagAnalysisViewModel? TagAnalysis { get; set; }
     private readonly PortablePaths paths;
     private readonly PromptWorkspace workspace;
     private readonly Action<GenerationMetadataSnapshot> createPreset;

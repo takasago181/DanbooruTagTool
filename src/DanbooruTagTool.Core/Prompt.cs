@@ -196,6 +196,7 @@ public sealed class PromptWorkspace(PromptParser parser)
         Change(() => items = [..items, new(Guid.NewGuid(), (items.Length == 0 ? "" : " ") + token, token, entry.Japanese, PromptItemKind.Normal)]);
         return true;
     }
+    public PresetApplyResult AppendText(string text) => AppendPreset(parser.Parse((items.Length > 0 ? " " : "") + text));
     public PresetApplyResult AppendPreset(IEnumerable<PromptItem> presetItems)
     {
         var existingCanonical = items.Where(item => item.Canonical != null)

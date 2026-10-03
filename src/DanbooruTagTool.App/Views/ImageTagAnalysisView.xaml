@@ -1,0 +1,8 @@
+<UserControl x:Class="DanbooruTagTool.App.Views.ImageTagAnalysisView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+ <StackPanel><TextBlock Text="既存Forge Neoフォルダー（MOAT v2 cache設定）" TextWrapping="Wrap"/><TextBox Text="{Binding ForgeRoot,UpdateSourceTrigger=PropertyChanged}"/>
+ <WrapPanel><Button Content="既存cacheをSetup" Command="{Binding Setup}"/><Button Content="選択画像を解析" Command="{Binding Analyze}"/><Button Content="保存証拠を開く" Command="{Binding Reopen}"/></WrapPanel>
+ <TextBlock Text="{Binding Status}" TextWrapping="Wrap"/><TextBlock Text="confidence閾値"/><Slider Minimum="0" Maximum="1" Value="{Binding Threshold}"/><TextBox Text="{Binding Filter,UpdateSourceTrigger=PropertyChanged}" ToolTip="tag filter"/>
+ <ListBox ItemsSource="{Binding Rows}" Height="200"><ListBox.ItemTemplate><DataTemplate><CheckBox Content="{Binding Label}" IsChecked="{Binding Selected}"/></DataTemplate></ListBox.ItemTemplate></ListBox>
+ <Button Content="選択タグをPositiveへ追加" Command="{Binding AddSelected}"/><Expander Header="model / image provenance"><TextBlock Text="{Binding Provenance}" TextWrapping="Wrap"/></Expander>
+ <TextBlock Text="確率的な観察です。Promptのみのタグも誤りとは限りません。catalogには書き込みません。" TextWrapping="Wrap"/></StackPanel>
+</UserControl>
