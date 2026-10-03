@@ -40,6 +40,14 @@ public sealed class ForgeGenerationApiClient : IForgeGenerationApiClient
     }
     private async Task<JsonDocument> Get(Uri uri, string path, CancellationToken ct)
     { using var response = await http.GetAsync(new Uri(uri, path), HttpCompletionOption.ResponseHeadersRead, ct); return await Read(response, 4 * 1024 * 1024, ct); }
+    public async Task<IReadOnlyList<ForgeApiLora>> ProbeLorasAsync(string baseUrl, CancellationToken ct = default)
+    {
+        using var timeout = CancellationTokenSource.CreateLinkedTokenSource(ct); timeout.CancelAfter(TimeSpan.FromSeconds(10));
+        using var response = await http.GetAsync(new Uri(Base(baseUrl), "sdapi/v1/loras"), HttpCompletionOption.ResponseHeadersRead, timeout.Token);
+        using var json = await Read(response, 16 * 1024 * 1024, timeout.Token);
+        return json.RootElement.EnumerateArray().Select(l => new ForgeApiLora(l.GetProperty("name").GetString()!, l.GetProperty("alias").GetString()!, l.GetProperty("path").GetString()!,
+            l.TryGetProperty("metadata", out var m) && m.TryGetProperty("sshs_model_hash", out var h) ? h.GetString() : null)).ToArray();
+    }
     public async Task<ForgeApiCapabilities> ProbeAsync(string baseUrl, CancellationToken cancellationToken = default)
     {
         var uri = Base(baseUrl); using var timeout = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken); timeout.CancelAfter(TimeSpan.FromSeconds(10));
@@ -91,6 +99,10 @@ public sealed class ForgeGenerationApiClient : IForgeGenerationApiClient
                 return new(false, "未適用の元画像条件があります。Createの生成条件で確認し、派生生成を明示的に了承してください。生成要求は送信していません。");
             using var timeout = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken); timeout.CancelAfter(TimeSpan.FromMinutes(10));
             var uri = Base(baseUrl); var caps = await ProbeAsync(baseUrl, cancellationToken); var model = Validate(request, caps); var r = request.Recipe;
+            var tokens = ForgeLoraSelection.Tokens(request);
+            var expectedLoras = GenerationLoraProvenance.Expected(r.SourceParameters);
+            using var loras = await ForgeLoraSelection.ResolveAsync(tokens, expectedLoras,
+                tokens.Count == 0 ? [] : await ProbeLorasAsync(baseUrl, timeout.Token), timeout.Token);
             using var before = await Get(uri, "sdapi/v1/options", timeout.Token);
             var checkpoint = before.RootElement.GetProperty("sd_model_checkpoint").GetString();
             var payload = new Dictionary<string, object?> { ["prompt"] = request.Positive, ["negative_prompt"] = request.Negative, ["batch_size"] = 1, ["n_iter"] = 1, ["send_images"] = true, ["save_images"] = false, ["override_settings_restore_afterwards"] = true };
@@ -110,10 +122,21 @@ public sealed class ForgeGenerationApiClient : IForgeGenerationApiClient
             await using (var file = new FileStream(saved, FileMode.CreateNew, FileAccess.Write)) await file.WriteAsync(bytes, cancellationToken);
             var metadata = ForgePngGenerationMetadata.Read(saved);
             var mismatches = Compare(request, model, metadata).ToList();
+            mismatches.AddRange(loras.Compare(metadata));
             if (metadata.Width != BinaryPrimitives.ReadInt32BigEndian(bytes.AsSpan(16, 4)) || metadata.Height != BinaryPrimitives.ReadInt32BigEndian(bytes.AsSpan(20, 4))) mismatches.Add("PNG dimensions");
             using var after = await Get(uri, "sdapi/v1/options", timeout.Token);
             if (checkpoint != after.RootElement.GetProperty("sd_model_checkpoint").GetString()) mismatches.Add("Model restore");
             if (mismatches.Count > 0) return new(false, "Recipe照合失敗: " + string.Join(", ", mismatches) + "。出力を保持しました。再送信せず確認してください。", saved, metadata);
+            if (loras.Identities.Count > 0)
+            {
+                // Only this newly generated output receives an unsigned local-file
+                // observation. Replace atomically; original survives write failure.
+                var withReceipt = GenerationLoraPngReceipt.Attach(bytes, loras.Identities);
+                var temp = saved + ".provenance.tmp";
+                await using (var file = new FileStream(temp, FileMode.CreateNew, FileAccess.Write)) await file.WriteAsync(withReceipt, timeout.Token);
+                File.Move(temp, saved, overwrite: true);
+                metadata = ForgePngGenerationMetadata.Read(saved);
+            }
             return new(true, (request.Recipe.RequiresDerivativeConsent ? "派生生成（元画像の未適用条件は送信していません）。" : "") + "RecipeをAPIで生成し、指定fieldを実画像metadataで照合しました。画像の完全一致を保証するものではありません。", saved, metadata);
         }
         catch (Exception e) when (e is HttpRequestException or JsonException or InvalidDataException or GenerationMetadataException or ArgumentException or IOException or UnauthorizedAccessException or OperationCanceledException or InvalidOperationException or KeyNotFoundException or FormatException)

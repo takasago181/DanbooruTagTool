@@ -85,3 +85,13 @@ User instruction, 2026-10-03: applies to all subsequent development work.
 43. Prefer existing scripts/CLI, then PowerShell or equivalent, then API, and Computer Use only when necessary. Reuse repository/environment startup methods and existing configuration. Do not silently rebuild the environment, install software, change settings or weaken validation to obtain a PASS. Preserve protected data and applicable backup/rollback boundaries.
 44. Stop as a blocker only when required credentials are unavailable; external charges would be incurred; destructive operations are required; new installation or substantial environment changes are necessary; configuration changes require user judgment; or an actual startup attempt fails and reasonable self-recovery cannot resolve it. Report the concrete blocker and attempts, rather than treating a stopped process as evidence of inability to validate.
 45. Record startup/readiness, actual validation results and any remaining limitations. Distinguish external startup failure from product failure. Startup authorization does not authorize unrelated feature work, production deployment, protected-data changes or bypassing the task's STOP boundary.
+
+## 11. Proportionate validation / reuse valid results
+
+User instruction, 2026-10-03: applies to all subsequent development work.
+
+46. Select tests from the concrete failure modes of the change. During implementation, prefer the smallest sufficient targeted scope; retain quality, safety and regression detection.
+47. Run full regression and final CI once per final candidate by default. Reuse valid PASS results for the same relevant code/artifact and assumptions; do not rerun for reassurance, docs/comments, an unchanged merge, or to repeat completed hash comparisons.
+48. Rerun only when relevant code, dependencies, settings, schema/migration, build/publish configuration, Forge paths or artifacts change, assumptions fail, or results are flaky/inconsistent. Start with affected targeted checks; repeat broader checks only when the impact warrants it.
+49. Real Forge/GUI/production smoke must match the affected behavior: Forge/Recipe changes need Forge checks, UI interaction changes need UI checks, metadata parsing changes need real metadata checks. Internal refactors/docs/unrelated small changes do not automatically need every smoke.
+50. Eliminate duplicate and low-value execution, not necessary verification. Record what each check proves and reuse it until its premise changes; never manually rerun the same CI without a concrete reason.

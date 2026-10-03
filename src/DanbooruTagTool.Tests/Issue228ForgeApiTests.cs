@@ -116,6 +116,15 @@ public class Issue228ForgeApiTests
     }
     internal sealed class FakeApi(LibraryFixture d, Action<string, string>? writeImage = null) : HttpMessageHandler
     {
+        public string LoraPath => Path.Combine(d.Path, "detail.safetensors");
+        public string LoraHash => Convert.ToHexString(System.Security.Cryptography.SHA256.HashData(File.ReadAllBytes(LoraPath))).ToLowerInvariant();
+        public string? LoraEmbeddedHash;
+        public void EnsureLora()
+        {
+            if (File.Exists(LoraPath)) return;
+            var header = Encoding.UTF8.GetBytes("{\"__metadata__\":{}}"); using var stream = File.Create(LoraPath);
+            var length = new byte[8]; System.Buffers.Binary.BinaryPrimitives.WriteUInt64LittleEndian(length, (ulong)header.Length); stream.Write(length); stream.Write(header); stream.Write(new byte[] { 1, 2, 3, 4 });
+        }
         public string Info = Issue226LibraryFoundationTests.Info; public string Mode = ""; public int Posts, Calls, Options; public string? Payload;
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken ct)
         {
@@ -131,12 +140,23 @@ public class Issue228ForgeApiTests
                 : new[] { new { title = "sample [abc]", model_name = "sample", hash = (string?)"abc" } };
             else if (path == "/sdapi/v1/samplers") body = new[] { new { name = "Euler a" } };
             else if (path == "/sdapi/v1/schedulers") body = new[] { new { label = "Karras" } };
+            else if (path == "/sdapi/v1/loras")
+            {
+                EnsureLora();
+                body = Mode == "lora_missing" ? Array.Empty<object>() : Mode == "lora_ambiguous"
+                    ? new object[] { new { name = "detail", alias = "detail", path = LoraPath, metadata = new { } }, new { name = "another", alias = "detail", path = LoraPath, metadata = new { } } }
+                    : new object[] { new { name = "detail", alias = "detail", path = LoraPath, metadata = new { sshs_model_hash = LoraEmbeddedHash } } };
+            }
             else if (path == "/sdapi/v1/options") body = new { sd_model_checkpoint = ++Options == 2 && Mode == "restore" ? "wrong" : "original" };
             else
             {
                 Assert.Equal("/sdapi/v1/txt2img", path); Posts++; Payload = await request.Content!.ReadAsStringAsync(ct);
+                if (Mode == "lora_locked") Assert.Throws<IOException>(() => File.WriteAllText(LoraPath, "changed during POST"));
                 if (Mode == "http") return new(HttpStatusCode.InternalServerError);
-                var temp = Path.Combine(d.Path, "api-fixture.png"); if (writeImage is null) Issue226LibraryFoundationTests.WritePng(temp, Info); else writeImage(temp, Info);
+                var info = Info;
+                if (GenerationLibraryMetadata.Loras(info.Split('\n')[0]).Count > 0 && !info.Contains("Lora hashes:"))
+                { EnsureLora(); info += ", Lora hashes: \"detail: " + (Mode == "lora_png_mismatch" ? "000000000000" : (LoraEmbeddedHash ?? LoraHash)[..12]) + "\""; }
+                var temp = Path.Combine(d.Path, "api-fixture.png"); if (writeImage is null) Issue226LibraryFoundationTests.WritePng(temp, info); else writeImage(temp, info);
                 var encoded = Convert.ToBase64String(File.ReadAllBytes(temp)); body = new { images = Mode == "duplicate" ? new[] { encoded, encoded } : new[] { encoded }, info = "{}" };
             }
             return new(HttpStatusCode.OK) { Content = new StringContent(JsonSerializer.Serialize(body), Encoding.UTF8, "application/json") };

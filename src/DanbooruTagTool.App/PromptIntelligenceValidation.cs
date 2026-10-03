@@ -39,10 +39,13 @@ public static class PromptIntelligenceValidation
             var bitmap = new RenderTargetBitmap((int)Math.Ceiling(window.ActualWidth), (int)Math.Ceiling(window.ActualHeight), 96, 96, PixelFormats.Pbgra32); bitmap.Render(window);
             var encoder = new PngBitmapEncoder(); encoder.Frames.Add(BitmapFrame.Create(bitmap)); using (var file = File.Create(Path.Combine(root, $"negative-wpf-{width}.png"))) encoder.Save(file);
             vm.Create.Load(new(Guid.NewGuid(), "hash fixture", "", positive, negative,
-                new("sample", 42, 20, "Euler", "Karras", 5, 512, 768, "abcdef1234", [new("RNG", "CPU"), new("Hires upscale", "2")])), "画像fixture");
+                new("sample", 42, 20, "Euler", "Karras", 5, 512, 768, "abcdef1234", [new("RNG", "CPU"), new("Hires upscale", "2"), new("Lora hashes", "detail: 123456789abc"),
+                    new(GenerationLoraProvenance.ReceiptKey, JsonSerializer.Serialize(new[] { new GenerationLoraIdentity("detail", "123456789abc", new string('1', 64), 0.5m) }))])), "画像fixture");
             vm.CreatePageIndex = 2; window.UpdateLayout();
             var hashInput = Descendants(window).OfType<TextBox>().Single(e => System.Windows.Automation.AutomationProperties.GetName(e) == "現在Model hash");
             Check(hashInput.IsVisible && hashInput.IsEnabled && hashInput.Text == "abcdef1234" && hashInput.ActualWidth > 100, "editable Model hash binding/layout");
+            var loraProvenance = Descendants(window).OfType<TextBox>().Single(e => System.Windows.Automation.AutomationProperties.GetName(e) == "元LoRA provenance");
+            Check(loraProvenance.IsVisible && loraProvenance.Text.Contains("backend 123456789abc") && loraProvenance.Text.Contains(new string('1', 64)), "LoRA backend/file provenance binding");
             var warning = Descendants(window).OfType<TextBox>().Single(e => System.Windows.Automation.AutomationProperties.GetName(e) == "元画像の未適用条件");
             var consent = Descendants(window).OfType<CheckBox>().Single(e => System.Windows.Automation.AutomationProperties.GetName(e) == "派生生成を了承");
             Check(warning.IsVisible && warning.Text.Contains("RNG: CPU") && warning.Text.Contains("Hires upscale: 2"), "restoration warning binding");
