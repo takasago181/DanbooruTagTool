@@ -15,6 +15,12 @@ public partial class App : Application
         {
             if (e.Args.FirstOrDefault() == "--build-catalog")
                 throw new NotSupportedException("Catalog compilation moved to DanbooruTagTool.Maintenance: compile <manifest.json> <new-empty-output>.");
+            if (e.Args.FirstOrDefault() == "--validate-image-tags")
+            {
+                if (e.Args.Length != 3) throw new ArgumentException("--validate-image-tags <spec.json> <fresh-output>");
+                ShutdownMode = ShutdownMode.OnExplicitShutdown;
+                await ImageTagAnalysisValidation.RunAsync(e.Args[1],e.Args[2]); Shutdown(0); return;
+            }
             if (e.Args.FirstOrDefault() == "--validate-prompt-intelligence")
             {
                 if (e.Args.Length != 2) throw new ArgumentException("--validate-prompt-intelligence <new-empty-output-directory>");

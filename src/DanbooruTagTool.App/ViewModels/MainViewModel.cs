@@ -27,6 +27,7 @@ public sealed class MainViewModel : Observable
     public ExperimentLabViewModel? Experiments { get; }
     public RegionComposerViewModel? Regions { get; }
     public TemplateViewModel? Templates { get; }
+    public ImageTagAnalysisViewModel? ImageTagAnalysis { get; }
     private bool presetManagementOpen;
     public bool PresetManagementOpen { get => presetManagementOpen; set { Set(ref presetManagementOpen, value); Notify(nameof(CreateEditingAvailable)); Create.Refresh(); } }
     public bool CreateEditingAvailable => CanEditPrompt && !PresetManagementOpen && !Forge.RecipeBusy;
@@ -92,6 +93,7 @@ public sealed class MainViewModel : Observable
             PresetEditor.BeginNewPresetFromSnapshot(snapshot);
             PresetsRequested?.Invoke();
         }, Forge, canMutate);
+        if (GenerationLibrary is not null && paths is not null) { ImageTagAnalysis = new(this, paths); GenerationLibrary.TagAnalysis = ImageTagAnalysis; }
         if (GenerationLibrary is not null) Forge.IndexRecipeResult = GenerationLibrary.IndexRecipeResultAsync;
         if (paths is not null) { Experiments = new(this, paths); Regions = new(this, paths); Templates = new(this, paths); Forge.RegionalWorkflowActive = () => Regions.RestoredRegional is not null; }
         if (GenerationLibrary is not null)
