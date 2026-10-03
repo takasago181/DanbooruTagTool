@@ -29,6 +29,6 @@ public sealed class TemplateViewModel : Observable
     }
     private void Load() { var d = store.Load(); source = d.Source; cap = d.Cap; externalRoot = d.ExternalRoot; Notify(nameof(Source)); Notify(nameof(Cap)); Notify(nameof(ExternalRoot)); Invalidate(); }
     private void Invalidate() { preview = null; Variants.Clear(); Selected = null; Status = "変更済み。Previewを押してください。"; ToExperiment?.Refresh(); }
-    private void Guard(Action action) { try { action(); } catch (Exception e) when (e is IOException or UnauthorizedAccessException or ArgumentException or JsonException) { Status = e.Message; } }
+    private void Guard(Action action) { try { action(); } catch (Exception e) when (e is IOException or InvalidDataException or UnauthorizedAccessException or ArgumentException or JsonException) { Status = e.Message; } }
 }
 

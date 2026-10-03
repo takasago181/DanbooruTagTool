@@ -11,7 +11,7 @@ public sealed record PersonalRules(int Version,IReadOnlyList<PersonalHint> Hints
     public static PersonalRules Empty => new(1,[],[]);
     public void Validate()
     {
-        if (Hints is null || Exclusions is null) throw new InvalidDataException("個人ルール配列がありません。");
+        if (Hints is null || Exclusions is null || Hints.Any(h => h is null) || Exclusions.Any(r => r is null)) throw new InvalidDataException("個人ルール配列がありません。");
         static bool KeyValid(PersonalModelKey? key) => key is not null && new[] {key.Name,key.Hash,key.Family}.All(s => s is {Length: <= 600});
         if(Version!=1 || Hints.Count>256 || Exclusions.Count>2048 || Hints.Select(h=>h.Id).Concat(Exclusions.Select(r=>r.Id)).Distinct().Count()!=Hints.Count+Exclusions.Count ||
             Hints.Any(h=>h.Id==Guid.Empty || !KeyValid(h.Model) || new[]{h.Trigger,h.Positive,h.Negative,h.PreferredPreset,h.Warning,h.Note}.Any(s=>s is null || s.Length>4000)) ||

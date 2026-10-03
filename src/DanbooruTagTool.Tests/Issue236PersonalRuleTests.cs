@@ -33,6 +33,12 @@ public sealed class Issue236PersonalRuleTests
         main.Create.ModelHash="different";Assert.Empty(vm.Hints);Assert.True(main.Workspace.Add(Fixtures.Catalog().Resolve("smile")!));var text=main.English;main.Create.ModelHash="abc";Assert.Equal(text,main.English);
         var reopened=new MainViewModel(Fixtures.Catalog(),state,new MemoryClipboard(),paths:new(d.Path));reopened.Create.Model="renamed";reopened.Create.ModelHash="abc";Assert.Single(reopened.PersonalRules!.Hints);Assert.Equal(text,reopened.English);Assert.False(reopened.NegativeWorkspace.Add(Fixtures.Catalog().Resolve("smile")!));Assert.Equal(2,new PersonalRuleStore(d.Path).Load().Hints.Count+new PersonalRuleStore(d.Path).Load().Exclusions.Count);
     }
+    [Fact] public void InvalidRuleFilePreservesRawStateAndBlocksAppendUntilRepaired()
+    {
+        using var d=new TempDirectory();var path=Path.Combine(d.Path,"UserData","PersonalRules","rules.json");Directory.CreateDirectory(Path.GetDirectoryName(path)!);File.WriteAllText(path,"{\"Version\":1,\"Hints\":[null],\"Exclusions\":[]}");var before=File.ReadAllBytes(path);
+        var state=new MemoryStore();var initial=Fixtures.Vm(state,new MemoryClipboard());initial.Workspace.Replace("kept raw");var main=new MainViewModel(Fixtures.Catalog(),state,new MemoryClipboard(),paths:new(d.Path));Assert.Equal("kept raw",main.English);Assert.Equal(0,main.Workspace.AppendText("smile").Added);Assert.Equal(before,File.ReadAllBytes(path));
+        File.WriteAllText(path,"{\"Version\":1,\"Hints\":[],\"Exclusions\":[]}");main.PersonalRules!.Reload.Execute(null);Assert.Equal(1,main.Workspace.AppendText("smile").Added);
+    }
     [Fact] public void FutureVersionIsNeverOverwritten()
     {
         using var d=new TempDirectory();var path=Path.Combine(d.Path,"UserData","PersonalRules","rules.json");Directory.CreateDirectory(Path.GetDirectoryName(path)!);File.WriteAllText(path,"{\"Version\":99,\"Hints\":[],\"Exclusions\":[]}");var bytes=File.ReadAllBytes(path);Assert.Throws<InvalidDataException>(()=>new PersonalRuleStore(d.Path).Save(PersonalRules.Empty));Assert.Equal(bytes,File.ReadAllBytes(path));
