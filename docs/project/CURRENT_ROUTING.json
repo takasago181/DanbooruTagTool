@@ -11,14 +11,14 @@
     "docs/project/PERMANENT_RULES.md",
     "task-specific contract/spec"
   ],
-  "active_lanes": [],
+  "active_lanes": ["#231 bounded Region Composer v1 explicitly authorized; verified installed Neo adapter"],
   "completed_or_non_default": [
     "#230 Experiment Lab complete and production promoted; PR #271 merged",
     "#256 workflow COMPLETE/CLOSED and retained",
     "#247 Foundation and #249–#255 CLOSED",
     "#255 NO ACTION; no history rewrite",
     "Old LKG and pre-migration backups retained",
-    "#231 not started"
+    "#231 started by explicit authorization after #230"
   ],
   "protected_boundaries": [
     "UserData is user-owned",
@@ -55,7 +55,7 @@
       "unmeasured broad architecture rewrite",
       "history compaction (NO ACTION)"
     ],
-    "next": "No active lane; #231 requires separate authorization"
+    "next": "Issue #231 explicitly authorized; bounded v1 in progress"
   },
   "foundation_implementation": {
     "issue": 247,

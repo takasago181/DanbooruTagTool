@@ -36,6 +36,7 @@ public static class GenerationRecipeDerivation
         Add("Sampler", p.Sampler, c.Sampler); Add("Scheduler", p.Scheduler, c.Scheduler); Add("CFG", N(p.Cfg), N(c.Cfg));
         Add("Width", N(p.Width), N(c.Width)); Add("Height", N(p.Height), N(c.Height));
         Add("LoRA", JsonSerializer.Serialize(GenerationLibraryMetadata.Loras(parent.Positive)), JsonSerializer.Serialize(GenerationLibraryMetadata.Loras(current.Positive)));
+        Add("Regional", JsonSerializer.Serialize(p.Regional), JsonSerializer.Serialize(c.Regional));
         Add("Source evidence", JsonSerializer.Serialize(p.SourceParameters ?? []), JsonSerializer.Serialize(c.SourceParameters ?? []));
         // Hires/RNG/etc remain evidence, never executable overrides. Even an
         // unchanged editor cannot claim same conditions when these are omitted.

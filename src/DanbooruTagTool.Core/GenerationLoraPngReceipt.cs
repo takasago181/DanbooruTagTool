@@ -69,7 +69,7 @@ public static class GenerationLoraPngReceipt
         output.Write(png.AsSpan(png.Length - 12)); return output.ToArray();
     }
     private static bool Valid(string key, string json) => key == GenerationLoraProvenance.ReceiptKey
-        ? GenerationLoraProvenance.IsValid(new(key, json)) : key == GenerationRecipeDerivation.Key && GenerationRecipeDerivation.IsValid(new(key, json));
+        ? GenerationLoraProvenance.IsValid(new(key, json)) : key == RegionComposer.Key ? RegionComposer.IsValid(new(key, json)) : key == GenerationRecipeDerivation.Key && GenerationRecipeDerivation.IsValid(new(key, json));
     // Same PNG CRC32 algorithm already used by DTT's fixture writer.
     private static uint Crc(byte[] bytes)
     {

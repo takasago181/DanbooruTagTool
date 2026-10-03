@@ -542,6 +542,7 @@
                  <TabItem Header="生成条件 / Preset"><views:GenerationConditionsView DataContext="{Binding}"/></TabItem>
                  <TabItem Header="LoRAを追加"><views:LoraQuickUseView DataContext="{Binding LoraLibrary}"/></TabItem>
                  <TabItem Header="A/B実験"><views:ExperimentLabView DataContext="{Binding Experiments}"/></TabItem>
+                 <TabItem Header="Region Composer"><views:RegionComposerView DataContext="{Binding Regions}"/></TabItem>
                 </TabControl>
               </DockPanel>
             </TabItem>

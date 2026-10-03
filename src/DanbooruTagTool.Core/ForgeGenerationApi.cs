@@ -12,6 +12,7 @@ public sealed record ForgeApiResult(bool Success, string Status, string? ImagePa
 public interface IForgeGenerationApiClient
 {
     Task<RecipeSnapshot> PinRecipeIdentityAsync(string baseUrl, RecipeSnapshot snapshot, CancellationToken ct = default) => Task.FromResult(snapshot);
+    Task<RegionalCapability> ProbeRegionalAsync(string baseUrl, CancellationToken ct = default) => throw new InvalidDataException("Regional adapter unavailable.");
     Task<ForgeApiCapabilities> ProbeAsync(string baseUrl, CancellationToken cancellationToken = default);
     Task<ForgeApiResult> GenerateAsync(string baseUrl, ForgeApiRequest request, string outputDirectory, CancellationToken cancellationToken = default);
 }
@@ -79,6 +80,17 @@ public sealed class ForgeGenerationApiClient : IForgeGenerationApiClient
             samplers.RootElement.EnumerateArray().Select(m => m.GetProperty("name").GetString()!).ToArray(),
             schedulers.RootElement.EnumerateArray().Select(m => m.GetProperty("label").GetString()!).ToArray());
     }
+    public async Task<RegionalCapability> ProbeRegionalAsync(string baseUrl, CancellationToken ct = default)
+    {
+        using var timeout = CancellationTokenSource.CreateLinkedTokenSource(ct); timeout.CancelAfter(TimeSpan.FromSeconds(10));
+        var uri = Base(baseUrl);
+        using var schema = await Get(uri, "openapi.json", timeout.Token);
+        var reference = schema.RootElement.GetProperty("paths").GetProperty("/sdapi/v1/txt2img").GetProperty("post").GetProperty("requestBody").GetProperty("content").GetProperty("application/json").GetProperty("schema").GetProperty("$ref").GetString()!;
+        if (!schema.RootElement.GetProperty("components").GetProperty("schemas").GetProperty(reference.Split('/')[^1]).GetProperty("properties").TryGetProperty("alwayson_scripts", out _)) throw new InvalidDataException("alwayson_scripts unavailable.");
+        using var scripts = await Get(uri, "sdapi/v1/script-info", timeout.Token);
+        using var extensions = await Get(uri, "sdapi/v1/extensions", timeout.Token);
+        return RegionComposer.Detect(scripts.RootElement, extensions.RootElement);
+    }
     private static string TitleBasename(ForgeApiModel model)
         => Path.GetFileNameWithoutExtension(model.Title.Split(" [")[0].Replace('\\', '/').Split('/')[^1]);
 
@@ -115,6 +127,13 @@ public sealed class ForgeGenerationApiClient : IForgeGenerationApiClient
                 throw new InvalidDataException("Recipe派生snapshotと送信条件が違います。Createで変更点を再確認してください。");
             using var timeout = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken); timeout.CancelAfter(TimeSpan.FromMinutes(10));
             var uri = Base(baseUrl); var caps = await ProbeAsync(baseUrl, cancellationToken); var model = Validate(request, caps); var r = request.Recipe;
+            RegionalCapability? regional = null;
+            if (r.Regional is { } config)
+            {
+                var compiled = RegionComposer.Compile(config);
+                if (compiled.Positive != request.Positive || compiled.Negative != request.Negative) throw new InvalidDataException("Composer config/Prompt不一致。");
+                regional = await ProbeRegionalAsync(baseUrl, timeout.Token);
+            }
             var tokens = ForgeLoraSelection.Tokens(request);
             var expectedLoras = GenerationLoraProvenance.Expected(r.SourceParameters);
             using var loras = await ForgeLoraSelection.ResolveAsync(tokens, expectedLoras,
@@ -125,7 +144,9 @@ public sealed class ForgeGenerationApiClient : IForgeGenerationApiClient
             void Add(string name, object? value) { if (value is not null) payload[name] = value; }
             Add("seed", r.Seed); Add("steps", r.Steps); Add("sampler_name", r.Sampler); Add("scheduler", r.Scheduler); Add("cfg_scale", r.Cfg); Add("width", r.Width); Add("height", r.Height);
             if (model is not null) payload["override_settings"] = new Dictionary<string, object> { ["sd_model_checkpoint"] = model.Title };
-            using var content = new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json");
+            if (r.Regional is { } region) payload["alwayson_scripts"] = new Dictionary<string, object> { ["Regional Prompter"] = new { args = RegionComposer.Args(region) } };
+            var requestJson = JsonSerializer.Serialize(payload);
+            using var content = new StringContent(requestJson, Encoding.UTF8, "application/json");
             posted = true;
             using var message = new HttpRequestMessage(HttpMethod.Post, new Uri(uri, "sdapi/v1/txt2img")) { Content = content };
             using var response = await http.SendAsync(message, HttpCompletionOption.ResponseHeadersRead, timeout.Token);
@@ -143,11 +164,13 @@ public sealed class ForgeGenerationApiClient : IForgeGenerationApiClient
             using var after = await Get(uri, "sdapi/v1/options", timeout.Token);
             if (checkpoint != after.RootElement.GetProperty("sd_model_checkpoint").GetString()) mismatches.Add("Model restore");
             if (mismatches.Count > 0) return new(false, "Recipe照合失敗: " + string.Join(", ", mismatches) + "。出力を保持しました。再送信せず確認してください。", saved, metadata);
-            if (loras.Identities.Count > 0 || derivation is not null)
+            if (r.Regional is { } verified) RegionComposer.Verify(verified, metadata);
+            if (loras.Identities.Count > 0 || derivation is not null || regional is not null)
             {
                 // Only this newly generated output receives an unsigned local-file
                 // observation. Replace atomically; original survives write failure.
                 var withReceipt = GenerationLoraPngReceipt.Attach(bytes, loras.Identities);
+                if (regional is not null) withReceipt = GenerationLoraPngReceipt.Attach(withReceipt, RegionComposer.Key, JsonSerializer.Serialize(new RegionalReceipt(r.Regional!, regional, requestJson)));
                 if (derivation is not null) withReceipt = GenerationLoraPngReceipt.Attach(withReceipt, GenerationRecipeDerivation.Key, GenerationRecipeDerivation.Serialize(derivation));
                 var temp = saved + ".provenance.tmp";
                 await using (var file = new FileStream(temp, FileMode.CreateNew, FileAccess.Write)) await file.WriteAsync(withReceipt, timeout.Token);

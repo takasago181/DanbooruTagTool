@@ -91,7 +91,7 @@ public sealed class CreateViewModel : Observable
         (Positive != baselinePositive || Negative != baselineNegative || !TryRecipe(out var r, out _) || GenerationRecipeDerivation.Identity(GenerationRecipeDerivation.Snapshot(Positive, Negative, r ?? new())) != GenerationRecipeDerivation.Identity(GenerationRecipeDerivation.Snapshot(baselinePositive, baselineNegative, baselineRecipe ?? new())));
     public string ConditionsSummary => $"Model: {Value(Model)} · Hash: {Value(ModelHash)} · Seed: {Value(Seed)} · Steps: {Value(Steps)} · {Value(Sampler)} / {Value(Scheduler)} · CFG: {Value(Cfg)} · {Value(Width)}×{Value(Height)}";
     public string Validation => !TryRecipe(out var r, out var error) ? error : !Complete(r) ? "生成条件が不足または無効です。「生成条件 / Preset」で全項目を確認してください。" : r?.RequiresDerivativeConsent == true && !AllowDerivative ? "元画像の未適用条件があります。「生成条件 / Preset」で確認し、派生生成を了承してください。" : "入力OK。生成前にForge capabilityを再確認し、実画像metadataで照合します。";
-    public bool CanGenerate => !capabilitiesBusy && main.CanEditPrompt && main.Forge.RecipeExecutionAvailable && !main.PresetManagementOpen && TryRecipe(out var r, out _) && Complete(r) && (r?.RequiresDerivativeConsent != true || AllowDerivative);
+    public bool CanGenerate => main.Regions?.RestoredRegional is null && !capabilitiesBusy && main.CanEditPrompt && main.Forge.RecipeExecutionAvailable && !main.PresetManagementOpen && TryRecipe(out var r, out _) && Complete(r) && (r?.RequiresDerivativeConsent != true || AllowDerivative);
     public AsyncRelayCommand Generate { get; }
     public RelayCommand LoadPreset { get; }
     public RelayCommand Save { get; }
@@ -102,6 +102,7 @@ public sealed class CreateViewModel : Observable
         if (!GenerationRecipeInput.TryBuild(Model, Seed, Steps, Sampler, Scheduler, Cfg, Width, Height, out r, out error, ModelHash, sourceParameters)) return false;
         try
         {
+            if (main.Regions?.RestoredRegional is { } regional) r = (r ?? new()) with { Regional = regional };
             if (parent is not null) r = GenerationRecipeDerivation.With(r ?? new(), GenerationRecipeDerivation.Build(parent.Parent,
                 GenerationRecipeDerivation.Snapshot(Positive, Negative, r ?? new()), parent.Source, parent.ParentImageSha256));
             return true;
@@ -130,13 +131,14 @@ public sealed class CreateViewModel : Observable
         {
             main.Workspace.Replace(p.Positive); main.NegativeWorkspace.Replace(p.Negative);
             var r = p.Recipe;
+            main.Regions?.Restore(r?.Regional);
             parent = edge; sourceParameters = r is null ? null : GenerationRecipeDerivation.Strip(r).SourceParameters; AllowDerivative = false;
             Model = r?.Model ?? ""; Seed = Number(r?.Seed); Steps = Number(r?.Steps); Sampler = r?.Sampler ?? "";
             ModelHash = r?.ModelHash ?? "";
             Scheduler = r?.Scheduler ?? ""; Cfg = Number(r?.Cfg); Width = Number(r?.Width); Height = Number(r?.Height);
             origin = source; baselinePositive = Positive; baselineNegative = Negative;
             TryRecipe(out baselineRecipe, out _);
-            main.WorkspaceIndex = 1; main.CreatePageIndex = 0;
+            main.WorkspaceIndex = 1; main.CreatePageIndex = r?.Regional is null ? 0 : 5;
             main.Status = "作成で使う: Positive / Negative / 生成条件を置換しました。両PromptのUndo・回復は独立です。";
         }
         finally { loading = false; Refresh(); }
@@ -158,6 +160,11 @@ public sealed class CreateViewModel : Observable
         main.Presets.Add(p); if (!main.TryPersist()) { main.Presets.Remove(p); return; } SelectedPreset = p;
         origin = "Preset「" + p.Name + "」"; baselinePositive = Positive; baselineNegative = Negative; baselineRecipe = r;
         main.Status = "現在のPositive / Negative / 生成条件を新しいPresetに保存しました。"; Refresh();
+    }
+    public void ReleaseRegionalEvidence()
+    {
+        sourceParameters = sourceParameters?.Select(p => p.Name == RegionComposer.Key || p.Name.StartsWith("RP ", StringComparison.Ordinal) ? p with { Name = "元 " + p.Name } : p).ToArray();
+        AllowDerivative = false; Refresh();
     }
     public void Refresh()
     {

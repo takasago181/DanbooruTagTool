@@ -27,6 +27,12 @@ public partial class App : Application
                 ShutdownMode = ShutdownMode.OnExplicitShutdown;
                 await ForgeWorkflowValidation.RunAsync(e.Args[1], e.Args[2]); Shutdown(0); return;
             }
+            if (e.Args.FirstOrDefault() is "--validate-regions" or "--validate-regions-production")
+            {
+                if (e.Args.Length != 3) throw new ArgumentException("--validate-regions <spec.json> <new-output>");
+                ShutdownMode = ShutdownMode.OnExplicitShutdown;
+                await RegionComposerValidation.RunAsync(e.Args[1], e.Args[2], e.Args[0] == "--validate-regions-production"); Shutdown(0); return;
+            }
             if (e.Args.FirstOrDefault() == "--validate-experiments")
             {
                 if (e.Args.Length != 3) throw new ArgumentException("--validate-experiments <spec.json> <new-output>");
