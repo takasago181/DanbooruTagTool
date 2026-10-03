@@ -18,9 +18,7 @@ public sealed class TemplateStore(string root)
     public void Save(TemplateDocument document)
     {
         if (document.Version != 1 || document.Source.Length > 16000 || document.Cap is < 1 or > 256) throw new ArgumentException("template設定の上限を確認してください。");
-        _ = Load(); Directory.CreateDirectory(DirectoryPath); var temp = FilePath + "." + Guid.NewGuid() + ".tmp";
-        try { File.WriteAllText(temp, JsonSerializer.Serialize(document)); if (File.Exists(FilePath)) File.Replace(temp, FilePath, FilePath + ".bak"); else File.Move(temp, FilePath); }
-        finally { if (File.Exists(temp)) File.Delete(temp); }
+        _ = Load(); AtomicJsonFile.Write(FilePath, document);
     }
     public WildcardSnapshot ReadWildcards(string externalRoot)
     {

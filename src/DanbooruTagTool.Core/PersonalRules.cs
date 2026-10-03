@@ -20,15 +20,38 @@ public sealed record PersonalRules(int Version,IReadOnlyList<PersonalHint> Hints
 }
 public sealed class PersonalRuleEvaluator(ICatalog catalog)
 {
-    private readonly PromptParser parser=new(catalog);
-    public bool Matches(PersonalExclusion rule,PromptItem item)
+    private readonly PromptParser parser = new(catalog);
+    // Exclusion records are immutable. Weak keys keep deleted/reloaded rules from
+    // becoming a second retained settings store; catalog identity is read-only.
+    private readonly System.Runtime.CompilerServices.ConditionalWeakTable<PersonalExclusion, MatchToken> tokens = new();
+    private sealed record MatchToken(string? Canonical, string Surface);
+    private static string Normalize(string value) => value.Trim().Replace(' ', '_');
+    private MatchToken Token(PersonalExclusion rule)
     {
-        var parsed=parser.Parse(rule.Token);
-        if(parsed.Length==1 && parsed[0].Canonical is { } canonical && item.Canonical is not null) return canonical==item.Canonical;
-        static string Normalize(string s)=>s.Trim().Replace(' ','_');
-        return string.Equals(Normalize(rule.Token),Normalize(item.Canonical ?? item.StructuredName ?? item.Surface),StringComparison.OrdinalIgnoreCase);
+        if (tokens.TryGetValue(rule, out var cached)) return cached;
+        return tokens.GetValue(rule, r =>
+        {
+            var parsed = parser.Parse(r.Token);
+            return new(parsed.Length == 1 ? parsed[0].Canonical : null, Normalize(r.Token));
+        });
     }
-    public IReadOnlyList<PersonalExclusion> Matching(PersonalRules rules,PersonalModelKey active,PromptItem item) => rules.Exclusions.Where(r=>r.Model.Matches(active) && Matches(r,item)).ToArray();
+    private bool Matches(PersonalExclusion rule, string? canonical, string surface)
+    {
+        var token = Token(rule);
+        return token.Canonical is not null && canonical is not null
+            ? token.Canonical == canonical
+            : string.Equals(token.Surface, surface, StringComparison.OrdinalIgnoreCase);
+    }
+    public bool Matches(PersonalExclusion rule, PromptItem item) =>
+        Matches(rule, item.Canonical, Normalize(item.Canonical ?? item.StructuredName ?? item.Surface));
+    public IReadOnlyList<PersonalExclusion> Matching(PersonalRules rules, PersonalModelKey active, PromptItem item)
+    {
+        var surface = Normalize(item.Canonical ?? item.StructuredName ?? item.Surface);
+        var result = new List<PersonalExclusion>();
+        foreach (var rule in rules.Exclusions)
+            if (rule.Model.Matches(active) && Matches(rule, item.Canonical, surface)) result.Add(rule);
+        return result;
+    }
     public PromptWarning[] Warnings(PersonalRules rules,PersonalModelKey active,PromptWorkspace positive,PromptWorkspace negative)
     {
         var warnings=rules.Hints.Where(h=>h.Model.Matches(active) && h.Warning.Length>0).Select(h=>new PromptWarning("Model","personal-hint",h.Warning+" / "+h.Note)).ToList();
@@ -37,5 +60,11 @@ public sealed class PersonalRuleEvaluator(ICatalog catalog)
                 warnings.Add(new(side,"personal-"+rule.Severity,$"{side}: {rule.Token} [{rule.Severity}] {rule.Note} /置換案 {rule.Replacement}（既存Promptは保持）"));
         return warnings.ToArray();
     }
-    public bool Hidden(PersonalRules rules,PersonalModelKey active,CatalogEntry entry) => Matching(rules,active,new PromptItem(Guid.Empty,entry.English,entry.EffectivePromptToken,entry.Japanese,PromptItemKind.Normal)).Any(r=>r.Severity==PersonalSeverity.Hide);
+    public bool Hidden(PersonalRules rules, PersonalModelKey active, CatalogEntry entry)
+    {
+        var surface = Normalize(entry.EffectivePromptToken ?? entry.English);
+        foreach (var rule in rules.Exclusions)
+            if (rule.Severity == PersonalSeverity.Hide && rule.Model.Matches(active) && Matches(rule, entry.EffectivePromptToken, surface)) return true;
+        return false;
+    }
 }
