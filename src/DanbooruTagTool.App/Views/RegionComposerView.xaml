@@ -1,0 +1,18 @@
+<UserControl x:Class="DanbooruTagTool.App.Views.RegionComposerView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+ <ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="12">
+  <TextBlock Text="Region Composer — Common + Subject A + Subject B" FontSize="18" FontWeight="Bold"/>
+  <TextBlock Text="Horizontal = 左右 / Vertical = 上下。人物混線の改善は画像を比較して評価してください。" TextWrapping="Wrap" Margin="0,6"/>
+  <StackPanel IsEnabled="{Binding CanEdit}">
+   <TextBlock Text="Common Prompt"/><TextBox Text="{Binding Common,UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" TextWrapping="Wrap" MinHeight="55"/>
+   <Grid Margin="0,8"><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/></Grid.ColumnDefinitions>
+    <StackPanel Margin="0,0,8,0"><TextBlock Text="Subject A"/><TextBox Text="{Binding SubjectA,UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" TextWrapping="Wrap" MinHeight="80"/><TextBlock Text="Subject A Negative"/><TextBox Text="{Binding NegativeA,UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" TextWrapping="Wrap" MinHeight="45"/></StackPanel>
+    <StackPanel Grid.Column="1"><TextBlock Text="Subject B"/><TextBox Text="{Binding SubjectB,UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" TextWrapping="Wrap" MinHeight="80"/><TextBlock Text="Subject B Negative"/><TextBox Text="{Binding NegativeB,UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" TextWrapping="Wrap" MinHeight="45"/></StackPanel>
+   </Grid>
+   <TextBlock Text="Common Negative"/><TextBox Text="{Binding CommonNegative,UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" TextWrapping="Wrap" MinHeight="45"/>
+   <WrapPanel Margin="0,8"><ComboBox ItemsSource="{Binding Layouts}" SelectedItem="{Binding Layout}" Width="145"/><TextBlock Text="Ratio A,B" Margin="12,4"/><TextBox Text="{Binding Ratios,UpdateSourceTrigger=PropertyChanged}" Width="100"/><Button Content="Capability確認" Command="{Binding Detect}" Margin="8,0"/><Button Content="Regional生成" Command="{Binding Generate}"/><Button Content="同seed A/BをLabへ" Command="{Binding Compare}" Margin="8,0"/></WrapPanel>
+   <WrapPanel><TextBox Text="{Binding Name,UpdateSourceTrigger=PropertyChanged}" Width="160"/><Button Content="Preset保存" Command="{Binding Save}" Margin="8,0"/><ComboBox ItemsSource="{Binding Presets}" SelectedItem="{Binding SelectedPreset}" DisplayMemberPath="Name" Width="180"/><Button Content="復元" Command="{Binding Load}" Margin="8,0"/><Button Content="通常modeへ戻る" Command="{Binding ReturnToOrdinary}"/></WrapPanel>
+  </StackPanel>
+  <TextBox Text="{Binding Preview,Mode=OneWay}" IsReadOnly="True" TextWrapping="Wrap" Margin="0,12"/>
+  <TextBlock Text="{Binding Status}" TextWrapping="Wrap"/>
+ </StackPanel></ScrollViewer>
+</UserControl>

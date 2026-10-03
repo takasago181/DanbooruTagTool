@@ -3,10 +3,10 @@ using System.Text.Json;
 
 namespace DanbooruTagTool.Core;
 
-public enum ExperimentVariable { Positive, Negative, TagWeight, Cfg, Steps, Sampler, Scheduler, LoraWeight }
+public enum ExperimentVariable { Positive, Negative, TagWeight, Cfg, Steps, Sampler, Scheduler, LoraWeight, RegionalMode }
 public sealed record ExperimentAxis(ExperimentVariable Kind, string Target, IReadOnlyList<string> Values);
 public sealed record ExperimentSetup(string Name, string Hypothesis, RecipeSnapshot Baseline,
-    ExperimentAxis X, ExperimentAxis? Y, IReadOnlyList<long> Seeds, int Repetitions = 1, bool AllowUnapplied = false);
+    ExperimentAxis X, ExperimentAxis? Y, IReadOnlyList<long> Seeds, int Repetitions = 1, bool AllowUnapplied = false, RegionComposerConfig? Regional = null);
 public sealed record ExperimentTrial(Guid Id, int X, int Y, long Seed, int Repetition, RecipeSnapshot Requested);
 public sealed record ExperimentPlan(Guid Id, DateTime CreatedUtc, string BaselineId, ExperimentSetup Setup, IReadOnlyList<ExperimentTrial> Trials);
 public sealed record TrialEvaluation(int? Rating = null, bool? Passed = null, bool Winner = false, string Note = "");
@@ -69,7 +69,7 @@ public static class ExperimentPlanner
         for (var x = 0; x < setup.X.Values.Count; x++)
         {
             var s = baseline with { Recipe = baseline.Recipe with { Seed = seed } };
-            s = Apply(s, setup.X, setup.X.Values[x]); if (setup.Y is { } axis) s = Apply(s, axis, axis.Values[y]);
+            s = Apply(s, setup.X, setup.X.Values[x], setup.Regional); if (setup.Y is { } axis) s = Apply(s, axis, axis.Values[y], setup.Regional);
             var edge = GenerationRecipeDerivation.Build(baseline, s, "Experiment " + id);
             if (edge.Changes.Any(d => d.State != "not applied" && !allowed.Contains(d.Field)))
                 throw new ArgumentException("非対象条件が変わる軸です。固定Model/LoRA/Recipe条件を保持してください。");
@@ -97,12 +97,23 @@ public static class ExperimentPlanner
     }
     private static IEnumerable<string> Fields(ExperimentVariable k) => k switch
     {
+        ExperimentVariable.RegionalMode => ["Positive", "Negative", "Regional"],
         ExperimentVariable.Positive or ExperimentVariable.TagWeight => ["Positive"], ExperimentVariable.Negative => ["Negative"],
         ExperimentVariable.LoraWeight => ["Positive", "LoRA"], ExperimentVariable.Cfg => ["CFG"], ExperimentVariable.Steps => ["Steps"],
         ExperimentVariable.Sampler => ["Sampler"], ExperimentVariable.Scheduler => ["Scheduler"], _ => throw new ArgumentException("Unknown variable")
     };
-    private static RecipeSnapshot Apply(RecipeSnapshot s, ExperimentAxis a, string value)
+    private static RecipeSnapshot Apply(RecipeSnapshot s, ExperimentAxis a, string value, RegionComposerConfig? regional)
     {
+        RecipeSnapshot Regional()
+        {
+            if (regional is null || value is not ("Ordinary" or "Horizontal" or "Vertical")) throw new ArgumentException("Regional比較config/value不一致。");
+            var ordinary = RegionComposer.Ordinary(regional);
+            if (s.Positive != ordinary.Positive || s.Negative != ordinary.Negative || s.Recipe.Regional is not null) throw new ArgumentException("Regional比較baselineは同じblocksのordinary条件にしてください。");
+            if (value == "Ordinary") return s;
+            var config = regional with { Layout = value == "Horizontal" ? RegionLayout.Horizontal : RegionLayout.Vertical };
+            var compiled = RegionComposer.Compile(config);
+            return s with { Positive = compiled.Positive, Negative = compiled.Negative, Recipe = s.Recipe with { Regional = config } };
+        }
         decimal Number(decimal min, decimal max)
         { if (!decimal.TryParse(value, NumberStyles.AllowLeadingSign | NumberStyles.AllowDecimalPoint, Invariant, out var n) || n < min || n > max) throw new ArgumentException($"軸値{value}: {min}〜{max}の数値を指定してください。"); return decimal.Parse(n.ToString("G29", Invariant), Invariant); }
         string Fragment(string text)
@@ -129,6 +140,7 @@ public static class ExperimentPlanner
         }
         return a.Kind switch
         {
+            ExperimentVariable.RegionalMode => Regional(),
             ExperimentVariable.Positive => s with { Positive = Fragment(s.Positive) }, ExperimentVariable.Negative => s with { Negative = Fragment(s.Negative) },
             ExperimentVariable.TagWeight => s with { Positive = Weighted(false) }, ExperimentVariable.LoraWeight => s with { Positive = Weighted(true) },
             ExperimentVariable.Cfg => s with { Recipe = s.Recipe with { Cfg = Number(0, 30) } },

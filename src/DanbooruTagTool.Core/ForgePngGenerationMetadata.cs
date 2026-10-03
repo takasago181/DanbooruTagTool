@@ -40,6 +40,14 @@ public static class ForgePngGenerationMetadata
         {
             var receipt = GenerationLoraPngReceipt.Read(path);
             if (receipt is not null) snapshot = snapshot with { Parameters = snapshot.Parameters.Concat([new GenerationParameter(GenerationLoraProvenance.ReceiptKey, receipt)]).ToArray() };
+            var regional = GenerationLoraPngReceipt.Read(path, RegionComposer.Key);
+            if (regional is not null)
+            {
+                var field = new GenerationParameter(RegionComposer.Key, regional);
+                var observed = RegionComposer.Read([field])!;
+                RegionComposer.Verify(observed.Config, snapshot);
+                snapshot = snapshot with { Parameters = snapshot.Parameters.Concat([field]).ToArray() };
+            }
             var derivation = GenerationLoraPngReceipt.Read(path, GenerationRecipeDerivation.Key);
             if (derivation is not null)
             {

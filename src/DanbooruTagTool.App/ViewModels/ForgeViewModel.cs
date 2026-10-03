@@ -8,6 +8,7 @@ namespace DanbooruTagTool.App.ViewModels;
 /// <summary>Owns Forge settings and bridge state; protocol remains in Core.</summary>
 public sealed class ForgeViewModel : Observable
 {
+    public Task<RegionalCapability> ReadRegionalCapabilitiesAsync() => api.ProbeRegionalAsync(ForgeUrl);
     public Task<ForgeApiCapabilities> ReadRecipeCapabilitiesAsync() => api.ProbeAsync(ForgeUrl);
     public Task<RecipeSnapshot> PinExperimentBaselineAsync(RecipeSnapshot snapshot, CancellationToken ct = default) => api.PinRecipeIdentityAsync(ForgeUrl, snapshot, ct);
     private readonly IForgeBridgeClient bridge;
@@ -40,6 +41,7 @@ public sealed class ForgeViewModel : Observable
     public string RecipeStatus { get => recipeStatus; private set => Set(ref recipeStatus, value); }
     public Func<string, Task>? IndexRecipeResult { get; set; }
     public Func<string>? CurrentNegative { get; set; }
+    public Func<bool>? RegionalWorkflowActive { get; set; }
     public AsyncRelayCommand GeneratePresetRecipe { get; }
     private string forgeUrl = ForgeBridgeProtocol.DefaultUrl, forgeExtensionPath = "";
     public string ForgeUrl { get => forgeUrl; set { if (Set(ref forgeUrl, value)) { ConnectionStatus = "Forge: 未確認（接続先変更）"; CapabilityStatus = "capability未確認。生成前に再検証します。"; } } }
@@ -88,13 +90,21 @@ public sealed class ForgeViewModel : Observable
         return SendCoreAsync(preset, ForgeBridgeAction.SendAndGenerate, cancellationToken);
     }
     private async Task SendCoreAsync(GenerationPreset? preset, ForgeBridgeAction action, CancellationToken cancellationToken)
-        => await SendPayloadAsync(english(), preset?.Negative, preset is null ? ForgeNegativeMode.Unchanged : ForgeNegativeMode.Replace, action, cancellationToken);
+        {
+        if (preset?.Recipe?.Regional is not null) { setStatus("Regional RecipeはRegion ComposerのAPI生成を使用してください。互換送信しません。"); return; }
+        await SendPayloadAsync(english(), preset?.Negative, preset is null ? ForgeNegativeMode.Unchanged : ForgeNegativeMode.Replace, action, cancellationToken);
+    }
 
     // Image-library sends explicit Positive/Negative without mutating PromptWorkspace.
     public Task SendImageAsync(GenerationPreset preset, CancellationToken cancellationToken = default)
-        => canMutate() ? SendPayloadAsync(preset.Positive, preset.Negative, ForgeNegativeMode.Replace, ForgeBridgeAction.SendOnly, cancellationToken) : Task.CompletedTask;
+        => SendImageGuardedAsync(preset, ForgeBridgeAction.SendOnly, cancellationToken);
     public Task GenerateImageAsync(GenerationPreset preset, CancellationToken cancellationToken = default)
-        => canMutate() ? SendPayloadAsync(preset.Positive, preset.Negative, ForgeNegativeMode.Replace, ForgeBridgeAction.SendAndGenerate, cancellationToken) : Task.CompletedTask;
+        => SendImageGuardedAsync(preset, ForgeBridgeAction.SendAndGenerate, cancellationToken);
+    private Task SendImageGuardedAsync(GenerationPreset preset, ForgeBridgeAction action, CancellationToken ct)
+    {
+        if (preset.Recipe?.Regional is not null) { setStatus("Regional画像は作成で復元し、Region ComposerのAPI生成を使用してください。互換送信しません。"); return Task.CompletedTask; }
+        return canMutate() ? SendPayloadAsync(preset.Positive, preset.Negative, ForgeNegativeMode.Replace, action, ct) : Task.CompletedTask;
+    }
     public async Task GenerateRecipeAsync(GenerationPreset preset, CancellationToken cancellationToken = default, bool allowDerivative = false)
     {
         if (!canMutate() || apiOutput is null || RecipeBusy) return;
@@ -125,6 +135,7 @@ public sealed class ForgeViewModel : Observable
     }
     private async Task SendPayloadAsync(string positive, string? negative, ForgeNegativeMode negativeMode, ForgeBridgeAction action, CancellationToken cancellationToken)
     {
+        if (RegionalWorkflowActive?.Invoke() == true) { setStatus("Regional workflowは検証済みAPI経路を使用してください。互換送信しません。"); return; }
         if (RecipeBusy || !canMutate()) return;
         bridgeBusy = true; RefreshBusy(); ConnectionStatus = "Forge: busy（互換操作）";
         try

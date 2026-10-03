@@ -12,7 +12,8 @@ public sealed record GenerationRecipe(
     int? Width = null,
     int? Height = null,
     string? ModelHash = null,
-    IReadOnlyList<GenerationParameter>? SourceParameters = null)
+    IReadOnlyList<GenerationParameter>? SourceParameters = null,
+    [property: System.Text.Json.Serialization.JsonIgnore(Condition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull)] RegionComposerConfig? Regional = null)
 {
     // Original ordered parameters survive projection/edit/save. They are evidence,
     // never arbitrary Forge overrides. Unknown fields need explicit derivative consent.
@@ -67,6 +68,7 @@ public sealed record GenerationRecipe(
             snapshot.Width,
             snapshot.Height,
             Clean(snapshot.Value("Model hash")),
-            snapshot.Parameters.ToArray());
+            snapshot.Parameters.ToArray(),
+            RegionComposer.Read(snapshot.Parameters)?.Config);
     }
 }

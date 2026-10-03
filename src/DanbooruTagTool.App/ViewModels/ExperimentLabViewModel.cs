@@ -49,12 +49,36 @@ public sealed class ExperimentLabViewModel : Observable
     public bool UseY { get => useY; set { Set(ref useY, value); PreviewChanged(); } }
     public IReadOnlyList<ExperimentVariable> Variables { get; } = Enum.GetValues<ExperimentVariable>();
     public string BaselineSummary => baseline is null ? "baseline未取込" : $"Recipe {GenerationRecipeDerivation.Identity(baseline)}\n{baseline.Recipe.Summary}\n{GenerationLoraProvenance.Summary(baseline.Recipe.SourceParameters)}\nP: {baseline.Positive}\nN: {baseline.Negative}";
+    private RegionComposerConfig? regionalComparison;
+    public async Task LoadRegionalComparisonAsync(RegionComposerConfig config)
+    {
+        if (!CanEdit || !main.CanEditPrompt || main.PresetManagementOpen) throw new InvalidOperationException("Lab is busy.");
+        RegionComposer.Validate(config);
+        if (!main.Create.TryRecipe(out var recipe, out var error)) throw new ArgumentException(error);
+        var ordinary = RegionComposer.Ordinary(config);
+        recipe = GenerationRecipeDerivation.Strip(recipe!) with { Regional = null };
+        // Prior image regional observations are preserved by the image/parent, not reused as new ordinary overrides.
+        recipe = recipe with { SourceParameters = (recipe.SourceParameters ?? []).Where(p => p.Name != RegionComposer.Key && !p.Name.StartsWith("RP ", StringComparison.Ordinal)).ToArray() };
+        main.Forge.BeginExperiment(); busy = true; Refresh();
+        try
+        {
+            await main.Forge.ReadRegionalCapabilitiesAsync();
+            baseline = await main.Forge.PinExperimentBaselineAsync(new(ordinary.Positive, ordinary.Negative, recipe));
+            regionalComparison = config;
+            Name = "Ordinary vs Region Composer"; Hypothesis = "Human assessment: attribute leakage / subject fidelity / composition";
+            XKind = ExperimentVariable.RegionalMode; XTarget = ""; XValues = "Ordinary\n" + config.Layout;
+            UseY = false; Repetitions = 1;
+            Seeds = recipe.Seed?.ToString(CultureInfo.InvariantCulture) ?? "";
+            Notify(nameof(BaselineSummary)); PreviewChanged(); Status = "同じblocks / model / LoRA / seedの比較draft。保存後、Startで2画像生成します。";
+        }
+        finally { busy = false; main.Forge.EndExperiment(); Refresh(); }
+    }
     private ExperimentSetup Draft()
     {
         if (baseline is null) throw new ArgumentException("baselineを取り込んでください。");
         static string[] Lines(string s, bool literal = false) => s.Replace("\r\n", "\n").Split('\n').Select(v => literal ? v : v.Trim()).Where(v => !string.IsNullOrWhiteSpace(v)).ToArray();
         var explicitSeeds = Lines(Seeds).Select(v => long.TryParse(v, NumberStyles.None, CultureInfo.InvariantCulture, out var n) ? n : throw new ArgumentException("seedは1行1個の非負整数です。")).ToArray();
-        return new(Name, Hypothesis, baseline, new(XKind, XTarget, Lines(XValues, XKind is ExperimentVariable.Positive or ExperimentVariable.Negative)), UseY ? new(YKind, YTarget, Lines(YValues, YKind is ExperimentVariable.Positive or ExperimentVariable.Negative)) : null, explicitSeeds, Repetitions, ConsentUnapplied);
+        return new(Name, Hypothesis, baseline, new(XKind, XTarget, Lines(XValues, XKind is ExperimentVariable.Positive or ExperimentVariable.Negative)), UseY ? new(YKind, YTarget, Lines(YValues, YKind is ExperimentVariable.Positive or ExperimentVariable.Negative)) : null, explicitSeeds, Repetitions, ConsentUnapplied, regionalComparison);
     }
     public string Preview
     {
@@ -85,7 +109,7 @@ public sealed class ExperimentLabViewModel : Observable
         $"Trial {c.Trial.Id}\nAttempt/request id {c.Attempt.Id}\nLibrary image {c.Attempt.LibraryImageId}\n{c.Attempt.Receipt?.Status}\n{GenerationRecipeDerivation.Summary(c.Trial.Requested.Recipe.SourceParameters)}\nActual LoRA:\n{GenerationLoraProvenance.Summary(c.Attempt.Receipt?.Metadata?.Parameters)}\n{Comparison}\nActual PNG/receipt:\n{c.Attempt.Receipt?.Metadata?.RawInfotext}";
     private string Comparison => compareLeft?.Attempt.Receipt?.Metadata is not { } left || Selected?.Attempt.Receipt?.Metadata is not { } right ? "比較元の画像を選び「比較元にする」を押してください。" :
         $"比較: Library {compareLeft.Attempt.LibraryImageId} /seed {compareLeft.Trial.Seed} → Library {Selected.Attempt.LibraryImageId} /seed {Selected.Trial.Seed}\n" +
-        string.Join("\n", GenerationMetadataDiff.Compare(left, right).Where(d => d.Field is "Positive" or "Negative" or "Model" or "Model hash" or "Seed" or "Steps" or "Sampler" or "Scheduler" or "CFG" or "Size" or "LoRA").Select(d => $"{d.Field}: {d.Left} → {d.Right} [{d.State}]"));
+        string.Join("\n", GenerationMetadataDiff.Compare(left, right).Where(d => d.Field is "Positive" or "Negative" or "Model" or "Model hash" or "Seed" or "Steps" or "Sampler" or "Scheduler" or "CFG" or "Size" or "LoRA" || d.Field.StartsWith("RP ") || d.Field == RegionComposer.Key).Select(d => $"{d.Field}: {d.Left} → {d.Right} [{d.State}]"));
     public string SelectedSummary => plan is null ? "保存済み実験未選択" : $"保存済み「{plan.Setup.Name}」: {plan.Trials.Count}生成 /未実行{(attempts.Count == 0 ? plan.Trials.Count : attempts.Count(a => a.RunNumber == selectedRun && a.Status == "Pending"))}。編集の反映は新規保存で。";
     public int Columns => xFilter >= 0 ? 1 : plan?.Setup.X.Values.Count ?? 1;
     public int MatrixWidth => Columns * 190;
@@ -120,7 +144,7 @@ public sealed class ExperimentLabViewModel : Observable
                 if (!main.Create.TryRecipe(out var r, out var error)) throw new ArgumentException(error);
                 var snapshot = GenerationRecipeDerivation.Snapshot(main.Create.Positive, main.Create.Negative, r!);
                 main.Forge.BeginExperiment(); leased = true; busy = true; cancel = new(); Refresh();
-                baseline = await main.Forge.PinExperimentBaselineAsync(snapshot, cancel.Token); ConsentUnapplied = false;
+                regionalComparison = null; baseline = await main.Forge.PinExperimentBaselineAsync(snapshot, cancel.Token); ConsentUnapplied = false;
                 Notify(nameof(BaselineSummary)); PreviewChanged(); Status = "baselineを取込済み。Model/LoRA identityを固定しました。生成はしていません。";
             }
             catch (Exception e) when (e is IOException or InvalidDataException or ArgumentException or InvalidOperationException or System.Net.Http.HttpRequestException or OperationCanceledException or JsonException) { baseline = null; Notify(nameof(BaselineSummary)); Status = "baseline未取込: " + e.Message; }
@@ -143,7 +167,7 @@ public sealed class ExperimentLabViewModel : Observable
     private IReadOnlyList<ExperimentAttempt> attempts = [];
     private void ReloadList() { Experiments.Clear(); foreach (var e in Store.List()) Experiments.Add(new(e.Id, e.Name)); }
     private void Open(Guid id)
-    { plan = Store.Load(id); baseline = plan.Setup.Baseline; name = plan.Setup.Name; hypothesis = plan.Setup.Hypothesis; xKind = plan.Setup.X.Kind; xTarget = plan.Setup.X.Target; xValues = string.Join("\n", plan.Setup.X.Values); useY = plan.Setup.Y is not null; yKind = plan.Setup.Y?.Kind ?? ExperimentVariable.Steps; yTarget = plan.Setup.Y?.Target ?? ""; yValues = string.Join("\n", plan.Setup.Y?.Values ?? []); seeds = string.Join("\n", plan.Setup.Seeds); repetitions = plan.Setup.Repetitions; foreach (var n in new[] { nameof(BaselineSummary), nameof(Name), nameof(Hypothesis), nameof(XKind), nameof(XTarget), nameof(XValues), nameof(UseY), nameof(YKind), nameof(YTarget), nameof(YValues), nameof(Seeds), nameof(Repetitions), nameof(Preview) }) Notify(n); ConsentUnapplied = false; var observation = Store.Observation(id); ObservedDirection = observation.Direction; Exceptions = observation.Exceptions; Notify(nameof(ObservedDirection)); Notify(nameof(Exceptions)); selectedSeed = plan.Setup.Seeds[0]; selectedRepetition = 0; xFilter = yFilter = -1; SeedChoices.Clear(); foreach (var s in plan.Setup.Seeds) SeedChoices.Add(s); ReloadAttempts(); foreach (var n in new[] { nameof(SelectedSeed), nameof(RepetitionChoices), nameof(SelectedRepetition), nameof(SelectedSummary), nameof(Columns), nameof(MatrixWidth), nameof(XVariants), nameof(YVariants), nameof(XFilter), nameof(YFilter) }) Notify(n); }
+    { plan = Store.Load(id); regionalComparison = plan.Setup.Regional; baseline = plan.Setup.Baseline; name = plan.Setup.Name; hypothesis = plan.Setup.Hypothesis; xKind = plan.Setup.X.Kind; xTarget = plan.Setup.X.Target; xValues = string.Join("\n", plan.Setup.X.Values); useY = plan.Setup.Y is not null; yKind = plan.Setup.Y?.Kind ?? ExperimentVariable.Steps; yTarget = plan.Setup.Y?.Target ?? ""; yValues = string.Join("\n", plan.Setup.Y?.Values ?? []); seeds = string.Join("\n", plan.Setup.Seeds); repetitions = plan.Setup.Repetitions; foreach (var n in new[] { nameof(BaselineSummary), nameof(Name), nameof(Hypothesis), nameof(XKind), nameof(XTarget), nameof(XValues), nameof(UseY), nameof(YKind), nameof(YTarget), nameof(YValues), nameof(Seeds), nameof(Repetitions), nameof(Preview) }) Notify(n); ConsentUnapplied = false; var observation = Store.Observation(id); ObservedDirection = observation.Direction; Exceptions = observation.Exceptions; Notify(nameof(ObservedDirection)); Notify(nameof(Exceptions)); selectedSeed = plan.Setup.Seeds[0]; selectedRepetition = 0; xFilter = yFilter = -1; SeedChoices.Clear(); foreach (var s in plan.Setup.Seeds) SeedChoices.Add(s); ReloadAttempts(); foreach (var n in new[] { nameof(SelectedSeed), nameof(RepetitionChoices), nameof(SelectedRepetition), nameof(SelectedSummary), nameof(Columns), nameof(MatrixWidth), nameof(XVariants), nameof(YVariants), nameof(XFilter), nameof(YFilter) }) Notify(n); }
     private void ReloadAttempts()
     { attempts = Store.Attempts(plan!.Id); RunChoices.Clear(); foreach (var n in attempts.Select(a => a.RunNumber).Distinct()) RunChoices.Add(n); if (!RunChoices.Contains(selectedRun)) selectedRun = RunChoices.LastOrDefault(); Notify(nameof(SelectedRun)); Notify(nameof(SelectedSummary)); Filter(); }
     private void Filter()
