@@ -1,0 +1,83 @@
+<UserControl x:Class="DanbooruTagTool.App.Views.ExperimentLabView"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+ <UserControl.Resources><BooleanToVisibilityConverter x:Key="Bool"/></UserControl.Resources>
+ <Grid Margin="8">
+  <Grid.ColumnDefinitions><ColumnDefinition Width="2*" MinWidth="210" MaxWidth="280"/><ColumnDefinition Width="4*" MinWidth="360"/><ColumnDefinition Width="2*" MinWidth="210" MaxWidth="260"/></Grid.ColumnDefinitions>
+  <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto" Margin="0,0,8,0">
+   <StackPanel>
+    <TextBlock Text="A/B Experiment Lab" FontSize="18" FontWeight="Bold"/>
+    <StackPanel IsEnabled="{Binding CanEdit}">
+     <Button Content="Create → baseline取込・identity照合" Command="{Binding CaptureBaseline}" Margin="0,8"/>
+     <Expander Header="取り込んだbaseline"><TextBlock Text="{Binding BaselineSummary}" TextWrapping="Wrap"/></Expander>
+     <TextBlock Text="実験名 / hypothesis"/><TextBox Text="{Binding Name,UpdateSourceTrigger=PropertyChanged}"/>
+     <TextBox Text="{Binding Hypothesis,UpdateSourceTrigger=PropertyChanged}" ToolTip="仮説。自動的に知識へ昇格しません。"/>
+     <TextBlock Text="X変数 / 1行1値" Margin="0,8,0,0"/>
+     <ComboBox ItemsSource="{Binding Variables}" SelectedItem="{Binding XKind}"/>
+     <TextBox Text="{Binding XTarget,UpdateSourceTrigger=PropertyChanged}" ToolTip="Prompt置換fragment、tag/LoRA名。Promptで空欄なら末尾追加。"/>
+     <TextBox Text="{Binding XValues,UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" Height="64" VerticalScrollBarVisibility="Auto"/>
+     <CheckBox Content="Y軸を追加（2D matrix）" IsChecked="{Binding UseY}" Margin="0,8"/>
+     <StackPanel IsEnabled="{Binding UseY}">
+      <ComboBox ItemsSource="{Binding Variables}" SelectedItem="{Binding YKind}"/>
+      <TextBox Text="{Binding YTarget,UpdateSourceTrigger=PropertyChanged}" ToolTip="Y対象fragment /tag /LoRA名"/>
+      <TextBox Text="{Binding YValues,UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" Height="64"/>
+     </StackPanel>
+     <TextBlock Text="明示seed（1行1個） / 反復回数" Margin="0,8,0,0"/>
+     <TextBox Text="{Binding Seeds,UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" Height="48"/>
+     <TextBox Text="{Binding Repetitions,UpdateSourceTrigger=PropertyChanged}"/>
+     <TextBlock Text="{Binding Preview}" FontWeight="Bold" Margin="0,8"/>
+     <Button Content="新しい実験として保存（生成しません）" Command="{Binding Save}"/>
+    </StackPanel>
+    <TextBlock Text="{Binding Status}" TextWrapping="Wrap" Margin="0,8"/>
+    <Button Content="これ以降を中止" Command="{Binding Cancel}"/>
+   </StackPanel>
+  </ScrollViewer>
+  <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto"><Grid>
+   <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+   <StackPanel>
+    <DockPanel IsEnabled="{Binding CanEdit}"><Button Content="開く /一覧更新" Command="{Binding Reload}" DockPanel.Dock="Right"/><ComboBox ItemsSource="{Binding Experiments}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedExperiment}"/></DockPanel>
+    <TextBlock Text="{Binding SelectedSummary}" Margin="0,6"/>
+    <CheckBox Content="元Recipeの未適用条件を確認し、派生生成を了承" IsChecked="{Binding ConsentUnapplied}" IsEnabled="{Binding CanEdit}" Visibility="{Binding UnappliedNoticeVisible, Converter={StaticResource Bool}}"/>
+    <WrapPanel Margin="0,6"><Button Content="Start（未実行のみ）" Padding="8,4" FontSize="12" Command="{Binding Start}"/><Button Content="再実行（別run）" Padding="8,4" FontSize="12" Command="{Binding Rerun}" ToolTip="保存済みexact Recipeを使用。前回の画像・失敗・評価は保持します。"/></WrapPanel>
+    <WrapPanel IsEnabled="{Binding CanEdit}">
+     <TextBlock Text="Seed:"/><ComboBox Width="130" ItemsSource="{Binding SeedChoices}" SelectedItem="{Binding SelectedSeed}"/>
+     <TextBlock Text="Run:"/><ComboBox Width="45" ItemsSource="{Binding RunChoices}" SelectedItem="{Binding SelectedRun}"/>
+     <ComboBox Width="80" ItemsSource="{Binding RepetitionChoices}" DisplayMemberPath="Label" SelectedValuePath="Index" SelectedValue="{Binding SelectedRepetition}"/>
+     <ComboBox Width="110" ItemsSource="{Binding XVariants}" DisplayMemberPath="Label" SelectedValuePath="Index" SelectedValue="{Binding XFilter}"/>
+     <ComboBox Width="110" ItemsSource="{Binding YVariants}" DisplayMemberPath="Label" SelectedValuePath="Index" SelectedValue="{Binding YFilter}"/>
+    </WrapPanel>
+   </StackPanel>
+   <ScrollViewer Grid.Row="1" Height="420" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="0,8,0,0">
+    <ListBox ItemsSource="{Binding Cells}" SelectedItem="{Binding Selected}" Width="{Binding MatrixWidth}" HorizontalAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+     <ListBox.ItemsPanel><ItemsPanelTemplate><UniformGrid Columns="{Binding Columns}"/></ItemsPanelTemplate></ListBox.ItemsPanel>
+     <ListBox.ItemTemplate><DataTemplate><StackPanel Width="165" Margin="3">
+      <TextBlock Text="{Binding Label}" TextWrapping="Wrap"/><Image Source="{Binding ImagePath}" Height="130" Stretch="Uniform"/>
+      <TextBlock Text="{Binding Status}" TextWrapping="Wrap"/><TextBlock Text="{Binding EvaluationLabel}"/>
+     </StackPanel></DataTemplate></ListBox.ItemTemplate>
+    </ListBox>
+   </ScrollViewer>
+  </Grid></ScrollViewer>
+  <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto" Margin="8,0,0,0">
+   <StackPanel>
+    <TextBlock Text="選択trialの評価・証拠" FontWeight="Bold"/>
+    <StackPanel IsEnabled="{Binding CanEdit}">
+     <TextBlock Text="Rating（空欄=未評価、0〜5）"/><TextBox Text="{Binding Rating}"/>
+     <CheckBox Content="Pass（中間=未評価、off=Fail）" IsThreeState="True" IsChecked="{Binding Passed}"/>
+     <CheckBox Content="同run / seed /反復groupのWinner" IsChecked="{Binding Winner}"/>
+     <TextBox Text="{Binding Note}" AcceptsReturn="True" Height="64" ToolTip="観察方向・例外・問題点。人が評価してください。"/>
+     <Button Content="評価を保存" Command="{Binding Evaluate}" Margin="0,6"/>
+     <Button Content="選択画像をCreateで使う" Command="{Binding UseInCreate}"/>
+     <Button Content="選択画像を比較元にする" Command="{Binding SetCompareLeft}" Margin="0,6"/>
+     <Button Content="中断trialを結果不明として記録" Command="{Binding MarkUnknown}" ToolTip="再送しません。Forge状態を確認してから使ってください。" Margin="0,6"/>
+    </StackPanel>
+    <TextBox Text="{Binding SelectedDetails,Mode=OneWay}" IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True" BorderThickness="0"/>
+    <StackPanel IsEnabled="{Binding CanEdit}">
+     <TextBlock Text="人が観察した方向 / 例外"/><TextBox Text="{Binding ObservedDirection}" AcceptsReturn="True" Height="48"/>
+     <TextBox Text="{Binding Exceptions}" AcceptsReturn="True" Height="48"/>
+     <Button Content="観察・例外を保存" Command="{Binding SaveObservation}" Margin="0,6"/>
+     <Button Content="全証拠JSONをlocal保存" Command="{Binding ExportEvidence}"/>
+    </StackPanel>
+    <TextBlock Text="実験はraw evidenceです。#44へ自動submit・知識昇格しません。" Margin="0,8"/>
+   </StackPanel>
+  </ScrollViewer>
+ </Grid>
+</UserControl>

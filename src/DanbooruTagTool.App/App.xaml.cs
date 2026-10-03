@@ -27,6 +27,18 @@ public partial class App : Application
                 ShutdownMode = ShutdownMode.OnExplicitShutdown;
                 await ForgeWorkflowValidation.RunAsync(e.Args[1], e.Args[2]); Shutdown(0); return;
             }
+            if (e.Args.FirstOrDefault() == "--validate-experiments")
+            {
+                if (e.Args.Length != 3) throw new ArgumentException("--validate-experiments <spec.json> <new-output>");
+                ShutdownMode = ShutdownMode.OnExplicitShutdown;
+                await ExperimentLabValidation.RunAsync(e.Args[1], e.Args[2]); Shutdown(0); return;
+            }
+            if (e.Args.FirstOrDefault() == "--validate-experiments-ui")
+            {
+                if (e.Args.Length != 4) throw new ArgumentException("--validate-experiments-ui <spec.json> <prior-isolated-evidence> <new-output>");
+                ShutdownMode = ShutdownMode.OnExplicitShutdown;
+                await ExperimentLabValidation.RenderExistingAsync(e.Args[1], e.Args[2], e.Args[3]); Shutdown(0); return;
+            }
             if (e.Args.FirstOrDefault() == "--validate-lora")
             {
                 if (e.Args.Length != 2) throw new ArgumentException("--validate-lora <new-empty-output-directory>");

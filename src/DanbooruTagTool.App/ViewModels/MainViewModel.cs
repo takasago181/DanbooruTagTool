@@ -24,6 +24,7 @@ public sealed class MainViewModel : Observable
     public LoraLibraryViewModel? LoraLibrary { get; }
     public ForgeViewModel Forge { get; }
     public CreateViewModel Create { get; }
+    public ExperimentLabViewModel? Experiments { get; }
     private bool presetManagementOpen;
     public bool PresetManagementOpen { get => presetManagementOpen; set { Set(ref presetManagementOpen, value); Notify(nameof(CreateEditingAvailable)); Create.Refresh(); } }
     public bool CreateEditingAvailable => CanEditPrompt && !PresetManagementOpen && !Forge.RecipeBusy;
@@ -41,8 +42,9 @@ public sealed class MainViewModel : Observable
         set { librarySubtypeIndex = value == 1 ? 1 : 0; if (ShellWorkspaceIndex == 2) WorkspaceIndex = librarySubtypeIndex + 2; Notify(nameof(LibrarySubtypeIndex)); }
     }
     private int createPageIndex;
-    public int CreatePageIndex { get => createPageIndex; set { if (Set(ref createPageIndex, value) && value < 2) Intelligence.ActiveSide = value; } }
+    public int CreatePageIndex { get => createPageIndex; set { if (Set(ref createPageIndex, value)) { if (value < 2) Intelligence.ActiveSide = value; Notify(nameof(CreateComposerVisible)); } } }
 
+    public bool CreateComposerVisible => CreatePageIndex != 4;
     public UserStateCoordinator UserState { get; }
     private string status = "";
     public string Status { get => status; set => Set(ref status, value); }
@@ -89,6 +91,7 @@ public sealed class MainViewModel : Observable
             PresetsRequested?.Invoke();
         }, Forge, canMutate);
         if (GenerationLibrary is not null) Forge.IndexRecipeResult = GenerationLibrary.IndexRecipeResultAsync;
+        if (paths is not null) Experiments = new(this, paths);
         if (GenerationLibrary is not null)
         {
             GenerationLibrary.NegativeWorkspace = NegativeWorkspace;

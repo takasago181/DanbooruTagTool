@@ -60,7 +60,7 @@ public partial class MainWindow : Window
         PromptEditor.EditRatioChanged += SaveGeometry;
         NegativeEditor.EditRatioChanged += SaveGeometry;
         SizeChanged += (_, _) => { UpdateResponsiveLayout(); QueueUiSave(); }; LocationChanged += (_, _) => QueueUiSave();
-        Closing += (_, e) => { if (vm.GenerationLibrary?.FlushAnnotation() == false) { e.Cancel = true; return; } vm.GenerationLibrary?.CancelPendingScan(); SaveGeometry(); feedbackTimer.Stop(); uiTimer.Stop(); if (presetDialog != null) presetDialog.Close(); if (forgeSettingsDialog != null) forgeSettingsDialog.Close(); if (generationImportDialog != null) generationImportDialog.Close(); };
+        Closing += (_, e) => { if (vm.Experiments?.Busy == true) { vm.Experiments.Cancel.Execute(null); vm.Status = "実験を中止中です。trial記録の完了までお待ちください。"; e.Cancel = true; return; } if (vm.GenerationLibrary?.FlushAnnotation() == false) { e.Cancel = true; return; } vm.GenerationLibrary?.CancelPendingScan(); SaveGeometry(); feedbackTimer.Stop(); uiTimer.Stop(); if (presetDialog != null) presetDialog.Close(); if (forgeSettingsDialog != null) forgeSettingsDialog.Close(); if (generationImportDialog != null) generationImportDialog.Close(); };
         Loaded += (_, _) => { vm.UpdateChipLanguage(); UpdateResponsiveLayout(); SyncNavigationSelection(); };
     }
     private static bool IsLegacyNavWidth(double width) => Math.Abs(width - 210) < 0.5 || Math.Abs(width - 230) < 0.5;

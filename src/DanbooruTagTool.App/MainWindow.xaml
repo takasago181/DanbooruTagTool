@@ -507,7 +507,7 @@
         <TabControl x:Name="Workspaces" SelectedIndex="{Binding ShellWorkspaceIndex}" SelectionChanged="WorkspaceChanged" Margin="0,8,0,0">
             <TabItem Header="作成" Style="{StaticResource WorkspaceTabItem}">
               <DockPanel>
-                <Border DockPanel.Dock="Bottom" Style="{StaticResource WorkSurfaceCard}" Padding="4" Margin="0,4,0,0">
+                <Border DockPanel.Dock="Bottom" Style="{StaticResource WorkSurfaceCard}" Padding="4" Margin="0,4,0,0" Visibility="{Binding CreateComposerVisible, Converter={StaticResource BrowseHomeVisibility}}">
                  <Grid><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="100"/><ColumnDefinition Width="68"/></Grid.ColumnDefinitions>
                   <ScrollViewer MaxHeight="60" VerticalScrollBarVisibility="Auto"><StackPanel><TextBlock Text="{Binding Create.SourceSummary}" FontWeight="SemiBold"/><TextBlock Text="{Binding Create.ConditionsSummary}" FontSize="12"/><TextBlock Text="{Binding Create.Validation}" FontSize="12"/></StackPanel></ScrollViewer>
                   <Button x:Name="PrimaryGenerate" Grid.Column="1" Content="生成" Command="{Binding Create.Generate}" Style="{StaticResource PrimaryButton}" Margin="8,0,0,0" ToolTipService.ShowOnDisabled="True" ToolTip="現在のPositive / Negative / 表示された生成条件で1画像生成し、実画像metadataと照合します。条件不足や不一致時は失敗し、互換生成へfallbackしません。"/>
@@ -533,7 +533,7 @@
                   </Button>
                  </Grid>
                 </Border>
-                <Expander DockPanel.Dock="Bottom" Header="Prompt診断 / token・chunk（警告のみ）" Margin="0,6">
+                <Expander DockPanel.Dock="Bottom" Header="Prompt診断 / token・chunk（警告のみ）" Margin="0,6" Visibility="{Binding CreateComposerVisible, Converter={StaticResource BrowseHomeVisibility}}">
                  <StackPanel MaxHeight="200"><WrapPanel><TextBlock Text="Counter Steps" VerticalAlignment="Center"/><TextBox Text="{Binding Intelligence.Steps}" Width="70"/><Button Content="Forge token照会" Click="TokenCountClick" ToolTip="生成しません。読み込み済みモデルのcounterを明示照会します。"/></WrapPanel><ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="150"><StackPanel><TextBlock Text="{Binding Intelligence.TokenStatus}" TextWrapping="Wrap"/><ItemsControl ItemsSource="{Binding Intelligence.Boundaries}"><ItemsControl.ItemTemplate><DataTemplate><TextBlock><Run Text="{Binding Side}"/><Run Text=" node "/><Run Text="{Binding Node}"/><Run Text=" : "/><Run Text="{Binding Kind}"/></TextBlock></DataTemplate></ItemsControl.ItemTemplate></ItemsControl><ItemsControl ItemsSource="{Binding Intelligence.Warnings}"><ItemsControl.ItemTemplate><DataTemplate><TextBlock Text="{Binding Message}" TextWrapping="Wrap"/></DataTemplate></ItemsControl.ItemTemplate></ItemsControl></StackPanel></ScrollViewer></StackPanel>
                 </Expander>
                 <TabControl x:Name="PromptSides" SelectedIndex="{Binding CreatePageIndex}">
@@ -541,6 +541,7 @@
                  <TabItem Header="Negative"><views:PromptEditorView x:Name="NegativeEditor" DataContext="{Binding Negative}"/></TabItem>
                  <TabItem Header="生成条件 / Preset"><views:GenerationConditionsView DataContext="{Binding}"/></TabItem>
                  <TabItem Header="LoRAを追加"><views:LoraQuickUseView DataContext="{Binding LoraLibrary}"/></TabItem>
+                 <TabItem Header="A/B実験"><views:ExperimentLabView DataContext="{Binding Experiments}"/></TabItem>
                 </TabControl>
               </DockPanel>
             </TabItem>
