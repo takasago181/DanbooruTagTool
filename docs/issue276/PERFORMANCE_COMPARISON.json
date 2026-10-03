@@ -1,0 +1,513 @@
+{
+  "mainBaseline": "4f60a223",
+  "condition": "Release; sequential; first open OS-cache state uncontrolled, subsequent opens warm; 3 loads, 3 query warmups + 11 samples; no timing SLA",
+  "catalogEntries": 124895,
+  "search": [
+    {
+      "query": "blue_hair",
+      "count": 4,
+      "orderedSignature": "FF7674AD9E43CEEBC1CC9570E83A9300515D739E47DF4519624DF85DC169495B",
+      "before": {
+        "medianMs": 31.963,
+        "p95Ms": 37.6737,
+        "minMs": 29.4461,
+        "medianAllocatedBytes": 38035328
+      },
+      "after": {
+        "medianMs": 24.7023,
+        "p95Ms": 58.3138,
+        "minMs": 21.8108,
+        "medianAllocatedBytes": 5552
+      }
+    },
+    {
+      "query": "anal",
+      "count": 31,
+      "orderedSignature": "74B3CEF3B93770C0F559E7FE486A8998445AD005E4D7505DCC19EA26B90821B7",
+      "before": {
+        "medianMs": 22.66,
+        "p95Ms": 27.2214,
+        "minMs": 22.0159,
+        "medianAllocatedBytes": 19012440
+      },
+      "after": {
+        "medianMs": 17.7084,
+        "p95Ms": 19.5221,
+        "minMs": 17.1524,
+        "medianAllocatedBytes": 37680
+      }
+    },
+    {
+      "query": "青い髪",
+      "count": 2,
+      "orderedSignature": "8762916403609A50334668BAC0E7C3AE3579FBD737C1F19CF8D37B4D740D5E4F",
+      "before": {
+        "medianMs": 23.0239,
+        "p95Ms": 24.1866,
+        "minMs": 22.622,
+        "medianAllocatedBytes": 18986056
+      },
+      "after": {
+        "medianMs": 17.5973,
+        "p95Ms": 22.9238,
+        "minMs": 17.1856,
+        "medianAllocatedBytes": 3424
+      }
+    },
+    {
+      "query": "髪",
+      "count": 587,
+      "orderedSignature": "B9366F4CAAEE1CA42F2DE54CA3D803C315C2ADCE5107CD2B3E80DCA0DBE268A1",
+      "before": {
+        "medianMs": 19.9441,
+        "p95Ms": 20.4039,
+        "minMs": 19.3538,
+        "medianAllocatedBytes": 15554256
+      },
+      "after": {
+        "medianMs": 15.4671,
+        "p95Ms": 16.7017,
+        "minMs": 15.0357,
+        "medianAllocatedBytes": 586824
+      }
+    },
+    {
+      "query": "breast",
+      "count": 100,
+      "orderedSignature": "985FF398E5C15749CA8FAC4D7F00615D0D627C0006837FB22D744A8D4D43C4F6",
+      "before": {
+        "medianMs": 22.2286,
+        "p95Ms": 23.5815,
+        "minMs": 21.9861,
+        "medianAllocatedBytes": 19073784
+      },
+      "after": {
+        "medianMs": 17.2216,
+        "p95Ms": 20.3418,
+        "minMs": 16.7966,
+        "medianAllocatedBytes": 121488
+      }
+    },
+    {
+      "query": "girl",
+      "count": 392,
+      "orderedSignature": "8ABB4018D77161C4A9289D2A4C623464F27E78F8C06B11CF4B8A0C7E59636788",
+      "before": {
+        "medianMs": 22.3891,
+        "p95Ms": 23.3448,
+        "minMs": 21.6425,
+        "medianAllocatedBytes": 19354472
+      },
+      "after": {
+        "medianMs": 17.6029,
+        "p95Ms": 31.1182,
+        "minMs": 16.9826,
+        "medianAllocatedBytes": 446944
+      }
+    },
+    {
+      "query": "blue_hair 青い髪",
+      "count": 1,
+      "orderedSignature": "CCB377E14ADE4771726C9E874CF391E5032DA877C0D37E8D9E35DFE180BBA5E0",
+      "before": {
+        "medianMs": 30.8401,
+        "p95Ms": 31.5694,
+        "minMs": 29.984,
+        "medianAllocatedBytes": 42029192
+      },
+      "after": {
+        "medianMs": 21.3216,
+        "p95Ms": 21.5924,
+        "minMs": 20.5199,
+        "medianAllocatedBytes": 1928
+      }
+    },
+    {
+      "query": "hatsune_miku",
+      "count": 46,
+      "orderedSignature": "819EC4ECEB31D8C2599A094E924B72EA931EA90CF8F0ED579A76BCA27353260D",
+      "before": {
+        "medianMs": 28.4284,
+        "p95Ms": 29.2764,
+        "minMs": 27.9267,
+        "medianAllocatedBytes": 38002536
+      },
+      "after": {
+        "medianMs": 20.1805,
+        "p95Ms": 20.9982,
+        "minMs": 19.9373,
+        "medianAllocatedBytes": 47048
+      }
+    },
+    {
+      "query": "touhou",
+      "count": 42,
+      "orderedSignature": "FF6207A9C97F2AA0FA411DC0DE77D8CA5625A8BBA13A25E6EC2DB99339AE0AD0",
+      "before": {
+        "medianMs": 23.1721,
+        "p95Ms": 30.3079,
+        "minMs": 21.9862,
+        "medianAllocatedBytes": 19025672
+      },
+      "after": {
+        "medianMs": 17.3031,
+        "p95Ms": 19.1133,
+        "minMs": 17.0975,
+        "medianAllocatedBytes": 50592
+      }
+    },
+    {
+      "query": "b",
+      "count": 37,
+      "orderedSignature": "5AE4AFC1CB3C53D0359FBBCD522D1ADFF707A1489D9ACB168665BD61C96DA429",
+      "before": {
+        "medianMs": 18.1942,
+        "p95Ms": 27.4446,
+        "minMs": 17.1725,
+        "medianAllocatedBytes": 11746768
+      },
+      "after": {
+        "medianMs": 13.8185,
+        "p95Ms": 14.6002,
+        "minMs": 13.6102,
+        "medianAllocatedBytes": 757896
+      }
+    },
+    {
+      "query": "bl",
+      "count": 2,
+      "orderedSignature": "923B0F19AF615D6D8DD3F6A25012B9C084FAB91EB9F4C364E4D99F5B09595B25",
+      "before": {
+        "medianMs": 16.2912,
+        "p95Ms": 26.0669,
+        "minMs": 15.5555,
+        "medianAllocatedBytes": 11100104
+      },
+      "after": {
+        "medianMs": 13.7512,
+        "p95Ms": 14.1937,
+        "minMs": 13.3181,
+        "medianAllocatedBytes": 110112
+      }
+    },
+    {
+      "query": "blu",
+      "count": 6,
+      "orderedSignature": "E7E2413F8B16A1EE368D8228612B86ADD816A786B4773F18B6E94475B251C2BC",
+      "before": {
+        "medianMs": 19.3082,
+        "p95Ms": 19.9634,
+        "minMs": 19.1162,
+        "medianAllocatedBytes": 15064840
+      },
+      "after": {
+        "medianMs": 16.0357,
+        "p95Ms": 22.1802,
+        "minMs": 15.4513,
+        "medianAllocatedBytes": 93632
+      }
+    },
+    {
+      "query": "blue",
+      "count": 315,
+      "orderedSignature": "A6A17981FE6E9E8E5484F42F7FEA21FCF06DDF554A1AEDA0ABBF516B8118A3BF",
+      "before": {
+        "medianMs": 21.7154,
+        "p95Ms": 22.5785,
+        "minMs": 21.3917,
+        "medianAllocatedBytes": 19296576
+      },
+      "after": {
+        "medianMs": 16.8752,
+        "p95Ms": 17.9566,
+        "minMs": 16.5287,
+        "medianAllocatedBytes": 377144
+      }
+    },
+    {
+      "query": "blue_h",
+      "count": 139,
+      "orderedSignature": "A4A19A1032D24E42291D88A72A12E361FAE7146609DD8B05951D824898524FBD",
+      "before": {
+        "medianMs": 28.7998,
+        "p95Ms": 29.7016,
+        "minMs": 27.9714,
+        "medianAllocatedBytes": 38157912
+      },
+      "after": {
+        "medianMs": 20.9895,
+        "p95Ms": 21.7459,
+        "minMs": 20.7355,
+        "medianAllocatedBytes": 141112
+      }
+    },
+    {
+      "query": "blue_ha",
+      "count": 19,
+      "orderedSignature": "34FE17D82B409A75C5C533F9ED021DBD80DD1CB9CA23451E07CE0AECF757F31B",
+      "before": {
+        "medianMs": 28.4153,
+        "p95Ms": 29.3593,
+        "minMs": 27.7598,
+        "medianAllocatedBytes": 38049296
+      },
+      "after": {
+        "medianMs": 21.6364,
+        "p95Ms": 22.8225,
+        "minMs": 20.7633,
+        "medianAllocatedBytes": 20752
+      }
+    },
+    {
+      "query": "blue_hai",
+      "count": 1,
+      "orderedSignature": "16181805A970C93D3FDD5A3461BA2ED34113A84B5BE9A38960C16E932561AD0A",
+      "before": {
+        "medianMs": 28.4532,
+        "p95Ms": 29.0059,
+        "minMs": 27.7035,
+        "medianAllocatedBytes": 38032376
+      },
+      "after": {
+        "medianMs": 20.8668,
+        "p95Ms": 21.8218,
+        "minMs": 20.5911,
+        "medianAllocatedBytes": 1944
+      }
+    },
+    {
+      "query": "exclamation mark",
+      "count": 2,
+      "orderedSignature": "5248BF897E02A46191EB0F019A1AFC981B71804D7F2F78659526A3581ED2A7A4",
+      "before": {
+        "medianMs": 25.8885,
+        "p95Ms": 27.3638,
+        "minMs": 25.1296,
+        "medianAllocatedBytes": 37968904
+      },
+      "after": {
+        "medianMs": 18.3425,
+        "p95Ms": 19.6498,
+        "minMs": 17.9313,
+        "medianAllocatedBytes": 3536
+      }
+    }
+  ],
+  "loads": {
+    "before": [
+      {
+        "readMs": 1200.8099,
+        "readBytes": 450804152,
+        "indexMs": 799.105,
+        "indexBytes": 281520984,
+        "browseMs": 193.6973,
+        "browseBytes": 78817664,
+        "retainedBytes": 204543344,
+        "workingSetBytes": 386674688
+      },
+      {
+        "readMs": 545.9895,
+        "readBytes": 450242936,
+        "indexMs": 647.1047,
+        "indexBytes": 269639256,
+        "browseMs": 120.2767,
+        "browseBytes": 78308888,
+        "retainedBytes": 203384360,
+        "workingSetBytes": 375164928
+      },
+      {
+        "readMs": 521.424,
+        "readBytes": 450242936,
+        "indexMs": 516.4583,
+        "indexBytes": 265462656,
+        "browseMs": 111.2327,
+        "browseBytes": 78308888,
+        "retainedBytes": 203384168,
+        "workingSetBytes": 372244480
+      }
+    ],
+    "after": [
+      {
+        "readMs": 1277.2569,
+        "readBytes": 450770384,
+        "indexMs": 759.9501,
+        "indexBytes": 281523656,
+        "browseMs": 180.2046,
+        "browseBytes": 78817664,
+        "retainedBytes": 204528904,
+        "workingSetBytes": 385589248
+      },
+      {
+        "readMs": 547.8659,
+        "readBytes": 450242936,
+        "indexMs": 739.4404,
+        "indexBytes": 276183640,
+        "browseMs": 126.5685,
+        "browseBytes": 78308888,
+        "retainedBytes": 203384408,
+        "workingSetBytes": 370180096
+      },
+      {
+        "readMs": 521.4397,
+        "readBytes": 450242936,
+        "indexMs": 518.7575,
+        "indexBytes": 265462656,
+        "browseMs": 106.7759,
+        "browseBytes": 78308888,
+        "retainedBytes": 203384168,
+        "workingSetBytes": 373088256
+      }
+    ]
+  },
+  "personalFilter2000Candidates256Rules": {
+    "baseline": {
+      "medianMs": 229.4154,
+      "medianAllocatedBytes": 559916408,
+      "samples": [
+        {
+          "ms": 228.6338,
+          "allocatedBytes": 559916408,
+          "hidden": 200
+        },
+        {
+          "ms": 227.9441,
+          "allocatedBytes": 559916408,
+          "hidden": 200
+        },
+        {
+          "ms": 229.4976,
+          "allocatedBytes": 559916408,
+          "hidden": 200
+        },
+        {
+          "ms": 226.0785,
+          "allocatedBytes": 559916408,
+          "hidden": 200
+        },
+        {
+          "ms": 225.7978,
+          "allocatedBytes": 559916408,
+          "hidden": 200
+        },
+        {
+          "ms": 228.582,
+          "allocatedBytes": 559916656,
+          "hidden": 200
+        },
+        {
+          "ms": 264.0124,
+          "allocatedBytes": 559916408,
+          "hidden": 200
+        },
+        {
+          "ms": 267.5002,
+          "allocatedBytes": 559916408,
+          "hidden": 200
+        },
+        {
+          "ms": 229.4154,
+          "allocatedBytes": 559916408,
+          "hidden": 200
+        },
+        {
+          "ms": 247.2566,
+          "allocatedBytes": 559916408,
+          "hidden": 200
+        },
+        {
+          "ms": 278.133,
+          "allocatedBytes": 559916408,
+          "hidden": 200
+        }
+      ]
+    },
+    "candidate": {
+      "medianMs": 12.7731,
+      "medianAllocatedBytes": 75280,
+      "samples": [
+        {
+          "ms": 20.8248,
+          "allocatedBytes": 75280,
+          "hidden": 200
+        },
+        {
+          "ms": 24.7973,
+          "allocatedBytes": 75280,
+          "hidden": 200
+        },
+        {
+          "ms": 12.721,
+          "allocatedBytes": 75280,
+          "hidden": 200
+        },
+        {
+          "ms": 12.7701,
+          "allocatedBytes": 75280,
+          "hidden": 200
+        },
+        {
+          "ms": 12.7731,
+          "allocatedBytes": 75280,
+          "hidden": 200
+        },
+        {
+          "ms": 12.584,
+          "allocatedBytes": 75280,
+          "hidden": 200
+        },
+        {
+          "ms": 13.0383,
+          "allocatedBytes": 75280,
+          "hidden": 200
+        },
+        {
+          "ms": 12.7696,
+          "allocatedBytes": 75280,
+          "hidden": 200
+        },
+        {
+          "ms": 13.4095,
+          "allocatedBytes": 75280,
+          "hidden": 200
+        },
+        {
+          "ms": 19.24,
+          "allocatedBytes": 75280,
+          "hidden": 200
+        },
+        {
+          "ms": 5.5372,
+          "allocatedBytes": 75280,
+          "hidden": 200
+        }
+      ]
+    }
+  },
+  "startupBefore": [
+    {
+      "workingSetBytes": 417636352,
+      "run": 0,
+      "ms": 3290.9919
+    },
+    {
+      "workingSetBytes": 417628160,
+      "run": 1,
+      "ms": 3058.6555
+    },
+    {
+      "workingSetBytes": 417755136,
+      "run": 2,
+      "ms": 2987.7548
+    },
+    {
+      "workingSetBytes": 411897856,
+      "run": 3,
+      "ms": 2923.2052
+    },
+    {
+      "workingSetBytes": 417255424,
+      "run": 4,
+      "ms": 2937.9969
+    }
+  ]
+}

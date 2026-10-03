@@ -370,7 +370,7 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
         if (document.JapaneseTerms.Contains(query)) return 1;
         foreach (var term in document.EnglishTerms)
             if (ContainsWholeWords(term, query)) return 2;
-        if (parts.Length > 1 && parts.All(part => document.EnglishTerms.Any(term => ContainsWholeWords(term, part)) || document.JapaneseTerms.Any(term => term.Contains(part, StringComparison.Ordinal)))) return 3;
+        if (parts.Length > 1 && AllPartsMatch(document, parts)) return 3;
         if (hasJapanese)
             foreach (var term in document.JapaneseTerms)
                 if (term.Contains(query, StringComparison.Ordinal)) return 3;
@@ -387,6 +387,21 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
             foreach (var term in document.EnglishTerms)
                 if (DistanceOne(term, query)) return 6;
         return 100;
+    }
+
+    private static bool AllPartsMatch(SearchDocument document, string[] parts)
+    {
+        foreach (var part in parts)
+        {
+            var found = false;
+            foreach (var term in document.EnglishTerms)
+                if (ContainsWholeWords(term, part)) { found = true; break; }
+            if (!found)
+                foreach (var term in document.JapaneseTerms)
+                    if (term.Contains(part, StringComparison.Ordinal)) { found = true; break; }
+            if (!found) return false;
+        }
+        return true;
     }
 
     // Equivalent to (" " + term + " ").Contains(" " + query + " "),
@@ -425,15 +440,15 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
 
     private sealed class SearchDocument
     {
-        private SearchDocument(CatalogEntry entry, IReadOnlyList<string> englishTerms,
-            IReadOnlyList<string> japaneseTerms, IReadOnlyList<string> prefixWords)
+        private SearchDocument(CatalogEntry entry, string[] englishTerms,
+            string[] japaneseTerms, string[] prefixWords)
         {
             Entry = entry; EnglishTerms = englishTerms; JapaneseTerms = japaneseTerms; Prefixes = prefixWords;
         }
 
         public CatalogEntry Entry { get; }
-        public IReadOnlyList<string> EnglishTerms { get; }
-        public IReadOnlyList<string> JapaneseTerms { get; }
+        public string[] EnglishTerms { get; }
+        public string[] JapaneseTerms { get; }
         public IReadOnlyList<string> Prefixes { get; }
 
         public static SearchDocument Create(CatalogEntry entry, string? normalizedCanonical,

@@ -27,7 +27,9 @@ if($Action -eq 'Start'){
  $existing=@(GitChecked @('worktree','list','--porcelain') | Where-Object {$_ -eq "branch refs/heads/$branch"})
  if($existing.Count){throw "Issue $Issue already has a main worktree; resume it instead of creating another."}
  if(Test-Path -LiteralPath $TaskPath){throw 'TaskPath already exists; nothing overwritten.'}
- GitChecked @('worktree','add','-b',$branch,$TaskPath,'origin/main')
+ # The invoking legacy worktree may override autocrlf=true. Apply the source
+ # hash setting during checkout, before the new worktree config exists.
+ GitChecked @('-c','core.autocrlf=false','worktree','add','-b',$branch,$TaskPath,'origin/main')
  & git -C $TaskPath config --worktree core.autocrlf false
  if($LASTEXITCODE -ne 0){throw 'Task checkout created but source hash configuration failed; preserve it for inspection.'}
  Write-Output "Task checkout: $TaskPath. Build/test/publish scratch belongs under TEMP or the configured artifact_root. Commit before Finish."

@@ -40,6 +40,24 @@ class WorkspaceHealthTests(unittest.TestCase):
         self.assertTrue(health.classify('UserData/user.db').startswith('G'))
         self.assertTrue(health.classify('src/project/bin/app.dll').startswith('C'))
 
+    @unittest.skipUnless(__import__('os').name == 'nt', 'Windows lifecycle contract')
+    def test_start_applies_lf_before_checkout_from_legacy_autocrlf_owner(self):
+        import shutil
+        with tempfile.TemporaryDirectory() as tmp:
+            base = pathlib.Path(tmp); repo = base / 'repo'; repo.mkdir(); remote = base / 'origin.git'
+            def git(*args):
+                return subprocess.check_output(['git', '-C', str(repo), *args], stderr=subprocess.STDOUT)
+            git('init', '-b', 'main'); git('config', 'user.name', 'Fixture'); git('config', 'user.email', 'fixture@example.invalid')
+            git('config', 'core.autocrlf', 'false'); (repo / 'source.txt').write_bytes(b'first\nsecond\n')
+            git('add', '.'); git('commit', '-m', 'fixture'); subprocess.check_output(['git', 'init', '--bare', str(remote)], stderr=subprocess.STDOUT)
+            git('remote', 'add', 'origin', str(remote)); git('push', '-u', 'origin', 'main'); git('config', 'extensions.worktreeConfig', 'true'); git('config', '--worktree', 'core.autocrlf', 'true')
+            task_root = base / 'tasks'; task_root.mkdir()
+            (repo / '.git/workspace-layout.json').write_text(json.dumps({'main_entry':str(repo),'task_root':str(task_root)}),encoding='utf-8')
+            script = TOOL.with_name('workspace_task.ps1')
+            subprocess.check_output([shutil.which('pwsh') or 'powershell', '-NoProfile','-File',str(script),'-Action','Start','-Issue','999','-RepositoryRoot',str(repo)],stderr=subprocess.STDOUT)
+            checkout=task_root/'issue-999'; self.assertEqual(b'first\nsecond\n',(checkout/'source.txt').read_bytes())
+            self.assertEqual(b'',subprocess.check_output(['git','-C',str(checkout),'status','--porcelain']))
+
 
 if __name__ == '__main__':
     unittest.main()
