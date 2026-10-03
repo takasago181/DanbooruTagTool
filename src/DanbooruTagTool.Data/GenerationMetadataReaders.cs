@@ -1,7 +1,9 @@
 using System.Buffers.Binary;
 using System.Text;
 
-namespace DanbooruTagTool.Core;
+using DanbooruTagTool.Core;
+
+namespace DanbooruTagTool.Data;
 
 public sealed class PngGenerationMetadataReader : IGenerationMetadataReader
 {
@@ -47,7 +49,7 @@ public sealed class ExifGenerationMetadataReader : IGenerationMetadataReader
             if (exif is null) return new("metadata_missing", format);
             var text = UserComment(exif);
             if (string.IsNullOrWhiteSpace(text)) return new("metadata_missing", format);
-            var metadata = ForgePngGenerationMetadata.Parse(path, text);
+            var metadata = GenerationInfotextParser.Parse(path, text);
             return new("OK", format + " EXIF UserComment", metadata, metadata.Width, metadata.Height);
         }
         catch (Exception e) when (e is InvalidDataException or GenerationMetadataException or ArgumentException or OverflowException)

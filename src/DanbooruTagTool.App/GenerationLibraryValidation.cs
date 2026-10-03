@@ -38,7 +38,7 @@ public static class GenerationLibraryValidation
         library.RestorePrompt.Execute(null); Check(vm.English == library.Positive, "Prompt restore"); vm.Workspace.Undo(); Check(vm.English == "smile", "Undo");
         library.CreatePreset.Execute(null); Check(vm.PresetEditor.PresetSeed == "42" && vm.Presets.Count == 0, "existing preset editor");
         await library.SendAsync(false); await library.SendAsync(true); Check(bridge.Count == 2 && bridge.Last is { Recipe: null } last && last.Positive == library.Positive, "existing Forge adapter / no recipe");
-        var scanner = new GenerationLibraryScanner(store, new PngGenerationMetadataReader(), new ExifGenerationMetadataReader());
+        var scanner = new GenerationLibraryScanner(store, GenerationMetadataReaders.CreateDefault());
         var warm = scanner.Scan(store.Roots().Single()); Check(warm.Unchanged == 1, "warm scan");
         library.SetCompareLeft.Execute(null); library.Compare.Execute(null); Check(library.Differences.All(d => d.State == "same"), "metadata diff");
         var fts = store.SupportsFts5();

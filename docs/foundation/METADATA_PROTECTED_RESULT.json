@@ -1,0 +1,82 @@
+{
+  "baseline": ".local/production-before.json (Batch B original, reused)",
+  "files": [
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\DanbooruTagTool.exe",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\runtime-manifest.json",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\Data\\catalog.db",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\ForgeBridge\\javascript\\dtt_bridge.js",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\ForgeBridge\\scripts\\dtt_bridge.py",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\generation-library.db",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\lora-library.db",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\README.txt",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\user.db",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\user.db.before-migration-2a9f900d88254a539564903c3b1ea1a8.bak",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\Cache\\GenerationThumbnails\\0369292A5AB808B513B16397D0A08101B1D2B20D6B2DBFA0BB4D09C195FAC2BA.png",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\Cache\\GenerationThumbnails\\308C971522374876C6FB39B619CA8CAFDD48E86A4C92F70192BE96D12581D126.png",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\Cache\\GenerationThumbnails\\809DA341E42CE37F5B97021FF406BD3BC26390A6714AD6981399B9E8817EC4C0.png",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\Cache\\GenerationThumbnails\\893AFBE2C0B4D0A8B9842B41E646855DE781360B2A2D1EF033E7DE58CF4D833B.png",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\Cache\\GenerationThumbnails\\90CE5BE419AFD03DFF8AF5D4171A368A84FD98DEEBFBB2431A18BD9DF9BF330B.png",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\Cache\\GenerationThumbnails\\9672E49ABDBB228F768D169D6F278A42513CEF46C4105D93B126A6CD0A65D445.png",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\Cache\\GenerationThumbnails\\ABDB02A39CCB168386994FE436CB4A0319063965460535CB13036F2568D2E38C.png",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\ForgeResults\\forge-4f573db27de8430394d9e2192c45d73c.png",
+      "unchanged": true
+    },
+    {
+      "path": "C:\\Codex\\DanbooruTagTool-App\\UserData\\ForgeResults\\forge-bd316b0160714e1985b800836223b63a.png",
+      "unchanged": true
+    }
+  ],
+  "unchanged": true
+}

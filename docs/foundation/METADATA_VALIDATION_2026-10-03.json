@@ -1,0 +1,34 @@
+{
+  "merge_pr": 262,
+  "main_head": "df38e722fe3b52fa706b87307dc133a9cecdcb27",
+  "main_ci": {
+    "result": "PASS",
+    "url": "https://github.com/takasago181/DanbooruTagTool/actions/runs/37090065724"
+  },
+  "clean_release_build": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "targeted": {
+    "passed": 69,
+    "failed": 0,
+    "skipped": 0
+  },
+  "full_release_regression": {
+    "runs": 1,
+    "passed": 358,
+    "skipped": 22,
+    "failed": 0,
+    "total": 380
+  },
+  "after_full_change": "Test assertions strengthened only; final 5-case targeted rerun. Product code unchanged.",
+  "parser_extraction": "Parse and ParseParameterLine text exactly identical to merged main",
+  "protected_files_unchanged": 19,
+  "userdata_files_in_baseline": 14,
+  "catalog_generation_changed": false,
+  "ordered_parity_repeated": false,
+  "new_runtime_dependencies": [],
+  "production_applied": false,
+  "worktrees_deleted": 0,
+  "branches_deleted": 0
+}
