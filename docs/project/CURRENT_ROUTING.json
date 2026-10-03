@@ -1,6 +1,6 @@
 {
   "schema_version": "project-current-routing-v1",
-  "generated_at": "2026-10-03",
+  "generated_at": "2026-10-04",
   "purpose": "compact machine-readable routing snapshot; not a permanent branch-head authority",
   "live_main_snapshot": null,
   "must_refetch_live_heads_before_write": true,
@@ -13,6 +13,8 @@
   ],
   "active_lanes": [],
   "completed_or_non_default": [
+    "#234/#235/#236 COMPLETE; PRs #273/#274/#275 merged; one integrated production promotion and LKG",
+    "#237 NOT_PLANNED; desktop personal workflow",
     "#231 Region Composer v1 COMPLETE; PR #272 merged; production promoted; new LKG retained",
     "#230 Experiment Lab complete and production promoted; PR #271 merged",
     "#256 workflow COMPLETE/CLOSED and retained",
@@ -44,7 +46,7 @@
   "change_review_policy": "Use branch/PR for substantial, semantic, UserData, production, or risky work. Trivial reversible docs/metadata/maintenance may use the simplest safe route.",
   "network_policy": "External/network-backed features are allowed when useful; preserve local-state safety and keep secrets out of the repository. Offline is a preference, not a universal hard requirement.",
   "packaging_policy": "Self-contained/single-file/no-PDB/second-PC/folder-copy/machine-independent-path checks are optional unless a specific task needs them.",
-  "production_lkg_source": "22141a80aad491cd1c1cbff6b410ced37b737c64",
+  "production_lkg_source": "97c4cb740650e8d0f1ab94707b368d975243049d",
   "foundation_gate": "COMPLETE_PRODUCTION_PROMOTED",
   "foundation_audit": {
     "issue": 248,
@@ -55,7 +57,7 @@
       "unmeasured broad architecture rewrite",
       "history compaction (NO ACTION)"
     ],
-    "next": "No active lane; #231 complete and production promoted. Stop; another feature needs separate authorization."
+    "next": "Practical features #234/#235/#236 complete. Stop; final cleanup and #241 UI/UX require later authorization."
   },
   "foundation_implementation": {
     "issue": 247,
@@ -82,8 +84,9 @@
   "closeout_disposition": "docs/maintenance/ISSUE_CLOSEOUT.md",
   "research_archive": "research/archive/foundation-b.json",
   "foundation_lkg": "docs/issue247/FOUNDATION_LKG_2026-10-03.json",
-  "production_lkg": "docs/issue231/PRODUCTION_LKG_2026-10-03.json",
+  "production_lkg": "docs/issue236/INTEGRATED_PRODUCTION_LKG_2026-10-04.json",
   "issue256_completion": "docs/issue256/COMPLETE_PRODUCTION_2026-10-03.md",
   "issue230_completion": "docs/issue230/COMPLETE_PRODUCTION_2026-10-03.md",
-  "issue231_completion": "docs/issue231/COMPLETE_PRODUCTION_2026-10-03.md"
+  "issue231_completion": "docs/issue231/COMPLETE_PRODUCTION_2026-10-03.md",
+  "practical_completion": "docs/issue236/COMPLETE_INTEGRATED_PRODUCTION_2026-10-04.md"
 }
