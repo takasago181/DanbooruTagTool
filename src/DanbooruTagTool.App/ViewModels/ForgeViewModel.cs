@@ -9,6 +9,7 @@ namespace DanbooruTagTool.App.ViewModels;
 public sealed class ForgeViewModel : Observable
 {
     public Task<ForgeApiCapabilities> ReadRecipeCapabilitiesAsync() => api.ProbeAsync(ForgeUrl);
+    public Task<RecipeSnapshot> PinExperimentBaselineAsync(RecipeSnapshot snapshot) => api.PinRecipeIdentityAsync(ForgeUrl, snapshot);
     private readonly IForgeBridgeClient bridge;
     private readonly Action persist;
     private readonly Func<bool> canMutate;
@@ -16,8 +17,13 @@ public sealed class ForgeViewModel : Observable
     private readonly Action<string> setStatus;
     private readonly IForgeGenerationApiClient api;
     private readonly string? apiOutput;
-    private bool recipeBusy, bridgeBusy;
-    public bool RecipeBusy => recipeBusy || bridgeBusy;
+    private bool recipeBusy, bridgeBusy, experimentBusy;
+    public void BeginExperiment()
+    { if (!canMutate() || !RecipeExecutionAvailable) throw new InvalidOperationException("Forge is busy / editing unavailable."); experimentBusy = true; RefreshBusy(); }
+    public void EndExperiment() { if (recipeBusy || bridgeBusy) throw new InvalidOperationException("Trial still running."); experimentBusy = false; RefreshBusy(); }
+    public Task<ForgeApiResult?> ExecuteExperimentTrialAsync(GenerationPreset preset, CancellationToken ct, bool allowDerivative)
+    { if (!experimentBusy || recipeBusy || bridgeBusy) throw new InvalidOperationException("Experiment lease required."); return GenerateRecipeCoreAsync(preset, ct, allowDerivative); }
+    public bool RecipeBusy => recipeBusy || bridgeBusy || experimentBusy;
     public bool RecipeExecutionAvailable => apiOutput is not null && !RecipeBusy;
     private string connectionStatus = "Forge: 未確認（起動時には通信しません）";
     public string ConnectionStatus { get => connectionStatus; private set => Set(ref connectionStatus, value); }
@@ -92,23 +98,30 @@ public sealed class ForgeViewModel : Observable
     public async Task GenerateRecipeAsync(GenerationPreset preset, CancellationToken cancellationToken = default, bool allowDerivative = false)
     {
         if (!canMutate() || apiOutput is null || RecipeBusy) return;
+        await GenerateRecipeCoreAsync(preset, cancellationToken, allowDerivative);
+    }
+    private async Task<ForgeApiResult?> GenerateRecipeCoreAsync(GenerationPreset preset, CancellationToken cancellationToken, bool allowDerivative)
+    {
+        if (apiOutput is null) return null;
+        ForgeApiResult? result = null;
         if (preset.Recipe?.RequiresDerivativeConsent == true && !allowDerivative)
         {
             RecipeStatus = "元画像の未適用条件があります。Createで確認し、派生生成を了承してください。生成要求は送信していません。";
-            setStatus(RecipeStatus); return;
+            setStatus(RecipeStatus); return new(false, RecipeStatus);
         }
         recipeBusy = true; RefreshBusy(); ConnectionStatus = "Forge: busy（1画像生成・照合中）"; RecipeStatus = "Forge APIで1画像生成中。完了するまで再送信しないでください。";
         try
         {
-            var result = await api.GenerateAsync(ForgeUrl, new(preset.Positive, preset.Negative, preset.Recipe ?? new(), allowDerivative), apiOutput, cancellationToken);
+            result = await api.GenerateAsync(ForgeUrl, new(preset.Positive, preset.Negative, preset.Recipe ?? new(), allowDerivative), apiOutput, cancellationToken);
             ConnectionStatus = result.Success ? "Forge: idle（生成・照合完了）" : "Forge: error（詳細を確認）";
             RecipeStatus = result.Status + (result.ImagePath is null ? "" : "\n出力: " + result.ImagePath);
             // Failed round-trips remain real evidence too, never discarded or called successful.
             if (result.ImagePath is not null && IndexRecipeResult is not null) await IndexRecipeResult(result.ImagePath);
         }
         catch (Exception e) when (e is IOException or UnauthorizedAccessException or InvalidDataException or Microsoft.Data.Sqlite.SqliteException)
-        { ConnectionStatus = "Forge: error（画像保持・Library登録未完了）"; RecipeStatus += "\nLibrary登録を完了できません。出力は保持しています: " + e.Message; }
+        { ConnectionStatus = "Forge: error（画像保持・Library登録未完了）"; RecipeStatus += "\nLibrary登録を完了できません。出力は保持しています: " + e.Message; result = new(false, RecipeStatus, result?.ImagePath, result?.Metadata); }
         finally { setStatus(RecipeStatus); recipeBusy = false; RefreshBusy(); }
+        return result;
     }
     private async Task SendPayloadAsync(string positive, string? negative, ForgeNegativeMode negativeMode, ForgeBridgeAction action, CancellationToken cancellationToken)
     {

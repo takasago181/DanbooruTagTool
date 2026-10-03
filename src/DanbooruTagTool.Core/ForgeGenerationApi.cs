@@ -11,6 +11,7 @@ public sealed record ForgeApiRequest(string Positive, string Negative, Generatio
 public sealed record ForgeApiResult(bool Success, string Status, string? ImagePath = null, GenerationMetadataSnapshot? Metadata = null);
 public interface IForgeGenerationApiClient
 {
+    Task<RecipeSnapshot> PinRecipeIdentityAsync(string baseUrl, RecipeSnapshot snapshot, CancellationToken ct = default) => Task.FromResult(snapshot);
     Task<ForgeApiCapabilities> ProbeAsync(string baseUrl, CancellationToken cancellationToken = default);
     Task<ForgeApiResult> GenerateAsync(string baseUrl, ForgeApiRequest request, string outputDirectory, CancellationToken cancellationToken = default);
 }
@@ -18,6 +19,18 @@ public interface IForgeGenerationApiClient
 /// <summary>A1111-compatible HTTP adapter. Never edits Forge options, retries a POST, or uses Gradio.</summary>
 public sealed class ForgeGenerationApiClient : IForgeGenerationApiClient
 {
+    public async Task<RecipeSnapshot> PinRecipeIdentityAsync(string baseUrl, RecipeSnapshot snapshot, CancellationToken ct = default)
+    {
+        var request = new ForgeApiRequest(snapshot.Positive, snapshot.Negative, snapshot.Recipe, true);
+        var model = Validate(request, await ProbeAsync(baseUrl, ct));
+        if (model?.Hash is null || snapshot.Recipe.ModelHash is null) throw new InvalidDataException("Experiment baseline requires explicit matching Model hash.");
+        var tokens = ForgeLoraSelection.Tokens(request);
+        using var selection = await ForgeLoraSelection.ResolveAsync(tokens, GenerationLoraProvenance.Expected(snapshot.Recipe.SourceParameters),
+            tokens.Count == 0 ? [] : await ProbeLorasAsync(baseUrl, ct), ct);
+        var fields = (snapshot.Recipe.SourceParameters ?? []).Where(p => !p.Name.Equals(GenerationLoraProvenance.ReceiptKey, StringComparison.OrdinalIgnoreCase)).ToList();
+        if (selection.Identities.Count > 0) fields.Add(new(GenerationLoraProvenance.ReceiptKey, JsonSerializer.Serialize(selection.Identities)));
+        return snapshot with { Recipe = snapshot.Recipe with { SourceParameters = fields.ToArray() } };
+    }
     private readonly HttpClient http;
     private readonly SemaphoreSlim generation = new(1, 1);
     public ForgeGenerationApiClient(HttpClient? client = null) => http = client ?? new(new HttpClientHandler { UseProxy = false, AllowAutoRedirect = false }) { Timeout = Timeout.InfiniteTimeSpan };
