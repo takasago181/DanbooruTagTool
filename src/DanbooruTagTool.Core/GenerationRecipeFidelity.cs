@@ -4,7 +4,7 @@ namespace DanbooruTagTool.Core;
 public static class GenerationRecipeFidelity
 {
     private static readonly HashSet<string> Applied = new(StringComparer.OrdinalIgnoreCase)
-    { "Model", "Model hash", "Seed", "Steps", "Sampler", "Schedule type", "Scheduler", "CFG scale", "Size" };
+    { "Model", "Model hash", "Seed", "Steps", "Sampler", "Schedule type", "Scheduler", "CFG scale", "Size", GenerationLoraProvenance.HashesKey, GenerationLoraProvenance.ReceiptKey };
     private static readonly HashSet<string> Informational = new(StringComparer.OrdinalIgnoreCase)
     { "Version", "User", "Time taken" };
 
@@ -30,6 +30,7 @@ public static class GenerationRecipeFidelity
         "schedule type" or "scheduler" => !string.IsNullOrWhiteSpace(r.Scheduler),
         "cfg scale" => r.Cfg is >= 0 and <= 30,
         "size" => r.Width is >= 64 and <= 2048 && r.Height is >= 64 and <= 2048 && r.Width % 8 == 0 && r.Height % 8 == 0,
+        "lora hashes" or "dtt lora provenance v1" => GenerationLoraProvenance.IsValid(r.SourceParameters!.Single(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase))),
         _ => false
     };
 }

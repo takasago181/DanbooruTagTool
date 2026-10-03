@@ -16,6 +16,8 @@ public sealed class CreateViewModel : Observable
     private bool loading;
     private IReadOnlyList<GenerationParameter>? sourceParameters;
     private bool allowDerivative;
+    public string LoraProvenance => GenerationLoraProvenance.Summary(sourceParameters);
+    public RelayCommand ReleaseLoraIdentity { get; }
     public bool AllowDerivative { get => allowDerivative; set { Set(ref allowDerivative, value); Refresh(); } }
     public bool RequiresDerivativeConsent => TryRecipe(out var r, out _) && r?.RequiresDerivativeConsent == true;
     public string RestorationWarning => TryRecipe(out var r, out _) && r?.RequiresDerivativeConsent == true
@@ -24,6 +26,11 @@ public sealed class CreateViewModel : Observable
     public CreateViewModel(MainViewModel main)
     {
         this.main = main;
+        ReleaseLoraIdentity = new(_ =>
+        {
+            sourceParameters = sourceParameters?.Select(p => GenerationLoraProvenance.IsIdentity(p.Name) ? p with { Name = "元 " + p.Name } : p).ToArray();
+            AllowDerivative = false; main.Status = "元LoRA制約を解除しました。元の記録は保持しています。派生生成を了承してから生成してください。"; Refresh();
+        }, _ => main.CanEditPrompt && !main.Forge.RecipeBusy && !main.PresetManagementOpen && sourceParameters?.Any(p => GenerationLoraProvenance.IsIdentity(p.Name)) == true);
         Generate = new(_ => GenerateAsync(), _ => CanGenerate);
         LoadPreset = new(_ => { if (SelectedPreset is { } p) Load(p, "Preset「" + p.Name + "」"); }, _ => main.CanEditPrompt && SelectedPreset is not null && !main.Forge.RecipeBusy);
         Save = new(_ => SaveCurrent(), _ => main.CanEditPrompt && !main.Forge.RecipeBusy);
@@ -99,7 +106,7 @@ public sealed class CreateViewModel : Observable
     public void Refresh()
     {
         if (loading) return;
-        foreach (var n in new[] { nameof(Positive), nameof(Negative), nameof(SourceSummary), nameof(ConditionsSummary), nameof(Validation), nameof(CanGenerate), nameof(Changed), nameof(RestorationWarning), nameof(RequiresDerivativeConsent) }) Notify(n);
-        Generate?.Refresh(); LoadPreset?.Refresh(); Save?.Refresh();
+        foreach (var n in new[] { nameof(Positive), nameof(Negative), nameof(SourceSummary), nameof(ConditionsSummary), nameof(Validation), nameof(CanGenerate), nameof(Changed), nameof(RestorationWarning), nameof(RequiresDerivativeConsent), nameof(LoraProvenance) }) Notify(n);
+        Generate?.Refresh(); LoadPreset?.Refresh(); Save?.Refresh(); ReleaseLoraIdentity?.Refresh();
     }
 }

@@ -27,9 +27,11 @@ public static partial class GenerationLibraryMetadata
     [GeneratedRegex(@"<lora:([^<>:\r\n]+):([+-]?(?:\d+(?:\.\d*)?|\.\d+))>", RegexOptions.IgnoreCase)]
     private static partial Regex LoraPattern();
     public static IReadOnlyList<GenerationLora> Loras(GenerationMetadataSnapshot metadata)
+        => Loras(metadata.Positive);
+    public static IReadOnlyList<GenerationLora> Loras(string prompt)
     {
         var result = new List<GenerationLora>();
-        foreach (Match m in LoraPattern().Matches(metadata.Positive))
+        foreach (Match m in LoraPattern().Matches(prompt))
             if (decimal.TryParse(m.Groups[2].Value, NumberStyles.Number, CultureInfo.InvariantCulture, out var weight))
                 result.Add(new(m.Groups[1].Value, weight, m.Value));
         return result;

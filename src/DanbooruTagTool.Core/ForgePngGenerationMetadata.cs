@@ -35,7 +35,15 @@ public static class ForgePngGenerationMetadata
         if (infotext.Length > MaxInfotextChars)
             throw new GenerationMetadataException("PNGの生成情報が大きすぎます");
 
-        return Parse(path, infotext);
+        var snapshot = Parse(path, infotext);
+        try
+        {
+            var receipt = GenerationLoraPngReceipt.Read(path);
+            if (receipt is not null) snapshot = snapshot with { Parameters = snapshot.Parameters.Concat([new GenerationParameter(GenerationLoraProvenance.ReceiptKey, receipt)]).ToArray() };
+            return snapshot;
+        }
+        catch (Exception e) when (e is IOException or InvalidDataException or DecoderFallbackException)
+        { throw new GenerationMetadataException("LoRA provenanceを読み込めません: " + e.Message); }
     }
 
     // Compatibility entry point for existing PNG import/API callers.
