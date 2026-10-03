@@ -190,13 +190,16 @@ public sealed class PromptWorkspace(PromptParser parser)
     public void Recover() { if (recovery != null) Change(() => (items, recovery) = (recovery!, items)); }
     public bool Contains(string canonical) => items.Any(i => i.Canonical == canonical);
     public IReadOnlyList<PromptItem> FindByCanonical(string canonical) => items.Where(i => i.Canonical == canonical).ToArray();
+    public Func<PromptItem,bool>? CanAddItem { get; set; }
     public bool Add(CatalogEntry entry)
     {
         if (!entry.CanAdd || entry.EffectivePromptToken is not { } token || Contains(token)) return false;
-        Change(() => items = [..items, new(Guid.NewGuid(), (items.Length == 0 ? "" : " ") + token, token, entry.Japanese, PromptItemKind.Normal)]);
+        var addition = new PromptItem(Guid.NewGuid(), (items.Length == 0 ? "" : " ") + token, token, entry.Japanese, PromptItemKind.Normal);
+        if (CanAddItem?.Invoke(addition) == false) return false;
+        Change(() => items = [..items, addition]);
         return true;
     }
-    public PresetApplyResult AppendText(string text) => AppendPreset(parser.Parse((items.Length > 0 ? " " : "") + text));
+    public PresetApplyResult AppendText(string text) => string.IsNullOrWhiteSpace(text) ? new(0, 0) : AppendPreset(parser.Parse((items.Length > 0 ? " " : "") + text));
     public PresetApplyResult AppendPreset(IEnumerable<PromptItem> presetItems)
     {
         var existingCanonical = items.Where(item => item.Canonical != null)
@@ -206,6 +209,7 @@ public sealed class PromptWorkspace(PromptParser parser)
         var skipped = 0;
         foreach (var source in presetItems)
         {
+            if (CanAddItem?.Invoke(source) == false) { skipped++; continue; }
             if (source.Canonical is { } canonical && !existingCanonical.Add(canonical)) { skipped++; continue; }
             additions.Add(source with { Id = Guid.NewGuid() });
         }

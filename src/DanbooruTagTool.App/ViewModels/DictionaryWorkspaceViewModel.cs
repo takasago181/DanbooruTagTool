@@ -951,6 +951,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
         return switchedCount > 0 ? switchedCount : additiveCount;
     }
 
+    public Func<CatalogEntry,bool>? PersonalVisible { get; set; }
     public void Add(CatalogEntry entry) { if (canMutate()) workspace.Add(entry); }
     public void InspectChip(ChipViewModel chip)
     {
@@ -1036,7 +1037,7 @@ public sealed class DictionaryWorkspaceViewModel : Observable
     }
 
     private IReadOnlyList<EntryViewModel> Rows(IEnumerable<CatalogEntry> entries)
-        => entries.Select(e => new EntryViewModel(e, workspace, Add, canMutate, UnifiedBreadcrumb, IsDeepDiscovery, RelationSummaryFor, RelationCountFor, OpenRelated)).ToArray();
+        => entries.Where(e => PersonalVisible?.Invoke(e) != false).Select(e => new EntryViewModel(e, workspace, Add, canMutate, UnifiedBreadcrumb, IsDeepDiscovery, RelationSummaryFor, RelationCountFor, OpenRelated)).ToArray();
 
     private int RelationCountFor(CatalogEntry entry)
     {
