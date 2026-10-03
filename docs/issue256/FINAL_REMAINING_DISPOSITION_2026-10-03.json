@@ -1,0 +1,1148 @@
+{
+  "CheckpointCount": 35,
+  "MatrixRows": 142,
+  "Basis": "Original matrix and reconciliation preserved unchanged; dispositions distinguish existing capability from actual upstream adoption.",
+  "RemainingRequired": [
+    "Explicit Forge model+hash and sampler/scheduler capability selection",
+    "Actual executable isolated E2E deployment gate",
+    "Final verification / protected promotion / LKG / close"
+  ],
+  "Rows": [
+    {
+      "Candidate": "PYU224/tagdb-updater",
+      "Function": "source fetch/update/build reliability",
+      "UpstreamDecision": "PORT",
+      "CompletionDisposition": "KEEP EXISTING / OPTIONAL ADOPTION DEFERRED",
+      "Reason": "Foundation maintenance and existing owners cover this workflow; no new runtime dependency needed.",
+      "Source": "https://github.com/PYU224/tagdb-updater"
+    },
+    {
+      "Candidate": "d3x-at/sd-parsers",
+      "Function": "generation metadata normalization",
+      "UpstreamDecision": "PORT",
+      "CompletionDisposition": "KEEP EXISTING / ADVANCED ADOPTION DEFERRED",
+      "Reason": "DTT parser, explicit JP/EN discovery, Prompt/Undo/diagnostics, local LoRA and Library/Recipe/typed diff cover Forge workflow. Multi-generator, XMP, remote enrichment and inline autocomplete are optional.",
+      "Source": "https://github.com/d3x-at/sd-parsers"
+    },
+    {
+      "Candidate": "drewnoakes/metadata-extractor-dotnet",
+      "Function": "JPEG/PNG/WebP container parsing",
+      "UpstreamDecision": "REUSE",
+      "CompletionDisposition": "KEEP EXISTING / ADVANCED ADOPTION DEFERRED",
+      "Reason": "DTT parser, explicit JP/EN discovery, Prompt/Undo/diagnostics, local LoRA and Library/Recipe/typed diff cover Forge workflow. Multi-generator, XMP, remote enrichment and inline autocomplete are optional.",
+      "Source": "https://github.com/drewnoakes/metadata-extractor-dotnet"
+    },
+    {
+      "Candidate": "civitai/media-metadata",
+      "Function": "generation metadata normalization",
+      "UpstreamDecision": "PORT",
+      "CompletionDisposition": "KEEP EXISTING / ADVANCED ADOPTION DEFERRED",
+      "Reason": "DTT parser, explicit JP/EN discovery, Prompt/Undo/diagnostics, local LoRA and Library/Recipe/typed diff cover Forge workflow. Multi-generator, XMP, remote enrichment and inline autocomplete are optional.",
+      "Source": "https://github.com/civitai/media-metadata"
+    },
+    {
+      "Candidate": "SixLabors/ImageSharp",
+      "Function": "JPEG/PNG/WebP container parsing",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/SixLabors/ImageSharp"
+    },
+    {
+      "Candidate": "exiftool/exiftool",
+      "Function": "metadata read/write",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "KEEP EXISTING / ADVANCED ADOPTION DEFERRED",
+      "Reason": "DTT parser, explicit JP/EN discovery, Prompt/Undo/diagnostics, local LoRA and Library/Recipe/typed diff cover Forge workflow. Multi-generator, XMP, remote enrichment and inline autocomplete are optional.",
+      "Source": "https://github.com/exiftool/exiftool"
+    },
+    {
+      "Candidate": "eduardoabreu81/sd-webui-prompt-all-in-one-neo",
+      "Function": "Prompt editor/translation/history",
+      "UpstreamDecision": "PORT",
+      "CompletionDisposition": "KEEP EXISTING / ADVANCED ADOPTION DEFERRED",
+      "Reason": "DTT parser, explicit JP/EN discovery, Prompt/Undo/diagnostics, local LoRA and Library/Recipe/typed diff cover Forge workflow. Multi-generator, XMP, remote enrichment and inline autocomplete are optional.",
+      "Source": "https://github.com/eduardoabreu81/sd-webui-prompt-all-in-one-neo"
+    },
+    {
+      "Candidate": "Physton/sd-webui-prompt-all-in-one",
+      "Function": "Prompt editor/translation/history",
+      "UpstreamDecision": "PORT",
+      "CompletionDisposition": "KEEP EXISTING / ADVANCED ADOPTION DEFERRED",
+      "Reason": "DTT parser, explicit JP/EN discovery, Prompt/Undo/diagnostics, local LoRA and Library/Recipe/typed diff cover Forge workflow. Multi-generator, XMP, remote enrichment and inline autocomplete are optional.",
+      "Source": "https://github.com/Physton/sd-webui-prompt-all-in-one"
+    },
+    {
+      "Candidate": "SuzumiyaAkizuki/DanbooruSearchOnline",
+      "Function": "semantic retrieval / reference prompt / RAG",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/SuzumiyaAkizuki/DanbooruSearchOnline"
+    },
+    {
+      "Candidate": "SuzumiyaAkizuki/danbooru-tag-pipeline",
+      "Function": "source fetch/update/build reliability",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/SuzumiyaAkizuki/danbooru-tag-pipeline"
+    },
+    {
+      "Candidate": "dr1610/a1111-sd-webui-jp-tag-assistant",
+      "Function": "inline tag autocomplete / classification UX",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/dr1610/a1111-sd-webui-jp-tag-assistant"
+    },
+    {
+      "Candidate": "kn86elt/Danbooru-Tag-Explorer",
+      "Function": "optional local LLM prompt/tag assistance",
+      "UpstreamDecision": "PORT",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/kn86elt/Danbooru-Tag-Explorer"
+    },
+    {
+      "Candidate": "a2569875/lora-prompt-tool",
+      "Function": "LoRA/model/Civitai management",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/a2569875/lora-prompt-tool"
+    },
+    {
+      "Candidate": "abzaloff/sd-dynamic-prompts",
+      "Function": "wildcard/template random/combinatorial expansion",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/abzaloff/sd-dynamic-prompts"
+    },
+    {
+      "Candidate": "adieyal/dynamicprompts",
+      "Function": "wildcard/template random/combinatorial expansion",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/adieyal/dynamicprompts"
+    },
+    {
+      "Candidate": "adieyal/sd-dynamic-prompts",
+      "Function": "wildcard/template random/combinatorial expansion",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/adieyal/sd-dynamic-prompts"
+    },
+    {
+      "Candidate": "adieyal/ComfyUI-DynamicPrompts",
+      "Function": "wildcard/template random/combinatorial expansion",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/adieyal/comfyui-dynamicprompts"
+    },
+    {
+      "Candidate": "Haoming02/sd-forge-couple",
+      "Function": "regional/multi-person/inpaint conditioning",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/Haoming02/sd-forge-couple"
+    },
+    {
+      "Candidate": "hako-mikan/sd-webui-regional-prompter",
+      "Function": "regional/multi-person/inpaint conditioning",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/hako-mikan/sd-webui-regional-prompter"
+    },
+    {
+      "Candidate": "eduardoabreu81/sd-webui-tagcomplete-neo",
+      "Function": "inline tag autocomplete / classification UX",
+      "UpstreamDecision": "PORT",
+      "CompletionDisposition": "KEEP EXISTING / ADVANCED ADOPTION DEFERRED",
+      "Reason": "DTT parser, explicit JP/EN discovery, Prompt/Undo/diagnostics, local LoRA and Library/Recipe/typed diff cover Forge workflow. Multi-generator, XMP, remote enrichment and inline autocomplete are optional.",
+      "Source": "https://github.com/eduardoabreu81/sd-webui-tagcomplete-neo"
+    },
+    {
+      "Candidate": "DominikDoom/a1111-sd-webui-tagcomplete",
+      "Function": "inline tag autocomplete / classification UX",
+      "UpstreamDecision": "PORT",
+      "CompletionDisposition": "KEEP EXISTING / ADVANCED ADOPTION DEFERRED",
+      "Reason": "DTT parser, explicit JP/EN discovery, Prompt/Undo/diagnostics, local LoRA and Library/Recipe/typed diff cover Forge workflow. Multi-generator, XMP, remote enrichment and inline autocomplete are optional.",
+      "Source": "https://github.com/DominikDoom/a1111-sd-webui-tagcomplete"
+    },
+    {
+      "Candidate": "rTachibana/comfyui-suggest-dt",
+      "Function": "inline tag autocomplete / classification UX",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/rTachibana/comfyui-suggest-dt"
+    },
+    {
+      "Candidate": "67372a/stable-diffusion-webui-wd14-tagger",
+      "Function": "image -> candidate tags",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/67372a/stable-diffusion-webui-wd14-tagger"
+    },
+    {
+      "Candidate": "pythongosssss/ComfyUI-WD14-Tagger",
+      "Function": "image -> candidate tags",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/pythongosssss/ComfyUI-WD14-Tagger"
+    },
+    {
+      "Candidate": "hirorohi03/ScribeNEO",
+      "Function": "image -> candidate tags",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/hirorohi03/ScribeNEO"
+    },
+    {
+      "Candidate": "Haoming02/ADetailer-Neo",
+      "Function": "regional/multi-person/inpaint conditioning",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/Haoming02/ADetailer-Neo"
+    },
+    {
+      "Candidate": "abzaloff/aadetailer-neoforge",
+      "Function": "regional/multi-person/inpaint conditioning",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/abzaloff/aadetailer-neoforge"
+    },
+    {
+      "Candidate": "Bing-su/adetailer",
+      "Function": "regional/multi-person/inpaint conditioning",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/Bing-su/adetailer"
+    },
+    {
+      "Candidate": "storyAura/BooruDatasetTagManagerPlus",
+      "Function": "LLM provider profiles / credential protection",
+      "UpstreamDecision": "PORT",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/storyAura/BooruDatasetTagManagerPlus"
+    },
+    {
+      "Candidate": "laurigates/comfyui-image-browser",
+      "Function": "image library/browser/rating/XMP",
+      "UpstreamDecision": "PORT",
+      "CompletionDisposition": "KEEP EXISTING / ADVANCED ADOPTION DEFERRED",
+      "Reason": "DTT parser, explicit JP/EN discovery, Prompt/Undo/diagnostics, local LoRA and Library/Recipe/typed diff cover Forge workflow. Multi-generator, XMP, remote enrichment and inline autocomplete are optional.",
+      "Source": "https://github.com/laurigates/comfyui-image-browser"
+    },
+    {
+      "Candidate": "zanllp/infinite-image-browsing",
+      "Function": "image library/browser/rating/XMP",
+      "UpstreamDecision": "PORT",
+      "CompletionDisposition": "KEEP EXISTING / ADVANCED ADOPTION DEFERRED",
+      "Reason": "DTT parser, explicit JP/EN discovery, Prompt/Undo/diagnostics, local LoRA and Library/Recipe/typed diff cover Forge workflow. Multi-generator, XMP, remote enrichment and inline autocomplete are optional.",
+      "Source": "https://github.com/zanllp/infinite-image-browsing"
+    },
+    {
+      "Candidate": "SipherAGI/sd-webui-agent-scheduler",
+      "Function": "batch/A-B/workflow queue",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/SipherAGI/sd-webui-agent-scheduler"
+    },
+    {
+      "Candidate": "AUTOMATIC1111/stable-diffusion-webui",
+      "Function": "generation API / PNG parameters / workflow",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "REUSE / DONE",
+      "Reason": "Existing HTTP adapter / PNG contract / SQLite persistence directly reused in completed workflow.",
+      "Source": "https://github.com/AUTOMATIC1111/stable-diffusion-webui"
+    },
+    {
+      "Candidate": "lllyasviel/stable-diffusion-webui-forge",
+      "Function": "generation API / PNG parameters / workflow",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "REUSE / DONE",
+      "Reason": "Existing HTTP adapter / PNG contract / SQLite persistence directly reused in completed workflow.",
+      "Source": "https://github.com/lllyasviel/stable-diffusion-webui-forge"
+    },
+    {
+      "Candidate": "Haoming02/sd-webui-forge-classic",
+      "Function": "generation API / PNG parameters / workflow",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "REUSE / DONE",
+      "Reason": "Existing HTTP adapter / PNG contract / SQLite persistence directly reused in completed workflow.",
+      "Source": "https://github.com/Haoming02/sd-webui-forge-classic"
+    },
+    {
+      "Candidate": "Comfy-Org/ComfyUI",
+      "Function": "generation API / PNG parameters / workflow",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/Comfy-Org/ComfyUI"
+    },
+    {
+      "Candidate": "Replactionap/Stable-diffusion-webui-civitai-helper-RED-UPDATE",
+      "Function": "LoRA/model/Civitai management",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/Replactionap/Stable-diffusion-webui-civitai-helper-RED-UPDATE"
+    },
+    {
+      "Candidate": "zixaphir/Stable-Diffusion-Webui-Civitai-Helper",
+      "Function": "LoRA/model/Civitai management",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/zixaphir/Stable-Diffusion-Webui-Civitai-Helper"
+    },
+    {
+      "Candidate": "mix1009/model-keyword",
+      "Function": "LoRA/model/Civitai management",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/mix1009/model-keyword"
+    },
+    {
+      "Candidate": "haveanorder/lora-trigger-toolkit",
+      "Function": "LoRA/model/Civitai management",
+      "UpstreamDecision": "PORT",
+      "CompletionDisposition": "KEEP EXISTING / ADVANCED ADOPTION DEFERRED",
+      "Reason": "DTT parser, explicit JP/EN discovery, Prompt/Undo/diagnostics, local LoRA and Library/Recipe/typed diff cover Forge workflow. Multi-generator, XMP, remote enrichment and inline autocomplete are optional.",
+      "Source": "https://github.com/haveanorder/lora-trigger-toolkit"
+    },
+    {
+      "Candidate": "willmiao/ComfyUI-Lora-Manager",
+      "Function": "LoRA/model/Civitai management",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "KEEP EXISTING / ADVANCED ADOPTION DEFERRED",
+      "Reason": "DTT parser, explicit JP/EN discovery, Prompt/Undo/diagnostics, local LoRA and Library/Recipe/typed diff cover Forge workflow. Multi-generator, XMP, remote enrichment and inline autocomplete are optional.",
+      "Source": "https://github.com/willmiao/ComfyUI-Lora-Manager"
+    },
+    {
+      "Candidate": "mikhailfur/sd-webui-ai-wdywfm",
+      "Function": "optional local LLM prompt/tag assistance",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/mikhailfur/sd-webui-ai-wdywfm"
+    },
+    {
+      "Candidate": "kino-6/danbooru-prompt-compiler",
+      "Function": "optional local LLM prompt/tag assistance",
+      "UpstreamDecision": "PORT",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/kino-6/danbooru-prompt-compiler"
+    },
+    {
+      "Candidate": "ollama/ollama",
+      "Function": "local LLM inference provider",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/ollama/ollama"
+    },
+    {
+      "Candidate": "ggml-org/llama.cpp",
+      "Function": "local LLM inference provider",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/ggml-org/llama.cpp"
+    },
+    {
+      "Candidate": "LostRuins/koboldcpp",
+      "Function": "local LLM inference provider",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/LostRuins/koboldcpp"
+    },
+    {
+      "Candidate": "Wenaka2004/dan-emb",
+      "Function": "semantic retrieval / reference prompt / RAG",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/Wenaka2004/dan-emb"
+    },
+    {
+      "Candidate": "LykosAI/StabilityMatrix",
+      "Function": "desktop/generation/model/workflow architecture",
+      "UpstreamDecision": "PORT",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/LykosAI/StabilityMatrix"
+    },
+    {
+      "Candidate": "mcmonkeyprojects/SwarmUI",
+      "Function": "desktop/generation/model/workflow architecture",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/mcmonkeyprojects/SwarmUI"
+    },
+    {
+      "Candidate": "lllyasviel/Fooocus",
+      "Function": "desktop/generation/model/workflow architecture",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/lllyasviel/Fooocus"
+    },
+    {
+      "Candidate": "invoke-ai/InvokeAI",
+      "Function": "desktop/generation/model/workflow architecture",
+      "UpstreamDecision": "PORT",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/invoke-ai/InvokeAI"
+    },
+    {
+      "Candidate": "Acly/krita-ai-diffusion",
+      "Function": "desktop/generation/model/workflow architecture",
+      "UpstreamDecision": "PORT",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/Acly/krita-ai-diffusion"
+    },
+    {
+      "Candidate": "KDE/digikam",
+      "Function": "image library/browser/rating/XMP",
+      "UpstreamDecision": "PORT",
+      "CompletionDisposition": "KEEP EXISTING / ADVANCED ADOPTION DEFERRED",
+      "Reason": "DTT parser, explicit JP/EN discovery, Prompt/Undo/diagnostics, local LoRA and Library/Recipe/typed diff cover Forge workflow. Multi-generator, XMP, remote enrichment and inline autocomplete are optional.",
+      "Source": "https://github.com/KDE/digikam"
+    },
+    {
+      "Candidate": "ComfyAssets/ComfyUI_PromptManager",
+      "Function": "prompt history / workflow reuse",
+      "UpstreamDecision": "PORT",
+      "CompletionDisposition": "KEEP EXISTING / ADVANCED ADOPTION DEFERRED",
+      "Reason": "DTT parser, explicit JP/EN discovery, Prompt/Undo/diagnostics, local LoRA and Library/Recipe/typed diff cover Forge workflow. Multi-generator, XMP, remote enrichment and inline autocomplete are optional.",
+      "Source": "https://github.com/ComfyAssets/ComfyUI_PromptManager"
+    },
+    {
+      "Candidate": "x0x0b/ComfyUI-PromptHistoryGallery",
+      "Function": "prompt history / workflow reuse",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/x0x0b/ComfyUI-PromptHistoryGallery"
+    },
+    {
+      "Candidate": "dawncreatescode/comfyui-PromptHistory",
+      "Function": "prompt history / workflow reuse",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/dawncreatescode/comfyui-PromptHistory"
+    },
+    {
+      "Candidate": "FranckyB/ComfyUI-Prompt-Manager",
+      "Function": "prompt history / workflow reuse",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/FranckyB/ComfyUI-Prompt-Manager"
+    },
+    {
+      "Candidate": "jason-n-tran/comfyui-workflow-iterator",
+      "Function": "batch/A-B/workflow queue",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/jason-n-tran/comfyui-workflow-iterator"
+    },
+    {
+      "Candidate": "Stable-yogi/sd-forge-ab-compare",
+      "Function": "PNG/prompt comparison",
+      "UpstreamDecision": "PORT",
+      "CompletionDisposition": "KEEP EXISTING / ADVANCED ADOPTION DEFERRED",
+      "Reason": "DTT parser, explicit JP/EN discovery, Prompt/Undo/diagnostics, local LoRA and Library/Recipe/typed diff cover Forge workflow. Multi-generator, XMP, remote enrichment and inline autocomplete are optional.",
+      "Source": "https://github.com/Stable-yogi/sd-forge-ab-compare"
+    },
+    {
+      "Candidate": "mmanela/diffplex",
+      "Function": "generic text diff algorithm",
+      "UpstreamDecision": "REUSE",
+      "CompletionDisposition": "KEEP EXISTING / ADVANCED ADOPTION DEFERRED",
+      "Reason": "DTT parser, explicit JP/EN discovery, Prompt/Undo/diagnostics, local LoRA and Library/Recipe/typed diff cover Forge workflow. Multi-generator, XMP, remote enrichment and inline autocomplete are optional.",
+      "Source": "https://github.com/mmanela/diffplex"
+    },
+    {
+      "Candidate": "Yukinoshita-Yukinoe/ComfyUI-Danbooru-Tag-Toolkit",
+      "Function": "inline tag autocomplete / classification UX",
+      "UpstreamDecision": "PORT",
+      "CompletionDisposition": "KEEP EXISTING / ADVANCED ADOPTION DEFERRED",
+      "Reason": "DTT parser, explicit JP/EN discovery, Prompt/Undo/diagnostics, local LoRA and Library/Recipe/typed diff cover Forge workflow. Multi-generator, XMP, remote enrichment and inline autocomplete are optional.",
+      "Source": "https://github.com/Yukinoshita-Yukinoe/ComfyUI-Danbooru-Tag-Toolkit"
+    },
+    {
+      "Candidate": "Rivulet138/sd-webui-comfyui-pnginfo",
+      "Function": "generation metadata normalization",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/Rivulet138/sd-webui-comfyui-pnginfo"
+    },
+    {
+      "Candidate": "BFRKQSB7/ai-prompt-supermarket",
+      "Function": "inline tag autocomplete / classification UX",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/BFRKQSB7/ai-prompt-supermarket"
+    },
+    {
+      "Candidate": "Mexes-GM/booru-prompt-gallery",
+      "Function": "semantic retrieval / reference prompt / RAG",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/Mexes-GM/booru-prompt-gallery"
+    },
+    {
+      "Candidate": "KoaZhang/danbooru-tag-optimizer",
+      "Function": "optional local LLM prompt/tag assistance",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/KoaZhang/danbooru-tag-optimizer"
+    },
+    {
+      "Candidate": "Csanindzsa/danbooru-prompt-tool",
+      "Function": "optional local LLM prompt/tag assistance",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/Csanindzsa/danbooru-prompt-tool"
+    },
+    {
+      "Candidate": "huchenlei/ComfyUI_DanTagGen",
+      "Function": "image -> candidate tags",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/huchenlei/ComfyUI_DanTagGen"
+    },
+    {
+      "Candidate": "fpgaminer/joytag",
+      "Function": "image -> candidate tags",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/fpgaminer/joytag"
+    },
+    {
+      "Candidate": "Jannchie/danbooru-tags-tree",
+      "Function": "Danbooru search vocabulary / tag tree",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/Jannchie/danbooru-tags-tree"
+    },
+    {
+      "Candidate": "KohakuBlueleaf/danbooru-tag-tree",
+      "Function": "Danbooru search vocabulary / tag tree",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/KohakuBlueleaf/danbooru-tag-tree"
+    },
+    {
+      "Candidate": "grio43/danbooru-implication-map",
+      "Function": "Danbooru search vocabulary / tag tree",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/grio43/danbooru-implication-map"
+    },
+    {
+      "Candidate": "BetaDoggo/danbooru-tag-list",
+      "Function": "source fetch/update/build reliability",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/BetaDoggo/danbooru-tag-list"
+    },
+    {
+      "Candidate": "boorutan/booru-japanese-tag",
+      "Function": "Danbooru search vocabulary / tag tree",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/boorutan/booru-japanese-tag"
+    },
+    {
+      "Candidate": "hirorohi03/EasyForgeNeo",
+      "Function": "desktop/generation/model/workflow architecture",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/hirorohi03/EasyForgeNeo"
+    },
+    {
+      "Candidate": "CommunityToolkit/dotnet",
+      "Function": "WPF notification/command boilerplate",
+      "UpstreamDecision": "REUSE",
+      "CompletionDisposition": "KEEP EXISTING / OPTIONAL ADOPTION DEFERRED",
+      "Reason": "Foundation maintenance and existing owners cover this workflow; no new runtime dependency needed.",
+      "Source": "https://github.com/CommunityToolkit/dotnet"
+    },
+    {
+      "Candidate": "dotnet/command-line-api",
+      "Function": "maintenance command routing",
+      "UpstreamDecision": "KEEP",
+      "CompletionDisposition": "KEEP EXISTING / OPTIONAL ADOPTION DEFERRED",
+      "Reason": "Foundation maintenance and existing owners cover this workflow; no new runtime dependency needed.",
+      "Source": "https://github.com/dotnet/command-line-api"
+    },
+    {
+      "Candidate": "fastapi/typer",
+      "Function": "maintenance command routing",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/fastapi/typer"
+    },
+    {
+      "Candidate": "JoshClose/CsvHelper",
+      "Function": "historical CSV ingestion",
+      "UpstreamDecision": "REUSE",
+      "CompletionDisposition": "KEEP EXISTING / OPTIONAL ADOPTION DEFERRED",
+      "Reason": "Foundation maintenance and existing owners cover this workflow; no new runtime dependency needed.",
+      "Source": "https://github.com/JoshClose/CsvHelper"
+    },
+    {
+      "Candidate": "Giorgi/DuckDB.NET",
+      "Function": "offline large dataset/catalog analysis",
+      "UpstreamDecision": "REUSE",
+      "CompletionDisposition": "KEEP EXISTING / OPTIONAL ADOPTION DEFERRED",
+      "Reason": "Foundation maintenance and existing owners cover this workflow; no new runtime dependency needed.",
+      "Source": "https://github.com/Giorgi/DuckDB.NET"
+    },
+    {
+      "Candidate": "sqlite/sqlite",
+      "Function": "catalog/UserData persistence",
+      "UpstreamDecision": "KEEP",
+      "CompletionDisposition": "REUSE / DONE",
+      "Reason": "Existing HTTP adapter / PNG contract / SQLite persistence directly reused in completed workflow.",
+      "Source": "https://github.com/sqlite/sqlite"
+    },
+    {
+      "Candidate": "microsoft/onnxruntime",
+      "Function": "offline semantic search benchmark",
+      "UpstreamDecision": "REUSE",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/microsoft/onnxruntime"
+    },
+    {
+      "Candidate": "huggingface/sentence-transformers",
+      "Function": "offline semantic search benchmark",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/huggingface/sentence-transformers"
+    },
+    {
+      "Candidate": "max-sixty/worktrunk",
+      "Function": "branch/worktree operations",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/max-sixty/worktrunk"
+    },
+    {
+      "Candidate": "libgit2/libgit2sharp",
+      "Function": "branch/worktree operations",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/libgit2/libgit2sharp"
+    },
+    {
+      "Candidate": "rhysd/actionlint",
+      "Function": "workflow lint/CI hygiene",
+      "UpstreamDecision": "REUSE",
+      "CompletionDisposition": "KEEP EXISTING / OPTIONAL ADOPTION DEFERRED",
+      "Reason": "Foundation maintenance and existing owners cover this workflow; no new runtime dependency needed.",
+      "Source": "https://github.com/rhysd/actionlint"
+    },
+    {
+      "Candidate": "civitai/civitai-developer-docs",
+      "Function": "hash -> model version identity",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://github.com/civitai/civitai-developer-docs"
+    },
+    {
+      "Candidate": "asagi4/comfyui-prompt-control",
+      "Function": "ComfyUI prompt control — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/asagi4/comfyui-prompt-control"
+    },
+    {
+      "Candidate": "awesome-ai-hentai/awesome-ai-hentai",
+      "Function": "Awesome AI hentai — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/awesome-ai-hentai/awesome-ai-hentai"
+    },
+    {
+      "Candidate": "comfyanonymous/ComfyUI_examples",
+      "Function": "[ComfyUI](https://github.com/comfyanonymous/ComfyUI) Examples — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/comfyanonymous/ComfyUI_examples"
+    },
+    {
+      "Candidate": "DamienCz/comfyui-tipo",
+      "Function": "TIPO-extension [SD-WebUI, ComfyUI, Forge] — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/DamienCz/comfyui-tipo"
+    },
+    {
+      "Candidate": "danbooru/danbooru",
+      "Function": "danbooru/danbooru — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/danbooru/danbooru"
+    },
+    {
+      "Candidate": "deepghs/waifuc",
+      "Function": "waifuc — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/deepghs/waifuc"
+    },
+    {
+      "Candidate": "dr1610/ComfyUI-Regional-Mask-Prompt",
+      "Function": "ComfyUI Regional Mask Prompt — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/dr1610/ComfyUI-Regional-Mask-Prompt"
+    },
+    {
+      "Candidate": "Faildes/Illustrious-NoobAI-Style-Explorer-plus",
+      "Function": "Illustrious XL & NoobAI-XL Style Explorer 🎨 — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/Faildes/Illustrious-NoobAI-Style-Explorer-plus"
+    },
+    {
+      "Candidate": "hako-mikan/sd-webui-negpip",
+      "Function": "NegPiP - Negative Prompt in Prompt — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/hako-mikan/sd-webui-negpip"
+    },
+    {
+      "Candidate": "hako-mikan/sd-webui-traintrain",
+      "Function": "TrainTrain — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/hako-mikan/sd-webui-traintrain"
+    },
+    {
+      "Candidate": "Haoming02/sd-forge-negpip",
+      "Function": "SD Forge Negative Prompt in Prompt — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/Haoming02/sd-forge-negpip"
+    },
+    {
+      "Candidate": "instantX-research/InstantStyle",
+      "Function": "download the models — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/instantX-research/InstantStyle"
+    },
+    {
+      "Candidate": "KohakuBlueleaf/LyCORIS",
+      "Function": "LyCORIS - Lora beYond Conventional methods, Other Rank adaptation Implementations for Stable diffusion. (ICLR'24) — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/KohakuBlueleaf/LyCORIS"
+    },
+    {
+      "Candidate": "kohya-ss/sd-scripts",
+      "Function": "sd-scripts — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/kohya-ss/sd-scripts"
+    },
+    {
+      "Candidate": "learn2phoenix/CSD",
+      "Function": "DISCLAIMER — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/learn2phoenix/CSD"
+    },
+    {
+      "Candidate": "ltdrdata/ComfyUI-Impact-Pack",
+      "Function": "ComfyUI-Impact-Pack — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/ltdrdata/ComfyUI-Impact-Pack"
+    },
+    {
+      "Candidate": "LuciferTC9527/ComfyUI-Anima_IP-Adapter",
+      "Function": "Anima IP-Adapter for ComfyUI — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/LuciferTC9527/ComfyUI-Anima_IP-Adapter"
+    },
+    {
+      "Candidate": "m0rtus59/ComfyUI-MoonNodes",
+      "Function": "ComfyUI-MoonNodes 🌗 — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/m0rtus59/ComfyUI-MoonNodes"
+    },
+    {
+      "Candidate": "n0va39/ComfyUI-EasyUseAnima",
+      "Function": "ComfyUI EasyUse Anima — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/n0va39/ComfyUI-EasyUseAnima"
+    },
+    {
+      "Candidate": "opparco/anima-prompter-forge",
+      "Function": "Anima Prompter Forge — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/opparco/anima-prompter-forge"
+    },
+    {
+      "Candidate": "regiellis/ComfyUI-EasyIllustrious",
+      "Function": "ComfyUI Easy-Illustrious — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/regiellis/ComfyUI-EasyIllustrious"
+    },
+    {
+      "Candidate": "Sen-sou/Comfyui-Anima-Regional-Conditioning",
+      "Function": "Comfyui-Anima-Regional-Conditioning — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/Sen-sou/Comfyui-Anima-Regional-Conditioning"
+    },
+    {
+      "Candidate": "tencent-ailab/IP-Adapter",
+      "Function": "___***IP-Adapter: Text Compatible Image Prompt Adapter for Text-to-Image Diffusion Models***___ — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/tencent-ailab/IP-Adapter"
+    },
+    {
+      "Candidate": "ThetaCursed/Anima-Style-Explorer",
+      "Function": "Anima 2B Style Explorer 🎨 — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/ThetaCursed/Anima-Style-Explorer"
+    },
+    {
+      "Candidate": "ThetaCursed/Illustrious-NoobAI-Style-Explorer",
+      "Function": "Illustrious XL & NoobAI-XL Style Explorer 🎨 — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/ThetaCursed/Illustrious-NoobAI-Style-Explorer"
+    },
+    {
+      "Candidate": "Wenaka2004/comfyui-anima-ipadapter",
+      "Function": "ComfyUI Anima IP-Adapter — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/Wenaka2004/comfyui-anima-ipadapter"
+    },
+    {
+      "Candidate": "wochenlong/ComfyUI-Anima-Edit-LoRA",
+      "Function": "ComfyUI Anima Edit LoRA — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/wochenlong/ComfyUI-Anima-Edit-LoRA"
+    },
+    {
+      "Candidate": "yaoliliu/FreeFuse",
+      "Function": "FreeFuse: Multi-Subject LoRA Fusion via Adaptive Token-Level Routing at Test Time — model-specific backend/training reference; equivalent DTT renderer/trainer does not exist",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/yaoliliu/FreeFuse"
+    },
+    {
+      "Candidate": "BAAI/bge-m3",
+      "Function": "semantic/tagging/Prompt model",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://huggingface.co/BAAI/bge-m3"
+    },
+    {
+      "Candidate": "deepghs/site_tags",
+      "Function": "external dataset research evidence",
+      "UpstreamDecision": "REUSE",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://huggingface.co/datasets/deepghs/site_tags"
+    },
+    {
+      "Candidate": "Grio43/Tag_cleaning",
+      "Function": "external dataset research evidence",
+      "UpstreamDecision": "REUSE",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://huggingface.co/datasets/Grio43/Tag_cleaning"
+    },
+    {
+      "Candidate": "HDiffusion/historical-danbooru-tag-counts",
+      "Function": "external dataset research evidence",
+      "UpstreamDecision": "REUSE",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://huggingface.co/datasets/HDiffusion/historical-danbooru-tag-counts"
+    },
+    {
+      "Candidate": "intfloat/multilingual-e5-small",
+      "Function": "semantic/tagging/Prompt model",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://huggingface.co/intfloat/multilingual-e5-small"
+    },
+    {
+      "Candidate": "isek-ai/danbooru-tags-2024",
+      "Function": "external dataset research evidence",
+      "UpstreamDecision": "REUSE",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://huggingface.co/datasets/isek-ai/danbooru-tags-2024"
+    },
+    {
+      "Candidate": "isek-ai/danbooru-wiki-2024",
+      "Function": "external dataset research evidence",
+      "UpstreamDecision": "REUSE",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://huggingface.co/datasets/isek-ai/danbooru-wiki-2024"
+    },
+    {
+      "Candidate": "KBlueLeaf/TIPO-200M",
+      "Function": "semantic/tagging/Prompt model",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://huggingface.co/KBlueLeaf/TIPO-200M"
+    },
+    {
+      "Candidate": "KBlueLeaf/TIPO-500M",
+      "Function": "semantic/tagging/Prompt model",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://huggingface.co/KBlueLeaf/TIPO-500M"
+    },
+    {
+      "Candidate": "NEXTAltair/genai-image-tag-db",
+      "Function": "external dataset research evidence",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://huggingface.co/datasets/NEXTAltair/genai-image-tag-db"
+    },
+    {
+      "Candidate": "p1atdev/danbooru-ja-tag-pair-20241015",
+      "Function": "external dataset research evidence",
+      "UpstreamDecision": "REUSE",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://huggingface.co/datasets/p1atdev/danbooru-ja-tag-pair-20241015"
+    },
+    {
+      "Candidate": "Qwen/Qwen3-Embedding-0.6B",
+      "Function": "semantic/tagging/Prompt model",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B"
+    },
+    {
+      "Candidate": "SmilingWolf/wd-eva02-large-tagger-v3",
+      "Function": "semantic/tagging/Prompt model",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://huggingface.co/SmilingWolf/wd-eva02-large-tagger-v3"
+    },
+    {
+      "Candidate": "Wenaka/danbooru2024_general_tags_classified",
+      "Function": "external dataset research evidence",
+      "UpstreamDecision": "REUSE",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://huggingface.co/datasets/Wenaka/danbooru2024_general_tags_classified"
+    },
+    {
+      "Candidate": "Wenaka/Danbooru2024_rating_explicit_prompts_without_character",
+      "Function": "external dataset research evidence",
+      "UpstreamDecision": "REUSE",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://huggingface.co/datasets/Wenaka/Danbooru2024_rating_explicit_prompts_without_character"
+    },
+    {
+      "Candidate": "Wenaka/Danbooru_Wiki_Embedding_Qwen3_8B",
+      "Function": "external dataset research evidence",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://huggingface.co/datasets/Wenaka/Danbooru_Wiki_Embedding_Qwen3_8B"
+    },
+    {
+      "Candidate": "LM Studio",
+      "Function": "optional provider / library UX / historical research",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://lmstudio.ai/docs/developer"
+    },
+    {
+      "Candidate": "Eagle",
+      "Function": "optional provider / library UX / historical research",
+      "UpstreamDecision": "WRAP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": "https://api.eagle.cool/"
+    },
+    {
+      "Candidate": "Latent Tags",
+      "Function": "optional provider / library UX / historical research",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://latenttags.com/"
+    },
+    {
+      "Candidate": "hlibr/danbooru-tag-metadata-snapshot",
+      "Function": "optional provider / library UX / historical research",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/takasago181/DanbooruTagTool/issues/256"
+    },
+    {
+      "Candidate": "ffdkj translation DB",
+      "Function": "optional provider / library UX / historical research",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958581425"
+    },
+    {
+      "Candidate": "u-haru / BooruPrompter",
+      "Function": "optional provider / library UX / historical research",
+      "UpstreamDecision": "REJECT",
+      "CompletionDisposition": "REJECTED / UNNECESSARY",
+      "Reason": "Original documented rejection retained; no required workflow gap justifies adoption.",
+      "Source": "https://github.com/takasago181/DanbooruTagTool/blob/0193cee41c52050e680767f722efcdcef6de481f/docs/EXISTING_TOOLS_POSITIONING.md"
+    },
+    {
+      "Candidate": "DTT lossless Prompt / Workspace",
+      "Function": "current accepted native responsibilities",
+      "UpstreamDecision": "KEEP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": null
+    },
+    {
+      "Candidate": "DTT deterministic search / reviewed Browse",
+      "Function": "current accepted native responsibilities",
+      "UpstreamDecision": "KEEP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": null
+    },
+    {
+      "Candidate": "DTT authority/compiler boundary",
+      "Function": "current accepted native responsibilities",
+      "UpstreamDecision": "KEEP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": null
+    },
+    {
+      "Candidate": "DTT Library/LoRA/UserData",
+      "Function": "current accepted native responsibilities",
+      "UpstreamDecision": "KEEP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": null
+    },
+    {
+      "Candidate": "DTT safety envelope / Forge API",
+      "Function": "current accepted native responsibilities",
+      "UpstreamDecision": "KEEP",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": null
+    },
+    {
+      "Candidate": "DTT historical tools/evidence",
+      "Function": "current accepted native responsibilities",
+      "UpstreamDecision": "ARCHIVE",
+      "CompletionDisposition": "DEFERRED",
+      "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
+      "Source": null
+    }
+  ]
+}
