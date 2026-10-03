@@ -15,9 +15,9 @@ public sealed record AcceptedGeneralTaxonomyImport(
 /// <summary>Reads only the hash-pinned Issue #64 production candidate assets during an explicit catalog build.</summary>
 public static class AcceptedGeneralTaxonomyImporter
 {
-    public const string TaxonomyRelativePath = "docs/issue64/production_candidate/general_taxonomy.json";
-    public const string SidecarRelativePath = "docs/issue64/production_candidate/effective_sidecar.csv";
-    public const string ManifestRelativePath = "docs/issue64/production_candidate/manifest.json";
+    public const string TaxonomyRelativePath = "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue64/production_candidate/general_taxonomy.json";
+    public const string SidecarRelativePath = "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue64/production_candidate/effective_sidecar.csv";
+    public const string ManifestRelativePath = "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue64/production_candidate/manifest.json";
     public const string AcceptedTaxonomySha256 = "7311fa1bf1523fcd83134c975b579289d7dbc8aa4cdb1313952d906fc2beb70f";
     public const string AcceptedSidecarSha256 = "a118f5f904c38cee5b63f0c83b06a56f50ee8afdb623c52eb354731bc0b846d9";
 
@@ -131,10 +131,11 @@ public static class AcceptedGeneralTaxonomyImporter
         var taxonomy = manifest.GetProperty("taxonomy");
         var sidecar = manifest.GetProperty("effective_sidecar");
         var population = manifest.GetProperty("population");
-        if (taxonomy.GetProperty("path").GetString() != TaxonomyRelativePath ||
+        // Frozen provenance keeps its original path; fixture relocation changes no contract bytes.
+        if (taxonomy.GetProperty("path").GetString() != "docs/issue64/production_candidate/general_taxonomy.json" ||
             taxonomy.GetProperty("version").GetString() != "issue64-pilot-v2" ||
             taxonomy.GetProperty("sha256").GetString() != AcceptedTaxonomySha256 ||
-            sidecar.GetProperty("path").GetString() != SidecarRelativePath ||
+            sidecar.GetProperty("path").GetString() != "docs/issue64/production_candidate/effective_sidecar.csv" ||
             sidecar.GetProperty("sha256").GetString() != AcceptedSidecarSha256 ||
             sidecar.GetProperty("row_count").GetInt32() != 30_629 ||
             sidecar.GetProperty("proposed").GetInt32() != 28_226 ||

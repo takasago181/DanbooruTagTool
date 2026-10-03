@@ -1,0 +1,63 @@
+{
+  "repository": "mmanela/diffplex",
+  "url": "https://github.com/mmanela/diffplex",
+  "branch": "master",
+  "source_commit": "f500e73f28e28813f942f1f16dec5a34b40e48e3",
+  "latest_commit_date": "2025-11-19T15:45:49Z",
+  "latest_commit_message": "Potential fix for code scanning alert no. 1: Workflow does not contain permissions",
+  "archived": false,
+  "language": "C#",
+  "license": "Apache-2.0",
+  "pushed_at": "2026-09-10T16:35:56Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/mmanela/diffplex/blob/f500e73f28e28813f942f1f16dec5a34b40e48e3/README.md",
+      "bytes": 20359,
+      "sha256": "342492b35b4badef4f69c9db034ca0a8c55ecce8d38232653a43441c9b30849b",
+      "line_count": 614
+    },
+    {
+      "path": "DiffPlex/Differ.cs",
+      "url": "https://github.com/mmanela/diffplex/blob/f500e73f28e28813f942f1f16dec5a34b40e48e3/DiffPlex/Differ.cs",
+      "bytes": 14968,
+      "sha256": "eb8095402c52ae3d969babb258332539adadbd4df4318c9b7fe72b6f585bfa18",
+      "line_count": 359
+    },
+    {
+      "path": "DiffPlex/DiffPlex.csproj",
+      "url": "https://github.com/mmanela/diffplex/blob/f500e73f28e28813f942f1f16dec5a34b40e48e3/DiffPlex/DiffPlex.csproj",
+      "bytes": 654,
+      "sha256": "ccb9661c27ee06171825f6572f0dc87e1d93309e510421a38b0eb6d6e1bac4b3",
+      "line_count": 14
+    },
+    {
+      "path": "License.txt",
+      "url": "https://github.com/mmanela/diffplex/blob/f500e73f28e28813f942f1f16dec5a34b40e48e3/License.txt",
+      "bytes": 9143,
+      "sha256": "2f5666c5dc09d47fdb0de97be21642ae2eb8ad94d3cd6108eafb778c1b3ba609",
+      "line_count": 67
+    }
+  ],
+  "source_tree_blob_count": 430,
+  "source_tree_paths_sha256": "7f1291b6a25fc6d1b85e3e8967fa305eacc13b695e72c0b92520c62a1129c0bf",
+  "license_paths_observed": [
+    "License.txt"
+  ],
+  "dependency_paths_observed": [
+    "DiffPlex.App/DiffPlex.App.csproj",
+    "DiffPlex.Blazor/DiffPlex.Blazor.csproj",
+    "DiffPlex.ConsoleRunner/DiffPlex.ConsoleRunner.csproj",
+    "DiffPlex.Windows/DiffPlex.Windows.csproj",
+    "DiffPlex.WindowsForms.Demo/DiffPlex.WindowsForms.Demo.csproj",
+    "DiffPlex.WindowsForms/DiffPlex.WinForms.Demo.csproj",
+    "DiffPlex.Wpf.Demo/DiffPlex.Wpf.Demo.csproj",
+    "DiffPlex.Wpf/DiffPlex.Wpf.csproj",
+    "DiffPlex/DiffPlex.csproj",
+    "Facts.DiffPlex/Facts.DiffPlex.csproj",
+    "Perf.DiffPlex/Perf.DiffPlex.csproj",
+    "WebDiffer/WebDiffer.csproj"
+  ],
+  "test_path_count": 1
+}

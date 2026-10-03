@@ -1,0 +1,16 @@
+{
+  "asset": "isek-ai/danbooru-wiki-2024",
+  "kind": "datasets",
+  "url": "https://huggingface.co/datasets/isek-ai/danbooru-wiki-2024",
+  "source_commit": "150ab9fe223322ce4e8ca2a1875c796ab7e0b371",
+  "last_modified": "2024-11-15T04:33:40.000Z",
+  "license": "cc-by-sa-4.0",
+  "gated": false,
+  "siblings": [
+    ".gitattributes",
+    "README.md",
+    "data/train-00000-of-00001.parquet"
+  ],
+  "checked_date": "2026-10-03",
+  "card_sha256": "188d46742e8391e07bcbc5aaf51398dfe24c9773d62f29e8c66009a1792f7ece"
+}

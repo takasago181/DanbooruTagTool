@@ -1,0 +1,59 @@
+{
+  "repository": "fpgaminer/joytag",
+  "url": "https://github.com/fpgaminer/joytag",
+  "branch": "main",
+  "source_commit": "ce0c4a451e31b69a92df24c8bcd1c0418e3e4feb",
+  "latest_commit_date": "2024-05-18T20:19:10Z",
+  "latest_commit_message": "Added training scripts",
+  "archived": false,
+  "language": "Python",
+  "license": "Apache-2.0",
+  "pushed_at": "2024-05-18T20:19:14Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/fpgaminer/JoyTag/blob/ce0c4a451e31b69a92df24c8bcd1c0418e3e4feb/README.md",
+      "bytes": 11157,
+      "sha256": "f7e113845ccf31ad8391680a967e003973184c2eb7c08030a0c751e33a424615",
+      "line_count": 183
+    },
+    {
+      "path": "requirements.txt",
+      "url": "https://github.com/fpgaminer/JoyTag/blob/ce0c4a451e31b69a92df24c8bcd1c0418e3e4feb/requirements.txt",
+      "bytes": 107,
+      "sha256": "a350109580ebea753606018c80c56c4faa53566725c273fd062f1530b2a8ed13",
+      "line_count": 6
+    },
+    {
+      "path": "Models.py",
+      "url": "https://github.com/fpgaminer/JoyTag/blob/ce0c4a451e31b69a92df24c8bcd1c0418e3e4feb/Models.py",
+      "bytes": 36635,
+      "sha256": "920fd06f66aa5115cd345ea893a2107b49b1198eeebc3140ab9974858ff9d977",
+      "line_count": 1062
+    },
+    {
+      "path": "training/train/data.py",
+      "url": "https://github.com/fpgaminer/JoyTag/blob/ce0c4a451e31b69a92df24c8bcd1c0418e3e4feb/training/train/data.py",
+      "bytes": 4902,
+      "sha256": "f89d18b77176aba3aa4868ccaed189731a46a486f4bb8204eab359c333cc5c4c",
+      "line_count": 171
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/fpgaminer/joytag/blob/ce0c4a451e31b69a92df24c8bcd1c0418e3e4feb/LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "line_count": 201
+    }
+  ],
+  "source_tree_blob_count": 34,
+  "source_tree_paths_sha256": "bfd927de724e6af34b8f37a0242a3e711d58151863904c608f18af2c6435ec10",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "requirements.txt"
+  ],
+  "test_path_count": 0
+}

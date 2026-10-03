@@ -1,0 +1,28 @@
+{
+  "asset": "Wenaka/Danbooru2024_rating_explicit_prompts_without_character",
+  "kind": "datasets",
+  "url": "https://huggingface.co/datasets/Wenaka/Danbooru2024_rating_explicit_prompts_without_character",
+  "source_commit": "720c5c48180773d863aabd33ed97065c692a5e6f",
+  "last_modified": "2025-09-23T08:30:22.000Z",
+  "license": "apache-2.0",
+  "gated": false,
+  "siblings": [
+    ".gitattributes",
+    "README.md",
+    "其他_混合 (Other_Mixed).txt",
+    "分类统计.txt",
+    "单女 (Solo Female).txt",
+    "单女多男 (1 Female_ Multiple Males).txt",
+    "单男单女 (Hetero Couple).txt",
+    "单男多女 (1 Male_ Multiple Females).txt",
+    "多女 (Multiple Girls).txt",
+    "多女多男 (Multiple Females_ Multiple Males) - 群交.txt",
+    "多男 (Multiple Boys).txt",
+    "扶她 (Futanari).txt",
+    "男性独照 (Solo Male).txt",
+    "男男 (Yaoi).txt",
+    "百合 (Yuri).txt"
+  ],
+  "checked_date": "2026-10-03",
+  "card_sha256": "5f015ffdf3016136c7560796fc631b954f9a8eee9127793745ff941d63e947d4"
+}

@@ -1,0 +1,63 @@
+{
+  "repository": "invoke-ai/InvokeAI",
+  "url": "https://github.com/invoke-ai/InvokeAI",
+  "branch": "main",
+  "source_commit": "1ddf586e4a365f26d1c98a0ccde031f3d93f3f49",
+  "latest_commit_date": "2026-10-02T13:10:52Z",
+  "latest_commit_message": "feat(webv2): restore the What's New notes and point docs at the v7 site (#9644)",
+  "archived": false,
+  "language": "TypeScript",
+  "license": "Apache-2.0",
+  "pushed_at": "2026-10-03T00:08:01Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/invoke-ai/InvokeAI/blob/1ddf586e4a365f26d1c98a0ccde031f3d93f3f49/README.md",
+      "bytes": 7948,
+      "sha256": "4a6c8c35d09db9d4df9271ab692123f611e9c04744dc57ad366bf400de2610bf",
+      "line_count": 161
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/invoke-ai/InvokeAI/blob/1ddf586e4a365f26d1c98a0ccde031f3d93f3f49/pyproject.toml",
+      "bytes": 25758,
+      "sha256": "da2ddd49440ba5ef0073a02ffc0cab17c5059ddf666d96c0266890f753a8a676",
+      "line_count": 531
+    },
+    {
+      "path": "invokeai/frontend/webv2/src/features/workflow/ui/useProjectGraphCommands.ts",
+      "url": "https://github.com/invoke-ai/InvokeAI/blob/1ddf586e4a365f26d1c98a0ccde031f3d93f3f49/invokeai/frontend/webv2/src/features/workflow/ui/useProjectGraphCommands.ts",
+      "bytes": 125,
+      "sha256": "aaabff759c9d8639b5fb422b7e118f9a562cd10b25573edc4c8ba14832e3bcd5",
+      "line_count": 3
+    },
+    {
+      "path": "invokeai/frontend/webv1/src/features/nodes/util/workflow/loraMetadataRoundtrip.test.ts",
+      "url": "https://github.com/invoke-ai/InvokeAI/blob/1ddf586e4a365f26d1c98a0ccde031f3d93f3f49/invokeai/frontend/webv1/src/features/nodes/util/workflow/loraMetadataRoundtrip.test.ts",
+      "bytes": 3712,
+      "sha256": "117682137f66a5672ba213f2ad1a52006bd5cffed1e1316c3f33816bb759ccc3",
+      "line_count": 117
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/invoke-ai/InvokeAI/blob/1ddf586e4a365f26d1c98a0ccde031f3d93f3f49/LICENSE",
+      "bytes": 10146,
+      "sha256": "39301589f2cba7f40297c7da05c7e5d164f704caa979665b117c353203c9cf03",
+      "line_count": 176
+    }
+  ],
+  "source_tree_blob_count": 7318,
+  "source_tree_paths_sha256": "a13b7e1cdc45702c9ad1039634d5971bd13b48d9d033d18deb01b283637752ad",
+  "license_paths_observed": [
+    "LICENSE",
+    "LICENSE-HiDiffusion.txt",
+    "LICENSE-PiD.txt",
+    "LICENSE-SD1+SD2.txt",
+    "LICENSE-SDXL.txt"
+  ],
+  "dependency_paths_observed": [
+    "pyproject.toml"
+  ],
+  "test_path_count": 1236
+}

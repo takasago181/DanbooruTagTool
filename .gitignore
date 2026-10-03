@@ -93,3 +93,9 @@ data/generation/audit/
 **/TestResults/
 
 /uia161-*.log*
+
+# This small recovery ledger is source-controlled; historical archive payloads
+# and other local archive directories remain ignored.
+!/research/archive/
+/research/archive/*
+!/research/archive/foundation-b.json

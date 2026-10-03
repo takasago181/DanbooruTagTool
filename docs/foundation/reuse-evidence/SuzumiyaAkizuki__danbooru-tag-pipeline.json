@@ -1,0 +1,41 @@
+{
+  "repository": "SuzumiyaAkizuki/danbooru-tag-pipeline",
+  "url": "https://github.com/SuzumiyaAkizuki/danbooru-tag-pipeline",
+  "branch": "main",
+  "source_commit": "a5a2d0ef085748eaa4a67e77eecee37a6680f776",
+  "latest_commit_date": "2026-06-27T14:51:56Z",
+  "latest_commit_message": "更新了很多东西",
+  "archived": false,
+  "language": "Python",
+  "license": null,
+  "pushed_at": "2026-06-27T14:52:37Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/SuzumiyaAkizuki/danbooru-tag-pipeline/blob/a5a2d0ef085748eaa4a67e77eecee37a6680f776/README.md",
+      "bytes": 28861,
+      "sha256": "737ea9056d558705fe24896ab4724d03a8f457188c076b759152e0b8fc88acc1",
+      "line_count": 628
+    },
+    {
+      "path": "main.py",
+      "url": "https://github.com/SuzumiyaAkizuki/danbooru-tag-pipeline/blob/a5a2d0ef085748eaa4a67e77eecee37a6680f776/main.py",
+      "bytes": 8659,
+      "sha256": "dec5d7943dc24ca4a07ec6da9475b0610125f243a281b6ed841e3124f47303c6",
+      "line_count": 209
+    },
+    {
+      "path": "modules/trash.py",
+      "url": "https://github.com/SuzumiyaAkizuki/danbooru-tag-pipeline/blob/a5a2d0ef085748eaa4a67e77eecee37a6680f776/modules/trash.py",
+      "bytes": 1207,
+      "sha256": "123f288ede0e60d8b7c5f81a0cc99c9648393e2144c45ae7929dd9a8a71b8286",
+      "line_count": 37
+    }
+  ],
+  "source_tree_blob_count": 14,
+  "source_tree_paths_sha256": "f87bf6b7ca2250cfe18407cd3081105a0a49834a0d1198a8e18aa75ec6f3233c",
+  "license_paths_observed": [],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

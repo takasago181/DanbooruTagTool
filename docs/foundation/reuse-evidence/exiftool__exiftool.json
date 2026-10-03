@@ -1,0 +1,50 @@
+{
+  "repository": "exiftool/exiftool",
+  "url": "https://github.com/exiftool/exiftool",
+  "branch": "master",
+  "source_commit": "2200871d9cef988051d2a99d67df3bda6cbb30a8",
+  "latest_commit_date": "2026-05-27T16:44:48Z",
+  "latest_commit_message": "Update to 13.59",
+  "archived": false,
+  "language": "Perl",
+  "license": "GPL-3.0",
+  "pushed_at": "2026-05-27T16:45:01Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README",
+      "url": "https://github.com/exiftool/exiftool/blob/2200871d9cef988051d2a99d67df3bda6cbb30a8/README",
+      "bytes": 13787,
+      "sha256": "e13005e5431c89910feba2309710d844f1bf4fd97df1236284e6475161bc14da",
+      "line_count": 270
+    },
+    {
+      "path": "lib/Image/ExifTool/PNG.pm",
+      "url": "https://github.com/exiftool/exiftool/blob/2200871d9cef988051d2a99d67df3bda6cbb30a8/lib/Image/ExifTool/PNG.pm",
+      "bytes": 67518,
+      "sha256": "69a54cfc08cb67e210158c148ab439fbdd3f9a021e362b1379a1e080c2c7a0f5",
+      "line_count": 1733
+    },
+    {
+      "path": "lib/Image/ExifTool/Writer.pl",
+      "url": "https://github.com/exiftool/exiftool/blob/2200871d9cef988051d2a99d67df3bda6cbb30a8/lib/Image/ExifTool/Writer.pl",
+      "bytes": 328299,
+      "sha256": "cfe916df77f7b37a4fc62e22f0c03de93ca727f0fa22a155ad0eecf95c050d44",
+      "line_count": 7434
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/exiftool/exiftool/blob/2200871d9cef988051d2a99d67df3bda6cbb30a8/LICENSE",
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "line_count": 674
+    }
+  ],
+  "source_tree_blob_count": 1259,
+  "source_tree_paths_sha256": "4f18f2bbeea037bf3b5a62458e151293f802bbff9bf9587f4141686e1e2dba5a",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 1
+}

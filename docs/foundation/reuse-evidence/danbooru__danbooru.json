@@ -1,0 +1,59 @@
+{
+  "repository": "danbooru/danbooru",
+  "url": "https://github.com/danbooru/danbooru",
+  "branch": "master",
+  "source_commit": "9a4a6e2de0c4d2cd4e3288b43f06b622a9e07467",
+  "latest_commit_date": "2026-09-28T12:15:24Z",
+  "latest_commit_message": "Posts: remove unused parameter in javascript notice call",
+  "archived": false,
+  "language": "Ruby",
+  "license": "NOASSERTION",
+  "pushed_at": "2026-10-02T21:04:19Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/danbooru/danbooru/blob/9a4a6e2de0c4d2cd4e3288b43f06b622a9e07467/README.md",
+      "bytes": 4122,
+      "sha256": "c394169ade3dd62bac2ce593605854e1bb2c3aecc99dfdd09a78f544fbd27a98",
+      "line_count": 85
+    },
+    {
+      "path": "package.json",
+      "url": "https://github.com/danbooru/danbooru/blob/9a4a6e2de0c4d2cd4e3288b43f06b622a9e07467/package.json",
+      "bytes": 2142,
+      "sha256": "959ac2f8fdd6d12014b74e7496158e4111a37b1e00bedbc9c8fed1bbeef3782f",
+      "line_count": 67
+    },
+    {
+      "path": "app/models/tag.rb",
+      "url": "https://github.com/danbooru/danbooru/blob/9a4a6e2de0c4d2cd4e3288b43f06b622a9e07467/app/models/tag.rb",
+      "bytes": 16718,
+      "sha256": "2653d286bba4def3f95b697c839848524548a9d114a1a3e7cbab4be2937b85e3",
+      "line_count": 515
+    },
+    {
+      "path": "app/controllers/tags_controller.rb",
+      "url": "https://github.com/danbooru/danbooru/blob/9a4a6e2de0c4d2cd4e3288b43f06b622a9e07467/app/controllers/tags_controller.rb",
+      "bytes": 738,
+      "sha256": "76eced339c1afcee78295fdd15f6376c3cb61f4b2b3c2c21111cd140b48a8711",
+      "line_count": 32
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/danbooru/danbooru/blob/9a4a6e2de0c4d2cd4e3288b43f06b622a9e07467/LICENSE",
+      "bytes": 1521,
+      "sha256": "49319677b583767c7ce4beae7fe1ce5479b6805ab55a7fda656afe113fe55073",
+      "line_count": 26
+    }
+  ],
+  "source_tree_blob_count": 3136,
+  "source_tree_paths_sha256": "dc856a12a02698b221e9bb7fd4a8bb3dbad25e85b4979acf44ffb23f4f2e4383",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "package.json"
+  ],
+  "test_path_count": 711
+}

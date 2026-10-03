@@ -1,0 +1,41 @@
+{
+  "repository": "Wenaka2004/dan-emb",
+  "url": "https://github.com/Wenaka2004/dan-emb",
+  "branch": "master",
+  "source_commit": "373027c979da5d5b89e1569ffcda1397cf0c5901",
+  "latest_commit_date": "2026-04-23T19:19:48Z",
+  "latest_commit_message": "Add fp16 embedding support (1.0GB), auto-detect format on load",
+  "archived": false,
+  "language": "Python",
+  "license": null,
+  "pushed_at": "2026-04-23T19:19:49Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/Wenaka2004/dan-emb/blob/373027c979da5d5b89e1569ffcda1397cf0c5901/README.md",
+      "bytes": 11097,
+      "sha256": "cc09379c7c02939282816eb85238ce9981f25be0918731771ccee06f569678bc",
+      "line_count": 353
+    },
+    {
+      "path": "rag.py",
+      "url": "https://github.com/Wenaka2004/dan-emb/blob/373027c979da5d5b89e1569ffcda1397cf0c5901/rag.py",
+      "bytes": 4941,
+      "sha256": "00435ff5d69d67a5002d7411b9e9f33db279bd8f41551430bf42d0a275a4c1a1",
+      "line_count": 127
+    },
+    {
+      "path": "dtext.py",
+      "url": "https://github.com/Wenaka2004/dan-emb/blob/373027c979da5d5b89e1569ffcda1397cf0c5901/dtext.py",
+      "bytes": 3895,
+      "sha256": "ae1ad8caf44900644a627357145ecc34f7827cd1ecc6284bba66ede573ae3409",
+      "line_count": 131
+    }
+  ],
+  "source_tree_blob_count": 19,
+  "source_tree_paths_sha256": "d26b4cd5131b74daa29ad11f75be744a9f7db9a43ad9c3438a7aa8d1df4275f9",
+  "license_paths_observed": [],
+  "dependency_paths_observed": [],
+  "test_path_count": 2
+}

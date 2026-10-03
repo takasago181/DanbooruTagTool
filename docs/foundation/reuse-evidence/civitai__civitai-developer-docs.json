@@ -1,0 +1,50 @@
+{
+  "repository": "civitai/civitai-developer-docs",
+  "url": "https://github.com/civitai/civitai-developer-docs",
+  "branch": "main",
+  "source_commit": "95e974ae473c7961b01f04e2e68bbcbc0baf0a5b",
+  "latest_commit_date": "2026-10-02T21:02:52Z",
+  "latest_commit_message": "fix(docs): the earning page promised rev-share income nothing can pay (#143)",
+  "archived": false,
+  "language": "JavaScript",
+  "license": null,
+  "pushed_at": "2026-10-02T21:02:55Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/civitai/civitai-developer-docs/blob/95e974ae473c7961b01f04e2e68bbcbc0baf0a5b/README.md",
+      "bytes": 19370,
+      "sha256": "faf834673cef3638911a918e8c390f58cabe26dad8d4eff7472b400a0e3cc9e6",
+      "line_count": 347
+    },
+    {
+      "path": "package.json",
+      "url": "https://github.com/civitai/civitai-developer-docs/blob/95e974ae473c7961b01f04e2e68bbcbc0baf0a5b/package.json",
+      "bytes": 3823,
+      "sha256": "d158c9046ea7e30363f95e57ef34d8259fdaded2092df587ac07a299dc65c4be",
+      "line_count": 76
+    },
+    {
+      "path": "site/reference/model-versions.md",
+      "url": "https://github.com/civitai/civitai-developer-docs/blob/95e974ae473c7961b01f04e2e68bbcbc0baf0a5b/site/reference/model-versions.md",
+      "bytes": 9653,
+      "sha256": "bd1084f032b732bb4f96141e9f58a6b51de5173887674e72e80bf80518f30671",
+      "line_count": 326
+    },
+    {
+      "path": ".vitepress/theme/composables/useWorkflow.ts",
+      "url": "https://github.com/civitai/civitai-developer-docs/blob/95e974ae473c7961b01f04e2e68bbcbc0baf0a5b/.vitepress/theme/composables/useWorkflow.ts",
+      "bytes": 9273,
+      "sha256": "1a1a755979867a29a79f7a8f29be52765e86ae9eb8b4bad67b2d03cbbdf79342",
+      "line_count": 320
+    }
+  ],
+  "source_tree_blob_count": 252,
+  "source_tree_paths_sha256": "fa23e3e02edffbf1a257f1cd5a345f34499105a4c709cde3c9cf2a240b906fb4",
+  "license_paths_observed": [],
+  "dependency_paths_observed": [
+    "package.json"
+  ],
+  "test_path_count": 11
+}

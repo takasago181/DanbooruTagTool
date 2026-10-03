@@ -1,48 +1,26 @@
 # CURRENT STATE
 
-最終更新: 2026-10-03 — #247 P0 + Batch A IMPLEMENTED / PR REVIEW STOP
+Updated: 2026-10-03 — #247 safe Batch B checkpoint / REUSE RESEARCH DECISION STOP
 
-## Current status
+Production remains the #245 LKG from `b3f48c359a8473c8bbf02347487cba5d8dacf96c`.
+Foundation has not been installed; UserData/Library/LoRA remain protected.
 
-Production:
-- #245 COMPLETE / CLOSED
-- production source: `b3f48c359a8473c8bbf02347487cba5d8dacf96c`
-- new LKG recorded
-- Release 364 PASS / 4 SKIP / 0 FAIL
-- real Create -> Forge -> PNG -> Library round-trip PASS
-- UserData / Library / LoRA / catalog / protected authority preserved
+Completed inputs:
+- #248 audit: `docs/issue248/FOUNDATION_AUDIT_2026-10-03.md`
+- P0 + Batch A: PR #261 merged at `0193cee41c52050e680767f722efcdcef6de481f`
+- authority/compiler and worktree recurrence evidence: `docs/foundation/BATCH_A_CHECKPOINT_2026-10-03.md`
 
-Foundation:
-- #248 COMPLETE / CLOSED
-- report: `docs/issue248/FOUNDATION_AUDIT_2026-10-03.md`
-- P0 + Batch A implemented after explicit user authorization; branch `foundation/batch-a`
-- implementation checkpoint: `77899c9a`
-- report: `docs/foundation/BATCH_A_CHECKPOINT_2026-10-03.md`
-- worktree recurrence audit/remediation included by additional user instruction
-- production not applied; Batch B not started
+Selected lane: #247 Batch B, useful #250/#251/#252 only.
+- frozen historical research/evidence/tools/workflows, verified recovery tag/manifest;
+- test-only oracles separated from accepted authority, current maintenance route;
+- shared semantic CI and closed-Issue branch/workflow cleanup with recovery ledger;
+- existing 42 worktrees retained; only this task checkout added.
 
-## Selected implementation / deferred scope
-
-P0:
-- archive/disable two Issue70 workflows that still write directly to main.
-
-Batch A:
-- semantic authority + catalog compiler cutover
-- combine #249 + narrow #253
-- preserve current semantic parity, especially adult/sexual/fetish/hard-niche Special discovery
-- remove confirmed-dead old Special-only facet UI state
-
-Batch B:
-- active-tree evidence/tool/workflow/branch hygiene
-- combine useful #250/#251/#252
-- only after production dependencies are removed
-
-Skipped now:
-- broad #253 rewrite
-- #254 performance/storage project
-- #255 history rewrite
-
-## Review stop
-
-P0 + Batch A are stopped for PR review. Do not self-merge or start Batch B/new features.
-Foundation Epic #247 remains open; installed production/LKG are unchanged.
+Checkpoint: `docs/foundation/BATCH_B_CHECKPOINT_2026-10-03.md`.
+External gate: `docs/foundation/EXTERNAL_REUSE_GATE_2026-10-03.md` and
+`docs/foundation/EXTERNAL_REUSE_MATRIX.json`. Past/Oct 1–2 assets recovered first.
+Research complete does not authorize large #251 integration, #253 or new custom
+equivalents. #251 implementation beyond preserved safe work remains pending.
+STOP at research decision / PR review. No automatic merge, production/promotion, Batch C, #230 or
+#256 feature work. Foundation final production/LKG decision remains separate.
+Do not repeat completed Batch A audits/parity unless a new dependency requires it.

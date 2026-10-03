@@ -1,0 +1,50 @@
+{
+  "repository": "Jannchie/danbooru-tags-tree",
+  "url": "https://github.com/Jannchie/danbooru-tags-tree",
+  "branch": "main",
+  "source_commit": "8ec5bfebb9d23edbcb80024a561c0c8bddf1afdb",
+  "latest_commit_date": "2026-09-06T18:40:42Z",
+  "latest_commit_message": "fix(sync): a rejected name is the tag's own name, not an empty label",
+  "archived": false,
+  "language": "TypeScript",
+  "license": null,
+  "pushed_at": "2026-09-06T18:40:45Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/Jannchie/danbooru-tags-tree/blob/8ec5bfebb9d23edbcb80024a561c0c8bddf1afdb/README.md",
+      "bytes": 3441,
+      "sha256": "6679dad0cb4803900d8f6eccdf47acf0a31116d5d00a99e0a272e2a1eabfb53f",
+      "line_count": 92
+    },
+    {
+      "path": "package.json",
+      "url": "https://github.com/Jannchie/danbooru-tags-tree/blob/8ec5bfebb9d23edbcb80024a561c0c8bddf1afdb/package.json",
+      "bytes": 1240,
+      "sha256": "91415868134953166f496fd24d335124ac355aaa0d4f0460b962433ef931d640",
+      "line_count": 42
+    },
+    {
+      "path": "src/main.ts",
+      "url": "https://github.com/Jannchie/danbooru-tags-tree/blob/8ec5bfebb9d23edbcb80024a561c0c8bddf1afdb/src/main.ts",
+      "bytes": 240,
+      "sha256": "3cc3f3f9d6c6d5a0bf490467a9c3c0b964f7d97d40bfe1e4088980630488a48c",
+      "line_count": 10
+    },
+    {
+      "path": "scripts/dev.ts",
+      "url": "https://github.com/Jannchie/danbooru-tags-tree/blob/8ec5bfebb9d23edbcb80024a561c0c8bddf1afdb/scripts/dev.ts",
+      "bytes": 1110,
+      "sha256": "faf5473e014243f594787192b3d1aae920a0b7fe4f7ab6a77e9700382d5dca65",
+      "line_count": 46
+    }
+  ],
+  "source_tree_blob_count": 38,
+  "source_tree_paths_sha256": "ad0e407579d584f49381d2af486bfb06829be7bf403ab2ffe624d63af99f5577",
+  "license_paths_observed": [],
+  "dependency_paths_observed": [
+    "package.json"
+  ],
+  "test_path_count": 0
+}

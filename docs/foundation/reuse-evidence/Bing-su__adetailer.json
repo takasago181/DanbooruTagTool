@@ -1,0 +1,52 @@
+{
+  "repository": "Bing-su/adetailer",
+  "url": "https://github.com/Bing-su/adetailer",
+  "branch": "main",
+  "source_commit": "3a599f5d4607d8f9d8b9fc5a15526197418dae1a",
+  "latest_commit_date": "2026-02-05T13:43:40Z",
+  "latest_commit_message": "Merge pull request #831 from Bing-su/dev",
+  "archived": false,
+  "language": "Python",
+  "license": "AGPL-3.0",
+  "pushed_at": "2026-09-28T22:25:52Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/Bing-su/adetailer/blob/3a599f5d4607d8f9d8b9fc5a15526197418dae1a/README.md",
+      "bytes": 8479,
+      "sha256": "fc684784c4bedd43d6afca07ce54585f41005d29a38f6925c16696977f3eab15",
+      "line_count": 118
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/Bing-su/adetailer/blob/3a599f5d4607d8f9d8b9fc5a15526197418dae1a/pyproject.toml",
+      "bytes": 1498,
+      "sha256": "dae05a8e3a4f0ef159e337d9a7d9e0db0a38df3512ae002c371eecdc7cb2e165",
+      "line_count": 84
+    },
+    {
+      "path": "install.py",
+      "url": "https://github.com/Bing-su/adetailer/blob/3a599f5d4607d8f9d8b9fc5a15526197418dae1a/install.py",
+      "bytes": 1751,
+      "sha256": "b6d947d4b9f8aa98213ae499b63e7dca1cdedbccb27d373463806f8925294953",
+      "line_count": 79
+    },
+    {
+      "path": "preload.py",
+      "url": "https://github.com/Bing-su/adetailer/blob/3a599f5d4607d8f9d8b9fc5a15526197418dae1a/preload.py",
+      "bytes": 215,
+      "sha256": "1789b4bfce6b2eaf843f1795f4b87626aaadc8b6208520287c6721c2b7498429",
+      "line_count": 9
+    }
+  ],
+  "source_tree_blob_count": 44,
+  "source_tree_paths_sha256": "4bdf1ee6277a90a5eb483b4139f5754380c101fdfdbd856e64cf92040742fd0b",
+  "license_paths_observed": [
+    "LICENSE.md"
+  ],
+  "dependency_paths_observed": [
+    "pyproject.toml"
+  ],
+  "test_path_count": 9
+}

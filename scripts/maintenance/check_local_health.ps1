@@ -15,7 +15,7 @@ function Sha([string] $Path) { return (Get-FileHash -LiteralPath $Path -Algorith
 function Run-Json([string] $FilePath, [string[]] $Arguments) { $out = & $FilePath @Arguments 2>&1; $exit = $LASTEXITCODE; return [pscustomobject]@{Output=($out -join [Environment]::NewLine);ExitCode=$exit} }
 
 $python = (Get-Command python -ErrorAction SilentlyContinue).Source
-if ([string]::IsNullOrWhiteSpace($python)) { Add-Check 'python' 'FAIL' 'Python is required for read-only SQLite/queue checks.' }
+if ([string]::IsNullOrWhiteSpace($python)) { Add-Check 'python' 'FAIL' 'Python is required for read-only SQLite checks.' }
 $head = (& git -C $RepositoryRoot rev-parse --verify HEAD).Trim()
 $branch = (& git -C $RepositoryRoot branch --show-current).Trim()
 $status = & git -C $RepositoryRoot status --short --untracked-files=no
@@ -29,7 +29,14 @@ Add-Check 'source revision' 'PASS' "HEAD $head"
 $exePath = Join-Path $ArtifactRoot 'DanbooruTagTool.exe'
 $runtimeManifest = Join-Path $ArtifactRoot 'runtime-manifest.json'
 if ((Test-Path -LiteralPath $runtimeManifest) -and (Test-Path -LiteralPath $exePath)) {
-    try {$manifestResult=& (Join-Path $RepositoryRoot 'scripts/maintenance/validate_runtime_manifest.ps1') -RuntimeRoot $ArtifactRoot 2>&1;if($LASTEXITCODE -and $LASTEXITCODE -ne 0){Add-Check 'runtime manifest' 'FAIL' ($manifestResult -join ' ')}else{$manifest=Get-Content -LiteralPath $runtimeManifest -Raw|ConvertFrom-Json;$exeHash=Sha $exePath;if($manifest.source_main_commit -eq $head){Add-Check 'runtime provenance' 'PASS' "source $($manifest.source_main_commit); EXE hash verified"}else{Add-Check 'runtime provenance' 'WARN' "runtime source=$($manifest.source_main_commit), HEAD=$head; EXE hash verified"}}} catch { Add-Check 'runtime manifest' 'FAIL' $_.Exception.Message }
+    try {
+        $verified = & (Join-Path $RepositoryRoot 'scripts/maintenance/validate_runtime_manifest.ps1') -RuntimeRoot $ArtifactRoot | ConvertFrom-Json
+        if (-not $verified.ok) { throw 'Runtime manifest validation did not confirm success.' }
+        $manifest = Get-Content -LiteralPath $runtimeManifest -Raw | ConvertFrom-Json
+        Add-Check 'runtime manifest' 'PASS' "schema=$($manifest.schema_version), commit=$($manifest.source_main_commit), RID=$($manifest.runtime_identifier); hashes verified"
+        if ($manifest.source_main_commit -eq $head) { Add-Check 'runtime provenance' 'PASS' "source $head" }
+        else { Add-Check 'runtime provenance' 'WARN' "runtime source=$($manifest.source_main_commit), HEAD=$head; production unchanged" }
+    } catch { Add-Check 'runtime manifest' 'FAIL' $_.Exception.Message }
 } else { Add-Check 'runtime manifest' 'WARN' 'Current runtime manifest or executable is missing.' }
 
 $shortcut = Join-Path $RepositoryRoot 'DanbooruTagTool.lnk'
@@ -48,18 +55,12 @@ if(-not [string]::IsNullOrWhiteSpace($python) -and (Test-Path -LiteralPath $cata
     if($user.ExitCode -eq 0){$parsed=$user.Output | ConvertFrom-Json;Add-Check 'UserData health' 'PASS' "state_present=$($parsed.state_present); bytes=$($parsed.bytes); sha256=$($parsed.sha256)"}else{Add-Check 'UserData health' 'FAIL' $user.Output}
 }
 
-$manifestPath = Join-Path $ArtifactRoot 'runtime-manifest.json'
-if (Test-Path -LiteralPath $manifestPath) {
-    try {$manifestResult=& (Join-Path $RepositoryRoot 'scripts/maintenance/validate_runtime_manifest.ps1') -RuntimeRoot $ArtifactRoot 2>&1;if($LASTEXITCODE -and $LASTEXITCODE -ne 0){Add-Check 'runtime manifest' 'FAIL' ($manifestResult -join ' ')}else{$manifest=Get-Content -LiteralPath $manifestPath -Raw|ConvertFrom-Json;Add-Check 'runtime manifest' 'PASS' "schema=$($manifest.schema_version), commit=$($manifest.source_main_commit), RID=$($manifest.runtime_identifier)"}} catch { Add-Check 'runtime manifest' 'FAIL' $_.Exception.Message }
-} else { Add-Check 'runtime manifest' 'WARN' 'runtime-manifest.json is not present.' }
-
-$inputs = @('data/source/danbooru-2026-09-02.csv','data/derived/danbooru_alias_normalized_index_VERIFIED_34417.csv','data/special2788/illustrious_tag_knowledge_base_2788.csv','data/derived/special2788_VERIFIED_LINKAGE.csv','data/derived/ruleset2/01_SPECIAL2788_JAPANESE_COMPLETE_CANDIDATE.csv','data/runtime/japanese_overlay.json','data/special2788/product_fit_verdicts.csv','docs/issue96/special_expansion_promotion_proposal_v1.csv','docs/issue64/production_candidate/general_taxonomy.json','docs/issue64/production_candidate/effective_sidecar.csv','docs/issue64/production_candidate/manifest.json','docs/issue56/rollout/issue56_ui_genre_taxonomy_v1.json')
-$missing = @($inputs | Where-Object { -not (Test-Path -LiteralPath (Join-Path $RepositoryRoot $_)) })
-if($missing.Count -eq 0){Add-Check 'catalog build inputs' 'PASS' "$($inputs.Count) required paths exist"}else{Add-Check 'catalog build inputs' 'FAIL' ($missing -join ', ')}
-
-$queue = Join-Path $RepositoryRoot 'docs/issue70/data/queue_state.json'; $queueBefore = if(Test-Path -LiteralPath $queue){Sha $queue}else{''}
-if(-not [string]::IsNullOrWhiteSpace($python)){ $q = Run-Json $python @('-B',(Join-Path $RepositoryRoot 'scripts/issue70/queue_manager.py'),'status'); $queueAfter=if(Test-Path -LiteralPath $queue){Sha $queue}else{''}; if($q.ExitCode -eq 0 -and $queueBefore -eq $queueAfter){Add-Check 'Issue #70 read-only status' 'PASS' (($q.Output -replace '\s+',' ').Trim())}elseif($q.ExitCode -eq 0){Add-Check 'Issue #70 read-only status' 'FAIL' 'queue_state.json changed during status check'}else{Add-Check 'Issue #70 read-only status' 'FAIL' $q.Output}}
-$retired=@('data/runtime_index','data/runtime_source','tools/legacy','translation_quarantine','archive','_handoff'); $present=@($retired | Where-Object {Test-Path -LiteralPath (Join-Path $RepositoryRoot $_)}); if($present.Count -eq 0){Add-Check 'retired dependencies' 'PASS' 'retired Python/Tk/runtime-index paths absent'}else{Add-Check 'retired dependencies' 'WARN' ($present -join ', ')}
+$dotnet = (Get-Command dotnet -ErrorAction SilentlyContinue).Source
+if ($dotnet) {
+    $authority = Run-Json $dotnet @('run','--project',(Join-Path $RepositoryRoot 'src/DanbooruTagTool.Maintenance'),'-c','Release','--','verify',(Join-Path $RepositoryRoot 'authority/catalog/current/manifest.json'))
+    if ($authority.ExitCode -eq 0) { Add-Check 'accepted semantic authority' 'PASS' $authority.Output }
+    else { Add-Check 'accepted semantic authority' 'FAIL' $authority.Output }
+} else { Add-Check 'accepted semantic authority' 'WARN' 'dotnet SDK unavailable; run Maintenance verify in a development environment.' }
 
 $checks | ForEach-Object { Write-Output ("{0,-28} {1,-5} {2}" -f $_.Name,$_.Result,$_.Detail) }
 $fail = @($checks | Where-Object Result -eq 'FAIL').Count; $warn = @($checks | Where-Object Result -eq 'WARN').Count

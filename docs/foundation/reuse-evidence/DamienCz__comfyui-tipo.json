@@ -1,0 +1,52 @@
+{
+  "repository": "DamienCz/comfyui-tipo",
+  "url": "https://github.com/DamienCz/comfyui-tipo",
+  "branch": "main",
+  "source_commit": "e616fa8a979f9d8e07c5a3b0e7e10333d6bb4349",
+  "latest_commit_date": "2024-12-01T13:32:53Z",
+  "latest_commit_message": "kgen 0.1.6 have correct  .__version__",
+  "archived": false,
+  "language": null,
+  "license": "Apache-2.0",
+  "pushed_at": "2024-12-01T13:32:55Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/DamienCz/comfyui-tipo/blob/e616fa8a979f9d8e07c5a3b0e7e10333d6bb4349/README.md",
+      "bytes": 3607,
+      "sha256": "6908ea56801a6283040f43b288706a17ce6e29936f001da2b9b8e8be8869152b",
+      "line_count": 69
+    },
+    {
+      "path": "requirements.txt",
+      "url": "https://github.com/DamienCz/comfyui-tipo/blob/e616fa8a979f9d8e07c5a3b0e7e10333d6bb4349/requirements.txt",
+      "bytes": 29,
+      "sha256": "a58ab1c6966375e7d4764edeb6db93afcc2de8f773891aea1a04c15bfb0e04d3",
+      "line_count": 2
+    },
+    {
+      "path": "install.py",
+      "url": "https://github.com/DamienCz/comfyui-tipo/blob/e616fa8a979f9d8e07c5a3b0e7e10333d6bb4349/install.py",
+      "bytes": 1259,
+      "sha256": "5f66a302bb4441559fbe35cbd8079618a077d6de734387de55557183f8c99225",
+      "line_count": 53
+    },
+    {
+      "path": "__init__.py",
+      "url": "https://github.com/DamienCz/comfyui-tipo/blob/e616fa8a979f9d8e07c5a3b0e7e10333d6bb4349/__init__.py",
+      "bytes": 137,
+      "sha256": "1fe0b259bf16fce690e75c3ef40fc5539fd5f591906e2958c664bb8abfad148c",
+      "line_count": 3
+    }
+  ],
+  "source_tree_blob_count": 13,
+  "source_tree_paths_sha256": "04bcb89c29f8c7e639d177435d1a94c347f652e827c6c847711fbd45f4bfaed2",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "requirements.txt"
+  ],
+  "test_path_count": 0
+}

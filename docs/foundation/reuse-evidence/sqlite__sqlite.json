@@ -1,0 +1,50 @@
+{
+  "repository": "sqlite/sqlite",
+  "url": "https://github.com/sqlite/sqlite",
+  "branch": "master",
+  "source_commit": "cb547ab3e931c7766e24834af5ef6c4578863e3d",
+  "latest_commit_date": "2026-10-02T20:18:07Z",
+  "latest_commit_message": "Update the CLI and the sqldiff utility program to use \"COLLATE nocase\" when",
+  "archived": false,
+  "language": "C",
+  "license": "NOASSERTION",
+  "pushed_at": "2026-10-02T20:30:15Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/sqlite/sqlite/blob/cb547ab3e931c7766e24834af5ef6c4578863e3d/README.md",
+      "bytes": 21165,
+      "sha256": "6d593a9a8d89b86caec382ad0eea43b6aa7c31c8280849e4e10f40a2987d2e37",
+      "line_count": 428
+    },
+    {
+      "path": "ext/fts5/fts5_main.c",
+      "url": "https://github.com/sqlite/sqlite/blob/cb547ab3e931c7766e24834af5ef6c4578863e3d/ext/fts5/fts5_main.c",
+      "bytes": 121284,
+      "sha256": "01031dbcfc4bb818abb037be9476b95f6826f6c8be0b9f93df89854c2c108df5",
+      "line_count": 3904
+    },
+    {
+      "path": "tool/GetFile.cs",
+      "url": "https://github.com/sqlite/sqlite/blob/cb547ab3e931c7766e24834af5ef6c4578863e3d/tool/GetFile.cs",
+      "bytes": 16447,
+      "sha256": "b5bce458cfd6d2320a8e57d78ab2382ed81e32650282b001d1b76a88439bd672",
+      "line_count": 471
+    },
+    {
+      "path": "LICENSE.md",
+      "url": "https://github.com/sqlite/sqlite/blob/cb547ab3e931c7766e24834af5ef6c4578863e3d/LICENSE.md",
+      "bytes": 3850,
+      "sha256": "ee6af51062b30d532991face5164136ae6f84e265ecf8abe89dc69dac45ca1e7",
+      "line_count": 85
+    }
+  ],
+  "source_tree_blob_count": 2281,
+  "source_tree_paths_sha256": "4f2124764dcd022db1afc8707a443afd126068d394af6546bb1901f24ef86486",
+  "license_paths_observed": [
+    "LICENSE.md"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 1570
+}

@@ -20,7 +20,7 @@ public sealed record SpecialCanonicalCorrection(
 /// </summary>
 public static class Issue118SpecialCanonicalCorrectionOverlay
 {
-    public const string RelativePath = "docs/issue118/special_canonical_corrections_v1.csv";
+    public const string RelativePath = "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue118/special_canonical_corrections_v1.csv";
     public const string AcceptedSha256 = "c82e2428669cf8db2b4727ac053fe34f305e6190be57ee01baf3a35a8b655a46";
 
     private static readonly int[] AffectedIds =

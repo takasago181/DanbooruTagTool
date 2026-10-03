@@ -1,0 +1,52 @@
+{
+  "repository": "opparco/anima-prompter-forge",
+  "url": "https://github.com/opparco/anima-prompter-forge",
+  "branch": "main",
+  "source_commit": "d634b5c6732d8482d8f4703079343cdf0b9b2bd7",
+  "latest_commit_date": "2026-05-12T12:25:46Z",
+  "latest_commit_message": "Replace non-ASCII em dashes with ASCII hyphens in system prompt",
+  "archived": false,
+  "language": "Python",
+  "license": "MIT",
+  "pushed_at": "2026-05-12T12:26:09Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/opparco/anima-prompter-forge/blob/d634b5c6732d8482d8f4703079343cdf0b9b2bd7/README.md",
+      "bytes": 4360,
+      "sha256": "1fedacdf24d004a29f3fb12ffc396775af3ef04f6f4c1212c0fc56b8a8e8ec4f",
+      "line_count": 110
+    },
+    {
+      "path": "requirements.txt",
+      "url": "https://github.com/opparco/anima-prompter-forge/blob/d634b5c6732d8482d8f4703079343cdf0b9b2bd7/requirements.txt",
+      "bytes": 14,
+      "sha256": "e2da6b2f819e237a68c8bc8367bfa361e9a3270b586f63b62462501e5695ae45",
+      "line_count": 1
+    },
+    {
+      "path": "scripts/anima_prompter.py",
+      "url": "https://github.com/opparco/anima-prompter-forge/blob/d634b5c6732d8482d8f4703079343cdf0b9b2bd7/scripts/anima_prompter.py",
+      "bytes": 8652,
+      "sha256": "b2b6651880f10dfeffa2dc1de69d714c654345fe187ccf1fa39733ab63a718f7",
+      "line_count": 220
+    },
+    {
+      "path": "anima_prompter/__init__.py",
+      "url": "https://github.com/opparco/anima-prompter-forge/blob/d634b5c6732d8482d8f4703079343cdf0b9b2bd7/anima_prompter/__init__.py",
+      "bytes": 169,
+      "sha256": "254f9bad5bf2b31435ed4cd095fee65ce86e5a5a40325c85e9f412eb044bfa1b",
+      "line_count": 3
+    }
+  ],
+  "source_tree_blob_count": 12,
+  "source_tree_paths_sha256": "1f0b58883ff151ec8392a65b4b680d6ada050103351d8594baf3443a92ad7dae",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "requirements.txt"
+  ],
+  "test_path_count": 2
+}

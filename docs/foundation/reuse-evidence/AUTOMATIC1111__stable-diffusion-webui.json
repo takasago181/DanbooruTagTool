@@ -1,0 +1,61 @@
+{
+  "repository": "AUTOMATIC1111/stable-diffusion-webui",
+  "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui",
+  "branch": "master",
+  "source_commit": "82a973c04367123ae98bd9abdf80d9eda9b910e2",
+  "latest_commit_date": "2024-07-27T12:49:39Z",
+  "latest_commit_message": "changelog",
+  "archived": false,
+  "language": "Python",
+  "license": "AGPL-3.0",
+  "pushed_at": "2026-03-02T07:00:53Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/82a973c04367123ae98bd9abdf80d9eda9b910e2/README.md",
+      "bytes": 12924,
+      "sha256": "bd853b26858ab8f5065d2e6b90b3552ff8f169977140f3b77a96ed1753bfe916",
+      "line_count": 205
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/82a973c04367123ae98bd9abdf80d9eda9b910e2/pyproject.toml",
+      "bytes": 841,
+      "sha256": "089c0025957e184ab1c3a0baf47e4dc53e54af9d4c1c51d338f2ac95319ed0da",
+      "line_count": 38
+    },
+    {
+      "path": "modules/api/api.py",
+      "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/82a973c04367123ae98bd9abdf80d9eda9b910e2/modules/api/api.py",
+      "bytes": 42038,
+      "sha256": "c2c40f9cbb6946db9b630d376dbcabb04cdefe0d9d2272305546a0ac9d642738",
+      "line_count": 928
+    },
+    {
+      "path": "scripts/xyz_grid.py",
+      "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/82a973c04367123ae98bd9abdf80d9eda9b910e2/scripts/xyz_grid.py",
+      "bytes": 38985,
+      "sha256": "53dfd7bfe770f63bdf2cd99d3f4f494996df4495d4e681b574a035fe3a631fbd",
+      "line_count": 817
+    },
+    {
+      "path": "LICENSE.txt",
+      "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/82a973c04367123ae98bd9abdf80d9eda9b910e2/LICENSE.txt",
+      "bytes": 35240,
+      "sha256": "c62d3d5c30fb226893faa5002a7fa4c159e1660d1298534fdd1d1efe28730067",
+      "line_count": 663
+    }
+  ],
+  "source_tree_blob_count": 315,
+  "source_tree_paths_sha256": "cf771ea706c237a76c5e9a48056f7caf89e4d610e619d9b2e5ada944e2ae14fc",
+  "license_paths_observed": [
+    "LICENSE.txt"
+  ],
+  "dependency_paths_observed": [
+    "package.json",
+    "pyproject.toml",
+    "requirements.txt"
+  ],
+  "test_path_count": 14
+}

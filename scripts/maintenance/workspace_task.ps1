@@ -28,6 +28,8 @@ if($Action -eq 'Start'){
  if($existing.Count){throw "Issue $Issue already has a main worktree; resume it instead of creating another."}
  if(Test-Path -LiteralPath $TaskPath){throw 'TaskPath already exists; nothing overwritten.'}
  GitChecked @('worktree','add','-b',$branch,$TaskPath,'origin/main')
+ & git -C $TaskPath config --worktree core.autocrlf false
+ if($LASTEXITCODE -ne 0){throw 'Task checkout created but source hash configuration failed; preserve it for inspection.'}
  Write-Output "Task checkout: $TaskPath. Build/test/publish scratch belongs under TEMP or the configured artifact_root. Commit before Finish."
 }else{
  $registered=@(GitChecked @('worktree','list','--porcelain') | Where-Object {$_ -eq ('worktree '+$TaskPath.Replace('\','/'))})

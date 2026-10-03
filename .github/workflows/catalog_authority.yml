@@ -1,13 +1,16 @@
 name: Catalog semantic authority
 on:
   pull_request:
-    paths: ['authority/catalog/**', 'src/**', '.github/workflows/catalog_authority.yml']
+    paths: ['authority/catalog/**', 'src/**', 'scripts/maintenance/**', 'tests/test_workspace_health.py', 'research/archive/**', 'docs/foundation/**', '.github/workflows/**']
   push:
     branches: [main]
-    paths: ['authority/catalog/**', 'src/**', '.github/workflows/catalog_authority.yml']
+    paths: ['authority/catalog/**', 'src/**', 'scripts/maintenance/**', 'tests/test_workspace_health.py', 'research/archive/**', 'docs/foundation/**', '.github/workflows/**']
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: product-regression-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 jobs:
   verify-compile-regression:
     runs-on: windows-latest
@@ -17,6 +20,12 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '10.0.x'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: Verify accepted input and compile without historical/protected sources
         shell: pwsh
         run: |
@@ -26,9 +35,26 @@ jobs:
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
       - name: Full regression (local/protected oracle checks remain opt-in)
         shell: pwsh
+        env:
+          DTT_LIBRARY_PERF_OUTPUT: ${{ runner.temp }}/library-performance.json
         run: dotnet test src/DanbooruTagTool.sln -c Release --logger "trx;LogFileName=catalog.trx" --results-directory "${{ runner.temp }}/dtt-tests"
+      - name: Current maintenance, Forge adapter and protected-runtime contracts
+        shell: pwsh
+        run: |
+          python -B -m unittest discover -s scripts/maintenance -p 'test_*.py'
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python -B -m unittest discover -s tests -p 'test_workspace_health.py'
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python -B -c "import ast, pathlib; ast.parse(pathlib.Path('src/ForgeBridge/scripts/dtt_bridge.py').read_text(encoding='utf-8'))"
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          node --check src/ForgeBridge/javascript/dtt_bridge.js
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          ./scripts/maintenance/test_runtime_pipeline.ps1
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: catalog-authority-regression
-          path: ${{ runner.temp }}/dtt-tests
+          path: |
+            ${{ runner.temp }}/dtt-tests
+            ${{ runner.temp }}/library-performance.json
+          retention-days: 14

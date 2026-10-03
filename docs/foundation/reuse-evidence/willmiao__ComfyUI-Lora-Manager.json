@@ -1,0 +1,61 @@
+{
+  "repository": "willmiao/ComfyUI-Lora-Manager",
+  "url": "https://github.com/willmiao/ComfyUI-Lora-Manager",
+  "branch": "main",
+  "source_commit": "515469054c9254d4eb6818a67fd91ba1024574af",
+  "latest_commit_date": "2026-10-02T13:50:19Z",
+  "latest_commit_message": "feat(i18n): translate routing-override keys in all 9 locales",
+  "archived": false,
+  "language": "Python",
+  "license": "GPL-3.0",
+  "pushed_at": "2026-10-02T13:51:39Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/willmiao/ComfyUI-Lora-Manager/blob/515469054c9254d4eb6818a67fd91ba1024574af/README.md",
+      "bytes": 27518,
+      "sha256": "84c8113f530ab1ad0bdc159cc9563174ed2f0f531d6fac98cec3ce0f70fbc1f8",
+      "line_count": 375
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/willmiao/ComfyUI-Lora-Manager/blob/515469054c9254d4eb6818a67fd91ba1024574af/pyproject.toml",
+      "bytes": 745,
+      "sha256": "3b29d7813ae1cf070da8e418e0b1221117e34eb3611aee8049589fc9932040eb",
+      "line_count": 28
+    },
+    {
+      "path": "py/services/civitai_client.py",
+      "url": "https://github.com/willmiao/ComfyUI-Lora-Manager/blob/515469054c9254d4eb6818a67fd91ba1024574af/py/services/civitai_client.py",
+      "bytes": 35725,
+      "sha256": "0537f28ad705b2dfc76c2e2826f4feae453bad43f14b0d9da64b19b24b6923ad",
+      "line_count": 928
+    },
+    {
+      "path": "py/recipes/parsers/civitai_image.py",
+      "url": "https://github.com/willmiao/ComfyUI-Lora-Manager/blob/515469054c9254d4eb6818a67fd91ba1024574af/py/recipes/parsers/civitai_image.py",
+      "bytes": 41131,
+      "sha256": "139e1d8492b10a418ef2ec59cb6b93d9b63adec712a435f16cdd683d0c506194",
+      "line_count": 879
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/willmiao/ComfyUI-Lora-Manager/blob/515469054c9254d4eb6818a67fd91ba1024574af/LICENSE",
+      "bytes": 35114,
+      "sha256": "809305978e6a73045059f7a97d83af3c6197f35a84072d6677e501cd1950e11c",
+      "line_count": 674
+    }
+  ],
+  "source_tree_blob_count": 1021,
+  "source_tree_paths_sha256": "c8b31724d708bfac0fab7348c90b9a2a3b09a4fb20592b5cb3dafd1f41664588",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "package.json",
+    "pyproject.toml",
+    "requirements.txt"
+  ],
+  "test_path_count": 385
+}

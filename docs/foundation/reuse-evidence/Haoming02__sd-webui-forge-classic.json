@@ -1,0 +1,67 @@
+{
+  "repository": "Haoming02/sd-webui-forge-classic",
+  "url": "https://github.com/Haoming02/sd-webui-forge-classic",
+  "branch": "neo",
+  "source_commit": "97b26fb404314a11dad7cdde2706da57ea53f4f2",
+  "latest_commit_date": "2026-10-02T10:08:06Z",
+  "latest_commit_message": "mem",
+  "archived": false,
+  "language": "Python",
+  "license": "AGPL-3.0",
+  "pushed_at": "2026-10-02T19:25:05Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/Haoming02/sd-webui-forge-classic/blob/97b26fb404314a11dad7cdde2706da57ea53f4f2/README.md",
+      "bytes": 19487,
+      "sha256": "1cea3377f919500d70e2337971ffbfbaf619cfe58dfd1354272a313dd8fdb95c",
+      "line_count": 474
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/Haoming02/sd-webui-forge-classic/blob/97b26fb404314a11dad7cdde2706da57ea53f4f2/pyproject.toml",
+      "bytes": 149,
+      "sha256": "a8a25093058990a8cb1f250293053afa7cb8401a5d3c9d92e5c50dbc34782c42",
+      "line_count": 7
+    },
+    {
+      "path": "modules/api/api.py",
+      "url": "https://github.com/Haoming02/sd-webui-forge-classic/blob/97b26fb404314a11dad7cdde2706da57ea53f4f2/modules/api/api.py",
+      "bytes": 37542,
+      "sha256": "a15a3b96720e5c76e7776e051beb3c5ea18bcc84a97f5b802cd66f4566248cef",
+      "line_count": 841
+    },
+    {
+      "path": "modules/prompt_parser.py",
+      "url": "https://github.com/Haoming02/sd-webui-forge-classic/blob/97b26fb404314a11dad7cdde2706da57ea53f4f2/modules/prompt_parser.py",
+      "bytes": 13435,
+      "sha256": "226c5365b94e2030a2a9281ae0fa3b816147eb25e30bdaa5d3247b33e3457b79",
+      "line_count": 370
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/Haoming02/sd-webui-forge-classic/blob/97b26fb404314a11dad7cdde2706da57ea53f4f2/LICENSE",
+      "bytes": 32540,
+      "sha256": "f297a369c878e060916d38700ff1d40d2ab2046842483209ed357c870f81cfaa",
+      "line_count": 623
+    },
+    {
+      "path": "modules/api/models.py",
+      "url": "https://github.com/Haoming02/sd-webui-forge-classic/blob/97b26fb404314a11dad7cdde2706da57ea53f4f2/modules/api/models.py",
+      "bytes": 15566,
+      "sha256": "24bcb0f7006ab56b2e015253f5fee51f0ff425046db83d97e2b4a1cbe6c2d4b7",
+      "line_count": 325
+    }
+  ],
+  "source_tree_blob_count": 1387,
+  "source_tree_paths_sha256": "ec6fc49050ca85345fffbbcb8e46477effcc61b05754b414bf2fff019b98e58c",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "pyproject.toml",
+    "requirements.txt"
+  ],
+  "test_path_count": 9
+}

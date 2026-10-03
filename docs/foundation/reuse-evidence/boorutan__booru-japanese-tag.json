@@ -1,0 +1,52 @@
+{
+  "repository": "boorutan/booru-japanese-tag",
+  "url": "https://github.com/boorutan/booru-japanese-tag",
+  "branch": "main",
+  "source_commit": "cec5f7eefbe5c3addd8fb9338d11435518ae8ccf",
+  "latest_commit_date": "2026-03-07T15:30:34Z",
+  "latest_commit_message": "add 37 tags / fix 1 tags",
+  "archived": false,
+  "language": "Go",
+  "license": "MIT",
+  "pushed_at": "2026-03-07T15:30:37Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/boorutan/booru-japanese-tag/blob/cec5f7eefbe5c3addd8fb9338d11435518ae8ccf/README.md",
+      "bytes": 4164,
+      "sha256": "d7802e557de201473fc3aaef87662d5059a3f9e384157636efb40b967a5f5bdc",
+      "line_count": 64
+    },
+    {
+      "path": "go.mod",
+      "url": "https://github.com/boorutan/booru-japanese-tag/blob/cec5f7eefbe5c3addd8fb9338d11435518ae8ccf/go.mod",
+      "bytes": 1109,
+      "sha256": "ca18d560a9678d4f0f2557edbd8347992619b28a63571711ac4d6a071d42f593",
+      "line_count": 30
+    },
+    {
+      "path": "main.go",
+      "url": "https://github.com/boorutan/booru-japanese-tag/blob/cec5f7eefbe5c3addd8fb9338d11435518ae8ccf/main.go",
+      "bytes": 5490,
+      "sha256": "f4589c6b2ec4e2cbb07dcfa972e54e2f1299c0389cc54ae3c559cce4a42e1c7a",
+      "line_count": 208
+    },
+    {
+      "path": "db/sqlite3.go",
+      "url": "https://github.com/boorutan/booru-japanese-tag/blob/cec5f7eefbe5c3addd8fb9338d11435518ae8ccf/db/sqlite3.go",
+      "bytes": 350,
+      "sha256": "ce1c6c5abc43b2efbc8ae727a1f07112766681abaddcdc5ef434c6ce999da76c",
+      "line_count": 25
+    }
+  ],
+  "source_tree_blob_count": 23,
+  "source_tree_paths_sha256": "09e2b1148c86b0178cc82747ab10087e14e1f6e9779fda057420ee534802abf5",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "go.mod"
+  ],
+  "test_path_count": 0
+}

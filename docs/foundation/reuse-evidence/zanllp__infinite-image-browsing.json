@@ -1,0 +1,73 @@
+{
+  "repository": "zanllp/infinite-image-browsing",
+  "url": "https://github.com/zanllp/infinite-image-browsing",
+  "branch": "main",
+  "source_commit": "ac5418772986623d8dfa64ff12cdd54be2459b2b",
+  "latest_commit_date": "2026-08-22T13:54:31Z",
+  "latest_commit_message": "Merge pull request releases/1.9.0: bump to v1.9.0 and update changelog",
+  "archived": false,
+  "language": "Vue",
+  "license": "MIT",
+  "pushed_at": "2026-08-22T13:54:59Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/zanllp/infinite-image-browsing/blob/ac5418772986623d8dfa64ff12cdd54be2459b2b/README.md",
+      "bytes": 18891,
+      "sha256": "794903e4f0ba3b7dc158413ef813ed31832423e02c32778d2feba0c1987bd9b8",
+      "line_count": 321
+    },
+    {
+      "path": "requirements.txt",
+      "url": "https://github.com/zanllp/infinite-image-browsing/blob/ac5418772986623d8dfa64ff12cdd54be2459b2b/requirements.txt",
+      "bytes": 349,
+      "sha256": "cbd05bcc90bfd7d7747d400893607364233364497b1e07afdda8eabef4e456e4",
+      "line_count": 16
+    },
+    {
+      "path": "vue/usage.md",
+      "url": "https://github.com/zanllp/infinite-image-browsing/blob/ac5418772986623d8dfa64ff12cdd54be2459b2b/vue/usage.md",
+      "bytes": 2611,
+      "sha256": "edcb1f05d76d0c6fde8bde224f8802b4966ffa5cc9c451d7843ff91f8441e669",
+      "line_count": 72
+    },
+    {
+      "path": "scripts/iib/parsers/index.py",
+      "url": "https://github.com/zanllp/infinite-image-browsing/blob/ac5418772986623d8dfa64ff12cdd54be2459b2b/scripts/iib/parsers/index.py",
+      "bytes": 1515,
+      "sha256": "372ecf577aa3b647dc6dfa3028ac28af6b15c5f56fb17d52bfa8f013a809fd0e",
+      "line_count": 40
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/zanllp/infinite-image-browsing/blob/ac5418772986623d8dfa64ff12cdd54be2459b2b/LICENSE",
+      "bytes": 1063,
+      "sha256": "74c2bf5f27e8a40f31954514b3f09a0faa9c6c4b650fec1bbbbeb02eae288cba",
+      "line_count": 21
+    },
+    {
+      "path": "scripts/iib/db/datamodel.py",
+      "url": "https://github.com/zanllp/infinite-image-browsing/blob/ac5418772986623d8dfa64ff12cdd54be2459b2b/scripts/iib/db/datamodel.py",
+      "bytes": 54004,
+      "sha256": "67ce56bb6f28e2e31854d6afefc61048f56916f5727628972ab54b29fa58b596",
+      "line_count": 1485
+    },
+    {
+      "path": "scripts/iib/db/update_image_data.py",
+      "url": "https://github.com/zanllp/infinite-image-browsing/blob/ac5418772986623d8dfa64ff12cdd54be2459b2b/scripts/iib/db/update_image_data.py",
+      "bytes": 8839,
+      "sha256": "2a03a1357cec41ccef9e3fcbbe382a5c67f9a6a65ab44a1b9f61a233cee8be95",
+      "line_count": 251
+    }
+  ],
+  "source_tree_blob_count": 262,
+  "source_tree_paths_sha256": "cd160ba2dbc7873d06ddaebe3e558e9f254e2911af410f9c60f4e748e08ad9df",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "requirements.txt"
+  ],
+  "test_path_count": 1
+}

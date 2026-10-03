@@ -1,0 +1,25 @@
+{
+  "asset": "Qwen/Qwen3-Embedding-0.6B",
+  "kind": "models",
+  "url": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B",
+  "source_commit": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+  "last_modified": "2026-04-20T02:45:58.000Z",
+  "license": "apache-2.0",
+  "gated": false,
+  "siblings": [
+    ".gitattributes",
+    "1_Pooling/config.json",
+    "README.md",
+    "config.json",
+    "config_sentence_transformers.json",
+    "generation_config.json",
+    "merges.txt",
+    "model.safetensors",
+    "modules.json",
+    "tokenizer.json",
+    "tokenizer_config.json",
+    "vocab.json"
+  ],
+  "checked_date": "2026-10-03",
+  "card_sha256": "c34d9b7e5a267ad3fdd13227a253686bc90844ff4744a2a6a86c7c905e3d06f3"
+}

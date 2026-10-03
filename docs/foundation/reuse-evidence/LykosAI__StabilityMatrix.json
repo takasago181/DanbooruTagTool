@@ -1,0 +1,65 @@
+{
+  "repository": "LykosAI/StabilityMatrix",
+  "url": "https://github.com/LykosAI/StabilityMatrix",
+  "branch": "main",
+  "source_commit": "604387e55633550c248c9b71b7a2968711210286",
+  "latest_commit_date": "2026-10-01T03:29:46Z",
+  "latest_commit_message": "Merge pull request #1763 from LykosAI/fix/link-safe-enumerate-simplify",
+  "archived": false,
+  "language": "C#",
+  "license": "AGPL-3.0",
+  "pushed_at": "2026-10-01T03:29:47Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/LykosAI/StabilityMatrix/blob/604387e55633550c248c9b71b7a2968711210286/README.md",
+      "bytes": 9460,
+      "sha256": "6999878d9179ebea729f1bda13ec849d12d2328eb525b0598df8deee79441468",
+      "line_count": 162
+    },
+    {
+      "path": "StabilityMatrix.Core/Models/ConnectedModelInfo.cs",
+      "url": "https://github.com/LykosAI/StabilityMatrix/blob/604387e55633550c248c9b71b7a2968711210286/StabilityMatrix.Core/Models/ConnectedModelInfo.cs",
+      "bytes": 9001,
+      "sha256": "4fb92dc97ea61c4734715374f81c4db4c5945b30489bf472a53e8afdfe2bf726",
+      "line_count": 249
+    },
+    {
+      "path": "StabilityMatrix.Core/Models/WorkflowMetadata.cs",
+      "url": "https://github.com/LykosAI/StabilityMatrix/blob/604387e55633550c248c9b71b7a2968711210286/StabilityMatrix.Core/Models/WorkflowMetadata.cs",
+      "bytes": 1252,
+      "sha256": "fc37adb4adad9437f144d6b1b4549b3fb5ebcdb182d8deb3afb2666159f0eed4",
+      "line_count": 33
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/LykosAI/StabilityMatrix/blob/604387e55633550c248c9b71b7a2968711210286/LICENSE",
+      "bytes": 34522,
+      "sha256": "4df3c306dddaaf4baffdff5ca820cc679ac8cd6dc263c6a74517783e42fa7a3b",
+      "line_count": 661
+    }
+  ],
+  "source_tree_blob_count": 1843,
+  "source_tree_paths_sha256": "b6367c9194873eabf6e91e274c5fe81e0fa0741ef6607e2d38f3fea229523dc2",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "Avalonia.Gif/Avalonia.Gif.csproj",
+    "StabilityMatrix.Analyzers.CodeFixes/StabilityMatrix.Analyzers.CodeFixes.csproj",
+    "StabilityMatrix.Avalonia.Diagnostics/StabilityMatrix.Avalonia.Diagnostics.csproj",
+    "StabilityMatrix.Avalonia/StabilityMatrix.Avalonia.csproj",
+    "StabilityMatrix.Core/StabilityMatrix.Core.csproj",
+    "StabilityMatrix.Native.Abstractions/StabilityMatrix.Native.Abstractions.csproj",
+    "StabilityMatrix.Native.Windows/StabilityMatrix.Native.Windows.csproj",
+    "StabilityMatrix.Native.macOS/StabilityMatrix.Native.macOS.csproj",
+    "StabilityMatrix.Native/StabilityMatrix.Native.csproj",
+    "StabilityMatrix.Tests/StabilityMatrix.Tests.csproj",
+    "StabilityMatrix.UITests/StabilityMatrix.UITests.csproj",
+    "StabilityMatrix/StabilityMatrix.csproj",
+    "analyzers/StabilityMatrix.Analyzers.CodeFixes/StabilityMatrix.Analyzers.CodeFixes.csproj",
+    "analyzers/StabilityMatrix.Analyzers/StabilityMatrix.Analyzers.csproj"
+  ],
+  "test_path_count": 6
+}

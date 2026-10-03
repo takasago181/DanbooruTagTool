@@ -1,0 +1,23 @@
+{
+  "asset": "Wenaka/danbooru2024_general_tags_classified",
+  "kind": "datasets",
+  "url": "https://huggingface.co/datasets/Wenaka/danbooru2024_general_tags_classified",
+  "source_commit": "d75a9569df49310adbdf0c03f1018310700b4e8b",
+  "last_modified": "2025-11-03T13:20:26.000Z",
+  "license": "apache-2.0",
+  "gated": false,
+  "siblings": [
+    ".gitattributes",
+    "README.md",
+    "人物本身的特征.csv",
+    "其他.csv",
+    "动作.csv",
+    "服饰.csv",
+    "构图.csv",
+    "物品.csv",
+    "环境_背景.csv",
+    "表情.csv"
+  ],
+  "checked_date": "2026-10-03",
+  "card_sha256": "b5ad79900c473e0a86d1b8437d8f7d3865ae3f6a424b752b718bb411c9b60288"
+}

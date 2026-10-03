@@ -1,0 +1,50 @@
+{
+  "repository": "lllyasviel/Fooocus",
+  "url": "https://github.com/lllyasviel/Fooocus",
+  "branch": "main",
+  "source_commit": "ae05379cc97bc4361ec8b4ec90193dab21be763f",
+  "latest_commit_date": "2025-09-02T20:28:40Z",
+  "latest_commit_message": "ci: bump actions/checkout from 4 to 5 (#4085)",
+  "archived": false,
+  "language": "Python",
+  "license": "GPL-3.0",
+  "pushed_at": "2025-12-01T19:17:07Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "readme.md",
+      "url": "https://github.com/lllyasviel/Fooocus/blob/ae05379cc97bc4361ec8b4ec90193dab21be763f/readme.md",
+      "bytes": 33354,
+      "sha256": "89e1efb0ef1245a6b2abc4db41d5b76e3179656f875db99675900dc477e067bf",
+      "line_count": 486
+    },
+    {
+      "path": "modules/meta_parser.py",
+      "url": "https://github.com/lllyasviel/Fooocus/blob/ae05379cc97bc4361ec8b4ec90193dab21be763f/modules/meta_parser.py",
+      "bytes": 25686,
+      "sha256": "1ff11d91fb034c6df80ce1f60c141c3ab18352a92fe3b2d8a1fc78a6be96f724",
+      "line_count": 650
+    },
+    {
+      "path": "ldm_patched/modules/args_parser.py",
+      "url": "https://github.com/lllyasviel/Fooocus/blob/ae05379cc97bc4361ec8b4ec90193dab21be763f/ldm_patched/modules/args_parser.py",
+      "bytes": 5253,
+      "sha256": "12d067a76a4cf98365454dd6bc20ad8cae3dcb6efc17c0385595e210d328380d",
+      "line_count": 126
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/lllyasviel/Fooocus/blob/ae05379cc97bc4361ec8b4ec90193dab21be763f/LICENSE",
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "line_count": 674
+    }
+  ],
+  "source_tree_blob_count": 612,
+  "source_tree_paths_sha256": "4a10917bf857142681d459c391078a9c8f92d97826ffe9e9b40a83f31d5e5385",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 3
+}

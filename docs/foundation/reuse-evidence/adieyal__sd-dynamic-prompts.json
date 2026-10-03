@@ -1,0 +1,60 @@
+{
+  "repository": "adieyal/sd-dynamic-prompts",
+  "url": "https://github.com/adieyal/sd-dynamic-prompts",
+  "branch": "main",
+  "source_commit": "de056ff8d80e4ad120e13a90cf200f3383f427c6",
+  "latest_commit_date": "2024-05-26T19:33:58Z",
+  "latest_commit_message": "Fix possible wildcard parser breaking wildcards in collection (#772)",
+  "archived": false,
+  "language": "Python",
+  "license": "MIT",
+  "pushed_at": "2024-07-19T10:45:59Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/adieyal/sd-dynamic-prompts/blob/de056ff8d80e4ad120e13a90cf200f3383f427c6/README.md",
+      "bytes": 22170,
+      "sha256": "9c0e85c23e97e8f7705b1648ad1a593ff3dece4f8f82fa18efbced2e11706a56",
+      "line_count": 352
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/adieyal/sd-dynamic-prompts/blob/de056ff8d80e4ad120e13a90cf200f3383f427c6/pyproject.toml",
+      "bytes": 779,
+      "sha256": "4bf941a8e3993a691cb882475734f28ec8fc061924cd3cf754488efdde0ad0c7",
+      "line_count": 51
+    },
+    {
+      "path": "scripts/dynamic_prompting.py",
+      "url": "https://github.com/adieyal/sd-dynamic-prompts/blob/de056ff8d80e4ad120e13a90cf200f3383f427c6/scripts/dynamic_prompting.py",
+      "bytes": 108,
+      "sha256": "ba33340059a216e805194a6119ce72831b5405ee57d54ad4cea8900074226243",
+      "line_count": 5
+    },
+    {
+      "path": "sd_dynamic_prompts/paths.py",
+      "url": "https://github.com/adieyal/sd-dynamic-prompts/blob/de056ff8d80e4ad120e13a90cf200f3383f427c6/sd_dynamic_prompts/paths.py",
+      "bytes": 1123,
+      "sha256": "1f57d1dc763f2befbcf94d8a7b8dc4e2499551016579f6068f20bdf062780ef7",
+      "line_count": 39
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/adieyal/sd-dynamic-prompts/blob/de056ff8d80e4ad120e13a90cf200f3383f427c6/LICENSE",
+      "bytes": 1065,
+      "sha256": "baac026d47dfb9746756379d464a779f5b247d4545cffb4598892e278a421eda",
+      "line_count": 21
+    }
+  ],
+  "source_tree_blob_count": 1797,
+  "source_tree_paths_sha256": "9760601cec273d0994f86838106ed1b854f5bdba8117d9fa5af1fd75cfa26537",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "package.json",
+    "pyproject.toml"
+  ],
+  "test_path_count": 13
+}

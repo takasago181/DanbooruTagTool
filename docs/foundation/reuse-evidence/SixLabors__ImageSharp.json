@@ -1,0 +1,56 @@
+{
+  "repository": "SixLabors/ImageSharp",
+  "url": "https://github.com/SixLabors/ImageSharp",
+  "branch": "main",
+  "source_commit": "c0ee744956433b7ad719ab2d7d8d9c8975e9b653",
+  "latest_commit_date": "2026-09-28T05:41:07Z",
+  "latest_commit_message": "Merge pull request #3201 from SixLabors/js/exr-hdr-v5-plan",
+  "archived": false,
+  "language": "C#",
+  "license": "NOASSERTION",
+  "pushed_at": "2026-09-28T05:41:09Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/SixLabors/ImageSharp/blob/c0ee744956433b7ad719ab2d7d8d9c8975e9b653/README.md",
+      "bytes": 6398,
+      "sha256": "d0387c8a19c7ff5b24cffe4d9f1c273a281b21edb87236a86b85668419ef8219",
+      "line_count": 119
+    },
+    {
+      "path": "src/ImageSharp/Formats/Png/PngMetadata.cs",
+      "url": "https://github.com/SixLabors/ImageSharp/blob/c0ee744956433b7ad719ab2d7d8d9c8975e9b653/src/ImageSharp/Formats/Png/PngMetadata.cs",
+      "bytes": 8730,
+      "sha256": "e85666bc9b36a1c883ebb0761b75da4f5cd7030f972c31417cbe16074a9a19a9",
+      "line_count": 257
+    },
+    {
+      "path": "src/ImageSharp/Metadata/Profiles/Exif/ExifProfile.cs",
+      "url": "https://github.com/SixLabors/ImageSharp/blob/c0ee744956433b7ad719ab2d7d8d9c8975e9b653/src/ImageSharp/Metadata/Profiles/Exif/ExifProfile.cs",
+      "bytes": 13095,
+      "sha256": "dfcc836ab73d86a10a00b6d2118fe95fbca9d662269c16bf0fbad76e1f8aa477",
+      "line_count": 423
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/SixLabors/ImageSharp/blob/c0ee744956433b7ad719ab2d7d8d9c8975e9b653/LICENSE",
+      "bytes": 2215,
+      "sha256": "fdb7f24db8a6838eba1477242d2457bf6db2f3682b7cb3a16824e9f2f07936c2",
+      "line_count": 43
+    }
+  ],
+  "source_tree_blob_count": 4559,
+  "source_tree_paths_sha256": "8cbc625a0721400cb9a732c4cec123abac49507abe727d6bbda7a0a86427191f",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "src/ImageSharp/ImageSharp.csproj",
+    "tests/ImageSharp.Benchmarks/ImageSharp.Benchmarks.csproj",
+    "tests/ImageSharp.PublicApi.Tests/ImageSharp.PublicApi.Tests.csproj",
+    "tests/ImageSharp.Tests.ProfilingSandbox/ImageSharp.Tests.ProfilingSandbox.csproj",
+    "tests/ImageSharp.Tests/ImageSharp.Tests.csproj"
+  ],
+  "test_path_count": 3114
+}

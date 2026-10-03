@@ -1,0 +1,67 @@
+{
+  "repository": "Comfy-Org/ComfyUI",
+  "url": "https://github.com/Comfy-Org/ComfyUI",
+  "branch": "master",
+  "source_commit": "36c0b0a687e5e6d7b55e3e61ab24262ffc0f2508",
+  "latest_commit_date": "2026-10-02T22:22:04Z",
+  "latest_commit_message": "chore: update workflow templates to v0.11.76 (#16739)",
+  "archived": false,
+  "language": "Python",
+  "license": "GPL-3.0",
+  "pushed_at": "2026-10-02T22:55:10Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/36c0b0a687e5e6d7b55e3e61ab24262ffc0f2508/README.md",
+      "bytes": 29289,
+      "sha256": "c05cda2b7ea64c1ed4cb092be7bff3e18ace9444fe29c7f5492cc1bcfcb1f55d",
+      "line_count": 439
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/36c0b0a687e5e6d7b55e3e61ab24262ffc0f2508/pyproject.toml",
+      "bytes": 2017,
+      "sha256": "1a18ba33a0562d693d7b44caef446376b89299ab8866d4c95fd957d7f9a1d257",
+      "line_count": 75
+    },
+    {
+      "path": "server.py",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/36c0b0a687e5e6d7b55e3e61ab24262ffc0f2508/server.py",
+      "bytes": 64964,
+      "sha256": "7dc4ca3bd801a64da1fe7c2d1af81da61999f6b96dd96637d456e0562e8ce40b",
+      "line_count": 1487
+    },
+    {
+      "path": "nodes.py",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/36c0b0a687e5e6d7b55e3e61ab24262ffc0f2508/nodes.py",
+      "bytes": 109130,
+      "sha256": "fe624b0c1b6a3cd124a2214e5700b61337589144c2f0668900a04f8ccc031e38",
+      "line_count": 2619
+    },
+    {
+      "path": "script_examples/basic_api_example.py",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/36c0b0a687e5e6d7b55e3e61ab24262ffc0f2508/script_examples/basic_api_example.py",
+      "bytes": 2830,
+      "sha256": "8bf77cd877f989445ca317efab08ae72c36071a2839bf1f0fc992e5907b005ec",
+      "line_count": 123
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/36c0b0a687e5e6d7b55e3e61ab24262ffc0f2508/LICENSE",
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "line_count": 674
+    }
+  ],
+  "source_tree_blob_count": 1239,
+  "source_tree_paths_sha256": "f5c201995e0464b79c9fe88c19e636ea5b170f56626bde1addea2cf3f92daea2",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "pyproject.toml",
+    "requirements.txt"
+  ],
+  "test_path_count": 239
+}

@@ -1,0 +1,59 @@
+{
+  "repository": "mikhailfur/sd-webui-ai-wdywfm",
+  "url": "https://github.com/mikhailfur/sd-webui-ai-wdywfm",
+  "branch": "master",
+  "source_commit": "e060cf9fd565012dcadba9990c3e6f3f68433300",
+  "latest_commit_date": "2026-08-02T14:37:20Z",
+  "latest_commit_message": "Add lazy LoRA tools, web search, and recommender",
+  "archived": false,
+  "language": "Python",
+  "license": "GPL-3.0",
+  "pushed_at": "2026-08-02T14:37:24Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/mikhailfur/sd-webui-ai-wdywfm/blob/e060cf9fd565012dcadba9990c3e6f3f68433300/README.md",
+      "bytes": 19721,
+      "sha256": "269d852593c5e995cd0d136aa8f7c3a03c5b411db6f36f814ad7256a1e6465f8",
+      "line_count": 436
+    },
+    {
+      "path": "requirements.txt",
+      "url": "https://github.com/mikhailfur/sd-webui-ai-wdywfm/blob/e060cf9fd565012dcadba9990c3e6f3f68433300/requirements.txt",
+      "bytes": 157,
+      "sha256": "3addd459e538a051549ca58e3388f396b9ccfaeed3370b8f02d747b91b4530a2",
+      "line_count": 2
+    },
+    {
+      "path": "ai_wdywfm/infrastructure/civitai/client.py",
+      "url": "https://github.com/mikhailfur/sd-webui-ai-wdywfm/blob/e060cf9fd565012dcadba9990c3e6f3f68433300/ai_wdywfm/infrastructure/civitai/client.py",
+      "bytes": 7462,
+      "sha256": "9414facfb2a7035f1a20e859d92dd171fd5a9fa47461b17cb02b32e080318168",
+      "line_count": 198
+    },
+    {
+      "path": "ai_wdywfm/application/apply_prompts.py",
+      "url": "https://github.com/mikhailfur/sd-webui-ai-wdywfm/blob/e060cf9fd565012dcadba9990c3e6f3f68433300/ai_wdywfm/application/apply_prompts.py",
+      "bytes": 988,
+      "sha256": "0293364470012a43f912f0e261ba8e4d0d03ad07ac876f56751aefcb99911348",
+      "line_count": 31
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/mikhailfur/sd-webui-ai-wdywfm/blob/e060cf9fd565012dcadba9990c3e6f3f68433300/LICENSE",
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "line_count": 674
+    }
+  ],
+  "source_tree_blob_count": 103,
+  "source_tree_paths_sha256": "909970b1942fd60754e1a12ac3b53254ab6767a7e0118f8eac60ca9058e9ef2e",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "requirements.txt"
+  ],
+  "test_path_count": 12
+}

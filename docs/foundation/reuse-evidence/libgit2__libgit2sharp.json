@@ -1,0 +1,49 @@
+{
+  "repository": "libgit2/libgit2sharp",
+  "url": "https://github.com/libgit2/libgit2sharp",
+  "branch": "master",
+  "source_commit": "eaa698d078941fd5e3cc82b59b885cd35d8cc0f8",
+  "latest_commit_date": "2026-07-22T22:58:58Z",
+  "latest_commit_message": "Merge pull request #2186 from libgit2/ethomson/updates",
+  "archived": false,
+  "language": "C#",
+  "license": "MIT",
+  "pushed_at": "2026-07-23T09:05:29Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/libgit2/libgit2sharp/blob/eaa698d078941fd5e3cc82b59b885cd35d8cc0f8/README.md",
+      "bytes": 2625,
+      "sha256": "579b8192778709b7bc4186b9c73410a47fe2d4bf3f8eff8a4174989ae4bc3488",
+      "line_count": 46
+    },
+    {
+      "path": "LibGit2Sharp/WorktreeCollection.cs",
+      "url": "https://github.com/libgit2/libgit2sharp/blob/eaa698d078941fd5e3cc82b59b885cd35d8cc0f8/LibGit2Sharp/WorktreeCollection.cs",
+      "bytes": 6415,
+      "sha256": "e6517ea80a1dcd32d37ed69080332256a693abf3709e78a914627c29469372df",
+      "line_count": 191
+    },
+    {
+      "path": "LibGit2Sharp/Worktree.cs",
+      "url": "https://github.com/libgit2/libgit2sharp/blob/eaa698d078941fd5e3cc82b59b885cd35d8cc0f8/LibGit2Sharp/Worktree.cs",
+      "bytes": 4761,
+      "sha256": "809924682fdd8cca0516ef72a61a142541fb075fe065daaf6d87c659ce8c8f91",
+      "line_count": 139
+    }
+  ],
+  "source_tree_blob_count": 1524,
+  "source_tree_paths_sha256": "7738246cec62fbff342344287e1b5eac69d4b86539c2a04199d8d0f6e4350bb8",
+  "license_paths_observed": [
+    "LICENSE.md"
+  ],
+  "dependency_paths_observed": [
+    "LibGit2Sharp.Tests/LibGit2Sharp.Tests.csproj",
+    "LibGit2Sharp/LibGit2Sharp.csproj",
+    "NativeLibraryLoadTestApp/x64/NativeLibraryLoadTestApp.x64.csproj",
+    "NativeLibraryLoadTestApp/x86/NativeLibraryLoadTestApp.x86.csproj",
+    "TrimmingTestApp/TrimmingTestApp.csproj"
+  ],
+  "test_path_count": 291
+}

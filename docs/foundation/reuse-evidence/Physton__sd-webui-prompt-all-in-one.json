@@ -1,0 +1,50 @@
+{
+  "repository": "Physton/sd-webui-prompt-all-in-one",
+  "url": "https://github.com/Physton/sd-webui-prompt-all-in-one",
+  "branch": "main",
+  "source_commit": "22869816ecbafe9c17b6771291ee64fe73b62ca7",
+  "latest_commit_date": "2026-09-13T07:34:00Z",
+  "latest_commit_message": "Merge pull request #380 from bluelovers/pr/autoSplitByPeriod-001",
+  "archived": false,
+  "language": "Python",
+  "license": "MIT",
+  "pushed_at": "2026-09-13T07:34:00Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.MD",
+      "url": "https://github.com/Physton/sd-webui-prompt-all-in-one/blob/22869816ecbafe9c17b6771291ee64fe73b62ca7/README.MD",
+      "bytes": 12781,
+      "sha256": "a49d468902ae41a913879c62673ff9af4f9f53b81a745190d0e03732c1a49f32",
+      "line_count": 173
+    },
+    {
+      "path": "scripts/physton_prompt/csv.py",
+      "url": "https://github.com/Physton/sd-webui-prompt-all-in-one/blob/22869816ecbafe9c17b6771291ee64fe73b62ca7/scripts/physton_prompt/csv.py",
+      "bytes": 1709,
+      "sha256": "a893747e70662fe5cc43b626bd11780d0e837d30c4d2fd4b9218fc43416f1b18",
+      "line_count": 52
+    },
+    {
+      "path": "scripts/physton_prompt/styles.py",
+      "url": "https://github.com/Physton/sd-webui-prompt-all-in-one/blob/22869816ecbafe9c17b6771291ee64fe73b62ca7/scripts/physton_prompt/styles.py",
+      "bytes": 1853,
+      "sha256": "0cc7575747c2479dd8252fb82777731ea9d57d8d39ec114eab83185309b9c51b",
+      "line_count": 63
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/Physton/sd-webui-prompt-all-in-one/blob/22869816ecbafe9c17b6771291ee64fe73b62ca7/LICENSE",
+      "bytes": 1064,
+      "sha256": "c393dbb74fbb80f4de5dde799955ecea5373a8298b0ed4c97e7d66e2010644d7",
+      "line_count": 21
+    }
+  ],
+  "source_tree_blob_count": 259,
+  "source_tree_paths_sha256": "51a6d91402de01abfb83324260fa20f07f0f0cf1bd69a563fa911b518e08a28b",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 7
+}

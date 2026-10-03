@@ -1,0 +1,60 @@
+{
+  "repository": "ComfyAssets/ComfyUI_PromptManager",
+  "url": "https://github.com/ComfyAssets/ComfyUI_PromptManager",
+  "branch": "main",
+  "source_commit": "d70dab56e5fb67c3e471607bc10984975c4cc2aa",
+  "latest_commit_date": "2026-06-29T23:42:45Z",
+  "latest_commit_message": "deps(actions)(deps): bump actions/cache from 5 to 6 (#146)",
+  "archived": false,
+  "language": "Python",
+  "license": "MIT",
+  "pushed_at": "2026-07-26T13:17:18Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/ComfyAssets/ComfyUI_PromptManager/blob/d70dab56e5fb67c3e471607bc10984975c4cc2aa/README.md",
+      "bytes": 46311,
+      "sha256": "b3a372c1e320d63db292c761e9d0314edd3cfcd11899397addc7df9a6ce81248",
+      "line_count": 1037
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/ComfyAssets/ComfyUI_PromptManager/blob/d70dab56e5fb67c3e471607bc10984975c4cc2aa/pyproject.toml",
+      "bytes": 1744,
+      "sha256": "604fb57c729165e768089cc95f9cd024982ddbb761257229e348b27bf98d33d5",
+      "line_count": 27
+    },
+    {
+      "path": "prompt_manager.py",
+      "url": "https://github.com/ComfyAssets/ComfyUI_PromptManager/blob/d70dab56e5fb67c3e471607bc10984975c4cc2aa/prompt_manager.py",
+      "bytes": 9429,
+      "sha256": "c22a1cf2b85fb7981fb68e110c5904abc7c678b7d45b1915231d0a7352c06ff4",
+      "line_count": 258
+    },
+    {
+      "path": "py/api/prompts.py",
+      "url": "https://github.com/ComfyAssets/ComfyUI_PromptManager/blob/d70dab56e5fb67c3e471607bc10984975c4cc2aa/py/api/prompts.py",
+      "bytes": 36621,
+      "sha256": "01a4c3ffddcac0f8b03a481e33398d42a74a87977bc17dba1c379b51888e74d9",
+      "line_count": 978
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/ComfyAssets/ComfyUI_PromptManager/blob/d70dab56e5fb67c3e471607bc10984975c4cc2aa/LICENSE",
+      "bytes": 1068,
+      "sha256": "0c865294d0c580dbe365d9ff5ccd655bd2d3716ca3282cc485b5cf789ec8ea6f",
+      "line_count": 21
+    }
+  ],
+  "source_tree_blob_count": 89,
+  "source_tree_paths_sha256": "4e777b796677656a2031839c66b637504a2fac1313567cc4689b675a23132f34",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "pyproject.toml",
+    "requirements.txt"
+  ],
+  "test_path_count": 21
+}

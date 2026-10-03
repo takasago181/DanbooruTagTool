@@ -1,0 +1,52 @@
+{
+  "repository": "deepghs/waifuc",
+  "url": "https://github.com/deepghs/waifuc",
+  "branch": "main",
+  "source_commit": "efe5c49171a94a6441a79b7d7b595d4b3a4eb51f",
+  "latest_commit_date": "2024-08-24T08:04:56Z",
+  "latest_commit_message": "dev(narugo): add discord chat badge, ci skip",
+  "archived": false,
+  "language": "Python",
+  "license": "MIT",
+  "pushed_at": "2024-08-24T08:05:00Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/deepghs/waifuc/blob/efe5c49171a94a6441a79b7d7b595d4b3a4eb51f/README.md",
+      "bytes": 10539,
+      "sha256": "72caf2997189cb5e9cbd5fbce74ebe18316c46e908a5c1d3c5f0c258210c8dce",
+      "line_count": 215
+    },
+    {
+      "path": "requirements.txt",
+      "url": "https://github.com/deepghs/waifuc/blob/efe5c49171a94a6441a79b7d7b595d4b3a4eb51f/requirements.txt",
+      "bytes": 197,
+      "sha256": "1271edc40797ef8fa12d8d6be238dba481e6bc7079564e1afc49108d82b029f5",
+      "line_count": 16
+    },
+    {
+      "path": "docs/source/advanced_guides/workflow/donuts_source.py",
+      "url": "https://github.com/deepghs/waifuc/blob/efe5c49171a94a6441a79b7d7b595d4b3a4eb51f/docs/source/advanced_guides/workflow/donuts_source.py",
+      "bytes": 313,
+      "sha256": "418fb9ab4c9810d634022f6860817af77ab958497f010f6827aef70f87ceed65",
+      "line_count": 10
+    },
+    {
+      "path": "docs/source/advanced_guides/workflow/waifuc_action.py",
+      "url": "https://github.com/deepghs/waifuc/blob/efe5c49171a94a6441a79b7d7b595d4b3a4eb51f/docs/source/advanced_guides/workflow/waifuc_action.py",
+      "bytes": 428,
+      "sha256": "da0c6dc530475803a78a6c6bc1c09fbb46d17d99d8296f2bd21859300b56b4d5",
+      "line_count": 14
+    }
+  ],
+  "source_tree_blob_count": 365,
+  "source_tree_paths_sha256": "78e18c74e9ebcb5123865935400cc1f967c6bd3d1f9561d96581f79a6e6d818d",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "requirements.txt"
+  ],
+  "test_path_count": 48
+}

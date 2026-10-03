@@ -1,0 +1,43 @@
+{
+  "repository": "mix1009/model-keyword",
+  "url": "https://github.com/mix1009/model-keyword",
+  "branch": "main",
+  "source_commit": "340b3502691804606fdd4c4f572510f771f27b69",
+  "latest_commit_date": "2026-10-02T18:05:11Z",
+  "latest_commit_message": "Update model-keyword.txt",
+  "archived": false,
+  "language": "Python",
+  "license": "MIT",
+  "pushed_at": "2026-10-02T18:05:13Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/mix1009/model-keyword/blob/340b3502691804606fdd4c4f572510f771f27b69/README.md",
+      "bytes": 3459,
+      "sha256": "31f0155a5f8e4caffd8dce87ab17c99ba18cb114cb10f868f22fa6f28775ea1b",
+      "line_count": 60
+    },
+    {
+      "path": "scripts/model_keyword.py",
+      "url": "https://github.com/mix1009/model-keyword/blob/340b3502691804606fdd4c4f572510f771f27b69/scripts/model_keyword.py",
+      "bytes": 28039,
+      "sha256": "33a5959e6290a50f989669509e5d3dd09c9371ee2a2f57f1b9e5d622723232c3",
+      "line_count": 689
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/mix1009/model-keyword/blob/340b3502691804606fdd4c4f572510f771f27b69/LICENSE",
+      "bytes": 1079,
+      "sha256": "665df3b62b63216be2ca94177c762f511d3df58e4850e875e4857100ec3d5d5f",
+      "line_count": 21
+    }
+  ],
+  "source_tree_blob_count": 7,
+  "source_tree_paths_sha256": "5f1b6238a5935fa90135d285071bb117b744d9b9811e656bfbfd05305a539870",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

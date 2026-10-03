@@ -1,0 +1,60 @@
+{
+  "repository": "abzaloff/sd-dynamic-prompts",
+  "url": "https://github.com/abzaloff/sd-dynamic-prompts",
+  "branch": "main",
+  "source_commit": "3e62452776f52e2c641c2c52d3cd908140c3743e",
+  "latest_commit_date": "2026-07-31T23:53:54Z",
+  "latest_commit_message": "Sync Forge batch grid prompts",
+  "archived": false,
+  "language": "Python",
+  "license": "MIT",
+  "pushed_at": "2026-07-31T23:54:05Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/abzaloff/sd-dynamic-prompts/blob/3e62452776f52e2c641c2c52d3cd908140c3743e/README.md",
+      "bytes": 22393,
+      "sha256": "d32942b225dba7c7512203abe6206b4928cb91b87b8ada95ea1c05006a8baba2",
+      "line_count": 355
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/abzaloff/sd-dynamic-prompts/blob/3e62452776f52e2c641c2c52d3cd908140c3743e/pyproject.toml",
+      "bytes": 781,
+      "sha256": "aae8dfa422fba7df0d67629aaa238f1d57d6f136eecf0214033b5e9e4cc3796b",
+      "line_count": 51
+    },
+    {
+      "path": "sd_dynamic_prompts/paths.py",
+      "url": "https://github.com/abzaloff/sd-dynamic-prompts/blob/3e62452776f52e2c641c2c52d3cd908140c3743e/sd_dynamic_prompts/paths.py",
+      "bytes": 1123,
+      "sha256": "1f57d1dc763f2befbcf94d8a7b8dc4e2499551016579f6068f20bdf062780ef7",
+      "line_count": 39
+    },
+    {
+      "path": "scripts/dynamic_prompting.py",
+      "url": "https://github.com/abzaloff/sd-dynamic-prompts/blob/3e62452776f52e2c641c2c52d3cd908140c3743e/scripts/dynamic_prompting.py",
+      "bytes": 108,
+      "sha256": "ba33340059a216e805194a6119ce72831b5405ee57d54ad4cea8900074226243",
+      "line_count": 5
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/abzaloff/sd-dynamic-prompts/blob/3e62452776f52e2c641c2c52d3cd908140c3743e/LICENSE",
+      "bytes": 1065,
+      "sha256": "baac026d47dfb9746756379d464a779f5b247d4545cffb4598892e278a421eda",
+      "line_count": 21
+    }
+  ],
+  "source_tree_blob_count": 1797,
+  "source_tree_paths_sha256": "9760601cec273d0994f86838106ed1b854f5bdba8117d9fa5af1fd75cfa26537",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "package.json",
+    "pyproject.toml"
+  ],
+  "test_path_count": 13
+}

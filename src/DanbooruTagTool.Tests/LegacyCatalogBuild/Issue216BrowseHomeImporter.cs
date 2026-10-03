@@ -6,7 +6,7 @@ namespace DanbooruTagTool.Data;
 /// <summary>Build-time projection only. Never reads research inputs during startup.</summary>
 public static class Issue216BrowseHomeImporter
 {
-    public const string RelativePath = "docs/issue216/BROWSE_HOME_RUNTIME_V1.csv";
+    public const string RelativePath = "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue216/BROWSE_HOME_RUNTIME_V1.csv";
     public const string ExpectedSha256 = "51a5099d422a4aa8acb0e8eddd14ccf4a9a42d9efa93a30f645b0a97d877ab95";
 
     public static CatalogEntry[] Apply(string path, CatalogEntry[] entries)

@@ -1,0 +1,41 @@
+{
+  "repository": "Replactionap/Stable-diffusion-webui-civitai-helper-RED-UPDATE",
+  "url": "https://github.com/Replactionap/Stable-diffusion-webui-civitai-helper-RED-UPDATE",
+  "branch": "master",
+  "source_commit": "2556ffd6b9032e66669e31433bd74090e7f5d1b4",
+  "latest_commit_date": "2026-04-20T11:55:56Z",
+  "latest_commit_message": "fix: README formatting and wording",
+  "archived": false,
+  "language": "Python",
+  "license": null,
+  "pushed_at": "2026-04-20T11:55:56Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/Replactionap/Stable-Diffusion-Webui-Civitai-Helper-RED-UPDATE/blob/2556ffd6b9032e66669e31433bd74090e7f5d1b4/README.md",
+      "bytes": 15793,
+      "sha256": "bcd59a7938f110dbab4de3aef6ef310eb55677a29050f421df32e6900f2556e3",
+      "line_count": 247
+    },
+    {
+      "path": "ch_lib/civitai.py",
+      "url": "https://github.com/Replactionap/Stable-Diffusion-Webui-Civitai-Helper-RED-UPDATE/blob/2556ffd6b9032e66669e31433bd74090e7f5d1b4/ch_lib/civitai.py",
+      "bytes": 22588,
+      "sha256": "c0351b28b286ad02cd6eb66e6aef28bf91e75c294a3715c0bc06c891b067b559",
+      "line_count": 804
+    },
+    {
+      "path": "scripts/civitai_helper.py",
+      "url": "https://github.com/Replactionap/Stable-Diffusion-Webui-Civitai-Helper-RED-UPDATE/blob/2556ffd6b9032e66669e31433bd74090e7f5d1b4/scripts/civitai_helper.py",
+      "bytes": 11363,
+      "sha256": "a37c51c536ff170b0aa9b2ed5856869681e65f4fdbbd1fd4d359e913bf986ffe",
+      "line_count": 372
+    }
+  ],
+  "source_tree_blob_count": 56,
+  "source_tree_paths_sha256": "f0020c51567bf1dc6348cbc5f324f8566cdca01d1dbacb5ccbc038880f043ca6",
+  "license_paths_observed": [],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

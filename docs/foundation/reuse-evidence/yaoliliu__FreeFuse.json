@@ -1,0 +1,52 @@
+{
+  "repository": "yaoliliu/FreeFuse",
+  "url": "https://github.com/yaoliliu/FreeFuse",
+  "branch": "master",
+  "source_commit": "f5570195e84d3bc8e7f6702fcb7b012b89372b8e",
+  "latest_commit_date": "2026-08-23T12:30:32Z",
+  "latest_commit_message": "Fix corrupted ComfyUI workflow links",
+  "archived": false,
+  "language": "Python",
+  "license": "Apache-2.0",
+  "pushed_at": "2026-08-23T12:46:47Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/yaoliliu/FreeFuse/blob/f5570195e84d3bc8e7f6702fcb7b012b89372b8e/README.md",
+      "bytes": 5162,
+      "sha256": "4d4180a111a7635d9f44b5646496edbae4a94f4b15382b9840bb2a9df8a24d92",
+      "line_count": 150
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/yaoliliu/FreeFuse/blob/f5570195e84d3bc8e7f6702fcb7b012b89372b8e/pyproject.toml",
+      "bytes": 779,
+      "sha256": "65c47278a4ebbf8d2550fc02f332adcfb138182419f0f2faad49afba02be5176",
+      "line_count": 36
+    },
+    {
+      "path": "main_ltx2.py",
+      "url": "https://github.com/yaoliliu/FreeFuse/blob/f5570195e84d3bc8e7f6702fcb7b012b89372b8e/main_ltx2.py",
+      "bytes": 4202,
+      "sha256": "8827b004d5e71d0e96a92b42ddd8dc2a6084c20e9ac970db008d9495f0659d05",
+      "line_count": 134
+    },
+    {
+      "path": "main_freefuse_flux.py",
+      "url": "https://github.com/yaoliliu/FreeFuse/blob/f5570195e84d3bc8e7f6702fcb7b012b89372b8e/main_freefuse_flux.py",
+      "bytes": 18269,
+      "sha256": "c2aa4fac403071b98837e631afff9f79995175b9d0b0a0a5e2ee6da4813c9712",
+      "line_count": 410
+    }
+  ],
+  "source_tree_blob_count": 172,
+  "source_tree_paths_sha256": "7e16053d7c0415dfe061767d3a23b7f6b89ba6b2913fdb784fddb896817f348d",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "pyproject.toml"
+  ],
+  "test_path_count": 17
+}

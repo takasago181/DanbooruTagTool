@@ -1,0 +1,34 @@
+{
+  "repository": "BetaDoggo/danbooru-tag-list",
+  "url": "https://github.com/BetaDoggo/danbooru-tag-list",
+  "branch": "main",
+  "source_commit": "251856c68161b1b050518672c105d16287749399",
+  "latest_commit_date": "2026-08-13T02:16:56Z",
+  "latest_commit_message": "sloppily add gelbooru support",
+  "archived": false,
+  "language": "Python",
+  "license": null,
+  "pushed_at": "2026-08-13T02:17:21Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/BetaDoggo/danbooru-tag-list/blob/251856c68161b1b050518672c105d16287749399/README.md",
+      "bytes": 2925,
+      "sha256": "10f47459ba55fb4cea354e165f0223d0279e5ac407ec823507f92ac0acefa2bc",
+      "line_count": 42
+    },
+    {
+      "path": "scrape_tags.py",
+      "url": "https://github.com/BetaDoggo/danbooru-tag-list/blob/251856c68161b1b050518672c105d16287749399/scrape_tags.py",
+      "bytes": 15236,
+      "sha256": "2468e15fcff0b5b077a01eff974f97c867bd0217b22aeb3f0c850689946f420d",
+      "line_count": 369
+    }
+  ],
+  "source_tree_blob_count": 2,
+  "source_tree_paths_sha256": "e6dd4f952ee95726d3324962bc33993ae82d6347e90d2623d8dce730c36e4e26",
+  "license_paths_observed": [],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

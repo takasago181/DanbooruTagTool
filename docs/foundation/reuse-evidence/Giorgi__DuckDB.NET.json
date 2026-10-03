@@ -1,0 +1,57 @@
+{
+  "repository": "Giorgi/DuckDB.NET",
+  "url": "https://github.com/Giorgi/DuckDB.NET",
+  "branch": "develop",
+  "source_commit": "625d4cb5f856c54aaae70509b57a68c7c6a09efe",
+  "latest_commit_date": "2026-09-29T07:38:29Z",
+  "latest_commit_message": "Regenerate AGENTS.md",
+  "archived": false,
+  "language": "C#",
+  "license": "MIT",
+  "pushed_at": "2026-09-29T07:38:33Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/Giorgi/DuckDB.NET/blob/625d4cb5f856c54aaae70509b57a68c7c6a09efe/README.md",
+      "bytes": 4744,
+      "sha256": "cbd5eafa50ff7dfe66c64a7c7422751605f790da91ceb4ea55c7a6405869c25e",
+      "line_count": 106
+    },
+    {
+      "path": "DuckDB.NET.Data/DuckDBCommand.cs",
+      "url": "https://github.com/Giorgi/DuckDB.NET/blob/625d4cb5f856c54aaae70509b57a68c7c6a09efe/DuckDB.NET.Data/DuckDBCommand.cs",
+      "bytes": 6059,
+      "sha256": "af101d9839c3823f26624170d1c02135eb57a535cc6e1cc01a59a9f533d0e012",
+      "line_count": 180
+    },
+    {
+      "path": "DuckDB.NET.Test/DuckDBCommandTests.cs",
+      "url": "https://github.com/Giorgi/DuckDB.NET/blob/625d4cb5f856c54aaae70509b57a68c7c6a09efe/DuckDB.NET.Test/DuckDBCommandTests.cs",
+      "bytes": 496,
+      "sha256": "2deb903cd36cdaefbca420b6043fb4bc2cf4a552e4910b59290f97553af7b1dc",
+      "line_count": 20
+    },
+    {
+      "path": "LICENSE.md",
+      "url": "https://github.com/Giorgi/DuckDB.NET/blob/625d4cb5f856c54aaae70509b57a68c7c6a09efe/LICENSE.md",
+      "bytes": 1076,
+      "sha256": "91ba5e7529bb908f1e09539fde3e37ed379bffc42d84473683d29499e6c8dc75",
+      "line_count": 21
+    }
+  ],
+  "source_tree_blob_count": 199,
+  "source_tree_paths_sha256": "453f124d5c5eeb7cd06b553aec8d84b526e503f3c0fea56131dfcf726cf5e67a",
+  "license_paths_observed": [
+    "LICENSE-DuckDB.txt",
+    "LICENSE.md"
+  ],
+  "dependency_paths_observed": [
+    "DuckDB.NET.Benchmarks/Benchmarks.csproj",
+    "DuckDB.NET.Bindings/Bindings.csproj",
+    "DuckDB.NET.Data/Data.csproj",
+    "DuckDB.NET.Samples/Samples.csproj",
+    "DuckDB.NET.Test/Test.csproj"
+  ],
+  "test_path_count": 2
+}

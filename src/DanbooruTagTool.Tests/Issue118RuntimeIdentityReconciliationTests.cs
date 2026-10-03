@@ -61,8 +61,9 @@ public sealed class Issue118RuntimeIdentityReconciliationTests(ITestOutputHelper
             records.Add(AuditRecord.RuntimeOnly(runtimeIdentity, backing));
         }
 
-        var auditPath = Path.Combine(authorityRoot, "docs/issue118/runtime_identity_reconciliation_v2.csv");
-        var conflictPath = Path.Combine(authorityRoot, "docs/issue118/runtime_identity_conflicts_v2.csv");
+        using var generated = new TempDirectory();
+        var auditPath = Path.Combine(generated.Path, "runtime_identity_reconciliation_v2.csv");
+        var conflictPath = Path.Combine(generated.Path, "runtime_identity_conflicts_v2.csv");
         Directory.CreateDirectory(Path.GetDirectoryName(auditPath)!);
         WriteCsv(auditPath, records);
         WriteCsv(conflictPath, records.Where(record => record.ReconciliationStatus is "SEMANTIC_CONFLICT" or "UNCLASSIFIED_CONFLICT" or "IDENTITY_MAPPING_ERROR"));
@@ -99,7 +100,7 @@ public sealed class Issue118RuntimeIdentityReconciliationTests(ITestOutputHelper
             runtimeGroups.Keys.OrderBy(value => value, StringComparer.Ordinal),
             records.Where(record => record.RuntimeIdentity.Length > 0).Select(record => record.RuntimeIdentity).Distinct(StringComparer.Ordinal).OrderBy(value => value, StringComparer.Ordinal));
         Assert.Contains(ordinary, entry => entry.IsSpecial && entry.Canonical != null && Issue118SexualIntentOverlay.NormalizeIdentity(entry.English) != Issue118SexualIntentOverlay.NormalizeIdentity(entry.Canonical));
-        var review = MaterializeCorrectionReview(authorityRoot, records);
+        var review = MaterializeCorrectionReview(authorityRoot, generated.Path, records);
         Assert.Equal(conflictGroups, review.Length);
         Assert.DoesNotContain(review, row => row.MappingQuality != "VALID");
         Assert.DoesNotContain(review, row => row.ReviewerAction != "RESOLVED");
@@ -109,9 +110,9 @@ public sealed class Issue118RuntimeIdentityReconciliationTests(ITestOutputHelper
     private static string SourceIdentity(CatalogEntry entry)
         => Issue118SexualIntentOverlay.NormalizeIdentity(entry.IsSpecial ? entry.English : entry.Canonical ?? entry.English);
 
-    private static ReviewDecision[] MaterializeCorrectionReview(string authorityRoot, IReadOnlyList<AuditRecord> records)
+    private static ReviewDecision[] MaterializeCorrectionReview(string authorityRoot, string outputRoot, IReadOnlyList<AuditRecord> records)
     {
-        var oldReview = AcceptedAssetImporter.Csv(Path.Combine(authorityRoot, "docs/issue118/runtime_identity_conflict_review_v1.csv"))
+        var oldReview = AcceptedAssetImporter.Csv(Path.Combine(authorityRoot, "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue118/runtime_identity_conflict_review_v1.csv"))
             .ToDictionary(row => row["runtime_identity"], StringComparer.Ordinal);
         var groups = records
             .Where(record => record.ReconciliationStatus is "SEMANTIC_CONFLICT" or "UNCLASSIFIED_CONFLICT")
@@ -135,8 +136,8 @@ public sealed class Issue118RuntimeIdentityReconciliationTests(ITestOutputHelper
                 "RESOLVED"));
         }
 
-        var decisionPath = Path.Combine(authorityRoot, "docs/issue118/runtime_identity_conflict_review_decisions_v2.csv");
-        var reviewPath = Path.Combine(authorityRoot, "docs/issue118/runtime_identity_conflict_review_v2.csv");
+        var decisionPath = Path.Combine(outputRoot, "runtime_identity_conflict_review_decisions_v2.csv");
+        var reviewPath = Path.Combine(outputRoot, "runtime_identity_conflict_review_v2.csv");
         WriteReviewDecisions(decisionPath, reviewed);
         WriteReview(reviewPath, groups, reviewed);
         return reviewed.ToArray();

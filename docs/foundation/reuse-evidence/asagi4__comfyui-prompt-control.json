@@ -1,0 +1,52 @@
+{
+  "repository": "asagi4/comfyui-prompt-control",
+  "url": "https://github.com/asagi4/comfyui-prompt-control",
+  "branch": "master",
+  "source_commit": "88af041dce376c97441d2efe5479e27de4b52cd8",
+  "latest_commit_date": "2026-09-15T17:34:58Z",
+  "latest_commit_message": "v3.0.0-beta.10",
+  "archived": false,
+  "language": "Python",
+  "license": "GPL-3.0",
+  "pushed_at": "2026-09-15T17:37:12Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/asagi4/comfyui-prompt-control/blob/88af041dce376c97441d2efe5479e27de4b52cd8/README.md",
+      "bytes": 5608,
+      "sha256": "43a8dfd189ece81461ac5dc06511e211e85ea06ecd148c6436e6b240a52add55",
+      "line_count": 83
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/asagi4/comfyui-prompt-control/blob/88af041dce376c97441d2efe5479e27de4b52cd8/pyproject.toml",
+      "bytes": 1139,
+      "sha256": "25badf09a6c90a5a825e95f04df19a4eba3dec08ada1b46e780aad79270731f3",
+      "line_count": 48
+    },
+    {
+      "path": "prompt_control/parser.py",
+      "url": "https://github.com/asagi4/comfyui-prompt-control/blob/88af041dce376c97441d2efe5479e27de4b52cd8/prompt_control/parser.py",
+      "bytes": 12003,
+      "sha256": "6f605204826e34bb8fd757feb2f4231e4ff23b12f383bae924e1f130167a3d13",
+      "line_count": 397
+    },
+    {
+      "path": "prompt_control/cutoff_parser.py",
+      "url": "https://github.com/asagi4/comfyui-prompt-control/blob/88af041dce376c97441d2efe5479e27de4b52cd8/prompt_control/cutoff_parser.py",
+      "bytes": 652,
+      "sha256": "3f8f5eedb215685b47f4afd1ec2f3d46938453df0cb1a2c120299644fd419efe",
+      "line_count": 25
+    }
+  ],
+  "source_tree_blob_count": 57,
+  "source_tree_paths_sha256": "ae7cb4287a74baf4b5d3500aa7673bd0a732e6debaf037372fac40cdd38d6283",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "pyproject.toml"
+  ],
+  "test_path_count": 12
+}

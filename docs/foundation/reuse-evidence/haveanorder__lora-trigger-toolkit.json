@@ -1,0 +1,50 @@
+{
+  "repository": "haveanorder/lora-trigger-toolkit",
+  "url": "https://github.com/haveanorder/lora-trigger-toolkit",
+  "branch": "main",
+  "source_commit": "9c738345652ec1bcf08475040b5912778478d2e1",
+  "latest_commit_date": "2026-06-19T16:30:21Z",
+  "latest_commit_message": "Merge remote license",
+  "archived": false,
+  "language": "Python",
+  "license": "MIT",
+  "pushed_at": "2026-06-19T16:30:35Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/haveanorder/lora-trigger-toolkit/blob/9c738345652ec1bcf08475040b5912778478d2e1/README.md",
+      "bytes": 15006,
+      "sha256": "ed1cd7aa9fcf604c3c1b2441771f712286b717ff6215db8f466d0e7dde232f28",
+      "line_count": 447
+    },
+    {
+      "path": "nodes.py",
+      "url": "https://github.com/haveanorder/lora-trigger-toolkit/blob/9c738345652ec1bcf08475040b5912778478d2e1/nodes.py",
+      "bytes": 14580,
+      "sha256": "87adff2dcd98c54660fe45cf5aa0e0e467822359c731a98378e727ab0d458a98",
+      "line_count": 383
+    },
+    {
+      "path": "service.py",
+      "url": "https://github.com/haveanorder/lora-trigger-toolkit/blob/9c738345652ec1bcf08475040b5912778478d2e1/service.py",
+      "bytes": 101586,
+      "sha256": "3a7891f4acf8631d5e9d815a7549cdd646255e5f58ac1a90eb2a273bcc9f15ce",
+      "line_count": 2317
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/haveanorder/lora-trigger-toolkit/blob/9c738345652ec1bcf08475040b5912778478d2e1/LICENSE",
+      "bytes": 1068,
+      "sha256": "9dd290badee7cad4c01971dd11dc6a3cc9a52b5d6b7eeebc48c5edeae3dec9ae",
+      "line_count": 21
+    }
+  ],
+  "source_tree_blob_count": 9,
+  "source_tree_paths_sha256": "6ad1c33728c7fc6e109da6a87693ef693b25aa054f210f230d9903d971410004",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

@@ -1,0 +1,60 @@
+{
+  "repository": "lllyasviel/stable-diffusion-webui-forge",
+  "url": "https://github.com/lllyasviel/stable-diffusion-webui-forge",
+  "branch": "main",
+  "source_commit": "dfdcbab685e57677014f05a3309b48cc87383167",
+  "latest_commit_date": "2025-06-26T17:53:55Z",
+  "latest_commit_message": "Fix SD upscale Batch count (#2950)",
+  "archived": false,
+  "language": "Python",
+  "license": "AGPL-3.0",
+  "pushed_at": "2025-07-31T01:33:17Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/lllyasviel/stable-diffusion-webui-forge/blob/dfdcbab685e57677014f05a3309b48cc87383167/README.md",
+      "bytes": 12192,
+      "sha256": "e99a0cdc5711816a3da4edb1d70f41dcf3396a6e1fd524f9dd236ce6b1a76cc0",
+      "line_count": 213
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/lllyasviel/stable-diffusion-webui-forge/blob/dfdcbab685e57677014f05a3309b48cc87383167/pyproject.toml",
+      "bytes": 909,
+      "sha256": "2571aae687c19bc0e86c82446dfb130909604b6abd6660ccbec53e5c11ad2edf",
+      "line_count": 42
+    },
+    {
+      "path": "modules/api/api.py",
+      "url": "https://github.com/lllyasviel/stable-diffusion-webui-forge/blob/dfdcbab685e57677014f05a3309b48cc87383167/modules/api/api.py",
+      "bytes": 40158,
+      "sha256": "fb90e77b6ca73e0fec21925275b7d0618f8199ec7ed15df8f50027dc0a072fe0",
+      "line_count": 880
+    },
+    {
+      "path": "modules/prompt_parser.py",
+      "url": "https://github.com/lllyasviel/stable-diffusion-webui-forge/blob/dfdcbab685e57677014f05a3309b48cc87383167/modules/prompt_parser.py",
+      "bytes": 17343,
+      "sha256": "912bcf891e3af93faa78138d9dea165510f48664e65a89a32241aa2c2c917848",
+      "line_count": 480
+    },
+    {
+      "path": "LICENSE.txt",
+      "url": "https://github.com/lllyasviel/stable-diffusion-webui-forge/blob/dfdcbab685e57677014f05a3309b48cc87383167/LICENSE.txt",
+      "bytes": 36431,
+      "sha256": "b7d209bbb4b140f12154cafcdc6446775689df5e800bc6db8ef6a72caf4f63e6",
+      "line_count": 688
+    }
+  ],
+  "source_tree_blob_count": 1508,
+  "source_tree_paths_sha256": "dec94804e0f144af8d664ae7bb2e03b7ab7d3b61cb95854717ec1d496b9dd334",
+  "license_paths_observed": [
+    "LICENSE.txt"
+  ],
+  "dependency_paths_observed": [
+    "package.json",
+    "pyproject.toml"
+  ],
+  "test_path_count": 10
+}

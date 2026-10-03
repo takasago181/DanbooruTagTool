@@ -1,0 +1,31 @@
+{
+  "asset": "isek-ai/danbooru-tags-2024",
+  "kind": "datasets",
+  "url": "https://huggingface.co/datasets/isek-ai/danbooru-tags-2024",
+  "source_commit": "b1ee778f07b50c1ef0da4e87637e5b1168708a7a",
+  "last_modified": "2025-03-03T07:04:08.000Z",
+  "license": "cc0-1.0",
+  "gated": false,
+  "siblings": [
+    ".gitattributes",
+    "README.md",
+    "data/train-00000-of-00012.parquet",
+    "data/train-00001-of-00012.parquet",
+    "data/train-00002-of-00012.parquet",
+    "data/train-00003-of-00012.parquet",
+    "data/train-00004-of-00012.parquet",
+    "data/train-00005-of-00012.parquet",
+    "data/train-00006-of-00012.parquet",
+    "data/train-00007-of-00012.parquet",
+    "data/train-00008-of-00012.parquet",
+    "data/train-00009-of-00012.parquet",
+    "data/train-00010-of-00012.parquet",
+    "data/train-00011-of-00012.parquet",
+    "sfw/train-00000-of-00004.parquet",
+    "sfw/train-00001-of-00004.parquet",
+    "sfw/train-00002-of-00004.parquet",
+    "sfw/train-00003-of-00004.parquet"
+  ],
+  "checked_date": "2026-10-03",
+  "card_sha256": "0a886558c6e42cc55e6cd20029bbecadff6ed4adebf88d024c602b48f9454d0e"
+}

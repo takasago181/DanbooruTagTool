@@ -7,8 +7,8 @@ namespace DanbooruTagTool.Data;
 /// <summary>Build-time importer; research and CSV never read during startup.</summary>
 public static class Issue223BrowseGroupImporter
 {
-    public const string GroupsPath = "docs/issue223/BROWSE_GROUPS_V1.csv";
-    public const string MembersPath = "docs/issue223/BROWSE_GROUP_MEMBERS_V1.csv";
+    public const string GroupsPath = "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue223/BROWSE_GROUPS_V1.csv";
+    public const string MembersPath = "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue223/BROWSE_GROUP_MEMBERS_V1.csv";
     public const string GroupsSha256 = "441faa745e5e2d783855c37342508f3597a4fb97cdec1440a7f9e29ae809035f";
     public const string MembersSha256 = "4c59c44b6c74d221b569815bdf3829d4cba2743cd3fada3c923789bdf2d7e715";
 

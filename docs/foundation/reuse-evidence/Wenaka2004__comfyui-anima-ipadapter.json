@@ -1,0 +1,50 @@
+{
+  "repository": "Wenaka2004/comfyui-anima-ipadapter",
+  "url": "https://github.com/Wenaka2004/comfyui-anima-ipadapter",
+  "branch": "main",
+  "source_commit": "5f53e2b10802d5715967806cbe88d761b018a121",
+  "latest_commit_date": "2026-05-15T07:05:21Z",
+  "latest_commit_message": "Add CrossLayerEncoder + SigLIP shallow features per arXiv:2504.12395",
+  "archived": false,
+  "language": "Python",
+  "license": null,
+  "pushed_at": "2026-05-15T07:05:22Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/Wenaka2004/comfyui-anima-ipadapter/blob/5f53e2b10802d5715967806cbe88d761b018a121/README.md",
+      "bytes": 4015,
+      "sha256": "56047a31bd9b2a07359138e03021ee61f89b7b0da35cd321d096cca1bbbed3dd",
+      "line_count": 108
+    },
+    {
+      "path": "requirements.txt",
+      "url": "https://github.com/Wenaka2004/comfyui-anima-ipadapter/blob/5f53e2b10802d5715967806cbe88d761b018a121/requirements.txt",
+      "bytes": 76,
+      "sha256": "cc3570e8fedd1b5d1186a5200c3f6f1d2bbf6676096977b7fcdc403f19fc7018",
+      "line_count": 6
+    },
+    {
+      "path": "nodes.py",
+      "url": "https://github.com/Wenaka2004/comfyui-anima-ipadapter/blob/5f53e2b10802d5715967806cbe88d761b018a121/nodes.py",
+      "bytes": 10306,
+      "sha256": "ae0021781c27eeb6ce164272ea1230bcc380cb4492e3b7c95b22cacb98d98ebd",
+      "line_count": 275
+    },
+    {
+      "path": "__init__.py",
+      "url": "https://github.com/Wenaka2004/comfyui-anima-ipadapter/blob/5f53e2b10802d5715967806cbe88d761b018a121/__init__.py",
+      "bytes": 67,
+      "sha256": "cebf06c8c0fd096d61ec31ae4a498671ff5f98d1cabdfd06d5d7df5d30f6a72c",
+      "line_count": 1
+    }
+  ],
+  "source_tree_blob_count": 9,
+  "source_tree_paths_sha256": "01406aef3cb618c9ff583fe77efe5b7543f8cfe351ecd2cb6387086381270e38",
+  "license_paths_observed": [],
+  "dependency_paths_observed": [
+    "requirements.txt"
+  ],
+  "test_path_count": 0
+}

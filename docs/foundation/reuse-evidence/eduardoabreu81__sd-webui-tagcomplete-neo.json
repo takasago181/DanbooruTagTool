@@ -1,0 +1,50 @@
+{
+  "repository": "eduardoabreu81/sd-webui-tagcomplete-neo",
+  "url": "https://github.com/eduardoabreu81/sd-webui-tagcomplete-neo",
+  "branch": "main",
+  "source_commit": "b66df0d4ca70b4ef36a9867c4cb94d247c64db37",
+  "latest_commit_date": "2026-09-25T19:47:18Z",
+  "latest_commit_message": "docs(readme): bump to v0.2.2 — ANIMA artist prefix, embedding fallback fixes",
+  "archived": false,
+  "language": "JavaScript",
+  "license": "MIT",
+  "pushed_at": "2026-09-25T19:47:40Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/eduardoabreu81/sd-webui-tagcomplete-neo/blob/b66df0d4ca70b4ef36a9867c4cb94d247c64db37/README.md",
+      "bytes": 11825,
+      "sha256": "65d33f476bea21bface88028fc7ea9a76a256943371ba8c797e34d24510b0255",
+      "line_count": 247
+    },
+    {
+      "path": "scripts/tag_autocomplete_helper.py",
+      "url": "https://github.com/eduardoabreu81/sd-webui-tagcomplete-neo/blob/b66df0d4ca70b4ef36a9867c4cb94d247c64db37/scripts/tag_autocomplete_helper.py",
+      "bytes": 51584,
+      "sha256": "fe5148471fcf03df6adafb408ecc6479c3eb0bc495697514b595a6b40abb82d5",
+      "line_count": 1126
+    },
+    {
+      "path": "install.py",
+      "url": "https://github.com/eduardoabreu81/sd-webui-tagcomplete-neo/blob/b66df0d4ca70b4ef36a9867c4cb94d247c64db37/install.py",
+      "bytes": 858,
+      "sha256": "0778ba7cf3b3ac31c965ef170754cb919376297db28bb6fa56f5817962dd9603",
+      "line_count": 34
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/eduardoabreu81/sd-webui-tagcomplete-neo/blob/b66df0d4ca70b4ef36a9867c4cb94d247c64db37/LICENSE",
+      "bytes": 1068,
+      "sha256": "c1532c29734187eddd3948321379fa95ba79191bc3cb41d2787d7dff6e5913b5",
+      "line_count": 21
+    }
+  ],
+  "source_tree_blob_count": 36,
+  "source_tree_paths_sha256": "d9066649a1c29befa1799f07d1f8179b321d83fc32aac70e6e50b2c843e614cb",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

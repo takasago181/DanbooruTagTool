@@ -1,0 +1,53 @@
+{
+  "repository": "pythongosssss/ComfyUI-WD14-Tagger",
+  "url": "https://github.com/pythongosssss/ComfyUI-WD14-Tagger",
+  "branch": "main",
+  "source_commit": "9e0a6e700299182fc05c58b62e7ad9f72182a78b",
+  "latest_commit_date": "2025-07-11T09:59:23Z",
+  "latest_commit_message": "Update pyproject.toml",
+  "archived": false,
+  "language": "Python",
+  "license": "MIT",
+  "pushed_at": "2025-07-11T09:59:23Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/pythongosssss/ComfyUI-WD14-Tagger/blob/9e0a6e700299182fc05c58b62e7ad9f72182a78b/README.md",
+      "bytes": 3282,
+      "sha256": "11b053f4b0cbf344b7b97e31b1f5764c38d7f84cbab49bfc02a095ca202acb07",
+      "line_count": 49
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/pythongosssss/ComfyUI-WD14-Tagger/blob/9e0a6e700299182fc05c58b62e7ad9f72182a78b/pyproject.toml",
+      "bytes": 383,
+      "sha256": "5882c816a5850268425f9e9b6cbda245fe7ca87f6049b4150275efbf1f7c6529",
+      "line_count": 14
+    },
+    {
+      "path": "pysssss.py",
+      "url": "https://github.com/pythongosssss/ComfyUI-WD14-Tagger/blob/9e0a6e700299182fc05c58b62e7ad9f72182a78b/pysssss.py",
+      "bytes": 7199,
+      "sha256": "92132a620a5531a277fdba608bc728480e548fbda4c2b804dd714d916f1c3876",
+      "line_count": 242
+    },
+    {
+      "path": "__init__.py",
+      "url": "https://github.com/pythongosssss/ComfyUI-WD14-Tagger/blob/9e0a6e700299182fc05c58b62e7ad9f72182a78b/__init__.py",
+      "bytes": 256,
+      "sha256": "627762f27f3def58f865196bf08b7b8900252cfccdc5ade6dce81dd6ca0f3e9b",
+      "line_count": 6
+    }
+  ],
+  "source_tree_blob_count": 11,
+  "source_tree_paths_sha256": "c5fa2777f61b3688cdc031a351884b05b27ff7678ee744f86fccc3def3e3ca70",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "pyproject.toml",
+    "requirements.txt"
+  ],
+  "test_path_count": 0
+}

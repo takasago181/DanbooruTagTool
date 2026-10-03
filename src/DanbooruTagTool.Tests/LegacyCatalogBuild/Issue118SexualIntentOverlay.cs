@@ -9,7 +9,7 @@ namespace DanbooruTagTool.Data;
 /// </summary>
 public static class Issue118SexualIntentOverlay
 {
-    public const string RelativePath = "docs/issue118/production_candidate/sexual_intent_v1.csv";
+    public const string RelativePath = "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue118/production_candidate/sexual_intent_v1.csv";
     public const int IdentityCount = 31_752;
     public const int AutoHighConfidenceCount = 22_371;
     public const int HumanReviewedCount = 9_376;

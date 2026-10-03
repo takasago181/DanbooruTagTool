@@ -1,0 +1,50 @@
+{
+  "repository": "hirorohi03/ScribeNEO",
+  "url": "https://github.com/hirorohi03/ScribeNEO",
+  "branch": "main",
+  "source_commit": "e9a9deaced174c040f4ddff0540432d761c7c650",
+  "latest_commit_date": "2026-09-02T05:37:52Z",
+  "latest_commit_message": "Update README",
+  "archived": false,
+  "language": "Python",
+  "license": "MIT",
+  "pushed_at": "2026-09-02T05:37:52Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/hirorohi03/ScribeNEO/blob/e9a9deaced174c040f4ddff0540432d761c7c650/README.md",
+      "bytes": 7088,
+      "sha256": "e33b561d53b685378959ef5bdd03f73a08ce59b6bfa691ce12cc49e150d838e0",
+      "line_count": 110
+    },
+    {
+      "path": "scripts/main.py",
+      "url": "https://github.com/hirorohi03/ScribeNEO/blob/e9a9deaced174c040f4ddff0540432d761c7c650/scripts/main.py",
+      "bytes": 33313,
+      "sha256": "9932b4415db78f558cfd7b2d7960eec83f77eb2fd6a5f783c642aaf1b29005c5",
+      "line_count": 774
+    },
+    {
+      "path": "lib_scribeneo/llm.py",
+      "url": "https://github.com/hirorohi03/ScribeNEO/blob/e9a9deaced174c040f4ddff0540432d761c7c650/lib_scribeneo/llm.py",
+      "bytes": 23267,
+      "sha256": "b8bdcb740ae676b72ac41a408ef0fbdc689ac7d8cfbc2f744631fdacf062757a",
+      "line_count": 501
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/hirorohi03/ScribeNEO/blob/e9a9deaced174c040f4ddff0540432d761c7c650/LICENSE",
+      "bytes": 1079,
+      "sha256": "bda4e8ef5b7f9a785ded7ae110a90b03e5f5a0c7f5462c5aaf4f08fb536280ac",
+      "line_count": 21
+    }
+  ],
+  "source_tree_blob_count": 16,
+  "source_tree_paths_sha256": "e1f2f77de3a0569f63e1f0ed36966cce1dda40bafade2893d427800f30b5e55b",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

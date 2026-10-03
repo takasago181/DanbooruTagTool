@@ -1,0 +1,50 @@
+{
+  "repository": "Haoming02/sd-forge-couple",
+  "url": "https://github.com/Haoming02/sd-forge-couple",
+  "branch": "main",
+  "source_commit": "c7884e81623d7fcbf4c92e3aea14ced8b5b6aa74",
+  "latest_commit_date": "2026-05-28T03:15:19Z",
+  "latest_commit_message": "hires",
+  "archived": false,
+  "language": "Python",
+  "license": "GPL-3.0",
+  "pushed_at": "2026-06-02T02:50:58Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/Haoming02/sd-forge-couple/blob/c7884e81623d7fcbf4c92e3aea14ced8b5b6aa74/README.md",
+      "bytes": 16192,
+      "sha256": "3c828f407f66143a5809f998b60f2e7576fd3d11091fdaa282b0ac526c348bf8",
+      "line_count": 387
+    },
+    {
+      "path": "lib_couple/ui.py",
+      "url": "https://github.com/Haoming02/sd-forge-couple/blob/c7884e81623d7fcbf4c92e3aea14ced8b5b6aa74/lib_couple/ui.py",
+      "bytes": 7886,
+      "sha256": "bf9358026169e3044d0df61de3ba761a656c99fd66c9459cd5ea1894223d4b39",
+      "line_count": 241
+    },
+    {
+      "path": "lib_couple/anima.py",
+      "url": "https://github.com/Haoming02/sd-forge-couple/blob/c7884e81623d7fcbf4c92e3aea14ced8b5b6aa74/lib_couple/anima.py",
+      "bytes": 5205,
+      "sha256": "d44d3d7fd8fda95052572e1635a69704002bbe6616b488bd7a11ce53602213f0",
+      "line_count": 150
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/Haoming02/sd-forge-couple/blob/c7884e81623d7fcbf4c92e3aea14ced8b5b6aa74/LICENSE",
+      "bytes": 32423,
+      "sha256": "d1bfc7a749950924bd5d27dee610ac8933f96badc14a774be796e986b9dcd3aa",
+      "line_count": 619
+    }
+  ],
+  "source_tree_blob_count": 38,
+  "source_tree_paths_sha256": "049cc60a19fbb77b6a5527c5be154962002f9683d643bf12d06f5ba4dab2cc9d",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

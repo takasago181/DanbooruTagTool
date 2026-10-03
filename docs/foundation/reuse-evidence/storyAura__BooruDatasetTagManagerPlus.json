@@ -1,0 +1,67 @@
+{
+  "repository": "storyAura/BooruDatasetTagManagerPlus",
+  "url": "https://github.com/storyAura/BooruDatasetTagManagerPlus",
+  "branch": "main",
+  "source_commit": "94a348f82f41e1e0a3d27a780630df039b560e54",
+  "latest_commit_date": "2026-10-02T17:00:49Z",
+  "latest_commit_message": "Merge pull request #1 from furjifurji/feat/image-tags-local-search",
+  "archived": false,
+  "language": "C#",
+  "license": "MIT",
+  "pushed_at": "2026-10-02T17:00:50Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/storyAura/BooruDatasetTagManagerPlus/blob/94a348f82f41e1e0a3d27a780630df039b560e54/README.md",
+      "bytes": 26946,
+      "sha256": "3a5aa371bcabb50e440b3406d69277def9b6f16203a9164adad7095f7d01bd87",
+      "line_count": 241
+    },
+    {
+      "path": "BooruDatasetTagManager/PromptParser.cs",
+      "url": "https://github.com/storyAura/BooruDatasetTagManagerPlus/blob/94a348f82f41e1e0a3d27a780630df039b560e54/BooruDatasetTagManager/PromptParser.cs",
+      "bytes": 6660,
+      "sha256": "1a6d2a96c881f81846f02ace0af401a073654031fd1268ada935ea9e81440fbd",
+      "line_count": 174
+    },
+    {
+      "path": "BooruDatasetTagManager.Tests/PromptParserCultureTests.cs",
+      "url": "https://github.com/storyAura/BooruDatasetTagManagerPlus/blob/94a348f82f41e1e0a3d27a780630df039b560e54/BooruDatasetTagManager.Tests/PromptParserCultureTests.cs",
+      "bytes": 1617,
+      "sha256": "8c5539a535043bc3f14bacad5c55d174224564c740f237543b2c5fd97ef7d9a4",
+      "line_count": 52
+    },
+    {
+      "path": "BooruDatasetTagManager/SecretProtector.cs",
+      "url": "https://github.com/storyAura/BooruDatasetTagManagerPlus/blob/94a348f82f41e1e0a3d27a780630df039b560e54/BooruDatasetTagManager/SecretProtector.cs",
+      "bytes": 4956,
+      "sha256": "4cd7f7ec3fc97a1e882ff1231c93d266930aef8afbf5b45bed4bf1c353491c3b",
+      "line_count": 120
+    },
+    {
+      "path": "BooruDatasetTagManager/AiApi/AiOpenAiClient.cs",
+      "url": "https://github.com/storyAura/BooruDatasetTagManagerPlus/blob/94a348f82f41e1e0a3d27a780630df039b560e54/BooruDatasetTagManager/AiApi/AiOpenAiClient.cs",
+      "bytes": 17010,
+      "sha256": "234dafca6f4184e7c135bdf470ed16b03992c504118d02b73ded89e3e5f69f8c",
+      "line_count": 381
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/storyAura/BooruDatasetTagManagerPlus/blob/94a348f82f41e1e0a3d27a780630df039b560e54/LICENSE",
+      "bytes": 1066,
+      "sha256": "b85729ee812c9e5198dc354da8f25e4d02a648eeb4dc08008a762c63a7bd41da",
+      "line_count": 21
+    }
+  ],
+  "source_tree_blob_count": 373,
+  "source_tree_paths_sha256": "6dc7fe4416969e7d9909e18be5227ee7d745dd9729d402333fb7533107ef337c",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "BooruDatasetTagManager.Tests/BooruDatasetTagManager.Tests.csproj",
+    "BooruDatasetTagManager/BooruDatasetTagManager.csproj"
+  ],
+  "test_path_count": 2
+}

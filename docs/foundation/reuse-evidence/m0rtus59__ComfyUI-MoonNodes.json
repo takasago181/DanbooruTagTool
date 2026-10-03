@@ -1,0 +1,53 @@
+{
+  "repository": "m0rtus59/ComfyUI-MoonNodes",
+  "url": "https://github.com/m0rtus59/ComfyUI-MoonNodes",
+  "branch": "main",
+  "source_commit": "9875c7ef927b866bf91815e006f4a523762a3ec7",
+  "latest_commit_date": "2026-08-22T22:18:23Z",
+  "latest_commit_message": "update anima regional patcher advanced",
+  "archived": false,
+  "language": "Python",
+  "license": "GPL-3.0",
+  "pushed_at": "2026-08-22T22:19:04Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/m0rtus59/ComfyUI-MoonNodes/blob/9875c7ef927b866bf91815e006f4a523762a3ec7/README.md",
+      "bytes": 8120,
+      "sha256": "55cb76a7b0165102d76cfa7a9fb1c732b8b72f4d0971d83bf7a8f57b2baab236",
+      "line_count": 181
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/m0rtus59/ComfyUI-MoonNodes/blob/9875c7ef927b866bf91815e006f4a523762a3ec7/pyproject.toml",
+      "bytes": 492,
+      "sha256": "698e2b192f3b9d13a4e5844f6266e78833a0e2c8d074f370f4b19b25bcaa3da3",
+      "line_count": 16
+    },
+    {
+      "path": "__init__.py",
+      "url": "https://github.com/m0rtus59/ComfyUI-MoonNodes/blob/9875c7ef927b866bf91815e006f4a523762a3ec7/__init__.py",
+      "bytes": 2597,
+      "sha256": "5ed6d300ea08ef3613f8ea25d50098110cb50b9c2fca4ab14c04a7e669bd3f33",
+      "line_count": 54
+    },
+    {
+      "path": "py/nodes/LLM_input.py",
+      "url": "https://github.com/m0rtus59/ComfyUI-MoonNodes/blob/9875c7ef927b866bf91815e006f4a523762a3ec7/py/nodes/LLM_input.py",
+      "bytes": 1155,
+      "sha256": "3c3bffafc53a2cf060c61782f277926389c29746a3305da8b26c3856366b85d8",
+      "line_count": 39
+    }
+  ],
+  "source_tree_blob_count": 40,
+  "source_tree_paths_sha256": "56cc84d2461c52efb05839f816cfd4c005b1164d5023f696a4c1e03a5d561861",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "pyproject.toml",
+    "requirements.txt"
+  ],
+  "test_path_count": 0
+}

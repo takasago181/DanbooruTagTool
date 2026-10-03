@@ -1,0 +1,36 @@
+{
+  "repository": "BFRKQSB7/ai-prompt-supermarket",
+  "url": "https://github.com/BFRKQSB7/ai-prompt-supermarket",
+  "branch": "main",
+  "source_commit": "239129033870ad7667643f085e5393c8a7480d6c",
+  "latest_commit_date": "2026-08-16T17:29:23Z",
+  "latest_commit_message": "docs: 长期化——README 徽章/英文同步 + 维护文档 + .gitignore",
+  "archived": false,
+  "language": "HTML",
+  "license": "MIT",
+  "pushed_at": "2026-08-16T17:29:25Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/BFRKQSB7/ai-prompt-supermarket/blob/239129033870ad7667643f085e5393c8a7480d6c/README.md",
+      "bytes": 7166,
+      "sha256": "bf6c74717250bd519c688f61df755db1b66242cd5061b09d1161ddf45b01fa39",
+      "line_count": 108
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/BFRKQSB7/ai-prompt-supermarket/blob/239129033870ad7667643f085e5393c8a7480d6c/LICENSE",
+      "bytes": 1065,
+      "sha256": "39145ea9cec51d45a8e030d7e17c47a8dcb840b1e45a3a74ec30169e5b6fa1d4",
+      "line_count": 21
+    }
+  ],
+  "source_tree_blob_count": 7,
+  "source_tree_paths_sha256": "fd88994f50ca4136360c1a9b71616ceefcb0e1c071c7108f05d353b15b4022fb",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

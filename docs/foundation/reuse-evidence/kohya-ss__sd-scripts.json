@@ -1,0 +1,52 @@
+{
+  "repository": "kohya-ss/sd-scripts",
+  "url": "https://github.com/kohya-ss/sd-scripts",
+  "branch": "main",
+  "source_commit": "690ea7f96c23182352ec63def76d431c6120bd2f",
+  "latest_commit_date": "2026-09-24T10:34:44Z",
+  "latest_commit_message": "Merge pull request #2441 from kohya-ss/dev",
+  "archived": false,
+  "language": "Python",
+  "license": "Apache-2.0",
+  "pushed_at": "2026-09-24T10:35:53Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/kohya-ss/sd-scripts/blob/690ea7f96c23182352ec63def76d431c6120bd2f/README.md",
+      "bytes": 19860,
+      "sha256": "85ecd98433481f52cb96986e4f41a441cdfb42dffb267da064081947317f689f",
+      "line_count": 314
+    },
+    {
+      "path": "requirements.txt",
+      "url": "https://github.com/kohya-ss/sd-scripts/blob/690ea7f96c23182352ec63def76d431c6120bd2f/requirements.txt",
+      "bytes": 1811,
+      "sha256": "0417f71a8a7be1a18ac5427843376e8f22c666252ceb5d226a3b470adbbeea68",
+      "line_count": 58
+    },
+    {
+      "path": "tools/show_metadata.py",
+      "url": "https://github.com/kohya-ss/sd-scripts/blob/690ea7f96c23182352ec63def76d431c6120bd2f/tools/show_metadata.py",
+      "bytes": 584,
+      "sha256": "c9b34137013dfa4b55d7551f68436d407bb103a9f94b6fb24046b73aaa75d61a",
+      "line_count": 23
+    },
+    {
+      "path": "finetune/merge_dd_tags_to_metadata.py",
+      "url": "https://github.com/kohya-ss/sd-scripts/blob/690ea7f96c23182352ec63def76d431c6120bd2f/finetune/merge_dd_tags_to_metadata.py",
+      "bytes": 3607,
+      "sha256": "d7e8740829adf338357ba732d447f508c452a946c36562cff329fb18d7e7e41f",
+      "line_count": 93
+    }
+  ],
+  "source_tree_blob_count": 284,
+  "source_tree_paths_sha256": "81e4b45e6ebf43fbaa3e27ee973e47fd6fa3508b19f0cf82ff977224dd515a34",
+  "license_paths_observed": [
+    "LICENSE.md"
+  ],
+  "dependency_paths_observed": [
+    "requirements.txt"
+  ],
+  "test_path_count": 39
+}

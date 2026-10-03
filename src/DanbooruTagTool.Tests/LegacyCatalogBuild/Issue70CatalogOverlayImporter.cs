@@ -6,7 +6,7 @@ namespace DanbooruTagTool.Data;
 
 public static class Issue70CatalogOverlayImporter
 {
-    public const string RelativePath = "docs/issue70/data/runtime/issue70_catalog_overlay_2d_final.csv";
+    public const string RelativePath = "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue70/data/runtime/issue70_catalog_overlay_2d_final.csv";
     public const string ExpectedSha256 = "bf366734b41b2be9e6cb52de919ef55b7312445e1715f96a357db37abda8dad5";
     public const int TotalCount = 91207;
     public const int CharacterCount = 35278;

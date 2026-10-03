@@ -1,0 +1,59 @@
+{
+  "repository": "x0x0b/ComfyUI-PromptHistoryGallery",
+  "url": "https://github.com/x0x0b/ComfyUI-PromptHistoryGallery",
+  "branch": "main",
+  "source_commit": "aa86ced50c2b6af48c2c86978cee60b7d99f9d98",
+  "latest_commit_date": "2026-03-28T04:14:57Z",
+  "latest_commit_message": "chore: update stale issue handling to extend inactivity thresholds",
+  "archived": false,
+  "language": "JavaScript",
+  "license": "MIT",
+  "pushed_at": "2026-03-28T04:15:01Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/x0x0b/ComfyUI-PromptHistoryGallery/blob/aa86ced50c2b6af48c2c86978cee60b7d99f9d98/README.md",
+      "bytes": 3289,
+      "sha256": "516ac262803605f023fc35c7a7479476e132134b07cc449243d7710ff2328b2b",
+      "line_count": 50
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/x0x0b/ComfyUI-PromptHistoryGallery/blob/aa86ced50c2b6af48c2c86978cee60b7d99f9d98/pyproject.toml",
+      "bytes": 1001,
+      "sha256": "10559ba7492065d2db10e15e956565204c2df911bc737a5b9ac457f2c323eadd",
+      "line_count": 48
+    },
+    {
+      "path": "prompt_history_gallery/hooks.py",
+      "url": "https://github.com/x0x0b/ComfyUI-PromptHistoryGallery/blob/aa86ced50c2b6af48c2c86978cee60b7d99f9d98/prompt_history_gallery/hooks.py",
+      "bytes": 3789,
+      "sha256": "786e0aca56b403433d7104ee8808dfbd6fbe513643ff019975f0011658a001ce",
+      "line_count": 120
+    },
+    {
+      "path": "prompt_history_gallery/models.py",
+      "url": "https://github.com/x0x0b/ComfyUI-PromptHistoryGallery/blob/aa86ced50c2b6af48c2c86978cee60b7d99f9d98/prompt_history_gallery/models.py",
+      "bytes": 1955,
+      "sha256": "cdaae8093785ac3c859039f2e1b290c61639b22d18171fc848ca30545ec04f9d",
+      "line_count": 67
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/x0x0b/ComfyUI-PromptHistoryGallery/blob/aa86ced50c2b6af48c2c86978cee60b7d99f9d98/LICENSE",
+      "bytes": 1062,
+      "sha256": "e71245db6b884b16ae35cfea86bdc7098d82492f23997deb9f594ef99cda5588",
+      "line_count": 21
+    }
+  ],
+  "source_tree_blob_count": 47,
+  "source_tree_paths_sha256": "24a32c2bdb23941a4ec478390bf95558ad1b4efe3a482191dc2a90c25173c271",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "pyproject.toml"
+  ],
+  "test_path_count": 0
+}

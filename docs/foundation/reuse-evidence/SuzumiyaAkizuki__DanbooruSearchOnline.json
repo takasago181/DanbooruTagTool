@@ -1,0 +1,59 @@
+{
+  "repository": "SuzumiyaAkizuki/DanbooruSearchOnline",
+  "url": "https://github.com/SuzumiyaAkizuki/DanbooruSearchOnline",
+  "branch": "main",
+  "source_commit": "aecc9fa3a281fe242c935b7d3dc80ff5574842aa",
+  "latest_commit_date": "2026-10-01T02:05:39Z",
+  "latest_commit_message": "feat(admin): 完善已有遥测展示与拒绝排查",
+  "archived": false,
+  "language": "Python",
+  "license": "GPL-3.0",
+  "pushed_at": "2026-10-01T02:05:49Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/SuzumiyaAkizuki/DanbooruSearchOnline/blob/aecc9fa3a281fe242c935b7d3dc80ff5574842aa/README.md",
+      "bytes": 29075,
+      "sha256": "8f043f1a5735d50ff51e6fed680da4e72dd681ceb0cc38a1c2bef0cd73727674",
+      "line_count": 627
+    },
+    {
+      "path": "requirements.txt",
+      "url": "https://github.com/SuzumiyaAkizuki/DanbooruSearchOnline/blob/aecc9fa3a281fe242c935b7d3dc80ff5574842aa/requirements.txt",
+      "bytes": 224,
+      "sha256": "d123e5db3836c71550c273e93cf4d294c1648dd60d097aa8fe92587fd181a608",
+      "line_count": 18
+    },
+    {
+      "path": "core/prompt_import.py",
+      "url": "https://github.com/SuzumiyaAkizuki/DanbooruSearchOnline/blob/aecc9fa3a281fe242c935b7d3dc80ff5574842aa/core/prompt_import.py",
+      "bytes": 13087,
+      "sha256": "fd029980127235ad60646da97ac34cbd71899067baf72ad4a2983878176c3207",
+      "line_count": 398
+    },
+    {
+      "path": "core/prompt_formats.py",
+      "url": "https://github.com/SuzumiyaAkizuki/DanbooruSearchOnline/blob/aecc9fa3a281fe242c935b7d3dc80ff5574842aa/core/prompt_formats.py",
+      "bytes": 1045,
+      "sha256": "3df42eff3bd29ccac265b9000c3307057a6692e51351d12621025a81508ee576",
+      "line_count": 26
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/SuzumiyaAkizuki/DanbooruSearchOnline/blob/aecc9fa3a281fe242c935b7d3dc80ff5574842aa/LICENSE",
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "line_count": 674
+    }
+  ],
+  "source_tree_blob_count": 73,
+  "source_tree_paths_sha256": "1c0dd4680c4bbafa6b56ae367df251c2615e23403da5c846927e70ee82b57b49",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "requirements.txt"
+  ],
+  "test_path_count": 0
+}

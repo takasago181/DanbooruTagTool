@@ -14,7 +14,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="../../docs/issue199/*.csv" Link="docs/issue199/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="LegacyCatalogBuild/Inputs/docs/issue199/*.csv" Link="docs/issue199/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
     <None Include="LegacyCatalogBuild/UnifiedBrowseData/issue199_general_facets_v1.csv" Link="issue199_general_facets_v1.csv" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 <ItemGroup><EmbeddedResource Include="LegacyCatalogBuild/Issue76Data/*.csv"/><EmbeddedResource Include="LegacyCatalogBuild/UnifiedBrowseData/*.csv"/></ItemGroup>

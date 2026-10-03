@@ -10,7 +10,7 @@ namespace DanbooruTagTool.Data;
 /// </summary>
 public static class Issue179QualityOverlay
 {
-    public const string RelativePath = "docs/issue179/runtime/ISSUE179_RUNTIME_PROJECTION_V1.csv";
+    public const string RelativePath = "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue179/runtime/ISSUE179_RUNTIME_PROJECTION_V1.csv";
     public const string ExpectedSha256 = "baaf25b1257fcc4386996f2436eecbc206df97684563b97622dc51bd41fe93ff";
     public const int ExpectedRows = 1215;
     public const int ExpectedDisplayRows = 221;
