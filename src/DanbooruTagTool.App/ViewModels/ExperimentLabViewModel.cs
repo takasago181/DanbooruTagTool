@@ -73,6 +73,19 @@ public sealed class ExperimentLabViewModel : Observable
         }
         finally { busy = false; main.Forge.EndExperiment(); Refresh(); }
     }
+    public bool TemplateDraftReady { get; private set; }
+    public async Task LoadTemplateVariantsAsync(string[] variants)
+    {
+        TemplateDraftReady = false;
+        if (!CanEdit || !main.CreateEditingAvailable || variants.Length is < 1 or > 16 || variants.Distinct().Count() != variants.Length || variants.Any(v => string.IsNullOrWhiteSpace(v) || v.Length > 4000 || v.Contains('{') || v.Contains('}') || v.Contains("__") || v.Contains('\n') || v.Contains('\r')))
+            throw new ArgumentException("実験は重複のない1〜16個のliteral候補です。未解決構文はmaterialize後に確認してください。");
+        await CaptureBaseline.ExecuteAsync(null);
+        if (baseline is null) return;
+        XKind = ExperimentVariable.Positive; XTarget = baseline.Positive; XValues = string.Join("\n", variants);
+        if (XTarget.Length == 0) XTarget = "";
+        UseY = false; Repetitions = 1; regionalComparison = null; Name = "Template variants";
+        TemplateDraftReady = true; Status = "literal候補を実験draftへ転送。seedを明示し、保存・Startで生成します。";
+    }
     private ExperimentSetup Draft()
     {
         if (baseline is null) throw new ArgumentException("baselineを取り込んでください。");
