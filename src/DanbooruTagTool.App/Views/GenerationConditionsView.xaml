@@ -20,6 +20,7 @@
     <StackPanel Width="110" Margin="0,0,12,8"><TextBlock Text="Width"/><TextBox Text="{Binding Width, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.Name="現在Width"/></StackPanel>
     <StackPanel Width="110" Margin="0,0,12,8"><TextBlock Text="Height"/><TextBox Text="{Binding Height, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.Name="現在Height"/></StackPanel>
    </WrapPanel>
+   <TextBox Text="{Binding Create.DerivationSummary, Mode=OneWay}" IsReadOnly="True" TextWrapping="Wrap" MaxHeight="160" VerticalScrollBarVisibility="Auto" Margin="0,5" AutomationProperties.Name="Recipe派生元と変更点"/>
    <TextBox Text="{Binding Create.LoraProvenance, Mode=OneWay}" IsReadOnly="True" TextWrapping="Wrap" MaxHeight="100" VerticalScrollBarVisibility="Auto" AutomationProperties.Name="元LoRA provenance"/>
    <Button Content="元LoRA制約を解除して派生（記録は保持）" Command="{Binding Create.ReleaseLoraIdentity}" HorizontalAlignment="Left" Margin="0,4"/>
    <TextBox Text="{Binding Create.RestorationWarning, Mode=OneWay}" IsReadOnly="True" TextWrapping="Wrap" MaxHeight="120" VerticalScrollBarVisibility="Auto" Margin="0,4" AutomationProperties.Name="元画像の未適用条件"/>

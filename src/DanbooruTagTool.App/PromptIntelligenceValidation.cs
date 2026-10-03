@@ -46,12 +46,15 @@ public static class PromptIntelligenceValidation
             Check(hashInput.IsVisible && hashInput.IsEnabled && hashInput.Text == "abcdef1234" && hashInput.ActualWidth > 100, "editable Model hash binding/layout");
             var loraProvenance = Descendants(window).OfType<TextBox>().Single(e => System.Windows.Automation.AutomationProperties.GetName(e) == "元LoRA provenance");
             Check(loraProvenance.IsVisible && loraProvenance.Text.Contains("backend 123456789abc") && loraProvenance.Text.Contains(new string('1', 64)), "LoRA backend/file provenance binding");
+            vm.Create.Seed = "43";
+            var derivation = Descendants(window).OfType<TextBox>().Single(e => System.Windows.Automation.AutomationProperties.GetName(e) == "Recipe派生元と変更点");
+            Check(derivation.IsVisible && derivation.IsReadOnly && derivation.Text.Contains("Seed: 42 → 43") && derivation.Text.Contains("Unapplied conditions"), "parent/change binding and unapplied distinction");
             var warning = Descendants(window).OfType<TextBox>().Single(e => System.Windows.Automation.AutomationProperties.GetName(e) == "元画像の未適用条件");
             var consent = Descendants(window).OfType<CheckBox>().Single(e => System.Windows.Automation.AutomationProperties.GetName(e) == "派生生成を了承");
             Check(warning.IsVisible && warning.Text.Contains("RNG: CPU") && warning.Text.Contains("Hires upscale: 2"), "restoration warning binding");
             Check(consent.IsVisible && consent.IsEnabled && consent.IsChecked == false && !vm.Create.CanGenerate, "default blocked derivative consent");
             consent.IsChecked = true; Check(vm.Create.AllowDerivative && vm.Create.CanGenerate, "explicit derivative binding");
-            consent.BringIntoView(); await Task.Delay(50); window.UpdateLayout();
+            derivation.BringIntoView(); await Task.Delay(50); window.UpdateLayout();
             var conditions = new RenderTargetBitmap((int)Math.Ceiling(window.ActualWidth), (int)Math.Ceiling(window.ActualHeight), 96, 96, PixelFormats.Pbgra32); conditions.Render(window);
             var conditionsEncoder = new PngBitmapEncoder(); conditionsEncoder.Frames.Add(BitmapFrame.Create(conditions)); using (var file = File.Create(Path.Combine(root, $"recipe-hash-wpf-{width}.png"))) conditionsEncoder.Save(file);
             vm.CreatePageIndex = 0; window.Close();

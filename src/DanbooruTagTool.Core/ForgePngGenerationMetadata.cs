@@ -40,10 +40,19 @@ public static class ForgePngGenerationMetadata
         {
             var receipt = GenerationLoraPngReceipt.Read(path);
             if (receipt is not null) snapshot = snapshot with { Parameters = snapshot.Parameters.Concat([new GenerationParameter(GenerationLoraProvenance.ReceiptKey, receipt)]).ToArray() };
+            var derivation = GenerationLoraPngReceipt.Read(path, GenerationRecipeDerivation.Key);
+            if (derivation is not null)
+            {
+                var field = new GenerationParameter(GenerationRecipeDerivation.Key, derivation);
+                var edge = GenerationRecipeDerivation.Read([field])!;
+                if (ForgeGenerationApiClient.Compare(new(edge.Requested.Positive, edge.Requested.Negative, edge.Requested.Recipe), null, snapshot).Count > 0)
+                    throw new InvalidDataException("Recipe派生記録と実画像metadataが矛盾しています。");
+                snapshot = snapshot with { Parameters = snapshot.Parameters.Concat([field]).ToArray() };
+            }
             return snapshot;
         }
         catch (Exception e) when (e is IOException or InvalidDataException or DecoderFallbackException)
-        { throw new GenerationMetadataException("LoRA provenanceを読み込めません: " + e.Message); }
+        { throw new GenerationMetadataException("DTT provenanceを読み込めません: " + e.Message); }
     }
 
     // Compatibility entry point for existing PNG import/API callers.

@@ -87,7 +87,9 @@ public class Issue256LoraProvenanceTests
         Assert.Equal(expectedSha, GenerationLoraProvenance.Expected(saved.Recipe!.SourceParameters).Single().FileSha256);
         // Same identity permits deliberate weight changes; actual prompt verification remains strict.
         server.Info = server.Info.Replace("0.75", "0.5");
-        var next = await api.GenerateAsync("http://localhost:7860", new(Positive.Replace("0.75", "0.5"), "lowres", saved.Recipe), d.Images);
+        main.Workspace.Replace(Positive.Replace("0.75", "0.5"));
+        Assert.True(main.Create.TryRecipe(out var changed, out _));
+        var next = await api.GenerateAsync("http://localhost:7860", new(main.Create.Positive, "lowres", changed!), d.Images);
         Assert.True(next.Success, next.Status); Assert.Equal(2, server.Posts);
         Assert.Equal(expectedSha, GenerationLoraProvenance.Expected(next.Metadata!.Parameters).Single().FileSha256);
         Assert.Equal(0.5m, GenerationLoraProvenance.Expected(next.Metadata.Parameters).Single().Weight);

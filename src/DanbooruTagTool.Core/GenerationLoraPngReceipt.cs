@@ -8,15 +8,17 @@ namespace DanbooruTagTool.Core;
 /// Forge's original parameters chunk, raw infotext and image chunks are not rewritten.</summary>
 public static class GenerationLoraPngReceipt
 {
-    private static readonly byte[] Prefix = Encoding.ASCII.GetBytes(GenerationLoraProvenance.ReceiptKey + "\0\0\0\0\0");
+    private static byte[] PrefixFor(string key) => Encoding.ASCII.GetBytes(key + "\0\0\0\0\0");
     private const int MaxBytes = 128 * 1024;
-    public static string? Read(string path)
+    public static string? Read(string path) => Read(path, GenerationLoraProvenance.ReceiptKey);
+    internal static string? Read(string path, string key)
     {
         using var stream = File.OpenRead(path);
-        return Read(stream);
+        return Read(stream, key);
     }
-    private static string? Read(Stream stream)
+    private static string? Read(Stream stream, string key)
     {
+        var Prefix = PrefixFor(key);
         Span<byte> header = stackalloc byte[8]; stream.ReadExactly(header);
         if (!header.SequenceEqual(new byte[] {137,80,78,71,13,10,26,10})) throw new InvalidDataException("PNG signature。");
         string? receipt = null;
@@ -37,7 +39,7 @@ public static class GenerationLoraPngReceipt
                     var body = new byte[(int)length - prefix.Length]; stream.ReadExactly(body);
                     receipt = new UTF8Encoding(false, true).GetString(body);
                     crcData = "iTXt"u8.ToArray().Concat(prefix).Concat(body).ToArray();
-                    if (!GenerationLoraProvenance.IsValid(new(GenerationLoraProvenance.ReceiptKey, receipt))) throw new InvalidDataException("不正LoRA receipt。");
+                    if (!Valid(key, receipt)) throw new InvalidDataException("不正LoRA receipt。");
                 }
                 else stream.Seek(length - prefix.Length, SeekOrigin.Current);
             }
@@ -50,11 +52,15 @@ public static class GenerationLoraPngReceipt
     public static byte[] Attach(byte[] png, IReadOnlyList<GenerationLoraIdentity> identities)
     {
         if (identities.Count == 0) return png;
+        return Attach(png, GenerationLoraProvenance.ReceiptKey, JsonSerializer.Serialize(identities));
+    }
+    internal static byte[] Attach(byte[] png, string key, string json)
+    {
+        var Prefix = PrefixFor(key);
         using var stream = new MemoryStream(png, false);
-        if (Read(stream) is not null) throw new InvalidDataException("Forge結果に予期しないDTT receiptがあります。");
+        if (Read(stream, key) is not null) throw new InvalidDataException("Forge結果に予期しないDTT receiptがあります。");
         if (!png.AsSpan(png.Length - 12, 8).SequenceEqual(new byte[] {0,0,0,0,73,69,78,68})) throw new InvalidDataException("PNG IENDを確認できません。");
-        var json = JsonSerializer.Serialize(identities);
-        if (!GenerationLoraProvenance.IsValid(new(GenerationLoraProvenance.ReceiptKey, json))) throw new InvalidDataException("不正な観測identity。");
+        if (!Valid(key, json)) throw new InvalidDataException("不正な観測receipt。");
         var data = Prefix.Concat(Encoding.UTF8.GetBytes(json)).ToArray();
         if (data.Length > MaxBytes) throw new InvalidDataException("LoRA receipt上限超過。");
         using var output = new MemoryStream(); output.Write(png.AsSpan(0, png.Length - 12));
@@ -62,6 +68,8 @@ public static class GenerationLoraPngReceipt
         var typeData = "iTXt"u8.ToArray().Concat(data).ToArray(); output.Write(typeData); BinaryPrimitives.WriteUInt32BigEndian(number, Crc(typeData)); output.Write(number);
         output.Write(png.AsSpan(png.Length - 12)); return output.ToArray();
     }
+    private static bool Valid(string key, string json) => key == GenerationLoraProvenance.ReceiptKey
+        ? GenerationLoraProvenance.IsValid(new(key, json)) : key == GenerationRecipeDerivation.Key && GenerationRecipeDerivation.IsValid(new(key, json));
     // Same PNG CRC32 algorithm already used by DTT's fixture writer.
     private static uint Crc(byte[] bytes)
     {
