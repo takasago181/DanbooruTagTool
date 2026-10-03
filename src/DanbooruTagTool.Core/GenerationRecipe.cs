@@ -11,12 +11,22 @@ public sealed record GenerationRecipe(
     decimal? Cfg = null,
     int? Width = null,
     int? Height = null,
-    string? ModelHash = null)
+    string? ModelHash = null,
+    IReadOnlyList<GenerationParameter>? SourceParameters = null)
 {
+    // Original ordered parameters survive projection/edit/save. They are evidence,
+    // never arbitrary Forge overrides. Unknown fields need explicit derivative consent.
+    [System.Text.Json.Serialization.JsonIgnore]
+    public IReadOnlyList<GenerationParameter> UnappliedParameters =>
+        GenerationRecipeFidelity.Unapplied(this);
+
+    [System.Text.Json.Serialization.JsonIgnore]
+    public bool RequiresDerivativeConsent => UnappliedParameters.Count > 0;
+
     public bool HasAny =>
         !string.IsNullOrWhiteSpace(Model) || Seed.HasValue || Steps.HasValue ||
         !string.IsNullOrWhiteSpace(Sampler) || !string.IsNullOrWhiteSpace(Scheduler) ||
-        Cfg.HasValue || Width.HasValue || Height.HasValue || !string.IsNullOrWhiteSpace(ModelHash);
+        Cfg.HasValue || Width.HasValue || Height.HasValue || !string.IsNullOrWhiteSpace(ModelHash) || SourceParameters?.Count > 0;
 
     // Generation recipes are reference/persistence metadata only.
     // Forge values are set manually by the user.
@@ -35,6 +45,7 @@ public sealed record GenerationRecipe(
             if (Cfg is { } cfg) parts.Add($"CFG {cfg.ToString(CultureInfo.InvariantCulture)}");
             if (Width is { } width && Height is { } height) parts.Add($"{width}×{height}");
             if (Seed is { } seed) parts.Add($"Seed {seed}");
+            if (RequiresDerivativeConsent) parts.Add($"未適用条件 {UnappliedParameters.Count}件（派生生成のみ）");
             return string.Join(" · ", parts);
         }
     }
@@ -55,6 +66,7 @@ public sealed record GenerationRecipe(
             Decimal(snapshot.Value("CFG scale")),
             snapshot.Width,
             snapshot.Height,
-            Clean(snapshot.Value("Model hash")));
+            Clean(snapshot.Value("Model hash")),
+            snapshot.Parameters.ToArray());
     }
 }

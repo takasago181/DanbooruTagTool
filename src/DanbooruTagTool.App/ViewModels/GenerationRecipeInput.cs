@@ -8,7 +8,8 @@ namespace DanbooruTagTool.App.ViewModels;
 internal static class GenerationRecipeInput
 {
     public static bool TryBuild(string model, string seed, string steps, string sampler, string scheduler,
-        string cfg, string width, string height, out GenerationRecipe? recipe, out string error, string modelHash = "")
+        string cfg, string width, string height, out GenerationRecipe? recipe, out string error, string modelHash = "",
+        IReadOnlyList<GenerationParameter>? sourceParameters = null)
     {
         recipe = null; error = "";
         long? s = null; int? st = null, w = null, h = null; decimal? c = null;
@@ -35,7 +36,7 @@ internal static class GenerationRecipeInput
         var hash = Clean(modelHash);
         if (hash is not null && (Clean(model) is null || hash.Length > 64 || hash.Any(ch => !Uri.IsHexDigit(ch))))
         { error = "Model hashはModelと一緒に64文字以内の16進文字で指定してください。別Modelを使う場合はhashも明示的に変更・解除してください。"; return false; }
-        var r = new GenerationRecipe(Clean(model), s, st, Clean(sampler), Clean(scheduler), c, w, h, hash);
+        var r = new GenerationRecipe(Clean(model), s, st, Clean(sampler), Clean(scheduler), c, w, h, hash, sourceParameters);
         recipe = r.HasAny ? r : null; return true;
     }
 }

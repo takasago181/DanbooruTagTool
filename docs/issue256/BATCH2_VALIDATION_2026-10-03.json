@@ -1,0 +1,67 @@
+{
+  "Batch": 2,
+  "Baseline": "8cb36279a05f368ea3385c8a461a1dbede10d3df",
+  "CleanBuild": "PASS 0 warnings/errors",
+  "TargetedPass": 78,
+  "TargetedSkip": 1,
+  "FullPass": 386,
+  "FullSkip": 25,
+  "FullFail": 0,
+  "FullLocalRuns": 1,
+  "ForgeSmoke": "PASS",
+  "ForgePosts": 1,
+  "GuardNetworkCalls": 0,
+  "ImageSHA256": "615C67EBB36F719B57612116E88E7A83198CD9308B5EE6EF495F0B4DA517DCBA",
+  "SourceParameters": [
+    {
+      "Name": "Steps",
+      "Value": "8"
+    },
+    {
+      "Name": "Sampler",
+      "Value": "Euler"
+    },
+    {
+      "Name": "Schedule type",
+      "Value": "Karras"
+    },
+    {
+      "Name": "CFG scale",
+      "Value": "4.75"
+    },
+    {
+      "Name": "Seed",
+      "Value": "25420261003"
+    },
+    {
+      "Name": "Size",
+      "Value": "512x640"
+    },
+    {
+      "Name": "Model",
+      "Value": "waiIllustriousSDXL_v170"
+    },
+    {
+      "Name": "Model hash",
+      "Value": "f116b0c78f"
+    },
+    {
+      "Name": "RNG",
+      "Value": "CPU"
+    },
+    {
+      "Name": "Version",
+      "Value": "neo-2.29.2"
+    }
+  ],
+  "LibraryRawReadback": "PASS",
+  "Schema": 4,
+  "WpfWidths": [
+    900,
+    1400
+  ],
+  "ProtectedFilesUnchanged": 21,
+  "RealUserDataFilesUnchanged": 14,
+  "ProductionApplied": false,
+  "ArtifactRoot": "C:/Codex/DanbooruTagTool/_local/task-artifacts/issue256-batch2"
+}

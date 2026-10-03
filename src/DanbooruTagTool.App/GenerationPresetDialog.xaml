@@ -88,6 +88,7 @@
                         <Border Background="{StaticResource WorkSurfaceBrush}" BorderBrush="{StaticResource BorderBrushSoft}" BorderThickness="1" CornerRadius="7" Padding="10" Margin="0,6,0,0">
                             <StackPanel>
                                 <TextBlock Text="保存されたPresetのRecipe API生成で使用します。Forgeへ送るボタンは現在のPromptとNegativeだけを送ります。" Foreground="{StaticResource MutedInkBrush}" FontSize="12" Margin="0,0,0,8"/>
+                                <TextBox Text="{Binding RestorationWarning, Mode=OneWay}" IsReadOnly="True" TextWrapping="Wrap" MaxHeight="100" VerticalScrollBarVisibility="Auto" Margin="0,0,0,8"/>
                                 <TextBlock Text="Model（要求値）" FontWeight="SemiBold" Margin="0,0,0,3"/>
                                 <TextBox Text="{Binding PresetModel, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,8" ToolTip="Recipe API生成ではこのModelを要求し、実画像metadataで照合します。"/>
                                 <TextBlock Text="Model hash（任意・完全一致）"/><TextBox Text="{Binding PresetModelHash, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,8" AutomationProperties.Name="Preset Model hash" ToolTip="指定時は名前とhashの両方で照合します。別Modelを使う場合は明示的に変更・解除してください。"/>

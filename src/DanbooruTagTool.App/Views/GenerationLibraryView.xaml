@@ -82,6 +82,7 @@
     <WrapPanel><Button Content="送るだけ（画像P/N置換）" Command="{Binding Send}"/><Button Content="Forge現在設定で生成（画像P/N置換）" Command="{Binding Generate}" ToolTip="Positive/Negativeを送り、Forgeの現在の設定で生成します。画像のModel/Seed等は自動適用しません。"/></WrapPanel>
     <TextBlock Text="Forgeの現在の設定で生成します。" TextWrapping="Wrap" FontSize="12" Margin="0,5"/>
     </StackPanel></Expander>
+    <TextBlock Text="{Binding RestorationWarning}" TextWrapping="Wrap" FontSize="12" Margin="0,5"/>
     <TextBlock Text="{Binding RecipeStatus}" TextWrapping="Wrap" FontSize="12" Margin="0,5"/>
     <Expander Header="生成metadata（未知parameterも保持）" IsExpanded="True" Margin="0,8"><TextBox Text="{Binding RawInfotext, Mode=OneWay}" IsReadOnly="True" TextWrapping="Wrap" MaxHeight="300" VerticalScrollBarVisibility="Auto"/></Expander>
     <ItemsControl ItemsSource="{Binding Differences}"><ItemsControl.ItemTemplate><DataTemplate><Border BorderBrush="#DCE3ED" BorderThickness="0,0,0,1" Padding="0,6"><StackPanel><TextBlock><Run Text="{Binding Field}"/><Run Text=" · "/><Run Text="{Binding State}"/></TextBlock><TextBlock Text="{Binding Left, StringFormat=左: {0}}" TextWrapping="Wrap"/><TextBlock Text="{Binding Right, StringFormat=右: {0}}" TextWrapping="Wrap"/></StackPanel></Border></DataTemplate></ItemsControl.ItemTemplate></ItemsControl>

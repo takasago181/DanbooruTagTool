@@ -79,7 +79,7 @@ public sealed class GenerationLibraryViewModel : Observable
             changingAnnotation = true;
             Favorite = value?.Image.Annotation.Favorite ?? false; Rating = value?.Image.Annotation.Rating; Note = value?.Image.Annotation.Note ?? "";
             changingAnnotation = false;
-            Notify(nameof(Positive)); Notify(nameof(Negative)); Notify(nameof(RawInfotext)); Notify(nameof(SelectedPath)); Notify(nameof(HasSelection)); Notify(nameof(CanAnnotate)); Notify(nameof(Preview)); Notify(nameof(CompareRightSource));
+            Notify(nameof(Positive)); Notify(nameof(Negative)); Notify(nameof(RawInfotext)); Notify(nameof(SelectedPath)); Notify(nameof(HasSelection)); Notify(nameof(CanAnnotate)); Notify(nameof(Preview)); Notify(nameof(CompareRightSource)); Notify(nameof(RestorationWarning));
             RefreshCommands();
         }
     }
@@ -90,6 +90,9 @@ public sealed class GenerationLibraryViewModel : Observable
     public string Positive => metadata?.Positive ?? "";
     public string Negative => metadata?.Negative ?? "";
     public string RawInfotext => metadata?.RawInfotext ?? "生成metadataなし。画像の評価・メモは保存できます。";
+    public string RestorationWarning => metadata is null ? "" : GenerationRecipe.FromMetadata(metadata) is { RequiresDerivativeConsent: true } r
+        ? "元画像の未適用条件: " + string.Join(" / ", r.UnappliedParameters.Select(p => p.Name)) + "。「作成で使う」で確認してください。"
+        : "保存metadataの対応条件のみ復元します。画像の完全一致は保証できません。";
     public bool Favorite { get => favorite; set { if (Set(ref favorite, value)) PersistAnnotation(); } }
     public int? Rating { get => rating; set { if (Set(ref rating, value)) PersistAnnotation(); } }
     public string Note { get => note; set { if (Set(ref note, value)) PersistAnnotation(); } }

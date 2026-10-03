@@ -88,13 +88,18 @@ public sealed class ForgeViewModel : Observable
         => canMutate() ? SendPayloadAsync(preset.Positive, preset.Negative, ForgeNegativeMode.Replace, ForgeBridgeAction.SendOnly, cancellationToken) : Task.CompletedTask;
     public Task GenerateImageAsync(GenerationPreset preset, CancellationToken cancellationToken = default)
         => canMutate() ? SendPayloadAsync(preset.Positive, preset.Negative, ForgeNegativeMode.Replace, ForgeBridgeAction.SendAndGenerate, cancellationToken) : Task.CompletedTask;
-    public async Task GenerateRecipeAsync(GenerationPreset preset, CancellationToken cancellationToken = default)
+    public async Task GenerateRecipeAsync(GenerationPreset preset, CancellationToken cancellationToken = default, bool allowDerivative = false)
     {
         if (!canMutate() || apiOutput is null || RecipeBusy) return;
+        if (preset.Recipe?.RequiresDerivativeConsent == true && !allowDerivative)
+        {
+            RecipeStatus = "元画像の未適用条件があります。Createで確認し、派生生成を了承してください。生成要求は送信していません。";
+            setStatus(RecipeStatus); return;
+        }
         recipeBusy = true; RefreshBusy(); ConnectionStatus = "Forge: busy（1画像生成・照合中）"; RecipeStatus = "Forge APIで1画像生成中。完了するまで再送信しないでください。";
         try
         {
-            var result = await api.GenerateAsync(ForgeUrl, new(preset.Positive, preset.Negative, preset.Recipe ?? new()), apiOutput, cancellationToken);
+            var result = await api.GenerateAsync(ForgeUrl, new(preset.Positive, preset.Negative, preset.Recipe ?? new(), allowDerivative), apiOutput, cancellationToken);
             ConnectionStatus = result.Success ? "Forge: idle（生成・照合完了）" : "Forge: error（詳細を確認）";
             RecipeStatus = result.Status + (result.ImagePath is null ? "" : "\n出力: " + result.ImagePath);
             // Failed round-trips remain real evidence too, never discarded or called successful.
