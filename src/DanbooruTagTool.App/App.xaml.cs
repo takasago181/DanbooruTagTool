@@ -21,6 +21,12 @@ public partial class App : Application
                 ShutdownMode = ShutdownMode.OnExplicitShutdown;
                 await PromptIntelligenceValidation.RunAsync(e.Args[1]); Shutdown(0); return;
             }
+            if (e.Args.FirstOrDefault() == "--validate-forge-workflow")
+            {
+                if (e.Args.Length != 3) throw new ArgumentException("--validate-forge-workflow <spec.json> <new-output>");
+                ShutdownMode = ShutdownMode.OnExplicitShutdown;
+                await ForgeWorkflowValidation.RunAsync(e.Args[1], e.Args[2]); Shutdown(0); return;
+            }
             if (e.Args.FirstOrDefault() == "--validate-lora")
             {
                 if (e.Args.Length != 2) throw new ArgumentException("--validate-lora <new-empty-output-directory>");

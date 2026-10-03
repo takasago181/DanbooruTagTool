@@ -8,6 +8,7 @@ namespace DanbooruTagTool.App.ViewModels;
 /// <summary>Owns Forge settings and bridge state; protocol remains in Core.</summary>
 public sealed class ForgeViewModel : Observable
 {
+    public Task<ForgeApiCapabilities> ReadRecipeCapabilitiesAsync() => api.ProbeAsync(ForgeUrl);
     private readonly IForgeBridgeClient bridge;
     private readonly Action persist;
     private readonly Func<bool> canMutate;

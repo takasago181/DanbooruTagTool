@@ -1,4 +1,6 @@
 using System.Globalization;
+using System.Collections.ObjectModel;
+using System.Net.Http;
 using DanbooruTagTool.Core;
 using DanbooruTagTool.Data;
 
@@ -17,6 +19,16 @@ public sealed class CreateViewModel : Observable
     private RecipeDerivation? parent;
     private IReadOnlyList<GenerationParameter>? sourceParameters;
     private bool allowDerivative;
+    private bool capabilitiesBusy, capabilitiesValid;
+    private ForgeApiModel? selectedForgeModel;
+    public ObservableCollection<ForgeApiModel> ForgeModels { get; } = [];
+    public ObservableCollection<string> ForgeSamplers { get; } = [];
+    public ObservableCollection<string> ForgeSchedulers { get; } = [];
+    public ForgeApiModel? SelectedForgeModel { get => selectedForgeModel; set { Set(ref selectedForgeModel, value); ApplyForgeModel.Refresh(); } }
+    private string capabilityStatus = "Forgeから候補を取得し、Modelは明示的に適用してください。";
+    public string CapabilityStatus { get => capabilityStatus; private set => Set(ref capabilityStatus, value); }
+    public AsyncRelayCommand RefreshCapabilities { get; }
+    public RelayCommand ApplyForgeModel { get; }
     public string DerivationSummary => TryRecipe(out var r, out var error) ? GenerationRecipeDerivation.Summary(r?.SourceParameters) : "変更点を確定できません: " + error;
     public string LoraProvenance => GenerationLoraProvenance.Summary(sourceParameters);
     public RelayCommand ReleaseLoraIdentity { get; }
@@ -28,6 +40,24 @@ public sealed class CreateViewModel : Observable
     public CreateViewModel(MainViewModel main)
     {
         this.main = main;
+        RefreshCapabilities = new(async _ =>
+        {
+            capabilitiesBusy = true; capabilitiesValid = false; CapabilityStatus = "Forge候補を取得中…"; Refresh();
+            try
+            {
+                var caps = await main.Forge.ReadRecipeCapabilitiesAsync();
+                ForgeModels.Clear(); foreach (var m in caps.Models) ForgeModels.Add(m);
+                ForgeSamplers.Clear(); foreach (var s in caps.Samplers) ForgeSamplers.Add(s);
+                ForgeSchedulers.Clear(); foreach (var s in caps.Schedulers) ForgeSchedulers.Add(s);
+                SelectedForgeModel = null; capabilitiesValid = true;
+                CapabilityStatus = "候補取得済み。選択Modelを適用すると要求名とhashを変更します。生成時にも再照合します。";
+            }
+            catch (Exception e) when (e is HttpRequestException or IOException or InvalidDataException or InvalidOperationException or ArgumentException or System.Text.Json.JsonException or OperationCanceledException or KeyNotFoundException or FormatException)
+            { CapabilityStatus = "Forge候補を取得できません。現在値は保持しています: " + e.Message; }
+            finally { capabilitiesBusy = false; Refresh(); }
+        }, _ => !capabilitiesBusy && main.CanEditPrompt && !main.Forge.RecipeBusy && !main.PresetManagementOpen);
+        ApplyForgeModel = new(_ => { if (SelectedForgeModel is { } m) { Model = m.Title; ModelHash = m.Hash ?? ""; main.Status = "選択Modelの要求名とhashを明示的に適用しました。"; } },
+            _ => capabilitiesValid && !capabilitiesBusy && SelectedForgeModel is not null && main.CanEditPrompt && !main.Forge.RecipeBusy && !main.PresetManagementOpen);
         ReleaseLoraIdentity = new(_ =>
         {
             sourceParameters = sourceParameters?.Select(p => GenerationLoraProvenance.IsIdentity(p.Name) ? p with { Name = "元 " + p.Name } : p).ToArray();
@@ -61,7 +91,7 @@ public sealed class CreateViewModel : Observable
         (Positive != baselinePositive || Negative != baselineNegative || !TryRecipe(out var r, out _) || GenerationRecipeDerivation.Identity(GenerationRecipeDerivation.Snapshot(Positive, Negative, r ?? new())) != GenerationRecipeDerivation.Identity(GenerationRecipeDerivation.Snapshot(baselinePositive, baselineNegative, baselineRecipe ?? new())));
     public string ConditionsSummary => $"Model: {Value(Model)} · Hash: {Value(ModelHash)} · Seed: {Value(Seed)} · Steps: {Value(Steps)} · {Value(Sampler)} / {Value(Scheduler)} · CFG: {Value(Cfg)} · {Value(Width)}×{Value(Height)}";
     public string Validation => !TryRecipe(out var r, out var error) ? error : !Complete(r) ? "生成条件が不足または無効です。「生成条件 / Preset」で全項目を確認してください。" : r?.RequiresDerivativeConsent == true && !AllowDerivative ? "元画像の未適用条件があります。「生成条件 / Preset」で確認し、派生生成を了承してください。" : "入力OK。生成前にForge capabilityを再確認し、実画像metadataで照合します。";
-    public bool CanGenerate => main.CanEditPrompt && main.Forge.RecipeExecutionAvailable && !main.PresetManagementOpen && TryRecipe(out var r, out _) && Complete(r) && (r?.RequiresDerivativeConsent != true || AllowDerivative);
+    public bool CanGenerate => !capabilitiesBusy && main.CanEditPrompt && main.Forge.RecipeExecutionAvailable && !main.PresetManagementOpen && TryRecipe(out var r, out _) && Complete(r) && (r?.RequiresDerivativeConsent != true || AllowDerivative);
     public AsyncRelayCommand Generate { get; }
     public RelayCommand LoadPreset { get; }
     public RelayCommand Save { get; }
@@ -133,6 +163,6 @@ public sealed class CreateViewModel : Observable
     {
         if (loading) return;
         foreach (var n in new[] { nameof(Positive), nameof(Negative), nameof(SourceSummary), nameof(ConditionsSummary), nameof(Validation), nameof(CanGenerate), nameof(Changed), nameof(RestorationWarning), nameof(RequiresDerivativeConsent), nameof(LoraProvenance), nameof(DerivationSummary) }) Notify(n);
-        Generate?.Refresh(); LoadPreset?.Refresh(); Save?.Refresh(); ReleaseLoraIdentity?.Refresh();
+        Generate?.Refresh(); LoadPreset?.Refresh(); Save?.Refresh(); ReleaseLoraIdentity?.Refresh(); RefreshCapabilities?.Refresh(); ApplyForgeModel?.Refresh();
     }
 }

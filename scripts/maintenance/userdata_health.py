@@ -18,11 +18,12 @@ def inspect(path: Path) -> dict:
         if quick != [("ok",)] or integrity != [("ok",)] or foreign: raise ValueError("UserData SQLite integrity failure")
         columns = {r[1] for r in db.execute("PRAGMA table_info(user_state)")}
         if not {"id", "version", "payload"}.issubset(columns): raise ValueError("user_state schema missing required columns")
+        db_schema = db.execute("PRAGMA user_version").fetchone()[0]
         row = db.execute("SELECT version,payload FROM user_state WHERE id=1").fetchone()
         if row is not None:
-            if row[0] not in (1, 2): raise ValueError(f"unsupported UserData version {row[0]}")
+            if row[0] not in (1, 2, 3, 4): raise ValueError(f"unsupported UserData version {row[0]}")
             json.loads(row[1])
-    return {"ok": True, "path": str(path.resolve()), "sha256": digest, "bytes": path.stat().st_size, "state_present": row is not None}
+    return {"ok": True, "path": str(path.resolve()), "sha256": digest, "bytes": path.stat().st_size, "state_present": row is not None, "payload_version": row[0] if row else None, "schema_version": db_schema}
 
 def main() -> int:
     p=argparse.ArgumentParser(); p.add_argument("--userdb",type=Path,required=True); a=p.parse_args()
