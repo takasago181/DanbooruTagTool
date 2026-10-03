@@ -2,11 +2,7 @@
   "CheckpointCount": 35,
   "MatrixRows": 142,
   "Basis": "Original matrix and reconciliation preserved unchanged; dispositions distinguish existing capability from actual upstream adoption.",
-  "RemainingRequired": [
-    "Explicit Forge model+hash and sampler/scheduler capability selection",
-    "Actual executable isolated E2E deployment gate",
-    "Final verification / protected promotion / LKG / close"
-  ],
+  "RemainingRequired": [],
   "Rows": [
     {
       "Candidate": "PYU224/tagdb-updater",
@@ -1143,6 +1139,184 @@
       "CompletionDisposition": "DEFERRED",
       "Reason": "Optional provider/model-family/training/regional/LLM/batch/graph capability is outside required local Forge workflow; #230/#231 not started.",
       "Source": null
+    }
+  ],
+  "CompletionGate": "PASS production promoted / schema4 protected / actual installed Forge E2E / new LKG",
+  "Checkpoints": [
+    {
+      "Heading": "## Research checkpoint 1 — reuse / reference / avoid-rebuild split",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958581425",
+      "Disposition": "KEEP evidence / workflow implemented; planning shape superseded by current authorization"
+    },
+    {
+      "Heading": "## Policy update — replacement of existing DTT implementations is allowed",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958622805",
+      "Disposition": "KEEP evidence / workflow implemented; planning shape superseded by current authorization"
+    },
+    {
+      "Heading": "## Research checkpoint 2 — concrete adoption order and replacement targets",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958692151",
+      "Disposition": "KEEP evidence / workflow implemented; planning shape superseded by current authorization"
+    },
+    {
+      "Heading": "## Research checkpoint 3 — major code-reuse candidates found",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958752826",
+      "Disposition": "KEEP evidence / workflow implemented; planning shape superseded by current authorization"
+    },
+    {
+      "Heading": "## Research checkpoint 4 — scope boundary + new high-value features",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958825884",
+      "Disposition": "KEEP evidence / workflow implemented; planning shape superseded by current authorization"
+    },
+    {
+      "Heading": "## Research checkpoint 5 — LoRA / regional / reference / model-aware prompt scope",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958864370",
+      "Disposition": "DEFER advanced feature: existing explicit JP/EN search, manual intent, current Knowledge and Forge conditions suffice; no parallel authority or new provider needed"
+    },
+    {
+      "Heading": "## Research checkpoint 6 — generation history, ratings and reusable experiment evidence",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958916055",
+      "Disposition": "KEEP Library ratings/favorites/notes and local LoRA; DONE Recipe restoration and parent/changed-fields; #230 ranking/batch experiments DEFER"
+    },
+    {
+      "Heading": "## Research checkpoint 7 — convergence: adoption priorities and final “do not reinvent” list",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958932942",
+      "Disposition": "KEEP evidence / workflow implemented; planning shape superseded by current authorization"
+    },
+    {
+      "Heading": "## Research checkpoint 8 — code quality gates + newer 2026 data assets",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959120074",
+      "Disposition": "KEEP evidence / workflow implemented; planning shape superseded by current authorization"
+    },
+    {
+      "Heading": "## Research checkpoint 9 — primary-source Model Profile design",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959135997",
+      "Disposition": "DEFER advanced feature: existing explicit JP/EN search, manual intent, current Knowledge and Forge conditions suffice; no parallel authority or new provider needed"
+    },
+    {
+      "Heading": "## Research checkpoint 10 — direct comparison against current DTT code",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959281343",
+      "Disposition": "KEEP evidence / workflow implemented; planning shape superseded by current authorization"
+    },
+    {
+      "Heading": "## Research checkpoint 11 — concrete C#/.NET reuse candidates for future LLM integration",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959302735",
+      "Disposition": "DEFER advanced feature: existing explicit JP/EN search, manual intent, current Knowledge and Forge conditions suffice; no parallel authority or new provider needed"
+    },
+    {
+      "Heading": "## Research checkpoint 12 — direct comparison of current DTT Library / LoRA Library",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959320697",
+      "Disposition": "KEEP Library ratings/favorites/notes and local LoRA; DONE Recipe restoration and parent/changed-fields; #230 ranking/batch experiments DEFER"
+    },
+    {
+      "Heading": "## Research checkpoint 13 — Prompt editor / autocomplete comparison",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959334398",
+      "Disposition": "DEFER advanced feature: existing explicit JP/EN search, manual intent, current Knowledge and Forge conditions suffice; no parallel authority or new provider needed"
+    },
+    {
+      "Heading": "## Research checkpoint 14 — search strategy after comparing #213 with external semantic search",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959350352",
+      "Disposition": "KEEP evidence / workflow implemented; planning shape superseded by current authorization"
+    },
+    {
+      "Heading": "## Research checkpoint 15 — Reference Prompt Mining feasibility and data boundary",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959380221",
+      "Disposition": "DEFER advanced feature: existing explicit JP/EN search, manual intent, current Knowledge and Forge conditions suffice; no parallel authority or new provider needed"
+    },
+    {
+      "Heading": "## Research checkpoint 16 — integrate Model Profiles with existing DTT Knowledge, do not create a parallel truth system",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959399935",
+      "Disposition": "DEFER advanced feature: existing explicit JP/EN search, manual intent, current Knowledge and Forge conditions suffice; no parallel authority or new provider needed"
+    },
+    {
+      "Heading": "## Research checkpoint 17 — semantic RAG index and adult reference-corpus audit",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959491937",
+      "Disposition": "DEFER advanced feature: existing explicit JP/EN search, manual intent, current Knowledge and Forge conditions suffice; no parallel authority or new provider needed"
+    },
+    {
+      "Heading": "## Research checkpoint 18 — Adoption Ledger v1",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959510621",
+      "Disposition": "KEEP evidence / workflow implemented; planning shape superseded by current authorization"
+    },
+    {
+      "Heading": "## Research checkpoint 19 — lightweight semantic-search benchmark candidates",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959530673",
+      "Disposition": "DEFER advanced feature: existing explicit JP/EN search, manual intent, current Knowledge and Forge conditions suffice; no parallel authority or new provider needed"
+    },
+    {
+      "Heading": "## Research checkpoint 20 — Danbooru refresh/update tooling",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959555259",
+      "Disposition": "KEEP evidence / workflow implemented; planning shape superseded by current authorization"
+    },
+    {
+      "Heading": "## Research checkpoint 21 — derivative/fine-tune Model Profile case study: WAI Illustrious",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959568271",
+      "Disposition": "DEFER advanced feature: existing explicit JP/EN search, manual intent, current Knowledge and Forge conditions suffice; no parallel authority or new provider needed"
+    },
+    {
+      "Heading": "## Research checkpoint 22 — hash-based model/LoRA identity enrichment",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959579682",
+      "Disposition": "DONE local model hash and full-file LoRA provenance; remote Civitai enrichment DEFER"
+    },
+    {
+      "Heading": "## Research checkpoint 23 — pre-implementation parity gates",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959592166",
+      "Disposition": "KEEP evidence / workflow implemented; planning shape superseded by current authorization"
+    },
+    {
+      "Heading": "## Research checkpoint 24 — model training-cutoff tag exposure: exact reconstruction is feasible, but current “historical tag list” shortcuts are insufficient",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959664290",
+      "Disposition": "DEFER advanced feature: existing explicit JP/EN search, manual intent, current Knowledge and Forge conditions suffice; no parallel authority or new provider needed"
+    },
+    {
+      "Heading": "## Scope freeze — stop discovery, consolidate decisions",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959680531",
+      "Disposition": "KEEP evidence / workflow implemented; planning shape superseded by current authorization"
+    },
+    {
+      "Heading": "## Consolidation checkpoint — exact Issue placement",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959699914",
+      "Disposition": "KEEP evidence / workflow implemented; planning shape superseded by current authorization"
+    },
+    {
+      "Heading": "## Planned implementation-Issue slicing after Foundation",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959953705",
+      "Disposition": "KEEP evidence / workflow implemented; planning shape superseded by current authorization"
+    },
+    {
+      "Heading": "## Provisional merged-main overlap audit — main 94bcb81e, pre-new-LKG",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5960004737",
+      "Disposition": "KEEP evidence / workflow implemented; planning shape superseded by current authorization"
+    },
+    {
+      "Heading": "## Frozen implementation spec pack v0 — A1 / B1 / B2",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5960040199",
+      "Disposition": "KEEP evidence / workflow implemented; planning shape superseded by current authorization"
+    },
+    {
+      "Heading": "## Frozen implementation spec pack v0 — C1 / C2 / D1 / D2 / E1 / E2",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5960056207",
+      "Disposition": "KEEP evidence / workflow implemented; planning shape superseded by current authorization"
+    },
+    {
+      "Heading": "## Pre-LKG readiness checkpoint",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5960066154",
+      "Disposition": "KEEP evidence / workflow implemented; planning shape superseded by current authorization"
+    },
+    {
+      "Heading": "## Model Profile requirement — required external components (Anima VAE case)",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5962071015",
+      "Disposition": "NOT REQUIRED by final scope correction; local installation problem excluded"
+    },
+    {
+      "Heading": "## Scope correction — Anima VAE is not a Model Profile requirement for this work",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5962118422",
+      "Disposition": "NOT REQUIRED by final scope correction; local installation problem excluded"
+    },
+    {
+      "Heading": "## 2026-10-03 autonomy simplification — reuse decisions are no longer pre-designed",
+      "URL": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5962232755",
+      "Disposition": "KEEP evidence / workflow implemented; planning shape superseded by current authorization"
     }
   ]
 }
