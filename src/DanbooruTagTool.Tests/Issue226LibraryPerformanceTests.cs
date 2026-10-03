@@ -41,7 +41,16 @@ public class Issue226LibraryPerformanceTests(ITestOutputHelper output)
         timer.Restart(); var search = store.Query(new(Text: "1girl", Limit: 60)); var queryMs = timer.Elapsed.TotalMilliseconds; Assert.Equal(20000, search.Total); Assert.Equal(60, search.Images.Count);
         timer.Restart(); var favorites = store.Query(new(FavoriteOnly: true, Limit: 60)); var favoriteMs = timer.Elapsed.TotalMilliseconds; Assert.Equal(200, favorites.Total);
         timer.Restart(); var last = store.Query(new(Offset: 19980, Limit: 60)); var lastPageMs = timer.Elapsed.TotalMilliseconds; Assert.Equal(20, last.Images.Count);
-        var result = new { Images = 5000, Rows = 20000, ColdMs = coldMs, WarmMs = warmMs, Changed10Ms = changedMs, Missing10Ms = missingMs, CommonQueryMs = queryMs, FavoriteQueryMs = favoriteMs, LastPageMs = lastPageMs, Fts5Available = store.SupportsFts5(), Runtime = System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription };
+        // #254: observe the existing query shape without changing schema or user DBs.
+        using var inspect = new SqliteConnection(new SqliteConnectionStringBuilder { DataSource = store.DatabasePath, Mode = SqliteOpenMode.ReadOnly, Pooling = false }.ToString()); inspect.Open();
+        var plans = new Dictionary<string, List<string>>();
+        var from = " FROM image_asset a LEFT JOIN generation_metadata m ON m.image_id=a.id LEFT JOIN image_annotation n ON n.image_id=a.id";
+        foreach (var (name, condition) in new[] { ("Text", " WHERE (m.positive LIKE '%1girl%' OR m.negative LIKE '%1girl%' OR m.model LIKE '%1girl%' OR n.note LIKE '%1girl%' OR a.relative_path LIKE '%1girl%' OR EXISTS(SELECT 1 FROM generation_lora l WHERE l.image_id=a.id AND l.name LIKE '%1girl%'))"), ("Favorite", " WHERE n.favorite=1"), ("LastPage", "") }) {
+            using var plan = inspect.CreateCommand(); plan.CommandText = "EXPLAIN QUERY PLAN SELECT a.id" + from + condition + " ORDER BY a.mtime_utc_ticks DESC,a.id DESC LIMIT 60 OFFSET " + (name == "LastPage" ? "19980" : "0");
+            using var rows = plan.ExecuteReader(); var details = new List<string>(); while (rows.Read()) details.Add(rows.GetString(3)); plans[name] = details;
+        }
+        using var pragma = inspect.CreateCommand(); pragma.CommandText = "PRAGMA page_count"; var pages = Convert.ToInt64(pragma.ExecuteScalar()); pragma.CommandText = "PRAGMA freelist_count"; var freePages = Convert.ToInt64(pragma.ExecuteScalar());
+        var result = new { Images = 5000, Rows = 20000, ColdMs = coldMs, WarmMs = warmMs, Changed10Ms = changedMs, Missing10Ms = missingMs, CommonQueryMs = queryMs, FavoriteQueryMs = favoriteMs, LastPageMs = lastPageMs, Fts5Available = store.SupportsFts5(), Runtime = System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription, DbBytes = new FileInfo(store.DatabasePath).Length, Pages = pages, FreePages = freePages, QueryPlans = plans };
         var json = JsonSerializer.Serialize(result, new JsonSerializerOptions { WriteIndented = true }); output.WriteLine(json);
         if (Environment.GetEnvironmentVariable("DTT_LIBRARY_PERF_OUTPUT") is { Length: > 0 } destination) File.WriteAllText(destination, json);
     }
