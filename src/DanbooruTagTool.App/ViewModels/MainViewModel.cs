@@ -92,9 +92,9 @@ public sealed class MainViewModel : Observable
         if (GenerationLibrary is not null)
         {
             GenerationLibrary.NegativeWorkspace = NegativeWorkspace;
-            GenerationLibrary.UseInCreate = (snapshot, filename) => Create.Load(new(Guid.NewGuid(), filename, "", snapshot.Positive, snapshot.Negative, GenerationRecipe.FromMetadata(snapshot)), "画像「" + filename + "」");
+            GenerationLibrary.UseInCreate = (snapshot, filename) => Create.LoadImage(snapshot, "画像「" + filename + "」");
         }
-        GenerationImport.UseInCreate = snapshot => Create.Load(new(Guid.NewGuid(), "PNG", "", snapshot.Positive, snapshot.Negative, GenerationRecipe.FromMetadata(snapshot)), "読み込んだPNG");
+        GenerationImport.UseInCreate = snapshot => Create.LoadImage(snapshot, "読み込んだPNG");
         if (paths is not null) LoraLibrary = new(paths, Workspace, new PromptParser(runtime), clipboard, canMutate, preset =>
         {
             PresetEditor.BeginNewPreset();

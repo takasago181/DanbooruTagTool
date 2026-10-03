@@ -97,6 +97,9 @@ public sealed class ForgeGenerationApiClient : IForgeGenerationApiClient
         {
             if (request.Recipe.RequiresDerivativeConsent && !request.AllowDerivative)
                 return new(false, "未適用の元画像条件があります。Createの生成条件で確認し、派生生成を明示的に了承してください。生成要求は送信していません。");
+            var derivation = GenerationRecipeDerivation.Read(request.Recipe.SourceParameters);
+            if (derivation is not null && GenerationRecipeDerivation.Identity(derivation.Requested) != GenerationRecipeDerivation.Identity(GenerationRecipeDerivation.Snapshot(request.Positive, request.Negative, request.Recipe)))
+                throw new InvalidDataException("Recipe派生snapshotと送信条件が違います。Createで変更点を再確認してください。");
             using var timeout = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken); timeout.CancelAfter(TimeSpan.FromMinutes(10));
             var uri = Base(baseUrl); var caps = await ProbeAsync(baseUrl, cancellationToken); var model = Validate(request, caps); var r = request.Recipe;
             var tokens = ForgeLoraSelection.Tokens(request);
@@ -127,11 +130,12 @@ public sealed class ForgeGenerationApiClient : IForgeGenerationApiClient
             using var after = await Get(uri, "sdapi/v1/options", timeout.Token);
             if (checkpoint != after.RootElement.GetProperty("sd_model_checkpoint").GetString()) mismatches.Add("Model restore");
             if (mismatches.Count > 0) return new(false, "Recipe照合失敗: " + string.Join(", ", mismatches) + "。出力を保持しました。再送信せず確認してください。", saved, metadata);
-            if (loras.Identities.Count > 0)
+            if (loras.Identities.Count > 0 || derivation is not null)
             {
                 // Only this newly generated output receives an unsigned local-file
                 // observation. Replace atomically; original survives write failure.
                 var withReceipt = GenerationLoraPngReceipt.Attach(bytes, loras.Identities);
+                if (derivation is not null) withReceipt = GenerationLoraPngReceipt.Attach(withReceipt, GenerationRecipeDerivation.Key, GenerationRecipeDerivation.Serialize(derivation));
                 var temp = saved + ".provenance.tmp";
                 await using (var file = new FileStream(temp, FileMode.CreateNew, FileAccess.Write)) await file.WriteAsync(withReceipt, timeout.Token);
                 File.Move(temp, saved, overwrite: true);

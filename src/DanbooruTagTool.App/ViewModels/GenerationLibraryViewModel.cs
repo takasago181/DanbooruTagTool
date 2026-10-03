@@ -80,7 +80,7 @@ public sealed class GenerationLibraryViewModel : Observable
             Favorite = value?.Image.Annotation.Favorite ?? false; Rating = value?.Image.Annotation.Rating; Note = value?.Image.Annotation.Note ?? "";
             changingAnnotation = false;
             Notify(nameof(Positive)); Notify(nameof(Negative)); Notify(nameof(RawInfotext)); Notify(nameof(SelectedPath)); Notify(nameof(HasSelection)); Notify(nameof(CanAnnotate)); Notify(nameof(Preview)); Notify(nameof(CompareRightSource)); Notify(nameof(RestorationWarning));
-            Notify(nameof(LoraProvenance)); RefreshCommands();
+            Notify(nameof(LoraProvenance)); Notify(nameof(DerivationSummary)); RefreshCommands();
         }
     }
     public bool HasSelection => Selected is not null;
@@ -90,6 +90,7 @@ public sealed class GenerationLibraryViewModel : Observable
     public string Positive => metadata?.Positive ?? "";
     public string Negative => metadata?.Negative ?? "";
     public string RawInfotext => metadata?.RawInfotext ?? "生成metadataなし。画像の評価・メモは保存できます。";
+    public string DerivationSummary => GenerationRecipeDerivation.Summary(metadata?.Parameters);
     public string LoraProvenance => metadata is null ? "" : GenerationLoraProvenance.Summary(metadata.Parameters);
     public string RestorationWarning => metadata is null ? "" : GenerationRecipe.FromMetadata(metadata) is { RequiresDerivativeConsent: true } r
         ? "元画像の未適用条件: " + string.Join(" / ", r.UnappliedParameters.Select(p => p.Name)) + "。「作成で使う」で確認してください。"
@@ -138,8 +139,12 @@ public sealed class GenerationLibraryViewModel : Observable
         GenerateRecipe = new(async _ =>
         {
             if (metadata is null) return;
-            var preset = new GenerationPreset(Guid.NewGuid(), "image recipe", "", metadata.Positive, metadata.Negative, GenerationRecipe.FromMetadata(metadata));
-            await forge.GenerateRecipeAsync(preset);
+            try
+            {
+                var preset = new GenerationPreset(Guid.NewGuid(), "image recipe", "", metadata.Positive, metadata.Negative, GenerationRecipeDerivation.FromImage(metadata, Selected?.Filename ?? "画像", GenerationMetadataReaders.ReadSnapshot));
+                await forge.GenerateRecipeAsync(preset);
+            }
+            catch (Exception e) when (StorageError(e) || e is GenerationMetadataException) { Status = "派生元画像を確認できません: " + e.Message; }
         }, _ => !Busy && canMutate() && metadata is not null);
         forge.PropertyChanged += (_, e) => { if (e.PropertyName == nameof(forge.RecipeStatus)) Notify(nameof(RecipeStatus)); };
         SetCompareLeft = new(_ => { compareLeft = metadata; compareLeftFilename = Selected?.Filename ?? "画像"; Notify(nameof(CompareLeftSource)); Notify(nameof(HasCompareLeft)); Differences.Clear(); Status = "比較する左画像を保持しました。右画像を選択して比較してください。"; Compare?.Refresh(); }, _ => metadata is not null);
