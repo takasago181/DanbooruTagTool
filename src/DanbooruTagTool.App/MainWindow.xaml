@@ -543,7 +543,6 @@
                  <TabItem Header="LoRAを追加"><views:LoraQuickUseView DataContext="{Binding LoraLibrary}"/></TabItem>
                  <TabItem Header="A/B実験"><views:ExperimentLabView DataContext="{Binding Experiments}"/></TabItem>
                  <TabItem Header="Region Composer"><views:RegionComposerView DataContext="{Binding Regions}"/></TabItem>
-                 <TabItem Header="テンプレート"><views:TemplateView DataContext="{Binding Templates}"/></TabItem>
                 </TabControl>
               </DockPanel>
             </TabItem>
