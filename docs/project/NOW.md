@@ -1,11 +1,12 @@
 # NOW
 
-2026-10-03 — #256 workflow complete and production promoted.
-Production source `7f57a120`; schema2→4 migration PASS with pre-migration backup.
-Original UserData payload +13 other files and Forge settings byte-identical.
-Actual Windows startup / installed Forge parent+derivative / PNG / Library / Recipe PASS.
-Final regression421 PASS/25 SKIP/0 FAIL; final main CI PASS.
+2026-10-03 — #230 Experiment Lab complete and production promoted.
+Production source `eb20abe1`; controlled1D/2D/multi-seed, reopen/reproduce and human evaluation PASS.
+Final regression439 PASS/25 SKIP/0 FAIL; PR/main CI PASS.
+Installed Forge13 POSTs with Library/PNG/Recipe/Model/LoRA provenance PASS.
+Existing UserData15 files +Forge2 settings byte-identical; no shared schema migration.
 
-Result: [#256 completion](../issue256/COMPLETE_PRODUCTION_2026-10-03.md).
-LKG/hashes/rollback: [production record](../issue256/PRODUCTION_LKG_2026-10-03.json).
-Old LKG/backups retained. No active lane; #230/#231 not started.
+Result: [#230 completion](../issue230/COMPLETE_PRODUCTION_2026-10-03.md).
+LKG/hashes/rollback: [production record](../issue230/PRODUCTION_LKG_2026-10-03.json).
+Old LKG/backups retained, including schema2→4 pre-migration recovery.
+No active lane; #231 not started.

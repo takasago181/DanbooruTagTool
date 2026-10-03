@@ -1,0 +1,230 @@
+{
+  "SchemaVersion": 1,
+  "Kind": "validated installed production LKG",
+  "CapturedUTC": "2026-10-03T14:12:43.1404406Z",
+  "MainHeadAtPromotion": "eb20abe1ed1ea91182a6916154b7b7e231da5022",
+  "ProductionSource": "eb20abe1ed1ea91182a6916154b7b7e231da5022",
+  "ProductionRoot": "C:/Codex/DanbooruTagTool-App",
+  "LKGRoot": "C:/Codex/DanbooruTagTool-Production-LKG-20261003-eb20abe1",
+  "Tag": "lkg/production-issue230-20261003-eb20abe1",
+  "RuntimeManifest": {
+    "schema_version": 3,
+    "app_name": "DanbooruTagTool",
+    "app_version": "1.0.0+eb20abe1ed1ea91182a6916154b7b7e231da5022",
+    "source_main_commit": "eb20abe1ed1ea91182a6916154b7b7e231da5022",
+    "build_utc": "2026-10-03T14:08:01.6022495Z",
+    "runtime_identifier": "win-x64",
+    "self_contained": true,
+    "single_file": true,
+    "native_libraries_self_extract": true,
+    "publish_trimmed": false,
+    "debug_symbols": false,
+    "pdb_present": false,
+    "exe_sha256": "220871EA9C75DFCF8BA36EE036ACF2EE6251A5A9787BB8003EEEFD77E365B2D6",
+    "catalog_sha256": "F0BEC5AEDBBB4B1D26010EFFE582C2E0C26D33748DC19CC7C90206097697AC29",
+    "catalog_total": 124895,
+    "catalog_category_counts": {
+      "Artist": 48313,
+      "Character": 35278,
+      "Copyright": 7616,
+      "General": 30629,
+      "Special": 3059
+    },
+    "structural_validator": {
+      "id": "dtt.catalog-structural-health",
+      "sha256": "C0C8F1DD78ADD5310ABAC9CD359DFC86E531D050B54F7A6D013FE1FC2DC1E072",
+      "version": "2.0.0"
+    },
+    "production_contract_validator": {
+      "version": "3.0.0",
+      "sha256": "C8CFA7BDF172198933DE42A980F220947EE9C739AEC2FEEA9F3EA01E28BF55F0",
+      "id": "dtt.production-source-contract"
+    },
+    "production_contract": {
+      "source_count": 6,
+      "source_report_sha256": "6178DD68F4E6050FF8C9C395E0F8A19E07A3278228D0953422CE0F0047E7DC3C",
+      "source_hashes": {
+        "manifest.json": "a20033aba5968aae32380cf5475b420c9fce06facaa207c7dbfc7de85d34ffe1",
+        "general.jsonl.gz": "e299a42412913e687529754d07f7b79da65e1c4a32574631cd752c9985ec8de9",
+        "special.jsonl.gz": "c97ea22ba62a5a8783026d868ff09fc7ec36d637e19e7588ddb2ab1e98a4be96",
+        "character.jsonl.gz": "46d847122203b84fef69a03c3ddf7fd54484a30fba6b67fc641c28d537403a20",
+        "copyright.jsonl.gz": "adf252a41af8a0ad11a2d5d8443876d63c3b52df8a9ab8a37f4a0c0fc011d056",
+        "artist.jsonl.gz": "513a5ddeceed62250801e9bb639608a2f513b69af680f47a4d40ba2d575cee84"
+      },
+      "contract_test": "ProductionCatalogCoverageEligibilitySearchAndSourceIntegrity"
+    },
+    "runtime_file_count": 5,
+    "runtime_file_count_scope": "excluding mutable UserData",
+    "real_userdata_embedded": false,
+    "forgebridge_file_hashes": {
+      "ForgeBridge/javascript/dtt_bridge.js": "5AE08106DA32FE9DECE72B6691AFFB485E09D296624ACEA26DACF6DC881DD653",
+      "ForgeBridge/scripts/dtt_bridge.py": "1FCCA4B5AFFFB21483DBE0947DC23943E5D1977AAF81E770D44136C560F31C4B"
+    }
+  },
+  "RuntimeManifestSHA256": "049BFD90F959C41120B6F9437AEED4814BC74030F9247BF39FCD028864CCFDDD",
+  "Files": [
+    {
+      "Path": "DanbooruTagTool.exe",
+      "Bytes": 176044124,
+      "SHA256": "220871EA9C75DFCF8BA36EE036ACF2EE6251A5A9787BB8003EEEFD77E365B2D6"
+    },
+    {
+      "Path": "runtime-manifest.json",
+      "Bytes": 2421,
+      "SHA256": "049BFD90F959C41120B6F9437AEED4814BC74030F9247BF39FCD028864CCFDDD"
+    },
+    {
+      "Path": "Data\\catalog.db",
+      "Bytes": 150790144,
+      "SHA256": "F0BEC5AEDBBB4B1D26010EFFE582C2E0C26D33748DC19CC7C90206097697AC29"
+    },
+    {
+      "Path": "ForgeBridge\\javascript\\dtt_bridge.js",
+      "Bytes": 8488,
+      "SHA256": "5AE08106DA32FE9DECE72B6691AFFB485E09D296624ACEA26DACF6DC881DD653"
+    },
+    {
+      "Path": "ForgeBridge\\scripts\\dtt_bridge.py",
+      "Bytes": 17954,
+      "SHA256": "1FCCA4B5AFFFB21483DBE0947DC23943E5D1977AAF81E770D44136C560F31C4B"
+    },
+    {
+      "Path": "UserData\\generation-library.db",
+      "Bytes": 90112,
+      "SHA256": "FF75A4FA2A4AE587F9515423C781EF914F6D1E7EF52E8399247BE126512B1313"
+    },
+    {
+      "Path": "UserData\\lora-library.db",
+      "Bytes": 32768,
+      "SHA256": "4C05F73EABDC432F7895C362405B29899C765B6871EBCA6632060BD440CB534C"
+    },
+    {
+      "Path": "UserData\\README.txt",
+      "Bytes": 108,
+      "SHA256": "B6A25CC3334885F0249D7AF6B1D2954C4B778B79D9C322C13D4F24F262F6B28E"
+    },
+    {
+      "Path": "UserData\\user.db",
+      "Bytes": 24576,
+      "SHA256": "10D4B1A251346F84449D7F752F072A9B50D2CAEAE61AB8B0C98AC6AC1003E408"
+    },
+    {
+      "Path": "UserData\\user.db.before-migration-2a9f900d88254a539564903c3b1ea1a8.bak",
+      "Bytes": 24576,
+      "SHA256": "687EEA600E4521EBF5BB6046F09C6C68B6C168924CED400F16C6946B2A8D64EA"
+    },
+    {
+      "Path": "UserData\\user.db.before-migration-d5cb177db25e4e62afa133a59414fe2b.bak",
+      "Bytes": 24576,
+      "SHA256": "B2439B291EF5B5049939D700AEDC8EC430D5341BCA2AA1D67D3E90170B373AFC"
+    },
+    {
+      "Path": "UserData\\Cache\\GenerationThumbnails\\0369292A5AB808B513B16397D0A08101B1D2B20D6B2DBFA0BB4D09C195FAC2BA.png",
+      "Bytes": 73960,
+      "SHA256": "8C685D4C56818CFF2B1C6B3EE1458D143256F100565F0F456A4EA558C56E4DB7"
+    },
+    {
+      "Path": "UserData\\Cache\\GenerationThumbnails\\308C971522374876C6FB39B619CA8CAFDD48E86A4C92F70192BE96D12581D126.png",
+      "Bytes": 34066,
+      "SHA256": "86696144F8D7EFA2EE030B8A603A7BCD7D3739A914A90C3FCC0B6C14F1EBB816"
+    },
+    {
+      "Path": "UserData\\Cache\\GenerationThumbnails\\809DA341E42CE37F5B97021FF406BD3BC26390A6714AD6981399B9E8817EC4C0.png",
+      "Bytes": 111639,
+      "SHA256": "CE344B15172DFBC9669C3F4D52EA609B7B70EC32EF98172AA67CEA146CB81F39"
+    },
+    {
+      "Path": "UserData\\Cache\\GenerationThumbnails\\893AFBE2C0B4D0A8B9842B41E646855DE781360B2A2D1EF033E7DE58CF4D833B.png",
+      "Bytes": 83591,
+      "SHA256": "64171A736938E4CCB83F5FC788FFB9E090843D8BD3D690F0ADE579E23C8CCE3A"
+    },
+    {
+      "Path": "UserData\\Cache\\GenerationThumbnails\\90CE5BE419AFD03DFF8AF5D4171A368A84FD98DEEBFBB2431A18BD9DF9BF330B.png",
+      "Bytes": 73874,
+      "SHA256": "962DF09307E96A37A0E976A31CEE9B85C69CE240C123DDB02AF8B81E04DA7F06"
+    },
+    {
+      "Path": "UserData\\Cache\\GenerationThumbnails\\9672E49ABDBB228F768D169D6F278A42513CEF46C4105D93B126A6CD0A65D445.png",
+      "Bytes": 100448,
+      "SHA256": "394E5EE0777F17E61C7287F9BB27C8A966447D3F79A9185C4AA54F6164DCC7A0"
+    },
+    {
+      "Path": "UserData\\Cache\\GenerationThumbnails\\ABDB02A39CCB168386994FE436CB4A0319063965460535CB13036F2568D2E38C.png",
+      "Bytes": 73874,
+      "SHA256": "962DF09307E96A37A0E976A31CEE9B85C69CE240C123DDB02AF8B81E04DA7F06"
+    },
+    {
+      "Path": "UserData\\ForgeResults\\forge-4f573db27de8430394d9e2192c45d73c.png",
+      "Bytes": 415916,
+      "SHA256": "6C54026203BF1E6F8994020B6113BD5E64C2046AA471BEEE5A98FC02741E5B5F"
+    },
+    {
+      "Path": "UserData\\ForgeResults\\forge-bd316b0160714e1985b800836223b63a.png",
+      "Bytes": 415916,
+      "SHA256": "6C54026203BF1E6F8994020B6113BD5E64C2046AA471BEEE5A98FC02741E5B5F"
+    }
+  ],
+  "UserSchema": 4,
+  "PayloadVersion": 4,
+  "LibrarySchema": 1,
+  "LoRALibrarySchema": 1,
+  "ExperimentSchema": {
+    "Creation": "lazy additive DB on Lab actions; tested in isolated output",
+    "SharedMigration": false,
+    "Version": 1
+  },
+  "ProtectedUserData": {
+    "ConsistentDBBackup": "C:/Codex/DanbooruTagTool-Backup-pre230-20261003-7f57a120/Database",
+    "BeforeBaseline": "C:/Codex/DanbooruTagTool/_local/task-artifacts/issue230/promotion-before.json",
+    "CurrentUserDBSHA256": "10D4B1A251346F84449D7F752F072A9B50D2CAEAE61AB8B0C98AC6AC1003E408",
+    "FilesByteIdentical": 15
+  },
+  "ForgeSettings": [
+    {
+      "Path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Packages\\Stable Diffusion WebUI Forge - Neo\\config.json",
+      "SHA256": "2DDC6555E4873B011C4A9BC5A856F4FF3B91F4DB78D187DDB8872FBCEBE3CE69"
+    },
+    {
+      "Path": "C:\\Users\\takas\\Downloads\\StabilityMatrix-win-x64\\Data\\Packages\\Stable Diffusion WebUI Forge - Neo\\ui-config.json",
+      "SHA256": "0D2C6853610D184E139B1591E0E76D70D4CDDB6E7265FC408D748B4B190FF483"
+    }
+  ],
+  "Validation": {
+    "PublishedUIReplay": "PASS 0 POSTs",
+    "PR": 271,
+    "Targeted": "122 broader +18 final affected PASS",
+    "CleanBuild": "PASS 0 warnings/0 errors",
+    "PRCI": "37128144747 PASS",
+    "FinalRegression": "439 PASS /25 SKIP /0 FAIL; one final main run",
+    "WindowsStartup": "candidate and installed PASS",
+    "MainCI": "37128437876 PASS",
+    "InstalledForge": {
+      "Reopen": "PASS",
+      "PNGLibraryRecipeIdentity": "PASS",
+      "Evidence": "C:/Codex/DanbooruTagTool/_local/task-artifacts/issue230/production-e2e",
+      "Posts": 13,
+      "OneDTrials": 4,
+      "BoundedRerunPosts": 1,
+      "Seeds": [
+        23020261003,
+        23020261004
+      ],
+      "Result": "PASS",
+      "Evaluation": "PASS",
+      "MatrixTrials": 8,
+      "ControlledProvenance": "PASS"
+    }
+  },
+  "Rollback": {
+    "PreviousLKG": "lkg/production-issue256-20261003-7f57a120",
+    "FoundationSource": "ad14d45f",
+    "FoundationBackup": "C:/Codex/DanbooruTagTool-Backup-pre256-20261003-ad14d45f",
+    "Policy": "Restore pre230 runtime five files only; retain current schema4 UserData and additive Experiment DB/evidence. If a newer unexpected migration occurs, use matching backed-up DB.",
+    "Backup": "C:/Codex/DanbooruTagTool-Backup-pre230-20261003-7f57a120",
+    "FoundationPolicy": "Old Foundation runtime requires matching schema2 pre-migration UserData/DB restore; never runtime-only downgrade.",
+    "PreviousProductionSource": "7f57a120bdfbfbff039e115b43851d8635029d4e"
+  },
+  "CatalogAuthorityChanged": false,
+  "KnowledgeAutoPromotion": false,
+  "Issue231Started": false
+}
