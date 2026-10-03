@@ -47,6 +47,9 @@ Branch: `foundation/batch-b`. Production remains #245 LKG; no install or UserDat
   `BATCH_B_PROTECTED_RESULT.json`. No publish, installed runtime, Library/LoRA,
   LKG or protected legacy/data-root change. No GUI needed for these changes.
 - PR CI pending checkpoint publication; results will be recorded after push.
+- Initial PR CI full regression passed (353/22), then exposed global `archive/`
+  ignore excluding the recovery ledger from the commit. An exact manifest-only
+  allowlist was added; archive payloads stay ignored. Final CI reruns this fix.
 
 ## Revised mandatory gate (user direction during this task)
 
