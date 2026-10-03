@@ -10,12 +10,13 @@ public sealed record GenerationRecipe(
     string? Scheduler = null,
     decimal? Cfg = null,
     int? Width = null,
-    int? Height = null)
+    int? Height = null,
+    string? ModelHash = null)
 {
     public bool HasAny =>
         !string.IsNullOrWhiteSpace(Model) || Seed.HasValue || Steps.HasValue ||
         !string.IsNullOrWhiteSpace(Sampler) || !string.IsNullOrWhiteSpace(Scheduler) ||
-        Cfg.HasValue || Width.HasValue || Height.HasValue;
+        Cfg.HasValue || Width.HasValue || Height.HasValue || !string.IsNullOrWhiteSpace(ModelHash);
 
     // Generation recipes are reference/persistence metadata only.
     // Forge values are set manually by the user.
@@ -27,6 +28,7 @@ public sealed record GenerationRecipe(
         {
             var parts = new List<string>();
             if (!string.IsNullOrWhiteSpace(Model)) parts.Add(Model!);
+            if (!string.IsNullOrWhiteSpace(ModelHash)) parts.Add($"Hash {ModelHash}");
             if (Steps is { } steps) parts.Add($"{steps} steps");
             if (!string.IsNullOrWhiteSpace(Sampler)) parts.Add(Sampler!);
             if (!string.IsNullOrWhiteSpace(Scheduler) && !Scheduler.Equals("Automatic", StringComparison.OrdinalIgnoreCase)) parts.Add(Scheduler!);
@@ -52,6 +54,7 @@ public sealed record GenerationRecipe(
             Clean(snapshot.Value("Schedule type") ?? snapshot.Value("Scheduler")),
             Decimal(snapshot.Value("CFG scale")),
             snapshot.Width,
-            snapshot.Height);
+            snapshot.Height,
+            Clean(snapshot.Value("Model hash")));
     }
 }

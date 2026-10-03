@@ -11,12 +11,19 @@
     "docs/project/PERMANENT_RULES.md",
     "task-specific contract/spec"
   ],
-  "active_lanes": [],
+  "active_lanes": [
+    {
+      "issue": 256,
+      "scope": "Batch1 Recipe model hash; development PR only",
+      "plan": "docs/issue256/POST_FOUNDATION_PLAN_2026-10-03.md",
+      "stop": "PR; no Batch2/#230/#231/production apply"
+    }
+  ],
   "completed_or_non_default": [
-    "#247 Foundation complete; #249-#254 selected work accepted, #255 NO ACTION",
-    "Uninstalled Foundation LKG source 76269b8c; docs/issue247/FOUNDATION_LKG_2026-10-03.json",
-    "#245 installed production LKG retained; no promotion or UserData change",
-    "#256/#230 not started; next lane requires separate user instruction"
+    "#247 Foundation and #249–#255 CLOSED",
+    "#255 NO ACTION; no history rewrite",
+    "Foundation production source ad14d45f; new deployed LKG retained",
+    "Batch1 not deployed; #230/#231 not started"
   ],
   "protected_boundaries": [
     "UserData is user-owned",
@@ -42,8 +49,8 @@
   "change_review_policy": "Use branch/PR for substantial, semantic, UserData, production, or risky work. Trivial reversible docs/metadata/maintenance may use the simplest safe route.",
   "network_policy": "External/network-backed features are allowed when useful; preserve local-state safety and keep secrets out of the repository. Offline is a preference, not a universal hard requirement.",
   "packaging_policy": "Self-contained/single-file/no-PDB/second-PC/folder-copy/machine-independent-path checks are optional unless a specific task needs them.",
-  "production_lkg_source": "b3f48c359a8473c8bbf02347487cba5d8dacf96c",
-  "foundation_gate": "COMPLETE_UNINSTALLED_LKG",
+  "production_lkg_source": "ad14d45f8d20a16cb340f1cf41433f645c5b27a6",
+  "foundation_gate": "COMPLETE_PRODUCTION_PROMOTED",
   "foundation_audit": {
     "issue": 248,
     "state": "closed",
@@ -53,7 +60,7 @@
       "unmeasured broad architecture rewrite",
       "history compaction (NO ACTION)"
     ],
-    "next": "Foundation accepted; no active lane. Next task requires explicit selection."
+    "next": "#256 Batch1 PR only"
   },
   "foundation_implementation": {
     "issue": 247,
@@ -69,9 +76,9 @@
     "branch": "main",
     "baseline_main": "76269b8c69f772cae25435b460928da4f1745f90",
     "report": "docs/issue247/FOUNDATION_COMPLETE_2026-10-03.md",
-    "production_applied": false,
+    "production_applied": true,
     "batch_b_started": true,
-    "stop": "Foundation complete; no automatic production promotion/#230/#256 start",
+    "stop": "Foundation deployed; separately authorized #256 Batch1 ends at PR",
     "research_report": "docs/foundation/EXTERNAL_REUSE_GATE_2026-10-03.md",
     "adoption_matrix": "docs/foundation/EXTERNAL_REUSE_MATRIX.json",
     "research_recovery": "docs/foundation/EXTERNAL_REUSE_RECOVERY.json"

@@ -11,6 +11,7 @@
    <TextBlock Text="一時的な現在値です。終了時には破棄されます。保持する場合はPresetへ保存してください。" FontSize="12" Margin="0,0,0,8"/>
    <WrapPanel DataContext="{Binding Create}">
     <StackPanel Width="240" Margin="0,0,12,8"><TextBlock Text="Model（要求値・実loaded modelとは別）"/><TextBox Text="{Binding Model, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.Name="現在Model"/></StackPanel>
+    <StackPanel Width="240" Margin="0,0,12,8"><TextBlock Text="Model hash（任意・完全一致）"/><TextBox Text="{Binding ModelHash, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.Name="現在Model hash" ToolTip="画像から復元したhashも保持します。別Modelを使う場合は明示的に変更・解除してください。生成前と実画像で照合します。"/></StackPanel>
     <StackPanel Width="170" Margin="0,0,12,8"><TextBlock Text="Seed（固定、0以上）"/><TextBox Text="{Binding Seed, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.Name="現在Seed"/></StackPanel>
     <StackPanel Width="100" Margin="0,0,12,8"><TextBlock Text="Steps"/><TextBox Text="{Binding Steps, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.Name="現在Steps"/></StackPanel>
     <StackPanel Width="170" Margin="0,0,12,8"><TextBlock Text="Sampler"/><TextBox Text="{Binding Sampler, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.Name="現在Sampler"/></StackPanel>

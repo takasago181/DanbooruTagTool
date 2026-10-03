@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "baseline_main": "ad14d45f8d20a16cb340f1cf41433f645c5b27a6",
+  "issue_url": "https://github.com/takasago181/DanbooruTagTool/issues/256",
+  "comments_recovered": 35,
+  "matrix_rows": 142,
+  "matrix_preserved": "docs/foundation/EXTERNAL_REUSE_MATRIX.json",
+  "recovery_preserved": "docs/foundation/EXTERNAL_REUSE_RECOVERY.json",
+  "decision": "Existing research retained; explicit user authorization activates only Batch1 model-hash preservation/verification. Old implementation order is nonbinding.",
+  "checkpoints": [
+    {
+      "heading": "## Research checkpoint 1 — reuse / reference / avoid-rebuild split",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958581425",
+      "created_utc": "2026-10-02T18:18:11Z",
+      "body_sha256": "F1ABD63B0361798CB36E0E8311EF26D6DAB693129A26E81FB56E4E0DB72F6440",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Policy update — replacement of existing DTT implementations is allowed",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958622805",
+      "created_utc": "2026-10-02T18:20:28Z",
+      "body_sha256": "92B89E6D7AA5F5353E588DFD2492355542DE106706D4B92FD765DD963C8592A4",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Research checkpoint 2 — concrete adoption order and replacement targets",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958692151",
+      "created_utc": "2026-10-02T18:24:46Z",
+      "body_sha256": "22796AC153BD0AA2DD9C7C8C9C530EA449D824ABB01272B501E4B1FFC612C9FC",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Research checkpoint 3 — major code-reuse candidates found",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958752826",
+      "created_utc": "2026-10-02T18:28:26Z",
+      "body_sha256": "59137C10696E49A2A49EBAEFA800F9643BB1868579C49ACBE257BFE8AD858A73",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Research checkpoint 4 — scope boundary + new high-value features",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958825884",
+      "created_utc": "2026-10-02T18:33:25Z",
+      "body_sha256": "6F8E2F35F6883AAE7AC6211CAD8EB8AC868D2E02639830C6A9DE72FAF133ED00",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Research checkpoint 5 — LoRA / regional / reference / model-aware prompt scope",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958864370",
+      "created_utc": "2026-10-02T18:35:46Z",
+      "body_sha256": "EEC50F32AE1A7446174548E734D4A6FA2DEE8F01DF07B7343B65050F2157B2E9",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Research checkpoint 6 — generation history, ratings and reusable experiment evidence",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958916055",
+      "created_utc": "2026-10-02T18:38:37Z",
+      "body_sha256": "1FDE8F39FDDD15E3E1386974714341123D79A326F2BCDC63FF482CE9FCDA3D54",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Research checkpoint 7 — convergence: adoption priorities and final “do not reinvent” list",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958932942",
+      "created_utc": "2026-10-02T18:39:31Z",
+      "body_sha256": "4677A4F85310312DEBF004FF032539493436E7319EDC22A44B3C42DACC3EFD49",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Research checkpoint 8 — code quality gates + newer 2026 data assets",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959120074",
+      "created_utc": "2026-10-02T18:48:05Z",
+      "body_sha256": "AA5FB1F8B0A711AF3A2B4B59C3AF0BE504AAEF69CBD2CB862E2D60AB35CC785E",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Research checkpoint 9 — primary-source Model Profile design",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959135997",
+      "created_utc": "2026-10-02T18:48:50Z",
+      "body_sha256": "5A56EE45DFD3454E3F2E3D990A166C272DCDD6E6B5DF6BC0D3BADB17808BBDF5",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Research checkpoint 10 — direct comparison against current DTT code",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959281343",
+      "created_utc": "2026-10-02T18:55:31Z",
+      "body_sha256": "80B5ECEE9994E552C2EEFD8EEFE3547B5BD488A37D18E1B663FC4622EDE852F2",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Research checkpoint 11 — concrete C#/.NET reuse candidates for future LLM integration",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959302735",
+      "created_utc": "2026-10-02T18:56:34Z",
+      "body_sha256": "DF8A84B272D426811B5F6F13528F62BDDCBC6E6D26A750701CB950FD32DEA9C7",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Research checkpoint 12 — direct comparison of current DTT Library / LoRA Library",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959320697",
+      "created_utc": "2026-10-02T18:57:28Z",
+      "body_sha256": "4C26C9FD57A62FB0BD4AD6CA4F510151B38444A855B66AA39975721591D65BF7",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Research checkpoint 13 — Prompt editor / autocomplete comparison",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959334398",
+      "created_utc": "2026-10-02T18:58:11Z",
+      "body_sha256": "752C8A870C7821AC8FE2D8732A3BF47F78A26A5B3C3A8355716B7F24F300448F",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Research checkpoint 14 — search strategy after comparing #213 with external semantic search",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959350352",
+      "created_utc": "2026-10-02T18:59:00Z",
+      "body_sha256": "842A2A5A31AD6E957E3464B6FE09A2BFA4FDCAB403839395C73DFDC39E81751E",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Research checkpoint 15 — Reference Prompt Mining feasibility and data boundary",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959380221",
+      "created_utc": "2026-10-02T19:00:29Z",
+      "body_sha256": "81D3C3F9C4692D0FBCDEE63E4CFC8701D083D6C7A6858DFAA460ACADAFE6C039",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Research checkpoint 16 — integrate Model Profiles with existing DTT Knowledge, do not create a parallel truth system",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959399935",
+      "created_utc": "2026-10-02T19:01:20Z",
+      "body_sha256": "E6AF36B6FEB9F43A9CBBE92AFC87EE250C8A7BEF1A08279526062009FD6F05FA",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Research checkpoint 17 — semantic RAG index and adult reference-corpus audit",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959491937",
+      "created_utc": "2026-10-02T19:05:12Z",
+      "body_sha256": "3D77F3D6629D7BF4897F07DDBF12D553A20488E43EE96AA9C64799AD28F16A6D",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Research checkpoint 18 — Adoption Ledger v1",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959510621",
+      "created_utc": "2026-10-02T19:06:10Z",
+      "body_sha256": "8F19467AE406A46200F4E67EF6DEE5AD6D974EACFFB50879F481D40822B641B3",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Research checkpoint 19 — lightweight semantic-search benchmark candidates",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959530673",
+      "created_utc": "2026-10-02T19:07:23Z",
+      "body_sha256": "A03C863BFCEE120876DE258E6DE51E321CA2A1B1A5DCD8DBFD7B32B6801D9118",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Research checkpoint 20 — Danbooru refresh/update tooling",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959555259",
+      "created_utc": "2026-10-02T19:08:32Z",
+      "body_sha256": "DE1FC9D8C1AF9993A151080C6578A1222DCCFB5879C067A083166BF58BA08F5F",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Research checkpoint 21 — derivative/fine-tune Model Profile case study: WAI Illustrious",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959568271",
+      "created_utc": "2026-10-02T19:09:20Z",
+      "body_sha256": "4EE0C16185560EB5F2AEE9F8BC07813B91A1CAB9378C0738778A298C209C91DF",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Research checkpoint 22 — hash-based model/LoRA identity enrichment",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959579682",
+      "created_utc": "2026-10-02T19:09:59Z",
+      "body_sha256": "DE8DCC21BDE09D337ED80077EADC2B6F4B64FD1686E74DC9A087558336ED6F9B",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Research checkpoint 23 — pre-implementation parity gates",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959592166",
+      "created_utc": "2026-10-02T19:10:47Z",
+      "body_sha256": "3FF715268E9FC934D6E70C7C94255FE6F1433CAB16F0B92BA8CF492788008EEA",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Research checkpoint 24 — model training-cutoff tag exposure: exact reconstruction is feasible, but current “historical tag list” shortcuts are insufficient",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959664290",
+      "created_utc": "2026-10-02T19:15:40Z",
+      "body_sha256": "084934CC7789217FE6CD3B44BE7719D3E6C93287B98C6B952DBD8A0F7E6484D1",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Scope freeze — stop discovery, consolidate decisions",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959680531",
+      "created_utc": "2026-10-02T19:16:39Z",
+      "body_sha256": "616E4A0B14FD20EBD1AC0336642B4F6738BF9C6751F57FD4B524C6AB5D38420B",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Consolidation checkpoint — exact Issue placement",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959699914",
+      "created_utc": "2026-10-02T19:17:55Z",
+      "body_sha256": "0E469C8907D46C624A2AD31CB932457D50C06C88D53A2FFA5B9D1652ADDE4A8A",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Planned implementation-Issue slicing after Foundation",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959953705",
+      "created_utc": "2026-10-02T19:32:50Z",
+      "body_sha256": "027AB7EC70ED08763FBBD462E8BA24B19609CAC16FD129D05BA16B759C5DA708",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Provisional merged-main overlap audit — main 94bcb81e, pre-new-LKG",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5960004737",
+      "created_utc": "2026-10-02T19:36:04Z",
+      "body_sha256": "7F3102CC60914BFE51F1729089946D07C8DBC9EEC566A2C2F8A3FF3647A44344",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Frozen implementation spec pack v0 — A1 / B1 / B2",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5960040199",
+      "created_utc": "2026-10-02T19:38:33Z",
+      "body_sha256": "4B271111DD966656F9C8EACAF24C5A3D0C0F60D635FEB192FB8F9BAE85B3B6BE",
+      "disposition": "RECONCILE: B2 model identity subset selected; all other frozen slices deferred"
+    },
+    {
+      "heading": "## Frozen implementation spec pack v0 — C1 / C2 / D1 / D2 / E1 / E2",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5960056207",
+      "created_utc": "2026-10-02T19:39:44Z",
+      "body_sha256": "46BAD6A64D4217E6B0AAD11957C19EE859B76CF373DC4CFE06552386F875926B",
+      "disposition": "RECONCILE: B2 model identity subset selected; all other frozen slices deferred"
+    },
+    {
+      "heading": "## Pre-LKG readiness checkpoint",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5960066154",
+      "created_utc": "2026-10-02T19:40:18Z",
+      "body_sha256": "8B5CFC3B80BC6FAE9A732685D4875361BFA78F1F1173A990A45659B347EE9C03",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Model Profile requirement — required external components (Anima VAE case)",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5962071015",
+      "created_utc": "2026-10-02T21:53:06Z",
+      "body_sha256": "E9BCA58A8B8609FF7C64123311D806F0D7BA992A5230435EA9A5F5E9121F3043",
+      "disposition": "KEEP evidence; overlap/defer decisions in POST_FOUNDATION_PLAN"
+    },
+    {
+      "heading": "## Scope correction — Anima VAE is not a Model Profile requirement for this work",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5962118422",
+      "created_utc": "2026-10-02T21:57:24Z",
+      "body_sha256": "4C29AEE561BD0ACD34E46E3C2B295AA5276038584D098564E929395CD1B18C06",
+      "disposition": "KEEP exclusion: Anima VAE installation issue outside DTT"
+    },
+    {
+      "heading": "## 2026-10-03 autonomy simplification — reuse decisions are no longer pre-designed",
+      "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5962232755",
+      "created_utc": "2026-10-02T22:07:13Z",
+      "body_sha256": "2A028FC509FD3E217D4F6B7228ADC14F8891F7D471D01313ADA3761ECC786933",
+      "disposition": "KEEP: current user scope and reuse-first; no frozen order"
+    }
+  ]
+}

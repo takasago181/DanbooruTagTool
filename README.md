@@ -4,11 +4,13 @@
 支える個人用Windows WPFツール。成人向け・fetish・hard/nicheの深いSpecial発見を保護します。
 
 #247 Foundationは完了。PR #261〜#264を受入し、#255はNO ACTION。
-新しい未適用Foundation LKGを保持。productionは既存#245 LKGのままです。
-次のDEV lane / #256 / #230 / production適用はユーザーの指示待ち。
+Foundation版をproductionへ昇格し、新production LKGを保持しました。
+#256 Batch 1はRecipeのModel hash保持・照合。開発PRでSTOPし、productionへは未適用。
 
 - Foundation完了記録: [checkpoint](docs/issue247/FOUNDATION_COMPLETE_2026-10-03.md)
 - 未適用Foundation LKG: [record](docs/issue247/FOUNDATION_LKG_2026-10-03.json)
+- Foundation production: [checkpoint](docs/issue256/FOUNDATION_PRODUCTION_2026-10-03.md)
+- #256再整理 / Batch 1: [plan](docs/issue256/POST_FOUNDATION_PLAN_2026-10-03.md)
 
 - 現在地: [NOW](docs/project/NOW.md) / [routing](docs/project/CURRENT_ROUTING.json)
 - 安全境界: [PERMANENT_RULES](docs/project/PERMANENT_RULES.md)

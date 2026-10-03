@@ -1,0 +1,23 @@
+{
+  "production_files_unchanged": 19,
+  "userdata_files_byte_identical": 14,
+  "production_source": "ad14d45f",
+  "production_schema": 2,
+  "batch1_deployed": false,
+  "semantic_payloads_identical": 124895,
+  "targeted": {
+    "failed": 0,
+    "passed": 80
+  },
+  "full": {
+    "skipped": 25,
+    "passed": 372,
+    "failed": 0
+  },
+  "clean_build": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "isolated_windows_wpf": "PASS 900/1400",
+  "ci": "PR checks and final Issue checkpoint"
+}
