@@ -28,6 +28,7 @@ public sealed class MainViewModel : Observable
     public RegionComposerViewModel? Regions { get; }
     public TemplateViewModel? Templates { get; }
     public ImageTagAnalysisViewModel? ImageTagAnalysis { get; }
+    public PersonalRulesViewModel? PersonalRules { get; }
     private bool presetManagementOpen;
     public bool PresetManagementOpen { get => presetManagementOpen; set { Set(ref presetManagementOpen, value); Notify(nameof(CreateEditingAvailable)); Create.Refresh(); } }
     public bool CreateEditingAvailable => CanEditPrompt && !PresetManagementOpen && !Forge.RecipeBusy;
@@ -110,6 +111,7 @@ public sealed class MainViewModel : Observable
             PresetsRequested?.Invoke();
         });
         if (LoraLibrary is not null) LoraLibrary.NegativeWorkspace = NegativeWorkspace;
+        if (paths is not null) PersonalRules = new(this, runtime, paths);
         Prompt.Restore(UserState.Ui); Dictionary.Restore(UserState.Ui); Forge.Restore(UserState.Ui); PresetEditor.Restore(state);
 
         WireNotifications();

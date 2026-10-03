@@ -14,9 +14,10 @@ public sealed class PromptIntelligenceViewModel(PromptWorkspace positive, Prompt
     public int Steps { get; set; } = 20;
     public int ActiveSide { get => activeSide; set => Set(ref activeSide, value); }
     public bool Busy { get => busy; private set => Set(ref busy, value); }
+    public Func<IEnumerable<PromptWarning>>? PersonalWarnings { get; set; }
     public void Refresh()
     {
-        revision++; Warnings.Clear(); foreach (var w in PromptDiagnostics.Warnings(positive, negative)) Warnings.Add(w);
+        revision++; Warnings.Clear(); foreach (var w in PromptDiagnostics.Warnings(positive, negative).Concat(PersonalWarnings?.Invoke() ?? [])) Warnings.Add(w);
         Boundaries.Clear(); foreach (var b in PromptDiagnostics.Boundaries(positive, "Positive").Concat(PromptDiagnostics.Boundaries(negative, "Negative"))) Boundaries.Add(b);
         TokenStatus = "Prompt変更後のtoken count未取得。BREAK/ANDは構文境界です。モデル依存chunkはForge照会後に表示します。";
     }

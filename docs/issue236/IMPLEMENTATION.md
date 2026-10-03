@@ -1,0 +1,11 @@
+# Issue236 personal guidance and exclusions
+
+Reuses #256 active Create Model/name/hash and #232 existing PromptWarning collection. Reuse decision: keep DTT state owners, adopt model-keyword (https://github.com/mix1009/model-keyword, MIT; existing #256 audit) identity→personal mapping concept; no dependency, remote corpus or parallel governed Model Profile authority.
+
+Version1 UserData/PersonalRules/rules.json, atomic previous backup; future version/invalid records fail closed. Personal hints: scope, trigger, positive/negative additions, preferred saved Preset, warning, note. Exact hash takes precedence over name and survives renames; name-only fallback is explicitly weaker. Optional family metadata can be stored but remains unresolved when backend offers no family identity. Global or model-specific exclusions: canonical/alias/raw token, Hide/Warn/BlockAdd, replacement suggestion and note.
+
+Hide filters personal discovery/related presentation only. Warn/BlockAdd for existing Prompt surface through existing #232 diagnostics and never delete/rewrite it. Shared PromptWorkspace Add/AppendPreset/AppendText guard covers dictionary, hint, preset append and analyzed-tag additions; direct raw editing/replacement is deliberately preserved. Explicit hint actions append P/N or load a preferred saved Preset. Model switches refresh advice/presentation only. Notes/preferences never become catalog/Browse/HOME/Knowledge authority.
+
+5 targeted tests PASS: hash precedence/renames, alias+weight resolution, raw warn, hide/catalog preservation, shared add guards, explicit hint use, scope switch, persisted restart, future-version preservation. Four existing compact WPF layout tests PASS; tools live inside existing diagnostics expander. Existing DB schemas/catalog/production unchanged.
+
+Opt-in --validate-practical-features and --validate-practical-production integrate templates→pinned experiment, real Forge PNG/Library→WD14→explicit selection, scoped hints/blacklist, Recipe+personal-state restart, and rendered feature views. Fresh isolated UserData only. Candidate uses two meaningful template trials; production smoke uses one normal generation and verifies template draft without extra trial generation. Run after all three PRs merge; no per-Issue promotion.

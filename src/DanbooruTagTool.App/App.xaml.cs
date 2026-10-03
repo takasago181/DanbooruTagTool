@@ -15,6 +15,12 @@ public partial class App : Application
         {
             if (e.Args.FirstOrDefault() == "--build-catalog")
                 throw new NotSupportedException("Catalog compilation moved to DanbooruTagTool.Maintenance: compile <manifest.json> <new-empty-output>.");
+            if (e.Args.FirstOrDefault() is "--validate-practical-features" or "--validate-practical-production")
+            {
+                if (e.Args.Length != 3) throw new ArgumentException("--validate-practical-features <spec.json> <fresh-output>");
+                ShutdownMode = ShutdownMode.OnExplicitShutdown;
+                await PracticalFeatureValidation.RunAsync(e.Args[1],e.Args[2],e.Args[0]=="--validate-practical-production"); Shutdown(0); return;
+            }
             if (e.Args.FirstOrDefault() == "--validate-image-tags")
             {
                 if (e.Args.Length != 3) throw new ArgumentException("--validate-image-tags <spec.json> <fresh-output>");
