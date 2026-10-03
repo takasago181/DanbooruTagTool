@@ -1,0 +1,87 @@
+{
+  "repository": "d3x-at/sd-parsers",
+  "url": "https://github.com/d3x-at/sd-parsers",
+  "branch": "master",
+  "source_commit": "0949676c24a5bbaf26ef0aa8c362132b7b27cb5b",
+  "latest_commit_date": "2025-04-03T18:19:41Z",
+  "latest_commit_message": "Git Workflows: combine test and publish",
+  "archived": false,
+  "language": "Python",
+  "license": "MIT",
+  "pushed_at": "2025-04-03T18:22:13Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/d3x-at/sd-parsers/blob/0949676c24a5bbaf26ef0aa8c362132b7b27cb5b/README.md",
+      "bytes": 6991,
+      "sha256": "8a53c85b09f02fd0700bcdb500dbfe1876f9384af408feffc23081d949550608",
+      "line_count": 208
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/d3x-at/sd-parsers/blob/0949676c24a5bbaf26ef0aa8c362132b7b27cb5b/pyproject.toml",
+      "bytes": 1303,
+      "sha256": "6aa87b2dabc185b38edef075b2be667b5eb98611000b9621538d4acde836f41b",
+      "line_count": 52
+    },
+    {
+      "path": "src/sd_parsers/data/prompt.py",
+      "url": "https://github.com/d3x-at/sd-parsers/blob/0949676c24a5bbaf26ef0aa8c362132b7b27cb5b/src/sd_parsers/data/prompt.py",
+      "bytes": 593,
+      "sha256": "f5d36241449416784fc26225cfae0eb406f0b07cfae2af7336b537d315c2b52f",
+      "line_count": 26
+    },
+    {
+      "path": "src/sd_parsers/data/prompt_info.py",
+      "url": "https://github.com/d3x-at/sd-parsers/blob/0949676c24a5bbaf26ef0aa8c362132b7b27cb5b/src/sd_parsers/data/prompt_info.py",
+      "bytes": 3585,
+      "sha256": "c22f16ae328d86ce08e4f645ac393fb1fcaf83f0310d8d95bffee429e602910d",
+      "line_count": 121
+    },
+    {
+      "path": "src/sd_parsers/_parser_manager.py",
+      "url": "https://github.com/d3x-at/sd-parsers/blob/0949676c24a5bbaf26ef0aa8c362132b7b27cb5b/src/sd_parsers/_parser_manager.py",
+      "bytes": 4627,
+      "sha256": "ff9ba2ad894f22253327a7d6eeeec835df771406dbca6a4c2a11684d936838ae",
+      "line_count": 133
+    },
+    {
+      "path": "src/sd_parsers/parsers/_automatic1111.py",
+      "url": "https://github.com/d3x-at/sd-parsers/blob/0949676c24a5bbaf26ef0aa8c362132b7b27cb5b/src/sd_parsers/parsers/_automatic1111.py",
+      "bytes": 2863,
+      "sha256": "f7843bae826227e17617b37bbf405473ed76292458f87fc56cbb85c84a878017",
+      "line_count": 87
+    },
+    {
+      "path": "src/sd_parsers/parsers/_comfyui.py",
+      "url": "https://github.com/d3x-at/sd-parsers/blob/0949676c24a5bbaf26ef0aa8c362132b7b27cb5b/src/sd_parsers/parsers/_comfyui.py",
+      "bytes": 11176,
+      "sha256": "54c161ff157b4220dbba4f22b0baa42247af01a156696f6a56c63e1e269a0483",
+      "line_count": 320
+    },
+    {
+      "path": "src/sd_parsers/extractors/_png_image_text.py",
+      "url": "https://github.com/d3x-at/sd-parsers/blob/0949676c24a5bbaf26ef0aa8c362132b7b27cb5b/src/sd_parsers/extractors/_png_image_text.py",
+      "bytes": 452,
+      "sha256": "ca1c3eafbb1bc811bc5db794b4416350a950510bef5224759dd49642e5d57275",
+      "line_count": 12
+    },
+    {
+      "path": "LICENSE.txt",
+      "url": "https://github.com/d3x-at/sd-parsers/blob/0949676c24a5bbaf26ef0aa8c362132b7b27cb5b/LICENSE.txt",
+      "bytes": 1062,
+      "sha256": "1142517690bd3e72c1348ba3559ab9cd880e8b5bbeab3a9749e63ef880d9ef0a",
+      "line_count": 21
+    }
+  ],
+  "source_tree_blob_count": 76,
+  "source_tree_paths_sha256": "b0af93b6164b4d07a8f723fdf87c3204723c9a57d9d024d5ce8fd325f2d2212b",
+  "license_paths_observed": [
+    "LICENSE.txt"
+  ],
+  "dependency_paths_observed": [
+    "pyproject.toml"
+  ],
+  "test_path_count": 36
+}

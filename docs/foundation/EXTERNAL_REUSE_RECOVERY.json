@@ -1,0 +1,1142 @@
+{
+  "schema_version": 1,
+  "recovered_date": "2026-10-03",
+  "main": "0193cee41c52050e680767f722efcdcef6de481f",
+  "priority": "existing assets -> Oct 1-2 checkpoints -> code comparison -> status update -> missing sources only",
+  "issue256": {
+    "url": "https://github.com/takasago181/DanbooruTagTool/issues/256",
+    "comments": [
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958581425",
+        "created_at": "2026-10-02T18:18:11Z",
+        "heading": "## Research checkpoint 1 — reuse / reference / avoid-rebuild split",
+        "sha256": "f1abd63b0361798cb36e0e8311ef26d6dab693129a26e81fb56e4e0db72f6440"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958622805",
+        "created_at": "2026-10-02T18:20:28Z",
+        "heading": "## Policy update — replacement of existing DTT implementations is allowed",
+        "sha256": "92b89e6d7aa5f5353e588dfd2492355542de106706d4b92fd765dd963c8592a4"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958692151",
+        "created_at": "2026-10-02T18:24:46Z",
+        "heading": "## Research checkpoint 2 — concrete adoption order and replacement targets",
+        "sha256": "22796ac153bd0aa2dd9c7c8c9c530ea449d824abb01272b501e4b1ffc612c9fc"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958752826",
+        "created_at": "2026-10-02T18:28:26Z",
+        "heading": "## Research checkpoint 3 — major code-reuse candidates found",
+        "sha256": "59137c10696e49a2a49ebaefa800f9643bb1868579c49acbe257bfe8ad858a73"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958825884",
+        "created_at": "2026-10-02T18:33:25Z",
+        "heading": "## Research checkpoint 4 — scope boundary + new high-value features",
+        "sha256": "6f8e2f35f6883aae7ac6211cad8eb8ac868d2e02639830c6a9de72faf133ed00"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958864370",
+        "created_at": "2026-10-02T18:35:46Z",
+        "heading": "## Research checkpoint 5 — LoRA / regional / reference / model-aware prompt scope",
+        "sha256": "eec50f32ae1a7446174548e734d4a6fa2dee8f01df07b7343b65050f2157b2e9"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958916055",
+        "created_at": "2026-10-02T18:38:37Z",
+        "heading": "## Research checkpoint 6 — generation history, ratings and reusable experiment evidence",
+        "sha256": "1fde8f39fddd15e3e1386974714341123d79a326f2bcdc63ff482ce9fcda3d54"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5958932942",
+        "created_at": "2026-10-02T18:39:31Z",
+        "heading": "## Research checkpoint 7 — convergence: adoption priorities and final “do not reinvent” list",
+        "sha256": "4677a4f85310312debf004ff032539493436e7319edc22a44b3c42dacc3efd49"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959120074",
+        "created_at": "2026-10-02T18:48:05Z",
+        "heading": "## Research checkpoint 8 — code quality gates + newer 2026 data assets",
+        "sha256": "aa5fb1f8b0a711af3a2b4b59c3af0be504aaef69cbd2cb862e2d60ab35cc785e"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959135997",
+        "created_at": "2026-10-02T18:48:50Z",
+        "heading": "## Research checkpoint 9 — primary-source Model Profile design",
+        "sha256": "5a56ee45dfd3454e3f2e3d990a166c272dcdd6e6b5df6bc0d3badb17808bbdf5"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959281343",
+        "created_at": "2026-10-02T18:55:31Z",
+        "heading": "## Research checkpoint 10 — direct comparison against current DTT code",
+        "sha256": "80b5ecee9994e552c2eefd8eefe3547b5bd488a37d18e1b663fc4622ede852f2"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959302735",
+        "created_at": "2026-10-02T18:56:34Z",
+        "heading": "## Research checkpoint 11 — concrete C#/.NET reuse candidates for future LLM integration",
+        "sha256": "df8a84b272d426811b5f6f13528f62bddcbc6e6d26a750701cb950fd32dea9c7"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959320697",
+        "created_at": "2026-10-02T18:57:28Z",
+        "heading": "## Research checkpoint 12 — direct comparison of current DTT Library / LoRA Library",
+        "sha256": "4c26c9fd57a62fb0bd4ad6ca4f510151b38444a855b66aa39975721591d65bf7"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959334398",
+        "created_at": "2026-10-02T18:58:11Z",
+        "heading": "## Research checkpoint 13 — Prompt editor / autocomplete comparison",
+        "sha256": "752c8a870c7821ac8fe2d8732a3bf47f78a26a5b3c3a8355716b7f24f300448f"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959350352",
+        "created_at": "2026-10-02T18:59:00Z",
+        "heading": "## Research checkpoint 14 — search strategy after comparing #213 with external semantic search",
+        "sha256": "842a2a5a31ad6e957e3464b6fe09a2bfa4fdcab403839395c73dfdc39e81751e"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959380221",
+        "created_at": "2026-10-02T19:00:29Z",
+        "heading": "## Research checkpoint 15 — Reference Prompt Mining feasibility and data boundary",
+        "sha256": "81d3c3f9c4692d0fbcdee63e4cfc8701d083d6c7a6858dfaa460acadafe6c039"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959399935",
+        "created_at": "2026-10-02T19:01:20Z",
+        "heading": "## Research checkpoint 16 — integrate Model Profiles with existing DTT Knowledge, do not create a parallel truth system",
+        "sha256": "e6af36b6feb9f43a9cbbe92afc87ee250c8a7bef1a08279526062009fd6f05fa"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959491937",
+        "created_at": "2026-10-02T19:05:12Z",
+        "heading": "## Research checkpoint 17 — semantic RAG index and adult reference-corpus audit",
+        "sha256": "3d77f3d6629d7bf4897f07ddbf12d553a20488e43ee96aa9c64799ad28f16a6d"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959510621",
+        "created_at": "2026-10-02T19:06:10Z",
+        "heading": "## Research checkpoint 18 — Adoption Ledger v1",
+        "sha256": "8f19467ae406a46200f4e67ef6dee5ad6d974eacffb50879f481d40822b641b3"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959530673",
+        "created_at": "2026-10-02T19:07:23Z",
+        "heading": "## Research checkpoint 19 — lightweight semantic-search benchmark candidates",
+        "sha256": "a03c863bfcee120876de258e6de51e321ca2a1b1a5dcd8dbfd7b32b6801d9118"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959555259",
+        "created_at": "2026-10-02T19:08:32Z",
+        "heading": "## Research checkpoint 20 — Danbooru refresh/update tooling",
+        "sha256": "de1fc9d8c1af9993a151080c6578a1222dccfb5879c067a083166bf58ba08f5f"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959568271",
+        "created_at": "2026-10-02T19:09:20Z",
+        "heading": "## Research checkpoint 21 — derivative/fine-tune Model Profile case study: WAI Illustrious",
+        "sha256": "4ee0c16185560eb5f2aee9f8bc07813b91a1cab9378c0738778a298c209c91df"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959579682",
+        "created_at": "2026-10-02T19:09:59Z",
+        "heading": "## Research checkpoint 22 — hash-based model/LoRA identity enrichment",
+        "sha256": "de8dcc21bde09d337ed80077eadc2b6f4b64fd1686e74dc9a087558336ed6f9b"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959592166",
+        "created_at": "2026-10-02T19:10:47Z",
+        "heading": "## Research checkpoint 23 — pre-implementation parity gates",
+        "sha256": "3ff715268e9fc934d6e70c7c94255fe6f1433cab16f0b92ba8cf492788008eea"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959664290",
+        "created_at": "2026-10-02T19:15:40Z",
+        "heading": "## Research checkpoint 24 — model training-cutoff tag exposure: exact reconstruction is feasible, but current “historical tag list” shortcuts are insufficient",
+        "sha256": "084934cc7789217fe6cd3b44be7719d3e6c93287b98c6b952dbd8a0f7e6484d1"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959680531",
+        "created_at": "2026-10-02T19:16:39Z",
+        "heading": "## Scope freeze — stop discovery, consolidate decisions",
+        "sha256": "616e4a0b14fd20ebd1ac0336642b4f6738bf9c6751f57fd4b524c6ab5d38420b"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959699914",
+        "created_at": "2026-10-02T19:17:55Z",
+        "heading": "## Consolidation checkpoint — exact Issue placement",
+        "sha256": "0e469c8907d46c624a2ad31cb932457d50c06c88d53a2ffa5b9d1652adde4a8a"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5959953705",
+        "created_at": "2026-10-02T19:32:50Z",
+        "heading": "## Planned implementation-Issue slicing after Foundation",
+        "sha256": "027ab7ec70ed08763fbbd462e8ba24b19609cac16fd129d05ba16b759c5da708"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5960004737",
+        "created_at": "2026-10-02T19:36:04Z",
+        "heading": "## Provisional merged-main overlap audit — main 94bcb81e, pre-new-LKG",
+        "sha256": "7f3102cc60914bfe51f1729089946d07c8dbc9eec566a2c2f8a3ff3647a44344"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5960040199",
+        "created_at": "2026-10-02T19:38:33Z",
+        "heading": "## Frozen implementation spec pack v0 — A1 / B1 / B2",
+        "sha256": "4b271111dd966656f9c8eacaf24c5a3d0c0f60d635feb192fb8f9bae85b3b6be"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5960056207",
+        "created_at": "2026-10-02T19:39:44Z",
+        "heading": "## Frozen implementation spec pack v0 — C1 / C2 / D1 / D2 / E1 / E2",
+        "sha256": "46bad6a64d4217e6b0aad11957c19ee859b76cf373dc4cfe06552386f875926b"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5960066154",
+        "created_at": "2026-10-02T19:40:18Z",
+        "heading": "## Pre-LKG readiness checkpoint",
+        "sha256": "8b5cfc3b80bc6fae9a732685d4875361bfa78f1f1173a990a45659b347ee9c03"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5962071015",
+        "created_at": "2026-10-02T21:53:06Z",
+        "heading": "## Model Profile requirement — required external components (Anima VAE case)",
+        "sha256": "e9bca58a8b8609ff7c64123311d806f0d7ba992a5230435ea9a5f5e9121f3043"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5962118422",
+        "created_at": "2026-10-02T21:57:24Z",
+        "heading": "## Scope correction — Anima VAE is not a Model Profile requirement for this work",
+        "sha256": "4c29aee561bd0acd34e46e3c2b295aa5276038584d098564e929395cd1b18c06"
+      },
+      {
+        "url": "https://github.com/takasago181/DanbooruTagTool/issues/256#issuecomment-5962232755",
+        "created_at": "2026-10-02T22:07:13Z",
+        "heading": "## 2026-10-03 autonomy simplification — reuse decisions are no longer pre-designed",
+        "sha256": "2a028fc509fd3e217d4f6b7228adc14f8891f7d471d01313ada3761ecc786933"
+      }
+    ]
+  },
+  "chat_recovery": [
+    {
+      "thread_id": "6abfe11c-4398-83ee-a85d-1857b88de040",
+      "title": "LLMプロンプト支援調査",
+      "result": "Recovered latest handoff and checkpoint 23 summary; cross-checked against live #256. No messages sent."
+    }
+  ],
+  "repository_assets": [
+    {
+      "ref": "origin/main",
+      "commit": "0193cee41c52050e680767f722efcdcef6de481f",
+      "path": "docs/EXISTING_TOOLS_POSITIONING.md",
+      "sha256": "80f1cf751bac5f8b2df226ad0ba9c6147cbad2d2eb2bd77ab5f914ac855800ac",
+      "candidate_urls": []
+    },
+    {
+      "ref": "origin/main",
+      "commit": "0193cee41c52050e680767f722efcdcef6de481f",
+      "path": "docs/TARGET_ENVIRONMENT.md",
+      "sha256": "9f96d8d734fc1e1de0577d2db001ae9d8525cca3564ec83b8f7ecc0cd6e75b32",
+      "candidate_urls": []
+    },
+    {
+      "ref": "origin/main",
+      "commit": "0193cee41c52050e680767f722efcdcef6de481f",
+      "path": "docs/testing/ISSUE30_AUTOMATION_DRY_RUN_TASK_20260908.md",
+      "sha256": "431accf0398b819bf2edda5c6fe0d608762de5983de676106144977143521f0d",
+      "candidate_urls": []
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/EXISTING_TOOLS_POSITIONING.md",
+      "sha256": "dd9e95f8502079399fc83012b3b8b2f00f64438e5ca6e221b6869bd64b7485cd",
+      "candidate_urls": []
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/TARGET_ENVIRONMENT.md",
+      "sha256": "9f96d8d734fc1e1de0577d2db001ae9d8525cca3564ec83b8f7ecc0cd6e75b32",
+      "candidate_urls": []
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AA_MULTI_SUBJECT_LORA_DATASET_DESIGN_20261002.md",
+      "sha256": "14e78efbfc453875d3c3a736f277d0280d90c26d94fd7cbffcd19c49f2dc8924",
+      "candidate_urls": [
+        "https://huggingface.co/circlestone-labs/Anima/discussions/220",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/202",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/222",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/162",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/119",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/105",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/205"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AB_NEGATIVE_PRIOR_AND_TRAINING_TOOLCHAIN_20261002.md",
+      "sha256": "030c0c4f2174b619cd6258c43300044061849f0b46f5dabaa102e3714ea1fa9d",
+      "candidate_urls": [
+        "https://huggingface.co/circlestone-labs/Anima/discussions/94",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/104",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/152",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/132",
+        "https://github.com/hako-mikan/sd-webui-negpip",
+        "https://github.com/Haoming02/sd-forge-negpip",
+        "https://github.com/hako-mikan/sd-webui-traintrain"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AC_NOOBAI_EXACT_IDENTITY_DATASET_CONTROL_20261002.md",
+      "sha256": "b6efc13ac608e081503334cb7ad9914c96e9c73d41abe879a2439c23662f4e45",
+      "candidate_urls": [
+        "https://huggingface.co/Laxhar/noobai-XL-1.1/blob/main/NoobAI-XL-v1.1.safetensors",
+        "https://huggingface.co/Laxhar/noobai-XL-Vpred-1.0/blame/main/NoobAI-XL-Vpred-v1.0.safetensors",
+        "https://huggingface.co/Laxhar/noobai-XL-1.1/blob/main/README.md"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AD_POSE_DEPTH_REGION_INPAINT_ESCALATION_20261002.md",
+      "sha256": "ff5148069762248f96911e41b88c777a8c8e8cb62d4a90dded4123a93aeb5365",
+      "candidate_urls": [
+        "https://arxiv.org/abs/2302.05543",
+        "https://blog.comfy.org/p/preprocessor-and-frame-interpolation",
+        "https://arxiv.org/abs/2007.11858",
+        "https://arxiv.org/abs/2307.15880",
+        "https://docs.comfy.org/tutorials/api-nodes/openai/gpt-image-1"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AE_COUNT_CAMERA_VISIBILITY_LIMITS_20261002.md",
+      "sha256": "9991094d0327db77719b21a56fd8c555d1f9b08e3c0b0a7955be12b1ad37fa97",
+      "candidate_urls": [
+        "https://arxiv.org/abs/2503.06884",
+        "https://arxiv.org/abs/2501.12910",
+        "https://arxiv.org/abs/2604.19954"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AF_ANATOMY_OCCLUSION_LOCAL_REPAIR_20261002.md",
+      "sha256": "cd20409c013cc7eb8b6ae66f8fa48fdc5bbf32b6bf9c2244906e7d8522590cef",
+      "candidate_urls": [
+        "https://arxiv.org/abs/2411.04332",
+        "https://arxiv.org/abs/2403.01693",
+        "https://arxiv.org/abs/2505.04052"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AG_ANIMA_RELATION_STRESS_COMMUNITY_20261002.md",
+      "sha256": "30f62871a1362e0ad13d93206cf62a334112ddea6d72926fe99aca308185b0e4",
+      "candidate_urls": [
+        "https://huggingface.co/circlestone-labs/Anima/discussions/93",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/120",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/13"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AH_ILL_NOOB_MULTI_SUBJECT_AND_SOURCE_CONFLICT_20261002.md",
+      "sha256": "bfb90486e2a29812a1870754066de0169cdbdd3b3b123e6fbec5791fec4af8c9",
+      "candidate_urls": [
+        "https://www.reddit.com/r/StableDiffusion/comments/1rg7cpj/how_to_make_multiple_character_on_same_image_but/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1io5yxx",
+        "https://www.reddit.com/r/StableDiffusion/comments/1sla0rq/struggling_to_make_more_than_2_characters/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1irsq4o",
+        "https://www.reddit.com/r/comfyui/comments/1v62676/illustrious_keeping_characters_consistent_for/",
+        "https://lewdly.ai/blog/noobai-xl-checkpoint-review-anime-nsfw"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AI_CHARACTER_STYLE_REPRODUCTION_LORA_20261002.md",
+      "sha256": "6edb671189e6df878f97946f6149216f2b1279c27c5fded7ed2b7578bdbd336f",
+      "candidate_urls": [
+        "https://huggingface.co/docs/diffusers/training/dreambooth",
+        "https://note.com/studiomasakaki/n/nf39775327336",
+        "https://huggingface.co/circlestone-labs/Anima",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/187",
+        "https://www.reddit.com/r/StableDiffusion/comments/1wq972q/training_a_style_lora_for_anima_a_few_tagging/",
+        "https://arxiv.org/abs/2403.14572",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/60",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/240",
+        "https://note.com/stray_dog0012/n/n6ebc324c1211",
+        "https://note.com/kuon_noise/n/n82be977f167d",
+        "https://arxiv.org/abs/2305.18292",
+        "https://arxiv.org/abs/2602.15539",
+        "https://arxiv.org/abs/2605.20237"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AJ_CHARACTER_STYLE_EVALUATION_AND_LYCORIS_20261002.md",
+      "sha256": "6031b0bdc459dc43b83cb2d3664a8955501ba1db681cf298cb13e64e8200d8e3",
+      "candidate_urls": [
+        "https://huggingface.co/deepghs/ccip",
+        "https://arxiv.org/abs/2404.01292",
+        "https://arxiv.org/abs/2412.14580",
+        "https://arxiv.org/abs/2309.14859",
+        "https://github.com/KohakuBlueleaf/LyCORIS",
+        "https://arxiv.org/abs/2402.09353"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AJ_LORA_CAPACITY_REFERENCE_AND_EVALUATION_20261002.md",
+      "sha256": "52f4fd62679e851b6012598520bec3416d62ef8220bcdcb0e738da1cf9864fb6",
+      "candidate_urls": [
+        "https://github.com/kohya-ss/sd-scripts/blob/main/docs/train_network.md",
+        "https://github.com/kohya-ss/sd-scripts/blob/main/docs/train_network_README-ja.md",
+        "https://www.reddit.com/r/StableDiffusion/comments/1wpjl3p/advice_on_anima_character_lora_training_parameters/",
+        "https://huggingface.co/deepghs/ccip",
+        "https://arxiv.org/abs/2404.01292",
+        "https://github.com/learn2phoenix/CSD",
+        "https://arxiv.org/abs/2412.14580",
+        "https://arxiv.org/abs/2406.16855",
+        "https://arxiv.org/abs/2604.21689",
+        "https://github.com/tencent-ailab/IP-Adapter",
+        "https://arxiv.org/abs/2605.20237",
+        "https://arxiv.org/abs/2404.02733",
+        "https://github.com/instantX-research/InstantStyle",
+        "https://arxiv.org/abs/2407.00788"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AK_CHARACTER_STYLE_DATASET_CURATION_20261002.md",
+      "sha256": "bff032f585d3f226dfe6837bfa8759fb9426a9aa56452d692b19d12433d17396",
+      "candidate_urls": [
+        "https://huggingface.co/circlestone-labs/Anima/discussions/9",
+        "https://github.com/deepghs/waifuc",
+        "https://note.com/imbolc_02/n/na8d6a1213783",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/140",
+        "https://note.com/seal309midorin/n/nab2b785e4d13",
+        "https://www.reddit.com/r/StableDiffusion/comments/1q4h3mp/character_lora_training_dataset_howto/",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/119"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AK_PERSONALIZATION_DISENTANGLEMENT_DATASET_20261002.md",
+      "sha256": "3aed95f8aedd01a3f1336b5f25a04fb1dece22a34cbc9af8604ce0d9f97474ca",
+      "candidate_urls": [
+        "https://arxiv.org/abs/2305.03374",
+        "https://arxiv.org/abs/2404.14007",
+        "https://arxiv.org/abs/2309.14859",
+        "https://arxiv.org/abs/2212.04488",
+        "https://arxiv.org/abs/2305.16311"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AL_NATIVE_STYLE_VS_STYLE_LORA_20261002.md",
+      "sha256": "8e38b44fb2cf12fc085c33468f2962df135da5381b220ef2b93d767e23d136cb",
+      "candidate_urls": [
+        "https://github.com/ThetaCursed/Anima-Style-Explorer",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/227",
+        "https://github.com/ThetaCursed/Illustrious-NoobAI-Style-Explorer",
+        "https://github.com/Faildes/Illustrious-NoobAI-Style-Explorer-plus",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/112"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AL_REFERENCE_ADAPTER_VS_LORA_20261002.md",
+      "sha256": "815a32d9355e3c81e881bd49658913e5004ddb3d4792b15e62a089a7113a8734",
+      "candidate_urls": [
+        "https://arxiv.org/abs/2308.06721",
+        "https://arxiv.org/abs/2404.02733",
+        "https://arxiv.org/abs/2312.02133",
+        "https://arxiv.org/abs/2405.01434",
+        "https://arxiv.org/abs/2605.20237"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AM_CHARACTER_IDENTITY_OUTFIT_FACTORING_20261002.md",
+      "sha256": "8d92ceb7424984456781c579a2e57b8171d6cd3b7dc86eb26aa8fb16392bcf1c",
+      "candidate_urls": [
+        "https://huggingface.co/circlestone-labs/Anima/discussions/206",
+        "https://www.reddit.com/r/StableDiffusion/comments/1gkqi9f",
+        "https://www.reddit.com/r/StableDiffusion/comments/1vgrr7b",
+        "https://www.reddit.com/r/StableDiffusion/comments/156s203",
+        "https://www.reddit.com/r/StableDiffusion/comments/1qkrofm/train_clothes_and_cosplay_outfit_loras/"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AM_PRACTICAL_CREATION_WORKFLOW_20261002.md",
+      "sha256": "756e0266f30cbf988adcbba70065e6fe7624bfc668928569e5e3c3873236056b",
+      "candidate_urls": [
+        "https://huggingface.co/circlestone-labs/Anima",
+        "https://note.com/moribro/n/na743c1e66884",
+        "https://note.com/fresh_macaw9581/n/n7a3a7f6ed1e7",
+        "https://huggingface.co/LyliaEngine/waiIllustriousSDXL_v170/blob/main/README.md",
+        "https://www.reddit.com/r/StableDiffusion/comments/1totumo/anima_can_edit_images_and_this_is_possible_in_two/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1v729sl/remake_you_character_in_the_new_style_anima/"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AN_CHARACTER_IDENTITY_CORE_EVALUATION_20261002.md",
+      "sha256": "77b21f8aac9f87d1f7d34aba591d7331745cb138f19f8704e1184773557834bb",
+      "candidate_urls": [
+        "https://arxiv.org/abs/2605.20237",
+        "https://huggingface.co/deepghs/ccip",
+        "https://www.reddit.com/r/StableDiffusion/comments/1v7h6b2/anima_struggling_to_maintain_consistency_with/",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/119"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AN_FAILURE_DRIVEN_CREATION_RECIPES_20261002.md",
+      "sha256": "62f6619153b42638764c8091f8e66337a65d7e10731959a39e7ed64827007d91",
+      "candidate_urls": [
+        "https://github.com/Haoming02/sd-forge-couple/blob/main/README.md",
+        "https://github.com/hako-mikan/sd-webui-regional-prompter/blob/main/README.md",
+        "https://blog.comfy.org/p/preprocessor-and-frame-interpolation",
+        "https://blog.comfy.org/p/upscaling-in-comfyui"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AN_FINISHING_UPSCALE_DETAILER_20261002.md",
+      "sha256": "527fc58289d2d4ff6c47dc5f5188f8f6ad9a5e4da2be83d8a896984c34cda24d",
+      "candidate_urls": [
+        "https://blog.comfy.org/p/upscaling-in-comfyui",
+        "https://github.com/lllyasviel/stable-diffusion-webui-forge/blob/main/modules/ui.py",
+        "https://www.reddit.com/r/StableDiffusion/comments/1tmrh0l/the_not_so_anime_anima/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1t87xbc/anima_settings_in_forge_neo/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1wqb41q/anima_upscaling/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1tj1fw2/detailing_in_anima_is_really_confusing_any_guides/"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AO_ILL_NOOB_CHARACTER_STYLE_TRAINING_20261002.md",
+      "sha256": "3f88695ca758760e4d8d6852a6761258e8b3c92862c942b3fede5b5855c7a5d9",
+      "candidate_urls": [
+        "https://www.reddit.com/r/StableDiffusion/comments/1rsqv6y/lora_training_illustrious/",
+        "https://zenn.dev/ojisan_ai_lab/articles/post-20260411-ltes8r",
+        "https://www.reddit.com/r/StableDiffusion/comments/1r318hl/helpquestion_sdxl_lora_training_on_illustriousxl/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1vbsj8k/what_am_i_doing_wrong_in_my_lora_training/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1tdobjq/anima_loras_cant_learn_the_characters_style_no/",
+        "https://zenn.dev/ojisan_ai_lab/articles/lora-wai-anima-howto-20260722"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AO_MODEL_PROFILES_AND_COMPARISON_GRIDS_20261002.md",
+      "sha256": "17052a0115ff046caa0e40571686b00776902170e10de799c8ad20cd7c308572",
+      "candidate_urls": [
+        "https://huggingface.co/circlestone-labs/Anima"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AO_PROMPT_TUNING_SAMPLER_WEIGHT_20261002.md",
+      "sha256": "1b2a265441651206c93375a4689d51164e836aebbe86787c11c7e61a0df639cb",
+      "candidate_urls": [
+        "https://huggingface.co/circlestone-labs/Anima",
+        "https://note.com/ai_on_desk/n/n72f6f4e58dfe",
+        "https://huggingface.co/LyliaEngine/waiIllustriousSDXL_v170/blob/main/README.md"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AP_ADULT_PRACTICAL_LEARNING_METHOD_20261002.md",
+      "sha256": "25a5d22d497bbd8815135600dbb9af59a190b81a2dc0344ed92b3f703986a931",
+      "candidate_urls": [
+        "https://huggingface.co/circlestone-labs/Anima/discussions/141",
+        "https://www.reddit.com/r/comfyui/comments/1dpwju8/",
+        "https://www.reddit.com/r/comfyui/comments/1i7b6fz/",
+        "https://www.reddit.com/r/comfyui/comments/1dzh275",
+        "https://www.reddit.com/r/comfyui/comments/1arhe7s",
+        "https://www.reddit.com/r/StableDiffusion/comments/1dhdyt7",
+        "https://www.reddit.com/r/StableDiffusion/comments/1e9eqj6",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/105",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/205",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/202"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AQ_REGIONAL_LEARNING_AND_REPRODUCIBILITY_20261002.md",
+      "sha256": "23c39f3af4e786814ec87b951d0a096de6e4cff693c1f2bfce2c3fd41db59a2e",
+      "candidate_urls": [
+        "https://github.com/hako-mikan/sd-webui-regional-prompter",
+        "https://github.com/Sen-sou/Comfyui-Anima-Regional-Conditioning",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/99",
+        "https://github.com/Comfy-Org/ComfyUI/blob/master/comfy_api/latest/_ui.py",
+        "https://github.com/comfyanonymous/ComfyUI_examples"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AR_STAGED_CONDITIONING_AND_LEARNING_20261002.md",
+      "sha256": "5796bd0d002ebd202baba45bf7a018a886c6db20d67c8c3f778205bf278fbaba",
+      "candidate_urls": [
+        "https://github.com/asagi4/comfyui-prompt-control",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/146"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AS_LORA_TRAINING_EVALUATION_METHOD_20261002.md",
+      "sha256": "057b36ae64d022d73cdb5130cd10dfb7ee456908e17e6362a1d10a5774b2345d",
+      "candidate_urls": [
+        "https://huggingface.co/circlestone-labs/Anima/discussions/157",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/106",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/129",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/144"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AT_TEACHING_CURRICULUM_AND_NATIVE_HOOKS_20261002.md",
+      "sha256": "426057aa832a3704f6c34ed9ea13d346d83e7535be6ba0f445c5584d1dc78d60",
+      "candidate_urls": [
+        "https://github.com/Comfy-Org/ComfyUI/blob/master/comfy_extras/nodes_hooks.py",
+        "https://www.reddit.com/r/comfyui/comments/1ws23ur/multiple_characters_in_one_single_generated_image/"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AU_REGIONAL_SAMPLER_PROXY_METHOD_20261002.md",
+      "sha256": "384eafb793b7be302a9d3021e7346d8cb349807625900e470072edb0f8095b90",
+      "candidate_urls": [
+        "https://github.com/ltdrdata/ComfyUI-Impact-Pack",
+        "https://huggingface.co/datasets/rouge-kasshoku/anima-crossover-couples-regional-sampler-guide"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AV_DATASET_STYLE_BIAS_AND_PREPROCESSING_20261002.md",
+      "sha256": "6f999cd19731df2e3c90761eeb3403bdbf3338cce585ba90ee37988a682d7a9b",
+      "candidate_urls": [
+        "https://huggingface.co/circlestone-labs/Anima/discussions/187"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AW_ADULT_DIAGNOSTIC_ESCALATION_AND_MODEL_GAPS_20261002.md",
+      "sha256": "2a02819a79cc5a9133c37db34a07fcbca01c3aa130ce482b96134c81bb1e31f2",
+      "candidate_urls": [
+        "https://huggingface.co/Laxhar/noobai-XL-1.1/blob/main/README.md",
+        "https://huggingface.co/circlestone-labs/Anima",
+        "https://www.reddit.com/r/comfyui/comments/1ws23ur/multiple_characters_in_one_single_generated_image/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1wr9r66/anima_two_characters_work_fine_individually_but/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1tcf5y6/multiple_characters_using_loras_with_anima_model/",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/202",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/93",
+        "https://arxiv.org/abs/2307.06350",
+        "https://arxiv.org/abs/2310.11513"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AX_LOCAL_ADULT_IMAGE_GENERATION_TRENDS_20261002.md",
+      "sha256": "988d1457b1b2f2e1956255270a208de5e6d6b1b15a947090df5bfdefbed6a9b5",
+      "candidate_urls": [
+        "https://www.civitai.tech/ecosystems/anima",
+        "https://www.civitai.tech/ecosystems/noobai",
+        "https://civarchive.com/models/827184/wai-illustrious-sdxl?modelVersionId=2883731",
+        "https://note.com/novapen_create/n/n7ef484c8f4d4",
+        "https://lilting.ch/articles/wai-illustrious-v17-review",
+        "https://huggingface.co/circlestone-labs/Anima/blob/main/README.md",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/140",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/141",
+        "https://note.com/hirorohi03/n/nbbe8b87a02ec",
+        "https://github.com/opparco/anima-prompter-forge",
+        "https://github.com/DamienCz/comfyui-tipo",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/202",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/93",
+        "https://www.reddit.com/r/comfyui/comments/1ws23ur/multiple_characters_in_one_single_generated_image/",
+        "https://github.com/hako-mikan/sd-webui-regional-prompter",
+        "https://github.com/Sen-sou/Comfyui-Anima-Regional-Conditioning",
+        "https://github.com/Wenaka2004/comfyui-anima-ipadapter",
+        "https://github.com/LuciferTC9527/ComfyUI-Anima_IP-Adapter",
+        "https://note.com/hirorohi03/n/na72233a8d6a4",
+        "https://github.com/wochenlong/ComfyUI-Anima-Edit-LoRA",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/220",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/222",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/187",
+        "https://github.com/n0va39/ComfyUI-EasyUseAnima",
+        "https://note.com/maynoha/n/neb08ce64c72c",
+        "https://note.com/crody/n/n937474cf1c23",
+        "https://note.com/hirorohi03/n/n26a9ca1ef166",
+        "https://github.com/awesome-ai-hentai/awesome-ai-hentai",
+        "https://www.bilibili.com/video/BV11Eb26mEo9/",
+        "https://www.bilibili.com/video/BV1538m6KE9h/",
+        "https://www.bilibili.com/video/BV1t9Eq6iEwy/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1ttxmvd/best_local_realistic_image_model_that_is/",
+        "https://www.reddit.com/r/comfyui/comments/1sr0rh7/whats_the_best_photorealistic_model_for_local_use/",
+        "https://www.civitai.tech/ecosystems/chroma",
+        "https://www.civitai.tech/ecosystems/flux2"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AY_REAL_WORLD_ADULT_WORKFLOW_ARCHETYPES_20261002.md",
+      "sha256": "6fa2e010647efc2ca58d62f2b09a17add649766a6f4310289b55c28d08da243d",
+      "candidate_urls": [
+        "https://www.reddit.com/r/comfyui/comments/1qtl9d5/new_model_anima_workflow/",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/140",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/93",
+        "https://note.com/hkmclab/n/n7611426be16a",
+        "https://www.reddit.com/r/comfyui/comments/1ws23ur/multiple_characters_in_one_single_generated_image/",
+        "https://www.reddit.com/r/comfyui/comments/1v41coi/how_to_create_multiple_characters_in_comfyui_sdxl/",
+        "https://www.reddit.com/r/comfyui/comments/1jtt9mz",
+        "https://www.reddit.com/r/comfyui/comments/1pat0j1/how_to_get_multiple_characters_to_work_in_comfyui/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1tcf5y6/multiple_characters_using_loras_with_anima_model/",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/202",
+        "https://www.reddit.com/r/comfyui/comments/1wkh6if/how_to_generate_6_characters_in_a_single_image/",
+        "https://github.com/Haoming02/sd-forge-couple/blob/main/README.md",
+        "https://github.com/Sen-sou/Comfyui-Anima-Regional-Conditioning",
+        "https://note.com/hkmclab/n/n1526e44f4df9",
+        "https://www.reddit.com/r/StableDiffusion/comments/1u3q7mn/regional_controlnet_for_anima/",
+        "https://note.com/hirorohi03/n/nf5f99d66eb71",
+        "https://github.com/dr1610/ComfyUI-Regional-Mask-Prompt/blob/main/README.md",
+        "https://github.com/m0rtus59/ComfyUI-MoonNodes",
+        "https://note.com/ai_on_desk/n/na2d11eeb39e3",
+        "https://note.com/ai_on_desk/n/n6939918eef7f",
+        "https://note.com/ai_on_desk/n/n95177c63c942",
+        "https://github.com/Wenaka2004/comfyui-anima-ipadapter",
+        "https://github.com/LuciferTC9527/ComfyUI-Anima_IP-Adapter",
+        "https://www.reddit.com/r/StableDiffusion/comments/1twlu8c/anima_edit_with_turbo_lora_and_proper_masking/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1uv4vpp/extend_image_image_edit_anima_edit/",
+        "https://note.com/hirorohi03/n/na72233a8d6a4",
+        "https://www.reddit.com/r/StableDiffusion/comments/1t0yirq/built_a_3step_allinone_lora_builder_for_anima/",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/220",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/222",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/106",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/240",
+        "https://www.reddit.com/r/StableDiffusion/comments/1rye0p1/simple_anima_segs_tiled_upscale_workflow_works/",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/42",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/53",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/204",
+        "https://www.reddit.com/r/comfyui/comments/1sq0a1q/upscale_after_detailer/"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_AZ_GENERATION_FOUNDATIONS_PIPELINE_20261002.md",
+      "sha256": "d09e9be89bd5a5fd1810913fff5ccfdccd9a14d90f959a528857bb1a21e8511a",
+      "candidate_urls": [
+        "https://huggingface.co/docs/diffusers/en/quicktour",
+        "https://huggingface.co/docs/diffusers/api/models/autoencoderkl",
+        "https://huggingface.co/docs/diffusers/using-diffusers/reusing_seeds",
+        "https://huggingface.co/docs/diffusers/using-diffusers/other-formats",
+        "https://huggingface.co/docs/diffusers/en/api/models/unet2d-cond",
+        "https://huggingface.co/docs/diffusers/main/api/models/transformer2d",
+        "https://arxiv.org/abs/2112.10752",
+        "https://arxiv.org/abs/2212.09748"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_BA_SAMPLING_GUIDANCE_FOUNDATIONS_20261002.md",
+      "sha256": "8977de6a53100fb6b7a1d3fb5268ecb5402ae19656d3dcd0c52885f5cbe23acc",
+      "candidate_urls": [
+        "https://huggingface.co/docs/diffusers/using-diffusers/schedulers",
+        "https://huggingface.co/docs/diffusers/main/api/schedulers/overview",
+        "https://huggingface.co/docs/diffusers/api/schedulers/euler",
+        "https://huggingface.co/docs/diffusers/v0.40.0/api/schedulers/euler_ancestral",
+        "https://huggingface.co/docs/diffusers/main/api/modular_diffusers/guiders",
+        "https://huggingface.co/docs/diffusers/api/pipelines/stable_diffusion/stable_diffusion_3",
+        "https://arxiv.org/abs/2207.12598"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_BB_EDITING_CONTROL_MEMORY_FOUNDATIONS_20261002.md",
+      "sha256": "f0bf5f53a6ae8a3dd3135fa7f5dbcf659509b29bc3d8822481459aa3e9fcf1f2",
+      "candidate_urls": [
+        "https://huggingface.co/docs/diffusers/main/api/pipelines/stable_diffusion/img2img",
+        "https://huggingface.co/docs/diffusers/en/using-diffusers/inpaint",
+        "https://huggingface.co/docs/diffusers/using-diffusers/controlnet",
+        "https://huggingface.co/docs/diffusers/api/pipelines/controlnet",
+        "https://arxiv.org/abs/2302.05543",
+        "https://huggingface.co/docs/diffusers/main/training/lora",
+        "https://huggingface.co/docs/diffusers/main/optimization/fp16",
+        "https://huggingface.co/docs/diffusers/main/optimization/memory",
+        "https://huggingface.co/docs/diffusers/main/quantization/overview"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_BC_OUTPUT_METADATA_AUXILIARY_FOUNDATIONS_20261002.md",
+      "sha256": "e06010f529f5fd67e3332f4fb1d94ca7581b3e26989ad77ebec1b308422bc841",
+      "candidate_urls": [
+        "https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features",
+        "https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/master/modules/shared_options.py",
+        "https://huggingface.co/docs/safetensors/index",
+        "https://huggingface.co/docs/safetensors/en/metadata_parsing",
+        "https://huggingface.co/docs/diffusers/api/pipelines/stable_diffusion/stable_diffusion_3",
+        "https://huggingface.co/docs/diffusers/v0.17.0/en/training/text_inversion"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_BD_PREDICTION_AND_ATTENTION_FOUNDATIONS_20261002.md",
+      "sha256": "529a56d6638af3cf79901a17549334297baae88bf763247bd73c0460b6b291a9",
+      "candidate_urls": [
+        "https://huggingface.co/docs/diffusers/api/schedulers/euler",
+        "https://huggingface.co/docs/diffusers/api/schedulers/ddpm",
+        "https://arxiv.org/abs/2202.00512",
+        "https://arxiv.org/abs/2210.02303",
+        "https://huggingface.co/docs/diffusers/using-diffusers/schedulers",
+        "https://arxiv.org/abs/2210.02747",
+        "https://huggingface.co/docs/diffusers/api/schedulers/flow_match_euler_discrete",
+        "https://huggingface.co/docs/diffusers/main/using-diffusers/schedulers",
+        "https://huggingface.co/docs/diffusers/main/api/attnprocessor",
+        "https://arxiv.org/abs/2112.10752",
+        "https://arxiv.org/abs/2208.01626",
+        "https://arxiv.org/abs/2301.13826",
+        "https://arxiv.org/abs/2306.05427",
+        "https://huggingface.co/docs/diffusers/api/models/sd3_transformer2d",
+        "https://huggingface.co/docs/diffusers/api/pipelines/stable_diffusion/stable_diffusion_3"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_BE_LORA_TRAINING_PARAMETER_FOUNDATIONS_20261002.md",
+      "sha256": "00992af6c2898a55927b9ca494b0b4928e03a9a2fa7583c829c72068aadf59d3",
+      "candidate_urls": [
+        "https://arxiv.org/abs/2106.09685",
+        "https://huggingface.co/docs/diffusers/main/en/training/lora",
+        "https://huggingface.co/blog/dreambooth",
+        "https://huggingface.co/docs/diffusers/main/training/dreambooth",
+        "https://github.com/kohya-ss/sd-scripts/blob/main/docs/train_network_advanced.md",
+        "https://huggingface.co/docs/transformers/grad_accumulation",
+        "https://huggingface.co/docs/diffusers/training/custom_diffusion"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_BF_COLOR_OUTPUT_FOUNDATIONS_20261002.md",
+      "sha256": "fda36bd6fa107a6bef8226765577b1d62485ebfe706fdcce0fc03e2594054206",
+      "candidate_urls": [
+        "https://www.w3.org/TR/png-3/"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_BG_LORA_LOSS_TIMESTEP_DATASET_PREPROCESSING_20261002.md",
+      "sha256": "29d110859e95d2816a7e4fd1f6ffb5c321d1094e98b54b73aec1c1427498f133",
+      "candidate_urls": [
+        "https://arxiv.org/abs/2303.09556",
+        "https://huggingface.co/docs/diffusers/training/text2image",
+        "https://huggingface.co/docs/diffusers/v0.35.0/training/sdxl",
+        "https://github.com/kohya-ss/sd-scripts/blob/main/docs/config_README-ja.md",
+        "https://github.com/kohya-ss/sd-scripts/blob/main/library/dataset.py"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_N_CURRENT_MODEL_PROMPT_RUNTIME_REFRESH_20261002.md",
+      "sha256": "09d0ef24871f9668a64790f0012a842da08c74cdaead3e8f59452cbfeadc0027",
+      "candidate_urls": [
+        "https://huggingface.co/circlestone-labs/Anima",
+        "https://huggingface.co/Laxhar/noobai-XL-1.1/blob/main/README.md",
+        "https://huggingface.co/Laxhar/noobai-XL-Vpred-1.0/blob/main/README.md",
+        "https://huggingface.co/LyliaEngine/waiIllustriousSDXL_v170",
+        "https://github.com/Haoming02/sd-webui-forge-classic/tree/neo",
+        "https://github.com/Haoming02/sd-forge-couple"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_O_COMMUNITY_PRACTICE_HARVEST_20261002.md",
+      "sha256": "c1c3e146439a5358a34ef6fe20a1850c61f164c0c3a84fd270bc6bb8d4de56c4",
+      "candidate_urls": [
+        "https://note.com/stray_dog0012/n/n74ad8ac4582f",
+        "https://note.com/tasty_cougar8018/n/na0979098fa50",
+        "https://note.com/hkmclab/n/n7611426be16a",
+        "https://www.reddit.com/r/StableDiffusion/comments/1r336og/multiple_characters_using_anima_2b/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1wr9r66/anima_two_characters_work_fine_individually_but/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1tepgn4/sharing_my_experience_with_anima_comfyui_great/",
+        "https://note.com/stray_dog0012/n/n6576baad72c1",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/86",
+        "https://www.reddit.com/r/StableDiffusion/comments/1tcf5y6/multiple_characters_using_loras_with_anima_model/",
+        "https://note.com/robai104/n/na0fb1ae3bc6b",
+        "https://www.reddit.com/r/StableDiffusion/comments/1j50o89",
+        "https://www.reddit.com/r/StableDiffusion/comments/1l75afz",
+        "https://note.com/sd_space/n/n3407ee77a43e",
+        "https://www.reddit.com/r/StableDiffusion/comments/1t87xbc/anima_settings_in_forge_neo/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1syfirz/is_there_a_way_to_fix_this_anima/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1tmrh0l/the_not_so_anime_anima/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1r318l/helpquestion_sdxl_lora_training_on_illustriousxl/",
+        "https://zenn.dev/bananaotoko/articles/3ec0f02e900725",
+        "https://zenn.dev/ojisan_ai_lab/articles/lora-wai-anima-howto-20260722",
+        "https://www.reddit.com/r/StableDiffusion/comments/1wela3n/questions_about_training_a_character_lora_for/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1tdobjq/anima_loras_cant_learn_the_characters_style_no/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1wq972q/training_a_style_lora_for_anima_a_few_tagging/",
+        "https://note.com/studiomasakaki/n/nf39775327336",
+        "https://note.com/azrakuc/n/n3d6d5eaa850e",
+        "https://note.com/kuon_noise/n/na40804c255b5",
+        "https://www.reddit.com/r/StableDiffusion/comments/1tj2rcl/stabilizing_mix_of_artist_tags_in_anima/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1tiu6kc/the_main_downside_with_anima_is_that_its_almost/",
+        "https://github.com/hako-mikan/sd-webui-regional-prompter",
+        "https://www.bilibili.com/opus/1181478497372078082",
+        "https://www.bilibili.com/video/BV1mk5f6UEaq/",
+        "https://www.bilibili.com/video/BV1CYCAYFE2a/",
+        "https://www.bilibili.com/video/BV1DCkCYDE5v/",
+        "https://www.bilibili.com/video/BV1HJXKBJEge/",
+        "https://note.com/ulyssesx00/n/n8f6a2c961e7c",
+        "https://note.com/stray_dog0012/n/n21534228bbfd",
+        "https://note.com/nifty_dunlin2337/n/n9fdf86bfe92c",
+        "https://note.com/rockey2799m/n/n05159f2fcc96",
+        "https://note.com/tasty_cougar8018/n/nbdb27a6b7b6d",
+        "https://note.com/akirau338/n/n04964cbb2904"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_P_COMMUNITY_TAG_NEGATIVE_RUNTIME_20261002.md",
+      "sha256": "990b094053604014d9388564508addb3455d1c90fab9536d90570c2b8934492b",
+      "candidate_urls": [
+        "https://note.com/stray_dog0012/n/n949c921640f8",
+        "https://note.com/stray_dog0012/n/naea7965570c5",
+        "https://note.com/tasty_cougar8018/n/nfc1d6a8cf973",
+        "https://note.com/tasty_cougar8018/n/n8264b41bc5fa",
+        "https://note.com/ai_on_desk/n/nfa078139f8c6",
+        "https://note.com/stray_dog0012/n/n7e5ff2f27a5b",
+        "https://note.com/ai_on_desk/n/ne6c1f6547d5b",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/201",
+        "https://github.com/hako-mikan/sd-webui-regional-prompter/blob/main/README.md"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_Q_ILL_NOOB_LORA_COMMUNITY_MAP_20261002.md",
+      "sha256": "11ae5b5d02b03f13b36d916724d6e40d4805786d6cf88d358be530b2f3773314",
+      "candidate_urls": [
+        "https://zenn.dev/ojisan_ai_lab/articles/lora-wai-anima-howto-20260722",
+        "https://www.bilibili.com/opus/1181478497372078082",
+        "https://www.bilibili.com/video/BV1mk5f6UEaq/",
+        "https://www.bilibili.com/video/BV1HJXKBJEge/"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_R_ADVANCED_COMMUNITY_FAILURE_DIAGNOSTICS_20261002.md",
+      "sha256": "ea0acef911cfc1adac9d44777e12b9b33bcfe95437fd030b38627766ae0aa26b",
+      "candidate_urls": [
+        "https://note.com/kla_cla/n/n801437941d2e",
+        "https://note.com/hkmclab/n/n1526e44f4df9",
+        "https://note.com/stray_dog0012/n/n6576baad72c1",
+        "https://note.com/stray_dog0012/n/n74ad8ac4582f",
+        "https://note.com/hkmclab/n/n7611426be16a",
+        "https://note.com/ulyssesx00/n/n8f6a2c961e7c",
+        "https://note.com/kuon_noise/n/na40804c255b5",
+        "https://www.reddit.com/r/StableDiffusion/comments/1wq972q/training_a_style_lora_for_anima_a_few_tagging/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1tdobjq/anima_loras_cant_learn_the_characters_style_no/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1sz8y14/anima_lora_training_config_recommendations/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1tvhmrm/what_are_your_experiences_in_upscaling_anima_with/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1tmrh0l/the_not_so_anime_anima/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1t87xbc/anima_settings_in_forge_neo/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1tj1fw2/detailing_in_anima_is_really_confusing_any_guides/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1t0yirq/built_a_3step_allinone_lora_builder_for_anima/"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_S_TAG_STYLE_COMPOSITION_COMMUNITY_20261002.md",
+      "sha256": "651e89d97b4f8456d7347df7a556314f6070226c16988933e39f9f30ce090d0a",
+      "candidate_urls": [
+        "https://note.com/ai_0049/n/n74ccab5370e0",
+        "https://note.com/nobrain/n/ncc77e7c3452b",
+        "https://note.com/tasty_cougar8018/n/n713f5a8c1218",
+        "https://note.com/ai_on_desk/n/n72f6f4e58dfe",
+        "https://note.com/ai_on_desk/n/n462ad57df450",
+        "https://note.com/ai_on_desk/n/na0edcfbebe28",
+        "https://note.com/nobinlog/n/n98276b4f2596",
+        "https://note.com/nobinlog/n/n9f99606a81dd"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_T_LEXICAL_TAG_COVERAGE_COMMUNITY_20261002.md",
+      "sha256": "e9bdeb3f5fbdb6118d656fad703857cef171cfd01641f525a017f123cce3a1a6",
+      "candidate_urls": [
+        "https://note.com/mith_mmk/n/ndcd5709f47ff",
+        "https://note.com/mith_mmk/n/n8f06ec51fba5",
+        "https://note.com/mith_mmk/n/n912541215f09",
+        "https://note.com/stray_dog0012/n/n9ece9bc66aef",
+        "https://note.com/azrakuc/n/n3d6d5eaa850e",
+        "https://note.com/alayaproject/n/ned0a95fb3c86",
+        "https://note.com/tnsor_works/n/n0d9ab70999f2",
+        "https://note.com/ai_on_desk/n/n553eac75840d"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_U_GLOBAL_COMMUNITY_SIGNAL_MAP_20261002.md",
+      "sha256": "f8475bb8aadbdd7c0c6262ed03c7844d3bffc047146e011e3bedde4fe10c00b2",
+      "candidate_urls": [
+        "https://huggingface.co/circlestone-labs/Anima/discussions/140",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/141",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/135",
+        "https://www.reddit.com/r/StableDiffusion/comments/1tcf5y6/multiple_characters_using_loras_with_anima_model/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1wr9r66/anima_two_characters_work_fine_individually_but/",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/120",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/222",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/193",
+        "https://www.reddit.com/r/StableDiffusion/comments/1rpqc8z/why_are_my_illustrious_images_so_bad/",
+        "https://www.reddit.com/r/StableDiffusion/comments/1kdkj55",
+        "https://www.reddit.com/r/StableDiffusion/comments/1l75afz",
+        "https://www.reddit.com/r/StableDiffusion/comments/1t0yirq/built_a_3step_allinone_lora_builder_for_anima/"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_V_MULTILINGUAL_COMMUNITY_ECOSYSTEM_20261002.md",
+      "sha256": "e64ce03c78a04111a139a55669606d055d40d134cb03ca6f3b7b68c1b58203b0",
+      "candidate_urls": [
+        "https://www.bilibili.com/video/BV1EyQHBWEnF/",
+        "https://www.bilibili.com/video/BV1YNLE62E4o/",
+        "https://www.bilibili.com/video/BV1pGGv6NEFx/",
+        "https://www.bilibili.com/video/BV14ehG64EAq/",
+        "https://www.bilibili.com/video/BV18BGx6xEH5/",
+        "https://www.bilibili.com/video/BV11SNq6wEvP/",
+        "https://www.bilibili.com/opus/1181478497372078082",
+        "https://onebrotravel.tistory.com/entry/ComfyUI-%EC%B4%88%EA%B0%84%EB%8B%A8-%EC%9E%85%EB%AC%B8%EA%B0%80%EC%9D%B4%EB%93%9C-%E2%80%94-Anima%EC%97%90-LoRA-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0",
+        "https://onebrotravel.tistory.com/entry/Civitai%EC%9D%98-Anima-%EC%B2%B4%ED%81%AC%ED%8F%AC%EC%9D%B8%ED%8A%B8%EB%A1%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0",
+        "https://kwoon.tistory.com/122",
+        "https://gall.dcinside.com/mgallery/board/view/?id=wrtnai&no=1044018",
+        "https://gall.dcinside.com/mgallery/board/view/?id=thesingularity&no=1129120",
+        "https://gall.dcinside.com/mgallery/board/view/?id=thesingularity&no=1184244",
+        "https://gall.dcinside.com/mgallery/board/view/?id=wrtnai&no=1037870"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_W_LORA_CAPTION_STACKING_COMMUNITY_20261002.md",
+      "sha256": "78831b7a820bc5380ec81bdb03c0a6e673405666ce49827d24425377c40d8f7b",
+      "candidate_urls": [
+        "https://note.com/kuon_noise/n/n5bd44f5bb1fb",
+        "https://lilting.ch/articles/wai-anima-keichan-lora-training",
+        "https://note.com/fresh_macaw9581/n/n7a3a7f6ed1e7",
+        "https://note.com/fresh_macaw9581/n/nc7bf40b8429c"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_X_PARAMETER_HIGHRES_DATASET_COMMUNITY_20261002.md",
+      "sha256": "f4588d3548cc572cc990286785098a7e2933dd2299b6754ce5e85d880163a718",
+      "candidate_urls": [
+        "https://note.com/tasty_cougar8018/n/n7315197114a6",
+        "https://note.com/ai_on_desk/n/nfed78c91d76a",
+        "https://note.com/tasty_cougar8018/n/nf4cff0c56535"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_Y_ADULT_GENERATION_STRUCTURAL_MASTERY_20261002.md",
+      "sha256": "82e2cbace4b017c063d4b585d6f0146325f9d6c4aa6d27899ed9fcabb18e7bc3",
+      "candidate_urls": [
+        "https://huggingface.co/Laxhar/noobai-XL-1.1/blob/main/README.md",
+        "https://huggingface.co/LyliaEngine/waiIllustriousSDXL_v170/blob/main/README.md",
+        "https://huggingface.co/circlestone-labs/Anima",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/104",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/132",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/162",
+        "https://huggingface.co/circlestone-labs/Anima/discussions/141"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/BATCH_Z_COMPOSITIONAL_EVAL_AND_CONTROL_20261002.md",
+      "sha256": "75f8f8501707065b95b3256e107938207d227733c328d3a62fa96c84afc6a431",
+      "candidate_urls": [
+        "https://arxiv.org/abs/2307.06350",
+        "https://arxiv.org/abs/2505.11178",
+        "https://arxiv.org/abs/2503.11481",
+        "https://arxiv.org/abs/2512.11542",
+        "https://blog.comfy.org/p/masking-and-scheduling-lora-and-model-weights",
+        "https://github.com/yaoliliu/FreeFuse"
+      ]
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/knowledge/research/WEEKLY_AUTOMATION_INTEGRATION_20261002.md",
+      "sha256": "e45970ad4d643f5308d90287caabe8224bfc3abd4cc6817dbd7ff243452336fb",
+      "candidate_urls": []
+    },
+    {
+      "ref": "origin/knowledge/generation-corpus",
+      "commit": "6ddf8f9e5e97910f4d3d37136524f724421f7c66",
+      "path": "docs/testing/ISSUE30_AUTOMATION_DRY_RUN_TASK_20260908.md",
+      "sha256": "3d99a221dfd5415caba37e944c179b685e06c1f479356cbaba4a7617eec3e40c",
+      "candidate_urls": []
+    }
+  ],
+  "limitations": [
+    "Oct 1-2 is the user-specified recovery window; #256 timestamps are retained in UTC, including checkpoints that fall on Oct 3 JST.",
+    "No private or unrelated chat content exported.",
+    "Names without an attributable exact artifact stay REJECT for direct adoption, not silently substituted."
+  ]
+}

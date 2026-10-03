@@ -1,0 +1,48 @@
+{
+  "repository": "SipherAGI/sd-webui-agent-scheduler",
+  "url": "https://github.com/SipherAGI/sd-webui-agent-scheduler",
+  "branch": "main",
+  "source_commit": "a33753321b914c6122df96d1dc0b5117d38af680",
+  "latest_commit_date": "2025-01-13T10:03:39Z",
+  "latest_commit_message": "Merge pull request #272 from SipherAGI/artventuredev-patch-1",
+  "archived": false,
+  "language": "Python",
+  "license": null,
+  "pushed_at": "2025-01-13T10:03:39Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/SipherAGI/sd-webui-agent-scheduler/blob/a33753321b914c6122df96d1dc0b5117d38af680/README.md",
+      "bytes": 13553,
+      "sha256": "1b8dbb7a658d3bff82e1725da8dc6b930782c6e9e043a9e42d89d6e2604bd1e4",
+      "line_count": 313
+    },
+    {
+      "path": "install.py",
+      "url": "https://github.com/SipherAGI/sd-webui-agent-scheduler/blob/a33753321b914c6122df96d1dc0b5117d38af680/install.py",
+      "bytes": 132,
+      "sha256": "289292be3d366835a276c8ef208e8719419ca8a7eedb491effc5f1f668f81f3c",
+      "line_count": 4
+    },
+    {
+      "path": "preload.py",
+      "url": "https://github.com/SipherAGI/sd-webui-agent-scheduler/blob/a33753321b914c6122df96d1dc0b5117d38af680/preload.py",
+      "bytes": 321,
+      "sha256": "d8ea5501fc71b6b1fb1c3035fcfb445288ee2f60fb9d8afd2e5abfa555b3e9a0",
+      "line_count": 7
+    },
+    {
+      "path": "agent_scheduler/api.py",
+      "url": "https://github.com/SipherAGI/sd-webui-agent-scheduler/blob/a33753321b914c6122df96d1dc0b5117d38af680/agent_scheduler/api.py",
+      "bytes": 18905,
+      "sha256": "9096c1425f3aa258a7fad5e08a138d10f5198cdc3b8291bf2475c9708fee513c",
+      "line_count": 514
+    }
+  ],
+  "source_tree_blob_count": 52,
+  "source_tree_paths_sha256": "8d076c919edbefe7a8d66b2143fb083eb79e5de37c787261af860346102d11f9",
+  "license_paths_observed": [],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

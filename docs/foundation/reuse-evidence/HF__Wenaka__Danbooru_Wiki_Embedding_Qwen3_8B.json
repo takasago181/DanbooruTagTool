@@ -1,0 +1,19 @@
+{
+  "asset": "Wenaka/Danbooru_Wiki_Embedding_Qwen3_8B",
+  "kind": "datasets",
+  "url": "https://huggingface.co/datasets/Wenaka/Danbooru_Wiki_Embedding_Qwen3_8B",
+  "source_commit": "ee838549161f33a01f9681643fca7c79dd691102",
+  "last_modified": "2026-04-23T19:22:40.000Z",
+  "license": "apache-2.0",
+  "gated": false,
+  "siblings": [
+    ".gitattributes",
+    "README.md",
+    "char_copyright.json",
+    "embeddings.npz",
+    "embeddings_fp16.npz",
+    "metadata.parquet"
+  ],
+  "checked_date": "2026-10-03",
+  "card_sha256": "4bcf87ecfbbb8e07a01b21415a970c8b53a5283bf6872b657040d3f45c9241f7"
+}

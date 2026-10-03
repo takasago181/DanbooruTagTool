@@ -1,0 +1,43 @@
+{
+  "repository": "hako-mikan/sd-webui-traintrain",
+  "url": "https://github.com/hako-mikan/sd-webui-traintrain",
+  "branch": "main",
+  "source_commit": "c65090154fb2f421e53a916a474257ecd95c2bf4",
+  "latest_commit_date": "2026-09-06T07:04:01Z",
+  "latest_commit_message": "Merge pull request #53 from hako-mikan/dev",
+  "archived": false,
+  "language": "Python",
+  "license": "AGPL-3.0",
+  "pushed_at": "2026-09-06T07:04:01Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/hako-mikan/sd-webui-traintrain/blob/c65090154fb2f421e53a916a474257ecd95c2bf4/README.md",
+      "bytes": 20260,
+      "sha256": "5ff9bdcbf216bb58c7f210114a7f2b7ef5c5207427ced050d330c65c101c5b23",
+      "line_count": 211
+    },
+    {
+      "path": "install.py",
+      "url": "https://github.com/hako-mikan/sd-webui-traintrain/blob/c65090154fb2f421e53a916a474257ecd95c2bf4/install.py",
+      "bytes": 2322,
+      "sha256": "52650f6be21ba57e88705a74adf736ff8f5a9a52a2a3d9570085eb3dda0bb676",
+      "line_count": 71
+    },
+    {
+      "path": "trainer/gen.py",
+      "url": "https://github.com/hako-mikan/sd-webui-traintrain/blob/c65090154fb2f421e53a916a474257ecd95c2bf4/trainer/gen.py",
+      "bytes": 5221,
+      "sha256": "3484d7cfe759c1741cc872dee30095e80e572867bdf6c59c72b29687389aa05e",
+      "line_count": 112
+    }
+  ],
+  "source_tree_blob_count": 23,
+  "source_tree_paths_sha256": "df166d71f1c9dcb40bb78181595f0cac3c175ad67ecfe4ac1868861a481c290e",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

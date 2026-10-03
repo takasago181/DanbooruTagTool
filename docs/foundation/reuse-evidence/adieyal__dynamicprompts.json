@@ -1,0 +1,59 @@
+{
+  "repository": "adieyal/dynamicprompts",
+  "url": "https://github.com/adieyal/dynamicprompts",
+  "branch": "main",
+  "source_commit": "2475e312150d07b07a7d3dec2abab737414a9e36",
+  "latest_commit_date": "2026-08-23T23:35:41Z",
+  "latest_commit_message": "Merge pull request #144 from yak1ex/update_doc_to_reflect_pr113",
+  "archived": false,
+  "language": "Python",
+  "license": "MIT",
+  "pushed_at": "2026-08-23T23:35:42Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/adieyal/dynamicprompts/blob/2475e312150d07b07a7d3dec2abab737414a9e36/README.md",
+      "bytes": 17453,
+      "sha256": "52f734d77e2782f09b118c341764c556030034429ea0cb613e5482f0b7e33720",
+      "line_count": 471
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/adieyal/dynamicprompts/blob/2475e312150d07b07a7d3dec2abab737414a9e36/pyproject.toml",
+      "bytes": 2304,
+      "sha256": "26ca70d5b96bfae79d71c977dcf6e8e423f06858af3eb693385924eb6472d09d",
+      "line_count": 104
+    },
+    {
+      "path": "src/dynamicprompts/generators/combinatorial.py",
+      "url": "https://github.com/adieyal/dynamicprompts/blob/2475e312150d07b07a7d3dec2abab737414a9e36/src/dynamicprompts/generators/combinatorial.py",
+      "bytes": 1287,
+      "sha256": "e75f76cfac760b20d49e987c9a0f0a91f959160ec0498abdc451f9a5618d2379",
+      "line_count": 38
+    },
+    {
+      "path": "src/dynamicprompts/generators/randomprompt.py",
+      "url": "https://github.com/adieyal/dynamicprompts/blob/2475e312150d07b07a7d3dec2abab737414a9e36/src/dynamicprompts/generators/randomprompt.py",
+      "bytes": 2418,
+      "sha256": "6fedb79c960bdb1c8b5fa9524614451dff660e79f3a86572d01bf9d896dc81d7",
+      "line_count": 76
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/adieyal/dynamicprompts/blob/2475e312150d07b07a7d3dec2abab737414a9e36/LICENSE",
+      "bytes": 1086,
+      "sha256": "7eb42ec0011f13a3ddf29cd5f924bb591d81f4d09e943109ae01fb99292147d4",
+      "line_count": 21
+    }
+  ],
+  "source_tree_blob_count": 127,
+  "source_tree_paths_sha256": "bff9055294c4668e5be1f4bd68327ed247ab123ba4936c3952048932c29f2805",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "pyproject.toml"
+  ],
+  "test_path_count": 58
+}

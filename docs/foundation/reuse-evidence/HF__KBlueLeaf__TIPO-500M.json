@@ -1,0 +1,24 @@
+{
+  "asset": "KBlueLeaf/TIPO-500M",
+  "kind": "models",
+  "url": "https://huggingface.co/KBlueLeaf/TIPO-500M",
+  "source_commit": "fc01db831acbc88b869058c7581cfe2d6734472c",
+  "last_modified": "2024-11-29T03:13:52.000Z",
+  "license": "other",
+  "gated": false,
+  "siblings": [
+    ".gitattributes",
+    "LICENSE.md",
+    "README.md",
+    "TIPO-500M_epoch5-F16.gguf",
+    "added_tokens.json",
+    "config.json",
+    "generation_config.json",
+    "model.safetensors",
+    "special_tokens_map.json",
+    "tokenizer.model",
+    "tokenizer_config.json"
+  ],
+  "checked_date": "2026-10-03",
+  "card_sha256": "cc26fa5eb7dd7691371a82accec125b8d41195d81e63376d2dddc582dd61ba3f"
+}

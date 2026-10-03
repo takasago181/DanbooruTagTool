@@ -1,0 +1,656 @@
+{
+  "checked_date": "2026-10-03",
+  "purpose": "Pinned read-only public source/card inspection; no upstream code vendored or run",
+  "repositories": [
+    {
+      "repository": "67372a/stable-diffusion-webui-wd14-tagger",
+      "source_commit": "6624e0803a0021732adf9a986ad5f6fa20082323",
+      "evidence": "67372a__stable-diffusion-webui-wd14-tagger.json"
+    },
+    {
+      "repository": "a2569875/lora-prompt-tool",
+      "source_commit": "c1e3132417c3dcfc2e68dd1c2d1864bf5baa5075",
+      "evidence": "a2569875__lora-prompt-tool.json"
+    },
+    {
+      "repository": "abzaloff/aadetailer-neoforge",
+      "source_commit": "c4c036d3b1f8bd3a298d6e64878d8338dbfe2597",
+      "evidence": "abzaloff__aadetailer-neoforge.json"
+    },
+    {
+      "repository": "abzaloff/sd-dynamic-prompts",
+      "source_commit": "3e62452776f52e2c641c2c52d3cd908140c3743e",
+      "evidence": "abzaloff__sd-dynamic-prompts.json"
+    },
+    {
+      "repository": "Acly/krita-ai-diffusion",
+      "source_commit": "26aec6c6d8e1b7c1a3cf63880fda84360f6d5b0d",
+      "evidence": "Acly__krita-ai-diffusion.json"
+    },
+    {
+      "repository": "adieyal/comfyui-dynamicprompts",
+      "source_commit": "3f2fff32358cf39e21b8b440ca87eac9a8e2bade",
+      "evidence": "adieyal__ComfyUI-DynamicPrompts.json"
+    },
+    {
+      "repository": "adieyal/dynamicprompts",
+      "source_commit": "2475e312150d07b07a7d3dec2abab737414a9e36",
+      "evidence": "adieyal__dynamicprompts.json"
+    },
+    {
+      "repository": "adieyal/sd-dynamic-prompts",
+      "source_commit": "de056ff8d80e4ad120e13a90cf200f3383f427c6",
+      "evidence": "adieyal__sd-dynamic-prompts.json"
+    },
+    {
+      "repository": "asagi4/comfyui-prompt-control",
+      "source_commit": "88af041dce376c97441d2efe5479e27de4b52cd8",
+      "evidence": "asagi4__comfyui-prompt-control.json"
+    },
+    {
+      "repository": "AUTOMATIC1111/stable-diffusion-webui",
+      "source_commit": "82a973c04367123ae98bd9abdf80d9eda9b910e2",
+      "evidence": "AUTOMATIC1111__stable-diffusion-webui.json"
+    },
+    {
+      "repository": "awesome-ai-hentai/awesome-ai-hentai",
+      "source_commit": "f4b846c3cc4eaf8ef5e96462b690e1574715fea0",
+      "evidence": "awesome-ai-hentai__awesome-ai-hentai.json"
+    },
+    {
+      "repository": "BAAI/bge-m3",
+      "source_commit": "5617a9f61b028005a4858fdac845db406aefb181",
+      "evidence": "HF__BAAI__bge-m3.json"
+    },
+    {
+      "repository": "BetaDoggo/danbooru-tag-list",
+      "source_commit": "251856c68161b1b050518672c105d16287749399",
+      "evidence": "BetaDoggo__danbooru-tag-list.json"
+    },
+    {
+      "repository": "BFRKQSB7/ai-prompt-supermarket",
+      "source_commit": "239129033870ad7667643f085e5393c8a7480d6c",
+      "evidence": "BFRKQSB7__ai-prompt-supermarket.json"
+    },
+    {
+      "repository": "Bing-su/adetailer",
+      "source_commit": "3a599f5d4607d8f9d8b9fc5a15526197418dae1a",
+      "evidence": "Bing-su__adetailer.json"
+    },
+    {
+      "repository": "boorutan/booru-japanese-tag",
+      "source_commit": "cec5f7eefbe5c3addd8fb9338d11435518ae8ccf",
+      "evidence": "boorutan__booru-japanese-tag.json"
+    },
+    {
+      "repository": "civitai/civitai-developer-docs",
+      "source_commit": "95e974ae473c7961b01f04e2e68bbcbc0baf0a5b",
+      "evidence": "civitai__civitai-developer-docs.json"
+    },
+    {
+      "repository": "civitai/media-metadata",
+      "source_commit": "898f6aa69ac0acb3a43a496da0774a8f93982b2e",
+      "evidence": "civitai__media-metadata.json"
+    },
+    {
+      "repository": "Comfy-Org/ComfyUI",
+      "source_commit": "36c0b0a687e5e6d7b55e3e61ab24262ffc0f2508",
+      "evidence": "Comfy-Org__ComfyUI.json"
+    },
+    {
+      "repository": "comfyanonymous/ComfyUI_examples",
+      "source_commit": "f9431bb000ce792094ff345446e22cac1ea6cef3",
+      "evidence": "comfyanonymous__ComfyUI_examples.json"
+    },
+    {
+      "repository": "ComfyAssets/ComfyUI_PromptManager",
+      "source_commit": "d70dab56e5fb67c3e471607bc10984975c4cc2aa",
+      "evidence": "ComfyAssets__ComfyUI_PromptManager.json"
+    },
+    {
+      "repository": "CommunityToolkit/dotnet",
+      "source_commit": "b135626dd54d33b8f05f2ff31591592c004aa848",
+      "evidence": "CommunityToolkit__dotnet.json"
+    },
+    {
+      "repository": "Csanindzsa/danbooru-prompt-tool",
+      "source_commit": "9bec4b33da833032dcf794b1e06784ca2c87682a",
+      "evidence": "Csanindzsa__danbooru-prompt-tool.json"
+    },
+    {
+      "repository": "d3x-at/sd-parsers",
+      "source_commit": "0949676c24a5bbaf26ef0aa8c362132b7b27cb5b",
+      "evidence": "d3x-at__sd-parsers.json"
+    },
+    {
+      "repository": "DamienCz/comfyui-tipo",
+      "source_commit": "e616fa8a979f9d8e07c5a3b0e7e10333d6bb4349",
+      "evidence": "DamienCz__comfyui-tipo.json"
+    },
+    {
+      "repository": "danbooru/danbooru",
+      "source_commit": "9a4a6e2de0c4d2cd4e3288b43f06b622a9e07467",
+      "evidence": "danbooru__danbooru.json"
+    },
+    {
+      "repository": "dawncreatescode/comfyui-PromptHistory",
+      "source_commit": "3159f9048bc6ec723905daa5181c87c5cd0ece3c",
+      "evidence": "dawncreatescode__comfyui-PromptHistory.json"
+    },
+    {
+      "repository": "deepghs/site_tags",
+      "source_commit": "2b4de8c3f79540b10387a6fa7f251274f0b224a8",
+      "evidence": "HF__deepghs__site_tags.json"
+    },
+    {
+      "repository": "deepghs/waifuc",
+      "source_commit": "efe5c49171a94a6441a79b7d7b595d4b3a4eb51f",
+      "evidence": "deepghs__waifuc.json"
+    },
+    {
+      "repository": "DominikDoom/a1111-sd-webui-tagcomplete",
+      "source_commit": "4170882f90b47be130a0ff9314f663c230b9153d",
+      "evidence": "DominikDoom__a1111-sd-webui-tagcomplete.json"
+    },
+    {
+      "repository": "dotnet/command-line-api",
+      "source_commit": "ba7fb9bd444341627813451c54079b7a17d3d448",
+      "evidence": "dotnet__command-line-api.json"
+    },
+    {
+      "repository": "dr1610/a1111-sd-webui-jp-tag-assistant",
+      "source_commit": "8136d50cc6b24e2835aa3a150608a82fdab67a85",
+      "evidence": "dr1610__a1111-sd-webui-jp-tag-assistant.json"
+    },
+    {
+      "repository": "dr1610/ComfyUI-Regional-Mask-Prompt",
+      "source_commit": "f1518bf4c498549998b814b1668f21109b11aa72",
+      "evidence": "dr1610__ComfyUI-Regional-Mask-Prompt.json"
+    },
+    {
+      "repository": "drewnoakes/metadata-extractor-dotnet",
+      "source_commit": "7a2841fe1cfeb3da99f44697ae5d2f50a8069b67",
+      "evidence": "drewnoakes__metadata-extractor-dotnet.json"
+    },
+    {
+      "repository": "eduardoabreu81/sd-webui-prompt-all-in-one-neo",
+      "source_commit": "7a96adcc3bdb13eab7ab722ea2b7ddec2778d95c",
+      "evidence": "eduardoabreu81__sd-webui-prompt-all-in-one-neo.json"
+    },
+    {
+      "repository": "eduardoabreu81/sd-webui-tagcomplete-neo",
+      "source_commit": "b66df0d4ca70b4ef36a9867c4cb94d247c64db37",
+      "evidence": "eduardoabreu81__sd-webui-tagcomplete-neo.json"
+    },
+    {
+      "repository": "exiftool/exiftool",
+      "source_commit": "2200871d9cef988051d2a99d67df3bda6cbb30a8",
+      "evidence": "exiftool__exiftool.json"
+    },
+    {
+      "repository": "Faildes/Illustrious-NoobAI-Style-Explorer-plus",
+      "source_commit": "1b5f791bd5511a24a51dd8b189d23ff94757ee6b",
+      "evidence": "Faildes__Illustrious-NoobAI-Style-Explorer-plus.json"
+    },
+    {
+      "repository": "fastapi/typer",
+      "source_commit": "a80f6e5ecd74f32b983cca336a2f3cba98d9853a",
+      "evidence": "fastapi__typer.json"
+    },
+    {
+      "repository": "fpgaminer/joytag",
+      "source_commit": "ce0c4a451e31b69a92df24c8bcd1c0418e3e4feb",
+      "evidence": "fpgaminer__JoyTag.json"
+    },
+    {
+      "repository": "FranckyB/ComfyUI-Prompt-Manager",
+      "source_commit": "f9a973192490e7e7cb557bb9fcc305f9de4f386c",
+      "evidence": "FranckyB__ComfyUI-Prompt-Manager.json"
+    },
+    {
+      "repository": "ggml-org/llama.cpp",
+      "source_commit": "bed0a856606ee4a24a164066f73d2379447033f5",
+      "evidence": "ggml-org__llama.cpp.json"
+    },
+    {
+      "repository": "Giorgi/DuckDB.NET",
+      "source_commit": "625d4cb5f856c54aaae70509b57a68c7c6a09efe",
+      "evidence": "Giorgi__DuckDB.NET.json"
+    },
+    {
+      "repository": "grio43/danbooru-implication-map",
+      "source_commit": "c092e024215c4be12f4073cc9511aedb5d48645b",
+      "evidence": "grio43__danbooru-implication-map.json"
+    },
+    {
+      "repository": "Grio43/Tag_cleaning",
+      "source_commit": "0b2315d72d6d6e078c67b56860eeeb5be5f93975",
+      "evidence": "HF__Grio43__Tag_cleaning.json"
+    },
+    {
+      "repository": "hako-mikan/sd-webui-negpip",
+      "source_commit": "fb7151f327ae56195f08b30b70d459493dadedbb",
+      "evidence": "hako-mikan__sd-webui-negpip.json"
+    },
+    {
+      "repository": "hako-mikan/sd-webui-regional-prompter",
+      "source_commit": "b10c496dbcb9c94be0d5d64edda8511460cc9d28",
+      "evidence": "hako-mikan__sd-webui-regional-prompter.json"
+    },
+    {
+      "repository": "hako-mikan/sd-webui-traintrain",
+      "source_commit": "c65090154fb2f421e53a916a474257ecd95c2bf4",
+      "evidence": "hako-mikan__sd-webui-traintrain.json"
+    },
+    {
+      "repository": "Haoming02/ADetailer-Neo",
+      "source_commit": "af228eba7a3f3691a25bcd1fc94aa95e600dd3e6",
+      "evidence": "Haoming02__ADetailer-Neo.json"
+    },
+    {
+      "repository": "Haoming02/sd-forge-couple",
+      "source_commit": "c7884e81623d7fcbf4c92e3aea14ced8b5b6aa74",
+      "evidence": "Haoming02__sd-forge-couple.json"
+    },
+    {
+      "repository": "Haoming02/sd-forge-negpip",
+      "source_commit": "0585496d70c4d5cf3f2edbe982241cfb1e2aca43",
+      "evidence": "Haoming02__sd-forge-negpip.json"
+    },
+    {
+      "repository": "Haoming02/sd-webui-forge-classic",
+      "source_commit": "97b26fb404314a11dad7cdde2706da57ea53f4f2",
+      "evidence": "Haoming02__sd-webui-forge-classic.json"
+    },
+    {
+      "repository": "haveanorder/lora-trigger-toolkit",
+      "source_commit": "9c738345652ec1bcf08475040b5912778478d2e1",
+      "evidence": "haveanorder__lora-trigger-toolkit.json"
+    },
+    {
+      "repository": "HDiffusion/historical-danbooru-tag-counts",
+      "source_commit": "fa58ba14d7c5da46fde174fda6e1df187e71fc52",
+      "evidence": "HF__HDiffusion__historical-danbooru-tag-counts.json"
+    },
+    {
+      "repository": "hirorohi03/EasyForgeNeo",
+      "source_commit": "86d73b8939879a4d35cfc31357f0db3999c7d746",
+      "evidence": "hirorohi03__EasyForgeNeo.json"
+    },
+    {
+      "repository": "hirorohi03/ScribeNEO",
+      "source_commit": "e9a9deaced174c040f4ddff0540432d761c7c650",
+      "evidence": "hirorohi03__ScribeNEO.json"
+    },
+    {
+      "repository": "huchenlei/ComfyUI_DanTagGen",
+      "source_commit": "6c42bf87de570c96a779cc2f0736f76e336c2ff3",
+      "evidence": "huchenlei__ComfyUI_DanTagGen.json"
+    },
+    {
+      "repository": "huggingface/sentence-transformers",
+      "source_commit": "4a3b5cd6ec718e421f57e824a41ed3fd99595df6",
+      "evidence": "UKPLab__sentence-transformers.json"
+    },
+    {
+      "repository": "instantX-research/InstantStyle",
+      "source_commit": "6b40588e263c958653353ec24eb7eb990cfa3da7",
+      "evidence": "instantX-research__InstantStyle.json"
+    },
+    {
+      "repository": "intfloat/multilingual-e5-small",
+      "source_commit": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+      "evidence": "HF__intfloat__multilingual-e5-small.json"
+    },
+    {
+      "repository": "invoke-ai/InvokeAI",
+      "source_commit": "1ddf586e4a365f26d1c98a0ccde031f3d93f3f49",
+      "evidence": "invoke-ai__InvokeAI.json"
+    },
+    {
+      "repository": "isek-ai/danbooru-tags-2024",
+      "source_commit": "b1ee778f07b50c1ef0da4e87637e5b1168708a7a",
+      "evidence": "HF__isek-ai__danbooru-tags-2024.json"
+    },
+    {
+      "repository": "isek-ai/danbooru-wiki-2024",
+      "source_commit": "150ab9fe223322ce4e8ca2a1875c796ab7e0b371",
+      "evidence": "HF__isek-ai__danbooru-wiki-2024.json"
+    },
+    {
+      "repository": "Jannchie/danbooru-tags-tree",
+      "source_commit": "8ec5bfebb9d23edbcb80024a561c0c8bddf1afdb",
+      "evidence": "Jannchie__danbooru-tags-tree.json"
+    },
+    {
+      "repository": "jason-n-tran/comfyui-workflow-iterator",
+      "source_commit": "92fb9559065695362da0bd700b16b06992be3ca6",
+      "evidence": "jason-n-tran__comfyui-workflow-iterator.json"
+    },
+    {
+      "repository": "JoshClose/CsvHelper",
+      "source_commit": "33970e5183383bdac1fbce3b3fbcdf46b318ca52",
+      "evidence": "JoshClose__CsvHelper.json"
+    },
+    {
+      "repository": "KBlueLeaf/TIPO-200M",
+      "source_commit": "d638c4e6756682ac77680feaab997b39ea762271",
+      "evidence": "HF__KBlueLeaf__TIPO-200M.json"
+    },
+    {
+      "repository": "KBlueLeaf/TIPO-500M",
+      "source_commit": "fc01db831acbc88b869058c7581cfe2d6734472c",
+      "evidence": "HF__KBlueLeaf__TIPO-500M.json"
+    },
+    {
+      "repository": "KDE/digikam",
+      "source_commit": "33d0457e20adda97c003f3dee652a1749406ff9f",
+      "evidence": "KDE__digikam.json"
+    },
+    {
+      "repository": "kino-6/danbooru-prompt-compiler",
+      "source_commit": "e9d51b37c7dc37759ce8b39c51cbec695277f0be",
+      "evidence": "kino-6__danbooru-prompt-compiler.json"
+    },
+    {
+      "repository": "kn86elt/Danbooru-Tag-Explorer",
+      "source_commit": "4ac1fa3bbe4dcf6342600e643182700df460ef28",
+      "evidence": "kn86elt__Danbooru-Tag-Explorer.json"
+    },
+    {
+      "repository": "KoaZhang/danbooru-tag-optimizer",
+      "source_commit": "37da4a052f7b7b0873fefc9b8d75bbc0ffefe88b",
+      "evidence": "KoaZhang__danbooru-tag-optimizer.json"
+    },
+    {
+      "repository": "KohakuBlueleaf/danbooru-tag-tree",
+      "source_commit": "7f2b7a4a038a02f0268052ce138826864584ed63",
+      "evidence": "KohakuBlueleaf__danbooru-tag-tree.json"
+    },
+    {
+      "repository": "KohakuBlueleaf/LyCORIS",
+      "source_commit": "4a6a333819356795d22170fe661a84f16b299b6b",
+      "evidence": "KohakuBlueleaf__LyCORIS.json"
+    },
+    {
+      "repository": "kohya-ss/sd-scripts",
+      "source_commit": "690ea7f96c23182352ec63def76d431c6120bd2f",
+      "evidence": "kohya-ss__sd-scripts.json"
+    },
+    {
+      "repository": "laurigates/comfyui-image-browser",
+      "source_commit": "a85307d96821041ce2359b4bf3184f8fe3380d87",
+      "evidence": "laurigates__comfyui-image-browser.json"
+    },
+    {
+      "repository": "learn2phoenix/CSD",
+      "source_commit": "3a9df32605b869eceb704897839be80977a9f1ea",
+      "evidence": "learn2phoenix__CSD.json"
+    },
+    {
+      "repository": "libgit2/libgit2sharp",
+      "source_commit": "eaa698d078941fd5e3cc82b59b885cd35d8cc0f8",
+      "evidence": "libgit2__libgit2sharp.json"
+    },
+    {
+      "repository": "lllyasviel/Fooocus",
+      "source_commit": "ae05379cc97bc4361ec8b4ec90193dab21be763f",
+      "evidence": "lllyasviel__Fooocus.json"
+    },
+    {
+      "repository": "lllyasviel/stable-diffusion-webui-forge",
+      "source_commit": "dfdcbab685e57677014f05a3309b48cc87383167",
+      "evidence": "lllyasviel__stable-diffusion-webui-forge.json"
+    },
+    {
+      "repository": "LostRuins/koboldcpp",
+      "source_commit": "f9a32456edd3e5bc5fd6327fb1a370d647a2bff5",
+      "evidence": "LostRuins__koboldcpp.json"
+    },
+    {
+      "repository": "ltdrdata/ComfyUI-Impact-Pack",
+      "source_commit": "429d0159ad429e64d2b3916e6e7be9c22d025c3c",
+      "evidence": "ltdrdata__ComfyUI-Impact-Pack.json"
+    },
+    {
+      "repository": "LuciferTC9527/ComfyUI-Anima_IP-Adapter",
+      "source_commit": "6b77cd0c367d76402174ace2be50d3cb6aa77855",
+      "evidence": "LuciferTC9527__ComfyUI-Anima_IP-Adapter.json"
+    },
+    {
+      "repository": "LykosAI/StabilityMatrix",
+      "source_commit": "604387e55633550c248c9b71b7a2968711210286",
+      "evidence": "LykosAI__StabilityMatrix.json"
+    },
+    {
+      "repository": "m0rtus59/ComfyUI-MoonNodes",
+      "source_commit": "9875c7ef927b866bf91815e006f4a523762a3ec7",
+      "evidence": "m0rtus59__ComfyUI-MoonNodes.json"
+    },
+    {
+      "repository": "max-sixty/worktrunk",
+      "source_commit": "9669d4a7bbdd99298be1f6e1e6dceadba5ceb449",
+      "evidence": "max-sixty__worktrunk.json"
+    },
+    {
+      "repository": "mcmonkeyprojects/SwarmUI",
+      "source_commit": "d9ecb52dfd4e147c4f2dc90440331e8dea4036a7",
+      "evidence": "mcmonkeyprojects__SwarmUI.json"
+    },
+    {
+      "repository": "Mexes-GM/booru-prompt-gallery",
+      "source_commit": "d64c1f783b5ad3ea4375863e7c63c3e7b2db4c00",
+      "evidence": "Mexes-GM__booru-prompt-gallery.json"
+    },
+    {
+      "repository": "microsoft/onnxruntime",
+      "source_commit": "982fcf876b5118b96a836dcd1fead65ce9cc07ce",
+      "evidence": "microsoft__onnxruntime.json"
+    },
+    {
+      "repository": "mikhailfur/sd-webui-ai-wdywfm",
+      "source_commit": "e060cf9fd565012dcadba9990c3e6f3f68433300",
+      "evidence": "mikhailfur__sd-webui-ai-wdywfm.json"
+    },
+    {
+      "repository": "mix1009/model-keyword",
+      "source_commit": "340b3502691804606fdd4c4f572510f771f27b69",
+      "evidence": "mix1009__model-keyword.json"
+    },
+    {
+      "repository": "mmanela/diffplex",
+      "source_commit": "f500e73f28e28813f942f1f16dec5a34b40e48e3",
+      "evidence": "mmanela__diffplex.json"
+    },
+    {
+      "repository": "n0va39/ComfyUI-EasyUseAnima",
+      "source_commit": "cee3979c14cba07082560ad6d2a5f0d92415cae7",
+      "evidence": "n0va39__ComfyUI-EasyUseAnima.json"
+    },
+    {
+      "repository": "NEXTAltair/genai-image-tag-db",
+      "source_commit": "a4289cda2ce57d8a9910f8613af536de015f8b4c",
+      "evidence": "HF__NEXTAltair__genai-image-tag-db.json"
+    },
+    {
+      "repository": "ollama/ollama",
+      "source_commit": "42e911bc3d05798cad729cb474bf62f378cb2e26",
+      "evidence": "ollama__ollama.json"
+    },
+    {
+      "repository": "opparco/anima-prompter-forge",
+      "source_commit": "d634b5c6732d8482d8f4703079343cdf0b9b2bd7",
+      "evidence": "opparco__anima-prompter-forge.json"
+    },
+    {
+      "repository": "p1atdev/danbooru-ja-tag-pair-20241015",
+      "source_commit": "846b9a569c8595ba5fdde77a06af92d589e94692",
+      "evidence": "HF__p1atdev__danbooru-ja-tag-pair-20241015.json"
+    },
+    {
+      "repository": "Physton/sd-webui-prompt-all-in-one",
+      "source_commit": "22869816ecbafe9c17b6771291ee64fe73b62ca7",
+      "evidence": "Physton__sd-webui-prompt-all-in-one.json"
+    },
+    {
+      "repository": "pythongosssss/ComfyUI-WD14-Tagger",
+      "source_commit": "9e0a6e700299182fc05c58b62e7ad9f72182a78b",
+      "evidence": "pythongosssss__ComfyUI-WD14-Tagger.json"
+    },
+    {
+      "repository": "PYU224/tagdb-updater",
+      "source_commit": "247b270e89402e9adf7048e74d79f94ed2af08bf",
+      "evidence": "PYU224__tagdb-updater.json"
+    },
+    {
+      "repository": "Qwen/Qwen3-Embedding-0.6B",
+      "source_commit": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+      "evidence": "HF__Qwen__Qwen3-Embedding-0.6B.json"
+    },
+    {
+      "repository": "regiellis/ComfyUI-EasyIllustrious",
+      "source_commit": "69a787d685386c4ab9faee0c3bbf7918b36aabcc",
+      "evidence": "regiellis__ComfyUI-EasyIllustrious.json"
+    },
+    {
+      "repository": "Replactionap/Stable-diffusion-webui-civitai-helper-RED-UPDATE",
+      "source_commit": "2556ffd6b9032e66669e31433bd74090e7f5d1b4",
+      "evidence": "Replactionap__Stable-Diffusion-Webui-Civitai-Helper-RED-UPDATE.json"
+    },
+    {
+      "repository": "rhysd/actionlint",
+      "source_commit": "011a6d15e749bb3f2d771eed9c7aa0e7e3e10ee7",
+      "evidence": "rhysd__actionlint.json"
+    },
+    {
+      "repository": "Rivulet138/sd-webui-comfyui-pnginfo",
+      "source_commit": "75da1dd598399aefc7741c7df26dc2a97238146f",
+      "evidence": "Rivulet138__sd-webui-comfyui-pnginfo.json"
+    },
+    {
+      "repository": "rTachibana/comfyui-suggest-dt",
+      "source_commit": "ab9df48313bd3bf0dae73fb58fdb763ed37a3877",
+      "evidence": "rTachibana__comfyui-suggest-dt.json"
+    },
+    {
+      "repository": "Sen-sou/Comfyui-Anima-Regional-Conditioning",
+      "source_commit": "099cf1fa052721394963418455d49f7087efaf6c",
+      "evidence": "Sen-sou__Comfyui-Anima-Regional-Conditioning.json"
+    },
+    {
+      "repository": "SipherAGI/sd-webui-agent-scheduler",
+      "source_commit": "a33753321b914c6122df96d1dc0b5117d38af680",
+      "evidence": "SipherAGI__sd-webui-agent-scheduler.json"
+    },
+    {
+      "repository": "SixLabors/ImageSharp",
+      "source_commit": "c0ee744956433b7ad719ab2d7d8d9c8975e9b653",
+      "evidence": "SixLabors__ImageSharp.json"
+    },
+    {
+      "repository": "SmilingWolf/wd-eva02-large-tagger-v3",
+      "source_commit": "b25b82a03f7282e41aa2f257a52c7583b710bd1c",
+      "evidence": "HF__SmilingWolf__wd-eva02-large-tagger-v3.json"
+    },
+    {
+      "repository": "sqlite/sqlite",
+      "source_commit": "cb547ab3e931c7766e24834af5ef6c4578863e3d",
+      "evidence": "sqlite__sqlite.json"
+    },
+    {
+      "repository": "Stable-yogi/sd-forge-ab-compare",
+      "source_commit": "395122829c985139956983cb8acea3899122c963",
+      "evidence": "Stable-yogi__sd-forge-ab-compare.json"
+    },
+    {
+      "repository": "storyAura/BooruDatasetTagManagerPlus",
+      "source_commit": "94a348f82f41e1e0a3d27a780630df039b560e54",
+      "evidence": "storyAura__BooruDatasetTagManagerPlus.json"
+    },
+    {
+      "repository": "SuzumiyaAkizuki/danbooru-tag-pipeline",
+      "source_commit": "a5a2d0ef085748eaa4a67e77eecee37a6680f776",
+      "evidence": "SuzumiyaAkizuki__danbooru-tag-pipeline.json"
+    },
+    {
+      "repository": "SuzumiyaAkizuki/DanbooruSearchOnline",
+      "source_commit": "aecc9fa3a281fe242c935b7d3dc80ff5574842aa",
+      "evidence": "SuzumiyaAkizuki__DanbooruSearchOnline.json"
+    },
+    {
+      "repository": "tencent-ailab/IP-Adapter",
+      "source_commit": "62e4af9d0c1ac7d5f8dd386a0ccf2211346af1a2",
+      "evidence": "tencent-ailab__IP-Adapter.json"
+    },
+    {
+      "repository": "ThetaCursed/Anima-Style-Explorer",
+      "source_commit": "1b17fbba0d4444d650a39f406ee30594cf128fef",
+      "evidence": "ThetaCursed__Anima-Style-Explorer.json"
+    },
+    {
+      "repository": "ThetaCursed/Illustrious-NoobAI-Style-Explorer",
+      "source_commit": "ef220b46f2b67f5e7f82291e92a6a8ebac9fb781",
+      "evidence": "ThetaCursed__Illustrious-NoobAI-Style-Explorer.json"
+    },
+    {
+      "repository": "Wenaka/danbooru2024_general_tags_classified",
+      "source_commit": "d75a9569df49310adbdf0c03f1018310700b4e8b",
+      "evidence": "HF__Wenaka__danbooru2024_general_tags_classified.json"
+    },
+    {
+      "repository": "Wenaka/Danbooru2024_rating_explicit_prompts_without_character",
+      "source_commit": "720c5c48180773d863aabd33ed97065c692a5e6f",
+      "evidence": "HF__Wenaka__Danbooru2024_rating_explicit_prompts_without_character.json"
+    },
+    {
+      "repository": "Wenaka/Danbooru_Wiki_Embedding_Qwen3_8B",
+      "source_commit": "ee838549161f33a01f9681643fca7c79dd691102",
+      "evidence": "HF__Wenaka__Danbooru_Wiki_Embedding_Qwen3_8B.json"
+    },
+    {
+      "repository": "Wenaka2004/comfyui-anima-ipadapter",
+      "source_commit": "5f53e2b10802d5715967806cbe88d761b018a121",
+      "evidence": "Wenaka2004__comfyui-anima-ipadapter.json"
+    },
+    {
+      "repository": "Wenaka2004/dan-emb",
+      "source_commit": "373027c979da5d5b89e1569ffcda1397cf0c5901",
+      "evidence": "Wenaka2004__dan-emb.json"
+    },
+    {
+      "repository": "willmiao/ComfyUI-Lora-Manager",
+      "source_commit": "515469054c9254d4eb6818a67fd91ba1024574af",
+      "evidence": "willmiao__ComfyUI-Lora-Manager.json"
+    },
+    {
+      "repository": "wochenlong/ComfyUI-Anima-Edit-LoRA",
+      "source_commit": "7e53a72bf39df550cec0e7fa90fd76e789514f09",
+      "evidence": "wochenlong__ComfyUI-Anima-Edit-LoRA.json"
+    },
+    {
+      "repository": "x0x0b/ComfyUI-PromptHistoryGallery",
+      "source_commit": "aa86ced50c2b6af48c2c86978cee60b7d99f9d98",
+      "evidence": "x0x0b__ComfyUI-PromptHistoryGallery.json"
+    },
+    {
+      "repository": "yaoliliu/FreeFuse",
+      "source_commit": "f5570195e84d3bc8e7f6702fcb7b012b89372b8e",
+      "evidence": "yaoliliu__FreeFuse.json"
+    },
+    {
+      "repository": "Yukinoshita-Yukinoe/ComfyUI-Danbooru-Tag-Toolkit",
+      "source_commit": "168a189882aabb705c29a9849e5fdeb9d06ec15f",
+      "evidence": "Yukinoshita-Yukinoe__ComfyUI-Danbooru-Tag-Toolkit.json"
+    },
+    {
+      "repository": "zanllp/infinite-image-browsing",
+      "source_commit": "ac5418772986623d8dfa64ff12cdd54be2459b2b",
+      "evidence": "zanllp__infinite-image-browsing.json"
+    },
+    {
+      "repository": "zixaphir/Stable-Diffusion-Webui-Civitai-Helper",
+      "source_commit": "93ca8af62c7c287bdb676e9aa82dce8c15c72d7e",
+      "evidence": "zixaphir__Stable-Diffusion-Webui-Civitai-Helper.json"
+    }
+  ]
+}

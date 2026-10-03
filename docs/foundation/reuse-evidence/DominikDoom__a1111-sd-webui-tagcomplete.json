@@ -1,0 +1,50 @@
+{
+  "repository": "DominikDoom/a1111-sd-webui-tagcomplete",
+  "url": "https://github.com/DominikDoom/a1111-sd-webui-tagcomplete",
+  "branch": "main",
+  "source_commit": "4170882f90b47be130a0ff9314f663c230b9153d",
+  "latest_commit_date": "2026-07-01T07:44:35Z",
+  "latest_commit_message": "feat: add opt-in @stylename autocomplete for Anima model (#342)",
+  "archived": false,
+  "language": "JavaScript",
+  "license": "MIT",
+  "pushed_at": "2026-07-01T07:44:36Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/DominikDoom/a1111-sd-webui-tagcomplete/blob/4170882f90b47be130a0ff9314f663c230b9153d/README.md",
+      "bytes": 34556,
+      "sha256": "eae4ec82917aa27a2fd3766aafea007fc79beebab9959cb065eb3972c7a775c3",
+      "line_count": 600
+    },
+    {
+      "path": "javascript/tagAutocomplete.js",
+      "url": "https://github.com/DominikDoom/a1111-sd-webui-tagcomplete/blob/4170882f90b47be130a0ff9314f663c230b9153d/javascript/tagAutocomplete.js",
+      "bytes": 67256,
+      "sha256": "4c37cd1eda8e430b9192b4a67f4ded4ea696ba65b9b9db72de3782e8fba47c66",
+      "line_count": 1674
+    },
+    {
+      "path": "scripts/tag_autocomplete_helper.py",
+      "url": "https://github.com/DominikDoom/a1111-sd-webui-tagcomplete/blob/4170882f90b47be130a0ff9314f663c230b9153d/scripts/tag_autocomplete_helper.py",
+      "bytes": 42934,
+      "sha256": "e933445c4d1ae612d62efa19f7283866b94dad6f6532508743fcc722c9709829",
+      "line_count": 928
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/DominikDoom/a1111-sd-webui-tagcomplete/blob/4170882f90b47be130a0ff9314f663c230b9153d/LICENSE",
+      "bytes": 1068,
+      "sha256": "c1532c29734187eddd3948321379fa95ba79191bc3cb41d2787d7dff6e5913b5",
+      "line_count": 21
+    }
+  ],
+  "source_tree_blob_count": 35,
+  "source_tree_paths_sha256": "f620a728a8504653646fc432286e49a4f09bb2c45b0fda22f46f88a2d6e41014",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

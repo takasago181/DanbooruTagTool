@@ -1,0 +1,41 @@
+{
+  "repository": "Rivulet138/sd-webui-comfyui-pnginfo",
+  "url": "https://github.com/Rivulet138/sd-webui-comfyui-pnginfo",
+  "branch": "kemomimi",
+  "source_commit": "75da1dd598399aefc7741c7df26dc2a97238146f",
+  "latest_commit_date": "2026-05-26T08:34:10Z",
+  "latest_commit_message": "Publish Forge Neo ComfyUI PNG metadata reader",
+  "archived": false,
+  "language": "Python",
+  "license": null,
+  "pushed_at": "2026-05-26T08:39:25Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/Rivulet138/sd-webui-comfyui-pnginfo/blob/75da1dd598399aefc7741c7df26dc2a97238146f/README.md",
+      "bytes": 4133,
+      "sha256": "5550cc737f52c02a37067f26e95737b732a61de31eec4264537036efd89a4b8b",
+      "line_count": 104
+    },
+    {
+      "path": "comfyui_pnginfo/parser.py",
+      "url": "https://github.com/Rivulet138/sd-webui-comfyui-pnginfo/blob/75da1dd598399aefc7741c7df26dc2a97238146f/comfyui_pnginfo/parser.py",
+      "bytes": 26211,
+      "sha256": "8904064d7f32bb6d80d7d21c3f5aa663c797e6224e26d655372e4a0887c1c132",
+      "line_count": 845
+    },
+    {
+      "path": "comfyui_pnginfo/metadata.py",
+      "url": "https://github.com/Rivulet138/sd-webui-comfyui-pnginfo/blob/75da1dd598399aefc7741c7df26dc2a97238146f/comfyui_pnginfo/metadata.py",
+      "bytes": 2014,
+      "sha256": "4a8ef5459eacb318f90584cee3d8e1dfd0961fee98f9c83862c5bd9856abecc2",
+      "line_count": 68
+    }
+  ],
+  "source_tree_blob_count": 8,
+  "source_tree_paths_sha256": "25ba4a0c86d8c2f88e6e54033dca019b4745d8944da6691cd8313b91ce90fdb5",
+  "license_paths_observed": [],
+  "dependency_paths_observed": [],
+  "test_path_count": 1
+}

@@ -1,0 +1,60 @@
+{
+  "repository": "jason-n-tran/comfyui-workflow-iterator",
+  "url": "https://github.com/jason-n-tran/comfyui-workflow-iterator",
+  "branch": "master",
+  "source_commit": "92fb9559065695362da0bd700b16b06992be3ca6",
+  "latest_commit_date": "2026-04-04T19:41:07Z",
+  "latest_commit_message": "linked to official comfyui registry page",
+  "archived": false,
+  "language": "Python",
+  "license": "MIT",
+  "pushed_at": "2026-04-04T19:43:30Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/jason-n-tran/comfyui-workflow-iterator/blob/92fb9559065695362da0bd700b16b06992be3ca6/README.md",
+      "bytes": 15863,
+      "sha256": "0eb48efeac23308445bce32fbbfb087c04799b5f7262b46f18824075a2fa0e2b",
+      "line_count": 384
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/jason-n-tran/comfyui-workflow-iterator/blob/92fb9559065695362da0bd700b16b06992be3ca6/pyproject.toml",
+      "bytes": 399,
+      "sha256": "e78b7b6e0bfdafc55f2ed5d79c0e4009270c41be31460d5f1d196e1879b8503c",
+      "line_count": 15
+    },
+    {
+      "path": "core/metadata.py",
+      "url": "https://github.com/jason-n-tran/comfyui-workflow-iterator/blob/92fb9559065695362da0bd700b16b06992be3ca6/core/metadata.py",
+      "bytes": 2758,
+      "sha256": "b477af66e040ea48969b82bb4ee1ea99df5da8cbdf6295ae2b7c707286ce4ccd",
+      "line_count": 105
+    },
+    {
+      "path": "core/parameter_parser.py",
+      "url": "https://github.com/jason-n-tran/comfyui-workflow-iterator/blob/92fb9559065695362da0bd700b16b06992be3ca6/core/parameter_parser.py",
+      "bytes": 6731,
+      "sha256": "872cb0d6749595a01de9a0993f6836bb76eb5042bf679654c60b30de96a1a41c",
+      "line_count": 209
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/jason-n-tran/comfyui-workflow-iterator/blob/92fb9559065695362da0bd700b16b06992be3ca6/LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "line_count": 21
+    }
+  ],
+  "source_tree_blob_count": 26,
+  "source_tree_paths_sha256": "39a8d37bb51c0534b1d28052170d5a5851439ed0db22ce78990b1848713f1e26",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "pyproject.toml",
+    "requirements.txt"
+  ],
+  "test_path_count": 6
+}

@@ -1,0 +1,29 @@
+{
+  "repository": "ThetaCursed/Illustrious-NoobAI-Style-Explorer",
+  "url": "https://github.com/ThetaCursed/Illustrious-NoobAI-Style-Explorer",
+  "branch": "main",
+  "source_commit": "ef220b46f2b67f5e7f82291e92a6a8ebac9fb781",
+  "latest_commit_date": "2026-06-02T17:33:54Z",
+  "latest_commit_message": "Auto update",
+  "archived": false,
+  "language": "JavaScript",
+  "license": "MIT",
+  "pushed_at": "2026-06-02T17:33:59Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/ThetaCursed/Illustrious-NoobAI-Style-Explorer/blob/ef220b46f2b67f5e7f82291e92a6a8ebac9fb781/README.md",
+      "bytes": 3729,
+      "sha256": "72a0678cedf5ba67707550937413c389e2a3cc9949326d55402385577371c2e0",
+      "line_count": 69
+    }
+  ],
+  "source_tree_blob_count": 16020,
+  "source_tree_paths_sha256": "2743b18333271b98614fc7d9943ddc106fd845eaef37ee0853d3e0d45ff6f0cc",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

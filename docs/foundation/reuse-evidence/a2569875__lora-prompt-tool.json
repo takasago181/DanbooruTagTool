@@ -1,0 +1,50 @@
+{
+  "repository": "a2569875/lora-prompt-tool",
+  "url": "https://github.com/a2569875/lora-prompt-tool",
+  "branch": "main",
+  "source_commit": "c1e3132417c3dcfc2e68dd1c2d1864bf5baa5075",
+  "latest_commit_date": "2024-06-05T15:17:45Z",
+  "latest_commit_message": "Merge pull request #29 from SHOMI98/main",
+  "archived": false,
+  "language": "JavaScript",
+  "license": "AGPL-3.0",
+  "pushed_at": "2024-06-05T15:17:45Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/a2569875/lora-prompt-tool/blob/c1e3132417c3dcfc2e68dd1c2d1864bf5baa5075/README.md",
+      "bytes": 2433,
+      "sha256": "a901d60e545ad3912150674980ba50bde2c5873743b676bb95e713b6ec2dd68f",
+      "line_count": 50
+    },
+    {
+      "path": "scripts/lora_prompt_tool.py",
+      "url": "https://github.com/a2569875/lora-prompt-tool/blob/c1e3132417c3dcfc2e68dd1c2d1864bf5baa5075/scripts/lora_prompt_tool.py",
+      "bytes": 19746,
+      "sha256": "f8fd359f6ec8816b24eb8c0174276ce85276a7c4f4d257c675b950e36b51a712",
+      "line_count": 255
+    },
+    {
+      "path": "scripts/loraprompt_lib/util.py",
+      "url": "https://github.com/a2569875/lora-prompt-tool/blob/c1e3132417c3dcfc2e68dd1c2d1864bf5baa5075/scripts/loraprompt_lib/util.py",
+      "bytes": 4623,
+      "sha256": "b649f69746998b42da4dacdf945dfdc162646626dcfad8b165a250c2bd61422f",
+      "line_count": 200
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/a2569875/lora-prompt-tool/blob/c1e3132417c3dcfc2e68dd1c2d1864bf5baa5075/LICENSE",
+      "bytes": 34622,
+      "sha256": "7681d1a18aaff82eee2c6ed2d22876f6b1a6dec37f9e99c5697e4e8b8d6d4eb7",
+      "line_count": 663
+    }
+  ],
+  "source_tree_blob_count": 31,
+  "source_tree_paths_sha256": "7afb0e0e3e0e57a959a1f47709d7f5ad37c9fa76483f0a659d95f37c9d68d843",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

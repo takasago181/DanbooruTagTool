@@ -1,0 +1,36 @@
+{
+  "repository": "hako-mikan/sd-webui-negpip",
+  "url": "https://github.com/hako-mikan/sd-webui-negpip",
+  "branch": "main",
+  "source_commit": "fb7151f327ae56195f08b30b70d459493dadedbb",
+  "latest_commit_date": "2026-09-04T11:01:00Z",
+  "latest_commit_message": "Revise README for NegPiP updates and instructions",
+  "archived": false,
+  "language": "Python",
+  "license": "AGPL-3.0",
+  "pushed_at": "2026-09-04T11:01:00Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/hako-mikan/sd-webui-negpip/blob/fb7151f327ae56195f08b30b70d459493dadedbb/README.md",
+      "bytes": 5992,
+      "sha256": "382ddc2e69efba274dd62b2c6fddf1621b3124b922cb1c3d8d0935b12eee1657",
+      "line_count": 91
+    },
+    {
+      "path": "scripts/negpip.py",
+      "url": "https://github.com/hako-mikan/sd-webui-negpip/blob/fb7151f327ae56195f08b30b70d459493dadedbb/scripts/negpip.py",
+      "bytes": 44811,
+      "sha256": "bb6c21455a87a901007aaf1efc2cf438c5a8a2a1cc6fdac1cb72190fd26b353c",
+      "line_count": 1053
+    }
+  ],
+  "source_tree_blob_count": 9,
+  "source_tree_paths_sha256": "ebb5bb5ced68b4043e5b609b7a4ad7ec3d8b30391938646a596f03f9237676f3",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

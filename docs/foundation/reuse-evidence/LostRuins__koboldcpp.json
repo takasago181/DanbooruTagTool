@@ -1,0 +1,59 @@
+{
+  "repository": "LostRuins/koboldcpp",
+  "url": "https://github.com/LostRuins/koboldcpp",
+  "branch": "concedo",
+  "source_commit": "f9a32456edd3e5bc5fd6327fb1a370d647a2bff5",
+  "latest_commit_date": "2026-10-02T16:23:59Z",
+  "latest_commit_message": "Updated and modernized readme",
+  "archived": false,
+  "language": "C++",
+  "license": "AGPL-3.0",
+  "pushed_at": "2026-10-02T17:14:22Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/LostRuins/koboldcpp/blob/f9a32456edd3e5bc5fd6327fb1a370d647a2bff5/README.md",
+      "bytes": 24303,
+      "sha256": "1ef7bd7a2ccc7ad29fb8025fde227af265c709f83d455741b202b7a2d652560d",
+      "line_count": 276
+    },
+    {
+      "path": "requirements.txt",
+      "url": "https://github.com/LostRuins/koboldcpp/blob/f9a32456edd3e5bc5fd6327fb1a370d647a2bff5/requirements.txt",
+      "bytes": 157,
+      "sha256": "0c2548230fe9a36ccbb9d36474380fd84550741c5851c49664427f71a146082f",
+      "line_count": 9
+    },
+    {
+      "path": "koboldcpp.py",
+      "url": "https://github.com/LostRuins/koboldcpp/blob/f9a32456edd3e5bc5fd6327fb1a370d647a2bff5/koboldcpp.py",
+      "bytes": 775392,
+      "sha256": "eac1f336c0d1ec5f35e36791255091c8f3c3cce589d8531d30ecb1c52636c7c4",
+      "line_count": 13716
+    },
+    {
+      "path": "tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageToolCall/parsers/exec-shell-command.ts",
+      "url": "https://github.com/LostRuins/koboldcpp/blob/f9a32456edd3e5bc5fd6327fb1a370d647a2bff5/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageToolCall/parsers/exec-shell-command.ts",
+      "bytes": 982,
+      "sha256": "26e403940c5a12e56f6cfb5c355f45db83ae6e801bc9ebe182551879ca66c2b5",
+      "line_count": 26
+    },
+    {
+      "path": "LICENSE.md",
+      "url": "https://github.com/LostRuins/koboldcpp/blob/f9a32456edd3e5bc5fd6327fb1a370d647a2bff5/LICENSE.md",
+      "bytes": 34523,
+      "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef",
+      "line_count": 661
+    }
+  ],
+  "source_tree_blob_count": 2734,
+  "source_tree_paths_sha256": "709c7e9afe744661537138d1089a1f7f2498ebb4c641fb9d099a68a3c87281d4",
+  "license_paths_observed": [
+    "LICENSE.md"
+  ],
+  "dependency_paths_observed": [
+    "requirements.txt"
+  ],
+  "test_path_count": 171
+}

@@ -1,0 +1,43 @@
+{
+  "repository": "dr1610/ComfyUI-Regional-Mask-Prompt",
+  "url": "https://github.com/dr1610/ComfyUI-Regional-Mask-Prompt",
+  "branch": "main",
+  "source_commit": "f1518bf4c498549998b814b1668f21109b11aa72",
+  "latest_commit_date": "2026-06-29T15:04:57Z",
+  "latest_commit_message": "Initial release",
+  "archived": false,
+  "language": "Python",
+  "license": "MIT",
+  "pushed_at": "2026-06-29T15:06:40Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/dr1610/ComfyUI-Regional-Mask-Prompt/blob/f1518bf4c498549998b814b1668f21109b11aa72/README.md",
+      "bytes": 2216,
+      "sha256": "9a72848c1f25abf2d0a65168245eee58f7db5b119c45ec3a586f4b97f0123b07",
+      "line_count": 74
+    },
+    {
+      "path": "nodes.py",
+      "url": "https://github.com/dr1610/ComfyUI-Regional-Mask-Prompt/blob/f1518bf4c498549998b814b1668f21109b11aa72/nodes.py",
+      "bytes": 8800,
+      "sha256": "ea25468e4f53b6b6eecd803bfbe675816939942b58ec2fb364382544405c6df6",
+      "line_count": 258
+    },
+    {
+      "path": "__init__.py",
+      "url": "https://github.com/dr1610/ComfyUI-Regional-Mask-Prompt/blob/f1518bf4c498549998b814b1668f21109b11aa72/__init__.py",
+      "bytes": 132,
+      "sha256": "4c0f96b0f0006df5a559d09d44b8d521a32d7992383223310b5ba2a3f88e3e42",
+      "line_count": 3
+    }
+  ],
+  "source_tree_blob_count": 5,
+  "source_tree_paths_sha256": "2b55642052203cf7099285fa28ccc6076589f9867f519257d3ee25fb052d04f3",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

@@ -17,6 +17,9 @@ Choose by purpose; do not start from an old Issue script.
 
 Names above under `scripts/maintenance` unless stated otherwise. Existing healthy
 helpers remain shared tooling; no parallel compiler or replacement framework.
+Further substantial consolidation/rewrite/deletion is paused at the user-required
+external reuse decision gate: `docs/foundation/EXTERNAL_REUSE_GATE_2026-10-03.md`.
+The completed matrix proposes small comparisons; it does not authorize adoption.
 `catalog_health.py` is a historical compatibility diagnostic; use structural
 health for current catalog schemas. `report_workspace_health.ps1` is the optional
 disk-size report; use Batch A's `workspace_health.py` for Git ownership/lifecycle.

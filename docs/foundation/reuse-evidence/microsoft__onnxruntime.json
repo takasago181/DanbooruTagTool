@@ -1,0 +1,84 @@
+{
+  "repository": "microsoft/onnxruntime",
+  "url": "https://github.com/microsoft/onnxruntime",
+  "branch": "main",
+  "source_commit": "982fcf876b5118b96a836dcd1fead65ce9cc07ce",
+  "latest_commit_date": "2026-10-03T00:13:51Z",
+  "latest_commit_message": "Reject package-controlled optimized model paths (#33059)",
+  "archived": false,
+  "language": "C++",
+  "license": "MIT",
+  "pushed_at": "2026-10-03T00:21:30Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/microsoft/onnxruntime/blob/982fcf876b5118b96a836dcd1fead65ce9cc07ce/README.md",
+      "bytes": 3087,
+      "sha256": "d9de78283cf00a77f907f2183fb8df1dda8706b79e4ab3517f2a06c6de0c6a4c",
+      "line_count": 52
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/microsoft/onnxruntime/blob/982fcf876b5118b96a836dcd1fead65ce9cc07ce/pyproject.toml",
+      "bytes": 3458,
+      "sha256": "e326d2540b98f2c38f54f5766eae24e4dbbffdf48626c513f45669e272a815e6",
+      "line_count": 86
+    },
+    {
+      "path": "csharp/src/Microsoft.ML.OnnxRuntime/InferenceSession.shared.cs",
+      "url": "https://github.com/microsoft/onnxruntime/blob/982fcf876b5118b96a836dcd1fead65ce9cc07ce/csharp/src/Microsoft.ML.OnnxRuntime/InferenceSession.shared.cs",
+      "bytes": 98525,
+      "sha256": "21b3139bebd9e881f80c18dd600b259022b8716d9ed8ed23e4c1a41181a5e423",
+      "line_count": 2233
+    },
+    {
+      "path": "go/onnxruntime/metadata.go",
+      "url": "https://github.com/microsoft/onnxruntime/blob/982fcf876b5118b96a836dcd1fead65ce9cc07ce/go/onnxruntime/metadata.go",
+      "bytes": 5073,
+      "sha256": "80a416e1fdd8bca05979a30a620dbb7d9cdae51e8f519a8a198ad63cb9df1c95",
+      "line_count": 202
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/microsoft/onnxruntime/blob/982fcf876b5118b96a836dcd1fead65ce9cc07ce/LICENSE",
+      "bytes": 1073,
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+      "line_count": 21
+    }
+  ],
+  "source_tree_blob_count": 11268,
+  "source_tree_paths_sha256": "0d45071a5b805d1f79c4129f30acc97b8c64f2dc7ad1d84c14c6a99858cb8278",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "csharp/ApiDocs/ApiDocs.csproj",
+    "csharp/sample/InferenceSample/Microsoft.ML.OnnxRuntime.InferenceSample.Maui/Microsoft.ML.OnnxRuntime.InferenceSample.Maui.csproj",
+    "csharp/sample/InferenceSample/Microsoft.ML.OnnxRuntime.InferenceSample.NetCoreApp/Microsoft.ML.OnnxRuntime.InferenceSample.NetCoreApp.csproj",
+    "csharp/sample/InferenceSample/Microsoft.ML.OnnxRuntime.InferenceSample/Microsoft.ML.OnnxRuntime.InferenceSample.csproj",
+    "csharp/sample/Microsoft.ML.OnnxRuntime.FasterRcnnSample/Microsoft.ML.OnnxRuntime.FasterRcnnSample.csproj",
+    "csharp/sample/Microsoft.ML.OnnxRuntime.ResNet50v2Sample/Microsoft.ML.OnnxRuntime.ResNet50v2Sample.csproj",
+    "csharp/src/Microsoft.AI.MachineLearning.Interop/Microsoft.AI.MachineLearning.Interop.csproj",
+    "csharp/src/Microsoft.ML.OnnxRuntime/Microsoft.ML.OnnxRuntime.csproj",
+    "csharp/test/Microsoft.AI.MachineLearning.Tests.DotNet5_0/Microsoft.AI.MachineLearning.Tests.DotNet5_0.csproj",
+    "csharp/test/Microsoft.AI.MachineLearning.Tests.Uwp/Microsoft.AI.MachineLearning.Tests.Uwp.csproj",
+    "csharp/test/Microsoft.ML.OnnxRuntime.EndToEndTests.Mobile/EndToEndTests.Mobile.Automation/EndToEndTests.Mobile.Automation.csproj",
+    "csharp/test/Microsoft.ML.OnnxRuntime.EndToEndTests/Microsoft.ML.OnnxRuntime.EndToEndTests.csproj",
+    "csharp/test/Microsoft.ML.OnnxRuntime.Tests.BrowserStack.Android/Microsoft.ML.OnnxRuntime.Tests.BrowserStack.Android.csproj",
+    "csharp/test/Microsoft.ML.OnnxRuntime.Tests.Common/Microsoft.ML.OnnxRuntime.Tests.Common.csproj",
+    "csharp/test/Microsoft.ML.OnnxRuntime.Tests.Devices/Microsoft.ML.OnnxRuntime.Tests.Devices.csproj",
+    "csharp/test/Microsoft.ML.OnnxRuntime.Tests.MAUI/Microsoft.ML.OnnxRuntime.Tests.MAUI.csproj",
+    "csharp/test/Microsoft.ML.OnnxRuntime.Tests.NetCoreApp/Microsoft.ML.OnnxRuntime.Tests.NetCoreApp.csproj",
+    "csharp/tools/MauiModelTester/MauiModelTester.csproj",
+    "csharp/tools/Microsoft.ML.OnnxRuntime.PerfTool/Microsoft.ML.OnnxRuntime.PerfTool.csproj",
+    "csharp/tools/linux_pack/LinuxPackNativeNuget.csproj",
+    "plugin-ep-cuda/csharp/Microsoft.ML.OnnxRuntime.EP.Cuda/Microsoft.ML.OnnxRuntime.EP.Cuda.csproj",
+    "plugin-ep-cuda/csharp/test/CudaEpNuGetTest/CudaEpNuGetTest.csproj",
+    "plugin-ep-webgpu/csharp/Microsoft.ML.OnnxRuntime.EP.WebGpu/Microsoft.ML.OnnxRuntime.EP.WebGpu.csproj",
+    "plugin-ep-webgpu/csharp/test/WebGpuEpNuGetTest/WebGpuEpNuGetTest.csproj",
+    "pyproject.toml",
+    "requirements.txt"
+  ],
+  "test_path_count": 3299
+}

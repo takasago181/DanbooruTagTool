@@ -1,0 +1,34 @@
+{
+  "repository": "KohakuBlueleaf/danbooru-tag-tree",
+  "url": "https://github.com/KohakuBlueleaf/danbooru-tag-tree",
+  "branch": "main",
+  "source_commit": "7f2b7a4a038a02f0268052ce138826864584ed63",
+  "latest_commit_date": "2023-02-19T12:27:21Z",
+  "latest_commit_message": "Create .gitignore",
+  "archived": false,
+  "language": "Python",
+  "license": null,
+  "pushed_at": "2023-02-19T12:27:21Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "tag_tree.py",
+      "url": "https://github.com/KohakuBlueleaf/danbooru-tag-tree/blob/7f2b7a4a038a02f0268052ce138826864584ed63/tag_tree.py",
+      "bytes": 3822,
+      "sha256": "12f566dbae290446b739e6594e7e580ad4845cfa0bc8c4e8af923d171215fac0",
+      "line_count": 120
+    },
+    {
+      "path": "parse_tag.py",
+      "url": "https://github.com/KohakuBlueleaf/danbooru-tag-tree/blob/7f2b7a4a038a02f0268052ce138826864584ed63/parse_tag.py",
+      "bytes": 2308,
+      "sha256": "e54a5e4d30c337c34372f25e77ba532eea0663e827c7cc9309591757aa3cc26a",
+      "line_count": 66
+    }
+  ],
+  "source_tree_blob_count": 7,
+  "source_tree_paths_sha256": "610c983857ef72380a373c02a78da5ba2c5c9c5c413a767368dc0fa5c82980ec",
+  "license_paths_observed": [],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

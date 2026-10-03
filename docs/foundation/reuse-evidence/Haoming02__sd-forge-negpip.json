@@ -1,0 +1,43 @@
+{
+  "repository": "Haoming02/sd-forge-negpip",
+  "url": "https://github.com/Haoming02/sd-forge-negpip",
+  "branch": "classic",
+  "source_commit": "0585496d70c4d5cf3f2edbe982241cfb1e2aca43",
+  "latest_commit_date": "2026-09-30T04:55:32Z",
+  "latest_commit_message": "update",
+  "archived": true,
+  "language": "Python",
+  "license": "AGPL-3.0",
+  "pushed_at": "2026-09-30T04:55:37Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/Haoming02/sd-forge-negpip/blob/0585496d70c4d5cf3f2edbe982241cfb1e2aca43/README.md",
+      "bytes": 1712,
+      "sha256": "e10cc22c230f54ac15c2bf9242252850ac818ae559bfe956b524c24b2a45359c",
+      "line_count": 33
+    },
+    {
+      "path": "lib_negpip/sd.py",
+      "url": "https://github.com/Haoming02/sd-forge-negpip/blob/0585496d70c4d5cf3f2edbe982241cfb1e2aca43/lib_negpip/sd.py",
+      "bytes": 4636,
+      "sha256": "52b12a3350e0621a55abdfca8af08437bc8dde5e289b34d80aa3d21fccf09ca0",
+      "line_count": 141
+    },
+    {
+      "path": "scripts/negpip.py",
+      "url": "https://github.com/Haoming02/sd-forge-negpip/blob/0585496d70c4d5cf3f2edbe982241cfb1e2aca43/scripts/negpip.py",
+      "bytes": 9328,
+      "sha256": "2fe54644e8ffd2350e487faf4646664826b1e5eacb88ec7757c72404ba7417b1",
+      "line_count": 283
+    }
+  ],
+  "source_tree_blob_count": 11,
+  "source_tree_paths_sha256": "dfe7880d0d1e97be8e8f0063a9d86592ee4b8a2c4bb8b2e53ca08015bb82cb49",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

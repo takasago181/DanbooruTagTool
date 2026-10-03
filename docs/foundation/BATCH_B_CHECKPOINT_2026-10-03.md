@@ -68,4 +68,7 @@ external operations. Existing production/LKG need no rollback because unchanged.
 History/clone object storage is not compacted. Unmerged and local-only research
 remains protected. #213 corpus/branch and KNOWLEDGE #44 are retained. Broad #253,
 #254, #255, production promotion/post-Foundation LKG, #230 and #256 feature work
-remain outside this checkpoint. Next: external reuse decision research, then STOP.
+remain outside this checkpoint. External research subsequently completed in
+`EXTERNAL_REUSE_GATE_2026-10-03.md` / `EXTERNAL_REUSE_MATRIX.json`; recovered past
+and Oct 1–2 assets first. STOP at that decision report/PR; no implementation of
+proposed external replacements or further large #251 work is authorized.

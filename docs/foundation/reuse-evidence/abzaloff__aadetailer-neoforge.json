@@ -1,0 +1,59 @@
+{
+  "repository": "abzaloff/aadetailer-neoforge",
+  "url": "https://github.com/abzaloff/aadetailer-neoforge",
+  "branch": "main",
+  "source_commit": "c4c036d3b1f8bd3a298d6e64878d8338dbfe2597",
+  "latest_commit_date": "2026-05-30T10:06:37Z",
+  "latest_commit_message": "Add persistent ADetailer tab aliases",
+  "archived": false,
+  "language": "Python",
+  "license": "AGPL-3.0",
+  "pushed_at": "2026-05-30T10:06:50Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/abzaloff/aadetailer-neoforge/blob/c4c036d3b1f8bd3a298d6e64878d8338dbfe2597/README.md",
+      "bytes": 9970,
+      "sha256": "e8498e33c1cb860a8e82a2e6583c51044bc406ece80a58f4910ee11ccca5e367",
+      "line_count": 127
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/abzaloff/aadetailer-neoforge/blob/c4c036d3b1f8bd3a298d6e64878d8338dbfe2597/pyproject.toml",
+      "bytes": 1570,
+      "sha256": "cdafc9d21467bf4bfbec1ad962e79388ccfb2a6b952ba42f6d7f8e672b56f214",
+      "line_count": 83
+    },
+    {
+      "path": "install.py",
+      "url": "https://github.com/abzaloff/aadetailer-neoforge/blob/c4c036d3b1f8bd3a298d6e64878d8338dbfe2597/install.py",
+      "bytes": 1947,
+      "sha256": "7ab37392f907b5748998d5d3515dbf484d30bb5a7989bcb988bf9edbdae5a4dc",
+      "line_count": 86
+    },
+    {
+      "path": "preload.py",
+      "url": "https://github.com/abzaloff/aadetailer-neoforge/blob/c4c036d3b1f8bd3a298d6e64878d8338dbfe2597/preload.py",
+      "bytes": 215,
+      "sha256": "1789b4bfce6b2eaf843f1795f4b87626aaadc8b6208520287c6721c2b7498429",
+      "line_count": 9
+    },
+    {
+      "path": "LICENSE.md",
+      "url": "https://github.com/abzaloff/aadetailer-neoforge/blob/c4c036d3b1f8bd3a298d6e64878d8338dbfe2597/LICENSE.md",
+      "bytes": 34270,
+      "sha256": "0523190ce40c0e0c6e1deb4208926030d72fc6bbbbf99d92722a565bbe955f90",
+      "line_count": 661
+    }
+  ],
+  "source_tree_blob_count": 46,
+  "source_tree_paths_sha256": "635c9e8191eccb4975f648b2036bd4bdda1dad5619b4d8317d002411b30525ef",
+  "license_paths_observed": [
+    "LICENSE.md"
+  ],
+  "dependency_paths_observed": [
+    "pyproject.toml"
+  ],
+  "test_path_count": 9
+}

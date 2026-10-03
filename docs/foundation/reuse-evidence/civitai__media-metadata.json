@@ -1,0 +1,80 @@
+{
+  "repository": "civitai/media-metadata",
+  "url": "https://github.com/civitai/media-metadata",
+  "branch": "main",
+  "source_commit": "898f6aa69ac0acb3a43a496da0774a8f93982b2e",
+  "latest_commit_date": "2026-09-29T22:02:16Z",
+  "latest_commit_message": "chore(release): 0.4.0 (#2)",
+  "archived": false,
+  "language": "TypeScript",
+  "license": "MIT",
+  "pushed_at": "2026-09-29T22:02:18Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/civitai/media-metadata/blob/898f6aa69ac0acb3a43a496da0774a8f93982b2e/README.md",
+      "bytes": 21023,
+      "sha256": "5308f8f6f03c9af84f3e622ac5b9d27e62c0c0f7a1f946bcc0455b490d46f98c",
+      "line_count": 371
+    },
+    {
+      "path": "package.json",
+      "url": "https://github.com/civitai/media-metadata/blob/898f6aa69ac0acb3a43a496da0774a8f93982b2e/package.json",
+      "bytes": 2551,
+      "sha256": "149b03ed7d6d22d22975f84894ba7b793e81c7c58ad817705b5b55144e577511",
+      "line_count": 94
+    },
+    {
+      "path": "src/civitai/air.ts",
+      "url": "https://github.com/civitai/media-metadata/blob/898f6aa69ac0acb3a43a496da0774a8f93982b2e/src/civitai/air.ts",
+      "bytes": 1571,
+      "sha256": "0ff1919e61ff7ec1f988b2e2352bea05b1f63ac4dae7334add0c9719ca6504a4",
+      "line_count": 38
+    },
+    {
+      "path": "src/civitai/read.ts",
+      "url": "https://github.com/civitai/media-metadata/blob/898f6aa69ac0acb3a43a496da0774a8f93982b2e/src/civitai/read.ts",
+      "bytes": 1197,
+      "sha256": "8d918f43807c6766a555ab7e02563dba23e81655499c3e038c910f16f1e95b19",
+      "line_count": 30
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/civitai/media-metadata/blob/898f6aa69ac0acb3a43a496da0774a8f93982b2e/LICENSE",
+      "bytes": 1064,
+      "sha256": "5c861f35d53a057e0be9627fc9b5e6347e7da79d534236d6f83ecffc40cd1397",
+      "line_count": 21
+    },
+    {
+      "path": "src/civitai/comfy.ts",
+      "url": "https://github.com/civitai/media-metadata/blob/898f6aa69ac0acb3a43a496da0774a8f93982b2e/src/civitai/comfy.ts",
+      "bytes": 8955,
+      "sha256": "1aecee43fc4a67dd65ef51226279df6a617575d77a1c740c8976388b071a12eb",
+      "line_count": 237
+    },
+    {
+      "path": "src/civitai/normalized.ts",
+      "url": "https://github.com/civitai/media-metadata/blob/898f6aa69ac0acb3a43a496da0774a8f93982b2e/src/civitai/normalized.ts",
+      "bytes": 13989,
+      "sha256": "bb21893910b3e65994428971990574c68850487a8b3cb6f7a5551f8d57cd4910",
+      "line_count": 381
+    },
+    {
+      "path": "src/civitai/a1111.ts",
+      "url": "https://github.com/civitai/media-metadata/blob/898f6aa69ac0acb3a43a496da0774a8f93982b2e/src/civitai/a1111.ts",
+      "bytes": 1819,
+      "sha256": "7911f27a6224ac4475207c2b4f44ff0f8cff544d8b422c06def31f9a7b78563b",
+      "line_count": 49
+    }
+  ],
+  "source_tree_blob_count": 281,
+  "source_tree_paths_sha256": "49014d9cb2c2a788a90ba3acd677be3f49379b1deeeeb6529e18f0520ede3601",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "package.json"
+  ],
+  "test_path_count": 0
+}

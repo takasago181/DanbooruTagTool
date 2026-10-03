@@ -1,0 +1,52 @@
+{
+  "repository": "Stable-yogi/sd-forge-ab-compare",
+  "url": "https://github.com/Stable-yogi/sd-forge-ab-compare",
+  "branch": "main",
+  "source_commit": "395122829c985139956983cb8acea3899122c963",
+  "latest_commit_date": "2026-08-06T03:29:28Z",
+  "latest_commit_message": "sd-forge-ab-compare: initial release",
+  "archived": false,
+  "language": "Python",
+  "license": "MIT",
+  "pushed_at": "2026-08-06T03:29:31Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/Stable-yogi/sd-forge-ab-compare/blob/395122829c985139956983cb8acea3899122c963/README.md",
+      "bytes": 1551,
+      "sha256": "fc6b95d65072a314d9fa2552028272d58b4db316a7a70895ce3ea4b9127d6971",
+      "line_count": 32
+    },
+    {
+      "path": "requirements.txt",
+      "url": "https://github.com/Stable-yogi/sd-forge-ab-compare/blob/395122829c985139956983cb8acea3899122c963/requirements.txt",
+      "bytes": 104,
+      "sha256": "a078eebcd721a4613dfd5a61b2b5f5b4b967722b4542b9461c089e1a5c2bfee6",
+      "line_count": 2
+    },
+    {
+      "path": "scripts/ab_compare.py",
+      "url": "https://github.com/Stable-yogi/sd-forge-ab-compare/blob/395122829c985139956983cb8acea3899122c963/scripts/ab_compare.py",
+      "bytes": 4124,
+      "sha256": "07bbf4c97c6d4f1833ad46a759230cf794dbc06955cd2e537dbcb5cce068bfd3",
+      "line_count": 127
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/Stable-yogi/sd-forge-ab-compare/blob/395122829c985139956983cb8acea3899122c963/LICENSE",
+      "bytes": 1068,
+      "sha256": "aa53db5be4642a801468628377e02c1eaf8abd876a23a93e89acc641098c69aa",
+      "line_count": 21
+    }
+  ],
+  "source_tree_blob_count": 5,
+  "source_tree_paths_sha256": "b5f62d623df0b82d8bb5f8b31060b7d153659f5cd2a86336f0a0d0fd011e7897",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "requirements.txt"
+  ],
+  "test_path_count": 0
+}

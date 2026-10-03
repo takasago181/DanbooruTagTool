@@ -1,0 +1,59 @@
+{
+  "repository": "fastapi/typer",
+  "url": "https://github.com/fastapi/typer",
+  "branch": "master",
+  "source_commit": "a80f6e5ecd74f32b983cca336a2f3cba98d9853a",
+  "latest_commit_date": "2026-09-08T11:04:16Z",
+  "latest_commit_message": "📝 Update release notes",
+  "archived": false,
+  "language": "Python",
+  "license": "MIT",
+  "pushed_at": "2026-10-01T17:49:11Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/fastapi/typer/blob/a80f6e5ecd74f32b983cca336a2f3cba98d9853a/README.md",
+      "bytes": 14728,
+      "sha256": "bf8950e2811991353a9e21b4cd44545354b52e5745ce14b0bedd38371dc91c99",
+      "line_count": 380
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/fastapi/typer/blob/a80f6e5ecd74f32b983cca336a2f3cba98d9853a/pyproject.toml",
+      "bytes": 6153,
+      "sha256": "0720203ff3ff5359f7bc79f3e174c41286d64d9eb42b25bf049c9245a551d552",
+      "line_count": 230
+    },
+    {
+      "path": "typer/main.py",
+      "url": "https://github.com/fastapi/typer/blob/a80f6e5ecd74f32b983cca336a2f3cba98d9853a/typer/main.py",
+      "bytes": 69089,
+      "sha256": "29a201974ed555378b352b40b220dd57ee7c25161a03ce9ba8f4eaaa8e2205ab",
+      "line_count": 2022
+    },
+    {
+      "path": "typer/_click/parser.py",
+      "url": "https://github.com/fastapi/typer/blob/a80f6e5ecd74f32b983cca336a2f3cba98d9853a/typer/_click/parser.py",
+      "bytes": 16645,
+      "sha256": "56b0a674ea4a36fd2013a0b61e73e3fda5a18c9d5183d502cb2e7cd98ce1f89e",
+      "line_count": 459
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/fastapi/typer/blob/a80f6e5ecd74f32b983cca336a2f3cba98d9853a/LICENSE",
+      "bytes": 1086,
+      "sha256": "58992cebcf8dfb6e40c4e2112ed12126c243666dca3912a3d78b7ecac4859d49",
+      "line_count": 21
+    }
+  ],
+  "source_tree_blob_count": 775,
+  "source_tree_paths_sha256": "9355bdf0339bdf7ff0849ec829e1eb9e90b2f6ef9857a80100a7e278ac2121dc",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "pyproject.toml"
+  ],
+  "test_path_count": 322
+}

@@ -1,0 +1,43 @@
+{
+  "repository": "Sen-sou/Comfyui-Anima-Regional-Conditioning",
+  "url": "https://github.com/Sen-sou/Comfyui-Anima-Regional-Conditioning",
+  "branch": "main",
+  "source_commit": "099cf1fa052721394963418455d49f7087efaf6c",
+  "latest_commit_date": "2026-05-26T06:20:37Z",
+  "latest_commit_message": "Refine README examples and credits",
+  "archived": false,
+  "language": "Python",
+  "license": "MIT",
+  "pushed_at": "2026-05-26T06:20:49Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/Sen-sou/Comfyui-Anima-Regional-Conditioning/blob/099cf1fa052721394963418455d49f7087efaf6c/README.md",
+      "bytes": 4992,
+      "sha256": "63790321236ddce2f4aa22a853b2825aa86efa2b9ef933d434546974a9885040",
+      "line_count": 138
+    },
+    {
+      "path": "nodes.py",
+      "url": "https://github.com/Sen-sou/Comfyui-Anima-Regional-Conditioning/blob/099cf1fa052721394963418455d49f7087efaf6c/nodes.py",
+      "bytes": 34159,
+      "sha256": "ccaa507247364840e76827ddd8169e2198073ab4e610b31b1d0dae56adcc2d9c",
+      "line_count": 868
+    },
+    {
+      "path": "__init__.py",
+      "url": "https://github.com/Sen-sou/Comfyui-Anima-Regional-Conditioning/blob/099cf1fa052721394963418455d49f7087efaf6c/__init__.py",
+      "bytes": 132,
+      "sha256": "4c0f96b0f0006df5a559d09d44b8d521a32d7992383223310b5ba2a3f88e3e42",
+      "line_count": 3
+    }
+  ],
+  "source_tree_blob_count": 15,
+  "source_tree_paths_sha256": "7871db217c0e3b607f5a8e9121b513422dcf1241fed01b7ab456d2779fa3fa6c",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

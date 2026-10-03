@@ -1,0 +1,50 @@
+{
+  "repository": "hako-mikan/sd-webui-regional-prompter",
+  "url": "https://github.com/hako-mikan/sd-webui-regional-prompter",
+  "branch": "main",
+  "source_commit": "b10c496dbcb9c94be0d5d64edda8511460cc9d28",
+  "latest_commit_date": "2026-09-04T14:10:14Z",
+  "latest_commit_message": "Attention mode on Anima, after the ComfyUI Anima Regional Conditioning node",
+  "archived": false,
+  "language": "Python",
+  "license": "AGPL-3.0",
+  "pushed_at": "2026-09-04T16:55:19Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/hako-mikan/sd-webui-regional-prompter/blob/b10c496dbcb9c94be0d5d64edda8511460cc9d28/README.md",
+      "bytes": 28182,
+      "sha256": "2c41fdc8072698e34e6180ca689a406caaee2fa89086af3ec3dd4450b1180dfc",
+      "line_count": 473
+    },
+    {
+      "path": "scripts/rp.py",
+      "url": "https://github.com/hako-mikan/sd-webui-regional-prompter/blob/b10c496dbcb9c94be0d5d64edda8511460cc9d28/scripts/rp.py",
+      "bytes": 62748,
+      "sha256": "4640070657689b5e62a01b38a0254be6a99c0204ce07be5b1f12a78736bda4d9",
+      "line_count": 1457
+    },
+    {
+      "path": "scripts/attention.py",
+      "url": "https://github.com/hako-mikan/sd-webui-regional-prompter/blob/b10c496dbcb9c94be0d5d64edda8511460cc9d28/scripts/attention.py",
+      "bytes": 43798,
+      "sha256": "18b9ce86217155f06187841ccd0aeffe997d604834f0ffca37799a40ed63ecbb",
+      "line_count": 1042
+    },
+    {
+      "path": "LICENCE",
+      "url": "https://github.com/hako-mikan/sd-webui-regional-prompter/blob/b10c496dbcb9c94be0d5d64edda8511460cc9d28/LICENCE",
+      "bytes": 34599,
+      "sha256": "e5ee08f8fa5efbb22855303f7ad39f8a7a5d4133181682d3837e682cd8b3e809",
+      "line_count": 663
+    }
+  ],
+  "source_tree_blob_count": 20,
+  "source_tree_paths_sha256": "d1f8c671ada3d258c126bab9d3b4558815ce5cfb74d1e4aea1605f4489b18946",
+  "license_paths_observed": [
+    "LICENCE"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

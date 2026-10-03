@@ -1,0 +1,51 @@
+{
+  "repository": "67372a/stable-diffusion-webui-wd14-tagger",
+  "url": "https://github.com/67372a/stable-diffusion-webui-wd14-tagger",
+  "branch": "master",
+  "source_commit": "6624e0803a0021732adf9a986ad5f6fa20082323",
+  "latest_commit_date": "2024-12-19T19:52:12Z",
+  "latest_commit_message": "Merge pull request #3 from SmirkingKitsune/patch-1",
+  "archived": false,
+  "language": "Python",
+  "license": null,
+  "pushed_at": "2024-12-19T19:52:12Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/67372a/stable-diffusion-webui-wd14-tagger/blob/6624e0803a0021732adf9a986ad5f6fa20082323/README.md",
+      "bytes": 2491,
+      "sha256": "cfee564cf6f301b4289baf4b1059b8932fa18ffe441bec7061ad272bd380ac86",
+      "line_count": 68
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/67372a/stable-diffusion-webui-wd14-tagger/blob/6624e0803a0021732adf9a986ad5f6fa20082323/pyproject.toml",
+      "bytes": 847,
+      "sha256": "cc6dd3f77e6d9ed378ba4f778362b2810048df75d3d729cc2a709bebc8f108c9",
+      "line_count": 38
+    },
+    {
+      "path": "install.py",
+      "url": "https://github.com/67372a/stable-diffusion-webui-wd14-tagger/blob/6624e0803a0021732adf9a986ad5f6fa20082323/install.py",
+      "bytes": 447,
+      "sha256": "2e6340e7aa04977a55f989bc87ff601f9d5c1e1f706b35a4fa9fee60fd1d871f",
+      "line_count": 13
+    },
+    {
+      "path": "preload.py",
+      "url": "https://github.com/67372a/stable-diffusion-webui-wd14-tagger/blob/6624e0803a0021732adf9a986ad5f6fa20082323/preload.py",
+      "bytes": 909,
+      "sha256": "3a26283a54fae0febf5a9cbc94d87adcd284eedb81e5788739cafffcf6fd4307",
+      "line_count": 26
+    }
+  ],
+  "source_tree_blob_count": 32,
+  "source_tree_paths_sha256": "53c67d36f27f86a8d540440239975ccacfaf0ce62bf009207e96fbca6e557d0a",
+  "license_paths_observed": [],
+  "dependency_paths_observed": [
+    "pyproject.toml",
+    "requirements.txt"
+  ],
+  "test_path_count": 0
+}

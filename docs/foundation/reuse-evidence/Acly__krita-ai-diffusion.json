@@ -1,0 +1,60 @@
+{
+  "repository": "Acly/krita-ai-diffusion",
+  "url": "https://github.com/Acly/krita-ai-diffusion",
+  "branch": "main",
+  "source_commit": "26aec6c6d8e1b7c1a3cf63880fda84360f6d5b0d",
+  "latest_commit_date": "2026-09-27T11:03:01Z",
+  "latest_commit_message": "Make transparency/alpha for Qwen 2.1 work properly",
+  "archived": false,
+  "language": "Python",
+  "license": "GPL-3.0",
+  "pushed_at": "2026-09-27T11:03:01Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/Acly/krita-ai-diffusion/blob/26aec6c6d8e1b7c1a3cf63880fda84360f6d5b0d/README.md",
+      "bytes": 7145,
+      "sha256": "abf4e65d970a420c192f20a01b6254cd6e8cc27b7d2dbe20647bb3330984d788",
+      "line_count": 129
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/Acly/krita-ai-diffusion/blob/26aec6c6d8e1b7c1a3cf63880fda84360f6d5b0d/pyproject.toml",
+      "bytes": 1062,
+      "sha256": "1d50ac11ff972e9b19845436ea36c2ba35dc0ad54982ffda2a26e459f0296713",
+      "line_count": 49
+    },
+    {
+      "path": "ai_diffusion/backend/client.py",
+      "url": "https://github.com/Acly/krita-ai-diffusion/blob/26aec6c6d8e1b7c1a3cf63880fda84360f6d5b0d/ai_diffusion/backend/client.py",
+      "bytes": 15031,
+      "sha256": "b350cb3dd22ca41a0d3b88131e1d8f829cebd18e06eab77541d0898df5b5bb02",
+      "line_count": 516
+    },
+    {
+      "path": "ai_diffusion/ui/autocomplete.py",
+      "url": "https://github.com/Acly/krita-ai-diffusion/blob/26aec6c6d8e1b7c1a3cf63880fda84360f6d5b0d/ai_diffusion/ui/autocomplete.py",
+      "bytes": 10993,
+      "sha256": "ce945fdf358c25f5063ba26e0be7b4722fa896ce72654c41f9df258c0c09e845",
+      "line_count": 284
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/Acly/krita-ai-diffusion/blob/26aec6c6d8e1b7c1a3cf63880fda84360f6d5b0d/LICENSE",
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "line_count": 674
+    }
+  ],
+  "source_tree_blob_count": 625,
+  "source_tree_paths_sha256": "b9715c4b0de2b4d3250ce360d444f5d9164481389affee5667832c86748dbc46",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "pyproject.toml",
+    "requirements.txt"
+  ],
+  "test_path_count": 86
+}

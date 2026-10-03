@@ -1,0 +1,53 @@
+{
+  "repository": "regiellis/ComfyUI-EasyIllustrious",
+  "url": "https://github.com/regiellis/ComfyUI-EasyIllustrious",
+  "branch": "main",
+  "source_commit": "69a787d685386c4ab9faee0c3bbf7918b36aabcc",
+  "latest_commit_date": "2026-04-04T12:18:33Z",
+  "latest_commit_message": "Merge pull request #12 from jpbonfim/main",
+  "archived": false,
+  "language": "Python",
+  "license": "MIT",
+  "pushed_at": "2026-04-04T12:18:33Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/regiellis/ComfyUI-EasyIllustrious/blob/69a787d685386c4ab9faee0c3bbf7918b36aabcc/README.md",
+      "bytes": 16657,
+      "sha256": "3c8b1759899273392d64cf30afc906764d1ee567674b74e843df6330ce029f79",
+      "line_count": 428
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/regiellis/ComfyUI-EasyIllustrious/blob/69a787d685386c4ab9faee0c3bbf7918b36aabcc/pyproject.toml",
+      "bytes": 713,
+      "sha256": "d9ea095266920a22be6691fd652964181366d384e0138f18b984a1061b5fb375",
+      "line_count": 35
+    },
+    {
+      "path": "src/nodes/smart_prompt_generator.py",
+      "url": "https://github.com/regiellis/ComfyUI-EasyIllustrious/blob/69a787d685386c4ab9faee0c3bbf7918b36aabcc/src/nodes/smart_prompt_generator.py",
+      "bytes": 50655,
+      "sha256": "670dc72b5d310bccc81d1e2d931f97f675f6e06e58184b840b38fb6936a9fa6f",
+      "line_count": 1146
+    },
+    {
+      "path": "__init__.py",
+      "url": "https://github.com/regiellis/ComfyUI-EasyIllustrious/blob/69a787d685386c4ab9faee0c3bbf7918b36aabcc/__init__.py",
+      "bytes": 6730,
+      "sha256": "2ba80113da5ede3950a223b78544b2031eadf12c149b96ab0e748a6aa8826d12",
+      "line_count": 144
+    }
+  ],
+  "source_tree_blob_count": 112,
+  "source_tree_paths_sha256": "1ba2a0b6533e87c774b1b1536f09a8e08df1928568c46bb99d063de411eae583",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "pyproject.toml",
+    "requirements.txt"
+  ],
+  "test_path_count": 1
+}

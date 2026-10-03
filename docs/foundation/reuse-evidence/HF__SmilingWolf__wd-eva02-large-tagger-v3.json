@@ -1,0 +1,21 @@
+{
+  "asset": "SmilingWolf/wd-eva02-large-tagger-v3",
+  "kind": "models",
+  "url": "https://huggingface.co/SmilingWolf/wd-eva02-large-tagger-v3",
+  "source_commit": "b25b82a03f7282e41aa2f257a52c7583b710bd1c",
+  "last_modified": "2024-07-28T21:28:42.000Z",
+  "license": "apache-2.0",
+  "gated": false,
+  "siblings": [
+    ".gitattributes",
+    "README.md",
+    "config.json",
+    "model.msgpack",
+    "model.onnx",
+    "model.safetensors",
+    "selected_tags.csv",
+    "sw_jax_cv_config.json"
+  ],
+  "checked_date": "2026-10-03",
+  "card_sha256": "53baf70e6127464e4e738895a4db9c57442ebf9b91a5f97a57de181b51bec7ac"
+}

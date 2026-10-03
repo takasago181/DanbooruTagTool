@@ -1,0 +1,79 @@
+{
+  "repository": "drewnoakes/metadata-extractor-dotnet",
+  "url": "https://github.com/drewnoakes/metadata-extractor-dotnet",
+  "branch": "main",
+  "source_commit": "7a2841fe1cfeb3da99f44697ae5d2f50a8069b67",
+  "latest_commit_date": "2026-09-10T07:51:09Z",
+  "latest_commit_message": "Migrate solution to SLNX and update packages (#471)",
+  "archived": false,
+  "language": "C#",
+  "license": "NOASSERTION",
+  "pushed_at": "2026-09-10T07:51:11Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/drewnoakes/metadata-extractor-dotnet/blob/7a2841fe1cfeb3da99f44697ae5d2f50a8069b67/README.md",
+      "bytes": 9050,
+      "sha256": "e91d39fa1277895a88291ac8b3a9876389ede4f31f7c1a522b2fce34e3549910",
+      "line_count": 219
+    },
+    {
+      "path": "MetadataExtractor/ImageMetadataReader.cs",
+      "url": "https://github.com/drewnoakes/metadata-extractor-dotnet/blob/7a2841fe1cfeb3da99f44697ae5d2f50a8069b67/MetadataExtractor/ImageMetadataReader.cs",
+      "bytes": 7433,
+      "sha256": "c5d3026f0a8064c7712cef8d8984cc983772df9c23d1e60da30f03be396c58a9",
+      "line_count": 135
+    },
+    {
+      "path": "MetadataExtractor/Formats/Png/PngMetadataReader.cs",
+      "url": "https://github.com/drewnoakes/metadata-extractor-dotnet/blob/7a2841fe1cfeb3da99f44697ae5d2f50a8069b67/MetadataExtractor/Formats/Png/PngMetadataReader.cs",
+      "bytes": 24515,
+      "sha256": "b817ab4123dbb25c7a055bd0059f856a954adfc861cb598b1635f797765aab41",
+      "line_count": 625
+    },
+    {
+      "path": "MetadataExtractor/Formats/WebP/WebPMetadataReader.cs",
+      "url": "https://github.com/drewnoakes/metadata-extractor-dotnet/blob/7a2841fe1cfeb3da99f44697ae5d2f50a8069b67/MetadataExtractor/Formats/WebP/WebPMetadataReader.cs",
+      "bytes": 1298,
+      "sha256": "072f75b5172146a6c8988d50592c3e0ed0eb6e2900f536a8e5ada94ac60488be",
+      "line_count": 34
+    },
+    {
+      "path": "MetadataExtractor/Formats/Exif/ExifReader.cs",
+      "url": "https://github.com/drewnoakes/metadata-extractor-dotnet/blob/7a2841fe1cfeb3da99f44697ae5d2f50a8069b67/MetadataExtractor/Formats/Exif/ExifReader.cs",
+      "bytes": 2196,
+      "sha256": "e9520a64d3f14a973e996e432651b4c202f8eb108ebf64740b50f1b06ef4d8a1",
+      "line_count": 52
+    },
+    {
+      "path": "MetadataExtractor/MetadataExtractor.csproj",
+      "url": "https://github.com/drewnoakes/metadata-extractor-dotnet/blob/7a2841fe1cfeb3da99f44697ae5d2f50a8069b67/MetadataExtractor/MetadataExtractor.csproj",
+      "bytes": 2638,
+      "sha256": "5efa71d5a171218aa29f5cd6cab945c0e687f19f33d070a7338cfe5f843e9907",
+      "line_count": 60
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/drewnoakes/metadata-extractor-dotnet/blob/7a2841fe1cfeb3da99f44697ae5d2f50a8069b67/LICENSE",
+      "bytes": 11156,
+      "sha256": "fa8ee9b6d608a5d996a974840c87357a7853e8b2d142f937e43218ba5ab50fb3",
+      "line_count": 201
+    }
+  ],
+  "source_tree_blob_count": 547,
+  "source_tree_paths_sha256": "75a35238a3be6c077b88502cdabcff14590c48eb2f1e07103701d797dfca11e2",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "MetadataExtractor.Benchmarks/MetadataExtractor.Benchmarks.csproj",
+    "MetadataExtractor.PowerShell/MetadataExtractor.PowerShell.csproj",
+    "MetadataExtractor.Samples/MetadataExtractor.Samples.csproj",
+    "MetadataExtractor.Tests/MetadataExtractor.Tests.csproj",
+    "MetadataExtractor.Tools.FileProcessor/MetadataExtractor.Tools.FileProcessor.csproj",
+    "MetadataExtractor.Tools.JpegSegmentExtractor/MetadataExtractor.Tools.JpegSegmentExtractor.csproj",
+    "MetadataExtractor/MetadataExtractor.csproj"
+  ],
+  "test_path_count": 2
+}

@@ -1,0 +1,50 @@
+{
+  "repository": "Csanindzsa/danbooru-prompt-tool",
+  "url": "https://github.com/Csanindzsa/danbooru-prompt-tool",
+  "branch": "main",
+  "source_commit": "9bec4b33da833032dcf794b1e06784ca2c87682a",
+  "latest_commit_date": "2026-06-10T07:20:14Z",
+  "latest_commit_message": "Polish public release links",
+  "archived": false,
+  "language": "Python",
+  "license": "NOASSERTION",
+  "pushed_at": "2026-06-10T07:23:13Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/Csanindzsa/danbooru-prompt-tool/blob/9bec4b33da833032dcf794b1e06784ca2c87682a/README.md",
+      "bytes": 16156,
+      "sha256": "0abb18814bf8c12068ba96748cf0005e01a4c76b923d33b5d59c16047decb9ba",
+      "line_count": 427
+    },
+    {
+      "path": "danbooru_prompt_tool/cli.py",
+      "url": "https://github.com/Csanindzsa/danbooru-prompt-tool/blob/9bec4b33da833032dcf794b1e06784ca2c87682a/danbooru_prompt_tool/cli.py",
+      "bytes": 4306,
+      "sha256": "ef14d1c7e99d3e7fd82b5b47d951f2ca2a10f28378fdfb3d572fafcd02db8656",
+      "line_count": 99
+    },
+    {
+      "path": "danbooru_prompt_tool/config.py",
+      "url": "https://github.com/Csanindzsa/danbooru-prompt-tool/blob/9bec4b33da833032dcf794b1e06784ca2c87682a/danbooru_prompt_tool/config.py",
+      "bytes": 3602,
+      "sha256": "754cc7a1e810cb6688acc3aa2ac91f2aa81a79c491e49d1e6d8b0e1522967e3f",
+      "line_count": 102
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/Csanindzsa/danbooru-prompt-tool/blob/9bec4b33da833032dcf794b1e06784ca2c87682a/LICENSE",
+      "bytes": 4608,
+      "sha256": "08d6f890e2624c123944c4ed13b20e993c2f02f5453fcfef364a3afc757dc62d",
+      "line_count": 75
+    }
+  ],
+  "source_tree_blob_count": 22,
+  "source_tree_paths_sha256": "3d3a7fc2a5e01b80ef2ed39f70cc87f215a20750a2b1d02519a5801da3d1e31b",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

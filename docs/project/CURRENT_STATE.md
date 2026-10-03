@@ -1,6 +1,6 @@
 # CURRENT STATE
 
-Updated: 2026-10-03 — #247 Foundation Batch B IMPLEMENTED / PR REVIEW STOP
+Updated: 2026-10-03 — #247 safe Batch B checkpoint / REUSE RESEARCH DECISION STOP
 
 Production remains the #245 LKG from `b3f48c359a8473c8bbf02347487cba5d8dacf96c`.
 Foundation has not been installed; UserData/Library/LoRA remain protected.
@@ -17,6 +17,10 @@ Selected lane: #247 Batch B, useful #250/#251/#252 only.
 - existing 42 worktrees retained; only this task checkout added.
 
 Checkpoint: `docs/foundation/BATCH_B_CHECKPOINT_2026-10-03.md`.
-STOP at PR review. No automatic merge, production/promotion, Batch C, #230 or
+External gate: `docs/foundation/EXTERNAL_REUSE_GATE_2026-10-03.md` and
+`docs/foundation/EXTERNAL_REUSE_MATRIX.json`. Past/Oct 1–2 assets recovered first.
+Research complete does not authorize large #251 integration, #253 or new custom
+equivalents. #251 implementation beyond preserved safe work remains pending.
+STOP at research decision / PR review. No automatic merge, production/promotion, Batch C, #230 or
 #256 feature work. Foundation final production/LKG decision remains separate.
 Do not repeat completed Batch A audits/parity unless a new dependency requires it.

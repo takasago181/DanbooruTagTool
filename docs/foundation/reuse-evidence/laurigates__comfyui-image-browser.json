@@ -1,0 +1,67 @@
+{
+  "repository": "laurigates/comfyui-image-browser",
+  "url": "https://github.com/laurigates/comfyui-image-browser",
+  "branch": "main",
+  "source_commit": "a85307d96821041ce2359b4bf3184f8fe3380d87",
+  "latest_commit_date": "2026-09-28T10:44:06Z",
+  "latest_commit_message": "chore: release main (#116)",
+  "archived": false,
+  "language": "Python",
+  "license": "MIT",
+  "pushed_at": "2026-09-30T19:34:05Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/laurigates/comfyui-image-browser/blob/a85307d96821041ce2359b4bf3184f8fe3380d87/README.md",
+      "bytes": 20194,
+      "sha256": "0420b451f7bc7dc39fc7d6c6e191b53e0e3d20255ce54126413154702587b354",
+      "line_count": 354
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/laurigates/comfyui-image-browser/blob/a85307d96821041ce2359b4bf3184f8fe3380d87/pyproject.toml",
+      "bytes": 2207,
+      "sha256": "905e97779762dbee9953b7f8691730b45ab26c56a44ca63838b2bcd7ec143107",
+      "line_count": 63
+    },
+    {
+      "path": "src/api.ts",
+      "url": "https://github.com/laurigates/comfyui-image-browser/blob/a85307d96821041ce2359b4bf3184f8fe3380d87/src/api.ts",
+      "bytes": 32372,
+      "sha256": "809b01fc47e875fe9b3607084dbaf1044492f48f78b8cb1c43ab40716c90e2a4",
+      "line_count": 800
+    },
+    {
+      "path": "__init__.py",
+      "url": "https://github.com/laurigates/comfyui-image-browser/blob/a85307d96821041ce2359b4bf3184f8fe3380d87/__init__.py",
+      "bytes": 773,
+      "sha256": "19533330174ac847b0adc15af44e525ce052125bb5f711c5d22698a9c11d4ce1",
+      "line_count": 18
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/laurigates/comfyui-image-browser/blob/a85307d96821041ce2359b4bf3184f8fe3380d87/LICENSE",
+      "bytes": 1068,
+      "sha256": "c891a3589380953370db27b029a59106ab0a41517c01019c8e25fde125cbbc53",
+      "line_count": 21
+    },
+    {
+      "path": "xmp_meta.py",
+      "url": "https://github.com/laurigates/comfyui-image-browser/blob/a85307d96821041ce2359b4bf3184f8fe3380d87/xmp_meta.py",
+      "bytes": 46868,
+      "sha256": "36e18d667697b3b3b539e3a3a85d5da52e638fcc072140dbd85d4fe71b4d44f2",
+      "line_count": 1176
+    }
+  ],
+  "source_tree_blob_count": 105,
+  "source_tree_paths_sha256": "00d9cd854e7ecee7ac46dfbc909058be3553fdc5baea19b48606fc3ed744d5bf",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "package.json",
+    "pyproject.toml"
+  ],
+  "test_path_count": 46
+}

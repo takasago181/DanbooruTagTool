@@ -1,0 +1,16 @@
+{
+  "asset": "p1atdev/danbooru-ja-tag-pair-20241015",
+  "kind": "datasets",
+  "url": "https://huggingface.co/datasets/p1atdev/danbooru-ja-tag-pair-20241015",
+  "source_commit": "846b9a569c8595ba5fdde77a06af92d589e94692",
+  "last_modified": "2024-10-16T12:48:36.000Z",
+  "license": "cc0-1.0",
+  "gated": false,
+  "siblings": [
+    ".gitattributes",
+    "README.md",
+    "data/train-00000-of-00001.parquet"
+  ],
+  "checked_date": "2026-10-03",
+  "card_sha256": "b4bb1e8d4be6dc4f6fe412946c3e62a2ddab30d87d710edd7e00f08abd45df31"
+}

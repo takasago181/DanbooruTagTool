@@ -16,7 +16,7 @@
       "issue": 247,
       "lane": "Foundation Batch B (#250/#251/#252)",
       "branch": "foundation/batch-b",
-      "state": "PR_REVIEW_STOP",
+      "state": "RESEARCH_COMPLETE_DECISION_STOP",
       "report": "docs/foundation/BATCH_B_CHECKPOINT_2026-10-03.md"
     }
   ],
@@ -50,7 +50,7 @@
   "network_policy": "External/network-backed features are allowed when useful; preserve local-state safety and keep secrets out of the repository. Offline is a preference, not a universal hard requirement.",
   "packaging_policy": "Self-contained/single-file/no-PDB/second-PC/folder-copy/machine-independent-path checks are optional unless a specific task needs them.",
   "production_lkg_source": "b3f48c359a8473c8bbf02347487cba5d8dacf96c",
-  "foundation_gate": "BATCH_B_IMPLEMENTED_PR_REVIEW_STOP",
+  "foundation_gate": "SAFE_BATCH_B_PRESERVED_REUSE_RESEARCH_DECISION_STOP",
   "foundation_audit": {
     "issue": 248,
     "state": "closed",
@@ -61,7 +61,7 @@
       "#254 performance/storage project",
       "#255 history compaction"
     ],
-    "next": "Use completed #248 and Batch A evidence; Batch B implemented on foundation/batch-b. Stop for PR review; no production, Batch C or feature work."
+    "next": "External reuse recovery/matrix complete; STOP for research decision and PR review. No further large #251/#253, production, Batch C or features."
   },
   "foundation_implementation": {
     "issue": 247,
@@ -73,7 +73,10 @@
     "report": "docs/foundation/BATCH_B_CHECKPOINT_2026-10-03.md",
     "production_applied": false,
     "batch_b_started": true,
-    "stop": "PR review; no self-merge, production apply, Batch C or new features"
+    "stop": "External research decision / PR review; no self-merge, large #251 adoption, #253, production, Batch C or features",
+    "research_report": "docs/foundation/EXTERNAL_REUSE_GATE_2026-10-03.md",
+    "adoption_matrix": "docs/foundation/EXTERNAL_REUSE_MATRIX.json",
+    "research_recovery": "docs/foundation/EXTERNAL_REUSE_RECOVERY.json"
   },
   "toolchain": "docs/maintenance/TOOLCHAIN.md",
   "closeout_disposition": "docs/maintenance/ISSUE_CLOSEOUT.md",

@@ -1,0 +1,49 @@
+{
+  "repository": "JoshClose/CsvHelper",
+  "url": "https://github.com/JoshClose/CsvHelper",
+  "branch": "master",
+  "source_commit": "33970e5183383bdac1fbce3b3fbcdf46b318ca52",
+  "latest_commit_date": "2025-06-03T23:17:50Z",
+  "latest_commit_message": "Merge pull request #2344 from CaringDev/async",
+  "archived": false,
+  "language": "C#",
+  "license": "NOASSERTION",
+  "pushed_at": "2025-06-27T19:49:36Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "src/CsvHelper/CsvReader.cs",
+      "url": "https://github.com/JoshClose/CsvHelper/blob/33970e5183383bdac1fbce3b3fbcdf46b318ca52/src/CsvHelper/CsvReader.cs",
+      "bytes": 38834,
+      "sha256": "f7b87edd534764eebf2388a77d49e5cd9c6d49eb6788dca9b1c07d4545412715",
+      "line_count": 1438
+    },
+    {
+      "path": "src/CsvHelper/CsvHelper.csproj",
+      "url": "https://github.com/JoshClose/CsvHelper/blob/33970e5183383bdac1fbce3b3fbcdf46b318ca52/src/CsvHelper/CsvHelper.csproj",
+      "bytes": 4281,
+      "sha256": "a70ace4ea902acb88cd53e04de27c8c638ab020e36635854318ee05c1d45e604",
+      "line_count": 100
+    },
+    {
+      "path": "LICENSE.txt",
+      "url": "https://github.com/JoshClose/CsvHelper/blob/33970e5183383bdac1fbce3b3fbcdf46b318ca52/LICENSE.txt",
+      "bytes": 13122,
+      "sha256": "8444a77d74bd5e4f607222be36fb68b47986c73f318d374695a1055737a2f3c0",
+      "line_count": 104
+    }
+  ],
+  "source_tree_blob_count": 775,
+  "source_tree_paths_sha256": "a23b43f69daa20dd44bd357821e972b51fb0b1da0ab5e2d70a8ba76517bf9a29",
+  "license_paths_observed": [
+    "LICENSE.txt"
+  ],
+  "dependency_paths_observed": [
+    "docs-src/CsvHelper.DocsGenerator/CsvHelper.DocsGenerator.csproj",
+    "performance/CsvHelper.Benchmarks/CsvHelper.Benchmarks.csproj",
+    "src/CsvHelper.Website/CsvHelper.Website.csproj",
+    "src/CsvHelper/CsvHelper.csproj",
+    "tests/CsvHelper.Tests/CsvHelper.Tests.csproj"
+  ],
+  "test_path_count": 258
+}

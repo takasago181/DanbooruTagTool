@@ -1,0 +1,27 @@
+{
+  "repository": "awesome-ai-hentai/awesome-ai-hentai",
+  "url": "https://github.com/awesome-ai-hentai/awesome-ai-hentai",
+  "branch": "main",
+  "source_commit": "f4b846c3cc4eaf8ef5e96462b690e1574715fea0",
+  "latest_commit_date": "2025-09-01T02:17:33Z",
+  "latest_commit_message": "Update README.md with real",
+  "archived": false,
+  "language": null,
+  "license": null,
+  "pushed_at": "2025-09-01T02:17:33Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/awesome-ai-hentai/awesome-ai-hentai/blob/f4b846c3cc4eaf8ef5e96462b690e1574715fea0/README.md",
+      "bytes": 12505,
+      "sha256": "188ad5bd61465327d9b61e3819196f8bdb13b7b8d02740ba2c5096dc0e08d102",
+      "line_count": 132
+    }
+  ],
+  "source_tree_blob_count": 1,
+  "source_tree_paths_sha256": "b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5",
+  "license_paths_observed": [],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

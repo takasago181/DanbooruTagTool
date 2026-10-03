@@ -1,0 +1,50 @@
+{
+  "repository": "Haoming02/ADetailer-Neo",
+  "url": "https://github.com/Haoming02/ADetailer-Neo",
+  "branch": "main",
+  "source_commit": "af228eba7a3f3691a25bcd1fc94aa95e600dd3e6",
+  "latest_commit_date": "2026-09-30T13:04:12Z",
+  "latest_commit_message": "defaults",
+  "archived": false,
+  "language": "Python",
+  "license": "AGPL-3.0",
+  "pushed_at": "2026-09-30T13:04:15Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/Haoming02/ADetailer-Neo/blob/af228eba7a3f3691a25bcd1fc94aa95e600dd3e6/README.md",
+      "bytes": 3065,
+      "sha256": "4b17b93affb0d857d9df1dabea706874347b6bee9e9981faf295d77a7ae174a2",
+      "line_count": 94
+    },
+    {
+      "path": "install.py",
+      "url": "https://github.com/Haoming02/ADetailer-Neo/blob/af228eba7a3f3691a25bcd1fc94aa95e600dd3e6/install.py",
+      "bytes": 228,
+      "sha256": "74cdb6b32b922e0ca8c32f75af99055fd08d6de337bd4b2736f16716c2aebac1",
+      "line_count": 7
+    },
+    {
+      "path": "preload.py",
+      "url": "https://github.com/Haoming02/ADetailer-Neo/blob/af228eba7a3f3691a25bcd1fc94aa95e600dd3e6/preload.py",
+      "bytes": 213,
+      "sha256": "39207eae9a268d48598a32169d98a93b99924fc11ea5eca0284a7f9a3163cc02",
+      "line_count": 9
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/Haoming02/ADetailer-Neo/blob/af228eba7a3f3691a25bcd1fc94aa95e600dd3e6/LICENSE",
+      "bytes": 32387,
+      "sha256": "ce3fb82d9ee80a1cb0e548f9b0560ead52378ee2b4e826fd9459b4acf7075d89",
+      "line_count": 619
+    }
+  ],
+  "source_tree_blob_count": 18,
+  "source_tree_paths_sha256": "a2d504d4f0294e38ef41a969ee8363f8a1577767d14fe2d48fd8a9bf6919cc66",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

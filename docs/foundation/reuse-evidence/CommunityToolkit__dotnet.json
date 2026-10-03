@@ -1,0 +1,77 @@
+{
+  "repository": "CommunityToolkit/dotnet",
+  "url": "https://github.com/CommunityToolkit/dotnet",
+  "branch": "main",
+  "source_commit": "b135626dd54d33b8f05f2ff31591592c004aa848",
+  "latest_commit_date": "2026-03-24T22:35:52Z",
+  "latest_commit_message": "Set version.json to 8.4.2",
+  "archived": false,
+  "language": "C#",
+  "license": "NOASSERTION",
+  "pushed_at": "2026-03-25T20:27:06Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/CommunityToolkit/dotnet/blob/b135626dd54d33b8f05f2ff31591592c004aa848/README.md",
+      "bytes": 6283,
+      "sha256": "03ba097b2c8dfae65f1b56829f851556d7ff076b270dbffcf0c0dfbb4ca74a9d",
+      "line_count": 55
+    },
+    {
+      "path": "src/CommunityToolkit.Mvvm/Input/RelayCommand.cs",
+      "url": "https://github.com/CommunityToolkit/dotnet/blob/b135626dd54d33b8f05f2ff31591592c004aa848/src/CommunityToolkit.Mvvm/Input/RelayCommand.cs",
+      "bytes": 2805,
+      "sha256": "71febaaf2c0855983c03ee681e33e2888b4a3ad660748ba15426e97c81c42afe",
+      "line_count": 79
+    },
+    {
+      "path": "src/CommunityToolkit.Mvvm/ComponentModel/ObservableObject.cs",
+      "url": "https://github.com/CommunityToolkit/dotnet/blob/b135626dd54d33b8f05f2ff31591592c004aa848/src/CommunityToolkit.Mvvm/ComponentModel/ObservableObject.cs",
+      "bytes": 33150,
+      "sha256": "9712444280826461c1bbf2f7488c2cf1e78f3ed7cf6135b2738cf4e5b0b6c5cc",
+      "line_count": 633
+    },
+    {
+      "path": "License.md",
+      "url": "https://github.com/CommunityToolkit/dotnet/blob/b135626dd54d33b8f05f2ff31591592c004aa848/License.md",
+      "bytes": 1145,
+      "sha256": "1e1101b893f295b4526da2c167e4234610f1078e2fe43a0e814c1a883656877b",
+      "line_count": 13
+    }
+  ],
+  "source_tree_blob_count": 465,
+  "source_tree_paths_sha256": "d0cb673c8757c7280e320b52eeac54ead64466feafc301ed64b623587033b72d",
+  "license_paths_observed": [
+    "License.md"
+  ],
+  "dependency_paths_observed": [
+    "src/CommunityToolkit.Common/CommunityToolkit.Common.csproj",
+    "src/CommunityToolkit.Diagnostics/CommunityToolkit.Diagnostics.csproj",
+    "src/CommunityToolkit.HighPerformance/CommunityToolkit.HighPerformance.csproj",
+    "src/CommunityToolkit.Mvvm.CodeFixers.Roslyn4001/CommunityToolkit.Mvvm.CodeFixers.Roslyn4001.csproj",
+    "src/CommunityToolkit.Mvvm.CodeFixers.Roslyn4120/CommunityToolkit.Mvvm.CodeFixers.Roslyn4120.csproj",
+    "src/CommunityToolkit.Mvvm.CodeFixers.Roslyn5000/CommunityToolkit.Mvvm.CodeFixers.Roslyn5000.csproj",
+    "src/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4001/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4001.csproj",
+    "src/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4031/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4031.csproj",
+    "src/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4120/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4120.csproj",
+    "src/CommunityToolkit.Mvvm.SourceGenerators.Roslyn5000/CommunityToolkit.Mvvm.SourceGenerators.Roslyn5000.csproj",
+    "src/CommunityToolkit.Mvvm/CommunityToolkit.Mvvm.csproj",
+    "tests/CommunityToolkit.Common.UnitTests/CommunityToolkit.Common.UnitTests.csproj",
+    "tests/CommunityToolkit.Diagnostics.UnitTests/CommunityToolkit.Diagnostics.UnitTests.csproj",
+    "tests/CommunityToolkit.HighPerformance.UnitTests/CommunityToolkit.HighPerformance.UnitTests.csproj",
+    "tests/CommunityToolkit.Mvvm.DisableINotifyPropertyChanging.UnitTests/CommunityToolkit.Mvvm.DisableINotifyPropertyChanging.UnitTests.csproj",
+    "tests/CommunityToolkit.Mvvm.ExternalAssembly.Roslyn4001/CommunityToolkit.Mvvm.ExternalAssembly.Roslyn4001.csproj",
+    "tests/CommunityToolkit.Mvvm.ExternalAssembly.Roslyn4031/CommunityToolkit.Mvvm.ExternalAssembly.Roslyn4031.csproj",
+    "tests/CommunityToolkit.Mvvm.Internals.UnitTests/CommunityToolkit.Mvvm.Internals.UnitTests.csproj",
+    "tests/CommunityToolkit.Mvvm.Roslyn4001.UnitTests/CommunityToolkit.Mvvm.Roslyn4001.UnitTests.csproj",
+    "tests/CommunityToolkit.Mvvm.Roslyn4031.UnitTests/CommunityToolkit.Mvvm.Roslyn4031.UnitTests.csproj",
+    "tests/CommunityToolkit.Mvvm.Roslyn4120.UnitTests/CommunityToolkit.Mvvm.Roslyn4120.UnitTests.csproj",
+    "tests/CommunityToolkit.Mvvm.Roslyn5000.UnitTests/CommunityToolkit.Mvvm.Roslyn5000.UnitTests.csproj",
+    "tests/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4001.UnitTests/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4001.UnitTests.csproj",
+    "tests/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4031.UnitTests/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4031.UnitTests.csproj",
+    "tests/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4120.UnitTests/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4120.UnitTests.csproj",
+    "tests/CommunityToolkit.Mvvm.SourceGenerators.Roslyn5000.UnitTests/CommunityToolkit.Mvvm.SourceGenerators.Roslyn5000.UnitTests.csproj"
+  ],
+  "test_path_count": 132
+}

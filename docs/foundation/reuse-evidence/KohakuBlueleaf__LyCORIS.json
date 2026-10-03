@@ -1,0 +1,52 @@
+{
+  "repository": "KohakuBlueleaf/LyCORIS",
+  "url": "https://github.com/KohakuBlueleaf/LyCORIS",
+  "branch": "main",
+  "source_commit": "4a6a333819356795d22170fe661a84f16b299b6b",
+  "latest_commit_date": "2026-09-05T03:57:18Z",
+  "latest_commit_message": "Merge pull request #289 from bghira/fix/torch-compile-kernel-dispatch",
+  "archived": false,
+  "language": "Python",
+  "license": "Apache-2.0",
+  "pushed_at": "2026-09-05T07:16:45Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/KohakuBlueleaf/LyCORIS/blob/4a6a333819356795d22170fe661a84f16b299b6b/README.md",
+      "bytes": 15129,
+      "sha256": "92a6cc38b5e27a48c791338571f621620cec197d9cb5db1170732bc0700e1c3f",
+      "line_count": 343
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/KohakuBlueleaf/LyCORIS/blob/4a6a333819356795d22170fe661a84f16b299b6b/pyproject.toml",
+      "bytes": 1815,
+      "sha256": "82322ee9b175cdb0d077114ae6108700bc371f7b716bc141f1d1e6953ad30a86",
+      "line_count": 66
+    },
+    {
+      "path": "unit-test.py",
+      "url": "https://github.com/KohakuBlueleaf/LyCORIS/blob/4a6a333819356795d22170fe661a84f16b299b6b/unit-test.py",
+      "bytes": 1178,
+      "sha256": "b31b2d7d6e655b6e16f0d580c818c9ad54676969372053a439e538ec57f07c3a",
+      "line_count": 45
+    },
+    {
+      "path": "tools/merge.py",
+      "url": "https://github.com/KohakuBlueleaf/LyCORIS/blob/4a6a333819356795d22170fe661a84f16b299b6b/tools/merge.py",
+      "bytes": 3249,
+      "sha256": "1b17d1ee6b4038873062ea46931ed6b767447bc3fcc4d370965633b839a41243",
+      "line_count": 127
+    }
+  ],
+  "source_tree_blob_count": 190,
+  "source_tree_paths_sha256": "d7ea41fae9da37c83a1c3721abb7584f59f50f07111f68ea13ef37642d3c2484",
+  "license_paths_observed": [
+    "LICENSE.md"
+  ],
+  "dependency_paths_observed": [
+    "pyproject.toml"
+  ],
+  "test_path_count": 16
+}

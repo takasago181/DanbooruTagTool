@@ -1,0 +1,59 @@
+{
+  "repository": "Mexes-GM/booru-prompt-gallery",
+  "url": "https://github.com/Mexes-GM/booru-prompt-gallery",
+  "branch": "main",
+  "source_commit": "d64c1f783b5ad3ea4375863e7c63c3e7b2db4c00",
+  "latest_commit_date": "2026-10-02T22:23:39Z",
+  "latest_commit_message": "Merge pull request #37 from Mexes-GM/chore/tags-core-after-refresh",
+  "archived": false,
+  "language": "TypeScript",
+  "license": "AGPL-3.0",
+  "pushed_at": "2026-10-02T22:23:40Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/Mexes-GM/booru-prompt-gallery/blob/d64c1f783b5ad3ea4375863e7c63c3e7b2db4c00/README.md",
+      "bytes": 8407,
+      "sha256": "ab2d95f83e62689891635966b65cda29fbf0e4b5a29481eb41ad3cf57bf2eded",
+      "line_count": 181
+    },
+    {
+      "path": "package.json",
+      "url": "https://github.com/Mexes-GM/booru-prompt-gallery/blob/d64c1f783b5ad3ea4375863e7c63c3e7b2db4c00/package.json",
+      "bytes": 2923,
+      "sha256": "9fa96d93d55bf4ce4d3ae384fcc75e9ac44e3dae1c6469e3beb34c0b48ed86d0",
+      "line_count": 98
+    },
+    {
+      "path": "lib/reverse-prompt-parser.ts",
+      "url": "https://github.com/Mexes-GM/booru-prompt-gallery/blob/d64c1f783b5ad3ea4375863e7c63c3e7b2db4c00/lib/reverse-prompt-parser.ts",
+      "bytes": 7305,
+      "sha256": "775aa41fdf353e19d9255845f6c134f67a78ce6391a696f842814c8ced34a864",
+      "line_count": 206
+    },
+    {
+      "path": "lib/extension/prompt-list-parser.ts",
+      "url": "https://github.com/Mexes-GM/booru-prompt-gallery/blob/d64c1f783b5ad3ea4375863e7c63c3e7b2db4c00/lib/extension/prompt-list-parser.ts",
+      "bytes": 5455,
+      "sha256": "de25bab7fd7ac1c5c888c1e9c9d48dcc7b70798522760354041988af1c73f1b8",
+      "line_count": 142
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/Mexes-GM/booru-prompt-gallery/blob/d64c1f783b5ad3ea4375863e7c63c3e7b2db4c00/LICENSE",
+      "bytes": 34473,
+      "sha256": "81c4c6cca1143c403ddc7d39694050e0535a49c50e0b2beb73536ce3d097fee6",
+      "line_count": 663
+    }
+  ],
+  "source_tree_blob_count": 409,
+  "source_tree_paths_sha256": "8a07d071bf72116a3190759e7aa67509779f1171eab9338bf4ba92ae5213538a",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "package.json"
+  ],
+  "test_path_count": 0
+}

@@ -1,0 +1,29 @@
+{
+  "repository": "comfyanonymous/ComfyUI_examples",
+  "url": "https://github.com/comfyanonymous/ComfyUI_examples",
+  "branch": "master",
+  "source_commit": "f9431bb000ce792094ff345446e22cac1ea6cef3",
+  "latest_commit_date": "2025-11-26T20:33:58Z",
+  "latest_commit_message": "Z image turbo example.",
+  "archived": false,
+  "language": "HTML",
+  "license": "NOASSERTION",
+  "pushed_at": "2025-11-26T20:34:21Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/comfyanonymous/ComfyUI_examples/blob/f9431bb000ce792094ff345446e22cac1ea6cef3/README.md",
+      "bytes": 3253,
+      "sha256": "2f6735f7856066711ad4259e63444c90fa26ce7a247070124f3e41edbd4716de",
+      "line_count": 127
+    }
+  ],
+  "source_tree_blob_count": 196,
+  "source_tree_paths_sha256": "4cd8b6c0e2a107d9be0e7a328b3cb39f12ab5f3dff35947d8f663207e7bdf1ea",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

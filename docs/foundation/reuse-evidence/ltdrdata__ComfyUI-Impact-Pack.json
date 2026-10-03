@@ -1,0 +1,53 @@
+{
+  "repository": "ltdrdata/ComfyUI-Impact-Pack",
+  "url": "https://github.com/ltdrdata/ComfyUI-Impact-Pack",
+  "branch": "Main",
+  "source_commit": "429d0159ad429e64d2b3916e6e7be9c22d025c3c",
+  "latest_commit_date": "2026-04-19T17:06:44Z",
+  "latest_commit_message": "docs(tests): drop dev-only debug note and dead .claude/ path from e2e test docstring",
+  "archived": false,
+  "language": "Python",
+  "license": "GPL-3.0",
+  "pushed_at": "2026-04-19T17:07:11Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/ltdrdata/ComfyUI-Impact-Pack/blob/429d0159ad429e64d2b3916e6e7be9c22d025c3c/README.md",
+      "bytes": 51528,
+      "sha256": "052ed88a4183dcc2450f9f9275264de97520c44f0e966c032278586e295c5632",
+      "line_count": 519
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/ltdrdata/ComfyUI-Impact-Pack/blob/429d0159ad429e64d2b3916e6e7be9c22d025c3c/pyproject.toml",
+      "bytes": 745,
+      "sha256": "e7ab9656db8ecde6cb5041c35fb211c52b083996221aa45c3c63d31e816d24be",
+      "line_count": 26
+    },
+    {
+      "path": "install.py",
+      "url": "https://github.com/ltdrdata/ComfyUI-Impact-Pack/blob/429d0159ad429e64d2b3916e6e7be9c22d025c3c/install.py",
+      "bytes": 3971,
+      "sha256": "9520f8f0c099b78d78e47316323e47b31597cb10de3f4017565fc986eabd1e8e",
+      "line_count": 116
+    },
+    {
+      "path": "__init__.py",
+      "url": "https://github.com/ltdrdata/ComfyUI-Impact-Pack/blob/429d0159ad429e64d2b3916e6e7be9c22d025c3c/__init__.py",
+      "bytes": 21951,
+      "sha256": "c28bb39a58fff73b476f3304e26ef5d57e3d5bec7069f86b0b0f69a9528195c0",
+      "line_count": 456
+    }
+  ],
+  "source_tree_blob_count": 105,
+  "source_tree_paths_sha256": "d518fd6c44ef8b591336b3881d1a59650e016e9fa4be5da90ef4c08c22bd8059",
+  "license_paths_observed": [
+    "LICENSE.txt"
+  ],
+  "dependency_paths_observed": [
+    "pyproject.toml",
+    "requirements.txt"
+  ],
+  "test_path_count": 34
+}

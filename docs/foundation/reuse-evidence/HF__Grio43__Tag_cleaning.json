@@ -1,0 +1,16 @@
+{
+  "asset": "Grio43/Tag_cleaning",
+  "kind": "datasets",
+  "url": "https://huggingface.co/datasets/Grio43/Tag_cleaning",
+  "source_commit": "0b2315d72d6d6e078c67b56860eeeb5be5f93975",
+  "last_modified": "2026-09-09T11:57:32.000Z",
+  "license": "apache-2.0",
+  "gated": false,
+  "siblings": [
+    ".gitattributes",
+    "README.md",
+    "merged_2026.parquet"
+  ],
+  "checked_date": "2026-10-03",
+  "card_sha256": "bc9449080e89ddb7d90743bc47611d2f1101cb193ffcf042a5f008c14dae3bb2"
+}

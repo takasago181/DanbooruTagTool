@@ -1,0 +1,43 @@
+{
+  "repository": "learn2phoenix/CSD",
+  "url": "https://github.com/learn2phoenix/CSD",
+  "branch": "main",
+  "source_commit": "3a9df32605b869eceb704897839be80977a9f1ea",
+  "latest_commit_date": "2024-10-03T19:59:36Z",
+  "latest_commit_message": "Adding disclaimer",
+  "archived": false,
+  "language": "Python",
+  "license": "MIT",
+  "pushed_at": "2024-10-28T20:27:16Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/learn2phoenix/CSD/blob/3a9df32605b869eceb704897839be80977a9f1ea/README.md",
+      "bytes": 4511,
+      "sha256": "03b1ead762b8c69837b5129c628681562e8fe1a970b873d756a2792a4a4c8edf",
+      "line_count": 96
+    },
+    {
+      "path": "utils.py",
+      "url": "https://github.com/learn2phoenix/CSD/blob/3a9df32605b869eceb704897839be80977a9f1ea/utils.py",
+      "bytes": 16849,
+      "sha256": "4b9be128acf8194c1c8a9738b33f0d335caef3ae29be69ad2d458d55fd57d726",
+      "line_count": 465
+    },
+    {
+      "path": "search.py",
+      "url": "https://github.com/learn2phoenix/CSD/blob/3a9df32605b869eceb704897839be80977a9f1ea/search.py",
+      "bytes": 7771,
+      "sha256": "e58bc64552ec727a64f4d8d889c2ab35a6052dd62a229af819d9dbfb8b0e7484",
+      "line_count": 165
+    }
+  ],
+  "source_tree_blob_count": 33,
+  "source_tree_paths_sha256": "e00004c1f53ee18f25c6b6e02ace45cb615f7921c7097fe008e3bd118643244b",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

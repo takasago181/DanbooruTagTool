@@ -1,0 +1,75 @@
+{
+  "repository": "ggml-org/llama.cpp",
+  "url": "https://github.com/ggml-org/llama.cpp",
+  "branch": "master",
+  "source_commit": "bed0a856606ee4a24a164066f73d2379447033f5",
+  "latest_commit_date": "2026-10-02T18:26:27Z",
+  "latest_commit_message": "CUDA: fuse shared experts into MMVQ (#29184)",
+  "archived": false,
+  "language": "C++",
+  "license": "MIT",
+  "pushed_at": "2026-10-03T00:26:06Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/ggml-org/llama.cpp/blob/bed0a856606ee4a24a164066f73d2379447033f5/README.md",
+      "bytes": 7470,
+      "sha256": "dc2d34687c844ecf929d9e9a9c9c78e8023b52abf3b2b3d039600c79016673b6",
+      "line_count": 134
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/ggml-org/llama.cpp/blob/bed0a856606ee4a24a164066f73d2379447033f5/pyproject.toml",
+      "bytes": 1952,
+      "sha256": "9826116684e90e93d2bb8f8bdb74c60ea5443e435b84f6e75e19e116a694e2d1",
+      "line_count": 69
+    },
+    {
+      "path": "tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageToolCall/parsers/exec-shell-command.ts",
+      "url": "https://github.com/ggml-org/llama.cpp/blob/bed0a856606ee4a24a164066f73d2379447033f5/tools/ui/src/lib/components/app/chat/ChatMessages/ChatMessage/ChatMessageToolCall/parsers/exec-shell-command.ts",
+      "bytes": 982,
+      "sha256": "26e403940c5a12e56f6cfb5c355f45db83ae6e801bc9ebe182551879ca66c2b5",
+      "line_count": 26
+    },
+    {
+      "path": "conversion/command_r.py",
+      "url": "https://github.com/ggml-org/llama.cpp/blob/bed0a856606ee4a24a164066f73d2379447033f5/conversion/command_r.py",
+      "bytes": 8193,
+      "sha256": "d1c20f087af2b0d4b761cbc287cf96d599a8696c23934e520b4b798bd3a812a7",
+      "line_count": 182
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/ggml-org/llama.cpp/blob/bed0a856606ee4a24a164066f73d2379447033f5/LICENSE",
+      "bytes": 1078,
+      "sha256": "94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d",
+      "line_count": 21
+    },
+    {
+      "path": "tools/server/README.md",
+      "url": "https://github.com/ggml-org/llama.cpp/blob/bed0a856606ee4a24a164066f73d2379447033f5/tools/server/README.md",
+      "bytes": 113041,
+      "sha256": "35f2478f0385e39a42eac643692f7371a92772b79f6cf2dbb60ed55ec9ce0e00",
+      "line_count": 2299
+    },
+    {
+      "path": "tools/server/server-context.cpp",
+      "url": "https://github.com/ggml-org/llama.cpp/blob/bed0a856606ee4a24a164066f73d2379447033f5/tools/server/server-context.cpp",
+      "bytes": 240328,
+      "sha256": "0939cd0c545446d0309d833b72ac0592abdaf03fc855343b7d2eeaac0b2d0c2b",
+      "line_count": 5842
+    }
+  ],
+  "source_tree_blob_count": 3673,
+  "source_tree_paths_sha256": "088152a35b9f1a3b9b83ef012e8f599149cb3afed0e2737ebb405d22d90c1828",
+  "license_paths_observed": [
+    "LICENSE",
+    "licenses/LICENSE-jsonhpp"
+  ],
+  "dependency_paths_observed": [
+    "pyproject.toml",
+    "requirements.txt"
+  ],
+  "test_path_count": 266
+}

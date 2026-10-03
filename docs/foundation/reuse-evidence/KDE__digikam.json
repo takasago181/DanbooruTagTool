@@ -1,0 +1,45 @@
+{
+  "repository": "KDE/digikam",
+  "url": "https://github.com/KDE/digikam",
+  "branch": "master",
+  "source_commit": "33d0457e20adda97c003f3dee652a1749406ff9f",
+  "latest_commit_date": "2019-08-07T18:26:47Z",
+  "latest_commit_message": "update",
+  "archived": true,
+  "language": "C++",
+  "license": "GPL-2.0",
+  "pushed_at": "2019-12-21T15:50:11Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/KDE/digikam/blob/33d0457e20adda97c003f3dee652a1749406ff9f/README.md",
+      "bytes": 6821,
+      "sha256": "100b5b275639482b675a45a494d8b80546c4cec5be27e61db3ea2ce2482619d5",
+      "line_count": 140
+    },
+    {
+      "path": "project/bundles/mxe/rll.py",
+      "url": "https://github.com/KDE/digikam/blob/33d0457e20adda97c003f3dee652a1749406ff9f/project/bundles/mxe/rll.py",
+      "bytes": 6404,
+      "sha256": "3029c70f5e17b0e56c1ee01f2a931a8f043425e8ad8e56ee54ec3ed22e46a1c1",
+      "line_count": 231
+    },
+    {
+      "path": "project/bundles/macports/rll.py",
+      "url": "https://github.com/KDE/digikam/blob/33d0457e20adda97c003f3dee652a1749406ff9f/project/bundles/macports/rll.py",
+      "bytes": 6895,
+      "sha256": "c525b57cd174706cf083ff5c7d015b7b900a54d89c2373b1a1572d709a400e5a",
+      "line_count": 187
+    }
+  ],
+  "source_tree_blob_count": 5834,
+  "source_tree_paths_sha256": "5b87f8493a5406a95de7f01ebe292f3fa320793b453a634757868e3cd47fad3b",
+  "license_paths_observed": [
+    "COPYING",
+    "COPYING-CMAKE-SCRIPTS",
+    "COPYING.LIB"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 428
+}

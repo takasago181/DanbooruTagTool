@@ -1,0 +1,59 @@
+{
+  "repository": "dawncreatescode/comfyui-PromptHistory",
+  "url": "https://github.com/dawncreatescode/comfyui-PromptHistory",
+  "branch": "main",
+  "source_commit": "3159f9048bc6ec723905daa5181c87c5cd0ece3c",
+  "latest_commit_date": "2026-08-03T15:36:09Z",
+  "latest_commit_message": "Add search parity and scope selector to pair node, bump to 1.1.0",
+  "archived": false,
+  "language": "JavaScript",
+  "license": "MIT",
+  "pushed_at": "2026-08-03T15:37:11Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/dawncreatescode/comfyui-PromptHistory/blob/3159f9048bc6ec723905daa5181c87c5cd0ece3c/README.md",
+      "bytes": 6142,
+      "sha256": "fa7493b32087ae05be91f1ead22f10960971eccdf63db549075c6ffd56da66e1",
+      "line_count": 138
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/dawncreatescode/comfyui-PromptHistory/blob/3159f9048bc6ec723905daa5181c87c5cd0ece3c/pyproject.toml",
+      "bytes": 401,
+      "sha256": "81d7b14c0111d3539b77e090a848390a494034c9ffaaf3345f79f01fbc9c6597",
+      "line_count": 15
+    },
+    {
+      "path": "prompt_pair_history_node.py",
+      "url": "https://github.com/dawncreatescode/comfyui-PromptHistory/blob/3159f9048bc6ec723905daa5181c87c5cd0ece3c/prompt_pair_history_node.py",
+      "bytes": 16119,
+      "sha256": "a003a398183eae9c1044918ae1cc18174577021e63d64d007ef86f085eae661f",
+      "line_count": 447
+    },
+    {
+      "path": "select_prompt_history_node.py",
+      "url": "https://github.com/dawncreatescode/comfyui-PromptHistory/blob/3159f9048bc6ec723905daa5181c87c5cd0ece3c/select_prompt_history_node.py",
+      "bytes": 15987,
+      "sha256": "c6bb1c7bf6c91de06037df8c2405f711efb59dcfe66051f3c329dd7cf7f699dc",
+      "line_count": 445
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/dawncreatescode/comfyui-PromptHistory/blob/3159f9048bc6ec723905daa5181c87c5cd0ece3c/LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "line_count": 21
+    }
+  ],
+  "source_tree_blob_count": 12,
+  "source_tree_paths_sha256": "01ca893e1a74e99be349a8e285a2e90f901f6d055b23a563cbcfef46aef16697",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "pyproject.toml"
+  ],
+  "test_path_count": 0
+}

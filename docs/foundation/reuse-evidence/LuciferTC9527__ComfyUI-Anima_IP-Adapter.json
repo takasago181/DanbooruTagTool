@@ -1,0 +1,52 @@
+{
+  "repository": "LuciferTC9527/ComfyUI-Anima_IP-Adapter",
+  "url": "https://github.com/LuciferTC9527/ComfyUI-Anima_IP-Adapter",
+  "branch": "main",
+  "source_commit": "6b77cd0c367d76402174ace2be50d3cb6aa77855",
+  "latest_commit_date": "2026-08-17T08:40:30Z",
+  "latest_commit_message": "Fix mixed-precision dtype handling for IP-Adapter (#4)",
+  "archived": false,
+  "language": "Python",
+  "license": "Apache-2.0",
+  "pushed_at": "2026-08-17T08:40:30Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/LuciferTC9527/ComfyUI-Anima_IP-Adapter/blob/6b77cd0c367d76402174ace2be50d3cb6aa77855/README.md",
+      "bytes": 1266,
+      "sha256": "b17289569e6a79ae81e060645ea5377765a54fd375ba400736a6160b14a959b7",
+      "line_count": 38
+    },
+    {
+      "path": "requirements.txt",
+      "url": "https://github.com/LuciferTC9527/ComfyUI-Anima_IP-Adapter/blob/6b77cd0c367d76402174ace2be50d3cb6aa77855/requirements.txt",
+      "bytes": 13,
+      "sha256": "18b05a793a3f0927619c7bdbc50d24ce91077652ee03fdf77e822881a5b19ed2",
+      "line_count": 1
+    },
+    {
+      "path": "nodes.py",
+      "url": "https://github.com/LuciferTC9527/ComfyUI-Anima_IP-Adapter/blob/6b77cd0c367d76402174ace2be50d3cb6aa77855/nodes.py",
+      "bytes": 49622,
+      "sha256": "521ce9082fa803419851820f4768fb550c0bc0f334c8d1d08199111920fd77be",
+      "line_count": 1053
+    },
+    {
+      "path": "__init__.py",
+      "url": "https://github.com/LuciferTC9527/ComfyUI-Anima_IP-Adapter/blob/6b77cd0c367d76402174ace2be50d3cb6aa77855/__init__.py",
+      "bytes": 493,
+      "sha256": "59f9d1f1212df67f809c8c00b8c73ebd98b6de68acf0e19332f61e4fef71cb03",
+      "line_count": 18
+    }
+  ],
+  "source_tree_blob_count": 6,
+  "source_tree_paths_sha256": "4e88d1d5faf49ecaf619622817213e51fde0d239e5bfa4b76b57126d55d2a113",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "requirements.txt"
+  ],
+  "test_path_count": 1
+}

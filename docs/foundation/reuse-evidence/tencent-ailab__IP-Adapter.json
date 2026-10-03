@@ -1,0 +1,52 @@
+{
+  "repository": "tencent-ailab/IP-Adapter",
+  "url": "https://github.com/tencent-ailab/IP-Adapter",
+  "branch": "main",
+  "source_commit": "62e4af9d0c1ac7d5f8dd386a0ccf2211346af1a2",
+  "latest_commit_date": "2024-06-28T02:47:03Z",
+  "latest_commit_message": "add sd3_attention_processor.py",
+  "archived": false,
+  "language": "Jupyter Notebook",
+  "license": "Apache-2.0",
+  "pushed_at": "2024-06-28T02:47:03Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/tencent-ailab/IP-Adapter/blob/62e4af9d0c1ac7d5f8dd386a0ccf2211346af1a2/README.md",
+      "bytes": 11250,
+      "sha256": "037e938b36d35d819a6fbf5a701ccad9b76dab31648f0dff4322cf020c3b741a",
+      "line_count": 182
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/tencent-ailab/IP-Adapter/blob/62e4af9d0c1ac7d5f8dd386a0ccf2211346af1a2/pyproject.toml",
+      "bytes": 1103,
+      "sha256": "5eefa36efcc16e8422a83bed0e3cbb791930eac81629de85c15ea15db0cd5b44",
+      "line_count": 43
+    },
+    {
+      "path": "tutorial_train.py",
+      "url": "https://github.com/tencent-ailab/IP-Adapter/blob/62e4af9d0c1ac7d5f8dd386a0ccf2211346af1a2/tutorial_train.py",
+      "bytes": 16534,
+      "sha256": "b982094eb5e0b2892626c08bd66918945249065f0d0bffbbdc31177777261d7f",
+      "line_count": 412
+    },
+    {
+      "path": "ip_adapter/utils.py",
+      "url": "https://github.com/tencent-ailab/IP-Adapter/blob/62e4af9d0c1ac7d5f8dd386a0ccf2211346af1a2/ip_adapter/utils.py",
+      "bytes": 2831,
+      "sha256": "9b8a05a8ae7fb9c2b694b110b2c40072badcdbfd5b78c646fbf5f84e99adcbc3",
+      "line_count": 93
+    }
+  ],
+  "source_tree_blob_count": 57,
+  "source_tree_paths_sha256": "de603e5bc5446c4fd1cb02529b3723bac2364aceb6b53ac7e8c44f744d195612",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "pyproject.toml"
+  ],
+  "test_path_count": 1
+}

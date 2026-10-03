@@ -1,0 +1,50 @@
+{
+  "repository": "hirorohi03/EasyForgeNeo",
+  "url": "https://github.com/hirorohi03/EasyForgeNeo",
+  "branch": "main",
+  "source_commit": "86d73b8939879a4d35cfc31357f0db3999c7d746",
+  "latest_commit_date": "2026-09-27T02:50:12Z",
+  "latest_commit_message": "Update AnimaIka.bat & README",
+  "archived": false,
+  "language": "Batchfile",
+  "license": "MIT",
+  "pushed_at": "2026-09-27T02:50:21Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/hirorohi03/EasyForgeNeo/blob/86d73b8939879a4d35cfc31357f0db3999c7d746/README.md",
+      "bytes": 29432,
+      "sha256": "1e68e2b72cfde048c3a3c25e60784ed9d78d06105bc6b9ff2ca0026f79c780ab",
+      "line_count": 485
+    },
+    {
+      "path": "EasyForgeNeo/ForgeNeo/src/Stable-diffusion-webui-civitai-helper-RED-UPDATE/supported_models.py",
+      "url": "https://github.com/hirorohi03/EasyForgeNeo/blob/86d73b8939879a4d35cfc31357f0db3999c7d746/EasyForgeNeo/ForgeNeo/src/Stable-diffusion-webui-civitai-helper-RED-UPDATE/supported_models.py",
+      "bytes": 990,
+      "sha256": "77f3fb3b46715539a20baa3307f7fe76e7a9c3a4cb1c20cadb3e0a4de9aba4bf",
+      "line_count": 54
+    },
+    {
+      "path": "EasyForgeNeo/Reforge/src/reforge_update_config.py",
+      "url": "https://github.com/hirorohi03/EasyForgeNeo/blob/86d73b8939879a4d35cfc31357f0db3999c7d746/EasyForgeNeo/Reforge/src/reforge_update_config.py",
+      "bytes": 4389,
+      "sha256": "36625a319b84521862d1ae5e9292fa92fa716a91256a8e6848a69c6c584b87b2",
+      "line_count": 125
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/hirorohi03/EasyForgeNeo/blob/86d73b8939879a4d35cfc31357f0db3999c7d746/LICENSE",
+      "bytes": 1113,
+      "sha256": "048ee8becc7b3e45a770271fb2415ea3345fd92e8b810eb8a474825f9efc088b",
+      "line_count": 22
+    }
+  ],
+  "source_tree_blob_count": 309,
+  "source_tree_paths_sha256": "4521e01147a2fddbdc40aa56b377736c59aebc7b77eae94a2b18fff21083fcf7",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

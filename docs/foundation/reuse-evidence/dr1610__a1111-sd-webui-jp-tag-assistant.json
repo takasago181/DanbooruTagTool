@@ -1,0 +1,41 @@
+{
+  "repository": "dr1610/a1111-sd-webui-jp-tag-assistant",
+  "url": "https://github.com/dr1610/a1111-sd-webui-jp-tag-assistant",
+  "branch": "main",
+  "source_commit": "8136d50cc6b24e2835aa3a150608a82fdab67a85",
+  "latest_commit_date": "2026-09-13T12:12:59Z",
+  "latest_commit_message": "Add Japanese introduction and usage documentation",
+  "archived": false,
+  "language": "Python",
+  "license": null,
+  "pushed_at": "2026-09-13T12:13:01Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/dr1610/a1111-sd-webui-jp-tag-assistant/blob/8136d50cc6b24e2835aa3a150608a82fdab67a85/README.md",
+      "bytes": 5534,
+      "sha256": "7a0035e7969cd8f41597afd11dae4dd163d064f032d28904ed83ae6fde98be10",
+      "line_count": 100
+    },
+    {
+      "path": "__init__.py",
+      "url": "https://github.com/dr1610/a1111-sd-webui-jp-tag-assistant/blob/8136d50cc6b24e2835aa3a150608a82fdab67a85/__init__.py",
+      "bytes": 3072,
+      "sha256": "f336de3384cff9ae2152178e5019a7475f35d164e551eb15e33c0353d0604e3d",
+      "line_count": 91
+    },
+    {
+      "path": "jpta_core.py",
+      "url": "https://github.com/dr1610/a1111-sd-webui-jp-tag-assistant/blob/8136d50cc6b24e2835aa3a150608a82fdab67a85/jpta_core.py",
+      "bytes": 24967,
+      "sha256": "4c4ea921c723f80a9b2dcbd8a8d747a491cd8ba2e23e6889d5b2d0452c9a371d",
+      "line_count": 667
+    }
+  ],
+  "source_tree_blob_count": 15,
+  "source_tree_paths_sha256": "afb0ddf03d5cabba12635348e8590812a712b7d425a082d334e0525950613300",
+  "license_paths_observed": [],
+  "dependency_paths_observed": [],
+  "test_path_count": 2
+}

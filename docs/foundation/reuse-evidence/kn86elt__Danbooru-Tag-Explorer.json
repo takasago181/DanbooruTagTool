@@ -1,0 +1,41 @@
+{
+  "repository": "kn86elt/Danbooru-Tag-Explorer",
+  "url": "https://github.com/kn86elt/Danbooru-Tag-Explorer",
+  "branch": "main",
+  "source_commit": "4ac1fa3bbe4dcf6342600e643182700df460ef28",
+  "latest_commit_date": "2026-06-22T14:09:41Z",
+  "latest_commit_message": "一部環境でdanbooru wikiサムネイルが取得できなかった問題を修正",
+  "archived": false,
+  "language": "JavaScript",
+  "license": null,
+  "pushed_at": "2026-06-22T14:10:05Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/kn86elt/Danbooru-Tag-Explorer/blob/4ac1fa3bbe4dcf6342600e643182700df460ef28/README.md",
+      "bytes": 10598,
+      "sha256": "3351ab3c064542f1fc9263e56656cb2f64460361ba2d3c9a9b14dbaddc7ec4a6",
+      "line_count": 194
+    },
+    {
+      "path": "server.py",
+      "url": "https://github.com/kn86elt/Danbooru-Tag-Explorer/blob/4ac1fa3bbe4dcf6342600e643182700df460ef28/server.py",
+      "bytes": 34918,
+      "sha256": "d4b3bd0d153f7308a5e5fcc7b39441c4fbfb29dc3b37dfa84e14d8f31d26af29",
+      "line_count": 836
+    },
+    {
+      "path": "generate_ja.py",
+      "url": "https://github.com/kn86elt/Danbooru-Tag-Explorer/blob/4ac1fa3bbe4dcf6342600e643182700df460ef28/generate_ja.py",
+      "bytes": 4759,
+      "sha256": "9cca63517eba8b38c20f8f98cd22b7b51611cf742f13b9409ec6c89da93713e4",
+      "line_count": 157
+    }
+  ],
+  "source_tree_blob_count": 16,
+  "source_tree_paths_sha256": "5a2018ff1b9f6dc73f79b571c90fc3ac02123b6e6a3ae0b93fc4a11a6236ccdb",
+  "license_paths_observed": [],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

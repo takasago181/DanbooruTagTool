@@ -1,0 +1,34 @@
+{
+  "repository": "KoaZhang/danbooru-tag-optimizer",
+  "url": "https://github.com/KoaZhang/danbooru-tag-optimizer",
+  "branch": "master",
+  "source_commit": "37da4a052f7b7b0873fefc9b8d75bbc0ffefe88b",
+  "latest_commit_date": "2026-05-08T08:31:05Z",
+  "latest_commit_message": "Add Workflow 3: attribute swap while preserving character identity",
+  "archived": false,
+  "language": "Python",
+  "license": null,
+  "pushed_at": "2026-05-08T08:33:36Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/KoaZhang/danbooru-tag-optimizer/blob/37da4a052f7b7b0873fefc9b8d75bbc0ffefe88b/README.md",
+      "bytes": 2853,
+      "sha256": "b0a39c126f15a5317f88ab563c88b630aab2c6a7a92ca54c34eecb817033fba3",
+      "line_count": 72
+    },
+    {
+      "path": "scripts/search_tags.py",
+      "url": "https://github.com/KoaZhang/danbooru-tag-optimizer/blob/37da4a052f7b7b0873fefc9b8d75bbc0ffefe88b/scripts/search_tags.py",
+      "bytes": 7033,
+      "sha256": "f47d2c14770a45f866b6a89dc1a336902d52add3a2e08cc92ffa748d71df3139",
+      "line_count": 191
+    }
+  ],
+  "source_tree_blob_count": 15,
+  "source_tree_paths_sha256": "abb196f3ceb6627320bb15764d75e11b60aa3636396629b28bf38696684a6130",
+  "license_paths_observed": [],
+  "dependency_paths_observed": [],
+  "test_path_count": 0
+}

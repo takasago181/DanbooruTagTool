@@ -1,0 +1,52 @@
+{
+  "repository": "max-sixty/worktrunk",
+  "url": "https://github.com/max-sixty/worktrunk",
+  "branch": "main",
+  "source_commit": "9669d4a7bbdd99298be1f6e1e6dceadba5ceb449",
+  "latest_commit_date": "2026-10-02T19:03:07Z",
+  "latest_commit_message": "test(shell): isolate fish startup configuration in PTY fixtures (#4353)",
+  "archived": false,
+  "language": "Rust",
+  "license": "NOASSERTION",
+  "pushed_at": "2026-10-02T23:29:20Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/max-sixty/worktrunk/blob/9669d4a7bbdd99298be1f6e1e6dceadba5ceb449/README.md",
+      "bytes": 15249,
+      "sha256": "54fbcb1004d61b5c297f3ce00bed85536aaa677ad43102e1f9374496bbce7e4a",
+      "line_count": 267
+    },
+    {
+      "path": "Cargo.toml",
+      "url": "https://github.com/max-sixty/worktrunk/blob/9669d4a7bbdd99298be1f6e1e6dceadba5ceb449/Cargo.toml",
+      "bytes": 16721,
+      "sha256": "669dac1ea81f5f5a545559209f59daa1478804ac260b0ee19ca7d65d5802654c",
+      "line_count": 382
+    },
+    {
+      "path": "src/commands/worktree/mod.rs",
+      "url": "https://github.com/max-sixty/worktrunk/blob/9669d4a7bbdd99298be1f6e1e6dceadba5ceb449/src/commands/worktree/mod.rs",
+      "bytes": 3761,
+      "sha256": "850384492ba648f97a2ceab2a50a131aafc1b6bee58c114bab92e7f05ca90d94",
+      "line_count": 99
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/max-sixty/worktrunk/blob/9669d4a7bbdd99298be1f6e1e6dceadba5ceb449/LICENSE",
+      "bytes": 11813,
+      "sha256": "eda019abe602c101e9d9c2d7723aa4c4cb2b1ae0e0e0915c37976d5c1d3bb632",
+      "line_count": 221
+    }
+  ],
+  "source_tree_blob_count": 1748,
+  "source_tree_paths_sha256": "a42a3d193a32794b9908ac8dc162bc35804b51713c27fe77361e968982280b7a",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "Cargo.toml"
+  ],
+  "test_path_count": 1232
+}

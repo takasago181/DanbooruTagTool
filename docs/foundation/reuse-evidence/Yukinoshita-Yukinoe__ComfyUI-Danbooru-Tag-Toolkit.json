@@ -1,0 +1,59 @@
+{
+  "repository": "Yukinoshita-Yukinoe/ComfyUI-Danbooru-Tag-Toolkit",
+  "url": "https://github.com/Yukinoshita-Yukinoe/ComfyUI-Danbooru-Tag-Toolkit",
+  "branch": "main",
+  "source_commit": "168a189882aabb705c29a9849e5fdeb9d06ec15f",
+  "latest_commit_date": "2026-09-15T10:33:11Z",
+  "latest_commit_message": "docs: release 1.2.0",
+  "archived": false,
+  "language": "JavaScript",
+  "license": "MIT",
+  "pushed_at": "2026-09-15T10:33:30Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/Yukinoshita-Yukinoe/ComfyUI-Danbooru-Tag-Toolkit/blob/168a189882aabb705c29a9849e5fdeb9d06ec15f/README.md",
+      "bytes": 11637,
+      "sha256": "a27c99449ccc02bad6b2e55474553f6da48b2eb1bcc8446ebb39b0a245694217",
+      "line_count": 246
+    },
+    {
+      "path": "requirements.txt",
+      "url": "https://github.com/Yukinoshita-Yukinoe/ComfyUI-Danbooru-Tag-Toolkit/blob/168a189882aabb705c29a9849e5fdeb9d06ec15f/requirements.txt",
+      "bytes": 23,
+      "sha256": "81811404d6bef3280fdac1274f7493cd2cc9b4ffb868e4fca009d28dd15db253",
+      "line_count": 3
+    },
+    {
+      "path": "prompt_mixer_node.py",
+      "url": "https://github.com/Yukinoshita-Yukinoe/ComfyUI-Danbooru-Tag-Toolkit/blob/168a189882aabb705c29a9849e5fdeb9d06ec15f/prompt_mixer_node.py",
+      "bytes": 7722,
+      "sha256": "1e65d43eb47200ccca198c2d290c5e3324d5559b5edc25d104db201c22c45f87",
+      "line_count": 238
+    },
+    {
+      "path": "prompt_selector_node.py",
+      "url": "https://github.com/Yukinoshita-Yukinoe/ComfyUI-Danbooru-Tag-Toolkit/blob/168a189882aabb705c29a9849e5fdeb9d06ec15f/prompt_selector_node.py",
+      "bytes": 39351,
+      "sha256": "2b3e95bd270ca35b76b828947b5fbfc29ce477fb935d5c9ea0324dbef03cd14a",
+      "line_count": 2014
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/Yukinoshita-Yukinoe/ComfyUI-Danbooru-Tag-Toolkit/blob/168a189882aabb705c29a9849e5fdeb9d06ec15f/LICENSE",
+      "bytes": 1074,
+      "sha256": "a537716e1c651abc1e6ade1c46dd8fb127221bc5f1a107b37f5ac7ecc07e8a03",
+      "line_count": 21
+    }
+  ],
+  "source_tree_blob_count": 29,
+  "source_tree_paths_sha256": "82ac6d79d3664eccc2f62596af0afeae3f7b745b25a8eab8f58aeee2574f5da8",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "requirements.txt"
+  ],
+  "test_path_count": 1
+}

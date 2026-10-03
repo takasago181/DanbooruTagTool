@@ -1,0 +1,59 @@
+{
+  "repository": "ollama/ollama",
+  "url": "https://github.com/ollama/ollama",
+  "branch": "main",
+  "source_commit": "42e911bc3d05798cad729cb474bf62f378cb2e26",
+  "latest_commit_date": "2026-10-02T18:52:27Z",
+  "latest_commit_message": "docs: document image input for decision models (#18757)",
+  "archived": false,
+  "language": "Go",
+  "license": "MIT",
+  "pushed_at": "2026-10-02T18:52:29Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/ollama/ollama/blob/42e911bc3d05798cad729cb474bf62f378cb2e26/README.md",
+      "bytes": 19225,
+      "sha256": "09c456b8f3e2fca486f6961e07494f424ec6f998cfd0b23ebde099bc028a47de",
+      "line_count": 356
+    },
+    {
+      "path": "go.mod",
+      "url": "https://github.com/ollama/ollama/blob/42e911bc3d05798cad729cb474bf62f378cb2e26/go.mod",
+      "bytes": 3761,
+      "sha256": "221bbaadbd43993ad9342e662051dc91b35feebd93a3c96d480bd52a91874952",
+      "line_count": 91
+    },
+    {
+      "path": "api/types.go",
+      "url": "https://github.com/ollama/ollama/blob/42e911bc3d05798cad729cb474bf62f378cb2e26/api/types.go",
+      "bytes": 40753,
+      "sha256": "e9c86add622033ade3d288dd6e1dfbd7f35be6a7ef1f31dda3486f0b859a1df3",
+      "line_count": 1289
+    },
+    {
+      "path": "docs/api.md",
+      "url": "https://github.com/ollama/ollama/blob/42e911bc3d05798cad729cb474bf62f378cb2e26/docs/api.md",
+      "bytes": 53782,
+      "sha256": "33c374a5648a505faac9c64230e4c69f95906aff817ef4d11b8ab7dd193b1ba1",
+      "line_count": 1844
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/ollama/ollama/blob/42e911bc3d05798cad729cb474bf62f378cb2e26/LICENSE",
+      "bytes": 1058,
+      "sha256": "5934ed2ce0d15154bcdb9c85203210abac0da4314af34081e36df4599f90b226",
+      "line_count": 21
+    }
+  ],
+  "source_tree_blob_count": 1335,
+  "source_tree_paths_sha256": "7c2a41dec33e32111eedea0669131c2fd07db4b1b64712ce3acf54cc189f6bed",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "go.mod"
+  ],
+  "test_path_count": 89
+}

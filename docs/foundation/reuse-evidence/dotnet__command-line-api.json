@@ -1,0 +1,64 @@
+{
+  "repository": "dotnet/command-line-api",
+  "url": "https://github.com/dotnet/command-line-api",
+  "branch": "main",
+  "source_commit": "ba7fb9bd444341627813451c54079b7a17d3d448",
+  "latest_commit_date": "2026-10-02T16:15:50Z",
+  "latest_commit_message": "Merge pull request #2854 from cloudsealed/feature/allocation-reduction",
+  "archived": false,
+  "language": "C#",
+  "license": "MIT",
+  "pushed_at": "2026-10-02T16:15:51Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/dotnet/command-line-api/blob/ba7fb9bd444341627813451c54079b7a17d3d448/README.md",
+      "bytes": 2530,
+      "sha256": "0847283cf4fccc7b00637d4ba7da57d230f5444daae9a09271ce88245a28949d",
+      "line_count": 38
+    },
+    {
+      "path": "src/System.CommandLine/RootCommand.cs",
+      "url": "https://github.com/dotnet/command-line-api/blob/ba7fb9bd444341627813451c54079b7a17d3d448/src/System.CommandLine/RootCommand.cs",
+      "bytes": 5981,
+      "sha256": "65f914d1f88faed8cc7fadb7a148f39ba4cce08abe022b2c78e98534c3fe44f9",
+      "line_count": 139
+    },
+    {
+      "path": "src/System.CommandLine/System.CommandLine.csproj",
+      "url": "https://github.com/dotnet/command-line-api/blob/ba7fb9bd444341627813451c54079b7a17d3d448/src/System.CommandLine/System.CommandLine.csproj",
+      "bytes": 1524,
+      "sha256": "7b3fe8328a9d77d3d860cae7dfc7dc840bf844115f3cb34b3e56db4c46e8610c",
+      "line_count": 35
+    },
+    {
+      "path": "LICENSE.md",
+      "url": "https://github.com/dotnet/command-line-api/blob/ba7fb9bd444341627813451c54079b7a17d3d448/LICENSE.md",
+      "bytes": 1115,
+      "sha256": "58fd5ebf25d75b5bb5f4cd407a9fef3befd3641e1af90a1d0716618e6430fc19",
+      "line_count": 23
+    }
+  ],
+  "source_tree_blob_count": 457,
+  "source_tree_paths_sha256": "0ba2a510274795c05711dde5330f7eee2e703635acc7e747b226568693f6f9b1",
+  "license_paths_observed": [
+    "LICENSE.md"
+  ],
+  "dependency_paths_observed": [
+    "eng/common/internal/Tools.csproj",
+    "src/System.CommandLine.ApiCompatibility.Tests/System.CommandLine.ApiCompatibility.Tests.csproj",
+    "src/System.CommandLine.Benchmarks/System.CommandLine.Benchmarks.csproj",
+    "src/System.CommandLine.StaticCompletions.Tests/System.CommandLine.StaticCompletions.Tests.csproj",
+    "src/System.CommandLine.StaticCompletions/System.CommandLine.StaticCompletions.csproj",
+    "src/System.CommandLine.Suggest.Tests/EndToEndTestApp/EndToEndTestApp.csproj",
+    "src/System.CommandLine.Suggest.Tests/dotnet-suggest.Tests.csproj",
+    "src/System.CommandLine.Suggest/dotnet-suggest.csproj",
+    "src/System.CommandLine.Tests/System.CommandLine.Tests.csproj",
+    "src/System.CommandLine.Tests/TestApps/NativeAOT/NativeAOT.csproj",
+    "src/System.CommandLine.Tests/TestApps/NativeLibrary/NativeLibrary.csproj",
+    "src/System.CommandLine.Tests/TestApps/Trimming/Trimming.csproj",
+    "src/System.CommandLine/System.CommandLine.csproj"
+  ],
+  "test_path_count": 10
+}

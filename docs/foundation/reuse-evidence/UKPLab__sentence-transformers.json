@@ -1,0 +1,59 @@
+{
+  "repository": "huggingface/sentence-transformers",
+  "url": "https://github.com/huggingface/sentence-transformers",
+  "branch": "main",
+  "source_commit": "4a3b5cd6ec718e421f57e824a41ed3fd99595df6",
+  "latest_commit_date": "2026-09-21T19:39:06Z",
+  "latest_commit_message": "[docs] Use hf auth login instead of huggingface-cli login (#4063)",
+  "archived": false,
+  "language": "Python",
+  "license": "Apache-2.0",
+  "pushed_at": "2026-10-01T20:19:25Z",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/UKPLab/sentence-transformers/blob/4a3b5cd6ec718e421f57e824a41ed3fd99595df6/README.md",
+      "bytes": 17366,
+      "sha256": "4f17835afaab1aa49bc1f16dd5cbf6af6f2b3bdd7212e2e7ff2569e6c36b1604",
+      "line_count": 331
+    },
+    {
+      "path": "pyproject.toml",
+      "url": "https://github.com/UKPLab/sentence-transformers/blob/4a3b5cd6ec718e421f57e824a41ed3fd99595df6/pyproject.toml",
+      "bytes": 4981,
+      "sha256": "872176a24da2ba51fd4027304b76b478118ba33187304cb58e043c1d42681edd",
+      "line_count": 207
+    },
+    {
+      "path": "docs/conf.py",
+      "url": "https://github.com/UKPLab/sentence-transformers/blob/4a3b5cd6ec718e421f57e824a41ed3fd99595df6/docs/conf.py",
+      "bytes": 11332,
+      "sha256": "80bf388fe0ec8dbd8a3d9535d48e14556e74dac71299b8bb8ab120624e34bf14",
+      "line_count": 327
+    },
+    {
+      "path": "sentence_transformers/__init__.py",
+      "url": "https://github.com/UKPLab/sentence-transformers/blob/4a3b5cd6ec718e421f57e824a41ed3fd99595df6/sentence_transformers/__init__.py",
+      "bytes": 3283,
+      "sha256": "a535d8c49856679ef788bc7b1b6c59a4272bcd65abf423769ca770081d7922a1",
+      "line_count": 87
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/huggingface/sentence-transformers/blob/4a3b5cd6ec718e421f57e824a41ed3fd99595df6/LICENSE",
+      "bytes": 11338,
+      "sha256": "624b030fd62b8b989dd502d5bb6322cbc0dbb524ab9c9708f32efe33d7275735",
+      "line_count": 201
+    }
+  ],
+  "source_tree_blob_count": 811,
+  "source_tree_paths_sha256": "180cb6e48833aaba140f6c7860163f1b19a4a804e31b4cfd6a218f7af5d106d0",
+  "license_paths_observed": [
+    "LICENSE"
+  ],
+  "dependency_paths_observed": [
+    "pyproject.toml"
+  ],
+  "test_path_count": 147
+}
