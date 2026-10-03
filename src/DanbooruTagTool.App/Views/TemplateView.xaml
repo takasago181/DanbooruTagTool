@@ -1,0 +1,15 @@
+<UserControl x:Class="DanbooruTagTool.App.Views.TemplateView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+ <ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="12">
+ <TextBlock Text="Promptテンプレート" FontSize="18"/>
+ <TextBlock Text="{}{a|b}、__name__、bounded nesting。WildcardsはUserData/Templates/Wildcards/*.txt（1行1候補）。未対応構文はraw保持。" TextWrapping="Wrap"/>
+ <TextBox Text="{Binding Source,UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" Height="100"/>
+ <TextBlock Text="候補数の上限（1〜256）"/><TextBox Text="{Binding Cap,UpdateSourceTrigger=PropertyChanged}"/>
+ <TextBlock Text="任意の外部wildcard root（明示指定、直下txtのみ）"/><TextBox Text="{Binding ExternalRoot,UpdateSourceTrigger=PropertyChanged}"/>
+ <WrapPanel><Button Content="Preview / count" Command="{Binding Preview}"/><Button Content="保存" Command="{Binding Save}"/><Button Content="開く" Command="{Binding Reload}"/></WrapPanel>
+ <TextBlock Text="{Binding Status}" TextWrapping="Wrap"/>
+ <ListBox ItemsSource="{Binding Variants}" SelectedItem="{Binding Selected}" Height="190"/>
+ <WrapPanel><Button Content="選択候補をPositiveへ" Command="{Binding Materialize}"/><Button Content="候補をA/B実験draftへ（最大16）" Command="{Binding ToExperiment}"/></WrapPanel>
+ <TextBlock Text="実験への転送は条件の固定とdraft作成のみです。実験の保存・明示Startまで生成しません。" TextWrapping="Wrap"/>
+ </StackPanel></ScrollViewer>
+</UserControl>
+
