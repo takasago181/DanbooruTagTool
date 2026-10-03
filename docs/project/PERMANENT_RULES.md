@@ -70,3 +70,9 @@ Human dashboard: `docs/project/NOW.md`
 Execution guidance: `docs/project/EXECUTION_ARCHITECTURE.md`
 
 Task details: selected live GitHub Issue and task-specific docs.
+
+## 9. Closeout ownership
+
+39. Substantial Issue closeout records product/test/tool/workflow/data/branch/worktree disposition and recovery; temporary scaffolding does not silently become permanent architecture.
+40. Closed-Issue write automation needs an explicit current owner or must be disabled. Preserve unique regression checks in current semantic CI.
+41. Worktree/branch retirement requires owner and recovery proof; closed/old/detached is insufficient. See `docs/maintenance/ISSUE_CLOSEOUT.md` and the guarded Batch A lifecycle tools.

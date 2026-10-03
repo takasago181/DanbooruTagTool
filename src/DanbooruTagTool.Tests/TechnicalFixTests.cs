@@ -51,7 +51,7 @@ public class TechnicalFixTests(ITestOutputHelper output)
     [Fact] public void OutputGuardRejectsAuthorityIssue56AndAllowsSiblings()
     {
         using var authority = new TempDirectory(); using var source = new TempDirectory(); using var external = new TempDirectory();
-        foreach (var relative in new[] { "docs/issue56", "docs/issue56/rollout", "docs/issue56/rollout/reviewed" })
+        foreach (var relative in new[] { "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue56", "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue56/rollout", "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue56/rollout/reviewed" })
             Assert.Throws<ArgumentException>(() => CatalogOutputGuard.Validate(Path.Combine(authority.Path, relative), source.Path, authority.Path));
         Assert.Equal(Path.GetFullPath(Path.Combine(authority.Path, "docs2")), CatalogOutputGuard.Validate(Path.Combine(authority.Path, "docs2"), source.Path, authority.Path));
         Assert.Equal(Path.GetFullPath(Path.Combine(source.Path, "src", "artifacts", "build")), CatalogOutputGuard.Validate(Path.Combine(source.Path, "src", "artifacts", "build"), source.Path, authority.Path));
@@ -110,7 +110,7 @@ public class TechnicalFixTests(ITestOutputHelper output)
             Issue216BrowseHomeImporter.RelativePath,
             Issue223BrowseGroupImporter.GroupsPath,
             Issue223BrowseGroupImporter.MembersPath,
-            "docs/issue56/rollout/issue56_ui_genre_taxonomy_v1.json",
+            "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue56/rollout/issue56_ui_genre_taxonomy_v1.json",
             AcceptedGeneralTaxonomyImporter.TaxonomyRelativePath, AcceptedGeneralTaxonomyImporter.SidecarRelativePath,
             AcceptedGeneralTaxonomyImporter.ManifestRelativePath
         });
@@ -119,7 +119,7 @@ public class TechnicalFixTests(ITestOutputHelper output)
         Assert.Equal(28226,before.Entries.Count(e=>!e.IsSpecial && e.BrowseClassification==BrowseClassificationStatus.Proposed));
         Assert.Equal(2403,before.Entries.Count(e=>!e.IsSpecial && e.BrowseClassification==BrowseClassificationStatus.Unresolved));
         Assert.All(before.Entries.Where(e=>!e.IsSpecial && e.BrowseClassification==BrowseClassificationStatus.Unresolved), e=>Assert.Empty(e.Paths));
-        File.WriteAllText(Path.Combine(isolated.Path,"docs/issue56/rollout/reviewed/stray.csv"), "invalid unexpected input");
+        File.WriteAllText(Path.Combine(isolated.Path,"src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue56/rollout/reviewed/stray.csv"), "invalid unexpected input");
         var after = AcceptedAssetImporter.Read(source!, isolated.Path);
         Assert.Equal(before.Entries.Length, after.Entries.Length);
         Assert.Equal(AcceptedAssetImporter.ProductionSpecialCount, after.Entries.Count(e => e.EffectiveCategory == "Special"));

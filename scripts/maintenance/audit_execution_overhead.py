@@ -79,7 +79,7 @@ def main() -> int:
             # Advisory heuristic: branch-wide push workflows without paths/path-ignore
             # deserve review if they run heavy audit/build work on every tiny commit.
             if re.search(r"(?m)^\s*push:\s*$", text):
-                has_paths = bool(re.search(r"(?m)^\s+paths(?:-ignore)?:\s*$", text))
+                has_paths = bool(re.search(r"(?m)^\s+paths(?:-ignore)?:", text))
                 heavy_words = any(word in text.lower() for word in ("full", "audit", "artifact", "build"))
                 if not has_paths and heavy_words:
                     warn(warnings, f"{wf.relative_to(ROOT)}: push workflow looks broad and heavy but has no paths filter.")

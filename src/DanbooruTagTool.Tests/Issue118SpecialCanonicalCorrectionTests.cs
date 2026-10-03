@@ -24,7 +24,7 @@ public sealed class Issue118SpecialCanonicalCorrectionTests(ITestOutputHelper ou
         var linkage = AcceptedAssetImporter.Csv(linkagePath).ToDictionary(row => row["ID"], StringComparer.Ordinal);
         var canonical = AcceptedAssetImporter.Csv(Path.Combine(sourceRoot, "data/source/danbooru-2026-09-02.csv"), false)
             .ToDictionary(row => row["0"], row => long.Parse(row["2"], CultureInfo.InvariantCulture), StringComparer.Ordinal);
-        var path = Path.Combine(authorityRoot, "docs/issue118/special_canonical_corrections_v1.csv");
+        var path = Path.Combine(authorityRoot, "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue118/special_canonical_corrections_v1.csv");
         var rows = AcceptedAssetImporter.Csv(path);
 
         var expected = Expected();

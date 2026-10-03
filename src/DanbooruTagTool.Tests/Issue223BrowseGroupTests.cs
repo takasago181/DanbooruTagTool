@@ -115,7 +115,7 @@ public sealed class Issue223BrowseGroupTests(ITestOutputHelper output)
         Assert.Equal(25533, candidate.Count(e => e.FormalHomeCopyright is not null));
         Assert.Equal(7409, candidate.Count(e => e.ReviewedBrowseHome is not null));
         Assert.Equal(2336, candidate.Count(e => e.EffectiveCategory == "Character" && e.EffectiveBrowseHome is null));
-        var manifest = JsonDocument.Parse(File.ReadAllText(Path.Combine(root, "docs/issue223/MANIFEST_V1.json"))).RootElement;
+        var manifest = JsonDocument.Parse(File.ReadAllText(Path.Combine(root, "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue223/MANIFEST_V1.json"))).RootElement;
         Assert.Equal(manifest.GetProperty("grouped_characters").GetInt32(), candidate.Count(e => e.BrowseGroup is not null));
         var catalog = new Catalog(candidate);
         var groupedRoots = candidate.Where(e => e.BrowseGroup is not null).Select(e => e.EffectiveBrowseHome!).Distinct().ToArray();

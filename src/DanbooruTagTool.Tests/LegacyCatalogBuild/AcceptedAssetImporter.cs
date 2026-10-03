@@ -15,8 +15,8 @@ public static class AcceptedAssetImporter
     public const int ExpandedSpecialCount = 3088;
     public const int ProductionSpecialCount = 3059;
     public const string ProductionProfileRelativePath = "data/generation/special2788_generation_profile.csv";
-    public const string PromotionRelativePath = "docs/issue96/special_expansion_promotion_proposal_v1.csv";
-    public const string Issue107PromotionRelativePath = "docs/issue107/promotion_metadata_v1.csv";
+    public const string PromotionRelativePath = "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue96/special_expansion_promotion_proposal_v1.csv";
+    public const string Issue107PromotionRelativePath = "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue107/promotion_metadata_v1.csv";
     private const string PromotionHash = "cdeef93802f8b1ebf0e70b2fe82211e2fd8955b064b063f10093a3ff0642dc1f";
     private const string Issue107PromotionHash = "84a31353d438001985b76793570417b6501f8ada220466c8508bf989544f26f5";
     public static readonly string[] ProtectedInputs = [
@@ -76,7 +76,7 @@ public static class AcceptedAssetImporter
         var productionProfilePath = Authority(ProductionProfileRelativePath);
         var productionProfile = Csv(productionProfilePath);
         ValidateProductionProfile(productionProfile, source, promotion, issue107Promotion);
-        using var taxonomy = JsonDocument.Parse(File.ReadAllText(Authority("docs/issue56/rollout/issue56_ui_genre_taxonomy_v1.json")));
+        using var taxonomy = JsonDocument.Parse(File.ReadAllText(Authority("src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue56/rollout/issue56_ui_genre_taxonomy_v1.json")));
         var paths = new Dictionary<string, BrowsePath>();
         foreach (var genre in taxonomy.RootElement.GetProperty("genres").EnumerateArray())
         {

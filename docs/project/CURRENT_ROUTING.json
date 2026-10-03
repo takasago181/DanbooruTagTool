@@ -1,6 +1,6 @@
 {
   "schema_version": "project-current-routing-v1",
-  "generated_at": "2026-10-02T23:27:40.226654+00:00",
+  "generated_at": "2026-10-03",
   "purpose": "compact machine-readable routing snapshot; not a permanent branch-head authority",
   "live_main_snapshot": null,
   "must_refetch_live_heads_before_write": true,
@@ -11,29 +11,19 @@
     "docs/project/PERMANENT_RULES.md",
     "task-specific contract/spec"
   ],
-  "active_lanes": [],
+  "active_lanes": [
+    {
+      "issue": 247,
+      "lane": "Foundation Batch B (#250/#251/#252)",
+      "branch": "foundation/batch-b",
+      "state": "PR_REVIEW_STOP",
+      "report": "docs/foundation/BATCH_B_CHECKPOINT_2026-10-03.md"
+    }
+  ],
   "completed_or_non_default": [
-    "Performance / Runtime Load Audit",
-    "portable/runtime hardening",
-    "#117 implementation baseline",
-    "#118 sexual intent baseline",
-    "#132 full 31,003-identity taxonomy usability audit and Pass B/C complete; PR #197 merged; static 274-route production overlay promoted to C:\\Codex\\DanbooruTagTool-App from live main f229ee4d2c3f5ea03dc964634a6d39d7f730710e",
-    "#199 General body/theme facets complete and production-promoted through PR #200; 346 identities / 355 assignments (BODY 247, THEME 108)",
-    "#201 practical discoverability finish complete through PR #202; no production taxonomy/catalog delta; practical intent-first scenario regression gate added",
-    "#204 live Unified filter refresh and visual stability follow-up complete; production baseline retained",
-    "#210 catalog validation/publish/promotion pipeline complete through PR #212; production promoted from live main a90f5b652d4239709005d020417a236ea9d97ebb; UserData byte-identical",
-    "#211 post-#210 hygiene finalization merged via PR #214; maintenance Issues #52/#138/#203/#210 closed; historical #188 wait-on-#180 wording retired at final #188 closeout",
-    "#180 Character -> HOME Copyright authority rebuild complete/closed; final frozen master SHA256 135463a5225b6501db923322284f8e309f217eb5359538088eb6de6d78b77071",
-    "#216 full unresolved coverage + reviewed Browse HOME runtime integration complete/closed; production fallback 7,409 Characters",
-    "#188 execution-efficiency foundation and stale-current-authority cleanup complete/closed; reopen only for a concrete new overhead defect",
-    "#179 reviewed display/search overlay deployed through PR #220/#221; 1,215 rows, display 221 / search 1,000; formal HOME and Issue70 source unchanged; residual REVIEW/HOLD retained",
-    "#223 display-only Browse Groups complete and production-deployed through PR #224; 7 HOME / 64 groups / 2,467 grouped / 2,072 unclassified / 21 HOLD; HOME authority and #179/#70 unchanged; UserData byte-identical",
-    "#226 generation image library complete via PR #238; production APPLIED from source main 49963dc129a1725c8a74d7f29aeb960884b67569; schema1 separate DB; real Forge one-image/UI/search/missing/UserData closeout PASS; production unchanged",
-    "#228 API-first GenerationRecipe merged through PR #240; actual PNG/Library round-trip PASS; not production-applied",
-    "#229 Local LoRA complete via PR #242; offline SHA-keyed personal inventory/recipes; not production-applied",
-    "#232 Negative/Prompt intelligence complete via PR #243; versioned backed-up UserData2; full protected regression 340 PASS/4 SKIP; not production-applied",
-    "#225 STOP POINT reached after #228/#229/#232 merged checkpoints; new features stopped; user started #245 UI/UX Phase A; no #230/#231/new large workspaces; docs/issue225/STOP_POINT_2026-10-02.md",
-    "#245 B-lite complete/closed and production-promoted; new LKG recorded; real Forge/Library round-trip PASS"
+    "Historical lane details: docs/project/CURRENT_STATE_HISTORY.md; live closed Issues and immutable checkpoints",
+    "#245 production LKG retained",
+    "#248 audit and Foundation Batch A complete; PR #261 merged"
   ],
   "protected_boundaries": [
     "UserData is user-owned",
@@ -60,7 +50,7 @@
   "network_policy": "External/network-backed features are allowed when useful; preserve local-state safety and keep secrets out of the repository. Offline is a preference, not a universal hard requirement.",
   "packaging_policy": "Self-contained/single-file/no-PDB/second-PC/folder-copy/machine-independent-path checks are optional unless a specific task needs them.",
   "production_lkg_source": "b3f48c359a8473c8bbf02347487cba5d8dacf96c",
-  "foundation_gate": "BATCH_A_IMPLEMENTED_REVIEW_STOP",
+  "foundation_gate": "BATCH_B_IMPLEMENTED_PR_REVIEW_STOP",
   "foundation_audit": {
     "issue": 248,
     "state": "closed",
@@ -71,20 +61,21 @@
       "#254 performance/storage project",
       "#255 history compaction"
     ],
-    "next": "P0 + Batch A implemented on foundation/batch-a after explicit user authorization; await PR review. Do not start Batch B/new features."
+    "next": "Use completed #248 and Batch A evidence; Batch B implemented on foundation/batch-b. Stop for PR review; no production, Batch C or feature work."
   },
   "foundation_implementation": {
     "issue": 247,
     "scope": [
-      "P0",
-      "Batch A",
-      "authorized worktree recurrence audit/remediation"
+      "Batch B #250/#251/#252"
     ],
-    "branch": "foundation/batch-a",
-    "implementation_commit": "77899c9a",
-    "report": "docs/foundation/BATCH_A_CHECKPOINT_2026-10-03.md",
+    "branch": "foundation/batch-b",
+    "baseline_main": "0193cee41c52050e680767f722efcdcef6de481f",
+    "report": "docs/foundation/BATCH_B_CHECKPOINT_2026-10-03.md",
     "production_applied": false,
-    "batch_b_started": false,
-    "stop": "PR review; no self-merge, no Batch B/new feature"
-  }
+    "batch_b_started": true,
+    "stop": "PR review; no self-merge, production apply, Batch C or new features"
+  },
+  "toolchain": "docs/maintenance/TOOLCHAIN.md",
+  "closeout_disposition": "docs/maintenance/ISSUE_CLOSEOUT.md",
+  "research_archive": "research/archive/foundation-b.json"
 }

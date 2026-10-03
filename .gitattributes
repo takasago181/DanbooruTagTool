@@ -38,3 +38,8 @@ authority/catalog/**/*.json text eol=lf
 *.py text eol=lf
 .gitignore text eol=lf
 .gitattributes text eol=lf
+
+# Frozen test inputs retain exact Git bytes, including historical CRLF where present.
+src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/** -text
+research/archive/*.json text eol=lf
+src/DanbooruTagTool.Tests/LegacyCatalogBuild/Issue76Data/issue76_v1_unresolved_audit_v0_5.csv text eol=lf

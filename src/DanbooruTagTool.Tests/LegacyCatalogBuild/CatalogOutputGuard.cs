@@ -17,7 +17,7 @@ public static class CatalogOutputGuard
         // Keep the accepted #56 evidence tree immutable alongside protected data.
         if (roots.Length > 1)
         {
-            var acceptedIssue56 = Path.TrimEndingDirectorySeparator(Path.GetFullPath(Path.Combine(roots[1], "docs", "issue56")));
+            var acceptedIssue56 = Path.TrimEndingDirectorySeparator(Path.GetFullPath(Path.Combine(roots[1], "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue56")));
             if (full.Equals(acceptedIssue56, StringComparison.OrdinalIgnoreCase) ||
                 full.StartsWith(acceptedIssue56 + Path.DirectorySeparatorChar, StringComparison.OrdinalIgnoreCase))
                 throw new ArgumentException("Catalog output must not equal or be inside authority docs/issue56.");

@@ -9,8 +9,8 @@ namespace DanbooruTagTool.Data;
 /// </summary>
 public static class Issue118SexualIntentV2Overlay
 {
-    public const string RelativePath = "docs/issue118/production_candidate/sexual_intent_v2.csv";
-    public const string SummaryRelativePath = "docs/issue118/production_candidate/sexual_intent_v2_summary.json";
+    public const string RelativePath = "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue118/production_candidate/sexual_intent_v2.csv";
+    public const string SummaryRelativePath = "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue118/production_candidate/sexual_intent_v2_summary.json";
     public const int IdentityCount = 31_003;
     public const string ExpectedSha256 = "d2966dbc3c70617af2a985a94f81650785a29c1668b40b582d3c213ef2a68bc0";
 

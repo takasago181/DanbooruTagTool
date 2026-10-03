@@ -13,9 +13,10 @@ public sealed class Issue118RuntimeConflictReviewTests(ITestOutputHelper output)
     public void ConflictReviewIsCompleteAndMaterializesRuntimeIdentityRows()
     {
         var authorityRoot = Environment.GetEnvironmentVariable("DTT_AUTHORITY_ROOT")!;
-        var conflictPath = Path.Combine(authorityRoot, "docs/issue118/runtime_identity_conflicts_v1.csv");
-        var decisionPath = Path.Combine(authorityRoot, "docs/issue118/runtime_identity_conflict_review_decisions_v1.csv");
-        var outputPath = Path.Combine(authorityRoot, "docs/issue118/runtime_identity_conflict_review_v1.csv");
+        var conflictPath = Path.Combine(authorityRoot, "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue118/runtime_identity_conflicts_v1.csv");
+        var decisionPath = Path.Combine(authorityRoot, "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue118/runtime_identity_conflict_review_decisions_v1.csv");
+        using var generated = new TempDirectory();
+        var outputPath = Path.Combine(generated.Path, "runtime_identity_conflict_review_v1.csv");
 
         var conflicts = AcceptedAssetImporter.Csv(conflictPath);
         var conflictGroups = conflicts

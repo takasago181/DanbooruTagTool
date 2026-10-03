@@ -34,7 +34,7 @@ public sealed class Issue118SexualIntentV2AuthorityTests(ITestOutputHelper outpu
         var v1 = AcceptedAssetImporter.Csv(v1Path).ToDictionary(row => row["identity_key"], StringComparer.Ordinal);
         Assert.Equal(Issue118SexualIntentOverlay.IdentityCount, v1.Count);
 
-        var reconciliationPath = Path.Combine(authorityRoot, "docs/issue118/runtime_identity_reconciliation_v2.csv");
+        var reconciliationPath = Path.Combine(authorityRoot, "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue118/runtime_identity_reconciliation_v2.csv");
         var reconciliation = AcceptedAssetImporter.Csv(reconciliationPath);
         var mappingErrors = reconciliation.Count(row => row["reconciliation_status"] == "IDENTITY_MAPPING_ERROR");
         Assert.Equal(0, mappingErrors);
@@ -44,7 +44,7 @@ public sealed class Issue118SexualIntentV2AuthorityTests(ITestOutputHelper outpu
 
         var conflictKeys = reconciliation.Where(row => row["reconciliation_status"] is "SEMANTIC_CONFLICT" or "UNCLASSIFIED_CONFLICT")
             .Select(row => row["runtime_identity"]).Distinct(StringComparer.Ordinal).ToHashSet(StringComparer.Ordinal);
-        var decisionPath = Path.Combine(authorityRoot, "docs/issue118/runtime_identity_conflict_review_decisions_v2.csv");
+        var decisionPath = Path.Combine(authorityRoot, "src/DanbooruTagTool.Tests/LegacyCatalogBuild/Inputs/docs/issue118/runtime_identity_conflict_review_decisions_v2.csv");
         var decisions = AcceptedAssetImporter.Csv(decisionPath).ToDictionary(row => row["runtime_identity"], StringComparer.Ordinal);
         Assert.Equal(conflictKeys, decisions.Keys.ToHashSet(StringComparer.Ordinal));
         Assert.DoesNotContain(decisions.Values, row => row["mapping_quality"] != "VALID" || row["reviewer_action"] != "RESOLVED");
@@ -57,10 +57,11 @@ public sealed class Issue118SexualIntentV2AuthorityTests(ITestOutputHelper outpu
         Assert.DoesNotContain(rows, row => row.MappingQuality != "VALID" || row.SemanticConflict != "NO");
         Assert.Equal(0, rows.Count(row => row.ReviewerAction == "NEEDS_CANONICAL_FIX"));
 
-        var candidatePath = Path.Combine(authorityRoot, Issue118SexualIntentV2Overlay.RelativePath);
+        using var generated = new TempDirectory();
+        var candidatePath = Path.Combine(generated.Path, "sexual_intent_v2.csv");
         Directory.CreateDirectory(Path.GetDirectoryName(candidatePath)!);
         WriteCsv(candidatePath, rows);
-        var summaryPath = Path.Combine(authorityRoot, Issue118SexualIntentV2Overlay.SummaryRelativePath);
+        var summaryPath = Path.Combine(generated.Path, "sexual_intent_v2_summary.json");
         WriteSummary(summaryPath, rows, ordinary, v1Path, reconciliationPath, decisionPath,
             Path.Combine(authorityRoot, Issue118SpecialCanonicalCorrectionOverlay.RelativePath), reconciliation, conflictKeys);
 
