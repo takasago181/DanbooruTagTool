@@ -509,5 +509,53 @@
       "run": 4,
       "ms": 2937.9969
     }
-  ]
+  ],
+  "startupAfter": [
+    {
+      "ms": 3445.7607,
+      "run": 0,
+      "workingSetBytes": 415391744
+    },
+    {
+      "ms": 3012.9919,
+      "run": 1,
+      "workingSetBytes": 417181696
+    },
+    {
+      "ms": 2986.3343,
+      "run": 2,
+      "workingSetBytes": 417685504
+    },
+    {
+      "ms": 2978.4819,
+      "run": 3,
+      "workingSetBytes": 416374784
+    },
+    {
+      "ms": 3010.8218,
+      "run": 4,
+      "workingSetBytes": 416952320
+    }
+  ],
+  "startupSummary": {
+    "before": {
+      "medianMs": 2987.7548,
+      "medianWorkingSetBytes": 417628160
+    },
+    "after": {
+      "medianMs": 3010.8218,
+      "medianWorkingSetBytes": 416952320
+    }
+  },
+  "sourceCandidate": "bf94b3f00617865a445182e1bd7a373ec14e83af",
+  "fullRegression": {
+    "passed": 469,
+    "skipped": 26,
+    "failed": 0,
+    "runCount": 1
+  },
+  "publishBytes": {
+    "before": 327034541,
+    "after": 327039149
+  }
 }

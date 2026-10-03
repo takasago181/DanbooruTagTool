@@ -1,11 +1,11 @@
 # NOW
 
-2026-10-04 — #234 / #235 / #236 COMPLETE / production promoted once.
-[Completion / acceptance](../issue236/COMPLETE_INTEGRATED_PRODUCTION_2026-10-04.md).
-[Integrated LKG / hashes / rollback](../issue236/INTEGRATED_PRODUCTION_LKG_2026-10-04.json).
+2026-10-04 — #276 COMPLETE / final optimization and DTT-only cleanup.
+[Completion / benchmarks / cleanup / rollback](../issue276/COMPLETE_FINAL_OPTIMIZATION_2026-10-04.md).
+[Final production LKG / hashes](../issue276/FINAL_PRODUCTION_LKG.json).
 
-PRs #273/#274/#275 merged; production source97c4cb74. Clean build and final local regression467 PASS/25 existing opt-in SKIP/0 FAIL; PR/main CI PASS. Actual candidate EXE two template trial POSTs and production EXE one normal POST PASS, each with Library/WD14/explicit selected-tag use/personal hints+exclusions/Recipe restart.
+PR #277 merged; production source bf94b3f0. Clean build/regression 469 PASS / 26 opt-in SKIP / 0 FAIL; PR/main CI and actual practical/Regional/LoRA E2E + installed smoke PASS. Search allocation falls from 19–38 MB to a few KB with ordered-result parity; personal rule parsing and atomic persistence are consolidated. No UI or authority/schema change.
 
-Reused existing WD14 ce1b3e31 / cached MOATv2 8452cddf (Apache-2.0 model), no install/download. Original UserData15 files preserved; only verified tagger profile added. Existing DB schemas4/1/1 unchanged, separate user JSON version1. Catalog124895 rows/hash unchanged. Forge config/ui, Regional b10c496d/settings unchanged. New LKG lkg/production-practical-20261004-97c4cb74; prior #231 LKG and required recovery retained.
+UserData 16 files, Library and Forge/Regional settings byte-identical. New final LKG lkg/production-final-optimization-20261004-bf94b3f0; immediate practical rollback lkg/production-practical-20261004-97c4cb74. Pre276 complete/consistent DB recovery and required migration backups retained. Superseded roots/generated files have verified exact local archive recovery; 23 merged task worktrees retired, all refs/history retained. C:/Codex measured logical bytes 45.36 → 18.60 GB (26.77 GB net reclaimed); unrelated directories untouched.
 
-#237 not planned. #230/#231/#232/#256/Foundation remain COMPLETE. No active lane. Stop here; final code/environment cleanup and #241 UI/UX consolidation are the later phase, not part of this run.
+#230/#231/#232/#234/#235/#236/#247/#256/#276 COMPLETE; #237 not planned. No active lane. STOP. #241 UI/UX work is a separately authorized next phase and has not started.

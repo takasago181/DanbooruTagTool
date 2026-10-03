@@ -1,0 +1,55 @@
+{
+  "unit": "decimal GB; logical file bytes; no reparse traversal",
+  "beforeBytes": 45364641894,
+  "afterBytes": 18596218094,
+  "netReclaimedBytes": 26768423800,
+  "repositoryBeforeBytes": 41099424127,
+  "repositoryAfterBytes": 12784967478,
+  "beforeDirectories": {
+    "DanbooruTagTool": 41099424127,
+    "DanbooruTagTool-App": 328615812,
+    "DanbooruTagTool-Backup-pre230-20261003-7f57a120": 328617242,
+    "DanbooruTagTool-Backup-pre231-20261003-22141a80": 328578058,
+    "DanbooruTagTool-Backup-pre234235236-20261004-97c4cb74": 328793434,
+    "DanbooruTagTool-Backup-pre256-20261003-ad14d45f": 328398606,
+    "DanbooruTagTool-Foundation-LKG-20261003-76269b8c": 326812123,
+    "DanbooruTagTool-Foundation-ProductionCandidate-20261003-ad14d45f": 326681051,
+    "DanbooruTagTool-PreFoundation-Backup-20261003-ad14d45f": 326973066,
+    "DanbooruTagTool-Production-LKG-20261003-22141a80": 326934329,
+    "DanbooruTagTool-Production-LKG-20261003-7f57a120": 328331515,
+    "DanbooruTagTool-Production-LKG-20261003-ad14d45f": 328236395,
+    "DanbooruTagTool-Production-LKG-20261003-ad14d45f-verification": 585515,
+    "DanbooruTagTool-Production-LKG-20261003-eb20abe1": 328443131,
+    "DanbooruTagTool-Production-LKG-20261004-97c4cb74": 328628113,
+    "pytest-temp": 78244,
+    "sidejob": 511133
+  },
+  "afterDirectories": {
+    "DanbooruTagTool": 12784967478,
+    "DanbooruTagTool-App": 328620420,
+    "DanbooruTagTool-Backup-pre256-20261003-ad14d45f": 328398606,
+    "DanbooruTagTool-Backup-pre276-20261004-bf94b3f0": 328903888,
+    "DanbooruTagTool-PreFoundation-Backup-20261003-ad14d45f": 326973066,
+    "DanbooruTagTool-Production-LKG-20261004-97c4cb74": 328628113,
+    "DanbooruTagTool-Production-LKG-20261004-bf94b3f0": 328625552,
+    "DanbooruTagTool-Recovery-final-optimization-20261004": 3840511594,
+    "pytest-temp": 78244,
+    "sidejob": 511133
+  },
+  "errorsExcludedAndRetained": [
+    [
+      "C:\\Codex\\DanbooruTagTool\\backups\\python_env_validation_20260906_0830\\pytest_vertical_codex_full",
+      "[WinError 5] アクセスが拒否されました。: 'C:\\\\Codex\\\\DanbooruTagTool\\\\backups\\\\python_env_validation_20260906_0830\\\\pytest_vertical_codex_full'"
+    ]
+  ],
+  "reparseExcludedAndUntouched": [
+    "C:\\Codex\\sidejob\\node_modules"
+  ],
+  "recoveryRoot": "C:\\Codex\\DanbooruTagTool-Recovery-final-optimization-20261004",
+  "recoveryBytes": 3840511594,
+  "stagingPayloadFiles": 121,
+  "mergedWorktreesRetired": 23,
+  "supersededRootsArchived": 10,
+  "gitRefsUnchangedByNonPruningGC": 337,
+  "unrelatedSidejobAndUnprovenPytestTempUnchanged": true
+}
