@@ -1,14 +1,15 @@
 # CURRENT STATE
 
-2026-10-03 — #230 Experiment Lab COMPLETE / production promoted.
-[Completion and acceptance](../issue230/COMPLETE_PRODUCTION_2026-10-03.md).
-[Production LKG / hashes / rollback](../issue230/PRODUCTION_LKG_2026-10-03.json).
+2026-10-03 — #231 Region Composer v1 COMPLETE / production promoted.
+[Completion / acceptance](../issue231/COMPLETE_PRODUCTION_2026-10-03.md).
+[Production LKG / hashes / rollback](../issue231/PRODUCTION_LKG_2026-10-03.json).
 
-Production source eb20abe1; UserState4 /Library1 /LoRA Library1 unchanged.
-Lazy additive Experiment DB1; no shared schema migration.
-Current UserData15 files and Forge2 settings byte-identical. Installed Windows/Forge1D4 +2D8 +rerun1 PASS.
-Accepted semantic catalog124895 rows/hash unchanged. Old LKG/backups retained.
-Foundation downgrade requires matching pre256 migration backup restore.
-
-#256 remains COMPLETE/CLOSED. No active lane; #231 not started.
-Semantic owners unchanged: accepted authority → Maintenance → catalog; Core domain; Data storage/adapters; WPF shell.
+Production source `22141a80`; PR #272 merged at `9e71eed8` with identical product tree.
+Existing Regional Prompter hako-mikan `b10c496d`, AGPL-3.0; exact API contract verified.
+Common/A/B, horizontal/vertical, ratios, negative blocks, PNG/Library/Recipe restoration
+and existing Lab same-seed ordinary/regional comparisons PASS. No automatic leakage claim.
+Final local regression445 PASS/25 SKIP/0 FAIL, PR CI PASS, actual production EXE2 POSTs PASS.
+UserData15 files byte-identical; UserState4/Library1/LoRA Library1 unchanged.
+Forge config/ui and existing extension preserved; RP lastrun preset restored to initial bytes.
+Accepted catalog124895 rows/hash unchanged. Old LKG/backups retained.
+#230/#256/Foundation remain COMPLETE. No active lane. Stop at #231; no #232 work.
