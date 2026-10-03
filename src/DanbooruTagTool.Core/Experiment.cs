@@ -37,6 +37,8 @@ public static class ExperimentPlanner
             setup.Baseline is null || setup.Baseline.Positive.Length > 16000 || setup.Baseline.Negative.Length > 16000)
             throw new ArgumentException("実験名、baseline、hypothesisの上限を確認してください。");
         var baseline = GenerationRecipeDerivation.Snapshot(setup.Baseline.Positive, setup.Baseline.Negative, setup.Baseline.Recipe);
+        if (new[] { baseline.Positive, baseline.Negative }.Any(v => v.Contains('{') || v.Contains('}') || v.Contains("__")))
+            throw new ArgumentException("controlled baselineではwildcard/templateを使えません。literal Promptを指定してください。");
         var loras = GenerationLibraryMetadata.Loras(baseline.Positive);
         var identities = GenerationLoraProvenance.Expected(baseline.Recipe.SourceParameters);
         if (loras.Count != identities.Count || loras.Any(l => !identities.Any(i => i.Name == l.Name && i.FileSha256 is not null)))

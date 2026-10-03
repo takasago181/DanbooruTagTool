@@ -9,7 +9,7 @@ namespace DanbooruTagTool.App.ViewModels;
 public sealed class ForgeViewModel : Observable
 {
     public Task<ForgeApiCapabilities> ReadRecipeCapabilitiesAsync() => api.ProbeAsync(ForgeUrl);
-    public Task<RecipeSnapshot> PinExperimentBaselineAsync(RecipeSnapshot snapshot) => api.PinRecipeIdentityAsync(ForgeUrl, snapshot);
+    public Task<RecipeSnapshot> PinExperimentBaselineAsync(RecipeSnapshot snapshot, CancellationToken ct = default) => api.PinRecipeIdentityAsync(ForgeUrl, snapshot, ct);
     private readonly IForgeBridgeClient bridge;
     private readonly Action persist;
     private readonly Func<bool> canMutate;

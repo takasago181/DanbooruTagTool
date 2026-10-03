@@ -53,6 +53,8 @@ public sealed class Issue230ExperimentTests
         Assert.Throws<ArgumentException>(() => ExperimentPlanner.Build(Setup() with { Seeds = [-1] }));
         Assert.Throws<ArgumentException>(() => ExperimentPlanner.Build(Setup() with { X = new(ExperimentVariable.Cfg, "", Enumerable.Range(0, 16).Select(i => i.ToString()).ToArray()), Y = new(ExperimentVariable.Steps, "", ["1", "2", "3"]) }));
         Assert.Throws<ArgumentException>(() => ExperimentPlanner.Build(Setup(ExperimentVariable.Steps, "", "1.5")));
+        Assert.Throws<ArgumentException>(() => ExperimentPlanner.Build(Setup() with { Baseline = Baseline() with { Positive = "{portrait|landscape}" } }));
+        Assert.Throws<ArgumentException>(() => ExperimentPlanner.Build(Setup() with { Baseline = Baseline() with { Negative = "__unbounded__" } }));
     }
     [Fact]
     public void LoRAUsesFullFileConstraintAndChangingPromptCannotChangeFixedLoRA()

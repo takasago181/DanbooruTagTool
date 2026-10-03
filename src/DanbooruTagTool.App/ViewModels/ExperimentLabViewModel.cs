@@ -119,12 +119,12 @@ public sealed class ExperimentLabViewModel : Observable
             {
                 if (!main.Create.TryRecipe(out var r, out var error)) throw new ArgumentException(error);
                 var snapshot = GenerationRecipeDerivation.Snapshot(main.Create.Positive, main.Create.Negative, r!);
-                main.Forge.BeginExperiment(); leased = true; busy = true; Refresh();
-                baseline = await main.Forge.PinExperimentBaselineAsync(snapshot); ConsentUnapplied = false;
+                main.Forge.BeginExperiment(); leased = true; busy = true; cancel = new(); Refresh();
+                baseline = await main.Forge.PinExperimentBaselineAsync(snapshot, cancel.Token); ConsentUnapplied = false;
                 Notify(nameof(BaselineSummary)); PreviewChanged(); Status = "baselineを取込済み。Model/LoRA identityを固定しました。生成はしていません。";
             }
             catch (Exception e) when (e is IOException or InvalidDataException or ArgumentException or InvalidOperationException or System.Net.Http.HttpRequestException or OperationCanceledException or JsonException) { baseline = null; Notify(nameof(BaselineSummary)); Status = "baseline未取込: " + e.Message; }
-            finally { busy = false; if (leased) main.Forge.EndExperiment(); Refresh(); }
+            finally { cancel?.Dispose(); cancel = null; busy = false; if (leased) main.Forge.EndExperiment(); Refresh(); }
         }, _ => CanEdit && main.CanEditPrompt && !main.PresetManagementOpen);
         Save = new(_ => Guard(() => { var p = ExperimentPlanner.Build(Draft()); Store.Save(p); ReloadList(); SelectedExperiment = Experiments.Single(e => e.Id == p.Id); }), _ => CanEdit && baseline is not null);
         Reload = new(_ => Guard(ReloadList), _ => CanEdit);
