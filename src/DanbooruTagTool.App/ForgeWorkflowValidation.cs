@@ -32,7 +32,7 @@ public static class ForgeWorkflowValidation
         window.Show(); window.UpdateLayout();
         try
         {
-            vm.Workspace.Replace("1girl, portrait, outdoors"); vm.Query = spec.TagQuery;
+            vm.Workspace.Replace("1girl, portrait, outdoors"); vm.Query = spec.TagQuery; vm.RefreshResults();
             var tag = vm.Results.Single(e => e.English == spec.CanonicalTag);
             tag.Add.Execute(null); Check(vm.English.Contains(spec.CanonicalTag), "Japanese discovery / explicit canonical add");
             vm.Workspace.Replace(vm.English + $", <lora:{spec.LoraName}:0.35>"); vm.NegativeWorkspace.Replace("text, watermark");
