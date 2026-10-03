@@ -104,7 +104,7 @@ public class Issue256RecipeIdentityTests
         {
             using var c = new SqliteConnection("Data Source=" + file + ";Pooling=False"); c.Open(); using var cmd = c.CreateCommand();
             cmd.CommandText = "SELECT payload FROM user_state"; Assert.Equal(json, cmd.ExecuteScalar());
-            cmd.CommandText = "PRAGMA user_version"; Assert.Equal(file == backup ? 2L : 3L, cmd.ExecuteScalar());
+            cmd.CommandText = "PRAGMA user_version"; Assert.Equal(file == backup ? 2L : UserStateStore.SchemaVersion, cmd.ExecuteScalar());
         }
         var loaded = store.Load()!;
         Assert.Equal(JsonSerializer.Serialize(state), JsonSerializer.Serialize(loaded));
@@ -118,13 +118,14 @@ public class Issue256RecipeIdentityTests
         Assert.True((long)check.ExecuteScalar()! > 2);
     }
 
-    [Fact]
-    public void FailedMigrationRollsBackAndRetainsOriginalBackup()
+    [Theory]
+    [InlineData(2)] [InlineData(3)]
+    public void FailedMigrationRollsBackAndRetainsOriginalBackup(int previousVersion)
     {
         using var d = new TempDirectory(); var path = Path.Combine(d.Path, "user.db");
         using (var c = new SqliteConnection("Data Source=" + path + ";Pooling=False"))
         {
-            c.Open(); using var cmd = c.CreateCommand(); cmd.CommandText = "CREATE TABLE user_state(id INTEGER PRIMARY KEY,version INTEGER,payload TEXT); INSERT INTO user_state VALUES(1,2,'{}'); PRAGMA user_version=2; CREATE TRIGGER prevent_update BEFORE UPDATE ON user_state BEGIN SELECT RAISE(ABORT,'fixture'); END;"; cmd.ExecuteNonQuery();
+            c.Open(); using var cmd = c.CreateCommand(); cmd.CommandText = $"CREATE TABLE user_state(id INTEGER PRIMARY KEY,version INTEGER,payload TEXT); INSERT INTO user_state VALUES(1,{previousVersion},'{{}}'); PRAGMA user_version={previousVersion}; CREATE TRIGGER prevent_update BEFORE UPDATE ON user_state BEGIN SELECT RAISE(ABORT,'fixture'); END;"; cmd.ExecuteNonQuery();
         }
         var bytes = File.ReadAllBytes(path);
         Assert.Throws<SqliteException>(() => new UserStateStore(path));

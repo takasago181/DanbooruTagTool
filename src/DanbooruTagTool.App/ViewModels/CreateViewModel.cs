@@ -14,6 +14,13 @@ public sealed class CreateViewModel : Observable
     private string origin = "未保存の現在設定", baselinePositive = "", baselineNegative = "";
     private GenerationRecipe? baselineRecipe;
     private bool loading;
+    private IReadOnlyList<GenerationParameter>? sourceParameters;
+    private bool allowDerivative;
+    public bool AllowDerivative { get => allowDerivative; set { Set(ref allowDerivative, value); Refresh(); } }
+    public bool RequiresDerivativeConsent => TryRecipe(out var r, out _) && r?.RequiresDerivativeConsent == true;
+    public string RestorationWarning => TryRecipe(out var r, out _) && r?.RequiresDerivativeConsent == true
+        ? "元画像の未適用条件（自動適用しません）:\n" + string.Join("\n", r.UnappliedParameters.Select(p => p.Name + ": " + p.Value))
+        : "このRecipeに保持された未適用条件はありません。元画像metadataにない条件や画像の完全一致は保証できません。";
     public CreateViewModel(MainViewModel main)
     {
         this.main = main;
@@ -44,14 +51,14 @@ public sealed class CreateViewModel : Observable
     public bool Changed => origin != "未保存の現在設定" &&
         (Positive != baselinePositive || Negative != baselineNegative || !TryRecipe(out var r, out _) || r != baselineRecipe);
     public string ConditionsSummary => $"Model: {Value(Model)} · Hash: {Value(ModelHash)} · Seed: {Value(Seed)} · Steps: {Value(Steps)} · {Value(Sampler)} / {Value(Scheduler)} · CFG: {Value(Cfg)} · {Value(Width)}×{Value(Height)}";
-    public string Validation => !TryRecipe(out var r, out var error) ? error : !Complete(r) ? "生成条件が不足または無効です。「生成条件 / Preset」で全項目を確認してください。" : "入力OK。生成前にForge capabilityを再確認し、実画像metadataで照合します。";
-    public bool CanGenerate => main.CanEditPrompt && main.Forge.RecipeExecutionAvailable && !main.PresetManagementOpen && TryRecipe(out var r, out _) && Complete(r);
+    public string Validation => !TryRecipe(out var r, out var error) ? error : !Complete(r) ? "生成条件が不足または無効です。「生成条件 / Preset」で全項目を確認してください。" : r?.RequiresDerivativeConsent == true && !AllowDerivative ? "元画像の未適用条件があります。「生成条件 / Preset」で確認し、派生生成を了承してください。" : "入力OK。生成前にForge capabilityを再確認し、実画像metadataで照合します。";
+    public bool CanGenerate => main.CanEditPrompt && main.Forge.RecipeExecutionAvailable && !main.PresetManagementOpen && TryRecipe(out var r, out _) && Complete(r) && (r?.RequiresDerivativeConsent != true || AllowDerivative);
     public AsyncRelayCommand Generate { get; }
     public RelayCommand LoadPreset { get; }
     public RelayCommand Save { get; }
     private static string Value(string s) => string.IsNullOrWhiteSpace(s) ? "未指定" : s;
     private static bool Complete(GenerationRecipe? r) => r is { Model: not null, Seed: >= 0, Steps: not null, Sampler: not null, Scheduler: not null, Cfg: not null, Width: not null, Height: not null } && r.Width % 8 == 0 && r.Height % 8 == 0;
-    public bool TryRecipe(out GenerationRecipe? r, out string error) => GenerationRecipeInput.TryBuild(Model, Seed, Steps, Sampler, Scheduler, Cfg, Width, Height, out r, out error, ModelHash);
+    public bool TryRecipe(out GenerationRecipe? r, out string error) => GenerationRecipeInput.TryBuild(Model, Seed, Steps, Sampler, Scheduler, Cfg, Width, Height, out r, out error, ModelHash, sourceParameters);
     public void Load(GenerationPreset p, string source)
     {
         if (!main.CanEditPrompt || main.Forge.RecipeBusy || main.PresetManagementOpen) return;
@@ -60,10 +67,12 @@ public sealed class CreateViewModel : Observable
         {
             main.Workspace.Replace(p.Positive); main.NegativeWorkspace.Replace(p.Negative);
             var r = p.Recipe;
+            sourceParameters = r?.SourceParameters?.ToArray(); AllowDerivative = false;
             Model = r?.Model ?? ""; Seed = Number(r?.Seed); Steps = Number(r?.Steps); Sampler = r?.Sampler ?? "";
             ModelHash = r?.ModelHash ?? "";
             Scheduler = r?.Scheduler ?? ""; Cfg = Number(r?.Cfg); Width = Number(r?.Width); Height = Number(r?.Height);
-            origin = source; baselinePositive = Positive; baselineNegative = Negative; baselineRecipe = r?.HasAny == true ? r : null;
+            origin = source; baselinePositive = Positive; baselineNegative = Negative;
+            TryRecipe(out baselineRecipe, out _);
             main.WorkspaceIndex = 1; main.CreatePageIndex = 0;
             main.Status = "作成で使う: Positive / Negative / 生成条件を置換しました。両PromptのUndo・回復は独立です。";
         }
@@ -75,7 +84,7 @@ public sealed class CreateViewModel : Observable
         if (!CanGenerate || !TryRecipe(out var r, out _)) return;
         // Capture before await: edits/selection changes cannot change this trial's source.
         var snapshot = new GenerationPreset(Guid.NewGuid(), SourceSummary, "現在の未保存snapshot", Positive, Negative, r);
-        await main.Forge.GenerateRecipeAsync(snapshot);
+        await main.Forge.GenerateRecipeAsync(snapshot, allowDerivative: AllowDerivative);
     }
     private void SaveCurrent()
     {
@@ -90,7 +99,7 @@ public sealed class CreateViewModel : Observable
     public void Refresh()
     {
         if (loading) return;
-        foreach (var n in new[] { nameof(Positive), nameof(Negative), nameof(SourceSummary), nameof(ConditionsSummary), nameof(Validation), nameof(CanGenerate), nameof(Changed) }) Notify(n);
+        foreach (var n in new[] { nameof(Positive), nameof(Negative), nameof(SourceSummary), nameof(ConditionsSummary), nameof(Validation), nameof(CanGenerate), nameof(Changed), nameof(RestorationWarning), nameof(RequiresDerivativeConsent) }) Notify(n);
         Generate?.Refresh(); LoadPreset?.Refresh(); Save?.Refresh();
     }
 }

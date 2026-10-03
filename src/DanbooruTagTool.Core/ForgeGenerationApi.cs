@@ -7,7 +7,7 @@ namespace DanbooruTagTool.Core;
 
 public sealed record ForgeApiModel(string Title, string Name, string? Hash);
 public sealed record ForgeApiCapabilities(IReadOnlyList<ForgeApiModel> Models, IReadOnlyList<string> Samplers, IReadOnlyList<string> Schedulers);
-public sealed record ForgeApiRequest(string Positive, string Negative, GenerationRecipe Recipe);
+public sealed record ForgeApiRequest(string Positive, string Negative, GenerationRecipe Recipe, bool AllowDerivative = false);
 public sealed record ForgeApiResult(bool Success, string Status, string? ImagePath = null, GenerationMetadataSnapshot? Metadata = null);
 public interface IForgeGenerationApiClient
 {
@@ -87,6 +87,8 @@ public sealed class ForgeGenerationApiClient : IForgeGenerationApiClient
         string? saved = null; var posted = false;
         try
         {
+            if (request.Recipe.RequiresDerivativeConsent && !request.AllowDerivative)
+                return new(false, "未適用の元画像条件があります。Createの生成条件で確認し、派生生成を明示的に了承してください。生成要求は送信していません。");
             using var timeout = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken); timeout.CancelAfter(TimeSpan.FromMinutes(10));
             var uri = Base(baseUrl); var caps = await ProbeAsync(baseUrl, cancellationToken); var model = Validate(request, caps); var r = request.Recipe;
             using var before = await Get(uri, "sdapi/v1/options", timeout.Token);
@@ -112,7 +114,7 @@ public sealed class ForgeGenerationApiClient : IForgeGenerationApiClient
             using var after = await Get(uri, "sdapi/v1/options", timeout.Token);
             if (checkpoint != after.RootElement.GetProperty("sd_model_checkpoint").GetString()) mismatches.Add("Model restore");
             if (mismatches.Count > 0) return new(false, "Recipe照合失敗: " + string.Join(", ", mismatches) + "。出力を保持しました。再送信せず確認してください。", saved, metadata);
-            return new(true, "RecipeをAPIで生成し、指定fieldを実画像metadataで照合しました。", saved, metadata);
+            return new(true, (request.Recipe.RequiresDerivativeConsent ? "派生生成（元画像の未適用条件は送信していません）。" : "") + "RecipeをAPIで生成し、指定fieldを実画像metadataで照合しました。画像の完全一致を保証するものではありません。", saved, metadata);
         }
         catch (Exception e) when (e is HttpRequestException or JsonException or InvalidDataException or GenerationMetadataException or ArgumentException or IOException or UnauthorizedAccessException or OperationCanceledException or InvalidOperationException or KeyNotFoundException or FormatException)
         { return new(false, "Recipe API: " + e.Message + (posted ? " 生成結果が不明な場合はForgeを確認してください。自動再試行はしません。" : " 生成要求は送信していません。"), saved); }

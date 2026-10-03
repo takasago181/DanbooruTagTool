@@ -45,6 +45,8 @@ public sealed class GenerationPresetsViewModel : Observable
     public string PresetNegative { get => presetNegative; set => Set(ref presetNegative, value); }
     public string PresetModel { get => presetModel; set => Set(ref presetModel, value); }
     private string presetModelHash = "";
+    private IReadOnlyList<GenerationParameter>? sourceParameters;
+    public string RestorationWarning => sourceParameters is null ? "" : "元画像条件を保持しています。未適用条件はCreateで確認してください。\n" + string.Join("\n", sourceParameters.Select(p => p.Name + ": " + p.Value));
     public string PresetModelHash { get => presetModelHash; set => Set(ref presetModelHash, value); }
     public string PresetSeed { get => presetSeed; set => Set(ref presetSeed, value); }
     public string PresetSteps { get => presetSteps; set => Set(ref presetSteps, value); }
@@ -155,11 +157,12 @@ public sealed class GenerationPresetsViewModel : Observable
 
     private bool TryBuildRecipe(out GenerationRecipe? recipe, out string error) =>
         GenerationRecipeInput.TryBuild(PresetModel, PresetSeed, PresetSteps, PresetSampler, PresetScheduler,
-            PresetCfg, PresetWidth, PresetHeight, out recipe, out error, PresetModelHash);
+            PresetCfg, PresetWidth, PresetHeight, out recipe, out error, PresetModelHash, sourceParameters);
 
     private void LoadRecipe(GenerationRecipe? recipe)
     {
         PresetModel = recipe?.Model ?? "";
+        sourceParameters = recipe?.SourceParameters?.ToArray(); Notify(nameof(RestorationWarning));
         PresetModelHash = recipe?.ModelHash ?? "";
         PresetSeed = recipe?.Seed?.ToString(CultureInfo.InvariantCulture) ?? "";
         PresetSteps = recipe?.Steps?.ToString(CultureInfo.InvariantCulture) ?? "";

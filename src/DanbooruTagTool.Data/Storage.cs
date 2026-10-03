@@ -30,7 +30,7 @@ public interface IUserStateStore { UserState? Load(); void Save(UserState state)
 
 public sealed class UserStateStore : IUserStateStore
 {
-    public const int SchemaVersion = 3;
+    public const int SchemaVersion = 4;
     private readonly string connectionString;
     public UserStateStore(string path)
     {
@@ -48,7 +48,7 @@ public sealed class UserStateStore : IUserStateStore
             using var backup = new SqliteConnection(new SqliteConnectionStringBuilder { DataSource = Path.GetFullPath(path) + ".before-migration-" + Guid.NewGuid().ToString("N") + ".bak", Pooling = false }.ToString()); backup.Open(); c.BackupDatabase(backup);
         }
         using var tx = c.BeginTransaction(); cmd.Transaction = tx;
-        // Protect ModelHash from older clients that would drop it on save.
+        // Protect Recipe identity/source evidence from older clients that drop it on save.
         // Existing payload JSON remains byte-for-byte unchanged.
         cmd.CommandText = $"CREATE TABLE IF NOT EXISTS user_state(id INTEGER PRIMARY KEY CHECK(id=1), version INTEGER NOT NULL, payload TEXT NOT NULL); UPDATE user_state SET version={SchemaVersion}; PRAGMA user_version={SchemaVersion};"; cmd.ExecuteNonQuery(); tx.Commit();
     }
