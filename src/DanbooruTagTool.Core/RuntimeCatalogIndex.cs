@@ -263,11 +263,13 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
     {
         var normalizedQuery = SearchEngine.Normalize(query);
         if (normalizedQuery.Length == 0) return [];
+        var parts = normalizedQuery.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        var hasJapanese = HasJapanese(normalizedQuery);
 
         var hits = new List<SearchHit>();
         foreach (var document in documents)
         {
-            var rank = Rank(document, normalizedQuery);
+            var rank = Rank(document, normalizedQuery, parts, hasJapanese);
             if (rank < 100) hits.Add(new SearchHit(document.Entry, rank) { PrefixWords = document.Prefixes });
         }
 
@@ -362,18 +364,47 @@ public sealed class RuntimeCatalogIndex : IRuntimeCatalogQuery
             .Select(word => word.Length - query.Length).DefaultIfEmpty(1000).Min();
     }
 
-    private static int Rank(SearchDocument document, string query)
+    private static int Rank(SearchDocument document, string query, string[] parts, bool hasJapanese)
     {
         if (document.EnglishTerms.Contains(query)) return 0;
         if (document.JapaneseTerms.Contains(query)) return 1;
-        if (document.EnglishTerms.Any(term => (" " + term + " ").Contains(" " + query + " ", StringComparison.Ordinal))) return 2;
-        var parts = query.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-        if (parts.Length > 1 && parts.All(part => document.EnglishTerms.Any(term => term.Split(' ').Contains(part)) || document.JapaneseTerms.Any(term => term.Contains(part, StringComparison.Ordinal)))) return 3;
-        if (HasJapanese(query) && document.JapaneseTerms.Any(term => term.Contains(query, StringComparison.Ordinal))) return 3;
-        if (document.EnglishTerms.Any(term => term.Split(' ').Any(word => word.StartsWith(query, StringComparison.Ordinal)))) return 4;
-        if (query.Length >= 3 && document.EnglishTerms.Any(term => term.Contains(query, StringComparison.Ordinal))) return 5;
-        if (query.Length >= 4 && document.EnglishTerms.Any(term => DistanceOne(term, query))) return 6;
+        foreach (var term in document.EnglishTerms)
+            if (ContainsWholeWords(term, query)) return 2;
+        if (parts.Length > 1 && parts.All(part => document.EnglishTerms.Any(term => ContainsWholeWords(term, part)) || document.JapaneseTerms.Any(term => term.Contains(part, StringComparison.Ordinal)))) return 3;
+        if (hasJapanese)
+            foreach (var term in document.JapaneseTerms)
+                if (term.Contains(query, StringComparison.Ordinal)) return 3;
+        foreach (var term in document.EnglishTerms)
+        {
+            var span = term.AsSpan();
+            foreach (var range in span.Split(' '))
+                if (span[range].StartsWith(query, StringComparison.Ordinal)) return 4;
+        }
+        if (query.Length >= 3)
+            foreach (var term in document.EnglishTerms)
+                if (term.Contains(query, StringComparison.Ordinal)) return 5;
+        if (query.Length >= 4)
+            foreach (var term in document.EnglishTerms)
+                if (DistanceOne(term, query)) return 6;
         return 100;
+    }
+
+    // Equivalent to (" " + term + " ").Contains(" " + query + " "),
+    // without allocating padded strings for every catalog row and term.
+    private static bool ContainsWholeWords(string term, string query)
+    {
+        var span = term.AsSpan();
+        var start = 0;
+        while (start <= span.Length - query.Length)
+        {
+            var offset = span[start..].IndexOf(query, StringComparison.Ordinal);
+            if (offset < 0) return false;
+            var index = start + offset;
+            var end = index + query.Length;
+            if ((index == 0 || span[index - 1] == ' ') && (end == span.Length || span[end] == ' ')) return true;
+            start = index + 1;
+        }
+        return false;
     }
 
     private static bool HasJapanese(string value) => value.Any(c => c is >= '\u3040' and <= '\u30ff' or >= '\u3400' and <= '\u9fff');

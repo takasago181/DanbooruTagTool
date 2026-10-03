@@ -101,6 +101,9 @@ public static class CatalogDatabase
             var e = entries[i]; cmd.Parameters["$id"].Value = e.Id; cmd.Parameters["$canonical"].Value = (object?)e.Canonical ?? DBNull.Value;
             cmd.Parameters["$ordinal"].Value = i; cmd.Parameters["$json"].Value = JsonSerializer.Serialize(e); cmd.ExecuteNonQuery();
         }
+        // Build only for new catalogs. Existing catalogs remain read-only and compatible.
+        // Startup reads every payload in ordinal order; avoid SQLite's temporary sort.
+        cmd.Parameters.Clear(); cmd.CommandText = "CREATE INDEX entries_ordinal ON entries(ordinal)"; cmd.ExecuteNonQuery();
         tx.Commit();
     }
 }

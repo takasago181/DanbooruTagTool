@@ -1,0 +1,1021 @@
+{
+  "baseMain": "239e7b518dd0b169d22e8d758a721c41239c8882",
+  "date": "2026-10-03",
+  "historicalContext": "Reuse docs/issue226/validation/production-performance.json (124895 entries); historical #114 33688-entry context is not a comparable regression baseline.",
+  "beforeSearchOptimization": {
+    "runtime": ".NET 10.0.12",
+    "condition": "Release; sequential; first open OS-cache state uncontrolled, subsequent opens warm; 3 loads, 3 query warmups + 11 samples; no timing SLA",
+    "entries": 124895,
+    "categories": {
+      "General": 30629,
+      "Special": 3059,
+      "Character": 35278,
+      "Copyright": 7616,
+      "Artist": 48313
+    },
+    "catalogBytes": 149344256,
+    "catalogPlan": [
+      "SCAN entries",
+      "USE TEMP B-TREE FOR ORDER BY"
+    ],
+    "loads": [
+      {
+        "readMs": 1651.4154,
+        "readBytes": 450822976,
+        "indexMs": 815.3794,
+        "indexBytes": 281521008,
+        "browseMs": 179.1438,
+        "browseBytes": 78817664,
+        "retainedBytes": 204553160,
+        "workingSetBytes": 386416640
+      },
+      {
+        "readMs": 915.0091,
+        "readBytes": 450242936,
+        "indexMs": 711.9106,
+        "indexBytes": 269639488,
+        "browseMs": 127.8439,
+        "browseBytes": 78308888,
+        "retainedBytes": 203384360,
+        "workingSetBytes": 376254464
+      },
+      {
+        "readMs": 871.8294,
+        "readBytes": 450242936,
+        "indexMs": 507.671,
+        "indexBytes": 265462680,
+        "browseMs": 103.9738,
+        "browseBytes": 78308888,
+        "retainedBytes": 203384168,
+        "workingSetBytes": 378085376
+      }
+    ],
+    "search": [
+      {
+        "query": "blue_hair",
+        "timing": {
+          "medianMs": 59.0984,
+          "p95Ms": 127.6451,
+          "minMs": 56.9144,
+          "medianAllocatedBytes": 164716824
+        },
+        "signature": "FF7674AD9E43CEEBC1CC9570E83A9300515D739E47DF4519624DF85DC169495B",
+        "count": 4
+      },
+      {
+        "query": "anal",
+        "timing": {
+          "medianMs": 40.9753,
+          "p95Ms": 43.549,
+          "minMs": 39.9104,
+          "medianAllocatedBytes": 98790160
+        },
+        "signature": "74B3CEF3B93770C0F559E7FE486A8998445AD005E4D7505DCC19EA26B90821B7",
+        "count": 31
+      },
+      {
+        "query": "青い髪",
+        "timing": {
+          "medianMs": 39.1415,
+          "p95Ms": 45.0255,
+          "minMs": 38.4747,
+          "medianAllocatedBytes": 96350856
+        },
+        "signature": "8762916403609A50334668BAC0E7C3AE3579FBD737C1F19CF8D37B4D740D5E4F",
+        "count": 2
+      },
+      {
+        "query": "髪",
+        "timing": {
+          "medianMs": 34.7068,
+          "p95Ms": 35.4181,
+          "minMs": 34.2435,
+          "medianAllocatedBytes": 88709784
+        },
+        "signature": "B9366F4CAAEE1CA42F2DE54CA3D803C315C2ADCE5107CD2B3E80DCA0DBE268A1",
+        "count": 587
+      },
+      {
+        "query": "breast",
+        "timing": {
+          "medianMs": 39.7455,
+          "p95Ms": 40.052,
+          "minMs": 38.7807,
+          "medianAllocatedBytes": 98702168
+        },
+        "signature": "985FF398E5C15749CA8FAC4D7F00615D0D627C0006837FB22D744A8D4D43C4F6",
+        "count": 100
+      },
+      {
+        "query": "girl",
+        "timing": {
+          "medianMs": 38.7091,
+          "p95Ms": 39.6673,
+          "minMs": 38.2374,
+          "medianAllocatedBytes": 98773976
+        },
+        "signature": "8ABB4018D77161C4A9289D2A4C623464F27E78F8C06B11CF4B8A0C7E59636788",
+        "count": 392
+      },
+      {
+        "query": "blue_hair 青い髪",
+        "timing": {
+          "medianMs": 58.4157,
+          "p95Ms": 59.8682,
+          "minMs": 57.1943,
+          "medianAllocatedBytes": 180189104
+        },
+        "signature": "CCB377E14ADE4771726C9E874CF391E5032DA877C0D37E8D9E35DFE180BBA5E0",
+        "count": 1
+      },
+      {
+        "query": "hatsune_miku",
+        "timing": {
+          "medianMs": 57.2323,
+          "p95Ms": 57.6032,
+          "minMs": 56.2427,
+          "medianAllocatedBytes": 167945824
+        },
+        "signature": "819EC4ECEB31D8C2599A094E924B72EA931EA90CF8F0ED579A76BCA27353260D",
+        "count": 46
+      },
+      {
+        "query": "touhou",
+        "timing": {
+          "medianMs": 40.5035,
+          "p95Ms": 41.9,
+          "minMs": 39.5924,
+          "medianAllocatedBytes": 98842536
+        },
+        "signature": "FF6207A9C97F2AA0FA411DC0DE77D8CA5625A8BBA13A25E6EC2DB99339AE0AD0",
+        "count": 42
+      },
+      {
+        "query": "b",
+        "timing": {
+          "medianMs": 34.0714,
+          "p95Ms": 34.9332,
+          "minMs": 32.428,
+          "medianAllocatedBytes": 78762224
+        },
+        "signature": "5AE4AFC1CB3C53D0359FBBCD522D1ADFF707A1489D9ACB168665BD61C96DA429",
+        "count": 37
+      },
+      {
+        "query": "bl",
+        "timing": {
+          "medianMs": 32.8215,
+          "p95Ms": 34.1765,
+          "minMs": 31.7251,
+          "medianAllocatedBytes": 80096448
+        },
+        "signature": "923B0F19AF615D6D8DD3F6A25012B9C084FAB91EB9F4C364E4D99F5B09595B25",
+        "count": 2
+      },
+      {
+        "query": "blu",
+        "timing": {
+          "medianMs": 36.7344,
+          "p95Ms": 37.2354,
+          "minMs": 36.3076,
+          "medianAllocatedBytes": 88322080
+        },
+        "signature": "E7E2413F8B16A1EE368D8228612B86ADD816A786B4773F18B6E94475B251C2BC",
+        "count": 6
+      },
+      {
+        "query": "blue",
+        "timing": {
+          "medianMs": 39.0893,
+          "p95Ms": 40.6448,
+          "minMs": 38.3236,
+          "medianAllocatedBytes": 98868680
+        },
+        "signature": "A6A17981FE6E9E8E5484F42F7FEA21FCF06DDF554A1AEDA0ABBF516B8118A3BF",
+        "count": 315
+      },
+      {
+        "query": "blue_h",
+        "timing": {
+          "medianMs": 57.49,
+          "p95Ms": 58.2626,
+          "minMs": 56.5918,
+          "medianAllocatedBytes": 161279176
+        },
+        "signature": "A4A19A1032D24E42291D88A72A12E361FAE7146609DD8B05951D824898524FBD",
+        "count": 139
+      },
+      {
+        "query": "blue_ha",
+        "timing": {
+          "medianMs": 57.9235,
+          "p95Ms": 61.7441,
+          "minMs": 56.5998,
+          "medianAllocatedBytes": 162240712
+        },
+        "signature": "34FE17D82B409A75C5C533F9ED021DBD80DD1CB9CA23451E07CE0AECF757F31B",
+        "count": 19
+      },
+      {
+        "query": "blue_hai",
+        "timing": {
+          "medianMs": 58.998,
+          "p95Ms": 60.5885,
+          "minMs": 57.0117,
+          "medianAllocatedBytes": 164716112
+        },
+        "signature": "16181805A970C93D3FDD5A3461BA2ED34113A84B5BE9A38960C16E932561AD0A",
+        "count": 1
+      },
+      {
+        "query": "exclamation mark",
+        "timing": {
+          "medianMs": 53.7141,
+          "p95Ms": 54.5457,
+          "minMs": 53.333,
+          "medianAllocatedBytes": 171465784
+        },
+        "signature": "5248BF897E02A46191EB0F019A1AFC981B71804D7F2F78659526A3581ED2A7A4",
+        "count": 2
+      }
+    ],
+    "browseTimings": {
+      "neutral": {
+        "medianMs": 1.5749,
+        "p95Ms": 13.0998,
+        "minMs": 1.4259,
+        "medianAllocatedBytes": 3855104
+      },
+      "facet": {
+        "medianMs": 1.4447,
+        "p95Ms": 2.2917,
+        "minMs": 1.412,
+        "medianAllocatedBytes": 2971520
+      },
+      "home": "pokemon",
+      "homeNavigation": {
+        "medianMs": 0.0001,
+        "p95Ms": 0.0001,
+        "minMs": 0,
+        "medianAllocatedBytes": 40
+      },
+      "groups": {
+        "medianMs": 0,
+        "p95Ms": 0.0001,
+        "minMs": 0,
+        "medianAllocatedBytes": 40
+      },
+      "homeSearch": {
+        "medianMs": 6.2866,
+        "p95Ms": 7.144,
+        "minMs": 6.0646,
+        "medianAllocatedBytes": 1111456
+      }
+    }
+  },
+  "afterSearchOptimization": {
+    "runtime": ".NET 10.0.12",
+    "condition": "Release; sequential; first open OS-cache state uncontrolled, subsequent opens warm; 3 loads, 3 query warmups + 11 samples; no timing SLA",
+    "entries": 124895,
+    "categories": {
+      "General": 30629,
+      "Special": 3059,
+      "Character": 35278,
+      "Copyright": 7616,
+      "Artist": 48313
+    },
+    "catalogBytes": 149344256,
+    "catalogPlan": [
+      "SCAN entries",
+      "USE TEMP B-TREE FOR ORDER BY"
+    ],
+    "loads": [
+      {
+        "readMs": 1128.9351,
+        "readBytes": 450288688,
+        "indexMs": 529.7846,
+        "indexBytes": 265482712,
+        "browseMs": 127.8722,
+        "browseBytes": 78817344,
+        "retainedBytes": 203974912,
+        "workingSetBytes": 385363968
+      },
+      {
+        "readMs": 864.0185,
+        "readBytes": 450242936,
+        "indexMs": 504.0281,
+        "indexBytes": 265462648,
+        "browseMs": 107.8552,
+        "browseBytes": 78308888,
+        "retainedBytes": 203384360,
+        "workingSetBytes": 387088384
+      },
+      {
+        "readMs": 860.1437,
+        "readBytes": 450242936,
+        "indexMs": 504.9117,
+        "indexBytes": 265462680,
+        "browseMs": 91.2697,
+        "browseBytes": 78308888,
+        "retainedBytes": 203384168,
+        "workingSetBytes": 386981888
+      }
+    ],
+    "search": [
+      {
+        "query": "blue_hair",
+        "timing": {
+          "medianMs": 29.0558,
+          "p95Ms": 29.3629,
+          "minMs": 28.1444,
+          "medianAllocatedBytes": 46028032
+        },
+        "signature": "FF7674AD9E43CEEBC1CC9570E83A9300515D739E47DF4519624DF85DC169495B",
+        "count": 4
+      },
+      {
+        "query": "anal",
+        "timing": {
+          "medianMs": 20.8947,
+          "p95Ms": 24.9306,
+          "minMs": 19.8216,
+          "medianAllocatedBytes": 19012440
+        },
+        "signature": "74B3CEF3B93770C0F559E7FE486A8998445AD005E4D7505DCC19EA26B90821B7",
+        "count": 31
+      },
+      {
+        "query": "青い髪",
+        "timing": {
+          "medianMs": 19.6916,
+          "p95Ms": 20.5604,
+          "minMs": 18.8235,
+          "medianAllocatedBytes": 18986056
+        },
+        "signature": "8762916403609A50334668BAC0E7C3AE3579FBD737C1F19CF8D37B4D740D5E4F",
+        "count": 2
+      },
+      {
+        "query": "髪",
+        "timing": {
+          "medianMs": 16.5737,
+          "p95Ms": 18.7408,
+          "minMs": 16.0649,
+          "medianAllocatedBytes": 15554256
+        },
+        "signature": "B9366F4CAAEE1CA42F2DE54CA3D803C315C2ADCE5107CD2B3E80DCA0DBE268A1",
+        "count": 587
+      },
+      {
+        "query": "breast",
+        "timing": {
+          "medianMs": 19.882,
+          "p95Ms": 20.8939,
+          "minMs": 19.1864,
+          "medianAllocatedBytes": 19073784
+        },
+        "signature": "985FF398E5C15749CA8FAC4D7F00615D0D627C0006837FB22D744A8D4D43C4F6",
+        "count": 100
+      },
+      {
+        "query": "girl",
+        "timing": {
+          "medianMs": 19.5558,
+          "p95Ms": 20.5128,
+          "minMs": 19.1526,
+          "medianAllocatedBytes": 19354472
+        },
+        "signature": "8ABB4018D77161C4A9289D2A4C623464F27E78F8C06B11CF4B8A0C7E59636788",
+        "count": 392
+      },
+      {
+        "query": "blue_hair 青い髪",
+        "timing": {
+          "medianMs": 29.0236,
+          "p95Ms": 29.5732,
+          "minMs": 28.6426,
+          "medianAllocatedBytes": 50021960
+        },
+        "signature": "CCB377E14ADE4771726C9E874CF391E5032DA877C0D37E8D9E35DFE180BBA5E0",
+        "count": 1
+      },
+      {
+        "query": "hatsune_miku",
+        "timing": {
+          "medianMs": 27.9273,
+          "p95Ms": 29.9217,
+          "minMs": 27.3514,
+          "medianAllocatedBytes": 45992360
+        },
+        "signature": "819EC4ECEB31D8C2599A094E924B72EA931EA90CF8F0ED579A76BCA27353260D",
+        "count": 46
+      },
+      {
+        "query": "touhou",
+        "timing": {
+          "medianMs": 20.0983,
+          "p95Ms": 21.0214,
+          "minMs": 19.5058,
+          "medianAllocatedBytes": 19025672
+        },
+        "signature": "FF6207A9C97F2AA0FA411DC0DE77D8CA5625A8BBA13A25E6EC2DB99339AE0AD0",
+        "count": 42
+      },
+      {
+        "query": "b",
+        "timing": {
+          "medianMs": 16.6784,
+          "p95Ms": 27.2093,
+          "minMs": 14.9561,
+          "medianAllocatedBytes": 11746768
+        },
+        "signature": "5AE4AFC1CB3C53D0359FBBCD522D1ADFF707A1489D9ACB168665BD61C96DA429",
+        "count": 37
+      },
+      {
+        "query": "bl",
+        "timing": {
+          "medianMs": 15.1902,
+          "p95Ms": 17.8518,
+          "minMs": 14.535,
+          "medianAllocatedBytes": 11100104
+        },
+        "signature": "923B0F19AF615D6D8DD3F6A25012B9C084FAB91EB9F4C364E4D99F5B09595B25",
+        "count": 2
+      },
+      {
+        "query": "blu",
+        "timing": {
+          "medianMs": 17.5176,
+          "p95Ms": 18.388,
+          "minMs": 17.113,
+          "medianAllocatedBytes": 15064840
+        },
+        "signature": "E7E2413F8B16A1EE368D8228612B86ADD816A786B4773F18B6E94475B251C2BC",
+        "count": 6
+      },
+      {
+        "query": "blue",
+        "timing": {
+          "medianMs": 19.3442,
+          "p95Ms": 19.9119,
+          "minMs": 18.7375,
+          "medianAllocatedBytes": 19296576
+        },
+        "signature": "A6A17981FE6E9E8E5484F42F7FEA21FCF06DDF554A1AEDA0ABBF516B8118A3BF",
+        "count": 315
+      },
+      {
+        "query": "blue_h",
+        "timing": {
+          "medianMs": 29.2675,
+          "p95Ms": 30.1129,
+          "minMs": 28.0363,
+          "medianAllocatedBytes": 46150680
+        },
+        "signature": "A4A19A1032D24E42291D88A72A12E361FAE7146609DD8B05951D824898524FBD",
+        "count": 139
+      },
+      {
+        "query": "blue_ha",
+        "timing": {
+          "medianMs": 29.2188,
+          "p95Ms": 30.6868,
+          "minMs": 28.3623,
+          "medianAllocatedBytes": 46042064
+        },
+        "signature": "34FE17D82B409A75C5C533F9ED021DBD80DD1CB9CA23451E07CE0AECF757F31B",
+        "count": 19
+      },
+      {
+        "query": "blue_hai",
+        "timing": {
+          "medianMs": 28.8363,
+          "p95Ms": 29.4572,
+          "minMs": 28.2073,
+          "medianAllocatedBytes": 46025144
+        },
+        "signature": "16181805A970C93D3FDD5A3461BA2ED34113A84B5BE9A38960C16E932561AD0A",
+        "count": 1
+      },
+      {
+        "query": "exclamation mark",
+        "timing": {
+          "medianMs": 25.769,
+          "p95Ms": 27.4121,
+          "minMs": 25.3762,
+          "medianAllocatedBytes": 45961544
+        },
+        "signature": "5248BF897E02A46191EB0F019A1AFC981B71804D7F2F78659526A3581ED2A7A4",
+        "count": 2
+      }
+    ],
+    "browseTimings": {
+      "neutral": {
+        "medianMs": 1.6452,
+        "p95Ms": 10.8385,
+        "minMs": 1.5617,
+        "medianAllocatedBytes": 3855104
+      },
+      "facet": {
+        "medianMs": 1.3883,
+        "p95Ms": 1.6944,
+        "minMs": 1.3649,
+        "medianAllocatedBytes": 2971520
+      },
+      "home": "pokemon",
+      "homeNavigation": {
+        "medianMs": 0,
+        "p95Ms": 0.0001,
+        "minMs": 0,
+        "medianAllocatedBytes": 40
+      },
+      "groups": {
+        "medianMs": 0.0001,
+        "p95Ms": 0.0001,
+        "minMs": 0,
+        "medianAllocatedBytes": 40
+      },
+      "homeSearch": {
+        "medianMs": 4.4472,
+        "p95Ms": 5.182,
+        "minMs": 4.2813,
+        "medianAllocatedBytes": 259608
+      }
+    }
+  },
+  "searchComparisons": [
+    {
+      "query": "blue_hair",
+      "latencyReductionPercent": 50.83487877844408,
+      "allocationReductionPercent": 72.05626548506059,
+      "orderedRankParity": true
+    },
+    {
+      "query": "anal",
+      "latencyReductionPercent": 49.006596657010434,
+      "allocationReductionPercent": 80.75472294001752,
+      "orderedRankParity": true
+    },
+    {
+      "query": "青い髪",
+      "latencyReductionPercent": 49.69124841919701,
+      "allocationReductionPercent": 80.29487563660047,
+      "orderedRankParity": true
+    },
+    {
+      "query": "髪",
+      "latencyReductionPercent": 52.24653382046169,
+      "allocationReductionPercent": 82.46613248432664,
+      "orderedRankParity": true
+    },
+    {
+      "query": "breast",
+      "latencyReductionPercent": 49.9767269250607,
+      "allocationReductionPercent": 80.67541535663128,
+      "orderedRankParity": true
+    },
+    {
+      "query": "girl",
+      "latencyReductionPercent": 49.48009641143813,
+      "allocationReductionPercent": 80.40529217938943,
+      "orderedRankParity": true
+    },
+    {
+      "query": "blue_hair 青い髪",
+      "latencyReductionPercent": 50.31541178142178,
+      "allocationReductionPercent": 72.2391871153319,
+      "orderedRankParity": true
+    },
+    {
+      "query": "hatsune_miku",
+      "latencyReductionPercent": 51.20360355952845,
+      "allocationReductionPercent": 72.61476415156353,
+      "orderedRankParity": true
+    },
+    {
+      "query": "touhou",
+      "latencyReductionPercent": 50.37885614823411,
+      "allocationReductionPercent": 80.75153393474243,
+      "orderedRankParity": true
+    },
+    {
+      "query": "b",
+      "latencyReductionPercent": 51.04868012467934,
+      "allocationReductionPercent": 85.08578427140402,
+      "orderedRankParity": true
+    },
+    {
+      "query": "bl",
+      "latencyReductionPercent": 53.7187514281797,
+      "allocationReductionPercent": 86.1415777139081,
+      "orderedRankParity": true
+    },
+    {
+      "query": "blu",
+      "latencyReductionPercent": 52.31281850254802,
+      "allocationReductionPercent": 82.94329119060602,
+      "orderedRankParity": true
+    },
+    {
+      "query": "blue",
+      "latencyReductionPercent": 50.51280017805384,
+      "allocationReductionPercent": 80.48261997631606,
+      "orderedRankParity": true
+    },
+    {
+      "query": "blue_h",
+      "latencyReductionPercent": 49.091146286310675,
+      "allocationReductionPercent": 71.38460082410143,
+      "orderedRankParity": true
+    },
+    {
+      "query": "blue_ha",
+      "latencyReductionPercent": 49.55622502093278,
+      "allocationReductionPercent": 71.62114032142561,
+      "orderedRankParity": true
+    },
+    {
+      "query": "blue_hai",
+      "latencyReductionPercent": 51.12325841553951,
+      "allocationReductionPercent": 72.05789801546554,
+      "orderedRankParity": true
+    },
+    {
+      "query": "exclamation mark",
+      "latencyReductionPercent": 52.02563200351491,
+      "allocationReductionPercent": 73.19491800183296,
+      "orderedRankParity": true
+    }
+  ],
+  "supporting": {
+    "metadata": {
+      "singleFile": {
+        "medianMs": 0.0712,
+        "p95Ms": 0.1262,
+        "minMs": 0.0653,
+        "medianAllocatedBytes": 16024
+      },
+      "parse100": {
+        "medianMs": 0.3921,
+        "p95Ms": 0.4223,
+        "minMs": 0.3711,
+        "medianAllocatedBytes": 630440
+      }
+    },
+    "lora": {
+      "coldMs": 440.2633,
+      "warmMs": 189.6139,
+      "Hashed": 0,
+      "Unchanged": 1000,
+      "nameLookup": {
+        "medianMs": 0.646,
+        "p95Ms": 0.7007,
+        "minMs": 0.6367,
+        "medianAllocatedBytes": 6552
+      },
+      "insertabilityCheck": {
+        "medianMs": 1.1488,
+        "p95Ms": 10.8232,
+        "minMs": 1.0603,
+        "medianAllocatedBytes": 163752
+      },
+      "lastPage": {
+        "medianMs": 1.5545,
+        "p95Ms": 2.0566,
+        "minMs": 1.4901,
+        "medianAllocatedBytes": 185304
+      }
+    }
+  },
+  "library20k": {
+    "Images": 5000,
+    "Rows": 20000,
+    "ColdMs": 3749.5551,
+    "WarmMs": 496.0541,
+    "Changed10Ms": 294.9479,
+    "Missing10Ms": 369.7634,
+    "CommonQueryMs": 5.8972,
+    "FavoriteQueryMs": 2.2393,
+    "LastPageMs": 6.426,
+    "Fts5Available": true,
+    "Runtime": ".NET 10.0.12",
+    "DbBytes": 11358208,
+    "Pages": 2773,
+    "FreePages": 0,
+    "QueryPlans": {
+      "Text": [
+        "SCAN a USING INDEX image_date",
+        "SEARCH m USING INTEGER PRIMARY KEY (rowid=?) LEFT-JOIN",
+        "SEARCH n USING INTEGER PRIMARY KEY (rowid=?) LEFT-JOIN",
+        "CORRELATED SCALAR SUBQUERY 1",
+        "SEARCH l USING INDEX sqlite_autoindex_generation_lora_1 (image_id=?)"
+      ],
+      "Favorite": [
+        "SEARCH n USING COVERING INDEX annotation_favorite (favorite=?)",
+        "SEARCH a USING INTEGER PRIMARY KEY (rowid=?)",
+        "USE TEMP B-TREE FOR ORDER BY"
+      ],
+      "LastPage": [
+        "SCAN a USING COVERING INDEX image_date"
+      ]
+    }
+  },
+  "storage": {
+    "productionCatalog": {
+      "bytes": 149344256,
+      "pages": 36461,
+      "pageBytes": 4096,
+      "freePages": 0,
+      "userVersion": 1,
+      "indexes": [
+        "sqlite_autoindex_entries_1",
+        "canonical_lookup"
+      ],
+      "plans": {
+        "load": [
+          "SCAN entries",
+          "USE TEMP B-TREE FOR ORDER BY"
+        ]
+      }
+    },
+    "productionLibrary": {
+      "bytes": 90112,
+      "pages": 22,
+      "pageBytes": 4096,
+      "freePages": 0,
+      "userVersion": 1,
+      "indexes": [
+        "sqlite_autoindex_library_root_1",
+        "sqlite_autoindex_image_asset_1",
+        "image_path",
+        "image_available",
+        "image_date",
+        "image_name",
+        "image_stat",
+        "metadata_seed",
+        "metadata_model",
+        "metadata_cfg",
+        "sqlite_autoindex_generation_parameter_1",
+        "sqlite_autoindex_generation_lora_1",
+        "lora_name",
+        "annotation_favorite",
+        "annotation_rating"
+      ],
+      "plans": {
+        "newest": [
+          "SCAN a USING COVERING INDEX image_date"
+        ],
+        "favorite": [
+          "SEARCH n USING COVERING INDEX annotation_favorite (favorite=?)",
+          "SEARCH a USING INTEGER PRIMARY KEY (rowid=?)",
+          "USE TEMP B-TREE FOR ORDER BY"
+        ],
+        "metadata": [
+          "SEARCH generation_parameter USING INDEX sqlite_autoindex_generation_parameter_1 (image_id=?)"
+        ]
+      }
+    },
+    "productionLora": {
+      "bytes": 32768,
+      "pages": 8,
+      "pageBytes": 4096,
+      "freePages": 0,
+      "userVersion": 1,
+      "indexes": [
+        "sqlite_autoindex_lora_root_1",
+        "sqlite_autoindex_lora_file_1",
+        "lora_hash",
+        "sqlite_autoindex_lora_user_1"
+      ],
+      "plans": {
+        "sha": [
+          "SEARCH lora_file USING INDEX lora_hash (sha=?)"
+        ]
+      }
+    },
+    "cache": {
+      "files": 7,
+      "bytes": 551452
+    },
+    "ordinalCandidate": {
+      "condition": "Python sqlite3 read/decode only; 3 sequential warm-ish samples; not app open/load",
+      "before": {
+        "samplesMs": [
+          470.2382999967085,
+          476.7730000021402,
+          458.4300999995321
+        ],
+        "medianMs": 470.2382999967085,
+        "payloadChars": 119465055
+      },
+      "after": {
+        "samplesMs": [
+          124.2777000006754,
+          120.59750000480562,
+          120.90840000018943
+        ],
+        "medianMs": 120.90840000018943,
+        "payloadChars": 119465055
+      },
+      "storage": {
+        "bytes": 150794240,
+        "pages": 36815,
+        "pageBytes": 4096,
+        "freePages": 0,
+        "userVersion": 1,
+        "indexes": [
+          "sqlite_autoindex_entries_1",
+          "canonical_lookup",
+          "issue254_ordinal"
+        ],
+        "plans": {
+          "load": [
+            "SCAN entries USING INDEX issue254_ordinal"
+          ]
+        }
+      }
+    }
+  },
+  "dotnetOrdinalOpenSamples": [
+    {
+      "side": "baseline",
+      "run": 0,
+      "ms": 2374.7625,
+      "allocatedBytes": 732363200,
+      "count": 124895
+    },
+    {
+      "side": "candidate",
+      "run": 0,
+      "ms": 1298.8042,
+      "allocatedBytes": 719887448,
+      "count": 124895
+    },
+    {
+      "side": "candidate",
+      "run": 1,
+      "ms": 916.3697,
+      "allocatedBytes": 715708408,
+      "count": 124895
+    },
+    {
+      "side": "baseline",
+      "run": 1,
+      "ms": 1453.2853,
+      "allocatedBytes": 715708480,
+      "count": 124895
+    },
+    {
+      "side": "baseline",
+      "run": 2,
+      "ms": 1270.8828,
+      "allocatedBytes": 715708192,
+      "count": 124895
+    },
+    {
+      "side": "candidate",
+      "run": 2,
+      "ms": 1067.3477,
+      "allocatedBytes": 715708656,
+      "count": 124895
+    }
+  ],
+  "dotnetOrdinalOpenMedianMs": {
+    "baseline": 1453.2853,
+    "candidate": 1067.3477
+  },
+  "startupBaseline": [
+    {
+      "side": "before",
+      "run": 0,
+      "titleReadyAndInputIdleMs": 3378.7531,
+      "inputIdle": true,
+      "workingSetBytes": 423985152,
+      "privateBytes": 354930688
+    },
+    {
+      "side": "before",
+      "run": 1,
+      "titleReadyAndInputIdleMs": 3513.0382,
+      "inputIdle": true,
+      "workingSetBytes": 424394752,
+      "privateBytes": 355205120
+    },
+    {
+      "side": "before",
+      "run": 2,
+      "titleReadyAndInputIdleMs": 3440.5897,
+      "inputIdle": true,
+      "workingSetBytes": 424230912,
+      "privateBytes": 355291136
+    }
+  ],
+  "startupFinal": [
+    {
+      "side": "final",
+      "run": 0,
+      "titleReadyAndInputIdleMs": 2972.2812,
+      "inputIdle": true,
+      "workingSetBytes": 422928384,
+      "privateBytes": 354635776
+    },
+    {
+      "side": "final",
+      "run": 1,
+      "titleReadyAndInputIdleMs": 2960.45,
+      "inputIdle": true,
+      "workingSetBytes": 423043072,
+      "privateBytes": 354770944
+    },
+    {
+      "side": "final",
+      "run": 2,
+      "titleReadyAndInputIdleMs": 2957.9417,
+      "inputIdle": true,
+      "workingSetBytes": 422821888,
+      "privateBytes": 354582528
+    },
+    {
+      "side": "copy",
+      "run": 0,
+      "titleReadyAndInputIdleMs": 2950.7516,
+      "inputIdle": true,
+      "workingSetBytes": 423170048,
+      "privateBytes": 354861056
+    }
+  ],
+  "startupMedianMs": {
+    "baseline": 3440.5897,
+    "final": 2960.45
+  },
+  "startupCondition": "Title present + WaitForInputIdle; Hidden isolated win-x64 self-contained single-file processes; three runs per side; cached OS/native extraction state; disposable UserData; not a cold-boot SLA or manual interaction audit. Discarded initial candidate measurement overlapping a clean build.",
+  "fullCatalogOrderedPayloadParity": {
+    "before": {
+      "count": 124895,
+      "orderedPayloadSha256": "43835b93df7eae1224a9a217e48467062902e3d9c0eb8e1a058dfd7c8bb8f739"
+    },
+    "after": {
+      "count": 124895,
+      "orderedPayloadSha256": "43835b93df7eae1224a9a217e48467062902e3d9c0eb8e1a058dfd7c8bb8f739"
+    },
+    "equal": true
+  },
+  "productionProtectedFiles": {
+    "beforeFiles": 19,
+    "afterFiles": 19,
+    "changedFiles": 0,
+    "allUnchanged": true
+  },
+  "validation": {
+    "finalFullRegression": {
+      "total": "385",
+      "executed": "360",
+      "passed": "360",
+      "failed": "0",
+      "error": "0",
+      "timeout": "0",
+      "aborted": "0",
+      "inconclusive": "0",
+      "passedButRunAborted": "0",
+      "notRunnable": "0",
+      "notExecuted": "0",
+      "disconnected": "0",
+      "warning": "0",
+      "completed": "0",
+      "inProgress": "0",
+      "pending": "0"
+    },
+    "fullRuns": 2,
+    "repeatReason": "The storage candidate was discovered/accepted after the first full pass; second pass is the final code. No further repeat.",
+    "targetedSearchPassed": 11,
+    "targetedSupportingPassed": 1,
+    "targetedIndexPassed": 1,
+    "targetedStoragePassed": 7,
+    "targetedStorageSkipped": 2,
+    "cleanBuildErrors": 0,
+    "cleanBuildWarnings": 0,
+    "maintenanceTestsPassed": 22,
+    "maintenanceTestsSkipped": 1,
+    "workspaceTestsPassed": 2
+  },
+  "publish": {
+    "baselineSeconds": 4.8036532,
+    "searchCandidateSeconds": 3.5921283,
+    "condition": "One run each, different incremental/compiler cache state; no publish-speed claim; final successful same self-contained settings.",
+    "baselinePayloadBytes": 325232150,
+    "finalPayloadBytes": 326678550,
+    "formalPromotionPackage": false,
+    "copyLocationLaunchPassed": true
+  },
+  "changes": {
+    "search": "Query split/Japanese flag once; allocation-free standard Span word enumeration/word boundaries; unchanged rank/suppression/dedup/order.",
+    "storage": "entries_ordinal index only during explicit new catalog Build, after bulk insertion. No Open-time write or migration; schema version/payload remain unchanged."
+  },
+  "productionApplied": false,
+  "userDataMigration": false,
+  "semanticChanged": false,
+  "dependenciesAdded": [],
+  "legacyOrProtectedDataMovedDeleted": false,
+  "next": "PR review/acceptance for #254; STOP before #255/#230/#256."
+}
