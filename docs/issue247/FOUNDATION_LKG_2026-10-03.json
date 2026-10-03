@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "kind": "validated_uninstalled_foundation_lkg",
+  "captured_utc": "2026-10-03T08:13:11.428700+00:00",
+  "source_main_head": "76269b8c69f772cae25435b460928da4f1745f90",
+  "source_tree": "same as PR #264 head 0069714a; final documentation-only closeout does not change runtime provenance",
+  "tag": "lkg/foundation-20261003-76269b8c",
+  "artifact_root": "C:\\Codex\\DanbooruTagTool-Foundation-LKG-20261003-76269b8c",
+  "artifact_identifier": "Foundation-20261003-76269b8c",
+  "installed": false,
+  "production_applied": false,
+  "real_userdata_embedded": false,
+  "runtime_manifest": {
+    "schema_version": 3,
+    "app_name": "DanbooruTagTool",
+    "app_version": "1.0.0+76269b8c69f772cae25435b460928da4f1745f90",
+    "source_main_commit": "76269b8c69f772cae25435b460928da4f1745f90",
+    "build_utc": "2026-10-03T08:09:29.5793706Z",
+    "runtime_identifier": "win-x64",
+    "self_contained": true,
+    "single_file": true,
+    "native_libraries_self_extract": true,
+    "publish_trimmed": false,
+    "debug_symbols": false,
+    "pdb_present": false,
+    "exe_sha256": "1D352706B6B7D8874E1B4802C6EDE585B28B251362EA825FBBE59B5AC179B4D4",
+    "catalog_sha256": "F0BEC5AEDBBB4B1D26010EFFE582C2E0C26D33748DC19CC7C90206097697AC29",
+    "catalog_total": 124895,
+    "catalog_category_counts": {
+      "Artist": 48313,
+      "Character": 35278,
+      "Copyright": 7616,
+      "General": 30629,
+      "Special": 3059
+    },
+    "structural_validator": {
+      "id": "dtt.catalog-structural-health",
+      "sha256": "50F1FCBAD4C46C14265F444DA5AE9DA4611CE5E8103556695AB8B7B8F1F9ACFD",
+      "version": "2.0.0"
+    },
+    "production_contract_validator": {
+      "id": "dtt.production-source-contract",
+      "sha256": "C8CFA7BDF172198933DE42A980F220947EE9C739AEC2FEEA9F3EA01E28BF55F0",
+      "version": "3.0.0"
+    },
+    "production_contract": {
+      "source_report_sha256": "6178DD68F4E6050FF8C9C395E0F8A19E07A3278228D0953422CE0F0047E7DC3C",
+      "source_hashes": {
+        "manifest.json": "a20033aba5968aae32380cf5475b420c9fce06facaa207c7dbfc7de85d34ffe1",
+        "general.jsonl.gz": "e299a42412913e687529754d07f7b79da65e1c4a32574631cd752c9985ec8de9",
+        "special.jsonl.gz": "c97ea22ba62a5a8783026d868ff09fc7ec36d637e19e7588ddb2ab1e98a4be96",
+        "character.jsonl.gz": "46d847122203b84fef69a03c3ddf7fd54484a30fba6b67fc641c28d537403a20",
+        "copyright.jsonl.gz": "adf252a41af8a0ad11a2d5d8443876d63c3b52df8a9ab8a37f4a0c0fc011d056",
+        "artist.jsonl.gz": "513a5ddeceed62250801e9bb639608a2f513b69af680f47a4d40ba2d575cee84"
+      },
+      "contract_test": "ProductionCatalogCoverageEligibilitySearchAndSourceIntegrity",
+      "source_count": 6
+    },
+    "runtime_file_count": 5,
+    "runtime_file_count_scope": "excluding mutable UserData",
+    "real_userdata_embedded": false,
+    "forgebridge_file_hashes": {
+      "ForgeBridge/javascript/dtt_bridge.js": "5AE08106DA32FE9DECE72B6691AFFB485E09D296624ACEA26DACF6DC881DD653",
+      "ForgeBridge/scripts/dtt_bridge.py": "2288B99D157A5CC07A783B3E866A5A9948A230A89E78B6B5DBE5D44955A1AEAC"
+    }
+  },
+  "immutable_file_hashes": {
+    "DanbooruTagTool.exe": "1D352706B6B7D8874E1B4802C6EDE585B28B251362EA825FBBE59B5AC179B4D4",
+    "runtime-manifest.json": "060B978286E1923517340592DC453EB3EE95CA75C026677E654CCAB6D3648F35",
+    "Data/catalog.db": "F0BEC5AEDBBB4B1D26010EFFE582C2E0C26D33748DC19CC7C90206097697AC29",
+    "ForgeBridge/javascript/dtt_bridge.js": "5AE08106DA32FE9DECE72B6691AFFB485E09D296624ACEA26DACF6DC881DD653",
+    "ForgeBridge/scripts/dtt_bridge.py": "2288B99D157A5CC07A783B3E866A5A9948A230A89E78B6B5DBE5D44955A1AEAC"
+  },
+  "catalog_integrity": {
+    "sqlite_quick_check": "ok",
+    "total": 124895,
+    "ordered_payload_sha256": "43835b93df7eae1224a9a217e48467062902e3d9c0eb8e1a058dfd7c8bb8f739",
+    "matches_existing_production_payloads": true
+  },
+  "validation": {
+    "clean_build": "reuse 0 warnings/errors on identical product tree",
+    "canonical_publish": "PASS from clean merge main using existing pipeline",
+    "fresh_artifact_source_contract": "ProductionCatalogCoverageEligibilitySearchAndSourceIntegrity PASS",
+    "runtime_manifest_and_shape": "PASS",
+    "isolated_windows_smoke": "PASS",
+    "local_full_regression": {
+      "passed": 360,
+      "skipped": 25,
+      "failed": 0,
+      "reused": true
+    },
+    "merge_main_ci": {
+      "result": "PASS",
+      "url": "https://github.com/takasago181/DanbooruTagTool/actions/runs/37108563768",
+      "passed": 360,
+      "skipped": 25,
+      "failed": 0,
+      "manual_rerun": false
+    },
+    "production_userdata_bytes": {
+      "files": 19,
+      "userdataFiles": 14,
+      "changed": 0,
+      "currentFiles": 19,
+      "unchanged": true
+    }
+  },
+  "previous_installed_lkg": {
+    "source": "b3f48c359a8473c8bbf02347487cba5d8dacf96c",
+    "root": "C:/Codex/DanbooruTagTool-App",
+    "record": "docs/project/LAST_KNOWN_GOOD.json",
+    "preserved": true
+  },
+  "rollback": {
+    "current_production": "unchanged; retain #245 LKG as installed rollback basis",
+    "source": "return to b3f48c359a8473c8bbf02347487cba5d8dacf96c or revert accepted Foundation changes on a new branch, preserving authority/archive provenance",
+    "future_promotion": "requires a separate user instruction; exclude existing UserData and preserve #245 backup; fail closed on source/hash disagreement, catalog/semantic regression or UserData mutation",
+    "data": "no UserData migration; indexed new catalog is backward-reader compatible; no database rollback required for this uninstalled checkpoint"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "target": ".local/issue254",
+  "owner": "this chat / #254",
+  "raw_evidence_files": 35,
+  "archive": "issue254-raw-evidence.zip",
+  "archive_sha256": "CB1A7125CD006A5E1BF893ED01BE8E7652DED6BAD183D20DCC81F967D85DBB41",
+  "bytes_retired": 1881058637.0,
+  "recovery": "raw evidence ZIP; baseline src via main239e7b51; generated catalogs from accepted authority; new canonical LKG retained outside workspace",
+  "protected_data_removed": false,
+  "other_worktrees_removed": 0,
+  "rebuildable_folders": [
+    "before-runtime",
+    "after-runtime",
+    "final-runtime",
+    "copy-runtime",
+    "compiled",
+    "main",
+    "baseline.tar",
+    "ordinal-index-candidate.db"
+  ]
+}

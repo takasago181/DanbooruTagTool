@@ -1,17 +1,14 @@
 # NOW
 
-2026-10-03 — Foundation Batch B安全checkpoint保持 / 外部流用調査decision STOP。
+2026-10-03 — #247 Foundation完了。#264 merge、#254 close、#255 NO ACTION。
+history rewriteなし。
 
-#247の#250 Research/Evidence分離、#251 Toolchain整理、#252 GitHub運用整理。
-Batch A / PR #261はmerge済み。既存監査・parityを入力とし再監査は行わない。
+最終記録: `docs/issue247/FOUNDATION_COMPLETE_2026-10-03.md`。
+新しい未適用LKG: `docs/issue247/FOUNDATION_LKG_2026-10-03.json`。
+validated source: `76269b8c` / `lkg/foundation-20261003-76269b8c`。
 
-詳細: `docs/foundation/BATCH_B_CHECKPOINT_2026-10-03.md`。
-回収・再評価: `docs/foundation/EXTERNAL_REUSE_GATE_2026-10-03.md`。
-採用表: `docs/foundation/EXTERNAL_REUSE_MATRIX.json`。
-#251大規模統合/#253/同等機能新規自作は調査後も未承認、ここでSTOP。
-現行tool: `docs/maintenance/TOOLCHAIN.md`。
-復元: `research/README.md` / `research/archive/foundation-b.json`。
+productionは#245 LKGのまま。実UserData 14ファイルを含む19ファイル不変。
+既存LKG・protected data・他taskのworktree・researchを保持。
 
-production未適用。UserData/Library/LoRA保護。既存42 worktree保持。
-PR reviewで停止し、Batch C / #230 / #256新機能には進まない。
-Foundationのproduction最終適用・LKGは別判断。
+次はユーザーが選択するlive laneから開始する。
+#256 / #230 / production適用は未開始。Foundation完了だけでは開始しない。

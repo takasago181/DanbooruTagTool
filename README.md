@@ -3,9 +3,12 @@
 日本語/英語のタグ理解・発見からPrompt/Negative、Forge生成、Library、LoRAまでを
 支える個人用Windows WPFツール。成人向け・fetish・hard/nicheの深いSpecial発見を保護します。
 
-現在のDEVは#247 Foundation Renewal。Batch AはPR #261でmerge済み、Batch Bは
-安全な整理成果を保持。外部実装回収・採用matrixを完成しdecision STOP。
-productionは既存#245 LKGのまま。#251大規模統合/#253/新機能は未着手。
+#247 Foundationは完了。PR #261〜#264を受入し、#255はNO ACTION。
+新しい未適用Foundation LKGを保持。productionは既存#245 LKGのままです。
+次のDEV lane / #256 / #230 / production適用はユーザーの指示待ち。
+
+- Foundation完了記録: [checkpoint](docs/issue247/FOUNDATION_COMPLETE_2026-10-03.md)
+- 未適用Foundation LKG: [record](docs/issue247/FOUNDATION_LKG_2026-10-03.json)
 
 - 現在地: [NOW](docs/project/NOW.md) / [routing](docs/project/CURRENT_ROUTING.json)
 - 安全境界: [PERMANENT_RULES](docs/project/PERMANENT_RULES.md)
