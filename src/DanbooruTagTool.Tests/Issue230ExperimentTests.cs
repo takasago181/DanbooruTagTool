@@ -103,6 +103,15 @@ public sealed class Issue230ExperimentTests
         Assert.All(st.Attempts(id), a => Assert.NotEqual("Running", a.Status)); Assert.False(vm.Forge.RecipeBusy);
     }
     [Fact]
+    public async Task AuthoringPreservesRawPromptAxisWhitespace()
+    {
+        using var d = new TempDirectory(); var vm = new MainViewModel(Fixtures.Catalog(), new MemoryStore(), new MemoryClipboard(), paths: new(d.Path), generationApi: new FailureApi());
+        vm.Create.Load(new(Guid.NewGuid(), "baseline", "", Baseline().Positive, Baseline().Negative, Baseline().Recipe), "baseline"); var lab = vm.Experiments!;
+        await lab.CaptureBaseline.ExecuteAsync(null); lab.XKind = ExperimentVariable.Positive; lab.XTarget = "portrait"; lab.XValues = "  landscape  "; lab.Save.Execute(null);
+        var saved = new ExperimentStore(Path.Combine(d.Path, "UserData", "experiment-lab.db")).Load(lab.SelectedExperiment!.Id);
+        Assert.Equal("  landscape  ", saved.Setup.X.Values.Single()); Assert.Equal("  landscape  , blue_hair", saved.Trials[0].Requested.Positive);
+    }
+    [Fact]
     public async Task ExclusiveExperimentLeaseBlocksSharedCommandsBetweenTrials()
     {
         using var d = new TempDirectory(); var api = new FailureApi(); var vm = new MainViewModel(Fixtures.Catalog(), new MemoryStore(), new MemoryClipboard(), paths: new(d.Path), generationApi: api);

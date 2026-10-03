@@ -52,9 +52,9 @@ public sealed class ExperimentLabViewModel : Observable
     private ExperimentSetup Draft()
     {
         if (baseline is null) throw new ArgumentException("baselineを取り込んでください。");
-        static string[] Lines(string s) => s.Replace("\r", "").Split('\n').Select(v => v.Trim()).Where(v => v.Length > 0).ToArray();
+        static string[] Lines(string s, bool literal = false) => s.Replace("\r\n", "\n").Split('\n').Select(v => literal ? v : v.Trim()).Where(v => !string.IsNullOrWhiteSpace(v)).ToArray();
         var explicitSeeds = Lines(Seeds).Select(v => long.TryParse(v, NumberStyles.None, CultureInfo.InvariantCulture, out var n) ? n : throw new ArgumentException("seedは1行1個の非負整数です。")).ToArray();
-        return new(Name, Hypothesis, baseline, new(XKind, XTarget, Lines(XValues)), UseY ? new(YKind, YTarget, Lines(YValues)) : null, explicitSeeds, Repetitions, ConsentUnapplied);
+        return new(Name, Hypothesis, baseline, new(XKind, XTarget, Lines(XValues, XKind is ExperimentVariable.Positive or ExperimentVariable.Negative)), UseY ? new(YKind, YTarget, Lines(YValues, YKind is ExperimentVariable.Positive or ExperimentVariable.Negative)) : null, explicitSeeds, Repetitions, ConsentUnapplied);
     }
     public string Preview
     {
