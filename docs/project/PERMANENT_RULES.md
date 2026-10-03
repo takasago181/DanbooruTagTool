@@ -76,3 +76,12 @@ Task details: selected live GitHub Issue and task-specific docs.
 39. Substantial Issue closeout records product/test/tool/workflow/data/branch/worktree disposition and recovery; temporary scaffolding does not silently become permanent architecture.
 40. Closed-Issue write automation needs an explicit current owner or must be disabled. Preserve unique regression checks in current semantic CI.
 41. Worktree/branch retirement requires owner and recovery proof; closed/old/detached is insufficient. See `docs/maintenance/ISSUE_CLOSEOUT.md` and the guarded Batch A lifecycle tools.
+
+## 10. Start existing local dependencies before skipping validation
+
+User instruction, 2026-10-03: applies to all subsequent development work.
+
+42. A stopped local dependency is not, by itself, a validation blocker. When validation requires an existing local service, app, API or execution environment, Codex must determine its safe existing startup method, attempt startup autonomously and continue the actual validation. Do not finish with only “stopped, therefore SKIP”. This includes Forge Neo, local APIs, development backends, test servers and database services.
+43. Prefer existing scripts/CLI, then PowerShell or equivalent, then API, and Computer Use only when necessary. Reuse repository/environment startup methods and existing configuration. Do not silently rebuild the environment, install software, change settings or weaken validation to obtain a PASS. Preserve protected data and applicable backup/rollback boundaries.
+44. Stop as a blocker only when required credentials are unavailable; external charges would be incurred; destructive operations are required; new installation or substantial environment changes are necessary; configuration changes require user judgment; or an actual startup attempt fails and reasonable self-recovery cannot resolve it. Report the concrete blocker and attempts, rather than treating a stopped process as evidence of inability to validate.
+45. Record startup/readiness, actual validation results and any remaining limitations. Distinguish external startup failure from product failure. Startup authorization does not authorize unrelated feature work, production deployment, protected-data changes or bypassing the task's STOP boundary.
