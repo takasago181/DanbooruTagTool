@@ -174,7 +174,7 @@ public sealed class GenerationLibraryViewModel : Observable
         try
         {
             EnsureStore(); var roots = SelectedRoot is null ? Roots.Where(r => r.Enabled).ToArray() : [SelectedRoot];
-            var scanner = new GenerationLibraryScanner(store!, new PngGenerationMetadataReader(), new ExifGenerationMetadataReader());
+            var scanner = new GenerationLibraryScanner(store!, GenerationMetadataReaders.CreateDefault());
             var results = await Task.Run(() => roots.Select(r => scanner.Scan(r, cancellation.Token)).ToArray());
             Status = $"追加 {results.Sum(r => r.Added)} / 更新 {results.Sum(r => r.Refreshed)} / 変更なし {results.Sum(r => r.Unchanged)} / missing {results.Sum(r => r.Missing)} / エラー {results.Sum(r => r.Errors)}" + (results.All(r => r.Complete) ? "" : " · 未完了のフォルダーがあります。接続・読取権限を確認してください。");
         }
