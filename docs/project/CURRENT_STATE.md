@@ -1,26 +1,17 @@
 # CURRENT STATE
 
-Updated: 2026-10-03 — #247 Foundation final closeout.
+Updated: 2026-10-03 — Foundation production promoted; #256 Batch 1 selected by explicit user instruction.
 
-Foundation selected work is complete: #249–#254 implemented or explicitly KEEP;
-#255 NO ACTION. No history rewrite. PR #264 merged at
-`76269b8c69f772cae25435b460928da4f1745f90`; merge CI PASS (360/25/0).
-Final documentation/routing changes do not change that validated product tree.
+#247 and #249–#255 remain closed. Production source clean main `ad14d45f8d20a16cb340f1cf41433f645c5b27a6`.
+New production LKG: `docs/issue256/FOUNDATION_PRODUCTION_LKG_2026-10-03.json`.
+Uninstalled Foundation LKG `76269b8c` / old #245 backup remain retained and separate.
+Actual UserData14/14 byte-identical; production schema2; semantic payload124895 unchanged.
+Forge stopped: live generation SKIPPED; deployment limitations recorded in `docs/issue256/FOUNDATION_PRODUCTION_2026-10-03.md`.
 
-- Final record: `docs/issue247/FOUNDATION_COMPLETE_2026-10-03.md`.
-- New **uninstalled** LKG: `docs/issue247/FOUNDATION_LKG_2026-10-03.json`.
-- Source/recovery tag: `lkg/foundation-20261003-76269b8c`.
-- Production remains #245 LKG source
-  `b3f48c359a8473c8bbf02347487cba5d8dacf96c`.
-- Existing deployed LKG records/backups are preserved. Production/UserData:
-  19/19 files unchanged, including 14 UserData files. All 124,895 ordered
-  accepted semantic payloads match. No UserData migration.
+Selected DEV lane: #256 — workflow-first post-Foundation development.
+Reconciled existing35 checkpoints /142-row matrix: `docs/issue256/POST_FOUNDATION_PLAN_2026-10-03.md`.
+Batch1: Library/PNG → Create/Preset Model hash preservation and exact API/PNG constraint; backed-up transactional schema2→3 only in isolated development fixtures.
+Clean build; targeted80 PASS; full372 PASS/25 SKIP/0 FAIL; actual isolated WPF hash binding/render PASS.
+Batch1 ends at development PR. Not deployed. #256 stays open; no Batch2/#230/#231 start.
 
-Semantic owners: accepted authority → Maintenance compiler → catalog;
-Core runtime/domain; Data storage/file adapters; WPF shell. Historical importers
-and CSV remain test-only oracles; research/archive/worktrees retain their owners.
-
-No active DEV lane is selected. Next start requires separate user instruction
-and live lane selection. #256 / #230 / production promotion are not started or
-automatically authorized by Foundation closeout. The uninstalled LKG is an
-available validated candidate, not the current deployed runtime.
+Semantic owners remain accepted authority → Maintenance → catalog; Core runtime/domain; Data storage/file adapters; WPF shell. No semantic authority changes, protected-data cleanup or architecture rewrite.

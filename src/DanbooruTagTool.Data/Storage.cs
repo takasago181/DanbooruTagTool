@@ -30,7 +30,7 @@ public interface IUserStateStore { UserState? Load(); void Save(UserState state)
 
 public sealed class UserStateStore : IUserStateStore
 {
-    public const int SchemaVersion = 2;
+    public const int SchemaVersion = 3;
     private readonly string connectionString;
     public UserStateStore(string path)
     {
@@ -48,7 +48,9 @@ public sealed class UserStateStore : IUserStateStore
             using var backup = new SqliteConnection(new SqliteConnectionStringBuilder { DataSource = Path.GetFullPath(path) + ".before-migration-" + Guid.NewGuid().ToString("N") + ".bak", Pooling = false }.ToString()); backup.Open(); c.BackupDatabase(backup);
         }
         using var tx = c.BeginTransaction(); cmd.Transaction = tx;
-        cmd.CommandText = "CREATE TABLE IF NOT EXISTS user_state(id INTEGER PRIMARY KEY CHECK(id=1), version INTEGER NOT NULL, payload TEXT NOT NULL); UPDATE user_state SET version=2; PRAGMA user_version=2;"; cmd.ExecuteNonQuery(); tx.Commit();
+        // Protect ModelHash from older clients that would drop it on save.
+        // Existing payload JSON remains byte-for-byte unchanged.
+        cmd.CommandText = $"CREATE TABLE IF NOT EXISTS user_state(id INTEGER PRIMARY KEY CHECK(id=1), version INTEGER NOT NULL, payload TEXT NOT NULL); UPDATE user_state SET version={SchemaVersion}; PRAGMA user_version={SchemaVersion};"; cmd.ExecuteNonQuery(); tx.Commit();
     }
     private SqliteConnection Open() { var c = new SqliteConnection(connectionString); c.Open(); return c; }
     public UserState? Load()
@@ -57,7 +59,7 @@ public sealed class UserStateStore : IUserStateStore
         if (Convert.ToInt32(cmd.ExecuteScalar()) != SchemaVersion) throw new InvalidDataException("Unsupported UserData schema; load refused.");
         cmd.CommandText = "SELECT version FROM user_state WHERE id=1";
         if (cmd.ExecuteScalar() is long version && version != SchemaVersion) throw new InvalidDataException("Unsupported UserData payload. No reset performed.");
-        cmd.CommandText = "SELECT payload FROM user_state WHERE id=1 AND version=2";
+        cmd.CommandText = $"SELECT payload FROM user_state WHERE id=1 AND version={SchemaVersion}";
         return cmd.ExecuteScalar() is string json ? JsonSerializer.Deserialize<UserState>(json) : null;
     }
     public void Save(UserState state)
@@ -65,7 +67,7 @@ public sealed class UserStateStore : IUserStateStore
         using var c = Open(); using var tx = c.BeginTransaction(); using var cmd = c.CreateCommand(); cmd.Transaction = tx;
         cmd.CommandText = "SELECT MAX(version) FROM user_state"; if (cmd.ExecuteScalar() is long newer && newer > SchemaVersion) throw new InvalidDataException("Newer UserData payload; save refused.");
         cmd.CommandText = "PRAGMA user_version"; if (Convert.ToInt32(cmd.ExecuteScalar()) != SchemaVersion) throw new InvalidDataException("Unsupported UserData schema; save refused.");
-        cmd.CommandText = "INSERT INTO user_state VALUES(1,2,$json) ON CONFLICT(id) DO UPDATE SET version=2,payload=excluded.payload";
+        cmd.CommandText = $"INSERT INTO user_state VALUES(1,{SchemaVersion},$json) ON CONFLICT(id) DO UPDATE SET version={SchemaVersion},payload=excluded.payload";
         cmd.Parameters.AddWithValue("$json", JsonSerializer.Serialize(state)); cmd.ExecuteNonQuery(); tx.Commit();
     }
 }

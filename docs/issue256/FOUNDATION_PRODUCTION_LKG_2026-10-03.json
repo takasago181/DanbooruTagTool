@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "kind": "deployed_production_snapshot_not_validator",
+  "captured_utc": "2026-10-03T08:41:30.9018868Z",
+  "source_main_commit": "ad14d45f8d20a16cb340f1cf41433f645c5b27a6",
+  "production_path": "C:/Codex/DanbooruTagTool-App",
+  "production_lkg": "C:/Codex/DanbooruTagTool-Production-LKG-20261003-ad14d45f",
+  "source_tag": "lkg/production-foundation-20261003-ad14d45f",
+  "foundation_uninstalled_lkg": "docs/issue247/FOUNDATION_LKG_2026-10-03.json",
+  "managed_files": [
+    {
+      "path": "DanbooruTagTool.exe",
+      "bytes": 175862364,
+      "sha256": "FCAAF7BB0F59A38F523F22B0683561E035F4740AD7ADDCD8B415677780CCB24F"
+    },
+    {
+      "path": "runtime-manifest.json",
+      "bytes": 2421,
+      "sha256": "707F1E6479F77E7600646D4F84CF90ECFFF2C1DE7720B2685E807782A4950F9B"
+    },
+    {
+      "path": "Data/catalog.db",
+      "bytes": 150790144,
+      "sha256": "F0BEC5AEDBBB4B1D26010EFFE582C2E0C26D33748DC19CC7C90206097697AC29"
+    },
+    {
+      "path": "ForgeBridge/javascript/dtt_bridge.js",
+      "bytes": 8488,
+      "sha256": "5AE08106DA32FE9DECE72B6691AFFB485E09D296624ACEA26DACF6DC881DD653"
+    },
+    {
+      "path": "ForgeBridge/scripts/dtt_bridge.py",
+      "bytes": 17554,
+      "sha256": "2288B99D157A5CC07A783B3E866A5A9948A230A89E78B6B5DBE5D44955A1AEAC"
+    }
+  ],
+  "catalog_rows": 124895,
+  "userdata": {
+    "byte_identical": true,
+    "schema": 2,
+    "user_db_sha256": "298CE21C2A29D1250224C2DE3AAE572F66F3AD57CC2AA4D380920D63F0598354",
+    "inventory_sha256": "1ECE4BADAEF464D81EB8BCB28E7B3B574B9D831B53C057A8B8A65E2C6E8A75BD",
+    "files": 14,
+    "batch1_migration_applied": false
+  },
+  "validation": {
+    "bounded_promotion_actual_windows_start_close": "PASS",
+    "GUI_interactive_search": "NOT_VERIFIED: hidden-window geometry unavailable; actual installed catalog/ViewModel tests passed",
+    "actual_installed_catalog_search_browse": "2 PASS / 0 FAIL",
+    "semantic": "124895 ordered accepted payloads unchanged",
+    "production_normal_start_accessibility": "PASS",
+    "actual_installed_exe_prompt_lora_library_metadata": "PASS isolated fixtures",
+    "canonical_clean_publish": "PASS",
+    "live_forge_generation": "SKIP: existing Forge stopped",
+    "forge_api": "UNAVAILABLE: connection refused at loopback 7860; no configuration changes",
+    "internal_regression": "REUSED Foundation 360 PASS / 25 SKIP / 0 FAIL; CI PASS"
+  },
+  "rollback": {
+    "record": "docs/issue256/PREVIOUS_PRODUCTION_LKG_2026-10-03.json",
+    "rule": "Stop exact installed process gracefully; restore only five managed files from verified #245 backup; keep live UserData. Batch1 version3 data, if later deployed, requires matching version3 runtime or its pre-migration backup before rollback to version2.",
+    "source_main_commit": "b3f48c359a8473c8bbf02347487cba5d8dacf96c",
+    "prior_lkg": ".staging-issue245-LKG-20261003",
+    "full_backup": "C:/Codex/DanbooruTagTool-PreFoundation-Backup-20261003-ad14d45f"
+  },
+  "limitations": [
+    "Forge unavailable, no new live generation certified",
+    "Interactive GUI navigation/appearance not certified; actual installed catalog/ViewModel and executable fixture WPF checks passed",
+    "Batch1 development not deployed"
+  ]
+}

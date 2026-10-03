@@ -68,8 +68,16 @@ public sealed class ForgeGenerationApiClient : IForgeGenerationApiClient
         if (r.Seed is < 0 || r.Steps is < 1 or > 150 || r.Cfg is < 0 or > 30 || r.Width is < 64 or > 2048 || r.Height is < 64 or > 2048 || r.Width % 8 != 0 && r.Width.HasValue || r.Height % 8 != 0 && r.Height.HasValue) throw new ArgumentException("Recipe数値を確認してください（fixed Seed>=0 / Steps 1..150 / CFG 0..30 / Size 64..2048, 8の倍数）。");
         if (r.Sampler is not null && !caps.Samplers.Contains(r.Sampler, StringComparer.Ordinal)) throw new ArgumentException("未対応Sampler: " + r.Sampler);
         if (r.Scheduler is not null && !caps.Schedulers.Contains(r.Scheduler, StringComparer.Ordinal)) throw new ArgumentException("未対応Scheduler: " + r.Scheduler);
-        if (r.Model is null) return null;
+        if (r.Model is null)
+        {
+            if (r.ModelHash is not null) throw new ArgumentException("Model hashにはModelの指定が必要です。");
+            return null;
+        }
         var matches = caps.Models.Where(m => m.Title == r.Model || m.Name == r.Model || m.Title.Split(" [")[0] == r.Model || !string.IsNullOrEmpty(m.Hash) && TitleBasename(m) == r.Model).ToArray();
+        // A saved/imported hash constrains the named checkpoint. No prefix/fuzzy match.
+        // Existing recipes without a hash retain their behavior.
+        if (r.ModelHash is not null)
+            matches = matches.Where(m => !string.IsNullOrWhiteSpace(m.Hash) && m.Hash.Equals(r.ModelHash, StringComparison.OrdinalIgnoreCase)).ToArray();
         if (matches.Length != 1) throw new ArgumentException("未対応または曖昧なModel: " + r.Model);
         return matches[0];
     }
@@ -119,6 +127,7 @@ public sealed class ForgeGenerationApiClient : IForgeGenerationApiClient
         Field("Seed", r.Seed, a.Seed); Field("Steps", r.Steps, a.Steps); Field("CFG", r.Cfg, a.Cfg); Field("Width", r.Width, a.Width); Field("Height", r.Height, a.Height);
         if (r.Sampler is not null && r.Sampler != a.Sampler) errors.Add("Sampler");
         if (r.Scheduler is not null && r.Scheduler != a.Scheduler) errors.Add("Scheduler");
+        if (r.ModelHash is not null && !r.ModelHash.Equals(a.ModelHash, StringComparison.OrdinalIgnoreCase)) errors.Add("Requested Model hash");
         if (model is not null)
         {
             var hashMatches = !string.IsNullOrEmpty(model.Hash) && actual.Value("Model hash") == model.Hash;

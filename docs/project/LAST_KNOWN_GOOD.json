@@ -1,228 +1,70 @@
 {
   "schema_version": 1,
-  "kind": "snapshot_not_validator",
-  "captured_utc": "2026-10-02T22:16:46.661027+00:00",
-  "source_main_commit": "b3f48c359a8473c8bbf02347487cba5d8dacf96c",
-  "merged_pull_requests": [
-    240,
-    242,
-    243,
-    246,
-    257,
-    258
+  "kind": "deployed_production_snapshot_not_validator",
+  "captured_utc": "2026-10-03T08:41:30.9018868Z",
+  "source_main_commit": "ad14d45f8d20a16cb340f1cf41433f645c5b27a6",
+  "production_path": "C:/Codex/DanbooruTagTool-App",
+  "production_lkg": "C:/Codex/DanbooruTagTool-Production-LKG-20261003-ad14d45f",
+  "source_tag": "lkg/production-foundation-20261003-ad14d45f",
+  "foundation_uninstalled_lkg": "docs/issue247/FOUNDATION_LKG_2026-10-03.json",
+  "managed_files": [
+    {
+      "path": "DanbooruTagTool.exe",
+      "bytes": 175862364,
+      "sha256": "FCAAF7BB0F59A38F523F22B0683561E035F4740AD7ADDCD8B415677780CCB24F"
+    },
+    {
+      "path": "runtime-manifest.json",
+      "bytes": 2421,
+      "sha256": "707F1E6479F77E7600646D4F84CF90ECFFF2C1DE7720B2685E807782A4950F9B"
+    },
+    {
+      "path": "Data/catalog.db",
+      "bytes": 150790144,
+      "sha256": "F0BEC5AEDBBB4B1D26010EFFE582C2E0C26D33748DC19CC7C90206097697AC29"
+    },
+    {
+      "path": "ForgeBridge/javascript/dtt_bridge.js",
+      "bytes": 8488,
+      "sha256": "5AE08106DA32FE9DECE72B6691AFFB485E09D296624ACEA26DACF6DC881DD653"
+    },
+    {
+      "path": "ForgeBridge/scripts/dtt_bridge.py",
+      "bytes": 17554,
+      "sha256": "2288B99D157A5CC07A783B3E866A5A9948A230A89E78B6B5DBE5D44955A1AEAC"
+    }
   ],
-  "app_version": "1.0.0+b3f48c359a8473c8bbf02347487cba5d8dacf96c",
-  "production_path": "C:\\Codex\\DanbooruTagTool-App",
-  "publish": {
-    "configuration": "Release",
-    "runtime_identifier": "win-x64",
-    "self_contained": true,
-    "single_file": true,
-    "native_libraries_self_extract": true,
-    "publish_trimmed": false,
-    "debug_symbols": false,
-    "debug_type": "None",
-    "manifest_schema_version": 3,
-    "build_utc": "2026-10-02T22:08:05.7739576Z"
-  },
-  "hashes": {
-    "exe_sha256": "C69C83B365C24CBA8B870BA6A5778AC83CE28DEBED779D1D556C1A9B74768F7B",
-    "catalog_sha256": "D91A68186661127F16E2AE102B4DD9F3A96EAE578B3C989A8B4F17169639FC6F",
-    "runtime_manifest_sha256": "341E5D3AF2661A540EB597F8DA9F9FFFFBE5B0E75BE467438E36F5393DAF9C0A",
-    "user_db_sha256": "298CE21C2A29D1250224C2DE3AAE572F66F3AD57CC2AA4D380920D63F0598354"
-  },
-  "validators": {
-    "structural": {
-      "id": "dtt.catalog-structural-health",
-      "version": "2.0.0",
-      "sha256": "50F1FCBAD4C46C14265F444DA5AE9DA4611CE5E8103556695AB8B7B8F1F9ACFD"
-    },
-    "production_contract": {
-      "id": "dtt.production-source-contract",
-      "version": "2.0.0",
-      "sha256": "0A8CA1258E0D7CC3870E86870A2ECF013FCB9C705425E4AB93F6C49947AC6380"
-    }
-  },
-  "runtime_shape": {
-    "total_files": 19,
-    "managed_payload_files_excluding_userdata": 5,
-    "root_dll_count": 0,
-    "pdb_count": 0,
-    "real_userdata_embedded": false
-  },
-  "catalog": {
-    "schema_version": 1,
-    "rows": 124895,
-    "category_counts": {
-      "Artist": 48313,
-      "Character": 35278,
-      "Copyright": 7616,
-      "General": 30629,
-      "Special": 3059
-    },
-    "sqlite_integrity_check": "ok",
-    "sqlite_quick_check": "ok",
-    "browse_home_counts": {
-      "FORMAL_HOME": 25533,
-      "REVIEWED_BROWSE_FALLBACK": 7409,
-      "UNRESOLVED": 2336
-    },
-    "browse_groups": {
-      "home_count": 7,
-      "group_count": 64,
-      "grouped_characters": 2467,
-      "selected_home_unclassified": 2072,
-      "hold_count": 21
-    }
-  },
-  "forgebridge_sha256": {
-    "ForgeBridge/scripts/dtt_bridge.py": "2288B99D157A5CC07A783B3E866A5A9948A230A89E78B6B5DBE5D44955A1AEAC",
-    "ForgeBridge/javascript/dtt_bridge.js": "493A54C35E99C8107BD60499ED1852E1E1E08076BB0D0925FDE1DF4C69E49345"
-  },
-  "semantic_baseline_references": {
-    "issue_118": "Sexual Intent v2/current production source-integrity gate",
-    "issue_132": "31,003 ordinary identities; accepted route usability audit complete",
-    "issue_199": "346 General identities / 355 assignments; BODY 247, THEME 108",
-    "issue_201": "Production-size intent-first scenario QA; no catalog semantic delta",
-    "issue_204": "Unified filter live refresh and fixed refinement-row layout production baseline",
-    "issue_216": "Formal HOME 25,533; reviewed Browse-only fallback 7,409; unresolved 2,336. Formal decisions immutable.",
-    "issue_179": "Reviewed quality projection: 1,215 rows / display 221 / search 1,000; HOME and identities unchanged; HOLD 17, Stage B REVIEW 373 retained.",
-    "issue_223": "7 HOME / 64 display-only groups / 2,467 grouped / 2,072 unclassified / 21 HOLD; HOME authority unchanged.",
-    "issue_226": "Separate schema1 Library; successful and fail-closed outputs retained; exact PNG/Recipe reuse.",
-    "issue_228": "Verified API first Recipe/PNG round-trip; exact capability-declared title basename requires declared hash; ambiguity refused.",
-    "issue_229": "Offline local LoRA inventory; SHA256 stable identity/cache, user metadata overrides; isolated final EXE fixture PASS.",
-    "issue_232": "Shared Positive/Negative intelligence; versioned backed-up UserData2; explicit edits only.",
-    "issue_245": "B-lite Create / tag discovery / Library workflow; current working Recipe/source; compact context commands and bounded group pane."
+  "catalog_rows": 124895,
+  "userdata": {
+    "byte_identical": true,
+    "schema": 2,
+    "user_db_sha256": "298CE21C2A29D1250224C2DE3AAE572F66F3AD57CC2AA4D380920D63F0598354",
+    "inventory_sha256": "1ECE4BADAEF464D81EB8BCB28E7B3B574B9D831B53C057A8B8A65E2C6E8A75BD",
+    "files": 14,
+    "batch1_migration_applied": false
   },
   "validation": {
-    "release_tests": {
-      "passed": 364,
-      "failed": 0,
-      "skipped": 4
-    },
-    "focused_tests": {
-      "passed": 112,
-      "failed": 0,
-      "skipped": 1
-    },
-    "CI": "PR2469 SUCCESS; PR257/2585 SUCCESS each",
-    "isolated_smoke": "PASS: final EXE Prompt intelligence/LoRA/Library fixtures, WPF renders, zero startup network calls",
-    "installed_smoke": "PASS: primary Create→bounded real Forge→all10 fields/hash PNG/Library round-trip; normal restart and resumed5 preservation",
-    "visual_ui_verified": false,
-    "wpf_layout_render_verified": true,
-    "issue245_report": "docs/issue245/PRODUCTION_CHECKPOINT_2026-10-03.json"
+    "bounded_promotion_actual_windows_start_close": "PASS",
+    "GUI_interactive_search": "NOT_VERIFIED: hidden-window geometry unavailable; actual installed catalog/ViewModel tests passed",
+    "actual_installed_catalog_search_browse": "2 PASS / 0 FAIL",
+    "semantic": "124895 ordered accepted payloads unchanged",
+    "production_normal_start_accessibility": "PASS",
+    "actual_installed_exe_prompt_lora_library_metadata": "PASS isolated fixtures",
+    "canonical_clean_publish": "PASS",
+    "live_forge_generation": "SKIP: existing Forge stopped",
+    "forge_api": "UNAVAILABLE: connection refused at loopback 7860; no configuration changes",
+    "internal_regression": "REUSED Foundation 360 PASS / 25 SKIP / 0 FAIL; CI PASS"
   },
-  "real_userdata_baseline": {
-    "final_inventory": [
-      {
-        "path": "Cache/GenerationThumbnails/0369292A5AB808B513B16397D0A08101B1D2B20D6B2DBFA0BB4D09C195FAC2BA.png",
-        "bytes": 73960,
-        "sha256": "8C685D4C56818CFF2B1C6B3EE1458D143256F100565F0F456A4EA558C56E4DB7"
-      },
-      {
-        "path": "Cache/GenerationThumbnails/308C971522374876C6FB39B619CA8CAFDD48E86A4C92F70192BE96D12581D126.png",
-        "bytes": 34066,
-        "sha256": "86696144F8D7EFA2EE030B8A603A7BCD7D3739A914A90C3FCC0B6C14F1EBB816"
-      },
-      {
-        "path": "Cache/GenerationThumbnails/809DA341E42CE37F5B97021FF406BD3BC26390A6714AD6981399B9E8817EC4C0.png",
-        "bytes": 111639,
-        "sha256": "CE344B15172DFBC9669C3F4D52EA609B7B70EC32EF98172AA67CEA146CB81F39"
-      },
-      {
-        "path": "Cache/GenerationThumbnails/893AFBE2C0B4D0A8B9842B41E646855DE781360B2A2D1EF033E7DE58CF4D833B.png",
-        "bytes": 83591,
-        "sha256": "64171A736938E4CCB83F5FC788FFB9E090843D8BD3D690F0ADE579E23C8CCE3A"
-      },
-      {
-        "path": "Cache/GenerationThumbnails/90CE5BE419AFD03DFF8AF5D4171A368A84FD98DEEBFBB2431A18BD9DF9BF330B.png",
-        "bytes": 73874,
-        "sha256": "962DF09307E96A37A0E976A31CEE9B85C69CE240C123DDB02AF8B81E04DA7F06"
-      },
-      {
-        "path": "Cache/GenerationThumbnails/9672E49ABDBB228F768D169D6F278A42513CEF46C4105D93B126A6CD0A65D445.png",
-        "bytes": 100448,
-        "sha256": "394E5EE0777F17E61C7287F9BB27C8A966447D3F79A9185C4AA54F6164DCC7A0"
-      },
-      {
-        "path": "Cache/GenerationThumbnails/ABDB02A39CCB168386994FE436CB4A0319063965460535CB13036F2568D2E38C.png",
-        "bytes": 73874,
-        "sha256": "962DF09307E96A37A0E976A31CEE9B85C69CE240C123DDB02AF8B81E04DA7F06"
-      },
-      {
-        "path": "ForgeResults/forge-4f573db27de8430394d9e2192c45d73c.png",
-        "bytes": 415916,
-        "sha256": "6C54026203BF1E6F8994020B6113BD5E64C2046AA471BEEE5A98FC02741E5B5F"
-      },
-      {
-        "path": "ForgeResults/forge-bd316b0160714e1985b800836223b63a.png",
-        "bytes": 415916,
-        "sha256": "6C54026203BF1E6F8994020B6113BD5E64C2046AA471BEEE5A98FC02741E5B5F"
-      },
-      {
-        "path": "generation-library.db",
-        "bytes": 90112,
-        "sha256": "FF75A4FA2A4AE587F9515423C781EF914F6D1E7EF52E8399247BE126512B1313"
-      },
-      {
-        "path": "lora-library.db",
-        "bytes": 32768,
-        "sha256": "4C05F73EABDC432F7895C362405B29899C765B6871EBCA6632060BD440CB534C"
-      },
-      {
-        "path": "README.txt",
-        "bytes": 108,
-        "sha256": "B6A25CC3334885F0249D7AF6B1D2954C4B778B79D9C322C13D4F24F262F6B28E"
-      },
-      {
-        "path": "user.db",
-        "bytes": 24576,
-        "sha256": "298CE21C2A29D1250224C2DE3AAE572F66F3AD57CC2AA4D380920D63F0598354"
-      },
-      {
-        "path": "user.db.before-migration-2a9f900d88254a539564903c3b1ea1a8.bak",
-        "bytes": 24576,
-        "sha256": "687EEA600E4521EBF5BB6046F09C6C68B6C168924CED400F16C6946B2A8D64EA"
-      }
-    ],
-    "apply_before_after_byte_identical": true,
-    "post_smoke_byte_identical": false,
-    "explanation": "user.db payload2 migration/UI serialization; Library new root3 +2 PNG/metadata/20 parameters/thumbnails. Original Library rows and annotations, original file hashes, lora DB and catalog unchanged.",
-    "kept_resume_prompt_items": 5,
-    "preset_count": 2,
-    "prompt_recovery_negative_presets_exact": true,
-    "copied_or_embedded": false,
-    "full_backup_retained": true
+  "rollback": {
+    "record": "docs/issue256/PREVIOUS_PRODUCTION_LKG_2026-10-03.json",
+    "rule": "Stop exact installed process gracefully; restore only five managed files from verified #245 backup; keep live UserData. Batch1 version3 data, if later deployed, requires matching version3 runtime or its pre-migration backup before rollback to version2.",
+    "source_main_commit": "b3f48c359a8473c8bbf02347487cba5d8dacf96c",
+    "prior_lkg": ".staging-issue245-LKG-20261003",
+    "full_backup": "C:/Codex/DanbooruTagTool-PreFoundation-Backup-20261003-ad14d45f"
   },
-  "previous_production_baseline": {
-    "source_main_commit": "49963dc129a1725c8a74d7f29aeb960884b67569",
-    "hashes": {
-      "exe_sha256": "A805FBBD80B735F354AB0CC2FBFE7F4B24A93436243888A6C6A1A4EAE8431FBE",
-      "catalog_sha256": "D91A68186661127F16E2AE102B4DD9F3A96EAE578B3C989A8B4F17169639FC6F",
-      "runtime_manifest_sha256": "776F9733B3DC1181117910400DB337716BD97ACDDFF2A9B9406D6CC4E6C640E9",
-      "user_db_sha256": "4D1DF299F4E91BC29D7C8612DFF6F86C6E14F02CDDA36AF0D9A1AC704466B5A1"
-    },
-    "checkpoint": "docs/issue226/PRODUCTION_CHECKPOINT_2026-10-02.json",
-    "snapshot": "docs/issue245/validation/production/previous-LKG.json"
-  },
-  "generation_library": {
-    "schema_version": 1,
-    "integrity": "ok",
-    "counts": {
-      "library_root": 3,
-      "image_asset": 7,
-      "generation_metadata": 6,
-      "generation_parameter": 60,
-      "generation_lora": 0,
-      "image_annotation": 1
-    },
-    "original_rows_and_annotations_preserved": true
-  },
-  "known_limitations": [
-    "Native pixel capture white client; visual appearance NOT_VERIFIED; accessibility operations/status and WPF render/tree pass.",
-    "No different-PC / physical network-disconnect / actual JPEG-WebP smoke.",
-    "Owned real LoRA generation and actual Forge extension compatibility reinstall not performed; fixture LoRA and compatibility tests pass.",
-    "Working Recipe is session-only; save a Preset for retention.",
-    "Forge stale local selection was repaired without downloads; independent Forge restart and stale extension-specific model preset aliases are not certified."
+  "limitations": [
+    "Forge unavailable, no new live generation certified",
+    "Interactive GUI navigation/appearance not certified; actual installed catalog/ViewModel and executable fixture WPF checks passed",
+    "Batch1 development not deployed"
   ]
 }

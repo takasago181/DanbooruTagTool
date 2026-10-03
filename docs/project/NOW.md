@@ -1,14 +1,12 @@
 # NOW
 
-2026-10-03 — #247 Foundation完了。#264 merge、#254 close、#255 NO ACTION。
-history rewriteなし。
+2026-10-03 — Foundation production昇格、新production LKG保持。
+source main `ad14d45f`; 実UserData14/14 byte一致、semantic変更なし。
+Forge停止中のため実生成はSKIP。詳細: `docs/issue256/FOUNDATION_PRODUCTION_2026-10-03.md`。
 
-最終記録: `docs/issue247/FOUNDATION_COMPLETE_2026-10-03.md`。
-新しい未適用LKG: `docs/issue247/FOUNDATION_LKG_2026-10-03.json`。
-validated source: `76269b8c` / `lkg/foundation-20261003-76269b8c`。
+#256 Batch1: Library/PNGから復元したRecipeのModel hashを保持・保存し、API capabilityと実PNGで完全一致を確認。
+開発専用schema3 migrationはbackup/transaction付き。production schema2は未変更。
+既存35 checkpoint /142行matrix再利用。計画: `docs/issue256/POST_FOUNDATION_PLAN_2026-10-03.md`。
 
-productionは#245 LKGのまま。実UserData 14ファイルを含む19ファイル不変。
-既存LKG・protected data・他taskのworktree・researchを保持。
-
-次はユーザーが選択するlive laneから開始する。
-#256 / #230 / production適用は未開始。Foundation完了だけでは開始しない。
+STOPはBatch1 PR。Batch2/#230/#231/Batch1 production適用は未開始。
+#247/#249–#255はCLOSEDのまま。旧LKG / backup / protected data保持。
